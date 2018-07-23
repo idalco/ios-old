@@ -73,7 +73,7 @@
 		FFC981D420742E7B00BAB2CC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC981D220742E7B00BAB2CC /* OnboardingViewController.swift */; };
 		FFC981D520742E7B00BAB2CC /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC981D320742E7B00BAB2CC /* OnboardingViewController.xib */; };
 		FFCC78BC202F67D800443CA9 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BB202F67D800443CA9 /* UserPreferences.swift */; };
-		FFCC78BE203059BF00443CA9 /* LukesNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BD203059BF00443CA9 /* LukesNavController.swift */; };
+		FFCC78BE203059BF00443CA9 /* FindaNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BD203059BF00443CA9 /* FindaNavController.swift */; };
 		FFCC78C220308D4E00443CA9 /* LoginRegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78C120308D4E00443CA9 /* LoginRegisterFormViewController.swift */; };
 		FFCC78C42030DB1200443CA9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC78C32030DB1100443CA9 /* Security.framework */; };
 		FFE2C5BA1FFF972A00CFB0F4 /* SidebarMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5B81FFF972A00CFB0F4 /* SidebarMenuViewController.swift */; };
@@ -163,7 +163,7 @@
 		FFC981D220742E7B00BAB2CC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		FFC981D320742E7B00BAB2CC /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		FFCC78BB202F67D800443CA9 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
-		FFCC78BD203059BF00443CA9 /* LukesNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LukesNavController.swift; sourceTree = "<group>"; };
+		FFCC78BD203059BF00443CA9 /* FindaNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaNavController.swift; sourceTree = "<group>"; };
 		FFCC78C120308D4E00443CA9 /* LoginRegisterFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterFormViewController.swift; sourceTree = "<group>"; };
 		FFCC78C32030DB1100443CA9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FFE2C5B81FFF972A00CFB0F4 /* SidebarMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarMenuViewController.swift; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 			children = (
 				FFF9BF8F2041ABF5001C992A /* Resources */,
 				FF72F80B1FD4A95400F80263 /* AppDelegate.swift */,
-				FFCC78BD203059BF00443CA9 /* LukesNavController.swift */,
+				FFCC78BD203059BF00443CA9 /* FindaNavController.swift */,
 				FF5BC5C82003C4010044F489 /* Coordinators */,
 				FFE2C5BC1FFFC76200CFB0F4 /* Managers */,
 				FF1BAA371FE71CBB00E6D51A /* ViewControllers */,
@@ -688,7 +688,7 @@
 				FF5BC5D02003F0CC0044F489 /* HelpCoordinator.swift in Sources */,
 				FFF6DF2B200A0F8700BCD642 /* HelpManager.swift in Sources */,
 				FFCC78C220308D4E00443CA9 /* LoginRegisterFormViewController.swift in Sources */,
-				FFCC78BE203059BF00443CA9 /* LukesNavController.swift in Sources */,
+				FFCC78BE203059BF00443CA9 /* FindaNavController.swift in Sources */,
 				FF5BC5B92003B8520044F489 /* AvatarResponse.swift in Sources */,
 				FFE2C5BE1FFFC7E200CFB0F4 /* DataManager.swift in Sources */,
 				FFA655AD203B9A02000F0043 /* SimpleImageCollectionViewCell.swift in Sources */,

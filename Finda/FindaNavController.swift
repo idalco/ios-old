@@ -1,11 +1,11 @@
 //
-//  LukesNavController.swift
+//  FindaNavController.swift
 //  Finda
 //
 
 import UIKit
 
-class LukesNavController: UINavigationController {
+class FindaNavController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

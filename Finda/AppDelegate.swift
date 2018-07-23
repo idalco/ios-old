@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
 
     var appCoordinator: AppCoordinator = {
-        let vc = LukesNavController.init()
+        let vc = FindaNavController.init()
         let c = AppCoordinator(rootViewController: vc)
         return c
     }()

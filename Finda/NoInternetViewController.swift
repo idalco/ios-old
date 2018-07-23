@@ -2,9 +2,6 @@
 //  NoInternetViewController.swift
 //  Finda
 //
-//  Created by Luke Oglesby on 25/02/2018.
-//  Copyright © 2018 Acpro Ltd. All rights reserved.
-//
 
 import UIKit
 

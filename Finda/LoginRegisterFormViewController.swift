@@ -2,9 +2,6 @@
 //  LoginFormViewController.swift
 //  Finda
 //
-//  Created by Luke Oglesby on 11/02/2018.
-//  Copyright © 2018 Acpro Ltd. All rights reserved.
-//
 
 import UIKit
 import Eureka

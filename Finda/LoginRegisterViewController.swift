@@ -2,9 +2,6 @@
 //  LoginRegisterViewController.swift
 //  Finda
 //
-//  Created by Luke Oglesby on 17/12/2017.
-//  Copyright © 2017 Acpro Ltd. All rights reserved.
-//
 
 import UIKit
 import FacebookLogin
