@@ -50,26 +50,6 @@ final class AccountCoordinator: NavigationCoordinator, NeedsDependency {
     //    MARK:- Coordinating Messages
     //    must be placed here, due to current Swift/ObjC limitations
     
-//    override func facebookCompletedLogin( userId: String, token: String, sender: Any?, completion: @escaping (Bool) -> Void) {
-//        guard let loginManager = dependencies?.loginManager else {
-//            completion(false)
-//            return
-//        }
-//        loginManager.loginWithProvider(provider: .facebook, username: userId, password: nil, token: token, callback: { (success, loginResponse, error) in
-//            completion(success)
-//        })
-//    }
-    
-//    override func twitterCompletedLogin( userId: String, token: String, sender: Any?, completion: @escaping (Bool) -> Void) {
-//        guard let loginManager = dependencies?.loginManager else {
-//            completion(false)
-//            return
-//        }
-//        loginManager.loginWithProvider(provider: .twitter, username: userId, password: nil, token: token, callback: { (success, loginResponse, error) in
-//            completion(success)
-//        })
-//    }
-    
     override func dismissLoginRegister(sender: Any?) {
         parent?.coordinatorDidFinish(self, completion: {})
     }

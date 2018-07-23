@@ -2,40 +2,33 @@
 //  UserPreferences.swift
 //  Finda
 //
+//  Created by cro on 23/07/2018.
+//  Copyright © 2018 Finda Ltd. All rights reserved.
+//
 
 import Foundation
 import Marshal
 
 final class UserPreferences: NSObject, Unmarshaling {
-    let budget: Int
-    let people: Int
-    let split: Int
-    let startDate: String
-    let endDate: String
-    let travelDates: String
-    let leaveDay: String
-    let returnDay: String
+    let jobOffered: Int
+    let friendRegisters: Int
+    let jobCancelled: Int
+    let paymentMade: Int
+    let notifications: Int
     
-    init(budget: Int, people: Int, split: Int, startDate: String, endDate: String, travelDates: String, leaveDay: String, returnDay: String) {
-        self.budget = budget
-        self.people = people
-        self.split = split
-        self.startDate = startDate
-        self.endDate = endDate
-        self.travelDates = travelDates
-        self.leaveDay = leaveDay
-        self.returnDay = returnDay
+    init(jobOffered: Int, friendRegisters: Int, jobCancelled: Int, paymentMade: Int, notifications: Int) {
+        self.jobOffered = jobOffered
+        self.friendRegisters = friendRegisters
+        self.jobCancelled = jobCancelled
+        self.paymentMade = paymentMade
+        self.notifications = notifications
     }
     
     init(object: MarshaledObject) throws {
-        budget = try Int(object.value(for: "budget") as String)!
-        people = try Int(object.value(for: "people") as String)!
-        split = try Int(object.value(for: "split") as String)!
-        startDate = try object.value(for: "humanStartDate")
-        endDate = try object.value(for: "humanEndDate")
-        travelDates = try object.value(for: "travel_dates")
-        leaveDay = try object.value(for: "leaveday")
-        returnDay = try object.value(for: "returnday")
+        jobOffered = try object.value(for: "job_offered")
+        friendRegisters = try object.value(for: "friend_registers")
+        jobCancelled = try object.value(for: "job_cancelled")
+        paymentMade = try object.value(for: "payment_made")
+        notifications = try object.value(for: "notifications")
     }
-    
 }

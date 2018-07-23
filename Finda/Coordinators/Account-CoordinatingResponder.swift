@@ -29,14 +29,6 @@ extension UIResponder {
     ///   - feedback: user's feedback to send
     ///   - completion: Closure to call when data is ready or error occurs
     
-    @objc dynamic func facebookCompletedLogin( userId: String, token: String, sender: Any?, completion: @escaping (Bool) -> Void) {
-        coordinatingResponder?.facebookCompletedLogin(userId: userId, token: token, sender: sender, completion: completion)
-    }
-    
-    @objc dynamic func twitterCompletedLogin( userId: String, token: String, sender: Any?, completion: @escaping (Bool) -> Void) {
-        coordinatingResponder?.twitterCompletedLogin(userId: userId, token: token, sender: sender, completion: completion)
-    }
-    
     @objc dynamic func dismissLoginRegister(sender: Any?) {
         coordinatingResponder?.dismissLoginRegister(sender: sender)
     }

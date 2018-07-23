@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181F2C582106178F00EE91E7 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F2C572106178F00EE91E7 /* UserPreferences.swift */; };
+		181F2C5A210638ED00EE91E7 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 181F2C59210624B500EE91E7 /* GoogleService-Info.plist */; };
 		1887FA03209656F000001851 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FA02209656F000001851 /* Media.xcassets */; };
 		1897166B20FBBDE700DE588E /* Gotham-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897165B20FBBDE600DE588E /* Gotham-MediumItalic.otf */; };
 		1897166C20FBBDE700DE588E /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897165C20FBBDE600DE588E /* Gotham-Thin.otf */; };
@@ -72,7 +74,7 @@
 		FFA655AE203B9A02000F0043 /* SimpleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA655AC203B9A02000F0043 /* SimpleImageCollectionViewCell.xib */; };
 		FFC981D420742E7B00BAB2CC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC981D220742E7B00BAB2CC /* OnboardingViewController.swift */; };
 		FFC981D520742E7B00BAB2CC /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC981D320742E7B00BAB2CC /* OnboardingViewController.xib */; };
-		FFCC78BC202F67D800443CA9 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BB202F67D800443CA9 /* UserPreferences.swift */; };
+		FFCC78BC202F67D800443CA9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BB202F67D800443CA9 /* UserProfile.swift */; };
 		FFCC78BE203059BF00443CA9 /* FindaNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BD203059BF00443CA9 /* FindaNavController.swift */; };
 		FFCC78C220308D4E00443CA9 /* LoginRegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78C120308D4E00443CA9 /* LoginRegisterFormViewController.swift */; };
 		FFCC78C42030DB1200443CA9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC78C32030DB1100443CA9 /* Security.framework */; };
@@ -92,6 +94,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181F2C572106178F00EE91E7 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		181F2C59210624B500EE91E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/cro/Workspace/Finda/IOS/Finda/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
 		1838E67020C1FE2900D3D83F /* Flurry_iOS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Flurry_iOS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887FA02209656F000001851 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		1897165B20FBBDE600DE588E /* Gotham-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumItalic.otf"; sourceTree = "<group>"; };
@@ -162,7 +166,7 @@
 		FFA655AC203B9A02000F0043 /* SimpleImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		FFC981D220742E7B00BAB2CC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		FFC981D320742E7B00BAB2CC /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
-		FFCC78BB202F67D800443CA9 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		FFCC78BB202F67D800443CA9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		FFCC78BD203059BF00443CA9 /* FindaNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaNavController.swift; sourceTree = "<group>"; };
 		FFCC78C120308D4E00443CA9 /* LoginRegisterFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterFormViewController.swift; sourceTree = "<group>"; };
 		FFCC78C32030DB1100443CA9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -257,8 +261,9 @@
 			isa = PBXGroup;
 			children = (
 				FF5BC5A6200372440044F489 /* CurrentUser.swift */,
-				FFCC78BB202F67D800443CA9 /* UserPreferences.swift */,
+				FFCC78BB202F67D800443CA9 /* UserProfile.swift */,
 				FF5BC5AA20037EFA0044F489 /* User.swift */,
+				181F2C572106178F00EE91E7 /* UserPreferences.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				FF435F162025B615005D30FD /* UIColor+FindaColours.swift */,
 				B36E8C0F2035910000E8AA5B /* NotificationNames.swift */,
 				FFF9BFC72041B593001C992A /* UIViewController+CustomFonts.swift */,
+				181F2C59210624B500EE91E7 /* GoogleService-Info.plist */,
 			);
 			path = Finda;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181F2C5A210638ED00EE91E7 /* GoogleService-Info.plist in Sources */,
 				FF112AA41FD4AB5D009BC9A9 /* MenuViewController.swift in Sources */,
 				FFE2C5C71FFFD7C600CFB0F4 /* FindaServiceError.swift in Sources */,
 				FF435F172025B615005D30FD /* UIColor+FindaColours.swift in Sources */,
@@ -679,10 +686,11 @@
 				FF921EDF2042BFCE008CB8AD /* NoInternetViewController.swift in Sources */,
 				FFF6DF2D200A21CD00BCD642 /* AccountManager.swift in Sources */,
 				B36E8C102035910000E8AA5B /* NotificationNames.swift in Sources */,
+				181F2C582106178F00EE91E7 /* UserPreferences.swift in Sources */,
 				FF72F80C1FD4A95400F80263 /* AppDelegate.swift in Sources */,
 				FFF9BFC82041B593001C992A /* UIViewController+CustomFonts.swift in Sources */,
 				FF5BC5BD2003B9FB0044F489 /* RegisterResponse.swift in Sources */,
-				FFCC78BC202F67D800443CA9 /* UserPreferences.swift in Sources */,
+				FFCC78BC202F67D800443CA9 /* UserProfile.swift in Sources */,
 				B36E8C13203A097A00E8AA5B /* SavedItemCollectionViewCell.swift in Sources */,
 				FF5BC5A7200372440044F489 /* CurrentUser.swift in Sources */,
 				FF5BC5D02003F0CC0044F489 /* HelpCoordinator.swift in Sources */,

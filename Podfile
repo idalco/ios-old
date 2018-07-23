@@ -45,12 +45,6 @@ target 'Finda' do
   # secure data storage
   pod 'Strongbox'
   
-  # facebook login
-  pod 'FacebookLogin'
-  
-  # twitter login
-  pod 'TwitterKit'
-  
   # easy carousel flow layout
   pod 'UPCarouselFlowLayout'
   
@@ -58,18 +52,6 @@ target 'Finda' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   
-  # Flurry analytics
-  pod 'Flurry-iOS-SDK/FlurrySDK' #Analytics Pod
-  
   # Welcome screen walkthrough
   
-
-  target 'FindaTests' do
-    inherit! :search_paths
-    # Pods for testing
-    
-    pod 'Quick'
-    pod 'Nimble'
-  end
-
 end

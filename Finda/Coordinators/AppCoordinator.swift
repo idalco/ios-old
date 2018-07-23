@@ -6,7 +6,6 @@
 import UIKit
 import Coordinator
 import SVProgressHUD
-import TwitterKit
 import Eureka
 
 final class AppCoordinator: NavigationCoordinator, NeedsDependency {
@@ -153,10 +152,6 @@ final class AppCoordinator: NavigationCoordinator, NeedsDependency {
         // listen for reachability changes
         notificationCenter.addObserver(self, selector: #selector(reachabilityChanged(notification:)), name: .reachabilityChanged, object: nil)
         
-        // init TwitterKit
-        TWTRTwitter.sharedInstance().start(withConsumerKey: "nwNcdaxLhqiX4b9RPVhhBnCXe", consumerSecret: "m7B0n74CX6UHfRGZjIYBlkIWM7GAxYnPRbgijCqgxzWzYxWGC8")  // TODO: move to plist
-
-        
         // prepare managers
         self.reachabilityManager = ReachabilityManager()
         let api = FindaService(reachabilityManager: reachabilityManager)
@@ -226,23 +221,6 @@ final class AppCoordinator: NavigationCoordinator, NeedsDependency {
         }
         return currentUser
     }
-    
-    override func wrapPrice(_ price: Any, sender: Any? = nil) -> String {
-        var symbol = "£"
-        if let currency = currentUser?.currencyCode {
-            switch currency {
-                case "EUR":
-                    symbol = "€"
-                case "USD":
-                    symbol = "$"
-                default:
-                    break
-            }
-        }
-        return "\(symbol)\(price)"
-    }
-    
-
     
     override func accountShowPage(_ page: AccountPageBox, sender: Any?) {
         // switch to account section and show requested page

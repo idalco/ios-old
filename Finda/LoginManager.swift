@@ -9,8 +9,6 @@ import Strongbox
 import Flurry_iOS_SDK
 
 public enum LoginProvider: String {
-    case twitter = "twitter"
-    case facebook = "facebook"
     case finda = "normal"
 }
 
@@ -132,11 +130,6 @@ fileprivate extension LoginManager {
         switch provider {
             case .finda:
                 break
-        
-            case .facebook, .twitter:
-                // with third-party auth, use auth token as username, username as password...
-                requestUsername = token
-                requestPassword = email
         }
         
         if let requestUsername = requestUsername, let requestPassword = requestPassword {
