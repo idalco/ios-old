@@ -1,0 +1,6 @@
+framework module Moya_Marshal {
+  umbrella header "Moya-Marshal-umbrella.h"
+
+  export *
+  module * { export * }
+}
