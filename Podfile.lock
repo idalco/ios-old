@@ -1,82 +1,10 @@
 PODS:
-  - Alamofire (4.7.2)
-  - Bolts (1.9.0):
-    - Bolts/AppLinks (= 1.9.0)
-    - Bolts/Tasks (= 1.9.0)
-  - Bolts/AppLinks (1.9.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.0)
-  - Coordinator (5.2)
+  - Alamofire (4.7.3)
   - CryptoSwift (0.10.0)
-  - Eureka (4.1.1)
-  - FacebookCore (0.3.0):
-    - Bolts (~> 1.8)
-    - FBSDKCoreKit (~> 4.27)
-  - FacebookLogin (0.3.0):
-    - Bolts (~> 1.8)
-    - FacebookCore (~> 0.3)
-    - FBSDKCoreKit (~> 4.27)
-    - FBSDKLoginKit (~> 4.27)
-  - FBSDKCoreKit (4.33.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.33.0):
-    - FBSDKCoreKit
-  - Firebase/Core (5.1.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.0.1)
-  - Firebase/CoreOnly (5.1.0):
-    - FirebaseCore (= 5.0.2)
-  - Firebase/Messaging (5.1.0):
-    - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.0.1)
-  - FirebaseAnalytics (5.0.1):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - nanopb (~> 0.3)
-  - FirebaseCore (5.0.2):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseInstanceID (3.0.0):
-    - FirebaseCore (~> 5.0)
-  - FirebaseMessaging (3.0.1):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - GoogleToolboxForMac/Logger (~> 2.1)
-    - Protobuf (~> 3.1)
-  - Floaty (4.0.1)
-  - Flurry-iOS-SDK/FlurrySDK (8.6.1)
-  - GoogleToolboxForMac/Defines (2.1.4)
-  - GoogleToolboxForMac/Logger (2.1.4):
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - Kingfisher (4.8.0)
-  - Koloda (4.3.1):
-    - pop (~> 1.0)
+  - DCKit (1.0.10)
+  - Eureka (4.2.0)
+  - IQKeyboardManagerSwift (6.1.1)
   - Marshal (1.2.4)
-  - MaterialComponents/Buttons (55.3.0):
-    - MaterialComponents/Ink
-    - MaterialComponents/private/Math
-    - MaterialComponents/private/Shapes
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/Typography
-    - MDFInternationalization
-    - MDFTextAccessibility
-  - MaterialComponents/Ink (55.3.0):
-    - MaterialComponents/private/Math
-  - MaterialComponents/private/Application (55.3.0)
-  - MaterialComponents/private/Math (55.3.0)
-  - MaterialComponents/private/Shapes (55.3.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowLayer
-  - MaterialComponents/ShadowElevations (55.3.0)
-  - MaterialComponents/ShadowLayer (55.3.0):
-    - MaterialComponents/ShadowElevations
-  - MaterialComponents/Typography (55.3.0):
-    - MaterialComponents/private/Application
-  - MDFInternationalization (1.0.4)
-  - MDFTextAccessibility (1.2.0)
   - Moya (10.0.2):
     - Moya/Core (= 10.0.2)
   - Moya-Marshal (1.3.1):
@@ -87,135 +15,53 @@ PODS:
   - Moya/Core (10.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
-  - Nimble (7.1.1)
-  - pop (1.0.10)
-  - Protobuf (3.5.0)
-  - Quick (1.3.0)
   - Result (3.2.4)
   - Strongbox (0.5.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.1.0)
-  - TwitterCore (3.1.0)
-  - TwitterKit (3.3.0):
-    - TwitterCore (>= 3.1.0)
-  - UPCarouselFlowLayout (1.1.1)
 
 DEPENDENCIES:
   - Alamofire
-  - Coordinator (from `https://github.com/radianttap/Coordinator.git`)
   - CryptoSwift
+  - DCKit
   - Eureka
-  - FacebookLogin
-  - Firebase/Core
-  - Firebase/Messaging
-  - Floaty (~> 4.0.0)
-  - Flurry-iOS-SDK/FlurrySDK
-  - Kingfisher (~> 4.6)
-  - Koloda (~> 4.3.1)
+  - IQKeyboardManagerSwift
   - Marshal
-  - MaterialComponents/Buttons
   - Moya
   - Moya-Marshal
-  - Nimble
-  - Quick
   - Strongbox
   - SVProgressHUD
   - SwiftyJSON
-  - TwitterKit
-  - UPCarouselFlowLayout
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
-    - Bolts
     - CryptoSwift
+    - DCKit
     - Eureka
-    - FacebookCore
-    - FacebookLogin
-    - FBSDKCoreKit
-    - FBSDKLoginKit
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
-    - FirebaseMessaging
-    - Floaty
-    - Flurry-iOS-SDK
-    - GoogleToolboxForMac
-    - Kingfisher
-    - Koloda
+    - IQKeyboardManagerSwift
     - Marshal
-    - MaterialComponents
-    - MDFInternationalization
-    - MDFTextAccessibility
     - Moya
     - Moya-Marshal
-    - nanopb
-    - Nimble
-    - pop
-    - Protobuf
-    - Quick
     - Result
     - Strongbox
     - SVProgressHUD
     - SwiftyJSON
-    - TwitterCore
-    - TwitterKit
-    - UPCarouselFlowLayout
-
-EXTERNAL SOURCES:
-  Coordinator:
-    :git: https://github.com/radianttap/Coordinator.git
-
-CHECKOUT OPTIONS:
-  Coordinator:
-    :commit: 373bac7e7688ad2ba3f57619333af62fb4fd66f7
-    :git: https://github.com/radianttap/Coordinator.git
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Coordinator: 4e9ef1c41a1c31b4671e44dc2ace8bcdab945aae
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
-  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
-  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
-  FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
-  FBSDKCoreKit: 572b047a7e029bc44542bcf8a59414e7ff2b543e
-  FBSDKLoginKit: 88cb456349cfb3b554427ce4f8b43729d85dfb40
-  Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
-  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
-  FirebaseCore: b81044df1044c0857a0737c6324678b72d4f7f00
-  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
-  FirebaseMessaging: ec6fde5a77824c6da0218f9ca220feb251aa17d5
-  Floaty: 82854e1a5ef4fa208281ebd4da2f3d1e51ba67a6
-  Flurry-iOS-SDK: daffe3d0afa95b7b0f1a803f2b708a926ecbf833
-  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
-  Koloda: 0d39b2aa188ccd1fac48d752acaf9802e683c625
+  DCKit: 5c331146967c08886cc47baf5903699fdb4dca81
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
-  MaterialComponents: 915f4e844400a35db3ea4c710a9af40aa8bcb093
-  MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
-  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
   Moya-Marshal: a37ab7343dcb1e5b56aaf1ae663318553c3ce7cb
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
-  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
-  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
-  Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   Strongbox: f49a3922237c1dcde2cabbb882edd37d2aa75a23
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
-  TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
-  TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
-  UPCarouselFlowLayout: 02045c1505d63057fba3d9975be880a8d16bf17d
 
-PODFILE CHECKSUM: cf2f86f43de93c9da73b4aa6148671cd2fa8d4e3
+PODFILE CHECKSUM: acc49b1dae71a49f6a75e5a7a2d144c9aa202fda
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

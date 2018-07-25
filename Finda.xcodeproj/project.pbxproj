@@ -3,439 +3,276 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		181F2C582106178F00EE91E7 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F2C572106178F00EE91E7 /* UserPreferences.swift */; };
-		181F2C5A210638ED00EE91E7 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 181F2C59210624B500EE91E7 /* GoogleService-Info.plist */; };
-		1887FA03209656F000001851 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887FA02209656F000001851 /* Media.xcassets */; };
-		1897166B20FBBDE700DE588E /* Gotham-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897165B20FBBDE600DE588E /* Gotham-MediumItalic.otf */; };
-		1897166C20FBBDE700DE588E /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897165C20FBBDE600DE588E /* Gotham-Thin.otf */; };
-		1897166D20FBBDE700DE588E /* Gotham-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897165D20FBBDE700DE588E /* Gotham-BlackItalic.otf */; };
-		1897166E20FBBDE700DE588E /* Gotham-UltraItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897165E20FBBDE700DE588E /* Gotham-UltraItalic.otf */; };
-		1897166F20FBBDE700DE588E /* Gotham-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897165F20FBBDE700DE588E /* Gotham-BookItalic.otf */; };
-		1897167020FBBDE700DE588E /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166020FBBDE700DE588E /* Gotham-Medium.otf */; };
-		1897167120FBBDE700DE588E /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166120FBBDE700DE588E /* Gotham-Bold.otf */; };
-		1897167220FBBDE700DE588E /* Gotham-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166220FBBDE700DE588E /* Gotham-BoldItalic.otf */; };
-		1897167320FBBDE700DE588E /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166320FBBDE700DE588E /* Gotham-Black.otf */; };
-		1897167420FBBDE700DE588E /* Gotham-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166420FBBDE700DE588E /* Gotham-LightItalic.otf */; };
-		1897167520FBBDE700DE588E /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166520FBBDE700DE588E /* Gotham-Light.otf */; };
-		1897167620FBBDE700DE588E /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166620FBBDE700DE588E /* Gotham-XLight.otf */; };
-		1897167720FBBDE700DE588E /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166720FBBDE700DE588E /* Gotham-Book.otf */; };
-		1897167820FBBDE700DE588E /* Gotham-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166820FBBDE700DE588E /* Gotham-ThinItalic.otf */; };
-		1897167920FBBDE700DE588E /* Gotham-Ultra.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166920FBBDE700DE588E /* Gotham-Ultra.otf */; };
-		1897167A20FBBDE700DE588E /* Gotham-XLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1897166A20FBBDE700DE588E /* Gotham-XLightItalic.otf */; };
-		B36E8C0E203481F500E8AA5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36E8C0D203481F500E8AA5B /* ReachabilityManager.swift */; };
-		B36E8C102035910000E8AA5B /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36E8C0F2035910000E8AA5B /* NotificationNames.swift */; };
-		B36E8C13203A097A00E8AA5B /* SavedItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36E8C11203A097A00E8AA5B /* SavedItemCollectionViewCell.swift */; };
-		B36E8C14203A097A00E8AA5B /* SavedItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36E8C12203A097A00E8AA5B /* SavedItemCollectionViewCell.xib */; };
-		FF112AA41FD4AB5D009BC9A9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF112AA21FD4AB5D009BC9A9 /* MenuViewController.swift */; };
-		FF112AA51FD4AB5D009BC9A9 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF112AA31FD4AB5D009BC9A9 /* MenuViewController.xib */; };
-		FF1BAA191FE71B5B00E6D51A /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF1BAA171FE71B5B00E6D51A /* ProfileViewController.xib */; };
-		FF1BAA1D1FE71B7000E6D51A /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF1BAA1B1FE71B7000E6D51A /* FiltersViewController.xib */; };
-		FF1BAA241FE71B9A00E6D51A /* TermsConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1BAA221FE71B9A00E6D51A /* TermsConditionsViewController.swift */; };
-		FF1BAA251FE71B9A00E6D51A /* TermsConditionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF1BAA231FE71B9A00E6D51A /* TermsConditionsViewController.xib */; };
-		FF1BAA291FE71BCE00E6D51A /* SendFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF1BAA271FE71BCE00E6D51A /* SendFeedbackViewController.xib */; };
-		FF2ABBCD1FFD5A6200C2A518 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2ABBCC1FFD5A6200C2A518 /* Icons.xcassets */; };
-		FF334C1F201515D300029068 /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF334C1E201515D300029068 /* AccountError.swift */; };
-		FF435F172025B615005D30FD /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF435F162025B615005D30FD /* UIColor+FindaColours.swift */; };
-		FF435F192025C007005D30FD /* MenuSectionSeparator.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF435F182025C007005D30FD /* MenuSectionSeparator.xib */; };
-		FF435F1E2025CAD9005D30FD /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF435F1C2025CAD9005D30FD /* MenuTableViewCell.swift */; };
-		FF435F1F2025CAD9005D30FD /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF435F1D2025CAD9005D30FD /* MenuTableViewCell.xib */; };
-		FF5BC59820016A6D0044F489 /* FindaMoyaTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC59720016A6D0044F489 /* FindaMoyaTokenPlugin.swift */; };
-		FF5BC5A020025A030044F489 /* FindaMoyaHMACPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC59F20025A030044F489 /* FindaMoyaHMACPlugin.swift */; };
-		FF5BC5A7200372440044F489 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5A6200372440044F489 /* CurrentUser.swift */; };
-		FF5BC5AB20037EFA0044F489 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5AA20037EFA0044F489 /* User.swift */; };
-		FF5BC5B92003B8520044F489 /* AvatarResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5B82003B8520044F489 /* AvatarResponse.swift */; };
-		FF5BC5BD2003B9FB0044F489 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5BC2003B9FB0044F489 /* RegisterResponse.swift */; };
-		FF5BC5C52003BF260044F489 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5C42003BF260044F489 /* UserResponse.swift */; };
-		FF5BC5CA2003C4200044F489 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5C92003C4200044F489 /* AppCoordinator.swift */; };
-		FF5BC5CC2003C60D0044F489 /* NeedsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5CB2003C60D0044F489 /* NeedsDependency.swift */; };
-		FF5BC5CE2003E7340044F489 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5CD2003E7340044F489 /* AppDependency.swift */; };
-		FF5BC5D02003F0CC0044F489 /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5CF2003F0CC0044F489 /* HelpCoordinator.swift */; };
-		FF5BC5D22003FED60044F489 /* Help-CoordinatingResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5D12003FED60044F489 /* Help-CoordinatingResponder.swift */; };
-		FF5BC5D820040A130044F489 /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5D720040A130044F489 /* AccountCoordinator.swift */; };
-		FF5BC5DA20040A830044F489 /* Account-CoordinatingResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BC5D920040A830044F489 /* Account-CoordinatingResponder.swift */; };
-		FF6FA24B201CD13400567F45 /* ProfileFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6FA24A201CD13400567F45 /* ProfileFormViewController.swift */; };
-		FF6FA24D201CDFD900567F45 /* App-CoordinatingResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6FA24C201CDFD900567F45 /* App-CoordinatingResponder.swift */; };
-		FF72F80C1FD4A95400F80263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72F80B1FD4A95400F80263 /* AppDelegate.swift */; };
-		FF72F8111FD4A95400F80263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF72F80F1FD4A95400F80263 /* Main.storyboard */; };
-		FF72F8131FD4A95400F80263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF72F8121FD4A95400F80263 /* Assets.xcassets */; };
-		FF72F8161FD4A95400F80263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF72F8141FD4A95400F80263 /* LaunchScreen.storyboard */; };
-		FF767B3D2041C97900FFC1A1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF767B3C2041C97900FFC1A1 /* GradientView.swift */; };
-		FF91AFA91FE6A17300FA3179 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91AFA71FE6A17300FA3179 /* LoginRegisterViewController.swift */; };
-		FF91AFAA1FE6A17300FA3179 /* LoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91AFA81FE6A17300FA3179 /* LoginRegisterViewController.xib */; };
-		FF921EDF2042BFCE008CB8AD /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF921EDD2042BFCE008CB8AD /* NoInternetViewController.swift */; };
-		FF921EE02042BFCE008CB8AD /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF921EDE2042BFCE008CB8AD /* NoInternetViewController.xib */; };
-		FF9C326E201DC79200490E0C /* ProfileFormHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9C326D201DC79200490E0C /* ProfileFormHeaderView.xib */; };
-		FF9C3270201DCBFF00490E0C /* ProfileFormHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C326F201DCBFF00490E0C /* ProfileFormHeaderView.swift */; };
-		FFA655AD203B9A02000F0043 /* SimpleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA655AB203B9A02000F0043 /* SimpleImageCollectionViewCell.swift */; };
-		FFA655AE203B9A02000F0043 /* SimpleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA655AC203B9A02000F0043 /* SimpleImageCollectionViewCell.xib */; };
-		FFC981D420742E7B00BAB2CC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC981D220742E7B00BAB2CC /* OnboardingViewController.swift */; };
-		FFC981D520742E7B00BAB2CC /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC981D320742E7B00BAB2CC /* OnboardingViewController.xib */; };
-		FFCC78BC202F67D800443CA9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BB202F67D800443CA9 /* UserProfile.swift */; };
-		FFCC78BE203059BF00443CA9 /* FindaNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78BD203059BF00443CA9 /* FindaNavController.swift */; };
-		FFCC78C220308D4E00443CA9 /* LoginRegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC78C120308D4E00443CA9 /* LoginRegisterFormViewController.swift */; };
-		FFCC78C42030DB1200443CA9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC78C32030DB1100443CA9 /* Security.framework */; };
-		FFE2C5BA1FFF972A00CFB0F4 /* SidebarMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5B81FFF972A00CFB0F4 /* SidebarMenuViewController.swift */; };
-		FFE2C5BB1FFF972A00CFB0F4 /* SidebarMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE2C5B91FFF972A00CFB0F4 /* SidebarMenuViewController.xib */; };
-		FFE2C5BE1FFFC7E200CFB0F4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5BD1FFFC7E200CFB0F4 /* DataManager.swift */; };
-		FFE2C5C01FFFC83800CFB0F4 /* FindaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5BF1FFFC83800CFB0F4 /* FindaService.swift */; };
-		FFE2C5C51FFFD79600CFB0F4 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5C41FFFD79500CFB0F4 /* DataError.swift */; };
-		FFE2C5C71FFFD7C600CFB0F4 /* FindaServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5C61FFFD7C600CFB0F4 /* FindaServiceError.swift */; };
-		FFE2C5C92000DB1700CFB0F4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5C82000DB1700CFB0F4 /* LoginResponse.swift */; };
-		FFE2C5CB2000F04400CFB0F4 /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2C5CA2000F04400CFB0F4 /* FindaAPI.swift */; };
-		FFF6DF2B200A0F8700BCD642 /* HelpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF6DF2A200A0F8700BCD642 /* HelpManager.swift */; };
-		FFF6DF2D200A21CD00BCD642 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF6DF2C200A21CD00BCD642 /* AccountManager.swift */; };
-		FFF6DF2F200A298F00BCD642 /* CurrentUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF6DF2E200A298F00BCD642 /* CurrentUserResponse.swift */; };
-		FFF795EE1FFE821900333084 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF795ED1FFE821900333084 /* LoginManager.swift */; };
-		FFF9BFC82041B593001C992A /* UIViewController+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9BFC72041B593001C992A /* UIViewController+CustomFonts.swift */; };
+		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
+		0CCF22B92107390800612D5B /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B72107390800612D5B /* DashboardVC.swift */; };
+		0CCF22BB210895B300612D5B /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BA210895B300612D5B /* TextFieldExtensions.swift */; };
+		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
+		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
+		0CCF22D621089B6200612D5B /* FindaMoyaTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22D421089B6200612D5B /* FindaMoyaTokenPlugin.swift */; };
+		0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22D521089B6200612D5B /* FindaMoyaHMACPlugin.swift */; };
+		0CCF22D92108B25900612D5B /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22D82108B25900612D5B /* LoginManager.swift */; };
+		0CCF22DE2108B58A00612D5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22DD2108B58A00612D5B /* User.swift */; };
+		0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22E32108CF7200612D5B /* TabBarController.swift */; };
+		0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB4921071AD0004CC4D8 /* AppDelegate.swift */; };
+		0CEBCB4F21071AD0004CC4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB4D21071AD0004CC4D8 /* Main.storyboard */; };
+		0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5021071AD0004CC4D8 /* Finda.xcdatamodeld */; };
+		0CEBCB5421071AD1004CC4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5321071AD1004CC4D8 /* Assets.xcassets */; };
+		0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */; };
+		0CEBCB6221071AD1004CC4D8 /* FindaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB6121071AD1004CC4D8 /* FindaTests.swift */; };
+		0CEBCB6D21071AD1004CC4D8 /* FindaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB6C21071AD1004CC4D8 /* FindaUITests.swift */; };
+		0CEBCB7B21071CF6004CC4D8 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7A21071CF6004CC4D8 /* Resource */; };
+		0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7C21072C31004CC4D8 /* Media.xcassets */; };
+		0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */; };
+		566DDE756A5363F72310C15F /* Pods_FindaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB282E912077D90FEEF6C36 /* Pods_FindaUITests.framework */; };
+		A6BF3637B588035A71C009C0 /* Pods_FindaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0F905557E39DEFF71CB749 /* Pods_FindaTests.framework */; };
+		D6BD959D87F08E75B89A41D1 /* Pods_Finda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EEB8FB6543252924F78E91 /* Pods_Finda.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0CEBCB5E21071AD1004CC4D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CEBCB3E21071AD0004CC4D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CEBCB4521071AD0004CC4D8;
+			remoteInfo = Finda;
+		};
+		0CEBCB6921071AD1004CC4D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CEBCB3E21071AD0004CC4D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CEBCB4521071AD0004CC4D8;
+			remoteInfo = Finda;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		181F2C572106178F00EE91E7 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
-		181F2C59210624B500EE91E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/cro/Workspace/Finda/IOS/Finda/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
-		1838E67020C1FE2900D3D83F /* Flurry_iOS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Flurry_iOS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1887FA02209656F000001851 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		1897165B20FBBDE600DE588E /* Gotham-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumItalic.otf"; sourceTree = "<group>"; };
-		1897165C20FBBDE600DE588E /* Gotham-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.otf"; sourceTree = "<group>"; };
-		1897165D20FBBDE700DE588E /* Gotham-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.otf"; sourceTree = "<group>"; };
-		1897165E20FBBDE700DE588E /* Gotham-UltraItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-UltraItalic.otf"; sourceTree = "<group>"; };
-		1897165F20FBBDE700DE588E /* Gotham-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.otf"; sourceTree = "<group>"; };
-		1897166020FBBDE700DE588E /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
-		1897166120FBBDE700DE588E /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
-		1897166220FBBDE700DE588E /* Gotham-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BoldItalic.otf"; sourceTree = "<group>"; };
-		1897166320FBBDE700DE588E /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
-		1897166420FBBDE700DE588E /* Gotham-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightItalic.otf"; sourceTree = "<group>"; };
-		1897166520FBBDE700DE588E /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.otf"; sourceTree = "<group>"; };
-		1897166620FBBDE700DE588E /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
-		1897166720FBBDE700DE588E /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
-		1897166820FBBDE700DE588E /* Gotham-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-ThinItalic.otf"; sourceTree = "<group>"; };
-		1897166920FBBDE700DE588E /* Gotham-Ultra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Ultra.otf"; sourceTree = "<group>"; };
-		1897166A20FBBDE700DE588E /* Gotham-XLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightItalic.otf"; sourceTree = "<group>"; };
-		38779D64C14188171BC17758 /* Pods-Finda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.debug.xcconfig"; sourceTree = "<group>"; };
-		74142D3BC53789DFB99A9BB1 /* Pods-Finda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.release.xcconfig"; sourceTree = "<group>"; };
-		B36E8C0D203481F500E8AA5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		B36E8C0F2035910000E8AA5B /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
-		B36E8C11203A097A00E8AA5B /* SavedItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		B36E8C12203A097A00E8AA5B /* SavedItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedItemCollectionViewCell.xib; sourceTree = "<group>"; };
-		FF112AA21FD4AB5D009BC9A9 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		FF112AA31FD4AB5D009BC9A9 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
-		FF1BAA171FE71B5B00E6D51A /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		FF1BAA1B1FE71B7000E6D51A /* FiltersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
-		FF1BAA221FE71B9A00E6D51A /* TermsConditionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsConditionsViewController.swift; sourceTree = "<group>"; };
-		FF1BAA231FE71B9A00E6D51A /* TermsConditionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsConditionsViewController.xib; sourceTree = "<group>"; };
-		FF1BAA271FE71BCE00E6D51A /* SendFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendFeedbackViewController.xib; sourceTree = "<group>"; };
-		FF2ABBCC1FFD5A6200C2A518 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
-		FF334C1E201515D300029068 /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
-		FF435F162025B615005D30FD /* UIColor+FindaColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+FindaColours.swift"; sourceTree = "<group>"; };
-		FF435F182025C007005D30FD /* MenuSectionSeparator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSectionSeparator.xib; sourceTree = "<group>"; };
-		FF435F1C2025CAD9005D30FD /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		FF435F1D2025CAD9005D30FD /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
-		FF5BC59720016A6D0044F489 /* FindaMoyaTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaMoyaTokenPlugin.swift; sourceTree = "<group>"; };
-		FF5BC59F20025A030044F489 /* FindaMoyaHMACPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaMoyaHMACPlugin.swift; sourceTree = "<group>"; };
-		FF5BC5A6200372440044F489 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/Data/CurrentUser.swift; sourceTree = "<group>"; };
-		FF5BC5AA20037EFA0044F489 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/Data/User.swift; sourceTree = "<group>"; };
-		FF5BC5B82003B8520044F489 /* AvatarResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarResponse.swift; path = Models/Responses/AvatarResponse.swift; sourceTree = "<group>"; };
-		FF5BC5BC2003B9FB0044F489 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterResponse.swift; path = Models/Responses/RegisterResponse.swift; sourceTree = "<group>"; };
-		FF5BC5C42003BF260044F489 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserResponse.swift; path = Models/Responses/UserResponse.swift; sourceTree = "<group>"; };
-		FF5BC5C92003C4200044F489 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		FF5BC5CB2003C60D0044F489 /* NeedsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsDependency.swift; sourceTree = "<group>"; };
-		FF5BC5CD2003E7340044F489 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
-		FF5BC5CF2003F0CC0044F489 /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
-		FF5BC5D12003FED60044F489 /* Help-CoordinatingResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Help-CoordinatingResponder.swift"; sourceTree = "<group>"; };
-		FF5BC5D720040A130044F489 /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
-		FF5BC5D920040A830044F489 /* Account-CoordinatingResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account-CoordinatingResponder.swift"; sourceTree = "<group>"; };
-		FF6FA24A201CD13400567F45 /* ProfileFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormViewController.swift; sourceTree = "<group>"; };
-		FF6FA24C201CDFD900567F45 /* App-CoordinatingResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App-CoordinatingResponder.swift"; sourceTree = "<group>"; };
-		FF72F8081FD4A95400F80263 /* Finda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finda.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF72F80B1FD4A95400F80263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF72F8101FD4A95400F80263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FF72F8121FD4A95400F80263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FF72F8151FD4A95400F80263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FF72F8171FD4A95400F80263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF767B3C2041C97900FFC1A1 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		FF91AFA71FE6A17300FA3179 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
-		FF91AFA81FE6A17300FA3179 /* LoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginRegisterViewController.xib; sourceTree = "<group>"; };
-		FF921EDD2042BFCE008CB8AD /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
-		FF921EDE2042BFCE008CB8AD /* NoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
-		FF9C326D201DC79200490E0C /* ProfileFormHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFormHeaderView.xib; sourceTree = "<group>"; };
-		FF9C326F201DCBFF00490E0C /* ProfileFormHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormHeaderView.swift; sourceTree = "<group>"; };
-		FFA655AB203B9A02000F0043 /* SimpleImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		FFA655AC203B9A02000F0043 /* SimpleImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		FFC981D220742E7B00BAB2CC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		FFC981D320742E7B00BAB2CC /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
-		FFCC78BB202F67D800443CA9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		FFCC78BD203059BF00443CA9 /* FindaNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaNavController.swift; sourceTree = "<group>"; };
-		FFCC78C120308D4E00443CA9 /* LoginRegisterFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterFormViewController.swift; sourceTree = "<group>"; };
-		FFCC78C32030DB1100443CA9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		FFE2C5B81FFF972A00CFB0F4 /* SidebarMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarMenuViewController.swift; sourceTree = "<group>"; };
-		FFE2C5B91FFF972A00CFB0F4 /* SidebarMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarMenuViewController.xib; sourceTree = "<group>"; };
-		FFE2C5BD1FFFC7E200CFB0F4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		FFE2C5BF1FFFC83800CFB0F4 /* FindaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaService.swift; sourceTree = "<group>"; };
-		FFE2C5C41FFFD79500CFB0F4 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
-		FFE2C5C61FFFD7C600CFB0F4 /* FindaServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaServiceError.swift; sourceTree = "<group>"; };
-		FFE2C5C82000DB1700CFB0F4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginResponse.swift; path = Models/Responses/LoginResponse.swift; sourceTree = "<group>"; };
-		FFE2C5CA2000F04400CFB0F4 /* FindaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
-		FFF6DF2A200A0F8700BCD642 /* HelpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpManager.swift; sourceTree = "<group>"; };
-		FFF6DF2C200A21CD00BCD642 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
-		FFF6DF2E200A298F00BCD642 /* CurrentUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserResponse.swift; sourceTree = "<group>"; };
-		FFF795ED1FFE821900333084 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
-		FFF795EF1FFE8B1200333084 /* Finda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finda.entitlements; sourceTree = "<group>"; };
-		FFF9BFC72041B593001C992A /* UIViewController+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomFonts.swift"; sourceTree = "<group>"; };
+		0288E199D06E667D702BCB7E /* Pods-FindaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindaUITests/Pods-FindaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		035913A7088946EBA06AFD9E /* Pods-FindaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindaTests/Pods-FindaTests.release.xcconfig"; sourceTree = "<group>"; };
+		04EEB8FB6543252924F78E91 /* Pods_Finda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		0CCF22B72107390800612D5B /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		0CCF22BA210895B300612D5B /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
+		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		0CCF22D421089B6200612D5B /* FindaMoyaTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaMoyaTokenPlugin.swift; sourceTree = "<group>"; };
+		0CCF22D521089B6200612D5B /* FindaMoyaHMACPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaMoyaHMACPlugin.swift; sourceTree = "<group>"; };
+		0CCF22D82108B25900612D5B /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		0CCF22DD2108B58A00612D5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0CCF22E32108CF7200612D5B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0CEBCB4621071AD0004CC4D8 /* Finda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finda.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CEBCB4921071AD0004CC4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0CEBCB4E21071AD0004CC4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0CEBCB5121071AD0004CC4D8 /* Finda.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Finda.xcdatamodel; sourceTree = "<group>"; };
+		0CEBCB5321071AD1004CC4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CEBCB5621071AD1004CC4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0CEBCB5821071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CEBCB5D21071AD1004CC4D8 /* FindaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CEBCB6121071AD1004CC4D8 /* FindaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaTests.swift; sourceTree = "<group>"; };
+		0CEBCB6321071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CEBCB6821071AD1004CC4D8 /* FindaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CEBCB6C21071AD1004CC4D8 /* FindaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaUITests.swift; sourceTree = "<group>"; };
+		0CEBCB6E21071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CEBCB7A21071CF6004CC4D8 /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
+		0CEBCB7C21072C31004CC4D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FindaColours.swift"; sourceTree = "<group>"; };
+		2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.release.xcconfig"; sourceTree = "<group>"; };
+		341BD77F58966C7AFB8BF641 /* Pods-Finda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.debug.xcconfig"; sourceTree = "<group>"; };
+		3E1B7F1EF255DBF716E70F99 /* Pods-FindaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindaTests/Pods-FindaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4A0F905557E39DEFF71CB749 /* Pods_FindaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB282E912077D90FEEF6C36 /* Pods_FindaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7705A2C8D63BCB785BD88416 /* Pods-FindaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindaUITests/Pods-FindaUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FF72F8051FD4A95400F80263 /* Frameworks */ = {
+		0CEBCB4321071AD0004CC4D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFCC78C42030DB1200443CA9 /* Security.framework in Frameworks */,
+				D6BD959D87F08E75B89A41D1 /* Pods_Finda.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CEBCB5A21071AD1004CC4D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BF3637B588035A71C009C0 /* Pods_FindaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CEBCB6521071AD1004CC4D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				566DDE756A5363F72310C15F /* Pods_FindaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4633821BE4B1077A474468D5 /* Frameworks */ = {
+		0CCF22B52107390800612D5B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1838E67020C1FE2900D3D83F /* Flurry_iOS_SDK.framework */,
-				FFCC78C32030DB1100443CA9 /* Security.framework */,
+				0CCF22B62107390800612D5B /* LoginVC.swift */,
+				0CCF22B72107390800612D5B /* DashboardVC.swift */,
 			);
-			name = Frameworks;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		D8A04A2998EA845E7D2BF1BB /* Pods */ = {
+		0CCF22BD210895C900612D5B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				38779D64C14188171BC17758 /* Pods-Finda.debug.xcconfig */,
-				74142D3BC53789DFB99A9BB1 /* Pods-Finda.release.xcconfig */,
+				0CCF22BA210895B300612D5B /* TextFieldExtensions.swift */,
 			);
-			name = Pods;
+			name = Extensions;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
-		FF1BAA361FE71CA900E6D51A /* Nibs */ = {
+		0CCF22BE210896A200612D5B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				FF1BAA1B1FE71B7000E6D51A /* FiltersViewController.xib */,
-				FF91AFA81FE6A17300FA3179 /* LoginRegisterViewController.xib */,
-				FF112AA31FD4AB5D009BC9A9 /* MenuViewController.xib */,
-				FF921EDE2042BFCE008CB8AD /* NoInternetViewController.xib */,
-				FFC981D320742E7B00BAB2CC /* OnboardingViewController.xib */,
-				FF1BAA171FE71B5B00E6D51A /* ProfileViewController.xib */,
-				FF1BAA271FE71BCE00E6D51A /* SendFeedbackViewController.xib */,
-				FFE2C5B91FFF972A00CFB0F4 /* SidebarMenuViewController.xib */,
-				FF1BAA231FE71B9A00E6D51A /* TermsConditionsViewController.xib */,
+				0CCF22BF210896AE00612D5B /* FindaAPI.swift */,
+				0CCF22D82108B25900612D5B /* LoginManager.swift */,
+				0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */,
 			);
-			name = Nibs;
+			path = Managers;
 			sourceTree = "<group>";
 		};
-		FF1BAA371FE71CBB00E6D51A /* ViewControllers */ = {
+		0CCF22D321089B5500612D5B /* Moya Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				FF1BAA361FE71CA900E6D51A /* Nibs */,
-				FFCC78C120308D4E00443CA9 /* LoginRegisterFormViewController.swift */,
-				FF91AFA71FE6A17300FA3179 /* LoginRegisterViewController.swift */,
-				FF112AA21FD4AB5D009BC9A9 /* MenuViewController.swift */,
-				FF921EDD2042BFCE008CB8AD /* NoInternetViewController.swift */,
-				FFC981D220742E7B00BAB2CC /* OnboardingViewController.swift */,
-				FF6FA24A201CD13400567F45 /* ProfileFormViewController.swift */,
-				FFE2C5B81FFF972A00CFB0F4 /* SidebarMenuViewController.swift */,
-				FF1BAA221FE71B9A00E6D51A /* TermsConditionsViewController.swift */,
+				0CCF22D521089B6200612D5B /* FindaMoyaHMACPlugin.swift */,
+				0CCF22D421089B6200612D5B /* FindaMoyaTokenPlugin.swift */,
 			);
-			name = ViewControllers;
+			path = "Moya Plugins";
 			sourceTree = "<group>";
 		};
-		FF5BC5A120025CBF0044F489 /* Moya Plugins */ = {
+		0CCF22DA2108B55900612D5B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF5BC59720016A6D0044F489 /* FindaMoyaTokenPlugin.swift */,
-				FF5BC59F20025A030044F489 /* FindaMoyaHMACPlugin.swift */,
+				0CCF22DB2108B56F00612D5B /* Data */,
+				0CCF22DC2108B57400612D5B /* Responses */,
 			);
-			name = "Moya Plugins";
+			path = Models;
 			sourceTree = "<group>";
 		};
-		FF5BC5B42003B72D0044F489 /* Data */ = {
+		0CCF22DB2108B56F00612D5B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				FF5BC5A6200372440044F489 /* CurrentUser.swift */,
-				FFCC78BB202F67D800443CA9 /* UserProfile.swift */,
-				FF5BC5AA20037EFA0044F489 /* User.swift */,
-				181F2C572106178F00EE91E7 /* UserPreferences.swift */,
+				0CCF22DD2108B58A00612D5B /* User.swift */,
 			);
-			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		FF5BC5B52003B7350044F489 /* Responses */ = {
+		0CCF22DC2108B57400612D5B /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				FF5BC5B82003B8520044F489 /* AvatarResponse.swift */,
-				FFF6DF2E200A298F00BCD642 /* CurrentUserResponse.swift */,
-				FFE2C5C82000DB1700CFB0F4 /* LoginResponse.swift */,
-				FF5BC5BC2003B9FB0044F489 /* RegisterResponse.swift */,
-				FF5BC5C42003BF260044F489 /* UserResponse.swift */,
 			);
-			name = Responses;
+			path = Responses;
 			sourceTree = "<group>";
 		};
-		FF5BC5C82003C4010044F489 /* Coordinators */ = {
+		0CEBCB3D21071AD0004CC4D8 = {
 			isa = PBXGroup;
 			children = (
-				FF5BC5C92003C4200044F489 /* AppCoordinator.swift */,
-				FF6FA24C201CDFD900567F45 /* App-CoordinatingResponder.swift */,
-				FF5BC5CF2003F0CC0044F489 /* HelpCoordinator.swift */,
-				FF5BC5D12003FED60044F489 /* Help-CoordinatingResponder.swift */,
-				FF5BC5D720040A130044F489 /* AccountCoordinator.swift */,
-				FF5BC5D920040A830044F489 /* Account-CoordinatingResponder.swift */,
-				FF5BC5CD2003E7340044F489 /* AppDependency.swift */,
-				FF5BC5CB2003C60D0044F489 /* NeedsDependency.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		FF72F7FF1FD4A95400F80263 = {
-			isa = PBXGroup;
-			children = (
-				FF72F80A1FD4A95400F80263 /* Finda */,
-				FF72F8091FD4A95400F80263 /* Products */,
-				D8A04A2998EA845E7D2BF1BB /* Pods */,
-				4633821BE4B1077A474468D5 /* Frameworks */,
+				0CEBCB4821071AD0004CC4D8 /* Finda */,
+				0CEBCB6021071AD1004CC4D8 /* FindaTests */,
+				0CEBCB6B21071AD1004CC4D8 /* FindaUITests */,
+				0CEBCB4721071AD0004CC4D8 /* Products */,
+				AFAA9367A94CA9F47F4821C0 /* Pods */,
+				8D7FEAF78D23FC69FBA4C5CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		FF72F8091FD4A95400F80263 /* Products */ = {
+		0CEBCB4721071AD0004CC4D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF72F8081FD4A95400F80263 /* Finda.app */,
+				0CEBCB4621071AD0004CC4D8 /* Finda.app */,
+				0CEBCB5D21071AD1004CC4D8 /* FindaTests.xctest */,
+				0CEBCB6821071AD1004CC4D8 /* FindaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FF72F80A1FD4A95400F80263 /* Finda */ = {
+		0CEBCB4821071AD0004CC4D8 /* Finda */ = {
 			isa = PBXGroup;
 			children = (
-				FFF9BF8F2041ABF5001C992A /* Resources */,
-				FF72F80B1FD4A95400F80263 /* AppDelegate.swift */,
-				FFCC78BD203059BF00443CA9 /* FindaNavController.swift */,
-				FF5BC5C82003C4010044F489 /* Coordinators */,
-				FFE2C5BC1FFFC76200CFB0F4 /* Managers */,
-				FF1BAA371FE71CBB00E6D51A /* ViewControllers */,
-				FFE2C5C11FFFC9BD00CFB0F4 /* Models */,
-				FFF795EB1FFE79ED00333084 /* Views */,
-				FFF795EF1FFE8B1200333084 /* Finda.entitlements */,
-				FF5BC5A120025CBF0044F489 /* Moya Plugins */,
-				FF72F80F1FD4A95400F80263 /* Main.storyboard */,
-				FF72F8121FD4A95400F80263 /* Assets.xcassets */,
-				FF2ABBCC1FFD5A6200C2A518 /* Icons.xcassets */,
-				1887FA02209656F000001851 /* Media.xcassets */,
-				FF72F8141FD4A95400F80263 /* LaunchScreen.storyboard */,
-				FF72F8171FD4A95400F80263 /* Info.plist */,
-				FF435F162025B615005D30FD /* UIColor+FindaColours.swift */,
-				B36E8C0F2035910000E8AA5B /* NotificationNames.swift */,
-				FFF9BFC72041B593001C992A /* UIViewController+CustomFonts.swift */,
-				181F2C59210624B500EE91E7 /* GoogleService-Info.plist */,
+				0CEBCB4921071AD0004CC4D8 /* AppDelegate.swift */,
+				0CCF22B52107390800612D5B /* ViewControllers */,
+				0CEBCB4D21071AD0004CC4D8 /* Main.storyboard */,
+				0CEBCB5321071AD1004CC4D8 /* Assets.xcassets */,
+				0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */,
+				0CEBCB5821071AD1004CC4D8 /* Info.plist */,
+				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
+				0CCF22D321089B5500612D5B /* Moya Plugins */,
+				0CCF22DA2108B55900612D5B /* Models */,
+				0CCF22BE210896A200612D5B /* Managers */,
+				0CEBCB5021071AD0004CC4D8 /* Finda.xcdatamodeld */,
+				0CEBCB7C21072C31004CC4D8 /* Media.xcassets */,
+				0CEBCB7A21071CF6004CC4D8 /* Resource */,
+				0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */,
+				0CCF22BD210895C900612D5B /* Extensions */,
 			);
 			path = Finda;
 			sourceTree = "<group>";
 		};
-		FFE2C5BC1FFFC76200CFB0F4 /* Managers */ = {
+		0CEBCB6021071AD1004CC4D8 /* FindaTests */ = {
 			isa = PBXGroup;
 			children = (
-				FFF795ED1FFE821900333084 /* LoginManager.swift */,
-				FFF6DF2A200A0F8700BCD642 /* HelpManager.swift */,
-				FFF6DF2C200A21CD00BCD642 /* AccountManager.swift */,
-				FFE2C5BD1FFFC7E200CFB0F4 /* DataManager.swift */,
-				FFE2C5BF1FFFC83800CFB0F4 /* FindaService.swift */,
-				FFE2C5CA2000F04400CFB0F4 /* FindaAPI.swift */,
-				FFE2C5C41FFFD79500CFB0F4 /* DataError.swift */,
-				FFE2C5C61FFFD7C600CFB0F4 /* FindaServiceError.swift */,
-				FF334C1E201515D300029068 /* AccountError.swift */,
-				B36E8C0D203481F500E8AA5B /* ReachabilityManager.swift */,
+				0CEBCB6121071AD1004CC4D8 /* FindaTests.swift */,
+				0CEBCB6321071AD1004CC4D8 /* Info.plist */,
 			);
-			name = Managers;
+			path = FindaTests;
 			sourceTree = "<group>";
 		};
-		FFE2C5C11FFFC9BD00CFB0F4 /* Models */ = {
+		0CEBCB6B21071AD1004CC4D8 /* FindaUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FF5BC5B42003B72D0044F489 /* Data */,
-				FF5BC5B52003B7350044F489 /* Responses */,
+				0CEBCB6C21071AD1004CC4D8 /* FindaUITests.swift */,
+				0CEBCB6E21071AD1004CC4D8 /* Info.plist */,
 			);
-			name = Models;
+			path = FindaUITests;
 			sourceTree = "<group>";
 		};
-		FFF795EB1FFE79ED00333084 /* Views */ = {
+		8D7FEAF78D23FC69FBA4C5CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FFF795EC1FFE7A0400333084 /* Nibs */,
-				FF767B3C2041C97900FFC1A1 /* GradientView.swift */,
-				FF435F1C2025CAD9005D30FD /* MenuTableViewCell.swift */,
-				FF9C326F201DCBFF00490E0C /* ProfileFormHeaderView.swift */,
-				B36E8C11203A097A00E8AA5B /* SavedItemCollectionViewCell.swift */,
-				FFA655AB203B9A02000F0043 /* SimpleImageCollectionViewCell.swift */,
+				04EEB8FB6543252924F78E91 /* Pods_Finda.framework */,
+				4A0F905557E39DEFF71CB749 /* Pods_FindaTests.framework */,
+				5FB282E912077D90FEEF6C36 /* Pods_FindaUITests.framework */,
 			);
-			name = Views;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FFF795EC1FFE7A0400333084 /* Nibs */ = {
+		AFAA9367A94CA9F47F4821C0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FF435F182025C007005D30FD /* MenuSectionSeparator.xib */,
-				FF435F1D2025CAD9005D30FD /* MenuTableViewCell.xib */,
-				FF9C326D201DC79200490E0C /* ProfileFormHeaderView.xib */,
-				B36E8C12203A097A00E8AA5B /* SavedItemCollectionViewCell.xib */,
-				FFA655AC203B9A02000F0043 /* SimpleImageCollectionViewCell.xib */,
+				341BD77F58966C7AFB8BF641 /* Pods-Finda.debug.xcconfig */,
+				2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */,
+				3E1B7F1EF255DBF716E70F99 /* Pods-FindaTests.debug.xcconfig */,
+				035913A7088946EBA06AFD9E /* Pods-FindaTests.release.xcconfig */,
+				0288E199D06E667D702BCB7E /* Pods-FindaUITests.debug.xcconfig */,
+				7705A2C8D63BCB785BD88416 /* Pods-FindaUITests.release.xcconfig */,
 			);
-			name = Nibs;
-			sourceTree = "<group>";
-		};
-		FFF9BF8F2041ABF5001C992A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FFF9BFC62041AF9F001C992A /* Fonts */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		FFF9BFC62041AF9F001C992A /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				1897166320FBBDE700DE588E /* Gotham-Black.otf */,
-				1897165D20FBBDE700DE588E /* Gotham-BlackItalic.otf */,
-				1897166120FBBDE700DE588E /* Gotham-Bold.otf */,
-				1897166220FBBDE700DE588E /* Gotham-BoldItalic.otf */,
-				1897166720FBBDE700DE588E /* Gotham-Book.otf */,
-				1897165F20FBBDE700DE588E /* Gotham-BookItalic.otf */,
-				1897166520FBBDE700DE588E /* Gotham-Light.otf */,
-				1897166420FBBDE700DE588E /* Gotham-LightItalic.otf */,
-				1897166020FBBDE700DE588E /* Gotham-Medium.otf */,
-				1897165B20FBBDE600DE588E /* Gotham-MediumItalic.otf */,
-				1897165C20FBBDE600DE588E /* Gotham-Thin.otf */,
-				1897166820FBBDE700DE588E /* Gotham-ThinItalic.otf */,
-				1897166920FBBDE700DE588E /* Gotham-Ultra.otf */,
-				1897165E20FBBDE700DE588E /* Gotham-UltraItalic.otf */,
-				1897166620FBBDE700DE588E /* Gotham-XLight.otf */,
-				1897166A20FBBDE700DE588E /* Gotham-XLightItalic.otf */,
-			);
-			path = Fonts;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FF72F8071FD4A95400F80263 /* Finda */ = {
+		0CEBCB4521071AD0004CC4D8 /* Finda */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF72F8251FD4A95400F80263 /* Build configuration list for PBXNativeTarget "Finda" */;
+			buildConfigurationList = 0CEBCB7121071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "Finda" */;
 			buildPhases = (
-				61E2C2929572994A92A19B6B /* [CP] Check Pods Manifest.lock */,
-				FF72F8041FD4A95400F80263 /* Sources */,
-				FF72F8051FD4A95400F80263 /* Frameworks */,
-				FF72F8061FD4A95400F80263 /* Resources */,
-				6735C5A651F9AD94FB4DF864 /* [CP] Embed Pods Frameworks */,
-				E453CD2BEED9B5FFEAAF1C2C /* [CP] Copy Pods Resources */,
-				FFF795E61FFE659600333084 /* ShellScript */,
+				66D4C80E153F4FDA18DD2D17 /* [CP] Check Pods Manifest.lock */,
+				0CEBCB4221071AD0004CC4D8 /* Sources */,
+				0CEBCB4321071AD0004CC4D8 /* Frameworks */,
+				0CEBCB4421071AD0004CC4D8 /* Resources */,
+				E2975F976A6983C535815B8C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -443,102 +280,139 @@
 			);
 			name = Finda;
 			productName = Finda;
-			productReference = FF72F8081FD4A95400F80263 /* Finda.app */;
+			productReference = 0CEBCB4621071AD0004CC4D8 /* Finda.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0CEBCB5C21071AD1004CC4D8 /* FindaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CEBCB7421071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaTests" */;
+			buildPhases = (
+				2AF5F4A8B5C72656DA299BEA /* [CP] Check Pods Manifest.lock */,
+				0CEBCB5921071AD1004CC4D8 /* Sources */,
+				0CEBCB5A21071AD1004CC4D8 /* Frameworks */,
+				0CEBCB5B21071AD1004CC4D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CEBCB5F21071AD1004CC4D8 /* PBXTargetDependency */,
+			);
+			name = FindaTests;
+			productName = FindaTests;
+			productReference = 0CEBCB5D21071AD1004CC4D8 /* FindaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0CEBCB6721071AD1004CC4D8 /* FindaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CEBCB7721071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaUITests" */;
+			buildPhases = (
+				E3A8CEF8CD408C6E2A37C209 /* [CP] Check Pods Manifest.lock */,
+				0CEBCB6421071AD1004CC4D8 /* Sources */,
+				0CEBCB6521071AD1004CC4D8 /* Frameworks */,
+				0CEBCB6621071AD1004CC4D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CEBCB6A21071AD1004CC4D8 /* PBXTargetDependency */,
+			);
+			name = FindaUITests;
+			productName = FindaUITests;
+			productReference = 0CEBCB6821071AD1004CC4D8 /* FindaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FF72F8001FD4A95400F80263 /* Project object */ = {
+		0CEBCB3E21071AD0004CC4D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Finda Ltd";
 				TargetAttributes = {
-					FF72F8071FD4A95400F80263 = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 323G4QB9KX;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplePay = {
-								enabled = 0;
-							};
-							com.apple.Keychain = {
-								enabled = 1;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
+					0CEBCB4521071AD0004CC4D8 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					0CEBCB5C21071AD1004CC4D8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 0CEBCB4521071AD0004CC4D8;
+					};
+					0CEBCB6721071AD1004CC4D8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 0CEBCB4521071AD0004CC4D8;
 					};
 				};
 			};
-			buildConfigurationList = FF72F8031FD4A95400F80263 /* Build configuration list for PBXProject "Finda" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 0CEBCB4121071AD0004CC4D8 /* Build configuration list for PBXProject "Finda" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = FF72F7FF1FD4A95400F80263;
-			productRefGroup = FF72F8091FD4A95400F80263 /* Products */;
+			mainGroup = 0CEBCB3D21071AD0004CC4D8;
+			productRefGroup = 0CEBCB4721071AD0004CC4D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FF72F8071FD4A95400F80263 /* Finda */,
+				0CEBCB4521071AD0004CC4D8 /* Finda */,
+				0CEBCB5C21071AD1004CC4D8 /* FindaTests */,
+				0CEBCB6721071AD1004CC4D8 /* FindaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FF72F8061FD4A95400F80263 /* Resources */ = {
+		0CEBCB4421071AD0004CC4D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1897167920FBBDE700DE588E /* Gotham-Ultra.otf in Resources */,
-				FFC981D520742E7B00BAB2CC /* OnboardingViewController.xib in Resources */,
-				1897167320FBBDE700DE588E /* Gotham-Black.otf in Resources */,
-				FF1BAA251FE71B9A00E6D51A /* TermsConditionsViewController.xib in Resources */,
-				FF2ABBCD1FFD5A6200C2A518 /* Icons.xcassets in Resources */,
-				FF921EE02042BFCE008CB8AD /* NoInternetViewController.xib in Resources */,
-				1897167120FBBDE700DE588E /* Gotham-Bold.otf in Resources */,
-				1897167A20FBBDE700DE588E /* Gotham-XLightItalic.otf in Resources */,
-				FF435F1F2025CAD9005D30FD /* MenuTableViewCell.xib in Resources */,
-				1897167820FBBDE700DE588E /* Gotham-ThinItalic.otf in Resources */,
-				1897167420FBBDE700DE588E /* Gotham-LightItalic.otf in Resources */,
-				B36E8C14203A097A00E8AA5B /* SavedItemCollectionViewCell.xib in Resources */,
-				1897166B20FBBDE700DE588E /* Gotham-MediumItalic.otf in Resources */,
-				FF435F192025C007005D30FD /* MenuSectionSeparator.xib in Resources */,
-				FF1BAA191FE71B5B00E6D51A /* ProfileViewController.xib in Resources */,
-				1897167620FBBDE700DE588E /* Gotham-XLight.otf in Resources */,
-				FF1BAA291FE71BCE00E6D51A /* SendFeedbackViewController.xib in Resources */,
-				FFE2C5BB1FFF972A00CFB0F4 /* SidebarMenuViewController.xib in Resources */,
-				1897167520FBBDE700DE588E /* Gotham-Light.otf in Resources */,
-				FF1BAA1D1FE71B7000E6D51A /* FiltersViewController.xib in Resources */,
-				FF112AA51FD4AB5D009BC9A9 /* MenuViewController.xib in Resources */,
-				1897166E20FBBDE700DE588E /* Gotham-UltraItalic.otf in Resources */,
-				FF91AFAA1FE6A17300FA3179 /* LoginRegisterViewController.xib in Resources */,
-				FFA655AE203B9A02000F0043 /* SimpleImageCollectionViewCell.xib in Resources */,
-				1897166C20FBBDE700DE588E /* Gotham-Thin.otf in Resources */,
-				FF72F8161FD4A95400F80263 /* LaunchScreen.storyboard in Resources */,
-				1897166F20FBBDE700DE588E /* Gotham-BookItalic.otf in Resources */,
-				1897167020FBBDE700DE588E /* Gotham-Medium.otf in Resources */,
-				1897166D20FBBDE700DE588E /* Gotham-BlackItalic.otf in Resources */,
-				1887FA03209656F000001851 /* Media.xcassets in Resources */,
-				FF72F8131FD4A95400F80263 /* Assets.xcassets in Resources */,
-				FF9C326E201DC79200490E0C /* ProfileFormHeaderView.xib in Resources */,
-				1897167220FBBDE700DE588E /* Gotham-BoldItalic.otf in Resources */,
-				1897167720FBBDE700DE588E /* Gotham-Book.otf in Resources */,
-				FF72F8111FD4A95400F80263 /* Main.storyboard in Resources */,
+				0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */,
+				0CEBCB7B21071CF6004CC4D8 /* Resource in Resources */,
+				0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */,
+				0CEBCB5421071AD1004CC4D8 /* Assets.xcassets in Resources */,
+				0CEBCB4F21071AD0004CC4D8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CEBCB5B21071AD1004CC4D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CEBCB6621071AD1004CC4D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		61E2C2929572994A92A19B6B /* [CP] Check Pods Manifest.lock */ = {
+		2AF5F4A8B5C72656DA299BEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66D4C80E153F4FDA18DD2D17 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -556,7 +430,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6735C5A651F9AD94FB4DF864 /* [CP] Embed Pods Frameworks */ = {
+		E2975F976A6983C535815B8C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -564,180 +438,123 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/Coordinator/Coordinator.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/DCKit/DCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
-				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-Marshal/Moya_Marshal.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Strongbox/Strongbox.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
-				"${BUILT_PRODUCTS_DIR}/UPCarouselFlowLayout/UPCarouselFlowLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Coordinator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_Marshal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Strongbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UPCarouselFlowLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E453CD2BEED9B5FFEAAF1C2C /* [CP] Copy Pods Resources */ = {
+		E3A8CEF8CD408C6E2A37C209 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-resources.sh",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
+				"$(DERIVED_FILE_DIR)/Pods-FindaUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		FFF795E61FFE659600333084 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FF72F8041FD4A95400F80263 /* Sources */ = {
+		0CEBCB4221071AD0004CC4D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				181F2C5A210638ED00EE91E7 /* GoogleService-Info.plist in Sources */,
-				FF112AA41FD4AB5D009BC9A9 /* MenuViewController.swift in Sources */,
-				FFE2C5C71FFFD7C600CFB0F4 /* FindaServiceError.swift in Sources */,
-				FF435F172025B615005D30FD /* UIColor+FindaColours.swift in Sources */,
-				FFE2C5C92000DB1700CFB0F4 /* LoginResponse.swift in Sources */,
-				FF5BC5CA2003C4200044F489 /* AppCoordinator.swift in Sources */,
-				FF5BC5AB20037EFA0044F489 /* User.swift in Sources */,
-				FF6FA24B201CD13400567F45 /* ProfileFormViewController.swift in Sources */,
-				FFC981D420742E7B00BAB2CC /* OnboardingViewController.swift in Sources */,
-				FF9C3270201DCBFF00490E0C /* ProfileFormHeaderView.swift in Sources */,
-				FF5BC5D22003FED60044F489 /* Help-CoordinatingResponder.swift in Sources */,
-				FF921EDF2042BFCE008CB8AD /* NoInternetViewController.swift in Sources */,
-				FFF6DF2D200A21CD00BCD642 /* AccountManager.swift in Sources */,
-				B36E8C102035910000E8AA5B /* NotificationNames.swift in Sources */,
-				181F2C582106178F00EE91E7 /* UserPreferences.swift in Sources */,
-				FF72F80C1FD4A95400F80263 /* AppDelegate.swift in Sources */,
-				FFF9BFC82041B593001C992A /* UIViewController+CustomFonts.swift in Sources */,
-				FF5BC5BD2003B9FB0044F489 /* RegisterResponse.swift in Sources */,
-				FFCC78BC202F67D800443CA9 /* UserProfile.swift in Sources */,
-				B36E8C13203A097A00E8AA5B /* SavedItemCollectionViewCell.swift in Sources */,
-				FF5BC5A7200372440044F489 /* CurrentUser.swift in Sources */,
-				FF5BC5D02003F0CC0044F489 /* HelpCoordinator.swift in Sources */,
-				FFF6DF2B200A0F8700BCD642 /* HelpManager.swift in Sources */,
-				FFCC78C220308D4E00443CA9 /* LoginRegisterFormViewController.swift in Sources */,
-				FFCC78BE203059BF00443CA9 /* FindaNavController.swift in Sources */,
-				FF5BC5B92003B8520044F489 /* AvatarResponse.swift in Sources */,
-				FFE2C5BE1FFFC7E200CFB0F4 /* DataManager.swift in Sources */,
-				FFA655AD203B9A02000F0043 /* SimpleImageCollectionViewCell.swift in Sources */,
-				FF5BC59820016A6D0044F489 /* FindaMoyaTokenPlugin.swift in Sources */,
-				B36E8C0E203481F500E8AA5B /* ReachabilityManager.swift in Sources */,
-				FF5BC5DA20040A830044F489 /* Account-CoordinatingResponder.swift in Sources */,
-				FF767B3D2041C97900FFC1A1 /* GradientView.swift in Sources */,
-				FF435F1E2025CAD9005D30FD /* MenuTableViewCell.swift in Sources */,
-				FF5BC5CE2003E7340044F489 /* AppDependency.swift in Sources */,
-				FFF6DF2F200A298F00BCD642 /* CurrentUserResponse.swift in Sources */,
-				FF6FA24D201CDFD900567F45 /* App-CoordinatingResponder.swift in Sources */,
-				FFF795EE1FFE821900333084 /* LoginManager.swift in Sources */,
-				FFE2C5CB2000F04400CFB0F4 /* FindaAPI.swift in Sources */,
-				FF5BC5D820040A130044F489 /* AccountCoordinator.swift in Sources */,
-				FFE2C5C01FFFC83800CFB0F4 /* FindaService.swift in Sources */,
-				FF1BAA241FE71B9A00E6D51A /* TermsConditionsViewController.swift in Sources */,
-				FF5BC5CC2003C60D0044F489 /* NeedsDependency.swift in Sources */,
-				FF91AFA91FE6A17300FA3179 /* LoginRegisterViewController.swift in Sources */,
-				FFE2C5C51FFFD79600CFB0F4 /* DataError.swift in Sources */,
-				FFE2C5BA1FFF972A00CFB0F4 /* SidebarMenuViewController.swift in Sources */,
-				FF5BC5A020025A030044F489 /* FindaMoyaHMACPlugin.swift in Sources */,
-				FF5BC5C52003BF260044F489 /* UserResponse.swift in Sources */,
-				FF334C1F201515D300029068 /* AccountError.swift in Sources */,
+				0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */,
+				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
+				0CCF22BB210895B300612D5B /* TextFieldExtensions.swift in Sources */,
+				0CCF22B92107390800612D5B /* DashboardVC.swift in Sources */,
+				0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */,
+				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,
+				0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */,
+				0CCF22B82107390800612D5B /* LoginVC.swift in Sources */,
+				0CCF22D92108B25900612D5B /* LoginManager.swift in Sources */,
+				0CCF22DE2108B58A00612D5B /* User.swift in Sources */,
+				0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */,
+				0CCF22D621089B6200612D5B /* FindaMoyaTokenPlugin.swift in Sources */,
+				0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CEBCB5921071AD1004CC4D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CEBCB6221071AD1004CC4D8 /* FindaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CEBCB6421071AD1004CC4D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CEBCB6D21071AD1004CC4D8 /* FindaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0CEBCB5F21071AD1004CC4D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CEBCB4521071AD0004CC4D8 /* Finda */;
+			targetProxy = 0CEBCB5E21071AD1004CC4D8 /* PBXContainerItemProxy */;
+		};
+		0CEBCB6A21071AD1004CC4D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CEBCB4521071AD0004CC4D8 /* Finda */;
+			targetProxy = 0CEBCB6921071AD1004CC4D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		FF72F80F1FD4A95400F80263 /* Main.storyboard */ = {
+		0CEBCB4D21071AD0004CC4D8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FF72F8101FD4A95400F80263 /* Base */,
+				0CEBCB4E21071AD0004CC4D8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FF72F8141FD4A95400F80263 /* LaunchScreen.storyboard */ = {
+		0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FF72F8151FD4A95400F80263 /* Base */,
+				0CEBCB5621071AD1004CC4D8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -745,16 +562,17 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FF72F8231FD4A95400F80263 /* Debug */ = {
+		0CEBCB6F21071AD1004CC4D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -773,14 +591,15 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -794,26 +613,26 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		FF72F8241FD4A95400F80263 /* Release */ = {
+		0CEBCB7021071AD1004CC4D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -832,14 +651,15 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -847,71 +667,192 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		FF72F8261FD4A95400F80263 /* Debug */ = {
+		0CEBCB7221071AD1004CC4D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38779D64C14188171BC17758 /* Pods-Finda.debug.xcconfig */;
+			baseConfigurationReference = 341BD77F58966C7AFB8BF641 /* Pods-Finda.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Finda/Finda.entitlements;
-				DEVELOPMENT_TEAM = 323G4QB9KX;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RCJAC4Q5FV;
 				INFOPLIST_FILE = Finda/Info.plist;
-				INFOPLIST_PREPROCESS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		FF72F8271FD4A95400F80263 /* Release */ = {
+		0CEBCB7321071AD1004CC4D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74142D3BC53789DFB99A9BB1 /* Pods-Finda.release.xcconfig */;
+			baseConfigurationReference = 2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Finda/Finda.entitlements;
-				DEVELOPMENT_TEAM = 323G4QB9KX;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RCJAC4Q5FV;
 				INFOPLIST_FILE = Finda/Info.plist;
-				INFOPLIST_PREPROCESS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0CEBCB7521071AD1004CC4D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E1B7F1EF255DBF716E70F99 /* Pods-FindaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FindaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finda.app/Finda";
+			};
+			name = Debug;
+		};
+		0CEBCB7621071AD1004CC4D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 035913A7088946EBA06AFD9E /* Pods-FindaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FindaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finda.app/Finda";
+			};
+			name = Release;
+		};
+		0CEBCB7821071AD1004CC4D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0288E199D06E667D702BCB7E /* Pods-FindaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FindaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Finda;
+			};
+			name = Debug;
+		};
+		0CEBCB7921071AD1004CC4D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7705A2C8D63BCB785BD88416 /* Pods-FindaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FindaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Finda;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FF72F8031FD4A95400F80263 /* Build configuration list for PBXProject "Finda" */ = {
+		0CEBCB4121071AD0004CC4D8 /* Build configuration list for PBXProject "Finda" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF72F8231FD4A95400F80263 /* Debug */,
-				FF72F8241FD4A95400F80263 /* Release */,
+				0CEBCB6F21071AD1004CC4D8 /* Debug */,
+				0CEBCB7021071AD1004CC4D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF72F8251FD4A95400F80263 /* Build configuration list for PBXNativeTarget "Finda" */ = {
+		0CEBCB7121071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "Finda" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF72F8261FD4A95400F80263 /* Debug */,
-				FF72F8271FD4A95400F80263 /* Release */,
+				0CEBCB7221071AD1004CC4D8 /* Debug */,
+				0CEBCB7321071AD1004CC4D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CEBCB7421071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CEBCB7521071AD1004CC4D8 /* Debug */,
+				0CEBCB7621071AD1004CC4D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CEBCB7721071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CEBCB7821071AD1004CC4D8 /* Debug */,
+				0CEBCB7921071AD1004CC4D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0CEBCB5021071AD0004CC4D8 /* Finda.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0CEBCB5121071AD0004CC4D8 /* Finda.xcdatamodel */,
+			);
+			currentVersion = 0CEBCB5121071AD0004CC4D8 /* Finda.xcdatamodel */;
+			path = Finda.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = FF72F8001FD4A95400F80263 /* Project object */;
+	rootObject = 0CEBCB3E21071AD0004CC4D8 /* Project object */;
 }

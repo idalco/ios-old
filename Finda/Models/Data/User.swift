@@ -2,6 +2,9 @@
 //  User.swift
 //  Finda
 //
+//  Created by Peter Lloyd on 25/07/2018.
+//  Copyright © 2018 Finda Ltd. All rights reserved.
+//
 
 import Foundation
 import Marshal
@@ -29,9 +32,9 @@ final class User: NSObject, Unmarshaling {
     var leadImage: String?
     var ethnicity: Int
     var available: Int
-
-    init(firstName: String, lastName: String, email: String, avatar: String, userType: Int, instagramUsername: String, instagramFollowers: Int, occupation: String, companyName: String, companyWebsite: String, dob: Int, country: String, nationality: String, residenceCountry: String, bankSortcode: String, bankAccountnumber: String, bankAccountname: String, vatNumber: String, referrerCode: String, leadImage: String, ethnicity: Int, available: Int) {
     
+    init(firstName: String, lastName: String, email: String, avatar: String, userType: Int, instagramUsername: String, instagramFollowers: Int, occupation: String, companyName: String, companyWebsite: String, dob: Int, country: String, nationality: String, residenceCountry: String, bankSortcode: String, bankAccountnumber: String, bankAccountname: String, vatNumber: String, referrerCode: String, leadImage: String, ethnicity: Int, available: Int) {
+        
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
@@ -80,5 +83,5 @@ final class User: NSObject, Unmarshaling {
         ethnicity = try object.value(for: "ethnicity")
         available = try object.value(for: "available")
     }
-
+    
 }

@@ -1,15 +1,14 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.3'
+# platform :ios, '9.0'
 
 target 'Finda' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  
+
+  # Pods for Finda
+
   # ignore all warnings from all pods
   inhibit_all_warnings!
-  
-  # Coordinator system
-  pod 'Coordinator', :git => 'https://github.com/radianttap/Coordinator.git'
 
   # network requests
   pod 'Alamofire'
@@ -30,28 +29,26 @@ target 'Finda' do
   
   # forms
   pod 'Eureka'
-  
-  # swipable cards
-  pod 'Koloda', '~> 4.3.1'
-  
-  # floating action button (official google)
-  pod 'MaterialComponents/Buttons'
-  # expanding floating button (unofficial)
-  pod 'Floaty', '~> 4.0.0'
-  
-  # image downloading and caching
-  pod 'Kingfisher', '~> 4.6'
-  
+
+  # buttons
+  pod 'DCKit'
+
+  # keyboard manager
+  pod 'IQKeyboardManagerSwift'
+
   # secure data storage
   pod 'Strongbox'
-  
-  # easy carousel flow layout
-  pod 'UPCarouselFlowLayout'
-  
-  # Firebase
-  pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
-  
-  # Welcome screen walkthrough
-  
+
+
+
+  target 'FindaTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'FindaUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end

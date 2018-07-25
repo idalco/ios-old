@@ -1,6 +1,0 @@
-framework module Pods_Finda {
-  umbrella header "Pods-Finda-umbrella.h"
-
-  export *
-  module * { export * }
-}
