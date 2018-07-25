@@ -5,7 +5,7 @@
 
 import Foundation
 import Moya
-import Moya_Marshal
+import SwiftyJSON
 
 let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     NetworkLoggerPlugin(verbose: true),
@@ -49,7 +49,6 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/updateAvatar"
         case .userDetails:
             return "/userLoad"
-
         }
     }
     
@@ -123,20 +122,23 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
     var headers: [String: String]? {
         return ["Content-Type": "application/json"]
     }
-    
-
 }
-//
-//func FindaAPISession(target: FindaAPI) {
-//    FindaAPIManager.request(target) { (result) in
-//        switch result {
-//        case .success(let response):
-//           print(result)
-//
-//        case .failure(_):
-//            break
-//        }
-//    }
-//}
-//
+
+func FindaAPISession(target: FindaAPI, completion: @escaping (_ response: Bool, _ result: JSON) -> ()) {
+    FindaAPIManager.request(target) { (result) in
+        switch result {
+        case .success(let response):
+            do {
+                let data = try response.mapJSON()
+                let json = JSON(data)
+                completion(true, json)
+            } catch(_){
+                completion(false, JSON.null)
+            }
+        case .failure(_):
+            completion(false, JSON.null)
+            break
+        }
+    }
+}
 
