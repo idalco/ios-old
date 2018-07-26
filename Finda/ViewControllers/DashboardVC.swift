@@ -15,7 +15,7 @@ class DashboardVC: FormViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.FindaColors.Yellow
         self.tableView?.backgroundColor = UIColor.white
-        
+        _ = self.load()
         TextRow.defaultCellSetup = { cell, row in
 //            // Changes separatorInset to yellow
 //            row.cell.separatorInset = UIEdgeInsets(top: 0, left: 2000, bottom: 0, right: 0)
@@ -99,8 +99,8 @@ class DashboardVC: FormViewController {
             <<< PickerInlineRow<String>() { row in
                 row.title = "Gender"
                 
-                row.options = ["One","Two","Three"]
-                row.value = "Two"
+                row.options = ["Male", "Female"]
+                row.value = "Male"
             }
             <<< PickerInlineRow<String>() { row in
                 row.title = "Ethnicity"
@@ -130,11 +130,22 @@ class DashboardVC: FormViewController {
                 row.placeholder = ""
                 //placeholderRed(row: row)
             }
-
-        
         // Do any additional setup after loading the view.
     }
 
+    func load() -> [String: Int]{
+        FindaAPISession(target: .termData(term: TermData.Ethnicity)) { (response, result) in
+            if(response){
+                print(result)
+                
+            }
+            print(response)
+
+        }
+        return [:]
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

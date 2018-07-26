@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 import CoreData
-import UIKit
 
 class LoginManager {
     
@@ -22,9 +21,11 @@ class LoginManager {
     
     func login(email: String, password: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
-            if(response && result["status"] == 1){
+            if(response){
                 self.saveUserData(data: result)
                 CoreDataManager.printEntity(entity: "User")
+                let defaults = UserDefaults.standard
+                defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
                 completion(response, result)
             }
             completion(false, result)

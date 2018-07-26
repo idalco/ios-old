@@ -11,9 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Bold.otf">
-            <string>Gotham-Bold</string>
-        </array>
         <array key="Gotham-Light.otf">
             <string>Gotham-Light</string>
         </array>
@@ -30,7 +27,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FindaLogoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Wb8-Lc-eH5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="5uE-8y-fJM">
+                                <rect key="frame" x="-158" y="0.0" width="440" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlj-Sa-1b8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nfp-rm-oTA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FindaLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="Wb8-Lc-eH5">
                                 <rect key="frame" x="16" y="45" width="343" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wb8-Lc-eH5" secondAttribute="height" multiplier="343:89" id="u32-O6-95O"/>
@@ -38,22 +46,23 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN TO YOUR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRt-eM-mIp">
                                 <rect key="frame" x="16" y="142" width="343" height="23"/>
-                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="19"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMn-go-cwV">
-                                <rect key="frame" x="16" y="219" width="343" height="23"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="19"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="16" y="219" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-gm-5v7">
-                                <rect key="frame" x="16" y="266" width="343" height="50"/>
+                                <rect key="frame" x="16" y="247.5" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WBU-zR-1pi"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                 <connections>
@@ -62,17 +71,18 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlT-2b-Dub">
-                                <rect key="frame" x="16" y="356" width="343" height="23"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="19"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="16" y="319.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUK-9N-Tpt">
-                                <rect key="frame" x="16" y="403" width="343" height="50"/>
+                                <rect key="frame" x="16" y="348" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4Gv-2P-bdo"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                 <connections>
@@ -81,11 +91,12 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-wb-aaJ" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="490" width="343" height="45"/>
+                                <rect key="frame" x="16" y="458" width="343" height="45"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aJN-wb-aaJ" secondAttribute="height" multiplier="343:30" constant="-171.5" id="ezB-ra-IjJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -94,7 +105,7 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="normalTextColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -114,17 +125,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbw-Y1-bSB" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="551" width="343" height="45"/>
+                                <rect key="frame" x="16" y="523" width="343" height="45"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qbw-Y1-bSB" secondAttribute="height" multiplier="343:30" constant="-171.5" id="03F-Wx-LCt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                 <state key="normal" title="NOT REGISTERED?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="5"/>
@@ -152,32 +164,41 @@
                             <constraint firstItem="RlT-2b-Dub" firstAttribute="trailing" secondItem="hUK-9N-Tpt" secondAttribute="trailing" id="0wv-65-Rhr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aJN-wb-aaJ" secondAttribute="trailing" constant="16" id="2O1-7B-TUL"/>
                             <constraint firstItem="RlT-2b-Dub" firstAttribute="leading" secondItem="hUK-9N-Tpt" secondAttribute="leading" id="2hB-j7-OaE"/>
+                            <constraint firstItem="5uE-8y-fJM" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="34y-SF-kwD"/>
                             <constraint firstItem="Wb8-Lc-eH5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="4vw-87-FCR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wb8-Lc-eH5" secondAttribute="trailing" constant="16" id="8yz-j3-q47"/>
                             <constraint firstItem="SMn-go-cwV" firstAttribute="top" secondItem="BRt-eM-mIp" secondAttribute="bottom" constant="54" id="Cop-dc-Aoh"/>
                             <constraint firstItem="BRt-eM-mIp" firstAttribute="top" secondItem="Wb8-Lc-eH5" secondAttribute="bottom" constant="8" id="D1s-kA-uG9"/>
-                            <constraint firstItem="RlT-2b-Dub" firstAttribute="top" secondItem="xAh-gm-5v7" secondAttribute="bottom" constant="40" id="FDY-bc-sdH"/>
-                            <constraint firstItem="aJN-wb-aaJ" firstAttribute="top" secondItem="hUK-9N-Tpt" secondAttribute="bottom" constant="37" id="FXt-uC-mpW"/>
+                            <constraint firstItem="RlT-2b-Dub" firstAttribute="top" secondItem="xAh-gm-5v7" secondAttribute="bottom" constant="22" id="FDY-bc-sdH"/>
+                            <constraint firstItem="aJN-wb-aaJ" firstAttribute="top" secondItem="hUK-9N-Tpt" secondAttribute="bottom" constant="60" id="FXt-uC-mpW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SMn-go-cwV" secondAttribute="trailing" constant="16" id="Gef-7u-A15"/>
+                            <constraint firstItem="Hlj-Sa-1b8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hio-ea-6xN"/>
                             <constraint firstItem="hUK-9N-Tpt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ht3-re-UkA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xAh-gm-5v7" secondAttribute="trailing" constant="16" id="JY4-BQ-wKT"/>
+                            <constraint firstItem="5uE-8y-fJM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-93" id="L1Q-lS-4Fs"/>
                             <constraint firstItem="BRt-eM-mIp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LP0-zL-gv3"/>
-                            <constraint firstItem="hUK-9N-Tpt" firstAttribute="top" secondItem="RlT-2b-Dub" secondAttribute="bottom" constant="24.5" id="Nv7-wB-2wn"/>
+                            <constraint firstItem="hUK-9N-Tpt" firstAttribute="top" secondItem="RlT-2b-Dub" secondAttribute="bottom" constant="8" id="Nv7-wB-2wn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qbw-Y1-bSB" secondAttribute="trailing" constant="16" id="QUF-63-GIU"/>
                             <constraint firstItem="Wb8-Lc-eH5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Qei-LZ-GX2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BRt-eM-mIp" secondAttribute="trailing" constant="16" id="TIa-re-xkJ"/>
-                            <constraint firstItem="xAh-gm-5v7" firstAttribute="top" secondItem="SMn-go-cwV" secondAttribute="bottom" constant="24.5" id="TgE-hm-zve"/>
+                            <constraint firstItem="xAh-gm-5v7" firstAttribute="top" secondItem="SMn-go-cwV" secondAttribute="bottom" constant="8" id="TgE-hm-zve"/>
                             <constraint firstItem="aJN-wb-aaJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="V0F-1y-cOe"/>
+                            <constraint firstItem="Hlj-Sa-1b8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XFl-4f-YP3"/>
                             <constraint firstItem="xAh-gm-5v7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Xcj-gx-LWq"/>
+                            <constraint firstItem="5uE-8y-fJM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fnn-3E-YcY"/>
+                            <constraint firstItem="Hlj-Sa-1b8" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="ixM-KN-jhh"/>
                             <constraint firstItem="Qbw-Y1-bSB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mwu-Fy-2IJ"/>
                             <constraint firstItem="SMn-go-cwV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oqS-fP-48t"/>
-                            <constraint firstItem="Qbw-Y1-bSB" firstAttribute="top" secondItem="aJN-wb-aaJ" secondAttribute="bottom" constant="16" id="rLk-ja-ZSD"/>
+                            <constraint firstItem="Qbw-Y1-bSB" firstAttribute="top" secondItem="aJN-wb-aaJ" secondAttribute="bottom" constant="20" id="rLk-ja-ZSD"/>
+                            <constraint firstItem="5uE-8y-fJM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-158" id="sY2-6x-i4J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hUK-9N-Tpt" secondAttribute="trailing" constant="16" id="v9S-nj-2cf"/>
+                            <constraint firstItem="Hlj-Sa-1b8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zgJ-ZU-sTd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="xAh-gm-5v7" id="q6o-gO-MWa"/>
+                        <outlet property="findaImageView" destination="Wb8-Lc-eH5" id="IsC-4l-cOZ"/>
                         <outlet property="passwordTextField" destination="hUK-9N-Tpt" id="N0V-Ub-bEJ"/>
                         <segue destination="qQY-DU-NTk" kind="presentation" identifier="loginSegue" id="Mqb-rw-5oM"/>
                     </connections>
@@ -256,6 +277,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FindaLogoBlack" width="421" height="297"/>
+        <image name="FindaLogoWhite" width="421" height="297"/>
+        <image name="splash" width="750" height="500"/>
     </resources>
 </document>

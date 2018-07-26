@@ -30,7 +30,7 @@ class CoreDataManager {
         let managedContext = appDelegate.persistentContainer.viewContext
         let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         let users = try! managedContext.fetch(userFetch)
-        
+        print("CoreData: ")
         print(users)
     }
     

@@ -13,13 +13,30 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var findaImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layoutIfNeeded()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.FindaColors.White
-        self.setEmailTextFieldBorder()
-        self.setPasswordTextFieldBorder()
+        
+        let theImage = self.findaImageView.image
+        
+        
+        let filter = CIFilter(name: "CIColorInvert")
+        
+        filter?.setValue(CIImage(image: theImage!), forKey: kCIInputImageKey)
+        
+        
+
+        
+        self.findaImageView.contentMode = .scaleAspectFill
+        //self.findaImageView.image = UIImage(ciImage: (filter?.outputImage)!, scale: 1.0, orientation: UIImageOrientation.up)
+        
+        
+        self.emailTextField.setBottomBorderLogin()
+        self.passwordTextField.setBottomBorderLogin()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,18 +46,18 @@ class LoginVC: UIViewController {
     
     func setEmailTextFieldBorder(error: Bool = false){
         if(error){
-            self.emailTextField.setBottomBorder(colour: UIColor.FindaColors.FindaRed)
+            self.emailTextField.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
         } else {
-            self.emailTextField.setBottomBorder(colour: UIColor.FindaColors.Purple)
+            self.emailTextField.setBottomBorderLogin()
         }
     }
     
     
     func setPasswordTextFieldBorder(error: Bool = false){
         if(error){
-            self.passwordTextField.setBottomBorder(colour: UIColor.FindaColors.FindaRed)
+            self.passwordTextField.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
         } else {
-            self.passwordTextField.setBottomBorder(colour: UIColor.FindaColors.Purple)
+            self.passwordTextField.setBottomBorderLogin()
         }
     }
  

@@ -7,16 +7,18 @@ import Foundation
 import Moya
 import SwiftyJSON
 
+
 let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     NetworkLoggerPlugin(verbose: true),
     FindaHMACPlugin(),
-    FindaTokenPlugin(tokenClosure: "")
+    FindaTokenPlugin(tokenClosure: accessToken())
     ])
 
 
 enum FindaAPI {
     // POST
     case login(email: String, password: String)
+    case termData(term: TermData)
     case logout()
     case register(email: String, password: String, name: String, locale: String)
     case updateProfile(email: String, firstName: String, lastName: String)
@@ -35,6 +37,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login:
             return "/login"
+        case .termData:
+            return "/getTerms"
         case .logout:
             return "/logout"
         case .register:
@@ -56,7 +60,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .logout, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -73,20 +77,15 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["email"] = email
             p["password"] = password
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        
+        case .termData(let vid):
+            p["vid"] = vid.rawValue
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .register(let email, let password, let name, let locale):
             p["email"] = email
             p["password"] = password
             p["name"] = name
             p["locale"] = locale
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        
-//        case .updateProfile(let firstName, let lastName, let email):
-//            p["username"] = username
-//            p["firstname"] = firstName
-//            p["lastname"] = lastName
-//            p["email"] = email
-//            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
         case .updateDeviceToken(let deviceToken, let deviceType):
             p["deviceToken"] = deviceToken
@@ -131,7 +130,11 @@ func FindaAPISession(target: FindaAPI, completion: @escaping (_ response: Bool, 
             do {
                 let data = try response.mapJSON()
                 let json = JSON(data)
-                completion(true, json)
+                if(json["status"] == 1){
+                    completion(true, json)
+                } else {
+                    completion(false, json)
+                }
             } catch(_){
                 completion(false, JSON.null)
             }
@@ -140,5 +143,13 @@ func FindaAPISession(target: FindaAPI, completion: @escaping (_ response: Bool, 
             break
         }
     }
+}
+
+fileprivate func accessToken() -> String {
+    let defaults = UserDefaults.standard
+    guard let token = defaults.object(forKey:"access_token_auth") as? String else {
+        return ""
+    }
+    return token
 }
 
