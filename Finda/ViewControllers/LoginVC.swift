@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SVProgressHUD
 
 class LoginVC: UIViewController {
 
@@ -81,9 +82,10 @@ class LoginVC: UIViewController {
         }
         
         let loginManager = LoginManager()
+        SVProgressHUD.show()
         loginManager.login(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "") { (response, result) in
+            SVProgressHUD.dismiss()
             if(result["status"].numberValue != 0){
-                
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
                 self.setEmailTextFieldBorder(error: true)

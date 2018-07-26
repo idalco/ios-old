@@ -16,6 +16,7 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
   - Result (3.2.4)
+  - SideMenuSwift (0.4.1)
   - Strongbox (0.5.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.1.0)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Marshal
   - Moya
   - Moya-Marshal
+  - SideMenuSwift
   - Strongbox
   - SVProgressHUD
   - SwiftyJSON
@@ -44,6 +46,7 @@ SPEC REPOS:
     - Moya
     - Moya-Marshal
     - Result
+    - SideMenuSwift
     - Strongbox
     - SVProgressHUD
     - SwiftyJSON
@@ -58,10 +61,11 @@ SPEC CHECKSUMS:
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
   Moya-Marshal: a37ab7343dcb1e5b56aaf1ae663318553c3ce7cb
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SideMenuSwift: c4309bd978c61a61d5941eb0fa2112f6b346a331
   Strongbox: f49a3922237c1dcde2cabbb882edd37d2aa75a23
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: acc49b1dae71a49f6a75e5a7a2d144c9aa202fda
+PODFILE CHECKSUM: bf84a5eca77d5cf11303e9035c75a57eeaa83a1e
 
 COCOAPODS: 1.5.3

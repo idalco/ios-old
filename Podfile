@@ -39,6 +39,8 @@ target 'Finda' do
   # secure data storage
   pod 'Strongbox'
 
+  # Side menu
+  pod 'SideMenuSwift'
 
 
   target 'FindaTests' do
