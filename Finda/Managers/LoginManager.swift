@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 import CoreData
+import UIKit
 
 class LoginManager {
     
@@ -29,6 +30,7 @@ class LoginManager {
             completion(false, result)
         }
     }
+    
     
     private func saveUserData(data: JSON){
         let entity = "User"
@@ -64,6 +66,7 @@ class LoginManager {
         user.setValue(userData["lead_image"].string, forKeyPath: "leadImage")
         user.setValue(userData["ethnicity"].intValue, forKeyPath: "ethnicity")
         user.setValue(userData["available"].intValue, forKeyPath: "available")
+        user.setValue(userData["status"].intValue, forKeyPath: "status")
     
         do {
             try managedContext.save()

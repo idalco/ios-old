@@ -35,4 +35,8 @@ extension UIColor {
         static let White = UIColor(rgb: 0xFFFFFF)
         static let Black = UIColor(rgb: 0x000000)
     }
+    
+    func alpha() -> UIColor {
+        return self.withAlphaComponent(0.95)
+    }
 }

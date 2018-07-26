@@ -21,10 +21,11 @@
         <attribute name="occupation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="referrerCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="residenceCountry" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vatNumber" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="375"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="390"/>
     </elements>
 </model>
