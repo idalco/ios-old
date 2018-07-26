@@ -15,13 +15,6 @@ class DashboardVC: FormViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.FindaColors.Yellow
         self.tableView?.backgroundColor = UIColor.white
-
-        
-       
-        let  patch = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 40))
-        patch.backgroundColor = UIColor.FindaColors.White
-        self.view.addSubview(patch)
-
         
         TextRow.defaultCellSetup = { cell, row in
 //            // Changes separatorInset to yellow
