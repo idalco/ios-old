@@ -1,16 +1,26 @@
 //
-//  DashboardVC.swift
-//  
+//  SideMenuVC.swift
+//  Finda
 //
-//  Created by Peter Lloyd on 26/07/2018.
+//  Created by Peter Lloyd on 27/07/2018.
+//  Copyright © 2018 Finda Ltd. All rights reserved.
 //
 
 import UIKit
 
-class DashboardVC: UITableViewController {
+class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    let menu = ["Dashboard", "Personal Details"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layoutIfNeeded()
+        
+        
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") }, with: "0")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetailsNav") }, with: "1")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,26 +36,34 @@ class DashboardVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if menu.count > 0 {
+            return 1
+        }
         return 0
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return menu.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuCell
+        cell.label.text = menu[indexPath.row]
         return cell
     }
-    */
+ 
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sideMenuController?.setContentViewController(with: "\(indexPath.row)")
+        sideMenuController?.hideMenu()
+        
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
