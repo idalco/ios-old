@@ -43,6 +43,7 @@
 		0CCF2342210A86B300612D5B /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2341210A86B300612D5B /* DashboardVC.swift */; };
 		0CCF2345210B1C7C00612D5B /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2344210B1C7C00612D5B /* SideMenuCell.swift */; };
 		0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2346210B1CE400612D5B /* SideMenuVC.swift */; };
+		0CCF2349210B297A00612D5B /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2348210B297A00612D5B /* MeasurementsVC.swift */; };
 		0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB4921071AD0004CC4D8 /* AppDelegate.swift */; };
 		0CEBCB4F21071AD0004CC4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB4D21071AD0004CC4D8 /* Main.storyboard */; };
 		0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5021071AD0004CC4D8 /* Finda.xcdatamodeld */; };
@@ -114,6 +115,7 @@
 		0CCF2341210A86B300612D5B /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DashboardVC.swift; path = "/Users/peterlloyd/Desktop/Finda/Finda-iOS/Finda/ViewControllers/DashboardVC.swift"; sourceTree = "<absolute>"; };
 		0CCF2344210B1C7C00612D5B /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		0CCF2346210B1CE400612D5B /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		0CCF2348210B297A00612D5B /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
 		0CEBCB4621071AD0004CC4D8 /* Finda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEBCB4921071AD0004CC4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CEBCB4E21071AD0004CC4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				0CCF22B62107390800612D5B /* LoginVC.swift */,
 				0CCF2341210A86B300612D5B /* DashboardVC.swift */,
 				0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */,
+				0CCF2348210B297A00612D5B /* MeasurementsVC.swift */,
 				0CCF2343210B1C6700612D5B /* SideMenu */,
 			);
 			path = ViewControllers;
@@ -611,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */,
+				0CCF2349210B297A00612D5B /* MeasurementsVC.swift in Sources */,
 				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,

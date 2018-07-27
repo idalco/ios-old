@@ -1,15 +1,15 @@
 //
-//  PersonalDetailsVC.swift
+//  MeasurementsVC.swift
 //  Finda
 //
-//  Created by Peter Lloyd on 24/07/2018.
+//  Created by Peter Lloyd on 27/07/2018.
 //  Copyright © 2018 Finda Ltd. All rights reserved.
 //
 
 import UIKit
 import Eureka
 
-class PersonalDetailsVC: FormViewController {
+class MeasurementsVC: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,103 +38,53 @@ class PersonalDetailsVC: FormViewController {
         
         form +++ Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
-            header.height = {40}
+            header.height = {70}
             header.onSetupView = { view, _ in
                 view.backgroundColor = UIColor.FindaColors.White
-                let label = UILabel(frame: CGRect(x:5,y: 5, width:300, height:40))
+                let title = UILabel(frame: CGRect(x:5,y: 5, width:self.view.frame.width, height:40))
                 
-                label.text = "Personal Details"
-                label.font = UIFont(name: "Gotham-Medium", size: 17)
-                view.addSubview(label)
+                title.text = "Measurements"
+                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                view.addSubview(title)
+                
+                let description = UILabel(frame: CGRect(x:5,y: 40, width:self.view.frame.width, height:30))
+                description.numberOfLines = 0
+                description.text = "Please enter your measurements in centimeters."
+                description.font = UIFont(name: "Gotham-Light", size: 13)
+                view.addSubview(description)
+                
             }
             section.header = header
-            }   <<< TextRow(){ row in
-                row.title = "First name"
-                row.placeholder = ""
-                //placeholderRed(row: row)
             }
             
-            <<< TextRow(){ row in
-                row.title = "Last name"
-                row.placeholder = ""
-                //placeholderRed(row: row)
-            }
-            
-            <<< DateInlineRow(){ row in
-                
-                row.title = "Date of Birth"
-                row.value = Date(timeIntervalSinceReferenceDate: 0)
-                
-            }
-            
-            <<< EmailRow(){ row in
-                row.title = "Email address"
+            <<< IntRow(){ row in
+                row.title = "Height"
                 row.placeholder = ""
                 //placeholderRed(row: row)
             }
             
             
-            <<< PickerInlineRow<String>() { row in
-                row.title = "Gender"
-                
-                row.options = ["Male", "Female"]
-                row.value = "Male"
+            <<< IntRow(){ row in
+                row.title = "Bust"
+                row.placeholder = ""
+                //placeholderRed(row: row)
             }
-            <<< PickerInlineRow<String>() { row in
-                row.title = "Ethnicity"
-                
-                row.options = ["One","Two","Three"]
-                row.value = "Two"
-            }
-            
-            <<< PickerInlineRow<String>() { row in
-                row.title = "Nationality"
-                
-                row.options = ["One","Two","Three"]
-                row.value = "Two"
-            }
-            
-            <<< PickerInlineRow<String>() { row in
-                row.title = "Country of residence"
-                
-                row.options = ["One","Two","Three"]
-                row.value = "Two"
-            }
-            
-            <<< TextRow(){ row in
-                row.title = "Instagram Username"
+
+            <<< IntRow(){ row in
+                row.title = "Waist"
                 row.placeholder = ""
                 //placeholderRed(row: row)
             }
             
             <<< IntRow(){ row in
-                row.title = "Followers"
-                row.disabled = true
+                row.title = "Hips"
                 row.placeholder = ""
                 //placeholderRed(row: row)
             }
-            <<< TextRow(){ row in
-                row.title = "Referral Code"
-                row.placeholder = ""
-                //placeholderRed(row: row)
-            }
+
             
-            <<< IntRow(){ row in
-                row.title = "Minimum Hourly Rate"
-                row.placeholder = ""
-                //placeholderRed(row: row)
-            }
-            <<< IntRow(){ row in
-                row.title = "Minimum Daily Rate"
-                row.placeholder = ""
-                //placeholderRed(row: row)
-            }
             
-            <<< TextRow(){ row in
-                row.title = "VAT Number"
-                row.placeholder = "(optional)"
-                //placeholderRed(row: row)
-        }
+        
         
         // Do any additional setup after loading the view.
     }
