@@ -19,7 +19,7 @@ class RegisterOptionVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.statusBarStyle = .default
     }
     
     

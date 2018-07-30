@@ -124,18 +124,8 @@ class ClientRegisterVC: FormViewController {
   
             view.addSubview(RegisterFooter.legalFooter(width: self.view.frame.width))
             
-            let button = DCRoundedButton(frame: CGRect(x: (self.view.frame.width / 2) - (215 / 2), y: 130, width: 215, height: 45))
-            button.setTitle("SIGN UP", for: .normal)
-            
-            button.titleLabel?.font = UIFont(name: "Gotham-Bold", size: 16)
-            
+            let button = RegisterFooter.signUpButton(width: self.view.frame.width)
             button.addTarget(self, action:#selector(self.signUp), for: UIControlEvents.touchUpInside)
-            
-            button.normalBackgroundColor = UIColor.FindaColors.Purple
-            button.normalBorderColor = UIColor.FindaColors.Purple
-            button.normalTextColor = UIColor.FindaColors.White
-            button.cornerRadius = 5
-            
             view.addSubview(button)
             
         }

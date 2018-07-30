@@ -18,6 +18,7 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
 enum FindaAPI {
     // POST
     case login(email: String, password: String)
+    case registerModel(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, referral_code: String?, dob: TimeInterval)
     case termData(term: TermData)
     case logout()
     case register(email: String, password: String, name: String, locale: String)
@@ -43,6 +44,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/getTerms"
         case .logout:
             return "/logout"
+        case .registerModel:
+            return "/register"
+            
+            
+            
         case .register:
             return "/register"
         case .updateProfile:
@@ -62,7 +68,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -82,6 +88,25 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .termData(let vid):
             p["vid"] = vid.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .registerModel(let mail, let pass, let firstname, let lastname, let gender, let country, let instagram_username, let referral_code, let dob):
+            p["mail"] = mail
+            p["pass"] = pass
+            p["firstname"] = firstname
+            p["lastname"] = lastname
+            p["gender"] = gender.lowercased()
+            p["country"] = country
+            p["usertype"] = "model"
+            p["agree_terms"] = 1
+            p["instagram_username"] = instagram_username
+            if (referral_code != nil) {
+                p["referral_code"] = referral_code
+            }
+            p["dob"] = dob
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+            
+            
+            
         case .register(let email, let password, let name, let locale):
             p["email"] = email
             p["password"] = password

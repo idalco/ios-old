@@ -24,4 +24,8 @@ extension UINavigationBar {
         self.shadowImage = UIImage()
         self.isTranslucent = true
     }
+    
+    func whiteNavigationBar() {
+        self.isTranslucent = false
+    }
 }

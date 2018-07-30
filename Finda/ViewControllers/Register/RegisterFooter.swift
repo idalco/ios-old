@@ -41,6 +41,19 @@ class RegisterFooter {
         title.font = UIFont(name: "Gotham-Light", size: 11)
         return title
     }
+    
+    static func signUpButton(width: CGFloat) -> UIButton {
+        let button = DCRoundedButton(frame: CGRect(x: (width / 2) - (215 / 2), y: 130, width: 215, height: 45))
+        button.setTitle("SIGN UP", for: .normal)
+        
+        button.titleLabel?.font = UIFont(name: "Gotham-Bold", size: 16)
+        button.normalBackgroundColor = UIColor.FindaColors.Purple
+        button.normalBorderColor = UIColor.FindaColors.Purple
+        button.normalTextColor = UIColor.FindaColors.White
+        button.cornerRadius = 5
+        
+        return button
+    }
 }
 
 
