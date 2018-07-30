@@ -29,9 +29,11 @@ enum FindaAPI {
     case userDetails()
 }
 
+let domainURL: String = "http://dev.finda.co"
+
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
     
-    var baseURL: URL { return URL(string: "http://dev.finda.co/api/1.0")! }
+    var baseURL: URL { return URL(string: "\(domainURL)/api/1.0")! }
     
     var path: String {
         switch self {

@@ -16,38 +16,27 @@ class MeasurementsVC: FormViewController {
         
         self.tableView?.backgroundColor = UIColor.FindaColors.Purple
         self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
-        _ = self.load()
         
-        TextRow.defaultCellSetup = { cell, row in
-            //            // Changes separatorInset to yellow
-            //            row.cell.separatorInset = UIEdgeInsets(top: 0, left: 2000, bottom: 0, right: 0)
-            //            row.baseCell.setBottomBorder(colour: UIColor.FindaColors.Yellow)
-            
-            cell.textField.attributedPlaceholder = NSAttributedString(string: row.placeholder ?? "",
-                                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.FindaColors.Grey])
-            
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 50)
+        
+        TextRow.defaultCellUpdate = { cell, row in
+            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
         }
         
         
-        DateRow.defaultCellSetup = { cell, row in
-            // Changes separatorInset to yellow
-            //            row.cell.separatorInset = UIEdgeInsets(top: 0, left: 2000, bottom: 0, right: 0)
-            row.baseCell.setBottomBorder(colour: UIColor.FindaColors.Yellow)
-        }
         
-        form +++ Section(){ section in
+        var section = Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
             header.height = {70}
             header.onSetupView = { view, _ in
                 view.backgroundColor = UIColor.FindaColors.White
-                let title = UILabel(frame: CGRect(x:5,y: 5, width:self.view.frame.width, height:40))
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:40))
                 
                 title.text = "Measurements"
                 title.font = UIFont(name: "Gotham-Medium", size: 17)
                 view.addSubview(title)
                 
-                let description = UILabel(frame: CGRect(x:5,y: 40, width:self.view.frame.width, height:30))
+                let description = UILabel(frame: CGRect(x:10,y: 40, width:self.view.frame.width, height:30))
                 description.numberOfLines = 0
                 description.text = "Please enter your measurements in centimeters."
                 description.font = UIFont(name: "Gotham-Light", size: 13)
@@ -59,48 +48,102 @@ class MeasurementsVC: FormViewController {
             
             <<< IntRow(){ row in
                 row.title = "Height"
-                row.placeholder = ""
-                //placeholderRed(row: row)
+                let data = CoreDataManager.getInt(dataName: "height", entity: "Profile")
+                if data != -1 {
+                    row.value = data
+                }
+                
             }
             
             
             <<< IntRow(){ row in
                 row.title = "Bust"
-                row.placeholder = ""
-                //placeholderRed(row: row)
+                let data = CoreDataManager.getInt(dataName: "bust", entity: "Profile")
+                if data != -1 {
+                    row.value = data
+                }
             }
-
+            
             <<< IntRow(){ row in
                 row.title = "Waist"
-                row.placeholder = ""
-                //placeholderRed(row: row)
+                let data = CoreDataManager.getInt(dataName: "waist", entity: "Profile")
+                if data != -1 {
+                    row.value = data
+                }
             }
             
             <<< IntRow(){ row in
                 row.title = "Hips"
-                row.placeholder = ""
-                //placeholderRed(row: row)
+                let data = CoreDataManager.getInt(dataName: "hips", entity: "Profile")
+                if data != -1 {
+                    row.value = data
+                }
             }
-
-            
-            
+            <<< IntRow(){ row in
+                row.title = "Shoe Size"
+                let data = CoreDataManager.getInt(dataName: "shoeSize", entity: "Profile")
+                if data != -1 {
+                    row.value = data
+                }
+            }
+            <<< IntRow(){ row in
+                row.title = "Dress Size"
+                let data = CoreDataManager.getInt(dataName: "dressSize", entity: "Profile")
+                if data != -1 {
+                    row.value = data
+                }
+        }
+        
+        //            <<< PickerInlineRow<String>() { row in
+        //                row.title = rowTitle
+        //                let coreData = CoreDataManager.getInt(dataName: "willingColour", entity: "Profile")
+        //                if row.value == nil && coreData != -1 {
+        //                    row.value = dictionary[coreData] ?? ""
+        //                }
+        //                row.options = Array(dictionary.values)
+        //            }
+        
+        form +++ section
+        
+        PickerDelegate.addPickerData(term: .HairColour, rowTitle: "Hair Colour", coreDataName: "hairColour", entity: "Profile") { (response, result) in
+            if response {
+                section.insert(result, at: section.count)
+            }
+        }
+        
+        PickerDelegate.addPickerData(term: .HairType, rowTitle: "Hair Type", coreDataName: "hairType", entity: "Profile") { (response, result) in
+            if response {
+                section.insert(result, at: section.count)
+            }
+        }
+        
+        PickerDelegate.addPickerData(term: .HairLength, rowTitle: "Hair Length", coreDataName: "hairLength", entity: "Profile") { (response, result) in
+            if response {
+                section.insert(result, at: section.count)
+            }
+        }
+        
+        PickerDelegate.addPickerData(term: .EyeColour, rowTitle: "Eye Colour", coreDataName: "eyeColour", entity: "Profile") { (response, result) in
+            if response {
+                section.insert(result, at: section.count)
+            }
+        }
+        
+        PickerDelegate.addPickerData(rowTitle: "Willing to colour?", coreDataName: "willingColour", entity: "Profile") { (response, result) in
+            if response {
+                section.insert(result, at: section.count)
+            }
+        }
+        
+        PickerDelegate.addPickerData(rowTitle: "Willing to cut?", coreDataName: "willingCut", entity: "Profile") { (response, result) in
+            if response {
+                section.insert(result, at: section.count)
+            }
+        }
         
         
         // Do any additional setup after loading the view.
     }
-    
-    func load() -> [String: Int]{
-        FindaAPISession(target: .termData(term: TermData.Ethnicity)) { (response, result) in
-            if(response){
-                print(result)
-                
-            }
-            print(response)
-            
-        }
-        return [:]
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

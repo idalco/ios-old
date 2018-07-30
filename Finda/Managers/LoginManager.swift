@@ -74,7 +74,69 @@ class LoginManager {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        self.saveProfile(data: data)
     }
     
+    private func saveProfile(data: JSON){
+        let entity = "Profile"
+        CoreDataManager.deleteAllData(entity: entity)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let userEntity = NSEntityDescription.entity(forEntityName: entity, in: managedContext)!
+        
+        let profileData = data["userdata"]["profile"]
+        
+        let profile = NSManagedObject(entity: userEntity, insertInto: managedContext)
+        profile.setValue(profileData["height"].intValue, forKeyPath: "height")
+        profile.setValue(profileData["bust"].intValue, forKeyPath: "bust")
+        profile.setValue(profileData["waist"].intValue, forKeyPath: "waist")
+        profile.setValue(profileData["hips"].intValue, forKeyPath: "hips")
+        profile.setValue(profileData["shoesize"].intValue, forKeyPath: "shoeSize")
+        profile.setValue(profileData["dresssize"].intValue, forKeyPath: "dressSize")
+        profile.setValue(profileData["haircolour_tid"].intValue, forKeyPath: "hairColour")
+        profile.setValue(profileData["hairtype_tid"].intValue, forKeyPath: "hairType")
+        profile.setValue(profileData["hairlength_tid"].intValue, forKeyPath: "hairLength")
+        profile.setValue(profileData["willingcolour_tid"].intValue, forKeyPath: "willingColour")
+        profile.setValue(profileData["willingcut_tid"].intValue, forKeyPath: "willingCut")
+        profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: "eyeColour")
+      
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func signOut(){
+        CoreDataManager.deleteAllData(entity: "User")
+        CoreDataManager.deleteAllData(entity: "Profile")
+        
+        FindaAPISession(target: .logout()) { (_, _) in }
+        
+        
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        
+        guard let rootViewController = window.rootViewController else {
+            return
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginNav")
+        vc.view.frame = rootViewController.view.frame
+        vc.view.layoutIfNeeded()
+        
+        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = vc
+        }, completion: { completed in
+            // maybe do something here
+        })
+        
+        
+    
+    }
 }
 

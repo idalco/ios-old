@@ -39,5 +39,6 @@ extension User {
     @NSManaged public var ethnicity: Int32
     @NSManaged public var available: Int32
     @NSManaged public var status: Int32
+    @NSManaged public var gender: String?
 
 }

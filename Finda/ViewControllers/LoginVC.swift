@@ -11,7 +11,7 @@ import SwiftyJSON
 import SVProgressHUD
 
 class LoginVC: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var findaImageView: UIImageView!
@@ -21,7 +21,7 @@ class LoginVC: UIViewController {
         self.view.layoutIfNeeded()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.FindaColors.White
-        
+        self.navigationController?.navigationBar.transparentNavigationBar()
         let theImage = self.findaImageView.image
         
         
@@ -30,7 +30,7 @@ class LoginVC: UIViewController {
         filter?.setValue(CIImage(image: theImage!), forKey: kCIInputImageKey)
         
         
-
+        
         
         self.findaImageView.contentMode = .scaleAspectFill
         //self.findaImageView.image = UIImage(ciImage: (filter?.outputImage)!, scale: 1.0, orientation: UIImageOrientation.up)
@@ -39,7 +39,11 @@ class LoginVC: UIViewController {
         self.emailTextField.setBottomBorderLogin()
         self.passwordTextField.setBottomBorderLogin()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,14 +65,14 @@ class LoginVC: UIViewController {
             self.passwordTextField.setBottomBorderLogin()
         }
     }
- 
+    
     @IBAction func emailTextFieldChange(_ sender: Any) {
         self.setEmailTextFieldBorder()
     }
     
     @IBAction func passwordTextFieldChange(_ sender: Any) {
         self.setPasswordTextFieldBorder()
-
+        
     }
     
     func login(){
