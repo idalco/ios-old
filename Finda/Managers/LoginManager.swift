@@ -12,20 +12,14 @@ import CoreData
 
 class LoginManager {
     
-    enum LoginStatus: Int {
-        case Unverified = 0
-        case verified = 1
-        case Banned = 2
-        case Special = 99
-    }
-    
-    func login(email: String, password: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+    static func login(email: String, password: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
             if(response){
                 _ = ModelManager(data: result)
                 let defaults = UserDefaults.standard
                 defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
                 completion(response, result)
+                return
             }
             completion(false, result)
         }

@@ -31,6 +31,7 @@ class TermDataManager {
                 self.saveUserData(data: result, term: term)
                 CoreDataManager.printEntity(entity: "Terms")
                 completion(response, result)
+                return
             }
             completion(false, result)
         }

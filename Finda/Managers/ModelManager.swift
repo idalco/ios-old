@@ -36,8 +36,8 @@ class ModelManager {
         case nationality = "nationality"
         case residenceCountry = "residenceCountry"
         case bankSortcode = "bankSortcode"
-        case bankAccountNumber = "bankAccountnumber"
-        case bankAccountName = "bankAccountname"
+        case bankAccountNumber = "bankAccountNumber"
+        case bankAccountName = "bankAccountName"
         case vatNumber = "vatNumber"
         case referrerCode = "referrerCode"
         case leadImage = "leadImage"
@@ -98,8 +98,8 @@ class ModelManager {
         return CoreDataManager.getString(dataName: User.avatar.rawValue, entity: Entity.User.rawValue)
     }
     
-    func userType() -> String {
-        return CoreDataManager.getString(dataName: User.userType.rawValue, entity: Entity.User.rawValue)
+    func userType() -> Int {
+        return CoreDataManager.getInt(dataName: User.userType.rawValue, entity: Entity.User.rawValue)
     }
     
     func gender() -> String {
@@ -179,7 +179,7 @@ class ModelManager {
     }
     
     /*
-        Profile
+        Profile Entity
     */
     func height() -> Int {
         return CoreDataManager.getInt(dataName: Profile.height.rawValue, entity: Entity.Profile.rawValue)
@@ -220,7 +220,7 @@ class ModelManager {
     
  
  /*
-    Preferences
+    Preferences Entity
  */
     
     func friendRegisters() -> Bool {
@@ -246,7 +246,7 @@ class ModelManager {
     
     
     private func saveUserData(data: JSON){
-        let entity = "User"
+        let entity = Entity.User.rawValue
         
         CoreDataManager.deleteAllData(entity: entity)
         
@@ -257,29 +257,29 @@ class ModelManager {
         let userData = data["userdata"]
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        user.setValue(userData["firstname"].string, forKeyPath: "firstName")
-        user.setValue(userData["lastname"].string, forKeyPath: "lastName")
+        user.setValue(userData["firstname"].string, forKeyPath: User.firstName.rawValue)
+        user.setValue(userData["lastname"].string, forKeyPath: User.lastName.rawValue)
         user.setValue(userData["mail"].string, forKeyPath: "email")
-        user.setValue("https://www.finda.co/avatar/thumb\(userData["avatar"].string ?? "")", forKeyPath: "avatar")
-        user.setValue(userData["usertype"].intValue, forKeyPath: "userType")
-        user.setValue(userData["instagram_username"].string, forKeyPath: "instagramUsername")
-        user.setValue(userData["instagram_followers"].intValue, forKeyPath: "instagramFollowers")
-        user.setValue(userData["occupation"].string, forKeyPath: "occupation")
-        user.setValue(userData["company_name"].string, forKeyPath: "companyName")
-        user.setValue(userData["company_website"].string, forKeyPath: "companyWebsite")
-        user.setValue(userData["dob"].intValue, forKeyPath: "dob")
-        user.setValue(userData["country"].string, forKeyPath: "country")
-        user.setValue(userData["nationality"].string, forKeyPath: "nationality")
-        user.setValue(userData["residence_country"].string, forKeyPath: "residenceCountry")
-        user.setValue(userData["bank_sortcode"].string, forKeyPath: "bankSortcode")
-        user.setValue(userData["bank_accountnumber"].string, forKeyPath: "bankAccountNumber")
-        user.setValue(userData["bank_accountname"].string, forKeyPath: "bankAccountName")
-        user.setValue(userData["vat_number"].string, forKeyPath: "vatNumber")
-        user.setValue(userData["referrer_code"].string, forKeyPath: "referrerCode")
-        user.setValue(userData["lead_image"].string, forKeyPath: "leadImage")
-        user.setValue(userData["ethnicity"].intValue, forKeyPath: "ethnicity")
-        user.setValue(userData["available"].intValue, forKeyPath: "available")
-        user.setValue(userData["status"].intValue, forKeyPath: "status")
+        user.setValue("https://www.finda.co/avatar/thumb\(userData["avatar"].string ?? "")", forKeyPath: User.avatar.rawValue)
+        user.setValue(userData["usertype"].intValue, forKeyPath: User.userType.rawValue)
+        user.setValue(userData["instagram_username"].string, forKeyPath: User.instagramUsername.rawValue)
+        user.setValue(userData["instagram_followers"].intValue, forKeyPath: User.instagramFollowers.rawValue)
+        user.setValue(userData["occupation"].string, forKeyPath: User.occupation.rawValue)
+        user.setValue(userData["company_name"].string, forKeyPath: User.companyName.rawValue)
+        user.setValue(userData["company_website"].string, forKeyPath: User.companyWebsite.rawValue)
+        user.setValue(userData["dob"].intValue, forKeyPath: User.dob.rawValue)
+        user.setValue(userData["country"].string, forKeyPath: User.country.rawValue)
+        user.setValue(userData["nationality"].string, forKeyPath: User.nationality.rawValue)
+        user.setValue(userData["residence_country"].string, forKeyPath: User.residenceCountry.rawValue)
+        user.setValue(userData["bank_sortcode"].string, forKeyPath: User.bankSortcode.rawValue)
+        user.setValue(userData["bank_accountnumber"].string, forKeyPath: User.bankAccountNumber.rawValue)
+        user.setValue(userData["bank_accountname"].string, forKeyPath: User.bankAccountName.rawValue)
+        user.setValue(userData["vat_number"].string, forKeyPath: User.vatNumber.rawValue)
+        user.setValue(userData["referrer_code"].string, forKeyPath: User.referrerCode.rawValue)
+        user.setValue(userData["lead_image"].string, forKeyPath: User.leadImage.rawValue)
+        user.setValue(userData["ethnicity"].intValue, forKeyPath: User.ethnicity.rawValue)
+        user.setValue(userData["available"].intValue, forKeyPath: User.available.rawValue)
+        user.setValue(userData["status"].intValue, forKeyPath: User.status.rawValue)
         
         do {
             try managedContext.save()
@@ -290,7 +290,7 @@ class ModelManager {
     }
     
     private func saveProfile(data: JSON){
-        let entity = "Profile"
+        let entity = Entity.Profile.rawValue
         CoreDataManager.deleteAllData(entity: entity)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -300,18 +300,18 @@ class ModelManager {
         let profileData = data["userdata"]["profile"]
         
         let profile = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        profile.setValue(profileData["height"].intValue, forKeyPath: "height")
-        profile.setValue(profileData["bust"].intValue, forKeyPath: "bust")
-        profile.setValue(profileData["waist"].intValue, forKeyPath: "waist")
-        profile.setValue(profileData["hips"].intValue, forKeyPath: "hips")
-        profile.setValue(profileData["shoesize"].intValue, forKeyPath: "shoeSize")
-        profile.setValue(profileData["dresssize"].intValue, forKeyPath: "dressSize")
-        profile.setValue(profileData["haircolour_tid"].intValue, forKeyPath: "hairColour")
-        profile.setValue(profileData["hairtype_tid"].intValue, forKeyPath: "hairType")
-        profile.setValue(profileData["hairlength_tid"].intValue, forKeyPath: "hairLength")
-        profile.setValue(profileData["willingcolour_tid"].intValue, forKeyPath: "willingColour")
-        profile.setValue(profileData["willingcut_tid"].intValue, forKeyPath: "willingCut")
-        profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: "eyeColour")
+        profile.setValue(profileData["height"].intValue, forKeyPath: Profile.height.rawValue)
+        profile.setValue(profileData["bust"].intValue, forKeyPath: Profile.bust.rawValue)
+        profile.setValue(profileData["waist"].intValue, forKeyPath: Profile.waist.rawValue)
+        profile.setValue(profileData["hips"].intValue, forKeyPath: Profile.hips.rawValue)
+        profile.setValue(profileData["shoesize"].intValue, forKeyPath: Profile.shoeSize.rawValue)
+        profile.setValue(profileData["dresssize"].intValue, forKeyPath: Profile.dressSize.rawValue)
+        profile.setValue(profileData["haircolour_tid"].intValue, forKeyPath: Profile.hairColour.rawValue)
+        profile.setValue(profileData["hairtype_tid"].intValue, forKeyPath: Profile.hairType.rawValue)
+        profile.setValue(profileData["hairlength_tid"].intValue, forKeyPath: Profile.hairLength.rawValue)
+        profile.setValue(profileData["willingcolour_tid"].intValue, forKeyPath: Profile.willingColour.rawValue)
+        profile.setValue(profileData["willingcut_tid"].intValue, forKeyPath: Profile.willingCut.rawValue)
+        profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: Profile.eyeColour.rawValue)
         
         
         do {
@@ -323,7 +323,7 @@ class ModelManager {
     }
     
     private func savePreferences(data: JSON){
-        let entity = "Preferences"
+        let entity = Entity.Preferences.rawValue
         CoreDataManager.deleteAllData(entity: entity)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -333,11 +333,11 @@ class ModelManager {
         let profileData = data["userdata"]["prefs"]
         
         let profile = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        profile.setValue(profileData["friend_registers"].boolValue, forKeyPath: "friendRegisters")
-        profile.setValue(profileData["job_offered"].boolValue, forKeyPath: "jobOffered")
-        profile.setValue(profileData["job_cancelled"].boolValue, forKeyPath: "jobCancelled")
-        profile.setValue(profileData["payment_made"].boolValue, forKeyPath: "paymentMade")
-        profile.setValue(profileData["notifications"].boolValue, forKeyPath: "notifications")
+        profile.setValue(profileData["friend_registers"].boolValue, forKeyPath: Preferences.friendRegisters.rawValue)
+        profile.setValue(profileData["job_offered"].boolValue, forKeyPath: Preferences.jobOffered.rawValue)
+        profile.setValue(profileData["job_cancelled"].boolValue, forKeyPath: Preferences.jobCancelled.rawValue)
+        profile.setValue(profileData["payment_made"].boolValue, forKeyPath: Preferences.paymentMade.rawValue)
+        profile.setValue(profileData["notifications"].boolValue, forKeyPath: Preferences.notifications.rawValue)
         
         do {
             try managedContext.save()

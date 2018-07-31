@@ -86,12 +86,20 @@ class LoginVC: UIViewController {
             return
         }
         
-        let loginManager = LoginManager()
         SVProgressHUD.show()
-        loginManager.login(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "") { (response, result) in
+        LoginManager.login(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "") { (response, result) in
             SVProgressHUD.dismiss()
-            if(result["status"].numberValue != 0){
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            if response {
+                let modelManager = ModelManager()
+                if modelManager.status() == UserStatus.banned.rawValue {
+                    LoginManager.signOut()
+                    return
+                } else if modelManager.status() == UserStatus.unverified.rawValue {
+                    self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
+                } else {
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }
+                
             } else {
                 self.setEmailTextFieldBorder(error: true)
                 self.setPasswordTextFieldBorder(error: true)

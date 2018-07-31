@@ -13,6 +13,7 @@
 		0C4ADA6A21107EF5002C3EA3 /* RegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA6921107EF5002C3EA3 /* RegisterManager.swift */; };
 		0C4ADA71211090C4002C3EA3 /* Preferences+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA6F211090C4002C3EA3 /* Preferences+CoreDataProperties.swift */; };
 		0C4ADA72211090C4002C3EA3 /* Preferences+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA70211090C4002C3EA3 /* Preferences+CoreDataClass.swift */; };
+		0C4ADA742110A450002C3EA3 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA732110A450002C3EA3 /* UserStatus.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -99,6 +100,7 @@
 		0C4ADA6921107EF5002C3EA3 /* RegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterManager.swift; sourceTree = "<group>"; };
 		0C4ADA6F211090C4002C3EA3 /* Preferences+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Preferences+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0C4ADA70211090C4002C3EA3 /* Preferences+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Preferences+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0C4ADA732110A450002C3EA3 /* UserStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */,
 				0CEBCB5821071AD1004CC4D8 /* Info.plist */,
 				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
+				0C4ADA732110A450002C3EA3 /* UserStatus.swift */,
 				0CCF22D321089B5500612D5B /* Moya Plugins */,
 				0CCF22DA2108B55900612D5B /* Models */,
 				0CCF22BE210896A200612D5B /* Managers */,
@@ -670,6 +673,7 @@
 				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,
+				0C4ADA742110A450002C3EA3 /* UserStatus.swift in Sources */,
 				0CCF23022108E7B500612D5B /* CoreDataManager.swift in Sources */,
 				0CCF235A210E034B00612D5B /* ClientRegisterVC.swift in Sources */,
 				0CCF2353210DE56B00612D5B /* PickerDelegate.swift in Sources */,

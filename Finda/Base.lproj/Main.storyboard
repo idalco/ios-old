@@ -146,6 +146,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RqY-6H-2V5"/>
                     </view>
+                    <connections>
+                        <segue destination="G10-J4-zHy" kind="presentation" identifier="editProfileSegue" id="pco-JC-pZN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zb-vU-sO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -324,6 +327,7 @@
                         <outlet property="findaImageView" destination="Wb8-Lc-eH5" id="IsC-4l-cOZ"/>
                         <outlet property="passwordTextField" destination="hUK-9N-Tpt" id="N0V-Ub-bEJ"/>
                         <segue destination="wFZ-U0-kSb" kind="presentation" identifier="loginSegue" id="tCZ-2f-hRy"/>
+                        <segue destination="G10-J4-zHy" kind="presentation" identifier="editProfileSegue" id="pFe-r6-Hc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -654,4 +658,7 @@
         <image name="join_model_bg" width="515" height="555"/>
         <image name="splash" width="750" height="500"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pFe-r6-Hc8"/>
+    </inferredMetricsTieBreakers>
 </document>

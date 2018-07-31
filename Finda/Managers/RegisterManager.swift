@@ -22,6 +22,7 @@ class RegisterManager {
                 let defaults = UserDefaults.standard
                 defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
                 completion(response, result)
+                return
             }
             completion(false, result)
         }

@@ -159,6 +159,7 @@ func FindaAPISession(target: FindaAPI, completion: @escaping (_ response: Bool, 
                 let json = JSON(data)
                 if(json["status"] == 1){
                     completion(true, json)
+                    return
                 } else {
                     completion(false, json)
                 }
