@@ -27,8 +27,12 @@ class LoginManager {
     
     
     static func signOut(){
-        CoreDataManager.deleteAllData(entity: "User")
-        CoreDataManager.deleteAllData(entity: "Profile")
+        CoreDataManager.deleteAllData(entity: ModelManager.Entity.Profile.rawValue)
+        CoreDataManager.deleteAllData(entity: ModelManager.Entity.User.rawValue)
+        CoreDataManager.deleteAllData(entity: ModelManager.Entity.Preferences.rawValue)
+        
+        let defaults = UserDefaults.standard
+        defaults.set("", forKey: "access_token_auth")
         
         FindaAPISession(target: .logout()) { (_, _) in }
         
