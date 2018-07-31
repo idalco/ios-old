@@ -122,14 +122,14 @@
 		0CCF233A210A7F1000612D5B /* TextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		0CCF233B210A7F1000612D5B /* BaseCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCellExtensions.swift; sourceTree = "<group>"; };
 		0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsVC.swift; sourceTree = "<group>"; };
-		0CCF2341210A86B300612D5B /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DashboardVC.swift; path = "/Users/peterlloyd/Desktop/Finda/Finda-iOS/Finda/ViewControllers/DashboardVC.swift"; sourceTree = "<absolute>"; };
+		0CCF2341210A86B300612D5B /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		0CCF2344210B1C7C00612D5B /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		0CCF2346210B1CE400612D5B /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		0CCF2348210B297A00612D5B /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
 		0CCF234A210CC61800612D5B /* PreferencesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
 		0CCF234C210D070600612D5B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		0CCF234E210DDB2500612D5B /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataClass.swift"; path = "/Users/peterlloyd/Desktop/Finda/Finda-iOS/Finda/Models/Data/Profile+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		0CCF234F210DDB2500612D5B /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataProperties.swift"; path = "/Users/peterlloyd/Desktop/Finda/Finda-iOS/Finda/Models/Data/Profile+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		0CCF234E210DDB2500612D5B /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0CCF234F210DDB2500612D5B /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0CCF2352210DE56B00612D5B /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
 		0CCF2354210DFD3D00612D5B /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		0CCF2357210E033C00612D5B /* ModelRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRegisterVC.swift; sourceTree = "<group>"; };
