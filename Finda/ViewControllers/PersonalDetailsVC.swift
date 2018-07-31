@@ -213,6 +213,8 @@ class PersonalDetailsVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let modelManager = ModelManager()
+        
         self.tableView?.backgroundColor = UIColor.FindaColors.Purple
         self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
         
@@ -259,13 +261,14 @@ class PersonalDetailsVC: FormViewController {
             section.header = header
             }   <<< TextRow(){ row in
                 row.title = "First name"
-                row.value = CoreDataManager.getString(dataName: "firstName", entity: "User")
+                row.value = modelManager.firstName()
+       
                 
             }
             
             <<< TextRow(){ row in
                 row.title = "Last name"
-                row.value = CoreDataManager.getString(dataName: "lastName", entity: "User")
+                row.value = modelManager.lastName()
             }
             
             <<< DateInlineRow(){ row in
@@ -276,7 +279,7 @@ class PersonalDetailsVC: FormViewController {
                 row.minimumDate = Calendar.current.date(byAdding: components, to: Date())
                 
                 
-                let data = CoreDataManager.getInt(dataName: "dob", entity: "User")
+                let data = modelManager.dateOfBirth()
                 if data != -1 {
                     row.value = Date(timeIntervalSince1970: TimeInterval(data))
                 }
@@ -286,7 +289,7 @@ class PersonalDetailsVC: FormViewController {
             
             <<< EmailRow(){ row in
                 row.title = "Email address"
-                row.value = CoreDataManager.getString(dataName: "email", entity: "User")
+                row.value = modelManager.email()
             }
             
             
@@ -294,7 +297,7 @@ class PersonalDetailsVC: FormViewController {
                 row.title = "Gender"
                 
                 row.options = ["Female", "Male"]
-                row.value = CoreDataManager.getString(dataName: "gender", entity: "User").capitalizingFirstLetter()
+                row.value = modelManager.gender().capitalizingFirstLetter()
             }
             
             
@@ -302,8 +305,9 @@ class PersonalDetailsVC: FormViewController {
                 row.title = "Nationality"
                 
                 row.options = self.nationality
-                row.value = CoreDataManager.getString(dataName: "nationality", entity: "User")
-                if CoreDataManager.getString(dataName: "nationality", entity: "User") != "" {
+                let nationality = modelManager.nationality()
+                row.value = nationality
+                if nationality != "" {
                     row.disabled = true
                 }
             }
@@ -312,22 +316,25 @@ class PersonalDetailsVC: FormViewController {
                 row.title = "Country of residence"
                 
                 row.options = self.nationality
-                row.value = CoreDataManager.getString(dataName: "residenceCountry", entity: "User")
-                if CoreDataManager.getString(dataName: "residenceCountry", entity: "User") != "" {
+                let residenceCountry = modelManager.residenceCountry()
+                row.value = residenceCountry
+    
+                if residenceCountry != "" {
                     row.disabled = true
                 }
             }
             
             <<< TextRow(){ row in
                 row.title = "Instagram Username"
-                row.value = CoreDataManager.getString(dataName: "instagramUsername", entity: "User")
+                row.value = modelManager.instagramUserName()
             }
             
             <<< IntRow(){ row in
                 row.title = "Followers"
                 row.disabled = true
-                if CoreDataManager.getInt(dataName: "instagramFollowers", entity: "User") != -1 {
-                    row.value = CoreDataManager.getInt(dataName: "instagramFollowers", entity: "User")
+                let instagramFollowers = modelManager.instagramFollowers()
+                if instagramFollowers != -1 {
+                    row.value = instagramFollowers
                 }
                 
                 
@@ -335,7 +342,7 @@ class PersonalDetailsVC: FormViewController {
             }
             <<< TextRow(){ row in
                 row.title = "Referral Code"
-                row.value = CoreDataManager.getString(dataName: "referrerCode", entity: "User")
+                row.value = modelManager.referrerCode()
                 
                 
             }
@@ -358,13 +365,13 @@ class PersonalDetailsVC: FormViewController {
             <<< TextRow(){ row in
                 row.title = "VAT Number"
                 row.placeholder = "(optional)"
-                row.value = CoreDataManager.getString(dataName: "vatNumber", entity: "User")
+                row.value = modelManager.vatNumber()
                 
         }
         
         form +++ section
         
-        PickerDelegate.addPickerData(term: .Ethnicity, rowTitle: "Ethnicity", coreDataName: "ethnicity", entity: "User") { (response, result) in
+        PickerDelegate.addPickerData(term: .Ethnicity, rowTitle: "Ethnicity", coreData: modelManager.ethnicity()) { (response, result) in
             if response {
                 section.insert(result, at: 5)
             }

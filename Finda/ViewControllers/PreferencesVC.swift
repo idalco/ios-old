@@ -18,6 +18,8 @@ class PreferencesVC: FormViewController {
         self.tableView?.backgroundColor = UIColor.FindaColors.Purple
         self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
         
+        let modelManager = ModelManager()
+        
         SwitchRow.defaultCellSetup = { cell, row in
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
             
@@ -46,23 +48,29 @@ class PreferencesVC: FormViewController {
             
             <<< SwitchRow(){ row in
                 row.title = "A friend users my referrer code"
+                row.value = modelManager.friendRegisters()
                 
             }
             
             <<< SwitchRow(){ row in
                 row.title = "I receive a job offer"
+                row.value = modelManager.jobOffered()
             }
             
             <<< SwitchRow(){ row in
                 row.title = "A job I am working on is cancelled"
+                row.value = modelManager.jobCancelled()
             }
             
             <<< SwitchRow(){ row in
                 row.title = "I receive a payment"
+                row.value = modelManager.paymentMade()
             }
+            
             
             <<< SwitchRow(){ row in
                 row.title = "I receive a notification"
+                row.value = modelManager.notifications()
         }
         
         

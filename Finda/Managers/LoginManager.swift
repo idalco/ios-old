@@ -23,7 +23,6 @@ class LoginManager {
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
             if(response){
                 _ = ModelManager(data: result)
-                CoreDataManager.printEntity(entity: "User")
                 let defaults = UserDefaults.standard
                 defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
                 completion(response, result)

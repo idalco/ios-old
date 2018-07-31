@@ -11,7 +11,7 @@ import Eureka
 
 class PickerDelegate {
     
-    static func addPickerData(term: TermData, rowTitle: String, coreDataName: String, entity: String, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
+    static func addPickerData(term: TermData, rowTitle: String, coreData: Int, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
         var dictionary: [Int: String] = [:]
         FindaAPISession(target: .termData(term: term)) { (response, result) in
             if(response){
@@ -21,7 +21,6 @@ class PickerDelegate {
                 
                 let row =  PickerInlineRow<String>() { row in
                     row.title = rowTitle
-                    let coreData = CoreDataManager.getInt(dataName: coreDataName, entity: entity)
                     if row.value == nil && coreData != -1 {
                         row.value = dictionary[coreData] ?? ""
                     }
@@ -35,12 +34,11 @@ class PickerDelegate {
         }
     }
     
-    static func addPickerData(rowTitle: String, coreDataName: String, entity: String, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
+    static func addPickerData(rowTitle: String, coreData: Int, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
         var dictionary: [Int: String] = [0: "No", 1:"Yes"]
         
         let row =  PickerInlineRow<String>() { row in
             row.title = rowTitle
-            let coreData = CoreDataManager.getInt(dataName: coreDataName, entity: entity)
             if row.value == nil && coreData != -1 {
                 row.value = dictionary[coreData] ?? ""
             }

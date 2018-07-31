@@ -17,6 +17,7 @@ class MeasurementsVC: FormViewController {
         self.tableView?.backgroundColor = UIColor.FindaColors.Purple
         self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
         
+        let modelManager = ModelManager()
         
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
@@ -48,7 +49,7 @@ class MeasurementsVC: FormViewController {
             
             <<< IntRow(){ row in
                 row.title = "Height"
-                let data = CoreDataManager.getInt(dataName: "height", entity: "Profile")
+                let data = modelManager.height()
                 if data != -1 {
                     row.value = data
                 }
@@ -58,7 +59,7 @@ class MeasurementsVC: FormViewController {
             
             <<< IntRow(){ row in
                 row.title = "Bust"
-                let data = CoreDataManager.getInt(dataName: "bust", entity: "Profile")
+                let data = modelManager.bust()
                 if data != -1 {
                     row.value = data
                 }
@@ -66,7 +67,7 @@ class MeasurementsVC: FormViewController {
             
             <<< IntRow(){ row in
                 row.title = "Waist"
-                let data = CoreDataManager.getInt(dataName: "waist", entity: "Profile")
+                let data = modelManager.waist()
                 if data != -1 {
                     row.value = data
                 }
@@ -74,68 +75,59 @@ class MeasurementsVC: FormViewController {
             
             <<< IntRow(){ row in
                 row.title = "Hips"
-                let data = CoreDataManager.getInt(dataName: "hips", entity: "Profile")
+                let data = modelManager.hips()
                 if data != -1 {
                     row.value = data
                 }
             }
             <<< IntRow(){ row in
                 row.title = "Shoe Size"
-                let data = CoreDataManager.getInt(dataName: "shoeSize", entity: "Profile")
+                let data = modelManager.shoeSize()
                 if data != -1 {
                     row.value = data
                 }
             }
             <<< IntRow(){ row in
                 row.title = "Dress Size"
-                let data = CoreDataManager.getInt(dataName: "dressSize", entity: "Profile")
+                let data = modelManager.dressSize()
                 if data != -1 {
                     row.value = data
                 }
         }
         
-        //            <<< PickerInlineRow<String>() { row in
-        //                row.title = rowTitle
-        //                let coreData = CoreDataManager.getInt(dataName: "willingColour", entity: "Profile")
-        //                if row.value == nil && coreData != -1 {
-        //                    row.value = dictionary[coreData] ?? ""
-        //                }
-        //                row.options = Array(dictionary.values)
-        //            }
-        
         form +++ section
         
-        PickerDelegate.addPickerData(term: .HairColour, rowTitle: "Hair Colour", coreDataName: "hairColour", entity: "Profile") { (response, result) in
+        PickerDelegate.addPickerData(term: .HairColour, rowTitle: "Hair Colour", coreData: modelManager.hairColour()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
             }
         }
         
-        PickerDelegate.addPickerData(term: .HairType, rowTitle: "Hair Type", coreDataName: "hairType", entity: "Profile") { (response, result) in
+        PickerDelegate.addPickerData(term: .HairType, rowTitle: "Hair Type", coreData: modelManager.hairType()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
             }
         }
         
-        PickerDelegate.addPickerData(term: .HairLength, rowTitle: "Hair Length", coreDataName: "hairLength", entity: "Profile") { (response, result) in
+        PickerDelegate.addPickerData(term: .HairLength, rowTitle: "Hair Length", coreData: modelManager.hairLength()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
             }
         }
         
-        PickerDelegate.addPickerData(term: .EyeColour, rowTitle: "Eye Colour", coreDataName: "eyeColour", entity: "Profile") { (response, result) in
+        PickerDelegate.addPickerData(term: .EyeColour, rowTitle: "Eye Colour", coreData: modelManager.eyeColour()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
             }
         }
         
-        PickerDelegate.addPickerData(rowTitle: "Willing to colour?", coreDataName: "willingColour", entity: "Profile") { (response, result) in
+        PickerDelegate.addPickerData(rowTitle: "Willing to colour?", coreData: modelManager.willingColour()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
             }
         }
         
-        PickerDelegate.addPickerData(rowTitle: "Willing to cut?", coreDataName: "willingCut", entity: "Profile") { (response, result) in
+        PickerDelegate.addPickerData(rowTitle: "Willing to cut?", coreData: modelManager.willingCut()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
             }
