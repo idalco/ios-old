@@ -19,6 +19,9 @@ PODS:
   - SideMenuSwift (0.4.1)
   - Strongbox (0.5.1)
   - SVProgressHUD (2.2.5)
+  - SwiftMessages (4.1.4):
+    - SwiftMessages/App (= 4.1.4)
+  - SwiftMessages/App (4.1.4)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -33,6 +36,7 @@ DEPENDENCIES:
   - SideMenuSwift
   - Strongbox
   - SVProgressHUD
+  - SwiftMessages
   - SwiftyJSON
 
 SPEC REPOS:
@@ -49,6 +53,7 @@ SPEC REPOS:
     - SideMenuSwift
     - Strongbox
     - SVProgressHUD
+    - SwiftMessages
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -64,8 +69,9 @@ SPEC CHECKSUMS:
   SideMenuSwift: c4309bd978c61a61d5941eb0fa2112f6b346a331
   Strongbox: f49a3922237c1dcde2cabbb882edd37d2aa75a23
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: bf84a5eca77d5cf11303e9035c75a57eeaa83a1e
+PODFILE CHECKSUM: 3903e0c9b43b24d436eefccc0a213c316cebdba7
 
 COCOAPODS: 1.5.3

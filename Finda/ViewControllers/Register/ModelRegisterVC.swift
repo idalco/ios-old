@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import DCKit
+import SwiftMessages
 
 class ModelRegisterVC: FormViewController, UITextViewDelegate {
     
@@ -241,68 +242,65 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
     
     @objc func signUp(){
         
-        
-        guard let firstname: String = form.values()["firstName"] as? String else {
+        guard let firstnameRow: BaseRow = form.rowBy(tag: "firstName"), let firstname: String = firstnameRow.baseValue as? String else {
             self.validateRow(tag: "firstName")
             return
         }
-        print(firstname)
-        guard let lastname: String = form.values()["lastName"] as? String else {
+
+        guard let lastnameRow: BaseRow = form.rowBy(tag: "lastName"), let lastname: String = form.values()["lastName"] as? String else {
             self.validateRow(tag: "lastName")
             return
         }
-        print(lastname)
-        guard let gender: String = form.values()["gender"] as? String else {
+        guard let genderRow: BaseRow = form.rowBy(tag: "gender"), let gender: String = form.values()["gender"] as? String else {
             self.validateRow(tag: "gender")
             return
         }
-        print(gender)
-        guard let country: String = form.values()["country"] as? String else {
+        guard let countryRow: BaseRow = form.rowBy(tag: "country"), let country: String = form.values()["country"] as? String else {
             self.validateRow(tag: "country")
             return
         }
-        print(country)
-        guard let mail: String = form.values()["email"] as? String else {
+        guard let mailRow: BaseRow = form.rowBy(tag: "email"), let mail: String = form.values()["email"] as? String else {
             self.validateRow(tag: "email")
             return
         }
-        print(mail)
-        guard let instagram_username: String = form.values()["instagram"] as? String else {
+        guard let instagram_usernameRow: BaseRow = form.rowBy(tag: "instagram"), let instagram_username: String = form.values()["instagram"] as? String else {
             self.validateRow(tag: "instagram")
             return
         }
-        print(instagram_username)
-        guard let referral_code: String = form.values()["referralCode"] as? String else {
+        guard let referral_codeRow: BaseRow = form.rowBy(tag: "referralCode"), let referral_code: String = form.values()["referralCode"] as? String else {
             self.validateRow(tag: "referralCode")
             return
         }
-        print(referral_code)
-        guard let password: String = form.values()["password"] as? String else {
+        guard let passwordRow: BaseRow = form.rowBy(tag: "password"), let password: String = form.values()["password"] as? String else {
             self.validateRow(tag: "password")
             return
         }
-        print(password)
-        guard let repeatPassword: String = form.values()["repeatPassword"] as? String else {
+        guard let repeatPasswordRow: BaseRow = form.rowBy(tag: "repeatPassword"), let repeatPassword: String = form.values()["repeatPassword"] as? String else {
             self.validateRow(tag: "repeatPassword")
             return
         }
-        print(repeatPassword)
-        guard let dob: Date = form.values()["dob"] as? Date else {
+        guard let dobRow: BaseRow = form.rowBy(tag: "dob"), let dob: Date = form.values()["dob"] as? Date else {
             self.validateRow(tag: "dob")
             return
         }
-        print(dob)
         
         if password != repeatPassword {
-            print("Passwords don't match")
+            let password: PasswordRow? = form.rowBy(tag: "password")
+            password?.cell.textLabel?.textColor = UIColor.red
+            
+            let repeatPassword: PasswordRow? = form.rowBy(tag: "repeatPassword")
+            repeatPassword?.cell.textLabel?.textColor = UIColor.red
             return
         }
         
-//        FindaAPISession(target: .registerModel(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, referral_code: referral_code, dob: dob.timeIntervalSince1970)) { (response, result) in
-//            if(response){
-//
-//            }
-//        }
+        if(mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && referral_codeRow.isValid && dobRow.isValid) {
+            
+            RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, referral_code: referral_code, dob: dob.timeIntervalSince1970) { (response, result) in
+                if(response){
+                    print("Registered Successful")
+                }
+            }
+        }
     }
     
     func validateRow(tag: String){

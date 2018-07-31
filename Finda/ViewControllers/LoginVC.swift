@@ -19,6 +19,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.FindaColors.White
         self.navigationController?.navigationBar.transparentNavigationBar()

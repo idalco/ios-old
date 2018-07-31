@@ -42,6 +42,9 @@ target 'Finda' do
   # Side menu
   pod 'SideMenuSwift'
 
+  # Notifications
+  pod 'SwiftMessages'
+
 
   target 'FindaTests' do
     inherit! :search_paths

@@ -89,8 +89,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["vid"] = vid.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .registerModel(let mail, let pass, let firstname, let lastname, let gender, let country, let instagram_username, let referral_code, let dob):
-            p["mail"] = mail
-            p["pass"] = pass
+            p["email"] = mail
+            p["password"] = pass
             p["firstname"] = firstname
             p["lastname"] = lastname
             p["gender"] = gender.lowercased()
@@ -98,10 +98,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["usertype"] = "model"
             p["agree_terms"] = 1
             p["instagram_username"] = instagram_username
-            if (referral_code != nil) {
+            if (referral_code != nil && referral_code != "") {
                 p["referral_code"] = referral_code
             }
-            p["dob"] = dob
+            p["dob"] = Int(dob)
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
