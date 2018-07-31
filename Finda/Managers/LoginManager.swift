@@ -48,7 +48,7 @@ class LoginManager {
         user.setValue(userData["firstname"].string, forKeyPath: "firstName")
         user.setValue(userData["lastname"].string, forKeyPath: "lastName")
         user.setValue(userData["mail"].string, forKeyPath: "email")
-        user.setValue(userData["avatar"].string, forKeyPath: "avatar")
+        user.setValue("https://www.finda.co/avatar/thumb\(userData["avatar"].string ?? "")", forKeyPath: "avatar")
         user.setValue(userData["usertype"].intValue, forKeyPath: "userType")
         user.setValue(userData["instagram_username"].string, forKeyPath: "instagramUsername")
         user.setValue(userData["instagram_followers"].intValue, forKeyPath: "instagramFollowers")
