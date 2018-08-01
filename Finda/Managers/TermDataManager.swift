@@ -10,20 +10,21 @@ import Foundation
 import SwiftyJSON
 import CoreData
 
-enum TermData: Int {
-    case JobTypes = 1
-    case Measurements = 2
-    case HairType = 3
-    case EyeColour = 4
-    case HairLength = 5
-    case HairColour = 6
-    case Ethnicity = 7
-    case EyebrowShape = 8
-    case MemberTypes = 9
-}
+
 
 class TermDataManager {
     
+    enum TermData: Int {
+        case JobTypes = 1
+        case Measurements = 2
+        case HairType = 3
+        case EyeColour = 4
+        case HairLength = 5
+        case HairColour = 6
+        case Ethnicity = 7
+        case EyebrowShape = 8
+        case MemberTypes = 9
+    }
     
     func load(term: TermData, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         FindaAPISession(target: .termData(term: term)) { (response, result) in

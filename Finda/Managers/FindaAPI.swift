@@ -14,25 +14,13 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     FindaTokenPlugin(tokenClosure: accessToken())
     ])
 
-enum JobTypes: String {
-    case all = "all"
-    case offered = "offered"
-    case accepted = "accepted"
-    case expired = "expired"
-    case completed = "completed"
-    case rejected = "rejected"
-    case finished = "finished"
-    case unfinalised = "unfinalised"
-    
-}
-
 enum FindaAPI {
     // POST
     case login(email: String, password: String)
     case registerModel(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, referral_code: String?, dob: TimeInterval)
-    case termData(term: TermData)
+    case termData(term: TermDataManager.TermData)
     case logout()
-    case getJobs(jobType: JobTypes)
+    case getJobs(jobType: JobsManager.JobTypes)
     
     
     

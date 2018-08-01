@@ -17,6 +17,7 @@
 		0C4ADA762110AEF4002C3EA3 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */; };
 		0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */; };
 		0C4ADA7A21120320002C3EA3 /* JobsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7921120320002C3EA3 /* JobsManager.swift */; };
+		0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7B21120C75002C3EA3 /* Job.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -107,6 +108,7 @@
 		0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
 		0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
 		0C4ADA7921120320002C3EA3 /* JobsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsManager.swift; sourceTree = "<group>"; };
+		0C4ADA7B21120C75002C3EA3 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Job.swift; path = Finda/Models/Data/Job.swift; sourceTree = SOURCE_ROOT; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				0CCF234F210DDB2500612D5B /* Profile+CoreDataProperties.swift */,
 				0C4ADA70211090C4002C3EA3 /* Preferences+CoreDataClass.swift */,
 				0C4ADA6F211090C4002C3EA3 /* Preferences+CoreDataProperties.swift */,
+				0C4ADA7B21120C75002C3EA3 /* Job.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				0CCF22D621089B6200612D5B /* FindaMoyaTokenPlugin.swift in Sources */,
 				0C4ADA6A21107EF5002C3EA3 /* RegisterManager.swift in Sources */,
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
+				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
 				0CCF234D210D070600612D5B /* StringExtensions.swift in Sources */,
 				0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */,

@@ -26,7 +26,8 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
         
-        FindaAPISession(target: .getJobs(jobType: .all)) { (response, result) in
+        JobsManager.getJobs(jobType: .offered) { (response, result) in
+            print(response)
             print(result)
         }
     }

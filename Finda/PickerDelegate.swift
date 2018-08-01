@@ -11,7 +11,7 @@ import Eureka
 
 class PickerDelegate {
     
-    static func addPickerData(term: TermData, rowTitle: String, coreData: Int, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
+    static func addPickerData(term: TermDataManager.TermData, rowTitle: String, coreData: Int, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
         var dictionary: [Int: String] = [:]
         FindaAPISession(target: .termData(term: term)) { (response, result) in
             if(response){

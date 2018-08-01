@@ -11,10 +11,21 @@ import SwiftyJSON
 
 class JobsManager {
     
+    enum JobTypes: String {
+        case all = "all"
+        case offered = "offered"
+        case accepted = "accepted"
+        case expired = "expired"
+        case completed = "completed"
+        case rejected = "rejected"
+        case finished = "finished"
+        case unfinalised = "unfinalised"
+        
+    }
+    
     static func getJobs(jobType: JobTypes, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         FindaAPISession(target: .getJobs(jobType: jobType)) { (response, result) in
             if(response){
-                
                 completion(response, result)
                 return
             }
