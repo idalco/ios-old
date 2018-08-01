@@ -11,21 +11,15 @@ import FoldingCell
 
 class DashboardCell: FoldingCell {
     
-    @IBOutlet var closeNumberLabel: UILabel!
-    @IBOutlet var openNumberLabel: UILabel!
-    @IBOutlet weak var headerLabel: UILabel!
-    
-//    var number: Int = 0 {
-//        didSet {
-//            closeNumberLabel.text = String(number)
-//            openNumberLabel.text = String(number)
-//        }
-//    }
+
+    @IBOutlet weak var openHeaderLabel: UILabel!
+    @IBOutlet weak var closedHeaderLabel: UILabel!
     
     override func awakeFromNib() {
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
-        headerLabel.underline()
+        openHeaderLabel.underline()
+        closedHeaderLabel.underline()
         super.awakeFromNib()
     }
     

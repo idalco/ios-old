@@ -542,7 +542,7 @@
                                                         <constraint firstItem="UA9-nE-TN3" firstAttribute="bottom" secondItem="lqe-ng-iQE" secondAttribute="bottomMargin" id="zVN-TP-lgo"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ss-wB-shu" userLabel="Container">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ss-wB-shu" userLabel="Container">
                                                     <rect key="frame" x="20" y="180" width="335" height="400"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FI-Kf-01a" userLabel="FirstContainerView">
@@ -779,11 +779,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="closedHeaderLabel" destination="uRY-p3-HhC" id="KKp-vR-Yth"/>
                                             <outlet property="containerView" destination="0ss-wB-shu" id="JL4-dk-4lV"/>
                                             <outlet property="containerViewTop" destination="eIJ-ll-rxh" id="5yI-VG-kVV"/>
                                             <outlet property="foregroundView" destination="lqe-ng-iQE" id="K12-K6-dwJ"/>
                                             <outlet property="foregroundViewTop" destination="w6m-0N-oNw" id="XwJ-rO-PpT"/>
-                                            <outlet property="headerLabel" destination="uRY-p3-HhC" id="1Kt-rt-g9w"/>
+                                            <outlet property="openHeaderLabel" destination="dIE-cf-lpw" id="Thf-BE-LHQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
