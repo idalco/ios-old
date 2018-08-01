@@ -14,8 +14,8 @@ class MeasurementsVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
-        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
+//        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
         
         let modelManager = ModelManager()
         
@@ -37,7 +37,7 @@ class MeasurementsVC: FormViewController {
                 title.font = UIFont(name: "Gotham-Medium", size: 17)
                 view.addSubview(title)
                 
-                let description = UILabel(frame: CGRect(x:10,y: 40, width:self.view.frame.width, height:30))
+                let description = UILabel(frame: CGRect(x:10,y: 40, width:self.view.frame.width, height:20))
                 description.numberOfLines = 0
                 description.text = "Please enter your measurements in centimeters."
                 description.font = UIFont(name: "Gotham-Light", size: 13)

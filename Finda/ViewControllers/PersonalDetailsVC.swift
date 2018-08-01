@@ -215,8 +215,8 @@ class PersonalDetailsVC: FormViewController {
         
         let modelManager = ModelManager()
         
-        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
-        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
+//        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
         
         
         TextRow.defaultCellUpdate = { cell, row in
@@ -249,14 +249,21 @@ class PersonalDetailsVC: FormViewController {
         
         var section = Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
-            header.height = {40}
+            header.height = {70}
             header.onSetupView = { view, _ in
                 view.backgroundColor = UIColor.FindaColors.White
-                let label = UILabel(frame: CGRect(x:10,y: 5, width:300, height:40))
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:40))
                 
-                label.text = "Personal Details"
-                label.font = UIFont(name: "Gotham-Medium", size: 17)
-                view.addSubview(label)
+                title.text = "Personal Details"
+                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                view.addSubview(title)
+                
+                let description = UILabel(frame: CGRect(x:10,y: 40, width:self.view.frame.width, height:20))
+                description.numberOfLines = 0
+                description.text = "Please enter your contact information."
+                description.font = UIFont(name: "Gotham-Light", size: 13)
+                view.addSubview(description)
+                
             }
             section.header = header
             }   <<< TextRow(){ row in

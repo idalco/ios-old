@@ -45,6 +45,8 @@ target 'Finda' do
   # Notifications
   pod 'SwiftMessages'
 
+  pod 'FoldingCell'
+
 
   target 'FindaTests' do
     inherit! :search_paths

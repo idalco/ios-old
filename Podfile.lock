@@ -3,6 +3,7 @@ PODS:
   - CryptoSwift (0.10.0)
   - DCKit (1.0.10)
   - Eureka (4.2.0)
+  - FoldingCell (3.1.2)
   - IQKeyboardManagerSwift (6.1.1)
   - Marshal (1.2.4)
   - Moya (10.0.2):
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - CryptoSwift
   - DCKit
   - Eureka
+  - FoldingCell
   - IQKeyboardManagerSwift
   - Marshal
   - Moya
@@ -45,6 +47,7 @@ SPEC REPOS:
     - CryptoSwift
     - DCKit
     - Eureka
+    - FoldingCell
     - IQKeyboardManagerSwift
     - Marshal
     - Moya
@@ -61,6 +64,7 @@ SPEC CHECKSUMS:
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
   DCKit: 5c331146967c08886cc47baf5903699fdb4dca81
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  FoldingCell: e9b02668b89af673c377cb9560edcc4c6b293a95
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 3903e0c9b43b24d436eefccc0a213c316cebdba7
+PODFILE CHECKSUM: 5ef9854a42f3aaf75a737867a4a1107000c36e14
 
 COCOAPODS: 1.5.3
