@@ -8,84 +8,57 @@
 
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class Job {
+    let clientUid, projectTid, created, modified: Int
+    let jobStatus: Int
+    let name: String
+    let offeredRate, negotiatedRate, agreedRate: Double
+    let timeUnits: Int
+    let unitsType: String
+    let startdate, starttime: Int
+    let description: String
+    let clientJobCompleted: Bool
+    let location: String
+    let invoiceID: Int
+    let invoicePaid: Bool
+    let callsheet: String
+    let jobid: Int
+    let modelDesiredRate, clientOfferedRate: Double
+    let status: Int
+    let rating: Double
+    let modelNotes, jobtype, companyName, companyWebsite: String
     
-    var companyWebsite: String
-    var modelCount: Int
-    var modelId: Int
-    var statusText: String
-    var modelDesiredRate: Double
-    var invoiceId: Int
-    var callSheet: String
-    var clientJobCompleted: Bool
-    var clientNotes: String
-    var agreedRate: Double
-    var modelUid: Int
-    var modified: Int
-    var clientOfferedRate: Double
-    var id: Int
-    var modelNotes: String
-    var startDate: Int
-    var companyName: String
-    var clientJobPaid: Bool
-    var jobId: Int
-    var projectTid: Int
-    var jobStatus: Int
-    var name: String
-    var negotiatedRate: Double
-    var description: String
-    var jobType: String
-    var timeUnits: Int
-    var clientUid: Int
-    var rating: Double
-    var jobStatusText: String
-    var status: Int
-    var location: String
-    var created: Int
-    var offeredRate: Double
-    var startTime: Int
-    var unitsType: String
-    var invoicePaid: Bool
-    
-    init(data: JSON){
-        
-        self.companyWebsite = data["company_website"].stringValue
-        self.modelCount = data["modelcount"].intValue
-        self.modelId = data["modelid"].intValue
-        self.statusText = data["status_text"].stringValue
-        self.modelDesiredRate = data["model_desired_rate"].doubleValue
-        self.invoiceId = data["invoice_id"].intValue
-        self.callSheet = data["callsheet"].stringValue
-        self.clientJobCompleted = data["client_job_completed"].boolValue
-        self.clientNotes = data["client_notes"].stringValue
-        self.agreedRate = data["agreed_rate"].doubleValue
-        self.modelUid = data["model_uid"].intValue
-        self.modified = data["modified"].intValue
-        self.clientOfferedRate = data["client_offered_rate"].doubleValue
-        self.id = data["id"].intValue
-        self.modelNotes = data["model_notes"].stringValue
-        self.startDate = data["startdate"].intValue
-        self.companyName = data["company_name"].stringValue
-        self.clientJobPaid = data["client_job_paid"].boolValue
-        self.jobId = data["jobid"].intValue
+    init(data: JSON) {
+        self.clientUid = data["client_uid"].intValue
         self.projectTid = data["project_tid"].intValue
+        self.created = data["created"].intValue
+        self.modified = data["modified"].intValue
         self.jobStatus = data["job_status"].intValue
         self.name = data["name"].stringValue
-        self.negotiatedRate = data["negotiated_rate"].doubleValue
-        self.description = data["description"].stringValue
-        self.jobType = data["jobtype"].stringValue
-        self.timeUnits = data["time_units"].intValue
-        self.clientUid = data["client_uid"].intValue
-        self.rating = data["rating"].doubleValue
-        self.jobStatusText = data["job_status_text"].stringValue
-        self.status = data["status"].intValue
-        self.location = data["location"].stringValue
-        self.created = data["created"].intValue
         self.offeredRate = data["offered_rate"].doubleValue
-        self.startTime = data["starttime"].intValue
+        self.negotiatedRate = data["negotiated_rate"].doubleValue
+        self.agreedRate = data["agreed_rate"].doubleValue
+        self.timeUnits = data["time_units"].intValue
         self.unitsType = data["units_type"].stringValue
+        self.startdate = data["startdate"].intValue
+        self.starttime = data["starttime"].intValue
+        self.description = data["description"].stringValue
+        self.clientJobCompleted = data["client_job_completed"].boolValue
+        self.location = data["location"].stringValue
+        self.invoiceID = data["invoice_id"].intValue
         self.invoicePaid = data["invoice_paid"].boolValue
-        
+        self.callsheet = data["callsheet"].stringValue
+        self.jobid = data["jobid"].intValue
+        self.modelDesiredRate = data["model_desired_rate"].doubleValue
+        self.clientOfferedRate = data["client_offered_rate"].doubleValue
+        self.status = data["status"].intValue
+        self.rating = data["rating"].doubleValue
+        self.modelNotes = data["model_notes"].stringValue
+        self.jobtype = data["jobtype"].stringValue
+        self.companyName = data["company_name"].stringValue
+        self.companyWebsite = data["company_website"].stringValue
     }
 }
+

@@ -26,9 +26,14 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
         
-        JobsManager.getJobs(jobType: .offered) { (response, result) in
-            print(response)
-            print(result)
+        JobsManager.getJobs(jobType: .all) { (response, result) in
+            if(response) {
+                let jobs = result["userdata"].dictionaryValue
+                var allJobs: [Job] = []
+                for job in jobs {
+                    allJobs.append(Job(data: job.value))
+                }
+            }
         }
     }
     
