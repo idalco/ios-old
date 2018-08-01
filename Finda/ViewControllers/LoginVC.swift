@@ -20,6 +20,10 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         
+        if(LoginManager.isLoggedIn() && LoginManager.isModel()){
+            loginSegue()
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.FindaColors.White
         self.navigationController?.navigationBar.transparentNavigationBar()
@@ -90,20 +94,32 @@ class LoginVC: UIViewController {
         LoginManager.login(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "") { (response, result) in
             SVProgressHUD.dismiss()
             if response {
-                let modelManager = ModelManager()
-                if modelManager.status() == UserStatus.banned.rawValue {
-                    LoginManager.signOut()
-                    return
-                } else if modelManager.status() == UserStatus.unverified.rawValue {
-                    self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
-                } else {
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                }
-                
+                self.loginSegue()
             } else {
-                self.setEmailTextFieldBorder(error: true)
-                self.setPasswordTextFieldBorder(error: true)
+                if(result["userdata"]["usertype"].intValue == 2){
+                    let alert = UIAlertController(title: "Hello", message: "Currently this app only supports models! Please use the website to edit your client profile.", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true)
+                    
+                } else {
+                    self.setEmailTextFieldBorder(error: true)
+                    self.setPasswordTextFieldBorder(error: true)
+                }
             }
+        }
+    }
+    
+    func loginSegue(){
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.banned.rawValue {
+            LoginManager.signOut()
+            return
+        } else if modelManager.status() == UserStatus.unverified.rawValue {
+            self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
+        } else {
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
     

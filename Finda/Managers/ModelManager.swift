@@ -245,6 +245,7 @@ class ModelManager {
     
     
     
+    
     private func saveUserData(data: JSON){
         let entity = Entity.User.rawValue
         

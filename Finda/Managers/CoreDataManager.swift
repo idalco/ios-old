@@ -87,6 +87,24 @@ class CoreDataManager {
         } catch {}
         return false
     }
+    
+    static func isEmpty(entity: String) -> Bool {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        var results : NSArray?
+        
+        do {
+            results = try managedContext.fetch(request) as! [NSManagedObject] as NSArray?
+            
+            return results?.count == 0
+            
+        } catch let error as NSError {
+            // failure
+            print("Error: \(error.debugDescription)")
+            return true
+        }
+    }
 
     
     

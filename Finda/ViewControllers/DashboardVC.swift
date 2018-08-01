@@ -14,7 +14,8 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     enum Const {
         static let closeCellHeight: CGFloat = 179
-        static let openCellHeight: CGFloat = 407
+        static let openCellHeight: CGFloat = 400
+        
         static let rowsCount = 10
     }
     
@@ -24,6 +25,10 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
+        
+        FindaAPISession(target: .getJobs(jobType: .all)) { (response, result) in
+            print(result)
+        }
     }
     
     private func setup() {
@@ -76,7 +81,7 @@ extension DashboardVC {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
-        let durations: [TimeInterval] = [0.26, 0.2]
+        let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
         return cell

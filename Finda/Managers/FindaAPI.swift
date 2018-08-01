@@ -14,6 +14,17 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     FindaTokenPlugin(tokenClosure: accessToken())
     ])
 
+enum JobTypes: String {
+    case all = "all"
+    case offered = "offered"
+    case accepted = "accepted"
+    case expired = "expired"
+    case completed = "completed"
+    case rejected = "rejected"
+    case finished = "finished"
+    case unfinalised = "unfinalised"
+    
+}
 
 enum FindaAPI {
     // POST
@@ -21,6 +32,10 @@ enum FindaAPI {
     case registerModel(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, referral_code: String?, dob: TimeInterval)
     case termData(term: TermData)
     case logout()
+    case getJobs(jobType: JobTypes)
+    
+    
+    
     case register(email: String, password: String, name: String, locale: String)
     case updateProfile(email: String, firstName: String, lastName: String)
     case updateDeviceToken(deviceToken: String, deviceType: String)
@@ -46,6 +61,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/logout"
         case .registerModel:
             return "/register"
+        case .getJobs:
+            return "/getJobs"
             
             
             
@@ -72,7 +89,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .post
             
         // methods requiring GET
-        case .userDetails:
+        case .userDetails, .getJobs:
             return .get
         }
     }
@@ -105,7 +122,9 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
-            
+        case .getJobs(let jobType):
+            p["type"] = jobType.rawValue
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
         case .register(let email, let password, let name, let locale):
             p["email"] = email
@@ -157,12 +176,14 @@ func FindaAPISession(target: FindaAPI, completion: @escaping (_ response: Bool, 
             do {
                 let data = try response.mapJSON()
                 let json = JSON(data)
+                if(json["errorMessage"].string == "Authentication token is invalid"){
+                    LoginManager.signOut()
+                }
                 if(json["status"] == 1){
                     completion(true, json)
                     return
-                } else {
-                    completion(false, json)
                 }
+                completion(false, json)
             } catch(_){
                 completion(false, JSON.null)
             }

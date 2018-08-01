@@ -21,13 +21,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") }, with: "0")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetailsNav") }, with: "1")
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,8 +60,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sideMenuController?.setContentViewController(with: "\(indexPath.row)")
             
         }
-        
-        
         
     }
     

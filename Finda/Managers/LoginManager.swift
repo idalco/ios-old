@@ -15,16 +15,30 @@ class LoginManager {
     static func login(email: String, password: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
             if(response){
-                _ = ModelManager(data: result)
-                let defaults = UserDefaults.standard
-                defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
-                completion(response, result)
-                return
+                if(result["userdata"]["usertype"].intValue == 1){
+                    _ = ModelManager(data: result)
+                    let defaults = UserDefaults.standard
+                    defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
+                    completion(response, result)
+                    return
+                }
             }
             completion(false, result)
         }
     }
     
+    static func isLoggedIn() -> Bool{
+        let defaults = UserDefaults.standard
+        if defaults.value(forKey: "access_token_auth") as? String == "" {
+            return false
+        }
+        return true
+    }
+    
+    static func isModel() -> Bool{
+        return !CoreDataManager.isEmpty(entity: ModelManager.Entity.User.rawValue)
+        
+    }
     
     static func signOut(){
         CoreDataManager.deleteAllData(entity: ModelManager.Entity.Profile.rawValue)

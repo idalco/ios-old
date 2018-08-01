@@ -289,9 +289,8 @@ class PersonalDetailsVC: FormViewController {
                 let data = modelManager.dateOfBirth()
                 if data != -1 {
                     row.value = Date(timeIntervalSince1970: TimeInterval(data))
+                    row.disabled = true
                 }
-                
-                
             }
             
             <<< EmailRow(){ row in
