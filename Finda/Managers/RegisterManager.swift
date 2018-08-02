@@ -28,6 +28,21 @@ class RegisterManager {
         }
     }
     
+    static func client(mail: String, pass: String, firstname: String, lastname: String, telephone: String, occupation: String, company_name: String, company_website: String, country: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+        
+        FindaAPISession(target: .registerClient(mail: mail, pass: pass, firstname: firstname, lastname: lastname, telephone: telephone, occupation: occupation, company_name: company_name, company_website: company_website, country: country)) { (response, result) in
+            if(response){
+//                _ = ModelManager(data: result)
+//                CoreDataManager.printEntity(entity: "User")
+                let defaults = UserDefaults.standard
+                defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
+                completion(response, result)
+                return
+            }
+            completion(false, result)
+        }
+    }
+    
     
 }
 

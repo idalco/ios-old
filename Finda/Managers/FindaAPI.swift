@@ -18,12 +18,15 @@ enum FindaAPI {
     // POST
     case login(email: String, password: String)
     case registerModel(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, referral_code: String?, dob: TimeInterval)
+    case registerClient(mail: String, pass: String, firstname: String, lastname: String, telephone: String, occupation: String, company_name: String, company_website: String, country: String)
     case termData(term: TermDataManager.TermData)
     case logout()
     case getJobs(jobType: JobsManager.JobTypes)
     
     
     
+    
+
     case register(email: String, password: String, name: String, locale: String)
     case updateProfile(email: String, firstName: String, lastName: String)
     case updateDeviceToken(deviceToken: String, deviceType: String)
@@ -49,6 +52,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/logout"
         case .registerModel:
             return "/register"
+        case .registerClient:
+            return "/register"
         case .getJobs:
             return "/getJobs"
             
@@ -73,7 +78,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -108,7 +113,20 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             }
             p["dob"] = Int(dob)
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-            
+        case .registerClient(let mail, let pass, let firstname, let lastname, let telephone, let occupation, let company_name, let company_website, let country):
+            p["email"] = mail
+            p["password"] = pass
+            p["firstname"] = firstname
+            p["lastname"] = lastname
+            p["telephone"] = telephone
+            p["occupation"] = occupation
+            p["company_name"] = company_name
+            p["company_website"] = company_website
+            p["country"] = country
+            p["usertype"] = "brand"
+            p["agree_terms"] = 1
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+
             
         case .getJobs(let jobType):
             p["type"] = jobType.rawValue

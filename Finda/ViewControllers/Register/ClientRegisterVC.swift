@@ -67,38 +67,125 @@ class ClientRegisterVC: FormViewController {
             
             <<< TextRow(){ row in
                 row.title = "First Name"
+                row.tag = "firstName"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
             
             <<< TextRow(){ row in
                 row.title = "Last Name"
+                row.tag = "lastName"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
             
             <<< TextRow(){ row in
                 row.title = "Company Name"
+                row.tag = "companyName"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
             
             <<< EmailRow(){ row in
                 row.title = "Company Email"
+                row.tag = "companyEmail"
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleEmail())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
+            
             
             <<< URLRow(){ row in
                 row.title = "Company Website"
+                row.tag = "companyWebsite"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
             
             <<< TextRow(){ row in
                 row.title = "Position"
+                row.tag = "position"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
             
             <<< PhoneRow(){ row in
                 row.title = "Telephone"
+                row.tag = "telephone"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
+            
+            <<< TextRow(){ row in
+                row.title = "Country"
+                row.tag = "country"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+            }
+
             
             <<< PasswordRow(){ row in
                 row.title = "Password"
+                row.tag = "password"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
             
             <<< PasswordRow(){ row in
                 row.title = "Repeat Password"
+                row.tag = "repeatPassword"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
         }
         
         
@@ -112,7 +199,73 @@ class ClientRegisterVC: FormViewController {
     }
     
     @objc func signUp(){
-        print("Client")
+        guard let firstNameRow: BaseRow = form.rowBy(tag: "firstName"), let firstName: String = form.values()["firstName"]  as? String else {
+            self.validateRow(tag: "firstName")
+            return
+        }
+        
+        guard let lastNameRow: BaseRow = form.rowBy(tag: "lastName"), let lastname: String = form.values()["lastName"] as? String else {
+            self.validateRow(tag: "lastName")
+            return
+        }
+        guard let companyNameRow: BaseRow = form.rowBy(tag: "companyName"), let companyName: String = form.values()["companyName"] as? String else {
+            self.validateRow(tag: "companyName")
+            return
+        }
+        guard let companyEmailRow: BaseRow = form.rowBy(tag: "companyEmail"), let companyEmail: String = form.values()["companyEmail"] as? String else {
+            self.validateRow(tag: "companyEmail")
+            return
+        }
+        guard let companyWebsiteRow: BaseRow = form.rowBy(tag: "companyWebsite"), let companyWebsite: String = form.values()["companyWebsite"] as? String else {
+            self.validateRow(tag: "companyWebsite")
+            return
+        }
+        guard let positionRow: BaseRow = form.rowBy(tag: "position"), let position: String = form.values()["position"] as? String else {
+            self.validateRow(tag: "position")
+            return
+        }
+        guard let telephoneRow: BaseRow = form.rowBy(tag: "telephone"), let telephone: String = form.values()["telephone"] as? String else {
+            self.validateRow(tag: "telephone")
+            return
+        }
+        
+        guard let countryRow: BaseRow = form.rowBy(tag: "country"), let country: String = form.values()["country"] as? String else {
+            self.validateRow(tag: "country")
+            return
+        }
+        guard let passwordRow: BaseRow = form.rowBy(tag: "password"), let password: String = form.values()["password"] as? String else {
+            self.validateRow(tag: "password")
+            return
+        }
+        guard let repeatPasswordRow: BaseRow = form.rowBy(tag: "repeatPassword"), let repeatPassword: String = form.values()["repeatPassword"] as? String else {
+            self.validateRow(tag: "repeatPassword")
+            return
+        }
+        
+        if password != repeatPassword {
+            let password: PasswordRow? = form.rowBy(tag: "password")
+            password?.cell.textLabel?.textColor = UIColor.red
+            
+            let repeatPassword: PasswordRow? = form.rowBy(tag: "repeatPassword")
+            repeatPassword?.cell.textLabel?.textColor = UIColor.red
+            return
+        }
+        
+        if(firstNameRow.isValid && lastNameRow.isValid && companyNameRow.isValid && companyEmailRow.isValid && companyWebsiteRow.isValid && positionRow.isValid && telephoneRow.isValid && countryRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid) {
+            
+//            RegisterManager.client(mail: companyEmail, pass: password, firstname: firstName, lastname: lastname, telephone: telephone, occupation: position, company_name: companyName, company_website: companyWebsite, country: country) { (response, result) in
+//                if(response){
+////                    self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
+//                    print("Registered Successful")
+//                }
+//            }
+            
+        }
+    }
+    
+    func validateRow(tag: String){
+        let row: BaseRow? = form.rowBy(tag: tag)
+        _ = row?.validate()
     }
     
     func footerView() -> HeaderFooterView<UIView> {

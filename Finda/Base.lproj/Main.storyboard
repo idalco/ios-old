@@ -510,7 +510,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="muT-ZP-iSq">
-                                                            <rect key="frame" x="288.5" y="141" width="46.5" height="17"/>
+                                                            <rect key="frame" x="280.5" y="141" width="46.5" height="17"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -532,7 +532,7 @@
                                                         <constraint firstItem="QiV-k8-X3L" firstAttribute="leading" secondItem="UA9-nE-TN3" secondAttribute="leading" id="LN7-tw-COb"/>
                                                         <constraint firstItem="Awg-ZE-ZTM" firstAttribute="leading" secondItem="lqe-ng-iQE" secondAttribute="leadingMargin" id="O1t-wF-oet"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gSr-xq-7Q1" secondAttribute="trailing" constant="20" symbolic="YES" id="RLT-Xi-RUd"/>
-                                                        <constraint firstAttribute="trailing" secondItem="muT-ZP-iSq" secondAttribute="trailing" id="Zl3-71-8eH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="muT-ZP-iSq" secondAttribute="trailing" constant="8" id="Zl3-71-8eH"/>
                                                         <constraint firstItem="gSr-xq-7Q1" firstAttribute="leading" secondItem="dIE-cf-lpw" secondAttribute="leading" id="cLS-bv-94M"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Awg-ZE-ZTM" secondAttribute="trailing" constant="20" symbolic="YES" id="hE2-mn-I6B"/>
                                                         <constraint firstAttribute="height" constant="165" id="kqS-We-dxJ"/>
@@ -567,7 +567,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ptl-kN-O7b">
-                                                                    <rect key="frame" x="284.5" y="140" width="46.5" height="17"/>
+                                                                    <rect key="frame" x="280.5" y="140" width="46.5" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -608,7 +608,7 @@
                                                                 <constraint firstItem="Ptl-kN-O7b" firstAttribute="bottom" secondItem="4FI-Kf-01a" secondAttribute="bottomMargin" id="dBY-DF-j5C"/>
                                                                 <constraint firstItem="4oX-S7-tW1" firstAttribute="top" secondItem="uRY-p3-HhC" secondAttribute="bottom" constant="13" id="fIF-bV-hk1"/>
                                                                 <constraint firstItem="Ley-g2-Qzw" firstAttribute="leading" secondItem="kBO-ry-iZj" secondAttribute="leading" id="g3C-wH-Si7"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Ptl-kN-O7b" secondAttribute="trailing" constant="4" id="isQ-1j-M1F"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Ptl-kN-O7b" secondAttribute="trailing" constant="8" id="isQ-1j-M1F"/>
                                                                 <constraint firstItem="kBO-ry-iZj" firstAttribute="leading" secondItem="nGz-w1-1x1" secondAttribute="leading" id="nsI-5y-yEb"/>
                                                                 <constraint firstItem="nGz-w1-1x1" firstAttribute="centerY" secondItem="Ptl-kN-O7b" secondAttribute="centerY" id="pK2-ne-0oi"/>
                                                                 <constraint firstItem="4oX-S7-tW1" firstAttribute="leading" secondItem="4T5-xC-Iai" secondAttribute="leading" id="qcc-Cf-z3b"/>
@@ -645,7 +645,7 @@
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="xUq-dB-And">
                                                                     <rect key="frame" x="8" y="33" width="319" height="132"/>
-                                                                    <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere consectetur congue. Pellentesque facilisis hendrerit nibh, ut vestibulum magna luctus id. Mauris tincidunt diam quis fringilla pulvinar. Nunc vitae pretium turpis, mollis volutpat ipsum. Aliquam erat volutpat. Quisque malesuada magna in mauris condimentum interdum. Sed ac dignissim nibh.</string>
+                                                                    <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ligula ac ligula facilisis porta ac ut enim. Duis ultrices est non turpis euismod, id efficitur velit pharetra. Proin venenatis elit vel imperdiet egestas. Nulla volutpat dictum lorem aliquet vulputate. Phasellus cursus suscipit risus quis pellentesque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tellus elit, vestibulum at sagittis id, cursus non velit. Vestibulum dignissim turpis urna, eu gravida sem semper mollis. Quisque sapien ante, finibus et turpis eu, aliquet mattis eros. Phasellus sed blandit urna, nec dictum enim. Integer accumsan in justo sed cursus. Sed nisl nunc, pellentesque ac ultrices sit amet, imperdiet sed diam.</mutableString>
                                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -659,7 +659,7 @@
                                                                 <constraint firstItem="4NC-Hd-s5u" firstAttribute="top" secondItem="T16-JT-oFb" secondAttribute="topMargin" id="9Ek-cR-6MU"/>
                                                                 <constraint firstItem="4NC-Hd-s5u" firstAttribute="leading" secondItem="T16-JT-oFb" secondAttribute="leadingMargin" id="Cvh-Kn-mLa"/>
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4NC-Hd-s5u" secondAttribute="trailing" constant="20" symbolic="YES" id="Dxi-aJ-2hy"/>
-                                                                <constraint firstItem="xUq-dB-And" firstAttribute="bottom" secondItem="mT8-h6-fZ2" secondAttribute="bottom" id="IKb-Hb-IFw"/>
+                                                                <constraint firstItem="xUq-dB-And" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="mT8-h6-fZ2" secondAttribute="bottom" id="IKb-Hb-IFw"/>
                                                                 <constraint firstItem="xUq-dB-And" firstAttribute="top" secondItem="4NC-Hd-s5u" secondAttribute="bottom" constant="8" symbolic="YES" id="JqM-3J-iZn"/>
                                                                 <constraint firstItem="fVx-o9-LdE" firstAttribute="top" secondItem="T16-JT-oFb" secondAttribute="top" id="K0T-cf-rME"/>
                                                                 <constraint firstAttribute="trailing" secondItem="mT8-h6-fZ2" secondAttribute="trailing" id="Tje-bc-0ym"/>
@@ -746,6 +746,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="uRY-p3-HhC" firstAttribute="top" secondItem="0ss-wB-shu" secondAttribute="top" constant="7" id="3Qv-0g-lKz"/>
                                                         <constraint firstAttribute="trailing" secondItem="4FI-Kf-01a" secondAttribute="trailing" id="9fb-RE-O6k"/>
                                                         <constraint firstAttribute="trailing" secondItem="Rtu-YZ-2zZ" secondAttribute="trailing" id="AP1-im-JWP"/>
                                                         <constraint firstItem="T16-JT-oFb" firstAttribute="top" secondItem="0ss-wB-shu" secondAttribute="top" constant="165" identifier="yPosition" id="E0h-Hj-GYd"/>
@@ -779,12 +780,25 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="closedCompanyLabel" destination="KR8-ph-Vs5" id="4og-lj-Cmf"/>
+                                            <outlet property="closedDateLabel" destination="UA9-nE-TN3" id="Gz6-Ou-d91"/>
+                                            <outlet property="closedDescriptionLabel" destination="gSr-xq-7Q1" id="ch5-51-diT"/>
                                             <outlet property="closedHeaderLabel" destination="uRY-p3-HhC" id="KKp-vR-Yth"/>
+                                            <outlet property="closedJobTypeLabel" destination="Awg-ZE-ZTM" id="kQK-rI-dqs"/>
+                                            <outlet property="closedLengthLabel" destination="muT-ZP-iSq" id="egd-4V-IJN"/>
+                                            <outlet property="closedLocationLabel" destination="QiV-k8-X3L" id="wrI-qw-P7H"/>
                                             <outlet property="containerView" destination="0ss-wB-shu" id="JL4-dk-4lV"/>
                                             <outlet property="containerViewTop" destination="eIJ-ll-rxh" id="5yI-VG-kVV"/>
                                             <outlet property="foregroundView" destination="lqe-ng-iQE" id="K12-K6-dwJ"/>
                                             <outlet property="foregroundViewTop" destination="w6m-0N-oNw" id="XwJ-rO-PpT"/>
+                                            <outlet property="openCompanyLabel" destination="4T5-xC-Iai" id="9id-Yr-ucl"/>
+                                            <outlet property="openDateLabel" destination="nGz-w1-1x1" id="lw3-DI-ZyQ"/>
+                                            <outlet property="openDescriptionLabel" destination="4oX-S7-tW1" id="VGc-gQ-vJA"/>
                                             <outlet property="openHeaderLabel" destination="dIE-cf-lpw" id="Thf-BE-LHQ"/>
+                                            <outlet property="openInformationLabel" destination="xUq-dB-And" id="BnZ-b8-QTp"/>
+                                            <outlet property="openJobTypeLabel" destination="Ley-g2-Qzw" id="sZj-TX-Eu8"/>
+                                            <outlet property="openLengthLabel" destination="Ptl-kN-O7b" id="nrj-EH-iGm"/>
+                                            <outlet property="openLocationLabel" destination="kBO-ry-iZj" id="y36-Lt-B8T"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -810,7 +824,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SMa-2G-1A2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ok1-uw-YXt"/>
+                    <navigationItem key="navigationItem" id="Ok1-uw-YXt">
+                        <barButtonItem key="leftBarButtonItem" image="burger" id="4K2-V2-dmk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showMenu:" destination="t8b-0u-55J" id="t9T-Td-i1U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="nQi-32-dLZ" id="2S0-A1-ZA7"/>
                     </connections>
@@ -1010,6 +1031,7 @@
     </scenes>
     <resources>
         <image name="FindaLogoWhite" width="421" height="297"/>
+        <image name="burger" width="38" height="29"/>
         <image name="join_brand_bg" width="515" height="555"/>
         <image name="join_model_bg" width="515" height="555"/>
         <image name="splash" width="750" height="500"/>

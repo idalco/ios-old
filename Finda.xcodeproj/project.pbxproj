@@ -18,6 +18,7 @@
 		0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */; };
 		0C4ADA7A21120320002C3EA3 /* JobsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7921120320002C3EA3 /* JobsManager.swift */; };
 		0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7B21120C75002C3EA3 /* Job.swift */; };
+		0C4ADA7E21122BFA002C3EA3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7D21122BFA002C3EA3 /* DateExtensions.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -109,6 +110,7 @@
 		0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
 		0C4ADA7921120320002C3EA3 /* JobsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsManager.swift; sourceTree = "<group>"; };
 		0C4ADA7B21120C75002C3EA3 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Job.swift; path = Finda/Models/Data/Job.swift; sourceTree = SOURCE_ROOT; };
+		0C4ADA7D21122BFA002C3EA3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				0CCF2339210A7F1000612D5B /* FontExtensions.swift */,
 				0CCF235B210E06CA00612D5B /* ViewControllerExtensions.swift */,
+				0C4ADA7D21122BFA002C3EA3 /* DateExtensions.swift */,
 				0CCF233A210A7F1000612D5B /* TextFieldExtensions.swift */,
 				0CCF234C210D070600612D5B /* StringExtensions.swift */,
 				0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */,
@@ -687,6 +690,7 @@
 				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,
+				0C4ADA7E21122BFA002C3EA3 /* DateExtensions.swift in Sources */,
 				0C4ADA742110A450002C3EA3 /* UserStatus.swift in Sources */,
 				0CCF23022108E7B500612D5B /* CoreDataManager.swift in Sources */,
 				0CCF235A210E034B00612D5B /* ClientRegisterVC.swift in Sources */,

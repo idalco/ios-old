@@ -11,6 +11,7 @@ import FoldingCell
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    var allJobs: [Job] = []
     
     enum Const {
         static let closeCellHeight: CGFloat = 179
@@ -25,40 +26,60 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
+
         
+        self.tableView.refreshControl?.beginRefreshing()
+        self.loadJobs()
+        
+    }
+    
+    private func loadJobs(){
         JobsManager.getJobs(jobType: .all) { (response, result) in
+            self.tableView.refreshControl?.endRefreshing()
             if(response) {
                 let jobs = result["userdata"].dictionaryValue
-                var allJobs: [Job] = []
+                
                 for job in jobs {
-                    allJobs.append(Job(data: job.value))
+                    self.allJobs.append(Job(data: job.value))
                 }
+                self.reloadData()
             }
         }
+
+    }
+    @IBAction func showMenu(_ sender: Any) {
+        sideMenuController?.revealMenu()
+    }
+    
+    private func reloadData(){
+        self.cellHeights = Array(repeating: Const.closeCellHeight, count: self.allJobs.count)
+        self.tableView.reloadData()
     }
     
     private func setup() {
-        cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
+        cellHeights = Array(repeating: Const.closeCellHeight, count: self.allJobs.count)
         tableView.estimatedRowHeight = Const.closeCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
 
         if #available(iOS 10.0, *) {
             let refresh =  UIRefreshControl()
             refresh.tintColor = UIColor.white
-            tableView.refreshControl = refresh
+            self.tableView.refreshControl = refresh
+            
             
             tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
         }
     }
     
     @objc func refreshHandler() {
-        let deadlineTime = DispatchTime.now() + .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: { [weak self] in
-            if #available(iOS 10.0, *) {
-                self?.tableView.refreshControl?.endRefreshing()
-            }
-            self?.tableView.reloadData()
-        })
+        self.loadJobs()
+//        let deadlineTime = DispatchTime.now() + .seconds(1)
+//        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: { [weak self] in
+//            if #available(iOS 10.0, *) {
+//                self?.tableView.refreshControl?.endRefreshing()
+//            }
+//            self?.tableView.reloadData()
+//        })
     }
 }
 
@@ -67,7 +88,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 extension DashboardVC {
     
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
+        return self.allJobs.count
     }
     
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -75,7 +96,28 @@ extension DashboardVC {
             return
         }
         
+        let job = allJobs[indexPath.row]
+        
         cell.backgroundColor = .clear
+        
+        cell.openDescriptionLabel.text = job.description
+        cell.openCompanyLabel.text = job.companyName
+        cell.openJobTypeLabel.text = job.jobtype
+        cell.openLocationLabel.text = job.location
+        cell.openDateLabel.text = Date().displayDate(timeInterval: job.startdate, format:  "MMM dd, yyyy")
+        cell.openLengthLabel.text = JobsManager.length(length: job.timeUnits, unit: job.unitsType)
+        cell.openInformationLabel.text = job.name
+
+        cell.closedDescriptionLabel.text = job.description
+        cell.closedCompanyLabel.text = job.companyName
+        cell.closedJobTypeLabel.text = job.jobtype
+        cell.closedLocationLabel.text = job.location
+        cell.closedDateLabel.text = Date().displayDate(timeInterval: job.startdate, format:  "MMM dd, yyyy")
+        cell.closedLengthLabel.text =  JobsManager.length(length: job.timeUnits, unit: job.unitsType)
+        
+        
+        
+        
         
         if cellHeights[indexPath.row] == Const.closeCellHeight {
             cell.unfold(false, animated: false, completion: nil)
@@ -90,6 +132,7 @@ extension DashboardVC {
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
+        
         return cell
     }
     

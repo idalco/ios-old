@@ -13,7 +13,22 @@ class DashboardCell: FoldingCell {
     
 
     @IBOutlet weak var openHeaderLabel: UILabel!
+    @IBOutlet weak var openDescriptionLabel: UILabel!
+    @IBOutlet weak var openCompanyLabel: UILabel!
+    @IBOutlet weak var openJobTypeLabel: UILabel!
+    @IBOutlet weak var openLocationLabel: UILabel!
+    @IBOutlet weak var openDateLabel: UILabel!
+    @IBOutlet weak var openLengthLabel: UILabel!
+    @IBOutlet weak var openInformationLabel: UILabel!
+    
+    
     @IBOutlet weak var closedHeaderLabel: UILabel!
+    @IBOutlet weak var closedDescriptionLabel: UILabel!
+    @IBOutlet weak var closedCompanyLabel: UILabel!
+    @IBOutlet weak var closedJobTypeLabel: UILabel!
+    @IBOutlet weak var closedLocationLabel: UILabel!
+    @IBOutlet weak var closedDateLabel: UILabel!
+    @IBOutlet weak var closedLengthLabel: UILabel!
     
     override func awakeFromNib() {
         foregroundView.layer.cornerRadius = 10

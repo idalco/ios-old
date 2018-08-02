@@ -32,4 +32,12 @@ class JobsManager {
             completion(false, result)
         }
     }
+    
+    static func length(length: Int, unit: String) -> String {
+        let string = "\(length) \(unit)"
+        if (length > 1) {
+            return "\(string)s"
+        }
+        return string
+    }
 }
