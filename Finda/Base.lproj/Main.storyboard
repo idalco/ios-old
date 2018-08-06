@@ -1031,6 +1031,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="AIO-Z4-agd" kind="relationship" relationship="viewControllers" id="cED-wm-Rrc"/>
@@ -1132,7 +1133,7 @@
         <scene sceneID="0ZY-RK-VY8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AIO-Z4-agd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="RD0-1s-kjB"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user_group_man_woman" id="RD0-1s-kjB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S3U-hD-VwT">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1151,7 +1152,7 @@
         <scene sceneID="T4n-tt-8J4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B5C-Gk-WDP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Preferences" id="Mpt-e7-XUv"/>
+                    <tabBarItem key="tabBarItem" title="Preferences" image="settings" id="Mpt-e7-XUv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DIS-n1-MX7">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1170,7 +1171,7 @@
         <scene sceneID="ANq-Y9-Qfs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKv-ii-L2J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Measurements" id="W9h-70-hId"/>
+                    <tabBarItem key="tabBarItem" title="Measurements" image="plus" id="W9h-70-hId"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rOb-Ko-dqS">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1212,8 +1213,11 @@
         <image name="join_brand_bg" width="515" height="555"/>
         <image name="join_model_bg" width="515" height="555"/>
         <image name="menu" width="30" height="30"/>
+        <image name="plus" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
         <image name="sms" width="30" height="30"/>
         <image name="splash" width="750" height="500"/>
+        <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vaf-CE-aBo"/>
