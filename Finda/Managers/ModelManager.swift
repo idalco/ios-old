@@ -281,6 +281,7 @@ class ModelManager {
         user.setValue(userData["ethnicity"].intValue, forKeyPath: User.ethnicity.rawValue)
         user.setValue(userData["available"].intValue, forKeyPath: User.available.rawValue)
         user.setValue(userData["status"].intValue, forKeyPath: User.status.rawValue)
+        user.setValue(userData["gender"].string, forKeyPath: User.gender.rawValue)
         
         do {
             try managedContext.save()
