@@ -388,7 +388,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81Q-JW-ZZK">
-                                                            <rect key="frame" x="0.0" y="11" width="240" height="21"/>
+                                                            <rect key="frame" x="0.0" y="11.5" width="240" height="20"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -506,25 +506,25 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIKE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="KR8-ph-Vs5">
-                                                            <rect key="frame" x="10" y="63" width="34.5" height="17"/>
+                                                            <rect key="frame" x="10" y="63" width="32" height="17"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/05/2018 - 06/05/2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UA9-nE-TN3">
-                                                            <rect key="frame" x="8" y="143" width="149" height="14"/>
+                                                            <rect key="frame" x="8" y="143" width="134.5" height="14"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="QiV-k8-X3L">
-                                                            <rect key="frame" x="8" y="121" width="79.5" height="14"/>
+                                                            <rect key="frame" x="8" y="121" width="73" height="14"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outfit / Lifestyle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Awg-ZE-ZTM">
-                                                            <rect key="frame" x="8" y="99" width="97" height="14"/>
+                                                            <rect key="frame" x="8" y="99" width="84.5" height="14"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -568,20 +568,20 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FI-Kf-01a" userLabel="FirstContainerView">
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="165"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIKE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="4T5-xC-Iai">
-                                                                    <rect key="frame" x="6" y="62" width="34.5" height="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="NIKE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="4T5-xC-Iai">
+                                                                    <rect key="frame" x="6" y="62" width="32" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outfit / Lifestyle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ley-g2-Qzw">
-                                                                    <rect key="frame" x="4" y="95" width="97" height="15"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Outfit / Lifestyle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ley-g2-Qzw">
+                                                                    <rect key="frame" x="4" y="95" width="84.5" height="15"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/05/2018 - 06/05/2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="nGz-w1-1x1">
-                                                                    <rect key="frame" x="4" y="141.5" width="149" height="14"/>
+                                                                    <rect key="frame" x="4" y="141.5" width="134.5" height="14"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -592,19 +592,19 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADVERTISING CAMPAIGN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="4oX-S7-tW1">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ADVERTISING CAMPAIGN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="4oX-S7-tW1">
                                                                     <rect key="frame" x="6" y="37" width="185" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="kBO-ry-iZj">
-                                                                    <rect key="frame" x="4" y="118" width="79.5" height="15"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="United States" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="kBO-ry-iZj">
+                                                                    <rect key="frame" x="4" y="118" width="73" height="15"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW JOB OFFERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="uRY-p3-HhC">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="NEW JOB OFFERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="uRY-p3-HhC">
                                                                     <rect key="frame" x="6" y="7" width="132" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Black" family="Gotham" pointSize="14"/>
                                                                     <nil key="textColor"/>
@@ -665,7 +665,7 @@
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="xUq-dB-And">
                                                                     <rect key="frame" x="8" y="33" width="319" height="132"/>
-                                                                    <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ligula ac ligula facilisis porta ac ut enim. Duis ultrices est non turpis euismod, id efficitur velit pharetra. Proin venenatis elit vel imperdiet egestas. Nulla volutpat dictum lorem aliquet vulputate. Phasellus cursus suscipit risus quis pellentesque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tellus elit, vestibulum at sagittis id, cursus non velit. Vestibulum dignissim turpis urna, eu gravida sem semper mollis. Quisque sapien ante, finibus et turpis eu, aliquet mattis eros. Phasellus sed blandit urna, nec dictum enim. Integer accumsan in justo sed cursus. Sed nisl nunc, pellentesque ac ultrices sit amet, imperdiet sed diam.</mutableString>
+                                                                    <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ligula ac ligula facilisis porta ac ut enim. Duis ultrices est non turpis euismod, id efficitur velit pharetra. Proin venenatis elit vel imperdiet egestas. Nulla volutpat dictum lorem aliquet vulputate. Phasellus cursus suscipit risus quis pellentesque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tellus elit, vestibulum at sagittis id, cursus non velit. Vestibulum dignissim turpis urna, eu gravida sem semper mollis. Quisque sapien ante, finibus et turpis eu, aliquet mattis eros. Phasellus sed blandit urna, nec dictum enim. Integer accumsan in justo sed cursus. Sed nisl nunc, pellentesque ac ultrices sit amet, imperdiet sed diam.</string>
                                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -992,22 +992,62 @@
             </objects>
             <point key="canvasLocation" x="5183.1999999999998" y="90.404797601199405"/>
         </scene>
-        <!--Table View Controller-->
+        <!--NotificationsVC-->
         <scene sceneID="VIv-ok-IIS">
             <objects>
-                <tableViewController id="LAi-pd-kho" sceneMemberID="viewController">
+                <tableViewController id="LAi-pd-kho" customClass="NotificationsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="m1r-2Y-fEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8NO-JM-g8p">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="73" id="8NO-JM-g8p" customClass="NotificationCell" customModule="Finda" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8NO-JM-g8p" id="6Da-6z-7Bc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvX-5A-VNQ">
+                                            <rect key="frame" x="16" y="11" width="50" height="21"/>
+                                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="14 July 2018" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M0-Kc-goe">
+                                            <rect key="frame" x="235" y="11" width="124" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="124" id="k25-NN-DDV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ1-1d-blM">
+                                            <rect key="frame" x="16" y="40" width="343" height="22"/>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kvX-5A-VNQ" firstAttribute="top" secondItem="6Da-6z-7Bc" secondAttribute="topMargin" id="6jG-ca-toq"/>
+                                        <constraint firstItem="kvX-5A-VNQ" firstAttribute="leading" secondItem="6Da-6z-7Bc" secondAttribute="leadingMargin" id="GPj-sa-Q04"/>
+                                        <constraint firstItem="DJ1-1d-blM" firstAttribute="bottom" secondItem="6Da-6z-7Bc" secondAttribute="bottomMargin" id="Lfj-9z-5XN"/>
+                                        <constraint firstItem="DJ1-1d-blM" firstAttribute="top" secondItem="9M0-Kc-goe" secondAttribute="bottom" constant="11" id="Obh-AK-acz"/>
+                                        <constraint firstItem="kvX-5A-VNQ" firstAttribute="top" secondItem="9M0-Kc-goe" secondAttribute="top" id="ZG8-bX-c3c"/>
+                                        <constraint firstItem="DJ1-1d-blM" firstAttribute="trailing" secondItem="6Da-6z-7Bc" secondAttribute="trailingMargin" id="ZTX-bB-7dU"/>
+                                        <constraint firstItem="DJ1-1d-blM" firstAttribute="leading" secondItem="6Da-6z-7Bc" secondAttribute="leadingMargin" id="h6W-0z-bhU"/>
+                                        <constraint firstItem="DJ1-1d-blM" firstAttribute="top" secondItem="kvX-5A-VNQ" secondAttribute="bottom" constant="8" symbolic="YES" id="hTR-U8-sLK"/>
+                                        <constraint firstItem="9M0-Kc-goe" firstAttribute="trailing" secondItem="6Da-6z-7Bc" secondAttribute="trailingMargin" id="jmQ-1q-t68"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="9M0-Kc-goe" id="MtQ-zD-CwC"/>
+                                    <outlet property="messageLabel" destination="DJ1-1d-blM" id="9jg-Jr-ad8"/>
+                                    <outlet property="nameLabel" destination="kvX-5A-VNQ" id="ZKk-G7-Rkk"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1019,7 +1059,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1f-x6-qZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4244" y="924"/>
+            <point key="canvasLocation" x="4244" y="923.38830584707648"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g9p-NA-K0G">

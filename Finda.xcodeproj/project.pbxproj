@@ -21,6 +21,10 @@
 		0C4ADA7E21122BFA002C3EA3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7D21122BFA002C3EA3 /* DateExtensions.swift */; };
 		0C4ADA802113353D002C3EA3 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7F2113353D002C3EA3 /* Country.swift */; };
 		0C4ADA8221176976002C3EA3 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8121176976002C3EA3 /* ViewExtensions.swift */; };
+		0C4ADA8421184775002C3EA3 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8321184775002C3EA3 /* NotificationsVC.swift */; };
+		0C4ADA86211847CC002C3EA3 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA85211847CC002C3EA3 /* Notification.swift */; };
+		0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA87211848F6002C3EA3 /* NotificationManager.swift */; };
+		0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -115,6 +119,10 @@
 		0C4ADA7D21122BFA002C3EA3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		0C4ADA7F2113353D002C3EA3 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		0C4ADA8121176976002C3EA3 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		0C4ADA8321184775002C3EA3 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		0C4ADA85211847CC002C3EA3 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		0C4ADA87211848F6002C3EA3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -218,6 +226,8 @@
 				0CCF2341210A86B300612D5B /* DashboardVC.swift */,
 				0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */,
 				0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */,
+				0C4ADA8321184775002C3EA3 /* NotificationsVC.swift */,
+				0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */,
 				0CCF2348210B297A00612D5B /* MeasurementsVC.swift */,
 				0CCF234A210CC61800612D5B /* PreferencesVC.swift */,
 				0CCF2356210E032100612D5B /* Register */,
@@ -233,6 +243,7 @@
 				0CCF22D82108B25900612D5B /* LoginManager.swift */,
 				0C4ADA6721107E54002C3EA3 /* ModelManager.swift */,
 				0C4ADA7921120320002C3EA3 /* JobsManager.swift */,
+				0C4ADA87211848F6002C3EA3 /* NotificationManager.swift */,
 				0C4ADA6921107EF5002C3EA3 /* RegisterManager.swift */,
 				0CCF232A2109E61300612D5B /* TermDataManager.swift */,
 				0CCF23012108E7B500612D5B /* CoreDataManager.swift */,
@@ -269,6 +280,7 @@
 				0C4ADA70211090C4002C3EA3 /* Preferences+CoreDataClass.swift */,
 				0C4ADA6F211090C4002C3EA3 /* Preferences+CoreDataProperties.swift */,
 				0C4ADA7B21120C75002C3EA3 /* Job.swift */,
+				0C4ADA85211847CC002C3EA3 /* Notification.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -703,6 +715,7 @@
 				0CCF2353210DE56B00612D5B /* PickerDelegate.swift in Sources */,
 				0CCF235E210E4FCC00612D5B /* RegisterOptionVC.swift in Sources */,
 				0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */,
+				0C4ADA8421184775002C3EA3 /* NotificationsVC.swift in Sources */,
 				0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */,
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
 				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,
@@ -710,6 +723,7 @@
 				0C4ADA8221176976002C3EA3 /* ViewExtensions.swift in Sources */,
 				0CCF234B210CC61800612D5B /* PreferencesVC.swift in Sources */,
 				0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */,
+				0C4ADA86211847CC002C3EA3 /* Notification.swift in Sources */,
 				0CCF23002108E42800612D5B /* User+CoreDataClass.swift in Sources */,
 				0CCF22B82107390800612D5B /* LoginVC.swift in Sources */,
 				0C4ADA6821107E54002C3EA3 /* ModelManager.swift in Sources */,
@@ -735,7 +749,9 @@
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
+				0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */,
 				0CCF234D210D070600612D5B /* StringExtensions.swift in Sources */,
+				0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */,
 				0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
