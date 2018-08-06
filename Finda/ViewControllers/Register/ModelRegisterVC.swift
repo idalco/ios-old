@@ -103,17 +103,19 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             }
             
             
-            <<< TextRow(){ row in
+            <<< PickerInlineRow<String>() { row in
                 row.title = "Country"
                 row.tag = "country"
+                row.options = Country.nationalities
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
                 }
                 .cellUpdate { cell, row in
                     if !row.isValid {
-                        cell.titleLabel?.textColor = .red
+                        cell.textLabel?.textColor = .red
                     }
             }
+        
             
             
             <<< EmailRow(){ row in

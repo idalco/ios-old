@@ -19,6 +19,8 @@
 		0C4ADA7A21120320002C3EA3 /* JobsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7921120320002C3EA3 /* JobsManager.swift */; };
 		0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7B21120C75002C3EA3 /* Job.swift */; };
 		0C4ADA7E21122BFA002C3EA3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7D21122BFA002C3EA3 /* DateExtensions.swift */; };
+		0C4ADA802113353D002C3EA3 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7F2113353D002C3EA3 /* Country.swift */; };
+		0C4ADA8221176976002C3EA3 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8121176976002C3EA3 /* ViewExtensions.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -111,6 +113,8 @@
 		0C4ADA7921120320002C3EA3 /* JobsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsManager.swift; sourceTree = "<group>"; };
 		0C4ADA7B21120C75002C3EA3 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Job.swift; path = Finda/Models/Data/Job.swift; sourceTree = SOURCE_ROOT; };
 		0C4ADA7D21122BFA002C3EA3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		0C4ADA7F2113353D002C3EA3 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		0C4ADA8121176976002C3EA3 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				0CCF234C210D070600612D5B /* StringExtensions.swift */,
 				0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */,
 				0CCF233B210A7F1000612D5B /* BaseCellExtensions.swift */,
+				0C4ADA8121176976002C3EA3 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				0CEBCB5821071AD1004CC4D8 /* Info.plist */,
 				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
 				0C4ADA732110A450002C3EA3 /* UserStatus.swift */,
+				0C4ADA7F2113353D002C3EA3 /* Country.swift */,
 				0CCF22D321089B5500612D5B /* Moya Plugins */,
 				0CCF22DA2108B55900612D5B /* Models */,
 				0CCF22BE210896A200612D5B /* Managers */,
@@ -622,6 +628,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DCKit/DCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -629,7 +636,6 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya-Marshal/Moya_Marshal.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
@@ -640,6 +646,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
@@ -647,7 +654,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_Marshal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
@@ -701,6 +707,7 @@
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
 				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,
 				0C4ADA762110AEF4002C3EA3 /* DashboardCell.swift in Sources */,
+				0C4ADA8221176976002C3EA3 /* ViewExtensions.swift in Sources */,
 				0CCF234B210CC61800612D5B /* PreferencesVC.swift in Sources */,
 				0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */,
 				0CCF23002108E42800612D5B /* User+CoreDataClass.swift in Sources */,
@@ -713,6 +720,7 @@
 				0C4ADA61210F4492002C3EA3 /* RegisterFooter.swift in Sources */,
 				0CCF2345210B1C7C00612D5B /* SideMenuCell.swift in Sources */,
 				0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */,
+				0C4ADA802113353D002C3EA3 /* Country.swift in Sources */,
 				0CCF235C210E06CA00612D5B /* ViewControllerExtensions.swift in Sources */,
 				0C4ADA63210F4549002C3EA3 /* RegisterHeader.swift in Sources */,
 				0CCF2342210A86B300612D5B /* DashboardVC.swift in Sources */,

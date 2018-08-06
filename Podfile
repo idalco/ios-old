@@ -12,10 +12,10 @@ target 'Finda' do
 
   # network requests
   pod 'Alamofire'
+  pod 'AlamofireImage'
   
   # API modelling
   pod 'Moya'
-  pod 'Moya-Marshal'
   
   # json parsing
   pod 'SwiftyJSON'

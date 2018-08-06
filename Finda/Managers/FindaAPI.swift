@@ -122,9 +122,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["occupation"] = occupation
             p["company_name"] = company_name
             p["company_website"] = company_website
+            p["gender"] = "other".lowercased()
             p["country"] = country
             p["usertype"] = "brand"
             p["agree_terms"] = 1
+            p["dob"] = 0
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
             

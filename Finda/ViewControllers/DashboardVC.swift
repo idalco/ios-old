@@ -26,7 +26,6 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
-
         
         self.tableView.refreshControl?.beginRefreshing()
         self.loadJobs()

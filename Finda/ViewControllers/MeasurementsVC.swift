@@ -142,6 +142,10 @@ class MeasurementsVC: FormViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func save(_ sender: Any) {
+        
+    }
+    
     func placeholderRed(row: TextRow){
         row.add(rule: RuleRequired())
         row.validationOptions = .validatesOnChange

@@ -115,7 +115,7 @@ class ClientRegisterVC: FormViewController {
             }
             
             
-            <<< URLRow(){ row in
+            <<< TextRow(){ row in
                 row.title = "Company Website"
                 row.tag = "companyWebsite"
                 row.add(rule: RuleRequired())
@@ -151,15 +151,17 @@ class ClientRegisterVC: FormViewController {
                     }
             }
             
-            <<< TextRow(){ row in
+            <<< PickerInlineRow<String>() { row in
                 row.title = "Country"
                 row.tag = "country"
+                row.options = Country.nationalities
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
                 }
                 .cellUpdate { cell, row in
                     if !row.isValid {
-                        cell.titleLabel?.textColor = .red
+                        cell.textLabel?.textColor = .red
+               
                     }
             }
 
@@ -253,13 +255,12 @@ class ClientRegisterVC: FormViewController {
         
         if(firstNameRow.isValid && lastNameRow.isValid && companyNameRow.isValid && companyEmailRow.isValid && companyWebsiteRow.isValid && positionRow.isValid && telephoneRow.isValid && countryRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid) {
             
-//            RegisterManager.client(mail: companyEmail, pass: password, firstname: firstName, lastname: lastname, telephone: telephone, occupation: position, company_name: companyName, company_website: companyWebsite, country: country) { (response, result) in
-//                if(response){
-////                    self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
-//                    print("Registered Successful")
-//                }
-//            }
-            
+            RegisterManager.client(mail: companyEmail, pass: password, firstname: firstName, lastname: lastname, telephone: telephone, occupation: position, company_name: companyName, company_website: companyWebsite, country: country) { (response, result) in
+                if(response){
+                    self.performSegue(withIdentifier: "finishSegue", sender: nil)
+                    print("Registered Successful")
+                }
+            }
         }
     }
     

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var profileImage: UIImageView!
     
     let menu = ["Dashboard", "Personal Details", "Sign Out"]
     
@@ -17,6 +19,11 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
+        let modelManager = ModelManager()
+        self.profileImage.setRounded()
+        if let imageUrl = URL(string: modelManager.avatar()){
+            self.profileImage.af_setImage(withURL: imageUrl)
+        }
         
         
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") }, with: "0")
