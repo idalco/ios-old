@@ -25,14 +25,13 @@ enum FindaAPI {
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
-    
-    
+    case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
+
     
     
 
     case register(email: String, password: String, name: String, locale: String)
-    case updateProfile(email: String, firstName: String, lastName: String)
-    case updateDeviceToken(deviceToken: String, deviceType: String)
+        case updateDeviceToken(deviceToken: String, deviceType: String)
     // POST Multipart
     case updateAvatar(avatar: UIImage)
     // GET
@@ -65,13 +64,13 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "getNotifications"
         case .deleteNotifications:
             return "deleteNotification"
-            
+        case .updateProfile:
+            return "/updateProfile"
             
             
         case .register:
             return "/register"
-        case .updateProfile:
-            return "/updateProfile"
+        
 //        case .submitFeedback:
 //            return "/sendFeedback"
         case .updateDeviceToken:
@@ -87,7 +86,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .register, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -153,7 +152,22 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .deleteNotifications(let id):
             p["msgid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .updateProfile(let firstName, let lastName, let email, let gender, let ethnicityId, let instagramUsername, let referralCode, let vatNumber):
+            p["firstname"] = firstName
+            p["lastname"] = lastName
+            p["mail"] = email
+            p["gender"] = gender
+            p["ethnicity"] = ethnicityId
+            p["instagram"] = instagramUsername
+            if (referralCode != "") {
+                p["referral_code"] = referralCode
+            }
+            if (vatNumber != "") {
+                p["vat_number"] = vatNumber
+            }
             
+         
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
         case .register(let email, let password, let name, let locale):

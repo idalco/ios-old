@@ -11,6 +11,9 @@ import Eureka
 
 class PersonalDetailsVC: FormViewController {
     
+    
+    var ethnicityDictionary: [Int: String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,13 +74,29 @@ class PersonalDetailsVC: FormViewController {
             }   <<< TextRow(){ row in
                 row.title = "First name"
                 row.value = modelManager.firstName()
-       
-                
+                row.tag = "firstName"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                        
+                    }
             }
             
             <<< TextRow(){ row in
                 row.title = "Last name"
                 row.value = modelManager.lastName()
+                row.tag = "lastName"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                        
+                    }
             }
             
             <<< DateInlineRow(){ row in
@@ -86,18 +105,36 @@ class PersonalDetailsVC: FormViewController {
                 var components = DateComponents()
                 components.year = -18
                 row.minimumDate = Calendar.current.date(byAdding: components, to: Date())
-                
+                row.tag = "dob"
                 
                 let data = modelManager.dateOfBirth()
                 if data != -1 {
                     row.value = Date(timeIntervalSince1970: TimeInterval(data))
                     row.disabled = true
                 }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                        
+                    }
             }
             
             <<< EmailRow(){ row in
                 row.title = "Email address"
                 row.value = modelManager.email()
+                row.tag = "email"
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleEmail())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                        
+                    }
             }
             
             
@@ -106,11 +143,21 @@ class PersonalDetailsVC: FormViewController {
                 
                 row.options = ["Female", "Male"]
                 row.value = modelManager.gender().capitalizingFirstLetter()
+                row.tag = "gender"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                        
+                    }
             }
             
             
             <<< PickerInlineRow<String>() { row in
                 row.title = "Nationality"
+                row.tag = "nationality"
                 
                 row.options = Country.nationalities
                 let nationality = modelManager.nationality()
@@ -122,6 +169,7 @@ class PersonalDetailsVC: FormViewController {
             
             <<< PickerInlineRow<String>() { row in
                 row.title = "Country of residence"
+                row.tag = "residence"
                 
                 row.options = Country.nationalities
                 let residenceCountry = modelManager.residenceCountry()
@@ -135,6 +183,7 @@ class PersonalDetailsVC: FormViewController {
             <<< TextRow(){ row in
                 row.title = "Instagram Username"
                 row.value = modelManager.instagramUserName()
+                row.tag = "instagramUsername"
             }
             
             <<< IntRow(){ row in
@@ -150,6 +199,7 @@ class PersonalDetailsVC: FormViewController {
             }
             <<< TextRow(){ row in
                 row.title = "Referral Code"
+                row.tag = "referralCode"
                 row.value = modelManager.referrerCode()
                 
                 
@@ -174,13 +224,15 @@ class PersonalDetailsVC: FormViewController {
                 row.title = "VAT Number"
                 row.placeholder = "(optional)"
                 row.value = modelManager.vatNumber()
+                row.tag = "vat"
                 
         }
         
         form +++ section
         
-        PickerDelegate.addPickerData(term: .Ethnicity, rowTitle: "Ethnicity", coreData: modelManager.ethnicity()) { (response, result) in
+        PickerDelegate.addPickerData(term: .Ethnicity, rowTitle: "Ethnicity", coreData: modelManager.ethnicity()) { (response, result, dictionary) in
             if response {
+                self.ethnicityDictionary = dictionary
                 section.insert(result, at: 5)
             }
         }
@@ -191,9 +243,69 @@ class PersonalDetailsVC: FormViewController {
     
     
     @IBAction func save(_ sender: Any) {
-        print("save")
+        
+        guard let firstNameRow: BaseRow = form.rowBy(tag: "firstName"), let firstName: String = form.values()["firstName"] as? String else {
+            self.validateRow(tag: "firstName")
+            return
+        }
+        
+        guard let lastNameRow: BaseRow = form.rowBy(tag: "lastName"), let lastName: String = form.values()["lastName"] as? String else {
+            self.validateRow(tag: "lastName")
+            return
+        }
+        
+
+        
+        guard let emailRow: BaseRow = form.rowBy(tag: "email"), let email: String = form.values()["email"] as? String else {
+            self.validateRow(tag: "email")
+            return
+        }
+        
+        guard let genderRow: BaseRow = form.rowBy(tag: "gender"), let gender: String = form.values()["gender"] as? String else {
+            self.validateRow(tag: "gender")
+            return
+        }
+        
+        guard let ethnicityRow: BaseRow = form.rowBy(tag: "ethnicity"), let ethnicity: String = form.values()["ethnicity"] as? String else {
+            self.validateRow(tag: "ethnicity")
+            return
+        }
+        
+        guard let instagramRow: BaseRow = form.rowBy(tag: "instagramUsername"), let instagram: String = form.values()["instagramUsername"] as? String else {
+            self.validateRow(tag: "instagramUsername")
+            return
+        }
+        
+        guard let referralCodeRow: BaseRow = form.rowBy(tag: "referralCode"), let referralCode: String = form.values()["referralCode"] as? String else {
+            self.validateRow(tag: "referralCode")
+            return
+        }
+        
+        guard let vatRow: BaseRow = form.rowBy(tag: "vat"), let vat: String = form.values()["vat"] as? String else {
+            self.validateRow(tag: "vat")
+            return
+        }
+        
+        
+
+        guard let ethnictyId = ethnicityDictionary.allKeysForValue(val: ethnicity).first else {
+            return
+        }
+        
+        if(firstNameRow.isValid && lastNameRow.isValid && emailRow.isValid && genderRow.isValid && ethnicityRow.isValid && instagramRow.isValid){
+            FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, gender: gender, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat)) { (response, result) in
+                if response {
+                    
+                }
+            }
+        }
     }
+
     
+    func validateRow(tag: String){
+        let row: BaseRow? = form.rowBy(tag: tag)
+        _ = row?.validate()
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -223,3 +335,4 @@ class PersonalDetailsVC: FormViewController {
      */
     
 }
+

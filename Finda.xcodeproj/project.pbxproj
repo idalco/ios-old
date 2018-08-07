@@ -25,6 +25,7 @@
 		0C4ADA86211847CC002C3EA3 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA85211847CC002C3EA3 /* Notification.swift */; };
 		0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA87211848F6002C3EA3 /* NotificationManager.swift */; };
 		0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */; };
+		0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8F2119B353002C3EA3 /* DictionaryExtensions.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -123,6 +124,7 @@
 		0C4ADA85211847CC002C3EA3 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		0C4ADA87211848F6002C3EA3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		0C4ADA8F2119B353002C3EA3 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -226,10 +228,10 @@
 				0CCF2341210A86B300612D5B /* DashboardVC.swift */,
 				0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */,
 				0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */,
-				0C4ADA8321184775002C3EA3 /* NotificationsVC.swift */,
-				0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */,
 				0CCF2348210B297A00612D5B /* MeasurementsVC.swift */,
 				0CCF234A210CC61800612D5B /* PreferencesVC.swift */,
+				0C4ADA8321184775002C3EA3 /* NotificationsVC.swift */,
+				0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */,
 				0CCF2356210E032100612D5B /* Register */,
 				0CCF2343210B1C6700612D5B /* SideMenu */,
 			);
@@ -333,6 +335,7 @@
 				0CCF234C210D070600612D5B /* StringExtensions.swift */,
 				0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */,
 				0CCF233B210A7F1000612D5B /* BaseCellExtensions.swift */,
+				0C4ADA8F2119B353002C3EA3 /* DictionaryExtensions.swift */,
 				0C4ADA8121176976002C3EA3 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
@@ -747,6 +750,7 @@
 				0CCF22D621089B6200612D5B /* FindaMoyaTokenPlugin.swift in Sources */,
 				0C4ADA6A21107EF5002C3EA3 /* RegisterManager.swift in Sources */,
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
+				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
 				0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */,

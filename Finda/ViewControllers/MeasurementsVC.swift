@@ -146,6 +146,11 @@ class MeasurementsVC: FormViewController {
         
     }
     
+    func validateRow(tag: String){
+        let row: BaseRow? = form.rowBy(tag: tag)
+        _ = row?.validate()
+    }
+    
     func placeholderRed(row: TextRow){
         row.add(rule: RuleRequired())
         row.validationOptions = .validatesOnChange
