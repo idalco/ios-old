@@ -28,14 +28,30 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.navigationController?.navigationBar.transparentNavigationBar()
         
         self.tableView.refreshControl?.beginRefreshing()
-        self.loadJobs()
         
+        
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadJobs()
+        self.updateNotificationCount()
+    }
+    
+    private func updateNotificationCount(){
+        NotificationManager.countNotifications(notificationType: .new) { (response, result) in
+            if response {
+                self.tabBarController?.tabBar.items?[1].badgeValue = result["userdata"].string
+            }
+        }
     }
     
     private func loadJobs(){
         JobsManager.getJobs(jobType: .all) { (response, result) in
             self.tableView.refreshControl?.endRefreshing()
             if(response) {
+                self.allJobs.removeAll()
                 let jobs = result["userdata"].dictionaryValue
                 
                 for job in jobs {

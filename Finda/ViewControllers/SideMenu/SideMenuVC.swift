@@ -28,7 +28,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") }, with: "0")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetailsNav") }, with: "1")
-       
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,7 +62,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
-        } else {
+        }else {
+            
             sideMenuController?.hideMenu()
             sideMenuController?.setContentViewController(with: "\(indexPath.row)")
             

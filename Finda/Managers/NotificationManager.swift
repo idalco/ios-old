@@ -27,4 +27,30 @@ class NotificationManager {
         }
     }
     
+
+    static func countNotifications(notificationType: NotificationTypes, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+        FindaAPISession(target: .countNotifications(notificationType: notificationType)) { (response, result) in
+            if(response){
+                completion(response, result)
+                return
+            }
+            completion(false, result)
+        }
+    }
+    
+    
+    static func deleteNotifications(id: Int, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+        FindaAPISession(target: .deleteNotifications(id: id)) { (response, result) in
+            if(response){
+                completion(response, result)
+                return
+            }
+            completion(false, result)
+        }
+    }
+    
+    static func deleteNotifications(id: Int){
+        FindaAPISession(target: .deleteNotifications(id: id)) { (response, result) in }
+    }
+    
 }

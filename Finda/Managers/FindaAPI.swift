@@ -23,6 +23,8 @@ enum FindaAPI {
     case logout()
     case getJobs(jobType: JobsManager.JobTypes)
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
+    case countNotifications(notificationType: NotificationManager.NotificationTypes)
+    case deleteNotifications(id: Int)
     
     
     
@@ -59,6 +61,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/getJobs"
         case .getNotifications:
             return "getNotifications"
+        case .countNotifications:
+            return "getNotifications"
+        case .deleteNotifications:
+            return "deleteNotification"
             
             
             
@@ -81,7 +87,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .register, .updateProfile, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -140,6 +146,15 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .getNotifications(let notificationType):
             p["type"] = notificationType.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .countNotifications(let notificationType):
+            p["type"] = notificationType.rawValue
+            p["count"] = true
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .deleteNotifications(let id):
+            p["msgid"] = id
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+            
             
         case .register(let email, let password, let name, let locale):
             p["email"] = email

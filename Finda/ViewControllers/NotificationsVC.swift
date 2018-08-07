@@ -14,8 +14,10 @@ class NotificationsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.laodNotifications()
+        self.setup()
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,9 +25,37 @@ class NotificationsVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    private func laodNotifications(){
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadNotifications()
+        self.updateNotificationCount()
+    }
+    
+    private func updateNotificationCount(){
+        NotificationManager.countNotifications(notificationType: .new) { (response, result) in
+            if response {
+                self.tabBarController?.tabBar.items?[1].badgeValue = result["userdata"].string
+            }
+        }
+    }
+    
+    private func setup() {
+        if #available(iOS 10.0, *) {
+            let refresh =  UIRefreshControl()
+            refresh.tintColor = UIColor.black
+            self.tableView.refreshControl = refresh
+            
+            tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
+        }
+    }
+    
+    @objc func refreshHandler() {
+        self.loadNotifications()
+    }
+    
+    private func loadNotifications(){
         NotificationManager.getNotifications(notificationType: .all) { (response, result) in
             self.tableView.refreshControl?.endRefreshing()
+            self.allNotifications.removeAll()
             if(response) {
                 let notifications = result["userdata"].dictionaryValue
 
@@ -68,13 +98,27 @@ class NotificationsVC: UITableViewController {
     }
 
 
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            let notificationId = allNotifications[indexPath.row].id
+            NotificationManager.deleteNotifications(id: notificationId)
+            allNotifications.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
+    }
+    
+
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tabBarController?.selectedIndex = 0
+//        self.performSegue(withIdentifier: "jobSegue", sender: nil)
+    }
 
     /*
     // Override to support editing the table view.
