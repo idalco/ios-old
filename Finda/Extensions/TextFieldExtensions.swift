@@ -20,7 +20,7 @@ extension UITextField {
         self.layer.shadowRadius = 0.0
     }
     
-    func setBottomBorderLogin(borderColor: CGColor = UIColor.white.cgColor,
+    func setBottomBorderLogin(borderColor: CGColor = UIColor.black.cgColor,
                          backgroundColor: CGColor = UIColor.clear.cgColor) {
         self.borderStyle = .none
         self.layer.backgroundColor = backgroundColor

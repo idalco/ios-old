@@ -26,12 +26,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
-        
         self.tableView.refreshControl?.beginRefreshing()
         
-        
     }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {

@@ -14,9 +14,7 @@ class PreferencesVC: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
+
         
         let modelManager = ModelManager()
         

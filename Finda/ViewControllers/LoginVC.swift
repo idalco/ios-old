@@ -27,31 +27,23 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.FindaColors.White
         self.navigationController?.navigationBar.transparentNavigationBar()
-        let theImage = self.findaImageView.image
-        
-        
-        let filter = CIFilter(name: "CIColorInvert")
-        
-        filter?.setValue(CIImage(image: theImage!), forKey: kCIInputImageKey)
-        
-        
-        
-        
-        self.findaImageView.contentMode = .scaleAspectFill
-        //self.findaImageView.image = UIImage(ciImage: (filter?.outputImage)!, scale: 1.0, orientation: UIImageOrientation.up)
-        
         
         self.emailTextField.setBottomBorderLogin()
         self.passwordTextField.setBottomBorderLogin()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
         self.hideKeyboardWhenTappedAround()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true) {}
     }
     
     func setEmailTextFieldBorder(error: Bool = false){
@@ -128,8 +120,6 @@ class LoginVC: UIViewController {
         
     }
     
-    @IBAction func register(_ sender: Any) {
-    }
 }
 
 extension LoginVC: UITextFieldDelegate {

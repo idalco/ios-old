@@ -32,8 +32,8 @@ extension UIColor {
         static let LightGrey = UIColor(rgb: 0xf4f4f4)
         static let BorderGrey = UIColor(rgb: 0xe6e6e6)
         static let Grey = UIColor(rgb: 0x7f7f7f)
-        static let White = UIColor(rgb: 0xFFFFFF)
-        static let Black = UIColor(rgb: 0x000000)
+        static let White = UIColor(rgb: 0xFEFEFE)
+        static let Black = UIColor(rgb: 0x010101)
     }
     
     func alpha() -> UIColor {
