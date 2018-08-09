@@ -25,6 +25,24 @@ class WelcomeVC: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         self.hideKeyboardWhenTappedAround()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(LoginManager.isLoggedIn() && LoginManager.isModel()){
+            loginSegue()
+        }
+    }
+    
+    func loginSegue(){
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.banned.rawValue {
+            LoginManager.signOut()
+            return
+        } else if modelManager.status() == UserStatus.unverified.rawValue {
+            self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
+        } else {
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }
+    }
 
 
     /*

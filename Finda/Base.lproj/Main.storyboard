@@ -1455,6 +1455,10 @@ MODELLING TALENT</string>
                     </view>
                     <navigationItem key="navigationItem" id="WQU-sH-W7Y"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="w3X-Fa-Pv7" kind="presentation" identifier="editProfileSegue" id="Dz6-Od-wHp"/>
+                        <segue destination="wFZ-U0-kSb" kind="presentation" identifier="loginSegue" id="fFA-jU-UWP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prY-BY-8c7" sceneMemberID="firstResponder"/>
             </objects>
@@ -1496,6 +1500,7 @@ MODELLING TALENT</string>
         <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vaf-CE-aBo"/>
+        <segue reference="Dz6-Od-wHp"/>
+        <segue reference="fFA-jU-UWP"/>
     </inferredMetricsTieBreakers>
 </document>

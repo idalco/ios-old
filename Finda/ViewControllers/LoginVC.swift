@@ -20,10 +20,6 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         
-        if(LoginManager.isLoggedIn() && LoginManager.isModel()){
-            loginSegue()
-        }
-        
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.FindaColors.White
         self.navigationController?.navigationBar.transparentNavigationBar()
@@ -72,6 +68,18 @@ class LoginVC: UIViewController {
         
     }
     
+    func loginSegue(){
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.banned.rawValue {
+            LoginManager.signOut()
+            return
+        } else if modelManager.status() == UserStatus.unverified.rawValue {
+            self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
+        } else {
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }
+    }
+    
     func login(){
         if(self.emailTextField.text == ""){
             self.setEmailTextFieldBorder(error: true)
@@ -103,17 +111,6 @@ class LoginVC: UIViewController {
         }
     }
     
-    func loginSegue(){
-        let modelManager = ModelManager()
-        if modelManager.status() == UserStatus.banned.rawValue {
-            LoginManager.signOut()
-            return
-        } else if modelManager.status() == UserStatus.unverified.rawValue {
-            self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
-        } else {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        }
-    }
     
     @IBAction func login(_ sender: Any) {
         self.login()
