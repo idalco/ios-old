@@ -12,6 +12,11 @@ import Alamofire
 
 class Notification {
 
+    enum Status: Int {
+        case New = 0;
+        case Read = 1;
+    }
+    
     let id, jobid, timestamp, recipient, sender, status, type, job_status : Int
     let subject, message, firstname, lastname, avatar, sefu : String
 

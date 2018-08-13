@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Black.otf">
+            <string>Gotham-Black</string>
+        </array>
+        <array key="Gotham-Bold.otf">
+            <string>Gotham-Bold</string>
+        </array>
+        <array key="Gotham-Light.otf">
+            <string>Gotham-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JobCardView" customModule="Finda" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGR-lR-C5v">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4R-si-942">
+                            <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="90T-nw-bJn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="tintColor" red="1" green="0.074743433489999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Remove"/>
+                            <connections>
+                                <action selector="removeCardView:" destination="iN0-l3-epB" eventType="touchUpInside" id="IVD-gZ-hsC"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LONDON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Zx6-NC-P4B">
+                            <rect key="frame" x="8" y="141" width="56" height="14"/>
+                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="sob-lh-kXy">
+                            <rect key="frame" x="8" y="38" width="91" height="17"/>
+                            <fontDescription key="fontDescription" name="Gotham-Black" family="Gotham" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/05/2018 - 06/05/2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-1P-dxE">
+                            <rect key="frame" x="8" y="163" width="149" height="14"/>
+                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="mSl-BQ-DFa">
+                            <rect key="frame" x="8" y="60" width="185" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="185" id="vec-F3-4N9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-COMMERCE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1nX-sN-aGK">
+                            <rect key="frame" x="8" y="119" width="87" height="14"/>
+                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIKE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="gK0-Wv-3ff">
+                            <rect key="frame" x="277" y="38" width="35" height="17"/>
+                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="0kq-7l-YWi">
+                            <rect key="frame" x="265" y="162" width="47" height="17"/>
+                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ks-p9-g31">
+                            <rect key="frame" x="8" y="221" width="304" height="58"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="304" id="Gnk-rb-WAg"/>
+                            </constraints>
+                            <string key="text">descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription</string>
+                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mSl-BQ-DFa" firstAttribute="top" secondItem="sob-lh-kXy" secondAttribute="bottom" constant="5" id="4sM-Yr-E0g"/>
+                        <constraint firstItem="1nX-sN-aGK" firstAttribute="leading" secondItem="Zx6-NC-P4B" secondAttribute="leading" id="6UK-Bh-y0o"/>
+                        <constraint firstItem="Zx6-NC-P4B" firstAttribute="leading" secondItem="7h1-1P-dxE" secondAttribute="leading" id="GIP-ty-eWd"/>
+                        <constraint firstItem="Z4R-si-942" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leading" id="H4i-oQ-TIB"/>
+                        <constraint firstItem="gK0-Wv-3ff" firstAttribute="trailing" secondItem="0kq-7l-YWi" secondAttribute="trailing" id="HGI-rT-F95"/>
+                        <constraint firstItem="0ks-p9-g31" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leadingMargin" id="HqA-gA-NVS"/>
+                        <constraint firstItem="1nX-sN-aGK" firstAttribute="top" secondItem="mSl-BQ-DFa" secondAttribute="bottom" constant="42" id="O7t-vi-GXX"/>
+                        <constraint firstItem="sob-lh-kXy" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leading" constant="8" id="QdD-4m-q5d"/>
+                        <constraint firstItem="0ks-p9-g31" firstAttribute="top" secondItem="0kq-7l-YWi" secondAttribute="bottom" constant="42" id="Rcz-bi-Yiv"/>
+                        <constraint firstItem="7h1-1P-dxE" firstAttribute="top" secondItem="Zx6-NC-P4B" secondAttribute="bottom" constant="8" symbolic="YES" id="Rnm-Td-Okk"/>
+                        <constraint firstAttribute="trailing" secondItem="0ks-p9-g31" secondAttribute="trailing" constant="8" id="SDf-i1-KcM"/>
+                        <constraint firstItem="gK0-Wv-3ff" firstAttribute="baseline" secondItem="sob-lh-kXy" secondAttribute="baseline" id="bPy-vz-G0l"/>
+                        <constraint firstItem="0kq-7l-YWi" firstAttribute="trailing" secondItem="OGR-lR-C5v" secondAttribute="trailingMargin" id="cyp-eB-WiP"/>
+                        <constraint firstItem="0ks-p9-g31" firstAttribute="leading" secondItem="1nX-sN-aGK" secondAttribute="leading" id="fDw-UO-8uD"/>
+                        <constraint firstAttribute="trailing" secondItem="Z4R-si-942" secondAttribute="trailing" id="iJp-JK-0Vx"/>
+                        <constraint firstItem="sob-lh-kXy" firstAttribute="leading" secondItem="mSl-BQ-DFa" secondAttribute="leading" id="odb-1a-CVZ"/>
+                        <constraint firstItem="7h1-1P-dxE" firstAttribute="centerY" secondItem="0kq-7l-YWi" secondAttribute="centerY" id="r7B-kb-bX7"/>
+                        <constraint firstItem="sob-lh-kXy" firstAttribute="top" secondItem="OGR-lR-C5v" secondAttribute="topMargin" constant="10" id="vLJ-v1-53B"/>
+                        <constraint firstItem="Zx6-NC-P4B" firstAttribute="top" secondItem="1nX-sN-aGK" secondAttribute="bottom" constant="8" symbolic="YES" id="vMi-3B-wY3"/>
+                        <constraint firstAttribute="bottom" secondItem="Z4R-si-942" secondAttribute="bottom" id="xL6-Il-TPt"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OGR-lR-C5v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NVC-jR-SFm"/>
+                <constraint firstAttribute="bottom" secondItem="OGR-lR-C5v" secondAttribute="bottom" id="UIk-ct-Kab"/>
+                <constraint firstItem="OGR-lR-C5v" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZWf-le-6Jh"/>
+                <constraint firstAttribute="trailing" secondItem="OGR-lR-C5v" secondAttribute="trailing" id="vCY-05-s7R"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="clientNameLabel" destination="gK0-Wv-3ff" id="PIp-1K-4zX"/>
+                <outlet property="contentView" destination="OGR-lR-C5v" id="fSz-Gj-R5Z"/>
+                <outlet property="durationLabel" destination="0kq-7l-YWi" id="1uH-bM-V33"/>
+                <outlet property="headerLabel" destination="sob-lh-kXy" id="8sK-fm-1lx"/>
+                <outlet property="jobDatesLabel" destination="7h1-1P-dxE" id="uOq-5l-EZc"/>
+                <outlet property="jobDescriptionLabel" destination="0ks-p9-g31" id="kIy-1l-pnd"/>
+                <outlet property="jobNameLabel" destination="mSl-BQ-DFa" id="BU5-v6-Klm"/>
+                <outlet property="jobTypeLabel" destination="1nX-sN-aGK" id="lQn-ia-Cl8"/>
+                <outlet property="locationLabel" destination="Zx6-NC-P4B" id="Kfp-xD-RFb"/>
+                <outlet property="removeCardViewButton" destination="Z4R-si-942" id="FgL-Mx-pc7"/>
+            </connections>
+            <point key="canvasLocation" x="-124" y="-55"/>
+        </view>
+    </objects>
+</document>

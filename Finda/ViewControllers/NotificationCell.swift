@@ -12,12 +12,15 @@ class NotificationCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageLabel: UITextView!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
+        contentView.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
+        contentView.layer.cornerRadius  = 10
+        contentView.layer.masksToBounds = true
         
         // Initialization code
     }

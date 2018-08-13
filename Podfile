@@ -11,7 +11,6 @@ target 'Finda' do
   inhibit_all_warnings!
 
   # network requests
-  pod 'Alamofire'
   pod 'AlamofireImage'
   
   # API modelling
@@ -19,7 +18,6 @@ target 'Finda' do
   
   # json parsing
   pod 'SwiftyJSON'
-  pod 'Marshal'
   
   # request signing
   pod 'CryptoSwift'
@@ -37,15 +35,15 @@ target 'Finda' do
   pod 'IQKeyboardManagerSwift'
 
   # secure data storage
-  pod 'Strongbox'
+  # pod 'Strongbox'
 
   # Side menu
   pod 'SideMenuSwift'
 
-  # Notifications
-  pod 'SwiftMessages'
-
+  # Dashboard TableView
   pod 'FoldingCell'
+
+  pod 'Tabman', '~> 1.0'
 
 
   target 'FindaTests' do

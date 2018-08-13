@@ -27,6 +27,11 @@
 		0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */; };
 		0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA8F2119B353002C3EA3 /* DictionaryExtensions.swift */; };
 		0C78FA282119D3130059C0E7 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA272119D3130059C0E7 /* WelcomeVC.swift */; };
+		0C78FA2A211DB16E0059C0E7 /* JobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA29211DB16E0059C0E7 /* JobsVC.swift */; };
+		0C78FA33211DEECE0059C0E7 /* JobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA2F211DEECC0059C0E7 /* JobCardView.swift */; };
+		0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C78FA30211DEECC0059C0E7 /* JobCardView.xib */; };
+		0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA39211F3CE60059C0E7 /* CardView.swift */; };
+		0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA3A211F3CE70059C0E7 /* WalletView.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -127,6 +132,11 @@
 		0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		0C4ADA8F2119B353002C3EA3 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		0C78FA272119D3130059C0E7 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		0C78FA29211DB16E0059C0E7 /* JobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsVC.swift; sourceTree = "<group>"; };
+		0C78FA2F211DEECC0059C0E7 /* JobCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCardView.swift; sourceTree = "<group>"; };
+		0C78FA30211DEECC0059C0E7 /* JobCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCardView.xib; sourceTree = "<group>"; };
+		0C78FA39211F3CE60059C0E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0C78FA3A211F3CE70059C0E7 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -230,6 +240,11 @@
 				0CCF22B62107390800612D5B /* LoginVC.swift */,
 				0CCF2341210A86B300612D5B /* DashboardVC.swift */,
 				0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */,
+				0C78FA29211DB16E0059C0E7 /* JobsVC.swift */,
+				0C78FA39211F3CE60059C0E7 /* CardView.swift */,
+				0C78FA3A211F3CE70059C0E7 /* WalletView.swift */,
+				0C78FA2F211DEECC0059C0E7 /* JobCardView.swift */,
+				0C78FA30211DEECC0059C0E7 /* JobCardView.xib */,
 				0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */,
 				0CCF2348210B297A00612D5B /* MeasurementsVC.swift */,
 				0CCF234A210CC61800612D5B /* PreferencesVC.swift */,
@@ -567,6 +582,7 @@
 				0CCF23192109BD1200612D5B /* Gotham-Thin.otf in Resources */,
 				0CCF231D2109BD1200612D5B /* Gotham-Book.otf in Resources */,
 				0CCF23262109BD1200612D5B /* Gotham-BlackItalic.otf in Resources */,
+				0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */,
 				0CCF23202109BD1200612D5B /* Gotham-Ultra.otf in Resources */,
 				0CCF23272109BD1200612D5B /* Gotham-MediumItalic.otf in Resources */,
 				0CCF231B2109BD1200612D5B /* Gotham-XLightItalic.otf in Resources */,
@@ -647,37 +663,37 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DCKit/DCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Strongbox/Strongbox.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Strongbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -723,6 +739,7 @@
 				0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */,
 				0C4ADA8421184775002C3EA3 /* NotificationsVC.swift in Sources */,
 				0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */,
+				0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */,
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
 				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,
 				0C4ADA762110AEF4002C3EA3 /* DashboardCell.swift in Sources */,
@@ -738,6 +755,8 @@
 				0CCF233D210A7F1000612D5B /* TextFieldExtensions.swift in Sources */,
 				0C4ADA71211090C4002C3EA3 /* Preferences+CoreDataProperties.swift in Sources */,
 				0C4ADA61210F4492002C3EA3 /* RegisterFooter.swift in Sources */,
+				0C78FA33211DEECE0059C0E7 /* JobCardView.swift in Sources */,
+				0C78FA2A211DB16E0059C0E7 /* JobsVC.swift in Sources */,
 				0CCF2345210B1C7C00612D5B /* SideMenuCell.swift in Sources */,
 				0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */,
 				0C4ADA802113353D002C3EA3 /* Country.swift in Sources */,
@@ -746,6 +765,7 @@
 				0CCF2342210A86B300612D5B /* DashboardVC.swift in Sources */,
 				0CCF232B2109E61300612D5B /* TermDataManager.swift in Sources */,
 				0CCF22FF2108E42800612D5B /* User+CoreDataProperties.swift in Sources */,
+				0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */,
 				0CCF2358210E033C00612D5B /* ModelRegisterVC.swift in Sources */,
 				0CCF2350210DDB2600612D5B /* Profile+CoreDataClass.swift in Sources */,
 				0CCF2351210DDB2600612D5B /* Profile+CoreDataProperties.swift in Sources */,
@@ -945,6 +965,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -966,6 +987,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -11,13 +11,15 @@ import UIKit
 class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var allNotifications: [Notification] = []
+    var readNotifications: [Notification] = []
+    var newNotifications: [Notification] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
-        
-        
+        self.navigationController?.navigationBar.transparentNavigationBar()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,6 +31,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewWillAppear(_ animated: Bool) {
         self.loadNotifications()
         self.updateNotificationCount()
+    }
+    
+    @IBAction func showMenu(_ sender: Any) {
+        sideMenuController?.revealMenu()
     }
     
     private func updateNotificationCount(){
@@ -57,11 +63,20 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationManager.getNotifications(notificationType: .all) { (response, result) in
             self.tableView.refreshControl?.endRefreshing()
             self.allNotifications.removeAll()
+            self.readNotifications.removeAll()
+            self.newNotifications.removeAll()
+
             if(response) {
                 let notifications = result["userdata"].dictionaryValue
 
                 for notification in notifications {
-                    self.allNotifications.append(Notification(data: notification.value))
+                    let notificationObject: Notification = Notification(data: notification.value)
+                    if notificationObject.status == Notification.Status.New.rawValue {
+                        self.newNotifications.append(notificationObject)
+                    } else {
+                        self.readNotifications.append(notificationObject)
+                    }
+                    self.allNotifications.append(notificationObject)
                 }
                 self.tableView.reloadData()
             }
@@ -77,12 +92,35 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return self.allNotifications.count > 0 ? 1 : 0
+        if self.newNotifications.isEmpty && self.readNotifications.isEmpty { return 0}
+        if self.newNotifications.isEmpty { return 1 }
+        return 2
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Gotham-Medium", size: 16)!
+        header.backgroundView?.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
+    }
+    
+
+
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if !self.newNotifications.isEmpty && section == 0 {
+            return "New notifications"
+        }
+        return "Read notifications"
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.allNotifications.count
+        if !self.newNotifications.isEmpty && section == 0 {
+            return self.newNotifications.count
+        }
+        return self.readNotifications.count
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -91,7 +129,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
-
+        
         cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
         cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Gotham-Light")

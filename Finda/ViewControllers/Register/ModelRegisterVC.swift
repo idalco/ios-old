@@ -9,7 +9,6 @@
 import UIKit
 import Eureka
 import DCKit
-import SwiftMessages
 
 class ModelRegisterVC: FormViewController, UITextViewDelegate {
     
