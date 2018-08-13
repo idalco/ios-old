@@ -12,6 +12,9 @@ class JobsVC: UIViewController {
     
 
     @IBOutlet weak var walletView: WalletView!
+    @IBOutlet weak var noJobsLabel: UILabel!
+    
+    var jobType: JobsManager.JobTypes = .all
     
     var cardViews = [JobCardView]()
     var allJobs: [Job] = []
@@ -21,8 +24,10 @@ class JobsVC: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.transparentNavigationBar()
         
-        walletView.walletHeader = UIView()
+        walletView.walletHeader = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
+        self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
+        
 //        walletView.didUpdatePresentedCardViewBlock = { [weak self] (_) in
 //        }
         
@@ -53,6 +58,13 @@ class JobsVC: UIViewController {
             self.cardViews.append(cardView)
       
         }
+        if self.allJobs.count > 0 {
+            self.walletView.isHidden = false
+            self.noJobsLabel.isHidden = true
+        } else {
+            self.walletView.isHidden = true
+            self.noJobsLabel.isHidden = false
+        }
         self.walletView.reload(cardViews: self.cardViews)
         
     }
@@ -67,7 +79,7 @@ class JobsVC: UIViewController {
     }
     
     private func loadJobs(){
-        JobsManager.getJobs(jobType: .all) { (response, result) in
+        JobsManager.getJobs(jobType: self.jobType) { (response, result) in
             self.allJobs.removeAll()
             if(response) {
                 let jobs = result["userdata"].dictionaryValue

@@ -14,12 +14,15 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var readNotifications: [Notification] = []
     var newNotifications: [Notification] = []
     
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
+        self.messageView.backgroundColor = UIColor.FindaColors.Purple.fade()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -77,6 +80,13 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                         self.readNotifications.append(notificationObject)
                     }
                     self.allNotifications.append(notificationObject)
+                }
+                if self.allNotifications.count > 0 {
+                    self.tableView.isHidden = false
+                    self.messageLabel.text = "Hey beautiful, some updates for you!"
+                } else {
+                    self.tableView.isHidden = true
+                    self.messageLabel.text = "Currently you have no notifications"
                 }
                 self.tableView.reloadData()
             }

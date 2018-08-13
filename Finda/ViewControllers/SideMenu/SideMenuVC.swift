@@ -19,6 +19,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
+        self.view.backgroundColor = UIColor.FindaColors.White
         let modelManager = ModelManager()
         self.profileImage.setRounded()
         if let imageUrl = URL(string: modelManager.avatar()){

@@ -103,6 +103,10 @@ class PreferencesVC: FormViewController {
         }
     }
     
+    @IBAction func menu(_ sender: Any) {
+        sideMenuController?.revealMenu()
+    }
+    
     /*
      // MARK: - Navigation
      

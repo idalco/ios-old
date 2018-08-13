@@ -18,7 +18,7 @@ class NotificationCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
+//        contentView.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
         contentView.layer.cornerRadius  = 10
         contentView.layer.masksToBounds = true
         

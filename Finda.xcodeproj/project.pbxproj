@@ -32,6 +32,8 @@
 		0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C78FA30211DEECC0059C0E7 /* JobCardView.xib */; };
 		0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA39211F3CE60059C0E7 /* CardView.swift */; };
 		0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA3A211F3CE70059C0E7 /* WalletView.swift */; };
+		0C78FA4F212223360059C0E7 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA4E212223360059C0E7 /* PhotosVC.swift */; };
+		0C78FA51212224590059C0E7 /* JobTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA50212224590059C0E7 /* JobTabVC.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -137,6 +139,8 @@
 		0C78FA30211DEECC0059C0E7 /* JobCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCardView.xib; sourceTree = "<group>"; };
 		0C78FA39211F3CE60059C0E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0C78FA3A211F3CE70059C0E7 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		0C78FA4E212223360059C0E7 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
+		0C78FA50212224590059C0E7 /* JobTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTabVC.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -239,7 +243,9 @@
 				0C78FA272119D3130059C0E7 /* WelcomeVC.swift */,
 				0CCF22B62107390800612D5B /* LoginVC.swift */,
 				0CCF2341210A86B300612D5B /* DashboardVC.swift */,
+				0C78FA4E212223360059C0E7 /* PhotosVC.swift */,
 				0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */,
+				0C78FA50212224590059C0E7 /* JobTabVC.swift */,
 				0C78FA29211DB16E0059C0E7 /* JobsVC.swift */,
 				0C78FA39211F3CE60059C0E7 /* CardView.swift */,
 				0C78FA3A211F3CE70059C0E7 /* WalletView.swift */,
@@ -741,6 +747,7 @@
 				0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */,
 				0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */,
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
+				0C78FA51212224590059C0E7 /* JobTabVC.swift in Sources */,
 				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,
 				0C4ADA762110AEF4002C3EA3 /* DashboardCell.swift in Sources */,
 				0C4ADA8221176976002C3EA3 /* ViewExtensions.swift in Sources */,
@@ -777,6 +784,7 @@
 				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
+				0C78FA4F212223360059C0E7 /* PhotosVC.swift in Sources */,
 				0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */,
 				0CCF234D210D070600612D5B /* StringExtensions.swift in Sources */,
 				0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */,
