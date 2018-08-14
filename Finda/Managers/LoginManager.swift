@@ -27,6 +27,20 @@ class LoginManager {
         }
     }
     
+    static func getDetails(completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+        FindaAPISession(target: .userDetails()) { (response, result) in
+            if(response){
+                if(result["userdata"]["usertype"].intValue == 1){
+                    _ = ModelManager(data: result)
+                    completion(response, result)
+                    return
+                }
+            }
+            completion(false, result)
+        }
+    }
+    
+    
     static func isLoggedIn() -> Bool{
         let defaults = UserDefaults.standard
         if defaults.value(forKey: "access_token_auth") as? String == "" {

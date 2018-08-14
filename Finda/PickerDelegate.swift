@@ -67,6 +67,7 @@ class PickerDelegate {
                 row.value = dictionary[coreData] ?? ""
             }
             row.options = Array(dictionary.values)
+            row.tag = rowTitle.lowercased()
         }
         completion(true, row)
     }

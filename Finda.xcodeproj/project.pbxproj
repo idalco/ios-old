@@ -14,7 +14,6 @@
 		0C4ADA71211090C4002C3EA3 /* Preferences+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA6F211090C4002C3EA3 /* Preferences+CoreDataProperties.swift */; };
 		0C4ADA72211090C4002C3EA3 /* Preferences+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA70211090C4002C3EA3 /* Preferences+CoreDataClass.swift */; };
 		0C4ADA742110A450002C3EA3 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA732110A450002C3EA3 /* UserStatus.swift */; };
-		0C4ADA762110AEF4002C3EA3 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */; };
 		0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */; };
 		0C4ADA7A21120320002C3EA3 /* JobsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7921120320002C3EA3 /* JobsManager.swift */; };
 		0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA7B21120C75002C3EA3 /* Job.swift */; };
@@ -32,8 +31,13 @@
 		0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C78FA30211DEECC0059C0E7 /* JobCardView.xib */; };
 		0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA39211F3CE60059C0E7 /* CardView.swift */; };
 		0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA3A211F3CE70059C0E7 /* WalletView.swift */; };
-		0C78FA4F212223360059C0E7 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA4E212223360059C0E7 /* PhotosVC.swift */; };
+		0C78FA4F212223360059C0E7 /* PortfolioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA4E212223360059C0E7 /* PortfolioVC.swift */; };
 		0C78FA51212224590059C0E7 /* JobTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA50212224590059C0E7 /* JobTabVC.swift */; };
+		0C78FA532123294E0059C0E7 /* PhotoTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA522123294E0059C0E7 /* PhotoTabVC.swift */; };
+		0C78FA5921234F8A0059C0E7 /* PolaroidVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5821234F8A0059C0E7 /* PolaroidVC.swift */; };
+		0C78FA5B212362FE0059C0E7 /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5A212362FD0059C0E7 /* ImageType.swift */; };
+		0C78FA5D212365E70059C0E7 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5C212365E70059C0E7 /* PhotoManager.swift */; };
+		0C78FA5F212366950059C0E7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5E212366950059C0E7 /* Photo.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -65,7 +69,6 @@
 		0CCF233D210A7F1000612D5B /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF233A210A7F1000612D5B /* TextFieldExtensions.swift */; };
 		0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF233B210A7F1000612D5B /* BaseCellExtensions.swift */; };
 		0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */; };
-		0CCF2342210A86B300612D5B /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2341210A86B300612D5B /* DashboardVC.swift */; };
 		0CCF2345210B1C7C00612D5B /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2344210B1C7C00612D5B /* SideMenuCell.swift */; };
 		0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2346210B1CE400612D5B /* SideMenuVC.swift */; };
 		0CCF2349210B297A00612D5B /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2348210B297A00612D5B /* MeasurementsVC.swift */; };
@@ -121,7 +124,6 @@
 		0C4ADA6F211090C4002C3EA3 /* Preferences+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Preferences+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0C4ADA70211090C4002C3EA3 /* Preferences+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Preferences+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0C4ADA732110A450002C3EA3 /* UserStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
-		0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
 		0C4ADA772110BE18002C3EA3 /* LabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
 		0C4ADA7921120320002C3EA3 /* JobsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsManager.swift; sourceTree = "<group>"; };
 		0C4ADA7B21120C75002C3EA3 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Job.swift; path = Finda/Models/Data/Job.swift; sourceTree = SOURCE_ROOT; };
@@ -139,8 +141,13 @@
 		0C78FA30211DEECC0059C0E7 /* JobCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCardView.xib; sourceTree = "<group>"; };
 		0C78FA39211F3CE60059C0E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0C78FA3A211F3CE70059C0E7 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
-		0C78FA4E212223360059C0E7 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
+		0C78FA4E212223360059C0E7 /* PortfolioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioVC.swift; sourceTree = "<group>"; };
 		0C78FA50212224590059C0E7 /* JobTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTabVC.swift; sourceTree = "<group>"; };
+		0C78FA522123294E0059C0E7 /* PhotoTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTabVC.swift; sourceTree = "<group>"; };
+		0C78FA5821234F8A0059C0E7 /* PolaroidVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolaroidVC.swift; sourceTree = "<group>"; };
+		0C78FA5A212362FD0059C0E7 /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		0C78FA5C212365E70059C0E7 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		0C78FA5E212366950059C0E7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -172,7 +179,6 @@
 		0CCF233A210A7F1000612D5B /* TextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		0CCF233B210A7F1000612D5B /* BaseCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCellExtensions.swift; sourceTree = "<group>"; };
 		0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsVC.swift; sourceTree = "<group>"; };
-		0CCF2341210A86B300612D5B /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		0CCF2344210B1C7C00612D5B /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		0CCF2346210B1CE400612D5B /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		0CCF2348210B297A00612D5B /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
@@ -237,25 +243,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0CCF22B52107390800612D5B /* ViewControllers */ = {
+		0C78FA54212329570059C0E7 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
-				0C78FA272119D3130059C0E7 /* WelcomeVC.swift */,
-				0CCF22B62107390800612D5B /* LoginVC.swift */,
-				0CCF2341210A86B300612D5B /* DashboardVC.swift */,
-				0C78FA4E212223360059C0E7 /* PhotosVC.swift */,
-				0C4ADA752110AEF4002C3EA3 /* DashboardCell.swift */,
+				0C78FA522123294E0059C0E7 /* PhotoTabVC.swift */,
+				0C78FA4E212223360059C0E7 /* PortfolioVC.swift */,
+				0C78FA5821234F8A0059C0E7 /* PolaroidVC.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		0C78FA55212329630059C0E7 /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
 				0C78FA50212224590059C0E7 /* JobTabVC.swift */,
 				0C78FA29211DB16E0059C0E7 /* JobsVC.swift */,
 				0C78FA39211F3CE60059C0E7 /* CardView.swift */,
 				0C78FA3A211F3CE70059C0E7 /* WalletView.swift */,
 				0C78FA2F211DEECC0059C0E7 /* JobCardView.swift */,
 				0C78FA30211DEECC0059C0E7 /* JobCardView.xib */,
+			);
+			path = Jobs;
+			sourceTree = "<group>";
+		};
+		0C78FA562123296C0059C0E7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
 				0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */,
 				0CCF2348210B297A00612D5B /* MeasurementsVC.swift */,
 				0CCF234A210CC61800612D5B /* PreferencesVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0C78FA57212329770059C0E7 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
 				0C4ADA8321184775002C3EA3 /* NotificationsVC.swift */,
 				0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		0CCF22B52107390800612D5B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C78FA272119D3130059C0E7 /* WelcomeVC.swift */,
+				0CCF22B62107390800612D5B /* LoginVC.swift */,
+				0C78FA54212329570059C0E7 /* Photos */,
+				0C78FA55212329630059C0E7 /* Jobs */,
+				0C78FA562123296C0059C0E7 /* Settings */,
+				0C78FA57212329770059C0E7 /* Notifications */,
 				0CCF2356210E032100612D5B /* Register */,
 				0CCF2343210B1C6700612D5B /* SideMenu */,
 			);
@@ -267,6 +305,7 @@
 			children = (
 				0CCF22BF210896AE00612D5B /* FindaAPI.swift */,
 				0CCF22D82108B25900612D5B /* LoginManager.swift */,
+				0C78FA5C212365E70059C0E7 /* PhotoManager.swift */,
 				0C4ADA6721107E54002C3EA3 /* ModelManager.swift */,
 				0C4ADA7921120320002C3EA3 /* JobsManager.swift */,
 				0C4ADA87211848F6002C3EA3 /* NotificationManager.swift */,
@@ -307,6 +346,7 @@
 				0C4ADA6F211090C4002C3EA3 /* Preferences+CoreDataProperties.swift */,
 				0C4ADA7B21120C75002C3EA3 /* Job.swift */,
 				0C4ADA85211847CC002C3EA3 /* Notification.swift */,
+				0C78FA5E212366950059C0E7 /* Photo.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -419,6 +459,7 @@
 				0CEBCB5821071AD1004CC4D8 /* Info.plist */,
 				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
 				0C4ADA732110A450002C3EA3 /* UserStatus.swift */,
+				0C78FA5A212362FD0059C0E7 /* ImageType.swift */,
 				0C4ADA7F2113353D002C3EA3 /* Country.swift */,
 				0CCF22D321089B5500612D5B /* Moya Plugins */,
 				0CCF22DA2108B55900612D5B /* Models */,
@@ -673,15 +714,17 @@
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DCKit/DCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
+				"${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -691,15 +734,17 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YPImagePicker.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -733,6 +778,7 @@
 			files = (
 				0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */,
 				0CCF2349210B297A00612D5B /* MeasurementsVC.swift in Sources */,
+				0C78FA5F212366950059C0E7 /* Photo.swift in Sources */,
 				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,
@@ -742,14 +788,15 @@
 				0CCF235A210E034B00612D5B /* ClientRegisterVC.swift in Sources */,
 				0CCF2353210DE56B00612D5B /* PickerDelegate.swift in Sources */,
 				0CCF235E210E4FCC00612D5B /* RegisterOptionVC.swift in Sources */,
+				0C78FA5B212362FE0059C0E7 /* ImageType.swift in Sources */,
 				0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */,
 				0C4ADA8421184775002C3EA3 /* NotificationsVC.swift in Sources */,
 				0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */,
 				0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */,
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
 				0C78FA51212224590059C0E7 /* JobTabVC.swift in Sources */,
+				0C78FA5D212365E70059C0E7 /* PhotoManager.swift in Sources */,
 				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,
-				0C4ADA762110AEF4002C3EA3 /* DashboardCell.swift in Sources */,
 				0C4ADA8221176976002C3EA3 /* ViewExtensions.swift in Sources */,
 				0CCF234B210CC61800612D5B /* PreferencesVC.swift in Sources */,
 				0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */,
@@ -757,6 +804,8 @@
 				0CCF23002108E42800612D5B /* User+CoreDataClass.swift in Sources */,
 				0CCF22B82107390800612D5B /* LoginVC.swift in Sources */,
 				0C4ADA6821107E54002C3EA3 /* ModelManager.swift in Sources */,
+				0C78FA5921234F8A0059C0E7 /* PolaroidVC.swift in Sources */,
+				0C78FA532123294E0059C0E7 /* PhotoTabVC.swift in Sources */,
 				0C4ADA72211090C4002C3EA3 /* Preferences+CoreDataClass.swift in Sources */,
 				0CCF22D92108B25900612D5B /* LoginManager.swift in Sources */,
 				0CCF233D210A7F1000612D5B /* TextFieldExtensions.swift in Sources */,
@@ -769,7 +818,6 @@
 				0C4ADA802113353D002C3EA3 /* Country.swift in Sources */,
 				0CCF235C210E06CA00612D5B /* ViewControllerExtensions.swift in Sources */,
 				0C4ADA63210F4549002C3EA3 /* RegisterHeader.swift in Sources */,
-				0CCF2342210A86B300612D5B /* DashboardVC.swift in Sources */,
 				0CCF232B2109E61300612D5B /* TermDataManager.swift in Sources */,
 				0CCF22FF2108E42800612D5B /* User+CoreDataProperties.swift in Sources */,
 				0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */,
@@ -784,7 +832,7 @@
 				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
-				0C78FA4F212223360059C0E7 /* PhotosVC.swift in Sources */,
+				0C78FA4F212223360059C0E7 /* PortfolioVC.swift in Sources */,
 				0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */,
 				0CCF234D210D070600612D5B /* StringExtensions.swift in Sources */,
 				0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */,

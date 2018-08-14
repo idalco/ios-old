@@ -26,6 +26,11 @@ enum FindaAPI {
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
+    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Int, dressSize: Int, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: Int, willingToCut: Int)
+    case updatePreferences(friend_registers: Int, job_offered: Int, job_cancelled: Int, payment_made: Int, notifications: Int)
+    
+    case uploadImage(image: UIImage, type: ImageType)
+    case getImages(type: ImageType)
 
     
     
@@ -66,6 +71,16 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "deleteNotification"
         case .updateProfile:
             return "/updateProfile"
+        case .updateMeasurements:
+            return "/updateProfile"
+        case .updatePreferences:
+            return "/updateProfile"
+        case .uploadImage:
+            return "/uploadImage"
+        case .getImages:
+            return "/getImages"
+            
+            
             
             
         case .register:
@@ -86,7 +101,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .register, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadImage, .getImages, .register, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -153,20 +168,65 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["msgid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .updateProfile(let firstName, let lastName, let email, let gender, let ethnicityId, let instagramUsername, let referralCode, let vatNumber):
-            p["firstname"] = firstName
-            p["lastname"] = lastName
-            p["mail"] = email
-            p["gender"] = gender
-            p["ethnicity"] = ethnicityId
-            p["instagram"] = instagramUsername
+            var parameters = [String: Any]()
+            
+            parameters["firstname"] = firstName
+            parameters["lastname"] = lastName
+            parameters["mail"] = email
+            parameters["gender"] = gender
+            parameters["ethnicity"] = ethnicityId
+            parameters["instagram"] = instagramUsername
             if (referralCode != "") {
-                p["referral_code"] = referralCode
+                parameters["referral_code"] = referralCode
             }
             if (vatNumber != "") {
-                p["vat_number"] = vatNumber
+                parameters["vat_number"] = vatNumber
             }
             
+            p["paramters"] = parameters
+            
          
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let hairColour, let hairLength, let hairType, let eyeColour, let willingToColour, let willingToCut):
+            var parameters = [String: Any]()
+            parameters["height"] = height
+            parameters["bust"] = bust
+            parameters["waist"] = waist
+            parameters["hips"] = hips
+            parameters["shoesize"] = shoeSize
+            parameters["dresssize"] = dressSize
+            parameters["haircolour"] = hairColour
+            parameters["hairlength"] = hairLength
+            parameters["hairtype"] = hairType
+            parameters["eyecolour"] = eyeColour
+            parameters["willingtocolour"] = willingToColour
+            parameters["willingtocut"] = willingToCut
+            
+            p["paramters"] = parameters
+            
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+        case .updatePreferences(let friend_registers, let job_offered, let job_cancelled, let payment_made, let notifications):
+            var parameters = [String: Any]()
+            parameters["friend_registers"] = friend_registers
+            parameters["job_offered"] = job_offered
+            parameters["job_cancelled"] = job_cancelled
+            parameters["payment_made"] = payment_made
+            parameters["notifications"] = notifications
+            
+            p["paramters"] = parameters
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+            
+        case .uploadImage(let image, let type):
+            guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
+            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
+            p["type"] = type.rawValue
+            return .uploadCompositeMultipart([jpegData], urlParameters: p)
+            
+        case.getImages(let type):
+             p["imagetype"] = type.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
@@ -229,6 +289,11 @@ func FindaAPISession(target: FindaAPI, completion: @escaping (_ response: Bool, 
                 }
                 completion(false, json)
             } catch(_){
+                do {
+                    if try response.mapString() == "Missing token" {
+                        LoginManager.signOut()
+                    }
+                } catch(_) {}
                 completion(false, JSON.null)
             }
         case .failure(_):

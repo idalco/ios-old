@@ -111,7 +111,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont(name: "Gotham-Medium", size: 16)!
-        header.backgroundView?.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
+//        header.backgroundView?.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
     }
     
 

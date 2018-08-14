@@ -1,22 +1,18 @@
 //
-//  PhotosVC.swift
+//  PolaroidVC.swift
 //  Finda
 //
-//  Created by Peter Lloyd on 13/08/2018.
+//  Created by Peter Lloyd on 14/08/2018.
 //  Copyright © 2018 Finda Ltd. All rights reserved.
 //
 
 import UIKit
 
-class PhotosVC: UIViewController {
+class PolaroidVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let model = ModelManager()
-        model.avatar()
-        
-        
         // Do any additional setup after loading the view.
     }
 
@@ -25,10 +21,7 @@ class PhotosVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func menu(_ sender: Any) {
-        sideMenuController?.revealMenu()
-    }
-    
+
     /*
     // MARK: - Navigation
 

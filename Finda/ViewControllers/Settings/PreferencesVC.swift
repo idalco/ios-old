@@ -47,28 +47,33 @@ class PreferencesVC: FormViewController {
             <<< SwitchRow(){ row in
                 row.title = "A friend users my referrer code"
                 row.value = modelManager.friendRegisters()
+                row.tag = "friendRegisters"
                 
             }
             
             <<< SwitchRow(){ row in
                 row.title = "I receive a job offer"
                 row.value = modelManager.jobOffered()
+                row.tag = "jobOffered"
             }
             
             <<< SwitchRow(){ row in
                 row.title = "A job I am working on is cancelled"
                 row.value = modelManager.jobCancelled()
+                row.tag = "jobCancelled"
             }
             
             <<< SwitchRow(){ row in
                 row.title = "I receive a payment"
                 row.value = modelManager.paymentMade()
+                row.tag = "paymentMade"
             }
             
             
             <<< SwitchRow(){ row in
                 row.title = "I receive a notification"
                 row.value = modelManager.notifications()
+                row.tag = "notifications"
         }
         
         
@@ -83,6 +88,28 @@ class PreferencesVC: FormViewController {
     }
     
     @IBAction func save(_ sender: Any) {
+
+        guard let friend_registers: Bool = form.values()["friendRegisters"] as? Bool else { return }
+        guard let friend_registersInt: Int = friend_registers ? 1 : 0 else { return }
+        
+        guard let job_offered: Bool = form.values()["jobOffered"] as? Bool else { return }
+        guard let job_offeredInt: Int = job_offered ? 1 : 0 else { return }
+        
+        guard let job_cancelled: Bool = form.values()["jobCancelled"] as? Bool else { return }
+        guard let job_cancelledInt: Int = job_cancelled ? 1 : 0 else { return }
+        
+        guard let payment_made: Bool = form.values()["paymentMade"] as? Bool else { return }
+        guard let payment_madeInt: Int = payment_made ? 1 : 0 else { return }
+        
+        guard let notifications: Bool = form.values()["notifications"] as? Bool else { return }
+        guard let notificationsInt: Int = notifications ? 1 : 0 else { return }
+        
+        
+        FindaAPISession(target: .updatePreferences(friend_registers: friend_registersInt, job_offered: job_offeredInt, job_cancelled: job_cancelledInt, payment_made: payment_madeInt, notifications: notificationsInt)) { (response, result) in
+            if response {
+                
+            }
+        }
         
     }
     

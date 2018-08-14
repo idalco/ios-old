@@ -17,6 +17,9 @@ class PersonalDetailsVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        LoginManager.getDetails { (response, result) in
+            
+        }
         let modelManager = ModelManager()
         
         

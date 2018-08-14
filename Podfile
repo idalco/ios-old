@@ -41,9 +41,10 @@ target 'Finda' do
   pod 'SideMenuSwift'
 
   # Dashboard TableView
-  pod 'FoldingCell'
+  #pod 'FoldingCell'
 
   pod 'Tabman', '~> 1.0'
+  pod 'YPImagePicker'
 
 
   target 'FindaTests' do
