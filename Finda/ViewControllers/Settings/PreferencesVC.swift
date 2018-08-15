@@ -64,6 +64,12 @@ class PreferencesVC: FormViewController {
             }
             
             <<< SwitchRow(){ row in
+                row.title = "A job I am working on is changed"
+                row.value = modelManager.jobChanged()
+                row.tag = "jobChanged"
+            }
+            
+            <<< SwitchRow(){ row in
                 row.title = "I receive a payment"
                 row.value = modelManager.paymentMade()
                 row.tag = "paymentMade"
@@ -74,9 +80,7 @@ class PreferencesVC: FormViewController {
                 row.title = "I receive a notification"
                 row.value = modelManager.notifications()
                 row.tag = "notifications"
-        }
-        
-        
+            }
         
         
         // Do any additional setup after loading the view.
@@ -98,6 +102,10 @@ class PreferencesVC: FormViewController {
         guard let job_cancelled: Bool = form.values()["jobCancelled"] as? Bool else { return }
         guard let job_cancelledInt: Int = job_cancelled ? 1 : 0 else { return }
         
+        guard let job_changed: Bool = form.values()["jobChanged"] as? Bool else { return }
+        guard let job_changedInt: Int = job_changed ? 1 : 0 else { return }
+        
+        
         guard let payment_made: Bool = form.values()["paymentMade"] as? Bool else { return }
         guard let payment_madeInt: Int = payment_made ? 1 : 0 else { return }
         
@@ -105,7 +113,7 @@ class PreferencesVC: FormViewController {
         guard let notificationsInt: Int = notifications ? 1 : 0 else { return }
         
         
-        FindaAPISession(target: .updatePreferences(friend_registers: friend_registersInt, job_offered: job_offeredInt, job_cancelled: job_cancelledInt, payment_made: payment_madeInt, notifications: notificationsInt)) { (response, result) in
+        FindaAPISession(target: .updatePreferences(friend_registers: friend_registersInt, job_offered: job_offeredInt, job_cancelled: job_cancelledInt, job_changed: job_changedInt, payment_made: payment_madeInt, notifications: notificationsInt)) { (response, result) in
             if response {
                 
             }

@@ -19,6 +19,7 @@ extension Preferences {
     @NSManaged public var friendRegisters: Bool
     @NSManaged public var jobOffered: Bool
     @NSManaged public var jobCancelled: Bool
+    @NSManaged public var jobChanged: Bool
     @NSManaged public var paymentMade: Bool
     @NSManaged public var notifications: Bool
 

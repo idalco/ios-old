@@ -65,6 +65,7 @@ class ModelManager {
         case friendRegisters = "friendRegisters"
         case jobOffered = "jobOffered"
         case jobCancelled = "jobCancelled"
+        case jobChanged = "jobChanged"
         case paymentMade = "paymentMade"
         case notifications = "notifications"
     }
@@ -234,6 +235,10 @@ class ModelManager {
     func jobCancelled() -> Bool {
         return CoreDataManager.getBool(dataName: Preferences.jobCancelled.rawValue, entity: Entity.Preferences.rawValue)
     }
+    
+    func jobChanged() -> Bool {
+        return CoreDataManager.getBool(dataName: Preferences.jobChanged.rawValue, entity: Entity.Preferences.rawValue)
+    }
 
     func paymentMade() -> Bool {
         return CoreDataManager.getBool(dataName: Preferences.paymentMade.rawValue, entity: Entity.Preferences.rawValue)
@@ -338,6 +343,7 @@ class ModelManager {
         profile.setValue(profileData["friend_registers"].boolValue, forKeyPath: Preferences.friendRegisters.rawValue)
         profile.setValue(profileData["job_offered"].boolValue, forKeyPath: Preferences.jobOffered.rawValue)
         profile.setValue(profileData["job_cancelled"].boolValue, forKeyPath: Preferences.jobCancelled.rawValue)
+        profile.setValue(profileData["job_changed"].boolValue, forKeyPath: Preferences.jobChanged.rawValue)
         profile.setValue(profileData["payment_made"].boolValue, forKeyPath: Preferences.paymentMade.rawValue)
         profile.setValue(profileData["notifications"].boolValue, forKeyPath: Preferences.notifications.rawValue)
         

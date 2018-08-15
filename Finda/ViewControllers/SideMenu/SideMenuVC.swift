@@ -13,8 +13,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    let menu = ["Dashboard", "Personal Details", "Sign Out"]
-    
+    //"Payments", "Invite a Friend",
+    let menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Notifications", "Sign Out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.profileImage.af_setImage(withURL: imageUrl)
         }
         
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetailsNav") }, with: "0")
         
-        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") }, with: "0")
-        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetailsNav") }, with: "1")
         
     }
     
@@ -63,8 +62,31 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
-        }else {
+        } else if  indexPath.row == 1 {
+
+            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            sideMenuController?.hideMenu()
             
+        } else if  indexPath.row == 2 {
+            
+            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            sideMenuController?.hideMenu()
+            // Scroll to Polaroids
+//            print((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)
+
+
+            
+        } else if  indexPath.row == 3 {
+            
+            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
+            sideMenuController?.hideMenu()
+            
+        } else if  indexPath.row == 4 {
+            
+            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
+            sideMenuController?.hideMenu()
+            
+        }else {
             sideMenuController?.hideMenu()
             sideMenuController?.setContentViewController(with: "\(indexPath.row)")
             

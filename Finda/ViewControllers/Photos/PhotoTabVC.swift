@@ -24,7 +24,7 @@ class PhotoTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
 
-        
+
         self.bar.items = [Item(title: "Portfolio"), Item(title: "Polaroids")]
         
         self.bar.style = .buttonBar

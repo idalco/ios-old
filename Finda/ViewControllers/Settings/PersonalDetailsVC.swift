@@ -17,9 +17,7 @@ class PersonalDetailsVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        LoginManager.getDetails { (response, result) in
-            
-        }
+        
         let modelManager = ModelManager()
         
         
@@ -74,7 +72,9 @@ class PersonalDetailsVC: FormViewController {
                 
             }
             section.header = header
-            }   <<< TextRow(){ row in
+            }
+            
+            <<< TextRow(){ row in
                 row.title = "First name"
                 row.value = modelManager.firstName()
                 row.tag = "firstName"
@@ -242,6 +242,35 @@ class PersonalDetailsVC: FormViewController {
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateRows()
+    }
+    
+    private func updateRows(){
+        LoginManager.getDetails { (response, result) in
+            if response {
+                let model = ModelManager()
+                self.updateCell(tag: "firstName", data: model.firstName())
+                self.updateCell(tag: "lastName", data: model.lastName())
+                
+                let date: Int = model.dateOfBirth()
+                if date != -1 {
+                    self.updateCell(tag: "dob", data: Date(timeIntervalSince1970: TimeInterval(date)))
+                }
+                self.updateCell(tag: "email", data: model.email())
+                self.updateCell(tag: "gender", data: model.gender())
+                
+            }
+            
+        }
+    }
+    
+    private func updateCell(tag: String, data: Any){
+        guard let row: BaseRow = form.rowBy(tag: tag) else { return }
+        row.baseValue = data
+        row.updateCell()
     }
     
     

@@ -27,7 +27,7 @@ enum FindaAPI {
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
     case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Int, dressSize: Int, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: Int, willingToCut: Int)
-    case updatePreferences(friend_registers: Int, job_offered: Int, job_cancelled: Int, payment_made: Int, notifications: Int)
+    case updatePreferences(friend_registers: Int, job_offered: Int, job_cancelled: Int, job_changed: Int, payment_made: Int, notifications: Int)
     
     case uploadImage(image: UIImage, type: ImageType)
     case getImages(type: ImageType)
@@ -183,7 +183,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
                 parameters["vat_number"] = vatNumber
             }
             
-            p["paramters"] = parameters
+            p["parameters"] = parameters
             
          
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
@@ -203,19 +203,20 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["willingtocolour"] = willingToColour
             parameters["willingtocut"] = willingToCut
             
-            p["paramters"] = parameters
+            p["parameters"] = parameters
             
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
-        case .updatePreferences(let friend_registers, let job_offered, let job_cancelled, let payment_made, let notifications):
+        case .updatePreferences(let friend_registers, let job_offered, let job_cancelled, let job_changed, let payment_made, let notifications):
             var parameters = [String: Any]()
             parameters["friend_registers"] = friend_registers
             parameters["job_offered"] = job_offered
             parameters["job_cancelled"] = job_cancelled
+            parameters["job_changed"] = job_changed
             parameters["payment_made"] = payment_made
             parameters["notifications"] = notifications
             
-            p["paramters"] = parameters
+            p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             

@@ -590,11 +590,11 @@
             </objects>
             <point key="canvasLocation" x="4244" y="90.404797601199405"/>
         </scene>
-        <!--Dashboard-->
+        <!--Home-->
         <scene sceneID="evD-cS-gc8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3rM-T6-1Dj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dashboard" image="albums" id="EGn-yq-a9b"/>
+                <navigationController storyboardIdentifier="JobsNav" automaticallyAdjustsScrollViewInsets="NO" id="3rM-T6-1Dj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="albums" id="EGn-yq-a9b"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jYR-rF-j1Y">
@@ -613,7 +613,7 @@
         <!--NotificationsVC-->
         <scene sceneID="j8C-Wq-xRZ">
             <objects>
-                <viewController id="S0J-pb-kdI" customClass="NotificationsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Notifications" id="S0J-pb-kdI" customClass="NotificationsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wRj-In-h3p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1198,7 +1198,7 @@ MODELLING TALENT</string>
         <!--JobsVC-->
         <scene sceneID="aeu-aL-ywh">
             <objects>
-                <viewController storyboardIdentifier="Dashboard" id="4QK-yc-3CP" customClass="JobsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Jobs" id="4QK-yc-3CP" customClass="JobsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kKX-dy-4jC"/>
                         <viewControllerLayoutGuide type="bottom" id="oOp-TB-9uM"/>
@@ -1256,7 +1256,7 @@ MODELLING TALENT</string>
         <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vaf-CE-aBo"/>
+        <segue reference="74I-wZ-gfo"/>
         <segue reference="tCZ-2f-hRy"/>
     </inferredMetricsTieBreakers>
 </document>

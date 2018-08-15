@@ -17,16 +17,16 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") as? JobsVC {
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
              viewController.jobType = .offered
             self.viewControllers.append(viewController)
         }
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") as? JobsVC {
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
             viewController.jobType = .accepted
             self.viewControllers.append(viewController)
         }
         
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard") as? JobsVC {
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
             viewController.jobType = .all
             self.viewControllers.append(viewController)
         }
