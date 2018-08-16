@@ -18,6 +18,9 @@ extension UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
+    
+    
     
 }

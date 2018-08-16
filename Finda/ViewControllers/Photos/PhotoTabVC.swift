@@ -34,13 +34,21 @@ class PhotoTabVC: TabmanViewController, PageboyViewControllerDataSource {
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
             appearance.indicator.color = UIColor.FindaColors.Purple
         })
-        
-        
         self.dataSource = self
-        
-        
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateNotificationCount()
+    }
+    
+    private func updateNotificationCount(){
+        NotificationManager.countNotifications(notificationType: .new) { (response, result) in
+            if response {
+                self.tabBarController?.tabBar.items?[1].badgeValue = result["userdata"].string
+            }
+        }
+    }
+    
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return self.viewControllers.count

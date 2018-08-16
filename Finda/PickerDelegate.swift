@@ -27,10 +27,13 @@ class PickerDelegate {
                     row.options = Array(dictionary.values)
                 }
                 completion(true, row)
+                return
                 
                 
+            } else {
+                completion(false, PickerInlineRow())
             }
-            completion(false, PickerInlineRow())
+            
         }
     }
     
@@ -51,15 +54,17 @@ class PickerDelegate {
                     row.tag = rowTitle.lowercased()
                 }
                 completion(true, row, dictionary)
+                return
                 
                 
+            } else {
+                completion(false, PickerInlineRow(), dictionary)
             }
-            completion(false, PickerInlineRow(), dictionary)
         }
     }
     
     static func addPickerData(rowTitle: String, coreData: Int, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
-        var dictionary: [Int: String] = [0: "No", 1:"Yes"]
+        var dictionary: [Int: String] = BooleanDictionary
         
         let row =  PickerInlineRow<String>() { row in
             row.title = rowTitle

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1C857521256B6800586326 /* BooleanDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C857421256B6800586326 /* BooleanDictionary.swift */; };
 		0C4ADA61210F4492002C3EA3 /* RegisterFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA60210F4492002C3EA3 /* RegisterFooter.swift */; };
 		0C4ADA63210F4549002C3EA3 /* RegisterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA62210F4549002C3EA3 /* RegisterHeader.swift */; };
 		0C4ADA6821107E54002C3EA3 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA6721107E54002C3EA3 /* ModelManager.swift */; };
@@ -117,6 +118,7 @@
 		0288E199D06E667D702BCB7E /* Pods-FindaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindaUITests/Pods-FindaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		035913A7088946EBA06AFD9E /* Pods-FindaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindaTests/Pods-FindaTests.release.xcconfig"; sourceTree = "<group>"; };
 		04EEB8FB6543252924F78E91 /* Pods_Finda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C1C857421256B6800586326 /* BooleanDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanDictionary.swift; sourceTree = "<group>"; };
 		0C4ADA60210F4492002C3EA3 /* RegisterFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFooter.swift; sourceTree = "<group>"; };
 		0C4ADA62210F4549002C3EA3 /* RegisterHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterHeader.swift; sourceTree = "<group>"; };
 		0C4ADA6721107E54002C3EA3 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */,
 				0CEBCB5821071AD1004CC4D8 /* Info.plist */,
 				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
+				0C1C857421256B6800586326 /* BooleanDictionary.swift */,
 				0C4ADA732110A450002C3EA3 /* UserStatus.swift */,
 				0C78FA5A212362FD0059C0E7 /* ImageType.swift */,
 				0C4ADA7F2113353D002C3EA3 /* Country.swift */,
@@ -794,6 +797,7 @@
 				0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */,
 				0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */,
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
+				0C1C857521256B6800586326 /* BooleanDictionary.swift in Sources */,
 				0C78FA51212224590059C0E7 /* JobTabVC.swift in Sources */,
 				0C78FA5D212365E70059C0E7 /* PhotoManager.swift in Sources */,
 				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,

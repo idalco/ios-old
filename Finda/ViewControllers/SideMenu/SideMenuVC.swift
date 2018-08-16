@@ -13,8 +13,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    //"Payments", "Invite a Friend",
-    let menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Notifications", "Sign Out"]
+    let menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Notifications", "Payments", "Invite a Friend", "Sign Out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +25,12 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.profileImage.af_setImage(withURL: imageUrl)
         }
         
-        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetailsNav") }, with: "0")
-        
-        
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetails") }, with: "PersonalDetails")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") }, with: "MainTabBar")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        dismissKeyboard()
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,36 +64,32 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
+        } else if  indexPath.row == 0 {
+            sideMenuController?.setContentViewController(with: "PersonalDetails")
+            
         } else if  indexPath.row == 1 {
-
+            sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            sideMenuController?.hideMenu()
+            (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
             
         } else if  indexPath.row == 2 {
-            
+            sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            sideMenuController?.hideMenu()
-            // Scroll to Polaroids
-//            print((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)
-
-
+            (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
             
         } else if  indexPath.row == 3 {
-            
+            sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
-            sideMenuController?.hideMenu()
             
         } else if  indexPath.row == 4 {
-            
+            sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
-            sideMenuController?.hideMenu()
             
         }else {
-            sideMenuController?.hideMenu()
-            sideMenuController?.setContentViewController(with: "\(indexPath.row)")
             
         }
         
+        sideMenuController?.hideMenu()
     }
     
     

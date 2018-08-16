@@ -20,6 +20,8 @@ class PersonalDetailsVC: FormViewController {
         
         let modelManager = ModelManager()
         
+//        if modelManager.status() == UserStatus.unverified
+        
         
 //        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
 //        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
@@ -53,7 +55,7 @@ class PersonalDetailsVC: FormViewController {
         
         
         
-        var section = Section(){ section in
+        var mainSection = Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
             header.height = {70}
             header.onSetupView = { view, _ in
@@ -174,6 +176,8 @@ class PersonalDetailsVC: FormViewController {
                 row.title = "Country of residence"
                 row.tag = "residence"
                 
+                
+                
                 row.options = Country.nationalities
                 let residenceCountry = modelManager.residenceCountry()
                 row.value = residenceCountry
@@ -196,8 +200,7 @@ class PersonalDetailsVC: FormViewController {
                 if instagramFollowers != -1 {
                     row.value = instagramFollowers
                 }
-                
-                
+               
                 
             }
             <<< TextRow(){ row in
@@ -231,12 +234,12 @@ class PersonalDetailsVC: FormViewController {
                 
         }
         
-        form +++ section
+        form +++ mainSection
         
         PickerDelegate.addPickerData(term: .Ethnicity, rowTitle: "Ethnicity", coreData: modelManager.ethnicity()) { (response, result, dictionary) in
             if response {
                 self.ethnicityDictionary = dictionary
-                section.insert(result, at: 5)
+                mainSection.insert(result, at: 5)
             }
         }
         
@@ -245,7 +248,7 @@ class PersonalDetailsVC: FormViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.updateRows()
+//        self.updateRows()
     }
     
     private func updateRows(){
@@ -261,6 +264,11 @@ class PersonalDetailsVC: FormViewController {
                 }
                 self.updateCell(tag: "email", data: model.email())
                 self.updateCell(tag: "gender", data: model.gender())
+                self.updateCell(tag: "nationality", data: model.nationality())
+                self.updateCell(tag: "residence", data: model.residenceCountry())
+                self.updateCell(tag: "instagramUsername", data: model.instagramUserName())
+                self.updateCell(tag: "referralCode", data: model.referrerCode())
+                self.updateCell(tag: "vat", data: model.vatNumber())
                 
             }
             
@@ -327,7 +335,7 @@ class PersonalDetailsVC: FormViewController {
         if(firstNameRow.isValid && lastNameRow.isValid && emailRow.isValid && genderRow.isValid && ethnicityRow.isValid && instagramRow.isValid){
             FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, gender: gender, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat)) { (response, result) in
                 if response {
-                    
+                    self.updateRows()
                 }
             }
         }

@@ -202,6 +202,63 @@ class MeasurementsVC: FormViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        self.updateRows()
+    }
+    
+    private func updateRows(){
+        LoginManager.getDetails { (response, result) in
+            if response {
+                let model = ModelManager()
+                self.updateCell(tag: "height", data: model.height())
+                self.updateCell(tag: "bust", data: model.bust())
+        
+                self.updateCell(tag: "waist", data: model.waist())
+                self.updateCell(tag: "hips", data: model.hips())
+                self.updateCell(tag: "shoe size", data: model.shoeSize())
+                self.updateCell(tag: "dress size", data: model.dressSize())
+                
+                if let hairColour: String = self.hairColourDictionary[model.hairColour()] {
+                    self.updateCell(tag: "hair colour", data: hairColour)
+                }
+                
+                if let hairType: String = self.hairTypeDictionary[model.hairType()] {
+                    self.updateCell(tag: "hair type", data: hairType)
+                }
+                
+                if let hairLength: String = self.hairLengthDictionary[model.hairLength()] {
+                    self.updateCell(tag: "hair length", data: hairLength)
+                }
+                
+                if let eyeColour: String = self.eyeColourDictionary[model.eyeColour()] {
+                    self.updateCell(tag: "eye colour", data: eyeColour)
+                }
+                
+                
+                if let eyeColour: String = self.eyeColourDictionary[model.eyeColour()] {
+                    self.updateCell(tag: "eye colour", data: eyeColour)
+                }
+                
+
+                if let willingColour: String = BooleanDictionary[model.willingColour()] {
+                    self.updateCell(tag: "willing to colour?", data: willingColour)
+                }
+                
+                if let willingCut: String = BooleanDictionary[model.willingCut()] {
+                    self.updateCell(tag: "willing to cut?", data: willingCut)
+                }
+            }
+            
+        }
+    }
+    
+    private func updateCell(tag: String, data: Any){
+        guard let row: BaseRow = form.rowBy(tag: tag) else { return }
+        row.baseValue = data
+        row.updateCell()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -295,7 +352,7 @@ class MeasurementsVC: FormViewController {
         if(heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid && willingToColourRow.isValid && willingToCutRow.isValid){
             FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSize, dressSize: dressSize, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourId, willingToCut: willingToCutId)) { (response, result) in
                 if response {
-                    
+                    self.updateRows()
                 }
             }
         }

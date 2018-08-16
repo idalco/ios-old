@@ -91,6 +91,33 @@ class PreferencesVC: FormViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        self.updateRows()
+    }
+    
+    private func updateRows(){
+        LoginManager.getDetails { (response, result) in
+            if response {
+                let model = ModelManager()
+        
+                self.updateCell(tag: "friendRegisters", data: model.friendRegisters())
+                self.updateCell(tag: "jobOffered", data: model.jobOffered())
+                self.updateCell(tag: "jobCancelled", data: model.jobCancelled())
+                self.updateCell(tag: "jobChanged", data: model.jobChanged())
+                self.updateCell(tag: "paymentMade", data: model.paymentMade())
+                self.updateCell(tag: "notifications", data: model.notifications())
+             
+            }
+            
+        }
+    }
+    
+    private func updateCell(tag: String, data: Any){
+        guard let row: BaseRow = form.rowBy(tag: tag) else { return }
+        row.baseValue = data
+        row.updateCell()
+    }
+    
     @IBAction func save(_ sender: Any) {
 
         guard let friend_registers: Bool = form.values()["friendRegisters"] as? Bool else { return }
@@ -115,7 +142,7 @@ class PreferencesVC: FormViewController {
         
         FindaAPISession(target: .updatePreferences(friend_registers: friend_registersInt, job_offered: job_offeredInt, job_cancelled: job_cancelledInt, job_changed: job_changedInt, payment_made: payment_madeInt, notifications: notificationsInt)) { (response, result) in
             if response {
-                
+                self.updateRows()
             }
         }
         

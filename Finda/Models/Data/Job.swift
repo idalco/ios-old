@@ -60,5 +60,51 @@ class Job {
         self.companyName = data["company_name"].stringValue
         self.companyWebsite = data["company_website"].stringValue
     }
+    
 }
 
+extension Job: Hashable {
+    static func == (lhs: Job, rhs: Job) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    var hashValue: Int {
+        return clientUid.hashValue ^ projectTid.hashValue ^ created.hashValue ^ modified.hashValue ^ jobStatus.hashValue ^ name.hashValue ^ offeredRate.hashValue ^ negotiatedRate.hashValue ^ agreedRate.hashValue ^ timeUnits.hashValue ^ unitsType.hashValue ^ startdate.hashValue ^ starttime.hashValue ^ description.hashValue ^ clientJobCompleted.hashValue ^ location.hashValue ^ invoiceID.hashValue ^ invoicePaid.hashValue ^ callsheet.hashValue ^ jobid.hashValue ^ modelDesiredRate.hashValue ^ clientOfferedRate.hashValue ^ status.hashValue ^ rating.hashValue ^ modelNotes.hashValue ^ jobtype.hashValue ^ companyName.hashValue ^ companyWebsite.hashValue
+    }
+}
+//
+//extension Job: Equatable {
+//    static func == (lhs: Job, rhs: Job) -> Bool {
+//        print(lhs.clientUid == rhs.clientUid)
+//        return lhs.clientUid == rhs.clientUid &&
+//            lhs.projectTid == rhs.projectTid &&
+//            lhs.created == rhs.created &&
+//            lhs.modified == rhs.modified &&
+//            lhs.jobStatus == rhs.jobStatus &&
+//            lhs.name == rhs.name &&
+//            lhs.offeredRate == rhs.offeredRate &&
+//            lhs.negotiatedRate == rhs.negotiatedRate &&
+//            lhs.agreedRate == rhs.agreedRate &&
+//            lhs.timeUnits == rhs.timeUnits &&
+//            lhs.unitsType == rhs.unitsType &&
+//            lhs.startdate == rhs.startdate &&
+//            lhs.starttime == rhs.starttime &&
+//            lhs.description == rhs.description &&
+//            lhs.clientJobCompleted == rhs.clientJobCompleted &&
+//            lhs.location == rhs.location &&
+//            lhs.invoiceID == rhs.invoiceID &&
+//            lhs.invoicePaid == rhs.invoicePaid &&
+//            lhs.callsheet == rhs.callsheet &&
+//            lhs.jobid == rhs.jobid &&
+//            lhs.modelDesiredRate == rhs.modelDesiredRate &&
+//            lhs.clientOfferedRate == rhs.clientOfferedRate &&
+//            lhs.status == rhs.status &&
+//            lhs.rating == rhs.rating &&
+//            lhs.modelNotes == rhs.modelNotes &&
+//            lhs.jobtype == rhs.jobtype &&
+//            lhs.companyName == rhs.companyName &&
+//            lhs.companyWebsite == rhs.companyWebsite
+//
+//
+//    }
+//}

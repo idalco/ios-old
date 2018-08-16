@@ -18,6 +18,7 @@ class JobsVC: UIViewController {
     
     var cardViews = [JobCardView]()
     var allJobs: [Job] = []
+    var loadingFirst: Bool = true
     
     
     override func viewDidLoad() {
@@ -36,7 +37,6 @@ class JobsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .default
-        self.updateNotificationCount()
         self.loadJobs()
     }
     
@@ -70,24 +70,22 @@ class JobsVC: UIViewController {
     }
     
     
-    private func updateNotificationCount(){
-        NotificationManager.countNotifications(notificationType: .new) { (response, result) in
-            if response {
-                self.tabBarController?.tabBar.items?[1].badgeValue = result["userdata"].string
-            }
-        }
-    }
-    
     private func loadJobs(){
         JobsManager.getJobs(jobType: self.jobType) { (response, result) in
-            self.allJobs.removeAll()
             if(response) {
                 let jobs = result["userdata"].dictionaryValue
+                var jobsArray: [Job] = []
                 for job in jobs {
-                    self.allJobs.append(Job(data: job.value))
+                    jobsArray.append(Job(data: job.value))
+                }
+                if self.loadingFirst || !self.allJobs.elementsEqual(jobsArray, by: { (job1: Job, job2:Job) -> Bool in
+                    job1 == job2
+                }){
+                    self.allJobs = jobsArray
+                    self.update()
+                    self.loadingFirst = false
                 }
             }
-            self.update()
         }
         
     }

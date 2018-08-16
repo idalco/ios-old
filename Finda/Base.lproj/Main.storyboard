@@ -456,7 +456,7 @@
         <!--Personal DetailsVC-->
         <scene sceneID="7ai-dZ-T6G">
             <objects>
-                <viewController storyboardIdentifier="PersonalDetails" id="wAL-Q5-1iI" customClass="PersonalDetailsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wAL-Q5-1iI" customClass="PersonalDetailsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5lj-jv-l7l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -572,7 +572,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="wAU-sd-wn1">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qQY-DU-NTk" customClass="TabBarController" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" automaticallyAdjustsScrollViewInsets="NO" id="qQY-DU-NTk" customClass="TabBarController" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YEo-lo-q7Y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -727,7 +727,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="g9p-NA-K0G">
             <objects>
-                <tabBarController storyboardIdentifier="PersonalDetailsNav" automaticallyAdjustsScrollViewInsets="NO" id="w3X-Fa-Pv7" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="PersonalDetails" automaticallyAdjustsScrollViewInsets="NO" id="w3X-Fa-Pv7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KiX-Ah-kq5"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kka-Wr-Uhp">
@@ -1256,7 +1256,7 @@ MODELLING TALENT</string>
         <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="74I-wZ-gfo"/>
+        <segue reference="cfr-jS-KpB"/>
         <segue reference="tCZ-2f-hRy"/>
     </inferredMetricsTieBreakers>
 </document>
