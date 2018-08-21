@@ -12,8 +12,10 @@ import AlamofireImage
 class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
-    let menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Notifications", "Payments", "Invite a Friend", "Sign Out"]
+    var menu: [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,21 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetails") }, with: "PersonalDetails")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") }, with: "MainTabBar")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PaymentNav") }, with: "PaymentNav")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.unverified {
+            self.menu = ["My Details", "Invite a Friend", "Sign Out"]
+        } else {
+            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Notifications", "Payments", "Invite a Friend", "Sign Out"]
+        }
+        self.tableView.reloadData()
+        
         dismissKeyboard()
     }
     
@@ -42,7 +56,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if menu.count > 0 {
+        if self.menu.count > 0 {
             return 1
         }
         return 0
@@ -50,20 +64,24 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return menu.count
+        return self.menu.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuCell
-        cell.label.text = menu[indexPath.row]
+        cell.label.text = self.menu[indexPath.row]
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
+        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
+            sideMenuController?.setContentViewController(with: "InviteNav")
+            
         } else if  indexPath.row == 0 {
             sideMenuController?.setContentViewController(with: "PersonalDetails")
             
@@ -85,7 +103,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
             
-        }else {
+        } else if indexPath.row == 5 {
+            sideMenuController?.setContentViewController(with: "PaymentNav")
+        }  else {
             
         }
         

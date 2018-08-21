@@ -70,10 +70,10 @@ class LoginVC: UIViewController {
     
     func loginSegue(){
         let modelManager = ModelManager()
-        if modelManager.status() == UserStatus.banned.rawValue {
+        if modelManager.status() == UserStatus.banned {
             LoginManager.signOut()
             return
-        } else if modelManager.status() == UserStatus.unverified.rawValue {
+        } else if modelManager.status() == UserStatus.unverified {
             self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
         } else {
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
@@ -96,7 +96,7 @@ class LoginVC: UIViewController {
             if response {
                 self.loginSegue()
             } else {
-                if(result["userdata"]["usertype"].intValue == 2){
+                if(result["userdata"]["usertype"].intValue == UserType.Client.rawValue){
                     let alert = UIAlertController(title: "Hello", message: "Currently this app only supports models! Please use the website to edit your client profile.", preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))

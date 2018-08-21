@@ -21,6 +21,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         configureSideMenu()
+        
+        if(LoginManager.isLoggedIn() && LoginManager.isModel()){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            var contentViewController  = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
+            let modelManager = ModelManager()
+            if modelManager.status() == UserStatus.unverified {
+                contentViewController = storyboard.instantiateViewController(withIdentifier: "PersonalDetails")
+            }
+            
+            let menuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuView")
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = SideMenuController(contentViewController: contentViewController,
+                                                            menuViewController: menuViewController)
+            
+            window?.makeKeyAndVisible()
+            
+            LoginManager.getDetails { (response, result) in }
+        }
+        
+        
+        
         return true
     }
     

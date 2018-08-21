@@ -40,11 +40,12 @@ target 'Finda' do
   # Side menu
   pod 'SideMenuSwift'
 
-  # Dashboard TableView
-  #pod 'FoldingCell'
-
+  # Paging control
   pod 'Tabman', '~> 1.0'
+
+  # Image picker
   pod 'YPImagePicker'
+
 
 
   target 'FindaTests' do

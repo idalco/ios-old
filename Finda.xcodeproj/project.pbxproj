@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0C1C857521256B6800586326 /* BooleanDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C857421256B6800586326 /* BooleanDictionary.swift */; };
+		0C1C8577212ABDF000586326 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C8576212ABDF000586326 /* PaymentVC.swift */; };
+		0C1C8579212ABFE800586326 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C8578212ABFE800586326 /* UserType.swift */; };
+		0C1C8587212AE95E00586326 /* InviteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C8586212AE95E00586326 /* InviteVC.swift */; };
 		0C4ADA61210F4492002C3EA3 /* RegisterFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA60210F4492002C3EA3 /* RegisterFooter.swift */; };
 		0C4ADA63210F4549002C3EA3 /* RegisterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA62210F4549002C3EA3 /* RegisterHeader.swift */; };
 		0C4ADA6821107E54002C3EA3 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4ADA6721107E54002C3EA3 /* ModelManager.swift */; };
@@ -119,6 +122,9 @@
 		035913A7088946EBA06AFD9E /* Pods-FindaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindaTests/Pods-FindaTests.release.xcconfig"; sourceTree = "<group>"; };
 		04EEB8FB6543252924F78E91 /* Pods_Finda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1C857421256B6800586326 /* BooleanDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanDictionary.swift; sourceTree = "<group>"; };
+		0C1C8576212ABDF000586326 /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		0C1C8578212ABFE800586326 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
+		0C1C8586212AE95E00586326 /* InviteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteVC.swift; sourceTree = "<group>"; };
 		0C4ADA60210F4492002C3EA3 /* RegisterFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFooter.swift; sourceTree = "<group>"; };
 		0C4ADA62210F4549002C3EA3 /* RegisterHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterHeader.swift; sourceTree = "<group>"; };
 		0C4ADA6721107E54002C3EA3 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
@@ -292,6 +298,8 @@
 			children = (
 				0C78FA272119D3130059C0E7 /* WelcomeVC.swift */,
 				0CCF22B62107390800612D5B /* LoginVC.swift */,
+				0C1C8576212ABDF000586326 /* PaymentVC.swift */,
+				0C1C8586212AE95E00586326 /* InviteVC.swift */,
 				0C78FA54212329570059C0E7 /* Photos */,
 				0C78FA55212329630059C0E7 /* Jobs */,
 				0C78FA562123296C0059C0E7 /* Settings */,
@@ -462,6 +470,7 @@
 				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
 				0C1C857421256B6800586326 /* BooleanDictionary.swift */,
 				0C4ADA732110A450002C3EA3 /* UserStatus.swift */,
+				0C1C8578212ABFE800586326 /* UserType.swift */,
 				0C78FA5A212362FD0059C0E7 /* ImageType.swift */,
 				0C4ADA7F2113353D002C3EA3 /* Country.swift */,
 				0CCF22D321089B5500612D5B /* Moya Plugins */,
@@ -819,7 +828,9 @@
 				0C78FA2A211DB16E0059C0E7 /* JobsVC.swift in Sources */,
 				0CCF2345210B1C7C00612D5B /* SideMenuCell.swift in Sources */,
 				0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */,
+				0C1C8577212ABDF000586326 /* PaymentVC.swift in Sources */,
 				0C4ADA802113353D002C3EA3 /* Country.swift in Sources */,
+				0C1C8579212ABFE800586326 /* UserType.swift in Sources */,
 				0CCF235C210E06CA00612D5B /* ViewControllerExtensions.swift in Sources */,
 				0C4ADA63210F4549002C3EA3 /* RegisterHeader.swift in Sources */,
 				0CCF232B2109E61300612D5B /* TermDataManager.swift in Sources */,
@@ -835,6 +846,7 @@
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
 				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
+				0C1C8587212AE95E00586326 /* InviteVC.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
 				0C78FA4F212223360059C0E7 /* PortfolioVC.swift in Sources */,
 				0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */,

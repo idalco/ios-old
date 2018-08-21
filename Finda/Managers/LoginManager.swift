@@ -16,7 +16,12 @@ class LoginManager {
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
             if(response){
                 if(result["userdata"]["usertype"].intValue == 1){
-                    _ = ModelManager(data: result)
+                    let modelManager = ModelManager(data: result)
+                    if modelManager.status() == UserStatus.banned {
+                        LoginManager.signOut()
+                        completion(false, JSON.null)
+                        return
+                    }
                     let defaults = UserDefaults.standard
                     defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
                     completion(response, result)
@@ -31,7 +36,12 @@ class LoginManager {
         FindaAPISession(target: .userDetails()) { (response, result) in
             if(response){
                 if(result["userdata"]["usertype"].intValue == 1){
-                    _ = ModelManager(data: result)
+                    let modelManager = ModelManager(data: result)
+                    if modelManager.status() == UserStatus.banned {
+                        LoginManager.signOut()
+                        completion(false, JSON.null)
+                        return
+                    }
                     completion(response, result)
                     return
                 }

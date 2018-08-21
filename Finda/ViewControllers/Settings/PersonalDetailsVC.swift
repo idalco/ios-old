@@ -264,20 +264,32 @@ class PersonalDetailsVC: FormViewController {
                 }
                 self.updateCell(tag: "email", data: model.email())
                 self.updateCell(tag: "gender", data: model.gender())
+                
+              
+                
                 self.updateCell(tag: "nationality", data: model.nationality())
                 self.updateCell(tag: "residence", data: model.residenceCountry())
                 self.updateCell(tag: "instagramUsername", data: model.instagramUserName())
                 self.updateCell(tag: "referralCode", data: model.referrerCode())
                 self.updateCell(tag: "vat", data: model.vatNumber())
                 
+//                guard let row: PickerInlineRow<String> = self.form.rowBy(tag: "ethnicity") else { return }
+//                self.updateCell(row: row, data: model.ethnicity())
+//
+                
             }
-            
         }
     }
     
     private func updateCell(tag: String, data: Any){
         guard let row: BaseRow = form.rowBy(tag: tag) else { return }
         row.baseValue = data
+        row.updateCell()
+    }
+    
+    private func updateCell(row: PickerInlineRow<String>, coreData: Int, dictionary: [Int:String]){
+        row.options = Array(dictionary.values)
+        row.value = dictionary[coreData] ?? ""
         row.updateCell()
     }
     

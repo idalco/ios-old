@@ -12,6 +12,7 @@ import CoreData
 
 
 class ModelManager {
+
     
     enum Entity: String {
         case User = "User"
@@ -99,8 +100,9 @@ class ModelManager {
         return CoreDataManager.getString(dataName: User.avatar.rawValue, entity: Entity.User.rawValue)
     }
     
-    func userType() -> Int {
-        return CoreDataManager.getInt(dataName: User.userType.rawValue, entity: Entity.User.rawValue)
+    func userType() -> UserType? {
+        return UserType.init(rawValue: CoreDataManager.getInt(dataName: User.userType.rawValue, entity: Entity.User.rawValue)) ?? nil
+        
     }
     
     func gender() -> String {
@@ -175,8 +177,9 @@ class ModelManager {
         return CoreDataManager.getInt(dataName: User.available.rawValue, entity: Entity.User.rawValue)
     }
     
-    func status() -> Int {
-        return CoreDataManager.getInt(dataName: User.status.rawValue, entity: Entity.User.rawValue)
+    func status() -> UserStatus? {
+        return UserStatus(rawValue: CoreDataManager.getInt(dataName: User.status.rawValue, entity: Entity.User.rawValue)) ?? nil
+        
     }
     
     /*
