@@ -54,18 +54,17 @@ class PortfolioVC: UIViewController {
             if let photo = items.singlePhoto {
 //                print(photo.fromCamera) // Image source (camera or library)
                 print(photo.image) // Final image selected by the user
-                FindaAPISession(target: .uploadImage(image: photo.image, type: ImageType.Portfolio), completion: { (response, result) in
+                FindaAPISession(target: .uploadPortfolioImage(image: photo.image), completion: { (response, result) in
                     if response {
                         print(result)
                     }
                 })
-                
-                
+                picker.dismiss(animated: true, completion: nil)
 //                print(photo.originalImage) // original image selected by the user, unfiltered
 //                print(photo.modifiedImage) // Transformed image, can be nil
 //                print(photo.exifMeta) // Print exif meta data of original image.
             }
-            picker.dismiss(animated: true, completion: nil)
+            
         }
         present(picker, animated: true, completion: nil)
     }

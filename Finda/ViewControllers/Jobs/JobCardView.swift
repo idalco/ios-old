@@ -5,9 +5,12 @@ class JobCardView: CardView {
 
     @IBOutlet weak var contentView: UIView!
     
-    let presentedCardViewColor: UIColor = UIColor.FindaColors.Purple.lighter(by: 77) ?? UIColor.FindaColors.Purple.fade()
+    let presentedCardViewColor: UIColor = UIColor.FindaColors.White
+    //UIColor.FindaColors.Purple.lighter(by: 77) ?? UIColor.FindaColors.Purple.fade()
     
-    lazy var depresentedCardViewColor: UIColor = { return UIColor.FindaColors.Purple.lighter(by: 80) ?? UIColor.FindaColors.Purple.fade() }()
+    lazy var depresentedCardViewColor: UIColor = { return UIColor.FindaColors.White }()
+    
+    // { return UIColor.FindaColors.Purple.lighter(by: 80) ?? UIColor.FindaColors.Purple.fade() }()
     
     
     @IBOutlet weak var headerLabel: UILabel!
@@ -74,8 +77,9 @@ class JobCardView: CardView {
         
         contentView.layer.cornerRadius  = 10
         contentView.layer.masksToBounds = true
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.FindaColors.Purple.fade(alpha: 0.2).cgColor
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor.FindaColors.Purple.cgColor
+        //UIColor.FindaColors.Purple.fade(alpha: 0.2).cgColor
         
         presentedDidUpdate()
         

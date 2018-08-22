@@ -206,6 +206,7 @@ class MeasurementsVC: FormViewController {
 //        self.updateRows()
     }
     
+    
     private func updateRows(){
         LoginManager.getDetails { (response, result) in
             if response {

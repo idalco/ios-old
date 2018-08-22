@@ -267,7 +267,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-wb-aaJ" customClass="DCRoundedButton" customModule="DCKit">
                                 <rect key="frame" x="16" y="483" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aJN-wb-aaJ" secondAttribute="height" multiplier="343:50" id="7Oh-Ou-e5z"/>
                                 </constraints>
@@ -280,7 +280,7 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
-                                        <color key="value" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -731,7 +731,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YEo-lo-q7Y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -1215,11 +1214,11 @@
             </objects>
             <point key="canvasLocation" x="5183.1999999999998" y="2444.527736131934"/>
         </scene>
-        <!--Photos-->
+        <!--Portfolio-->
         <scene sceneID="QmV-bx-4cV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="83e-Da-8cU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Photos" image="camera" id="xGe-IZ-0Dy"/>
+                    <tabBarItem key="tabBarItem" title="Portfolio" image="camera" id="xGe-IZ-0Dy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gfe-Ul-PxY">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1247,14 +1246,14 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAV-0O-gMP">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.72156862745098038" green="0.078431372549019607" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NZp-zC-g3F"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPQ-kL-eSP">
                                 <rect key="frame" x="187.5" y="617" width="187.5" height="50"/>
-                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4n9-wq-2tL"/>
                                 </constraints>
@@ -1268,7 +1267,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vl7-L6-Sp1">
                                 <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
-                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GJN-LJ-cdF"/>
                                 </constraints>

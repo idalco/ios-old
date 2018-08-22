@@ -45,6 +45,8 @@ class PickerDelegate {
                     dictionary[element.value["tid"].intValue] = element.value["name"].stringValue
                 }
                 
+                print(dictionary)
+                
                 let row =  PickerInlineRow<String>() { row in
                     row.title = rowTitle
                     if row.value == nil && coreData != -1 {

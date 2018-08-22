@@ -27,9 +27,10 @@ enum FindaAPI {
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
     case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Int, dressSize: Int, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: Int, willingToCut: Int)
-    case updatePreferences(friend_registers: Int, job_offered: Int, job_cancelled: Int, job_changed: Int, payment_made: Int, notifications: Int)
+    case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     
-    case uploadImage(image: UIImage, type: ImageType)
+    case uploadPortfolioImage(image: UIImage)
+    case uploadPolaroidImage(image: UIImage)
     case getImages(type: ImageType)
 
     
@@ -75,8 +76,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/updateProfile"
         case .updatePreferences:
             return "/updateProfile"
-        case .uploadImage:
-            return "/uploadImage"
+        case .uploadPortfolioImage:
+            return "/uploadPortfolio"
+        case .uploadPolaroidImage:
+            return "/uploadPolaroid"
         case .getImages:
             return "/getImages"
             
@@ -101,7 +104,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadImage, .getImages, .register, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .getImages, .register, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -220,11 +223,15 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
-        case .uploadImage(let image, let type):
+        case .uploadPolaroidImage(let image):
             guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
-            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
-            p["type"] = type.rawValue
-            return .uploadCompositeMultipart([jpegData], urlParameters: p)
+            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "polaroids", fileName: "image.jpeg", mimeType: "image/jpeg")
+            return .uploadMultipart([jpegData])
+            
+        case .uploadPortfolioImage(let image):
+            guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
+            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "portfolio", fileName: "image.jpeg", mimeType: "image/jpeg")
+            return .uploadMultipart([jpegData])
             
         case.getImages(let type):
              p["imagetype"] = type.rawValue

@@ -121,26 +121,26 @@ class PreferencesVC: FormViewController {
     @IBAction func save(_ sender: Any) {
 
         guard let friend_registers: Bool = form.values()["friendRegisters"] as? Bool else { return }
-        guard let friend_registersInt: Int = friend_registers ? 1 : 0 else { return }
+        guard let friend_registersString: String = friend_registers ? "on" : "" else { return }
         
         guard let job_offered: Bool = form.values()["jobOffered"] as? Bool else { return }
-        guard let job_offeredInt: Int = job_offered ? 1 : 0 else { return }
+        guard let job_offeredString: String = job_offered ? "on" : "" else { return }
         
         guard let job_cancelled: Bool = form.values()["jobCancelled"] as? Bool else { return }
-        guard let job_cancelledInt: Int = job_cancelled ? 1 : 0 else { return }
+        guard let job_cancelledString: String = job_cancelled ? "on" : "" else { return }
         
         guard let job_changed: Bool = form.values()["jobChanged"] as? Bool else { return }
-        guard let job_changedInt: Int = job_changed ? 1 : 0 else { return }
+        guard let job_changedString: String = job_changed ? "on" : "" else { return }
         
         
         guard let payment_made: Bool = form.values()["paymentMade"] as? Bool else { return }
-        guard let payment_madeInt: Int = payment_made ? 1 : 0 else { return }
+        guard let payment_madeString: String = payment_made ? "on" : "" else { return }
         
         guard let notifications: Bool = form.values()["notifications"] as? Bool else { return }
-        guard let notificationsInt: Int = notifications ? 1 : 0 else { return }
+        guard let notificationsString: String = notifications ? "on" : "" else { return }
         
         
-        FindaAPISession(target: .updatePreferences(friend_registers: friend_registersInt, job_offered: job_offeredInt, job_cancelled: job_cancelledInt, job_changed: job_changedInt, payment_made: payment_madeInt, notifications: notificationsInt)) { (response, result) in
+        FindaAPISession(target: .updatePreferences(friend_registers: friend_registersString, job_offered: job_offeredString, job_cancelled: job_cancelledString, job_changed: job_changedString, payment_made: payment_madeString, notifications: notificationsString)) { (response, result) in
             if response {
                 self.updateRows()
             }

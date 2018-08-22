@@ -11,8 +11,8 @@ import UIKit
 class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var allNotifications: [Notification] = []
-    var readNotifications: [Notification] = []
-    var newNotifications: [Notification] = []
+//    var readNotifications: [Notification] = []
+//    var newNotifications: [Notification] = []
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageView: UIView!
@@ -22,7 +22,8 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         self.setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
-        self.messageView.backgroundColor = UIColor.FindaColors.Purple.fade()
+        self.messageView.backgroundColor = UIColor.FindaColors.Purple
+        self.messageLabel.textColor = UIColor.FindaColors.White
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,24 +60,27 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationManager.getNotifications(notificationType: .all) { (response, result) in
             self.tableView.refreshControl?.endRefreshing()
             self.allNotifications.removeAll()
-            self.readNotifications.removeAll()
-            self.newNotifications.removeAll()
+//            self.readNotifications.removeAll()
+//            self.newNotifications.removeAll()
 
             if(response) {
-                let notifications = result["userdata"].dictionaryValue
+                let notifications = result["userdata"].arrayValue
+                print("notification test")
+                print(notifications)
 
                 for notification in notifications {
-                    let notificationObject: Notification = Notification(data: notification.value)
-                    if notificationObject.status == Notification.Status.New.rawValue {
-                        self.newNotifications.append(notificationObject)
-                    } else {
-                        self.readNotifications.append(notificationObject)
-                    }
+                    
+                    let notificationObject: Notification = Notification(data: notification)
+//                    if notificationObject.status == Notification.Status.New.rawValue {
+//                        self.newNotifications.append(notificationObject)
+//                    } else {
+//                        self.readNotifications.append(notificationObject)
+//                    }
                     self.allNotifications.append(notificationObject)
                 }
                 if self.allNotifications.count > 0 {
                     self.tableView.isHidden = false
-                    self.messageLabel.text = "Hey beautiful, some updates for you!"
+                    self.messageLabel.text = "Notifications"
                 } else {
                     self.tableView.isHidden = true
                     self.messageLabel.text = "Currently you have no notifications"
@@ -95,35 +99,36 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if self.newNotifications.isEmpty && self.readNotifications.isEmpty { return 0}
-        if self.newNotifications.isEmpty { return 1 }
-        return 2
+//        if self.newNotifications.isEmpty && self.readNotifications.isEmpty { return 0}
+//        if self.newNotifications.isEmpty { return 1 }
+        return self.allNotifications.count > 0 ? 1 : 0
     }
     
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Gotham-Medium", size: 16)!
-//        header.backgroundView?.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
-    }
-    
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+//        let header = view as! UITableViewHeaderFooterView
+//        header.textLabel?.font = UIFont(name: "Gotham-Medium", size: 16)!
+////        header.backgroundView?.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
+//    }
+//
 
 
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if !self.newNotifications.isEmpty && section == 0 {
-            return "New notifications"
-        }
-        return "Read notifications"
-        
-    }
+//
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if !self.newNotifications.isEmpty && section == 0 {
+//            return "New notifications"
+//        }
+//        return "Read notifications"
+//
+//    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if !self.newNotifications.isEmpty && section == 0 {
-            return self.newNotifications.count
-        }
-        return self.readNotifications.count
+//        if !self.newNotifications.isEmpty && section == 0 {
+//            return self.newNotifications.count
+//        }
+//        return self.readNotifications.count
+        return self.allNotifications.count
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -133,9 +138,24 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
         
-        cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
+        cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname) - \(allNotifications[indexPath.row].id)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
         cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Gotham-Light")
+        
+      
+        let linkAttributes: [String : Any] = [
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColors.Purple,
+//            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColors.Yellow,
+//            NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleNone.rawValue
+        ]
+        
+        cell.messageLabel.linkTextAttributes = linkAttributes
+        
+        
+        if allNotifications[indexPath.row].status == Notification.Status.New.rawValue {
+            cell.backgroundColor = UIColor.FindaColors.Purple.fade()
+        }
+        
         return cell
     }
 
@@ -158,8 +178,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tabBarController?.selectedIndex = 0
-//        self.performSegue(withIdentifier: "jobSegue", sender: nil)
+//        self.tabBarController?.selectedIndex = 0
     }
 
     /*
