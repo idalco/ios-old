@@ -255,10 +255,6 @@ class MeasurementsVC: FormViewController {
                 }
                 
                 
-                if let eyeColour: String = self.eyeColourDictionary[model.eyeColour()] {
-                    self.updateCell(tag: "eye colour", data: eyeColour)
-                }
-                
 
                 if let willingColour: String = BooleanDictionary[model.willingColour()] {
                     self.updateCell(tag: "willing to colour?", data: willingColour)
@@ -271,6 +267,13 @@ class MeasurementsVC: FormViewController {
             
         }
     }
+    
+//    private func updateBooleanPickerRow(tag: String, data: String){
+//        guard let row: PickerInputRow<String> = form.rowBy(tag: tag) else { return }
+//        row.options = Array(BooleanDictionary.values)
+//        row.value = data.capitalizingFirstLetter()
+//        row.updateCell()
+//    }
     
     private func updateCell(tag: String, data: Any){
         guard let row: BaseRow = form.rowBy(tag: tag) else { return }
@@ -364,8 +367,9 @@ class MeasurementsVC: FormViewController {
         }
         
         
-        let willingToColourId: Int = willingToColour.lowercased() == "yes" ? 1 : 0
-        let willingToCutId: Int = willingToCut.lowercased() == "yes" ? 1 : 0
+        let willingToColourId: String = willingToColour.lowercased()
+        let willingToCutId: String = willingToCut.lowercased()
+//            == "yes" ? 1 : 0
         
         
         

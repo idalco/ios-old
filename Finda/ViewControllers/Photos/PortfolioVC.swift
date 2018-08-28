@@ -154,18 +154,18 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     @objc func deleteImage(sender: UIButton) -> Void {
         
-//        FindaAPISession(target: .deleteImage(id: self.photosArray[sender.tag].id)) { (response, result) in
-//            self.updateImages()
-//        }
+        FindaAPISession(target: .deleteImage(id: self.photosArray[sender.tag].id)) { (response, result) in
+            self.updateImages()
+        }
         photosArray.remove(at: sender.tag)
         collectionView.reloadData()
     }
     
     @objc func selectLeadImage(sender: UIButton) -> Void {
-//
-//        FindaAPISession(target: .selectLeadImage(id: self.photosArray[sender.tag].id)) { (response, result) in
-//            self.updateImages()
-//        }
+
+        FindaAPISession(target: .selectLeadImage(id: self.photosArray[sender.tag].id)) { (response, result) in
+            self.updateImages()
+        }
         
         for photo in self.photosArray{
             photo.leadimage = false

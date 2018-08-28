@@ -26,7 +26,7 @@ enum FindaAPI {
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
-    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Int, dressSize: Int, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: Int, willingToCut: Int)
+    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Int, dressSize: Int, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String)
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case uploadPortfolioImage(image: UIImage)
     case uploadPolaroidImage(image: UIImage)
@@ -86,7 +86,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .deleteImage:
             return "/removeImage"
         case .selectLeadImage:
-            return "/selectMainImage"
+            return "/selectLeadImage"
             
             
             
@@ -208,7 +208,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["hairlength"] = hairLength
             parameters["hairtype"] = hairType
             parameters["eyecolour"] = eyeColour
-            parameters["willingtocolour"] = willingToColour
+            parameters["willingtodye"] = willingToColour
             parameters["willingtocut"] = willingToCut
             
             p["parameters"] = parameters
@@ -242,10 +242,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
              p["imagetype"] = type.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .deleteImage(let id):
-            p["imageId"] = id
+            p["imageid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .selectLeadImage(let id):
-            p["imageId"] = id
+            p["imageid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
