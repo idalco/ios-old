@@ -11,10 +11,10 @@ import SwiftyJSON
 
 class Photo {
     
-    let filename: String
-    let id: Int
-    let imagetype: ImageType
-    let leadimage: Bool
+    var filename: String
+    var id: Int
+    var imagetype: ImageType
+    var leadimage: Bool
     
     init(data: JSON){
         self.filename = data["filename"].stringValue

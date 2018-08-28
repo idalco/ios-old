@@ -28,10 +28,11 @@ enum FindaAPI {
     case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
     case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Int, dressSize: Int, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: Int, willingToCut: Int)
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
-    
     case uploadPortfolioImage(image: UIImage)
     case uploadPolaroidImage(image: UIImage)
     case getImages(type: ImageType)
+    case deleteImage(id: Int)
+    case selectLeadImage(id: Int)
 
     
     
@@ -82,6 +83,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/uploadPolaroid"
         case .getImages:
             return "/getImages"
+        case .deleteImage:
+            return "/removeImage"
+        case .selectLeadImage:
+            return "/selectMainImage"
             
             
             
@@ -104,7 +109,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .getImages, .register, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .getImages, .deleteImage, .selectLeadImage, .register, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -236,6 +241,15 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case.getImages(let type):
              p["imagetype"] = type.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .deleteImage(let id):
+            p["imageId"] = id
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .selectLeadImage(let id):
+            p["imageId"] = id
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+            
+            
             
             
         case .register(let email, let password, let name, let locale):

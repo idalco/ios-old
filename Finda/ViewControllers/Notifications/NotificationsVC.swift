@@ -26,7 +26,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.messageLabel.textColor = UIColor.FindaColors.White
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.loadNotifications()
     }
     
@@ -138,7 +138,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
         
-        cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname) - \(allNotifications[indexPath.row].id)"
+        cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
         cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Gotham-Light")
         
@@ -150,6 +150,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         ]
         
         cell.messageLabel.linkTextAttributes = linkAttributes
+    
         
         
         if allNotifications[indexPath.row].status == Notification.Status.New.rawValue {

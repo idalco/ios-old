@@ -14,7 +14,7 @@ class PreferencesVC: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.updateRows()
         
         let modelManager = ModelManager()
         
@@ -92,7 +92,11 @@ class PreferencesVC: FormViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.updateRows()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.save()
     }
     
     private func updateRows(){
@@ -118,7 +122,7 @@ class PreferencesVC: FormViewController {
         row.updateCell()
     }
     
-    @IBAction func save(_ sender: Any) {
+    func save() {
 
         guard let friend_registers: Bool = form.values()["friendRegisters"] as? Bool else { return }
         guard let friend_registersString: String = friend_registers ? "on" : "" else { return }

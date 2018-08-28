@@ -19,7 +19,7 @@ class MeasurementsVC: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.updateRows()
 //        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
 //        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
         
@@ -30,6 +30,10 @@ class MeasurementsVC: FormViewController {
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
         }
         
+        PickerInputRow<String>.defaultCellUpdate = { cell, row in
+            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+        }
         
         
         var section = Section(){ section in
@@ -162,6 +166,7 @@ class MeasurementsVC: FormViewController {
             if response {
                 self.hairColourDictionary = dictionary
                 section.insert(result, at: section.count)
+                section.reload()
             }
         }
         
@@ -169,6 +174,8 @@ class MeasurementsVC: FormViewController {
             if response {
                 self.hairTypeDictionary = dictionary
                 section.insert(result, at: section.count)
+                section.reload()
+
             }
         }
         
@@ -176,6 +183,8 @@ class MeasurementsVC: FormViewController {
             if response {
                 self.hairLengthDictionary = dictionary
                 section.insert(result, at: section.count)
+                section.reload()
+
             }
         }
         
@@ -183,18 +192,24 @@ class MeasurementsVC: FormViewController {
             if response {
                 self.eyeColourDictionary = dictionary
                 section.insert(result, at: section.count)
+                section.reload()
+
             }
         }
         
         PickerDelegate.addPickerData(rowTitle: "Willing to colour?", coreData: modelManager.willingColour()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
+                section.reload()
+
             }
         }
         
         PickerDelegate.addPickerData(rowTitle: "Willing to cut?", coreData: modelManager.willingCut()) { (response, result) in
             if response {
                 section.insert(result, at: section.count)
+                section.reload()
+
             }
         }
         
@@ -203,7 +218,11 @@ class MeasurementsVC: FormViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.updateRows()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.save()
     }
     
     
@@ -265,7 +284,7 @@ class MeasurementsVC: FormViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func save(_ sender: Any) {
+    func save() {
         
         guard let heightRow: BaseRow = form.rowBy(tag: "height"), let height: Int = form.values()["height"] as? Int else {
             self.validateRow(tag: "height")

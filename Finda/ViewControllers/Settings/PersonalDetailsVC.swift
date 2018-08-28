@@ -17,7 +17,7 @@ class PersonalDetailsVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.updateRows()
         let modelManager = ModelManager()
         
 //        if modelManager.status() == UserStatus.unverified
@@ -48,6 +48,11 @@ class PersonalDetailsVC: FormViewController {
         }
         
         PickerInlineRow<String>.defaultCellUpdate = { cell, row in
+            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+        }
+        
+        PickerInputRow<String>.defaultCellUpdate = { cell, row in
             cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
         }
@@ -143,10 +148,10 @@ class PersonalDetailsVC: FormViewController {
             }
             
             
-            <<< PickerInlineRow<String>() { row in
+            <<< PickerInputRow<String>() { row in
                 row.title = "Gender"
                 
-                row.options = ["Female", "Male"]
+                row.options = GenderArray
                 row.value = modelManager.gender().capitalizingFirstLetter()
                 row.tag = "gender"
                 row.add(rule: RuleRequired())
@@ -160,7 +165,7 @@ class PersonalDetailsVC: FormViewController {
             }
             
             
-            <<< PickerInlineRow<String>() { row in
+            <<< PickerInputRow<String>() { row in
                 row.title = "Nationality"
                 row.tag = "nationality"
                 
@@ -172,7 +177,7 @@ class PersonalDetailsVC: FormViewController {
                 }
             }
             
-            <<< PickerInlineRow<String>() { row in
+            <<< PickerInputRow<String>() { row in
                 row.title = "Country of residence"
                 row.tag = "residence"
                 
@@ -240,6 +245,8 @@ class PersonalDetailsVC: FormViewController {
             if response {
                 self.ethnicityDictionary = dictionary
                 mainSection.insert(result, at: 5)
+                mainSection.reload()
+
             }
         }
         
@@ -248,12 +255,12 @@ class PersonalDetailsVC: FormViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.updateRows()
+       
     }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        
-//    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.save()
+    }
     
     private func updateRows(){
         LoginManager.getDetails { (response, result) in
@@ -267,8 +274,7 @@ class PersonalDetailsVC: FormViewController {
                     self.updateCell(tag: "dob", data: Date(timeIntervalSince1970: TimeInterval(date)))
                 }
                 self.updateCell(tag: "email", data: model.email())
-//                self.updateCell(tag: "gender", data: model.gender())
-//                self.updateBooleanPickerRow(tag: "gender", data: model.gender())
+                self.updateGenderPickerRow(tag: "gender", data: model.gender())
               
                 
                 self.updateCell(tag: "nationality", data: model.nationality())
@@ -276,11 +282,11 @@ class PersonalDetailsVC: FormViewController {
                 self.updateCell(tag: "instagramUsername", data: model.instagramUserName())
                 self.updateCell(tag: "referralCode", data: model.referrerCode())
                 self.updateCell(tag: "vat", data: model.vatNumber())
-//
-//                guard let row: PickerInlineRow<String> = self.form.rowBy(tag: "ethnicity") else { return }
-//                if self.ethnicityDictionary.count > 0 {
-//                    self.updatePickerRow(row: row, coreData: model.ethnicity(), dictionary: self.ethnicityDictionary)
-//                }
+
+                guard let row: PickerInputRow<String> = self.form.rowBy(tag: "ethnicity") else { return }
+                if self.ethnicityDictionary.count > 0 {
+                    self.updatePickerRow(row: row, coreData: model.ethnicity(), dictionary: self.ethnicityDictionary)
+                }
                 
                 
             }
@@ -293,21 +299,28 @@ class PersonalDetailsVC: FormViewController {
         row.updateCell()
     }
     
-    private func updatePickerRow(row: PickerInlineRow<String>, coreData: Int, dictionary: [Int:String]){
+    private func updatePickerRow(row: PickerInputRow<String>, coreData: Int, dictionary: [Int:String]){
         row.options = Array(dictionary.values)
         row.value = dictionary[coreData] ?? ""
         row.updateCell()
     }
     
     private func updateBooleanPickerRow(tag: String, data: String){
-        guard let row: PickerInlineRow<String> = form.rowBy(tag: tag) else { return }
+        guard let row: PickerInputRow<String> = form.rowBy(tag: tag) else { return }
         row.options = Array(BooleanDictionary.values)
         row.value = data.capitalizingFirstLetter()
         row.updateCell()
     }
     
+    private func updateGenderPickerRow(tag: String, data: String){
+        guard let row: PickerInputRow<String> = form.rowBy(tag: tag) else { return }
+        row.options = GenderArray
+        row.value = data.capitalizingFirstLetter()
+        row.updateCell()
+    }
     
-    @IBAction func save(_ sender: Any) {
+    
+    func save() {
         
         guard let firstNameRow: BaseRow = form.rowBy(tag: "firstName"), let firstName: String = form.values()["firstName"] as? String else {
             self.validateRow(tag: "firstName")
