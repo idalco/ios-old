@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Font_Awesome_Swift
 
 class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -15,17 +16,14 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var menu: [String] = []
+    var icon: [FAType] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         self.view.backgroundColor = UIColor.FindaColors.White
-        let modelManager = ModelManager()
-        self.profileImage.setRounded()
-        if let imageUrl = URL(string: modelManager.avatar()){
-            self.profileImage.af_setImage(withURL: imageUrl)
-        }
+        
         
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetails") }, with: "PersonalDetails")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") }, with: "MainTabBar")
@@ -37,16 +35,47 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewWillAppear(_ animated: Bool) {
         let modelManager = ModelManager()
+        
+        
+        self.profileImage.setRounded()
+        
+        self.updateProfileImage()
+        LoginManager.getDetails { (response, result) in
+            if response {
+                self.updateProfileImage()
+            }
+        }
+        
+        
+    
         if modelManager.status() == UserStatus.unverified {
             self.menu = ["My Details", "Invite a Friend", "Sign Out"]
+            self.icon = [.FAUser, .FAUsers, .FAPowerOff]
         } else {
             self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Notifications", "Payments", "Invite a Friend", "Sign Out"]
+            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank ,.FAUsers, .FAPowerOff]
         }
         self.tableView.reloadData()
-        
         dismissKeyboard()
     }
     
+    
+    private func updateProfileImage(){
+        let modelManager = ModelManager()
+        if modelManager.avatar() != "/default_profile.png" {
+            if let imageUrl = URL(string: modelManager.avatar()){
+                self.profileImage.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+        } else if modelManager.filename() != "" {
+            if let imageUrl = URL(string: modelManager.filename()){
+                self.profileImage.af_setImage(withPortfolioURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+        } else {
+            if let imageUrl = URL(string: modelManager.avatar()){
+                self.profileImage.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,7 +99,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuCell
-        cell.label.text = self.menu[indexPath.row]
+        
+        cell.label.setFAText(prefixText: "", icon: self.icon[indexPath.row], postfixText: "   \(self.menu[indexPath.row])", size: 16.0, iconSize: 16.0)
+
         return cell
     }
     

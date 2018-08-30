@@ -46,6 +46,8 @@ target 'Finda' do
   # Image picker
   pod 'YPImagePicker'
 
+  pod 'Font-Awesome-Swift', '~> 1.7.2'
+
 
 
   target 'FindaTests' do

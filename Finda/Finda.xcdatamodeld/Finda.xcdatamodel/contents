@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Preferences" representedClassName="Preferences" syncable="YES">
         <attribute name="friendRegisters" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="jobCancelled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -34,6 +34,7 @@
         <attribute name="dob" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ethnicity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="instagramFollowers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -51,6 +52,6 @@
     <elements>
         <element name="Preferences" positionX="-54" positionY="135" width="128" height="135"/>
         <element name="Profile" positionX="-45" positionY="153" width="128" height="225"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="405"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="420"/>
     </elements>
 </model>

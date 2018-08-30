@@ -20,6 +20,7 @@ extension User {
     @NSManaged public var lastName: String?
     @NSManaged public var email: String?
     @NSManaged public var avatar: String?
+    @NSManaged public var filename: String?
     @NSManaged public var userType: Int32
     @NSManaged public var instagramUsername: String?
     @NSManaged public var instagramFollowers: Int32

@@ -25,6 +25,7 @@ class ModelManager {
         case lastName = "lastName"
         case email = "email"
         case avatar = "avatar"
+        case filename = "filename"
         case userType = "userType"
         case gender = "gender"
         case instagramUsername = "instagramUsername"
@@ -98,6 +99,10 @@ class ModelManager {
     
     func avatar() -> String {
         return CoreDataManager.getString(dataName: User.avatar.rawValue, entity: Entity.User.rawValue)
+    }
+    
+    func filename() -> String {
+        return CoreDataManager.getString(dataName: User.filename.rawValue, entity: Entity.User.rawValue)
     }
     
     func userType() -> UserType? {
@@ -269,7 +274,8 @@ class ModelManager {
         user.setValue(userData["firstname"].string, forKeyPath: User.firstName.rawValue)
         user.setValue(userData["lastname"].string, forKeyPath: User.lastName.rawValue)
         user.setValue(userData["mail"].string, forKeyPath: "email")
-        user.setValue("https://www.finda.co/avatar/thumb\(userData["avatar"].string ?? "")", forKeyPath: User.avatar.rawValue)
+        user.setValue(userData["avatar"].string, forKeyPath: User.avatar.rawValue)
+        user.setValue(userData["filename"].string, forKeyPath: User.filename.rawValue)
         user.setValue(userData["usertype"].intValue, forKeyPath: User.userType.rawValue)
         user.setValue(userData["instagram_username"].string, forKeyPath: User.instagramUsername.rawValue)
         user.setValue(userData["instagram_followers"].intValue, forKeyPath: User.instagramFollowers.rawValue)

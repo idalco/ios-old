@@ -46,6 +46,7 @@
 		0C78FA5B212362FE0059C0E7 /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5A212362FD0059C0E7 /* ImageType.swift */; };
 		0C78FA5D212365E70059C0E7 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5C212365E70059C0E7 /* PhotoManager.swift */; };
 		0C78FA5F212366950059C0E7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5E212366950059C0E7 /* Photo.swift */; };
+		0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB639521380216007CB107 /* FontAwesome.otf */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -164,6 +165,7 @@
 		0C78FA5A212362FD0059C0E7 /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
 		0C78FA5C212365E70059C0E7 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		0C78FA5E212366950059C0E7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		0CCB639521380216007CB107 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 		0CCF23072109BD1100612D5B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0CCB639521380216007CB107 /* FontAwesome.otf */,
 				0CCF23082109BD1100612D5B /* Gotham-XLight.otf */,
 				0CCF23092109BD1100612D5B /* Gotham-Thin.otf */,
 				0CCF230A2109BD1100612D5B /* Gotham-Black.otf */,
@@ -652,6 +655,7 @@
 				0CCF231C2109BD1200612D5B /* Gotham-Medium.otf in Resources */,
 				0CCF23192109BD1200612D5B /* Gotham-Thin.otf in Resources */,
 				0CCF231D2109BD1200612D5B /* Gotham-Book.otf in Resources */,
+				0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */,
 				0CCF23262109BD1200612D5B /* Gotham-BlackItalic.otf in Resources */,
 				0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */,
 				0CCF23202109BD1200612D5B /* Gotham-Ultra.otf in Resources */,
@@ -738,6 +742,7 @@
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DCKit/DCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
@@ -758,6 +763,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",

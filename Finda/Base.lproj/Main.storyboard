@@ -368,7 +368,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdx-5z-FWI">
-                                <rect key="frame" x="16" y="86" width="119.5" height="18"/>
+                                <rect key="frame" x="16" y="86" width="106" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -383,13 +383,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02T-jT-p8t">
-                                <rect key="frame" x="16" y="196" width="111.5" height="18"/>
+                                <rect key="frame" x="16" y="196" width="100" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGT-Hf-t4f">
-                                <rect key="frame" x="16" y="408" width="128" height="18"/>
+                                <rect key="frame" x="16" y="408" width="114" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -419,7 +419,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-ba-2ba">
-                                <rect key="frame" x="16" y="302" width="76.5" height="18"/>
+                                <rect key="frame" x="16" y="302" width="69" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -542,8 +542,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81Q-JW-ZZK">
-                                                            <rect key="frame" x="0.0" y="12.5" width="240" height="19.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81Q-JW-ZZK">
+                                                            <rect key="frame" x="16" y="12.5" width="208" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -551,8 +551,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="81Q-JW-ZZK" secondAttribute="trailing" id="fEZ-eq-2PA"/>
-                                                        <constraint firstItem="81Q-JW-ZZK" firstAttribute="leading" secondItem="Vin-NN-TNW" secondAttribute="leading" id="qpC-aN-bln"/>
+                                                        <constraint firstAttribute="trailing" secondItem="81Q-JW-ZZK" secondAttribute="trailing" constant="16" id="fEZ-eq-2PA"/>
+                                                        <constraint firstItem="81Q-JW-ZZK" firstAttribute="leading" secondItem="Vin-NN-TNW" secondAttribute="leading" constant="16" id="qpC-aN-bln"/>
                                                         <constraint firstItem="81Q-JW-ZZK" firstAttribute="centerY" secondItem="Vin-NN-TNW" secondAttribute="centerY" id="vo8-Ud-2pI"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -1433,7 +1433,7 @@ MODELLING TALENT</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite your talented friend to Finda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXh-nP-ZoJ">
-                                <rect key="frame" x="16" y="91" width="264" height="18"/>
+                                <rect key="frame" x="16" y="91" width="229" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="J3E-LC-koA"/>
                                 </constraints>
@@ -1442,7 +1442,7 @@ MODELLING TALENT</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is your code: mod3rt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIH-6L-FRu">
-                                <rect key="frame" x="16" y="225" width="198.5" height="18"/>
+                                <rect key="frame" x="16" y="205" width="175" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="BW7-7o-Ulu"/>
                                 </constraints>
@@ -1451,7 +1451,7 @@ MODELLING TALENT</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your friends name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaw-Hv-rcR">
-                                <rect key="frame" x="16" y="268" width="343" height="18"/>
+                                <rect key="frame" x="16" y="248" width="343" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="MqK-Fn-sMQ"/>
                                 </constraints>
@@ -1459,7 +1459,7 @@ MODELLING TALENT</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your friends email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVv-8u-iSe">
-                                <rect key="frame" x="16" y="374" width="343" height="18"/>
+                                <rect key="frame" x="16" y="354" width="343" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="luo-m2-fqa"/>
                                 </constraints>
@@ -1467,14 +1467,14 @@ MODELLING TALENT</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1y-uy-4i5">
-                                <rect key="frame" x="16" y="117" width="343" height="90"/>
+                                <rect key="frame" x="16" y="117" width="343" height="70"/>
                                 <string key="text">Send a unique referral code to your beautiful friend via this form or just pass it via Whatsapp, Messenger or wherever you like! Because we trust you, we will verify your friend quicker.</string>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ym-VK-sdf">
-                                <rect key="frame" x="16" y="294" width="343" height="50"/>
+                                <rect key="frame" x="16" y="274" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ylb-uV-5Mo"/>
@@ -1486,7 +1486,7 @@ MODELLING TALENT</string>
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uni-Fw-rQ9">
-                                <rect key="frame" x="16" y="400" width="343" height="50"/>
+                                <rect key="frame" x="16" y="380" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XaA-Fd-Eqd"/>

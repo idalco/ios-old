@@ -6,6 +6,7 @@ PODS:
   - CryptoSwift (0.11.0)
   - DCKit (1.0.11)
   - Eureka (4.2.0)
+  - Font-Awesome-Swift (1.7.2)
   - IQKeyboardManagerSwift (6.1.1)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - CryptoSwift
   - DCKit
   - Eureka
+  - Font-Awesome-Swift (~> 1.7.2)
   - IQKeyboardManagerSwift
   - Moya
   - SideMenuSwift
@@ -47,6 +49,7 @@ SPEC REPOS:
     - CryptoSwift
     - DCKit
     - Eureka
+    - Font-Awesome-Swift
     - IQKeyboardManagerSwift
     - Moya
     - Pageboy
@@ -66,6 +69,7 @@ SPEC CHECKSUMS:
   CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
   DCKit: 568413a2f55e681af4d2c35a9c0d489a31d9512a
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  Font-Awesome-Swift: 83ab9db365379ee6025167cec67bdc5d3226a811
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Pageboy: 46d743783414a18f8b27a988485e0ed2ea219ff7
@@ -78,6 +82,6 @@ SPEC CHECKSUMS:
   Tabman: a09f7d7aa62b231ec475ca9eb9171f7cc973a3d7
   YPImagePicker: 049aa31e2858c63730ace6b6358bba946178dfe3
 
-PODFILE CHECKSUM: 3612a0b648232e92dbd9645f02886760ec6ef2ac
+PODFILE CHECKSUM: c79f62f079edcd4c189ddb49ee9738ab7c4c5eb7
 
 COCOAPODS: 1.5.3

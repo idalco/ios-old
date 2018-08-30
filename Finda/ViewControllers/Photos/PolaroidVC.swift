@@ -130,7 +130,6 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.deleteButton.tag = indexPath.row
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPolaroidsURL: url, imageTransition: .crossDissolve(0.25))
-            
         }
         cell.deleteButton.addTarget(self, action: #selector(deleteImage(sender:)), for: UIControlEvents.touchUpInside)
       
