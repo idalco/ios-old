@@ -217,11 +217,11 @@ class ModelManager {
     func hairLength() -> Int {
         return CoreDataManager.getInt(dataName: Profile.hairLength.rawValue, entity: Entity.Profile.rawValue)
     }
-    func willingColour() -> Int {
-        return CoreDataManager.getInt(dataName: Profile.willingColour.rawValue, entity: Entity.Profile.rawValue)
+    func willingColour() -> Bool {
+        return CoreDataManager.getBool(dataName: Profile.willingColour.rawValue, entity: Entity.Profile.rawValue)
     }
-    func willingCut() -> Int {
-        return CoreDataManager.getInt(dataName: Profile.willingCut.rawValue, entity: Entity.Profile.rawValue)
+    func willingCut() -> Bool {
+        return CoreDataManager.getBool(dataName: Profile.willingCut.rawValue, entity: Entity.Profile.rawValue)
     }
     func eyeColour() -> Int {
         return CoreDataManager.getInt(dataName: Profile.eyeColour.rawValue, entity: Entity.Profile.rawValue)
@@ -325,8 +325,8 @@ class ModelManager {
         profile.setValue(profileData["haircolour_tid"].intValue, forKeyPath: Profile.hairColour.rawValue)
         profile.setValue(profileData["hairtype_tid"].intValue, forKeyPath: Profile.hairType.rawValue)
         profile.setValue(profileData["hairlength_tid"].intValue, forKeyPath: Profile.hairLength.rawValue)
-        profile.setValue(profileData["willingcolour_tid"].intValue, forKeyPath: Profile.willingColour.rawValue)
-        profile.setValue(profileData["willingcut_tid"].intValue, forKeyPath: Profile.willingCut.rawValue)
+        profile.setValue(profileData["willingtodye"].boolValue, forKeyPath: Profile.willingColour.rawValue)
+        profile.setValue(profileData["willingtocut"].boolValue, forKeyPath: Profile.willingCut.rawValue)
         profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: Profile.eyeColour.rawValue)
         
         

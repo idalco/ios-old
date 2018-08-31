@@ -35,6 +35,11 @@ class MeasurementsVC: FormViewController {
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
         }
         
+        SwitchRow.defaultCellUpdate = { cell, row in
+            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+        }
+        
         
         var section = Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
@@ -157,6 +162,20 @@ class MeasurementsVC: FormViewController {
                         cell.textLabel?.textColor = .red
                         
                     }
+                    
+                    
+            }
+            
+            <<< SwitchRow(){ row in
+                row.title = "Willing to colour?"
+                row.value = modelManager.willingColour()
+                row.tag = "Willing to colour?".lowercased()
+            }
+        
+            <<< SwitchRow(){ row in
+                row.title = "Willing to cut?"
+                row.value = modelManager.willingCut()
+                row.tag = "Willing to cut?".lowercased()
         }
         
         form +++ section
@@ -197,21 +216,21 @@ class MeasurementsVC: FormViewController {
             }
         }
         
-        PickerDelegate.addPickerData(rowTitle: "Willing to colour?", coreData: modelManager.willingColour()) { (response, result) in
-            if response {
-                section.insert(result, at: section.count)
-                section.reload()
-
-            }
-        }
-        
-        PickerDelegate.addPickerData(rowTitle: "Willing to cut?", coreData: modelManager.willingCut()) { (response, result) in
-            if response {
-                section.insert(result, at: section.count)
-                section.reload()
-
-            }
-        }
+//        PickerDelegate.addPickerData(rowTitle: "Willing to colour?", coreData: modelManager.willingColour()) { (response, result) in
+//            if response {
+//                section.insert(result, at: section.count)
+//                section.reload()
+//
+//            }
+//        }
+//
+//        PickerDelegate.addPickerData(rowTitle: "Willing to cut?", coreData: modelManager.willingCut()) { (response, result) in
+//            if response {
+//                section.insert(result, at: section.count)
+//                section.reload()
+//
+//            }
+//        }
         
         
         // Do any additional setup after loading the view.
@@ -237,6 +256,8 @@ class MeasurementsVC: FormViewController {
                 self.updateCell(tag: "hips", data: model.hips())
                 self.updateCell(tag: "shoe size", data: model.shoeSize())
                 self.updateCell(tag: "dress size", data: model.dressSize())
+                self.updateCell(tag: "willing to colour?", data: model.willingColour())
+                self.updateCell(tag: "willing to cut?", data: model.willingCut())
                 
                 if let hairColour: String = self.hairColourDictionary[model.hairColour()] {
                     self.updateCell(tag: "hair colour", data: hairColour)
@@ -254,15 +275,6 @@ class MeasurementsVC: FormViewController {
                     self.updateCell(tag: "eye colour", data: eyeColour)
                 }
                 
-                
-
-                if let willingColour: String = BooleanDictionary[model.willingColour()] {
-                    self.updateCell(tag: "willing to colour?", data: willingColour)
-                }
-                
-                if let willingCut: String = BooleanDictionary[model.willingCut()] {
-                    self.updateCell(tag: "willing to cut?", data: willingCut)
-                }
             }
             
         }
@@ -339,15 +351,13 @@ class MeasurementsVC: FormViewController {
             return
         }
         
-        guard let willingToColourRow: BaseRow = form.rowBy(tag: "willing to colour?"), let willingToColour: String = form.values()["willing to colour?"] as? String else {
-            self.validateRow(tag: "willing to colour?")
-            return
-        }
         
-        guard let willingToCutRow: BaseRow = form.rowBy(tag: "willing to cut?"), let willingToCut: String = form.values()["willing to cut?"] as? String else {
-            self.validateRow(tag: "willing to cut?")
-            return
-        }
+        guard let willingToColour: Bool = form.values()["willing to colour?"] as? Bool else { return }
+        guard let willingToColourString: String = willingToColour ? "yes" : "no" else { return }
+        
+        guard let willingToCut: Bool = form.values()["willing to cut?"] as? Bool else { return }
+        guard let willingToCutString: String = willingToCut ? "yes" : "no" else { return }
+        
         
         
         guard let hairTypeId = hairTypeDictionary.allKeysForValue(val: hairType).first else {
@@ -366,15 +376,15 @@ class MeasurementsVC: FormViewController {
             return
         }
         
-        
-        let willingToColourId: String = willingToColour.lowercased()
-        let willingToCutId: String = willingToCut.lowercased()
+//
+//        let willingToColourId: String = willingToColour.lowercased()
+//        let willingToCutId: String = willingToCut.lowercased()
 //            == "yes" ? 1 : 0
         
         
         
-        if(heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid && willingToColourRow.isValid && willingToCutRow.isValid){
-            FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSize, dressSize: dressSize, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourId, willingToCut: willingToCutId)) { (response, result) in
+        if(heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid){
+            FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSize, dressSize: dressSize, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourString, willingToCut: willingToCutString)) { (response, result) in
                 if response {
                     self.updateRows()
                 }

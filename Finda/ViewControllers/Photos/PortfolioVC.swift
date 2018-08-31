@@ -44,9 +44,9 @@ class PortfolioVC: UIViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: (self.view.frame.width/3 - 0.7), height: (self.view.frame.width/3 - 0.7))
-        layout.minimumInteritemSpacing = 0.6
-        layout.minimumLineSpacing = 1
+        layout.itemSize = CGSize(width: ((self.collectionView.frame.width)/2 - 4.1), height: ((self.collectionView.frame.width)/2 - 4.1))
+        layout.minimumInteritemSpacing = 4
+        layout.minimumLineSpacing = 6
         
         // (note, it's critical to actually set the layout to that!!)
         collectionView.collectionViewLayout = layout
@@ -83,9 +83,7 @@ class PortfolioVC: UIViewController {
 //                print(photo.fromCamera) // Image source (camera or library)
                 print(photo.image) // Final image selected by the user
                 FindaAPISession(target: .uploadPortfolioImage(image: photo.image), completion: { (response, result) in
-                    if response {
-                        print(result)
-                    }
+                    self.updateImages()
                 })
                 
 //                print(photo.originalImage) // original image selected by the user, unfiltered
@@ -107,6 +105,13 @@ class PortfolioVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showImageSegue") {
+            let vc = segue.destination as? ImageVC
+            vc?.photo = sender as? Photo
+        }
+    }
 
 }
 
@@ -121,33 +126,44 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         return self.photosArray.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        self.performSegue(withIdentifier: "showImageSegue", sender: self.photosArray[indexPath.row])
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PortfolioCVC
-        
+
+        cell.addDashedBorder(borderColour: UIColor.FindaColors.BrightBlue, cornerRadius: 10)
         let imageData = self.photosArray[indexPath.row].filename
-        cell.deleteButton.tag = indexPath.row
+        
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPortfolioURL: url, imageTransition: .crossDissolve(0.25))
-   
         }
-        cell.deleteButton.addTarget(self, action: #selector(deleteImage(sender:)), for: UIControlEvents.touchUpInside)
         
         if self.photosArray[indexPath.row].leadimage {
-            cell.layer.borderWidth = 3
-            cell.layer.borderColor = UIColor.FindaColors.BrightBlue.cgColor
+            cell.image.layer.borderWidth = 3
+            cell.image.layer.borderColor = UIColor.FindaColors.BrightBlue.cgColor
             cell.leadImageButton.isHidden = true
         } else {
             cell.leadImageButton.isHidden = false
-            cell.layer.borderWidth = 0
-            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.image.layer.borderWidth = 0
+            cell.image.layer.borderColor = UIColor.clear.cgColor
         }
-        cell.leadImageButton.tag = indexPath.row
-        cell.leadImageButton.addTarget(self, action: #selector(selectLeadImage(sender:)), for: UIControlEvents.touchUpInside)
+        
+        
+        
+        //
+        //        cell.deleteButton.tag = indexPath.row
+        //        cell.deleteButton.addTarget(self, action: #selector(deleteImage(sender:)), for: UIControlEvents.touchUpInside)
+        //        cell.leadImageButton.tag = indexPath.row
+        //        cell.leadImageButton.addTarget(self, action: #selector(selectLeadImage(sender:)), for: UIControlEvents.touchUpInside)
+        
+        cell.deleteButton.isHidden = true
+        cell.leadImageButton.isHidden = true
         
         cell.layoutIfNeeded()
-        
         return cell
     }
     
@@ -172,8 +188,6 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         self.photosArray[sender.tag].leadimage = true
         collectionView.reloadData()
-        
-        
     }
 
     

@@ -13,8 +13,9 @@ class PortfolioCVC: ImageCVC {
     @IBOutlet weak var leadImageButton: UIButton!
     
     override func awakeFromNib() {
-        leadImageButton.backgroundColor = leadImageButton.backgroundColor?.fade(alpha: 0.75)
-        deleteButton.backgroundColor = deleteButton.backgroundColor?.fade(alpha: 0.75)
+//        leadImageButton.backgroundColor = leadImageButton.backgroundColor?.fade(alpha: 0.75)
+        leadImageButton.setFAIcon(icon: .FACheck, forState: .normal)
+//        deleteButton.backgroundColor = deleteButton.backgroundColor?.fade(alpha: 0.75)
         layoutIfNeeded()
     }
 }

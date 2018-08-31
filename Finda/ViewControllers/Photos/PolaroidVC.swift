@@ -83,7 +83,7 @@ class PolaroidVC: UIViewController {
                 print(photo.image) // Final image selected by the user
                 FindaAPISession(target: .uploadPolaroidImage(image: photo.image), completion: { (response, result) in
                     if response {
-                        print(result)
+                        self.updateImages()
                     }
                 })
                 

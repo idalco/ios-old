@@ -47,6 +47,8 @@
 		0C78FA5D212365E70059C0E7 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5C212365E70059C0E7 /* PhotoManager.swift */; };
 		0C78FA5F212366950059C0E7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78FA5E212366950059C0E7 /* Photo.swift */; };
 		0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB639521380216007CB107 /* FontAwesome.otf */; };
+		0CCB6399213997A5007CB107 /* PreferencesTabBarController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB6398213997A5007CB107 /* PreferencesTabBarController .swift */; };
+		0CCB639B2139AE14007CB107 /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB639A2139AE14007CB107 /* ImageVC.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -166,6 +168,8 @@
 		0C78FA5C212365E70059C0E7 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		0C78FA5E212366950059C0E7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		0CCB639521380216007CB107 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		0CCB6398213997A5007CB107 /* PreferencesTabBarController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesTabBarController .swift"; sourceTree = "<group>"; };
+		0CCB639A2139AE14007CB107 /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				0C78FA5821234F8A0059C0E7 /* PolaroidVC.swift */,
 				0C1C858821305E5100586326 /* ImageCVC.swift */,
 				0C1C85902132B4D700586326 /* PortfolioCVC.swift */,
+				0CCB639A2139AE14007CB107 /* ImageVC.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */,
 				0CEBCB5821071AD1004CC4D8 /* Info.plist */,
 				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
+				0CCB6398213997A5007CB107 /* PreferencesTabBarController .swift */,
 				0C1C857421256B6800586326 /* BooleanDictionary.swift */,
 				0C1C858E2131CAF200586326 /* GenderArray.swift */,
 				0C4ADA732110A450002C3EA3 /* UserStatus.swift */,
@@ -806,11 +812,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CCB639B2139AE14007CB107 /* ImageVC.swift in Sources */,
 				0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */,
 				0CCF2349210B297A00612D5B /* MeasurementsVC.swift in Sources */,
 				0C78FA5F212366950059C0E7 /* Photo.swift in Sources */,
 				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
+				0CCB6399213997A5007CB107 /* PreferencesTabBarController .swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,
 				0C4ADA7E21122BFA002C3EA3 /* DateExtensions.swift in Sources */,
 				0C4ADA742110A450002C3EA3 /* UserStatus.swift in Sources */,

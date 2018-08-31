@@ -25,8 +25,8 @@ extension Profile {
     @NSManaged public var hairColour: Int32
     @NSManaged public var hairType: Int32
     @NSManaged public var hairLength: Int32
-    @NSManaged public var willingColour: Int32
-    @NSManaged public var willingCut: Int32
+    @NSManaged public var willingColour: Bool
+    @NSManaged public var willingCut: Bool
     @NSManaged public var eyeColour: Int32
 
 }
