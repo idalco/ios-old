@@ -9,6 +9,7 @@
 import UIKit
 import DCKit
 import YPImagePicker
+import SVProgressHUD
 
 class PortfolioVC: UIViewController {
     
@@ -24,7 +25,7 @@ class PortfolioVC: UIViewController {
         self.setUpCollectionView()
         
         self.addNewButton.cornerRadius = 5
-        self.addNewButton.normalBackgroundColor = UIColor.FindaColors.Purple
+        self.addNewButton.normalBackgroundColor = UIColor.FindaColors.Blue
         
         // Do any additional setup after loading the view.
     }
@@ -82,8 +83,16 @@ class PortfolioVC: UIViewController {
             if let photo = items.singlePhoto {
 //                print(photo.fromCamera) // Image source (camera or library)
                 print(photo.image) // Final image selected by the user
+                SVProgressHUD.show()
                 FindaAPISession(target: .uploadPortfolioImage(image: photo.image), completion: { (response, result) in
+                    SVProgressHUD.dismiss()
+//                    if response{
+//                        SVProgressHUD.showSuccess(withStatus: "Uploaded")
+//                    } else {
+//                        SVProgressHUD.showError(withStatus: "Try again")
+//                    }
                     self.updateImages()
+                    
                 })
                 
 //                print(photo.originalImage) // original image selected by the user, unfiltered
@@ -96,20 +105,11 @@ class PortfolioVC: UIViewController {
         present(picker, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showImageSegue") {
             let vc = segue.destination as? ImageVC
             vc?.photo = sender as? Photo
+            vc?.photoType = ImageType.Portfolio
         }
     }
 

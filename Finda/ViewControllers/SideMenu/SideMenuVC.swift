@@ -29,6 +29,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") }, with: "MainTabBar")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PaymentNav") }, with: "PaymentNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InvoiceNav") }, with: "InvoiceNav")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "VerificationNav") }, with: "VerificationNav")
+        
         
         
     }
@@ -135,7 +138,15 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
             
         } else if indexPath.row == 5 {
-            sideMenuController?.setContentViewController(with: "PaymentNav")
+            let modelManager = ModelManager()
+            if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
+                sideMenuController?.setContentViewController(with: "PaymentNav")
+           } else if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 {
+                sideMenuController?.setContentViewController(with: "VerificationNav")
+            } else {
+                sideMenuController?.setContentViewController(with: "InvoiceNav")
+            }
+            
         }  else {
             
         }

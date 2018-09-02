@@ -9,6 +9,7 @@
 import UIKit
 import DCKit
 import YPImagePicker
+import SVProgressHUD
 
 class PolaroidVC: UIViewController {
 
@@ -24,7 +25,7 @@ class PolaroidVC: UIViewController {
         self.setUpCollectionView()
         
         self.addNewButton.cornerRadius = 5
-        self.addNewButton.normalBackgroundColor = UIColor.FindaColors.Purple
+        self.addNewButton.normalBackgroundColor = UIColor.FindaColors.Blue
 
         // Do any additional setup after loading the view.
     }
@@ -43,9 +44,9 @@ class PolaroidVC: UIViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: (self.view.frame.width/3 - 0.7), height: (self.view.frame.width/3 - 0.7))
-        layout.minimumInteritemSpacing = 0.6
-        layout.minimumLineSpacing = 1
+        layout.itemSize = CGSize(width: ((self.collectionView.frame.width)/2 - 4.1), height: ((self.collectionView.frame.width)/2 - 4.1))
+        layout.minimumInteritemSpacing = 4
+        layout.minimumLineSpacing = 6
         
         // (note, it's critical to actually set the layout to that!!)
         collectionView.collectionViewLayout = layout
@@ -81,10 +82,15 @@ class PolaroidVC: UIViewController {
             if let photo = items.singlePhoto {
                 //                print(photo.fromCamera) // Image source (camera or library)
                 print(photo.image) // Final image selected by the user
+                SVProgressHUD.show()
                 FindaAPISession(target: .uploadPolaroidImage(image: photo.image), completion: { (response, result) in
-                    if response {
-                        self.updateImages()
-                    }
+                    SVProgressHUD.dismiss()
+//                    if response {
+//                        SVProgressHUD.showSuccess(withStatus: "Uploaded")
+//                    } else {
+//                        SVProgressHUD.showError(withStatus: "Try again")
+//                    }
+                    self.updateImages()
                 })
                 
                 //                print(photo.originalImage) // original image selected by the user, unfiltered
@@ -98,15 +104,13 @@ class PolaroidVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "showImageSegue") {
+            let vc = segue.destination as? ImageVC
+            vc?.photo = sender as? Photo
+            vc?.photoType = ImageType.Polaroids
+        }
     }
-    */
 
 }
 
@@ -121,18 +125,27 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
         return self.photosArray.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: "showImageSegue", sender: self.photosArray[indexPath.row])
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCVC
         
         let imageData = self.photosArray[indexPath.row].filename
-        cell.deleteButton.tag = indexPath.row
+        cell.addDashedBorder(borderColour: UIColor.FindaColors.BrightBlue, cornerRadius: 10)
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPolaroidsURL: url, imageTransition: .crossDissolve(0.25))
         }
-        cell.deleteButton.addTarget(self, action: #selector(deleteImage(sender:)), for: UIControlEvents.touchUpInside)
+        
+//        cell.deleteButton.tag = indexPath.row
+//        cell.deleteButton.addTarget(self, action: #selector(deleteImage(sender:)), for: UIControlEvents.touchUpInside)
       
+        cell.deleteButton.isHidden = true
+        
         cell.layoutIfNeeded()
         
         return cell

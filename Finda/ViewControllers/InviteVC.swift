@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class InviteVC: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
@@ -42,8 +43,20 @@ class InviteVC: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        print("submit")
+        self.submitInvite()
     }
+    
+    func submitInvite(){
+        SVProgressHUD.show()
+        FindaAPISession(target: .inviteFriend(name: self.nameTextField.text ?? "", email: self.emailTextField.text ?? "")) { (response, result) in
+            if response {
+                SVProgressHUD.showSuccess(withStatus: "Done")
+            } else {
+                SVProgressHUD.showError(withStatus: "Try again")
+            }
+        }
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -55,4 +68,25 @@ class InviteVC: UIViewController {
     }
     */
 
+}
+
+extension InviteVC: UITextFieldDelegate {
+    // Return goes onto next text field
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag: NSInteger = textField.tag + 1;
+        // Try to find next responder
+        if let nextResponder: UIResponder? = textField.superview!.viewWithTag(nextTag){
+            if (nextResponder != nil) {
+                // Found next responder, so set it.
+                nextResponder?.becomeFirstResponder()
+            }
+        }
+        else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+            self.submitInvite()
+        }
+        
+        return false; // We do not want UITextField to insert line-breaks.
+    }
 }

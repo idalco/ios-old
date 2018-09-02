@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PaymentVC: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
@@ -33,7 +34,18 @@ class PaymentVC: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        print("submit")
+        self.submitDetails()
+    }
+    
+    func submitDetails(){
+        SVProgressHUD.show()
+        FindaAPISession(target: .updateBankDetails(name: self.nameTextField.text ?? "", sortcode: self.sortCodeTextField.text ?? "", accountNumber: self.accountNumberTextField.text ?? "")) { (response, result) in
+            if response {
+                SVProgressHUD.showSuccess(withStatus: "Done")
+            } else {
+                SVProgressHUD.showError(withStatus: "Try again")
+            }
+        }
     }
     
     /*
@@ -47,3 +59,26 @@ class PaymentVC: UIViewController {
     */
 
 }
+
+
+extension PaymentVC: UITextFieldDelegate {
+    // Return goes onto next text field
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag: NSInteger = textField.tag + 1;
+        // Try to find next responder
+        if let nextResponder: UIResponder? = textField.superview!.viewWithTag(nextTag){
+            if (nextResponder != nil) {
+                // Found next responder, so set it.
+                nextResponder?.becomeFirstResponder()
+            }
+        }
+        else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+            self.submitDetails()
+        }
+        
+        return false; // We do not want UITextField to insert line-breaks.
+    }
+}
+

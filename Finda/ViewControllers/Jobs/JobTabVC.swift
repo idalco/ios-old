@@ -39,6 +39,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             // customize appearance here
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
             appearance.indicator.color = UIColor.FindaColors.Purple
+            appearance.state.selectedColor = UIColor.FindaColors.Purple
         })
         self.dataSource = self
     }

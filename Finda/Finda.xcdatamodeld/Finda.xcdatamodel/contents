@@ -39,6 +39,8 @@
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="instagramFollowers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="instagramUsername" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kycBy" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="kycOn" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leadImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nationality" optional="YES" attributeType="String" syncable="YES"/>
@@ -52,6 +54,6 @@
     <elements>
         <element name="Preferences" positionX="-54" positionY="135" width="128" height="135"/>
         <element name="Profile" positionX="-45" positionY="153" width="128" height="225"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="420"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="450"/>
     </elements>
 </model>

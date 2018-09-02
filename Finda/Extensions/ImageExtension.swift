@@ -24,6 +24,19 @@ extension UIImageView {
         }
     }
     
+    func af_setImage(withPortfolioSourceURL: URL, imageTransition: ImageTransition = .noTransition){
+        if let url = URL(string: "\(domainURL)/portfolio/source\(withPortfolioSourceURL.absoluteString)"){
+            self.af_setImage(withURL: url, imageTransition: imageTransition)
+            
+        }
+    }
+    
+    func af_setImage(withPolaroidsSourceURL: URL, imageTransition: ImageTransition = .noTransition){
+        if let url = URL(string: "\(domainURL)/polaroids/source\(withPolaroidsSourceURL.absoluteString)"){
+            self.af_setImage(withURL: url, imageTransition: imageTransition)
+        }
+    }
+    
     func af_setImage(withAvatarURL: URL, imageTransition: ImageTransition = .noTransition){
         if let url = URL(string: "\(domainURL)/avatar/thumb\(withAvatarURL.absoluteString)"){
             self.af_setImage(withURL: url, imageTransition: imageTransition)

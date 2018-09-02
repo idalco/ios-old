@@ -46,6 +46,8 @@ class ModelManager {
         case ethnicity = "ethnicity"
         case available = "available"
         case status = "status"
+        case kycBy = "kycBy"
+        case kycOn = "kycOn"
     }
     
     enum Profile: String {
@@ -187,6 +189,14 @@ class ModelManager {
         
     }
     
+    func kycOn() -> Int {
+        return CoreDataManager.getInt(dataName: User.kycOn.rawValue, entity: Entity.User.rawValue)
+    }
+    
+    func kycBy() -> Int {
+        return CoreDataManager.getInt(dataName: User.kycBy.rawValue, entity: Entity.User.rawValue)
+    }
+    
     /*
         Profile Entity
     */
@@ -296,6 +306,8 @@ class ModelManager {
         user.setValue(userData["available"].intValue, forKeyPath: User.available.rawValue)
         user.setValue(userData["status"].intValue, forKeyPath: User.status.rawValue)
         user.setValue(userData["gender"].string, forKeyPath: User.gender.rawValue)
+        user.setValue(userData["kyc_by"].intValue, forKeyPath: User.kycBy.rawValue)
+        user.setValue(userData["kyc_on"].intValue, forKeyPath: User.kycOn.rawValue)
         
         do {
             try managedContext.save()

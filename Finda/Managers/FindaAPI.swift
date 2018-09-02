@@ -26,13 +26,16 @@ enum FindaAPI {
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
-    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Int, dressSize: Int, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String)
+    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String)
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case uploadPortfolioImage(image: UIImage)
     case uploadPolaroidImage(image: UIImage)
     case getImages(type: ImageType)
     case deleteImage(id: Int)
     case selectLeadImage(id: Int)
+    case inviteFriend(name: String, email: String)
+    case updateBankDetails(name: String, sortcode: String, accountNumber: String)
+    case getModelInvoices()
 
     
     
@@ -87,6 +90,12 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/removeImage"
         case .selectLeadImage:
             return "/selectLeadImage"
+        case .inviteFriend:
+            return "/inviteFriend"
+        case .updateBankDetails:
+            return "/updateProfile"
+        case .getModelInvoices:
+            return "/getModelInvoices"
             
             
             
@@ -109,11 +118,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .getImages, .deleteImage, .selectLeadImage, .register, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .register, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
-        case .userDetails, .getJobs:
+        case .userDetails, .getJobs, .getModelInvoices:
             return .get
         }
     }
@@ -246,6 +255,15 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .selectLeadImage(let id):
             p["imageid"] = id
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .inviteFriend(let name, let email):
+            p["name"] = name
+            p["email"] = email
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .updateBankDetails(let name, let sortcode, let accountNumber):
+            p["bank_accountname"] = name
+            p["bank_sortcode"] = sortcode
+            p["bank_accountnumber"] = accountNumber
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             

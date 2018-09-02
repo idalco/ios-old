@@ -131,12 +131,14 @@ class MeasurementsVC: FormViewController {
                         
                     }
             }
-            <<< IntRow(){ row in
+            <<< PickerInputRow<String>() { row in
                 row.title = "Shoe Size"
                 row.tag = "Shoe Size".lowercased()
+                row.options = Array(Measurements.shoeSizesArray.values)
                 let data = modelManager.shoeSize()
                 if data != -1 {
-                    row.value = data
+                    row.value = Measurements.shoeSizesArray[Float(data)]
+                    
                 }
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
@@ -147,12 +149,15 @@ class MeasurementsVC: FormViewController {
                         
                     }
             }
-            <<< IntRow(){ row in
+            
+            <<< PickerInputRow<String>() { row in
                 row.title = "Dress Size"
                 row.tag = "Dress Size".lowercased()
+                row.options = Array(Measurements.dressSizesArray.values)
                 let data = modelManager.dressSize()
                 if data != -1 {
-                    row.value = data
+                    row.value = Measurements.dressSizesArray[Float(data)]
+                    
                 }
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
@@ -162,9 +167,8 @@ class MeasurementsVC: FormViewController {
                         cell.textLabel?.textColor = .red
                         
                     }
-                    
-                    
             }
+            
             
             <<< SwitchRow(){ row in
                 row.title = "Willing to colour?"
@@ -216,28 +220,7 @@ class MeasurementsVC: FormViewController {
             }
         }
         
-//        PickerDelegate.addPickerData(rowTitle: "Willing to colour?", coreData: modelManager.willingColour()) { (response, result) in
-//            if response {
-//                section.insert(result, at: section.count)
-//                section.reload()
-//
-//            }
-//        }
-//
-//        PickerDelegate.addPickerData(rowTitle: "Willing to cut?", coreData: modelManager.willingCut()) { (response, result) in
-//            if response {
-//                section.insert(result, at: section.count)
-//                section.reload()
-//
-//            }
-//        }
-        
-        
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -254,10 +237,18 @@ class MeasurementsVC: FormViewController {
         
                 self.updateCell(tag: "waist", data: model.waist())
                 self.updateCell(tag: "hips", data: model.hips())
-                self.updateCell(tag: "shoe size", data: model.shoeSize())
-                self.updateCell(tag: "dress size", data: model.dressSize())
+//                self.updateCell(tag: "shoe size", data: model.shoeSize())
+//                self.updateCell(tag: "dress size", data: model.dressSize())
                 self.updateCell(tag: "willing to colour?", data: model.willingColour())
                 self.updateCell(tag: "willing to cut?", data: model.willingCut())
+                
+                if let shoeSize: String = Measurements.shoeSizesArray[Float(model.shoeSize())] {
+                    self.updateCell(tag: "shoe size", data: shoeSize)
+                }
+                
+                if let dressSize: String = Measurements.dressSizesArray[Float(model.dressSize())] {
+                    self.updateCell(tag: "dress size", data: dressSize)
+                }
                 
                 if let hairColour: String = self.hairColourDictionary[model.hairColour()] {
                     self.updateCell(tag: "hair colour", data: hairColour)
@@ -320,12 +311,12 @@ class MeasurementsVC: FormViewController {
             return
         }
         
-        guard let shoeSizeRow: BaseRow = form.rowBy(tag: "shoe size"), let shoeSize: Int = form.values()["shoe size"] as? Int else {
+        guard let shoeSizeRow: BaseRow = form.rowBy(tag: "shoe size"), let shoeSize: String = form.values()["shoe size"] as? String else {
             self.validateRow(tag: "shoe size")
             return
         }
         
-        guard let dressSizeRow: BaseRow = form.rowBy(tag: "dress size"), let dressSize: Int = form.values()["dress size"] as? Int else {
+        guard let dressSizeRow: BaseRow = form.rowBy(tag: "dress size"), let dressSize: String = form.values()["dress size"] as? String else {
             self.validateRow(tag: "dress size")
             return
         }
@@ -359,6 +350,14 @@ class MeasurementsVC: FormViewController {
         guard let willingToCutString: String = willingToCut ? "yes" : "no" else { return }
         
         
+        guard let shoeSizeId = Measurements.shoeSizesArray.allKeysForValue(val: shoeSize).first else {
+            return
+        }
+        
+        guard let dressSizeId = Measurements.dressSizesArray.allKeysForValue(val: dressSize).first else {
+            return
+        }
+        
         
         guard let hairTypeId = hairTypeDictionary.allKeysForValue(val: hairType).first else {
             return
@@ -375,16 +374,10 @@ class MeasurementsVC: FormViewController {
         guard let hairLengthId = hairLengthDictionary.allKeysForValue(val: hairLength).first else {
             return
         }
-        
-//
-//        let willingToColourId: String = willingToColour.lowercased()
-//        let willingToCutId: String = willingToCut.lowercased()
-//            == "yes" ? 1 : 0
-        
-        
+    
         
         if(heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid){
-            FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSize, dressSize: dressSize, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourString, willingToCut: willingToCutString)) { (response, result) in
+            FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSizeId, dressSize: dressSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourString, willingToCut: willingToCutString)) { (response, result) in
                 if response {
                     self.updateRows()
                 }

@@ -15,23 +15,36 @@ class ImageVC: UIViewController {
     @IBOutlet weak var deleteImageButton: UIButton!
     
     var photo: Photo?
+    var photoType: ImageType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.leadImageButton.setFAIcon(icon: .FACheck, forState: .normal)
+        self.leadImageButton.setFAIcon(icon: .FACheck, iconSize: 20, forState: .normal)
+        self.leadImageButton.isHidden = true
 
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Blue
         if let filename = photo?.filename, let url = URL(string: filename){
-            self.image.af_setImage(withPortfolioURL: url, imageTransition: .crossDissolve(0.2))
+            if photoType == ImageType.Portfolio {
+                self.image.af_setImage(withPortfolioSourceURL: url, imageTransition: .crossDissolve(0.2))
+            } else if photoType == ImageType.Polaroids {
+                self.image.af_setImage(withPolaroidsSourceURL: url, imageTransition: .crossDissolve(0.2))
+
+            }
+            
         }
         if let lead = photo?.leadimage {
             self.setLead(lead: lead)
             
         }
     
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Purple
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,14 +73,16 @@ class ImageVC: UIViewController {
     }
     
     private func setLead(lead: Bool){
-        if lead {
-            self.image.layer.borderColor = UIColor.FindaColors.BrightBlue.cgColor
-            self.image.layer.borderWidth = 3
-            self.leadImageButton.isHidden = true
-        } else {
-            self.image.layer.borderColor = UIColor.clear.cgColor
-            self.image.layer.borderWidth = 0
-            self.leadImageButton.isHidden = false
+        if photoType == ImageType.Portfolio {
+            if lead {
+                self.image.layer.borderColor = UIColor.FindaColors.BrightBlue.cgColor
+                self.image.layer.borderWidth = 3
+                self.leadImageButton.isHidden = true
+            } else {
+                self.image.layer.borderColor = UIColor.clear.cgColor
+                self.image.layer.borderWidth = 0
+                self.leadImageButton.isHidden = false
+            }
         }
     }
 

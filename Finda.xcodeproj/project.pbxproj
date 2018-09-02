@@ -49,6 +49,11 @@
 		0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB639521380216007CB107 /* FontAwesome.otf */; };
 		0CCB6399213997A5007CB107 /* PreferencesTabBarController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB6398213997A5007CB107 /* PreferencesTabBarController .swift */; };
 		0CCB639B2139AE14007CB107 /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB639A2139AE14007CB107 /* ImageVC.swift */; };
+		0CCB639D213A9CBC007CB107 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB639C213A9CBC007CB107 /* Measurements.swift */; };
+		0CCB639F213B2E3C007CB107 /* InvoiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB639E213B2E3C007CB107 /* InvoiceVC.swift */; };
+		0CCB63A1213C2FF9007CB107 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A0213C2FF9007CB107 /* Invoice.swift */; };
+		0CCB63A3213C3132007CB107 /* InvoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A2213C3132007CB107 /* InvoiceManager.swift */; };
+		0CCB63A6213C3C41007CB107 /* InvoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A5213C3C41007CB107 /* InvoiceTVC.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -170,6 +175,11 @@
 		0CCB639521380216007CB107 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		0CCB6398213997A5007CB107 /* PreferencesTabBarController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesTabBarController .swift"; sourceTree = "<group>"; };
 		0CCB639A2139AE14007CB107 /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
+		0CCB639C213A9CBC007CB107 /* Measurements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurements.swift; sourceTree = "<group>"; };
+		0CCB639E213B2E3C007CB107 /* InvoiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceVC.swift; sourceTree = "<group>"; };
+		0CCB63A0213C2FF9007CB107 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		0CCB63A2213C3132007CB107 /* InvoiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManager.swift; sourceTree = "<group>"; };
+		0CCB63A5213C3C41007CB107 /* InvoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTVC.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -296,6 +306,7 @@
 			children = (
 				0CCF233F210A861B00612D5B /* PersonalDetailsVC.swift */,
 				0CCF2348210B297A00612D5B /* MeasurementsVC.swift */,
+				0CCB639C213A9CBC007CB107 /* Measurements.swift */,
 				0CCF234A210CC61800612D5B /* PreferencesVC.swift */,
 			);
 			path = Settings;
@@ -310,12 +321,22 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
+		0CCB63A4213C3C2B007CB107 /* Invoices */ = {
+			isa = PBXGroup;
+			children = (
+				0CCB639E213B2E3C007CB107 /* InvoiceVC.swift */,
+				0CCB63A5213C3C41007CB107 /* InvoiceTVC.swift */,
+			);
+			path = Invoices;
+			sourceTree = "<group>";
+		};
 		0CCF22B52107390800612D5B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				0C78FA272119D3130059C0E7 /* WelcomeVC.swift */,
 				0CCF22B62107390800612D5B /* LoginVC.swift */,
 				0C1C8576212ABDF000586326 /* PaymentVC.swift */,
+				0CCB63A4213C3C2B007CB107 /* Invoices */,
 				0C1C8586212AE95E00586326 /* InviteVC.swift */,
 				0C78FA54212329570059C0E7 /* Photos */,
 				0C78FA55212329630059C0E7 /* Jobs */,
@@ -333,6 +354,7 @@
 				0CCF22BF210896AE00612D5B /* FindaAPI.swift */,
 				0CCF22D82108B25900612D5B /* LoginManager.swift */,
 				0C78FA5C212365E70059C0E7 /* PhotoManager.swift */,
+				0CCB63A2213C3132007CB107 /* InvoiceManager.swift */,
 				0C4ADA6721107E54002C3EA3 /* ModelManager.swift */,
 				0C4ADA7921120320002C3EA3 /* JobsManager.swift */,
 				0C4ADA87211848F6002C3EA3 /* NotificationManager.swift */,
@@ -374,6 +396,7 @@
 				0C4ADA7B21120C75002C3EA3 /* Job.swift */,
 				0C4ADA85211847CC002C3EA3 /* Notification.swift */,
 				0C78FA5E212366950059C0E7 /* Photo.swift */,
+				0CCB63A0213C2FF9007CB107 /* Invoice.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -825,6 +848,7 @@
 				0CCF23022108E7B500612D5B /* CoreDataManager.swift in Sources */,
 				0CCF235A210E034B00612D5B /* ClientRegisterVC.swift in Sources */,
 				0CCF2353210DE56B00612D5B /* PickerDelegate.swift in Sources */,
+				0CCB63A6213C3C41007CB107 /* InvoiceTVC.swift in Sources */,
 				0CCF235E210E4FCC00612D5B /* RegisterOptionVC.swift in Sources */,
 				0C78FA5B212362FE0059C0E7 /* ImageType.swift in Sources */,
 				0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */,
@@ -836,6 +860,7 @@
 				0C1C857521256B6800586326 /* BooleanDictionary.swift in Sources */,
 				0C78FA51212224590059C0E7 /* JobTabVC.swift in Sources */,
 				0C78FA5D212365E70059C0E7 /* PhotoManager.swift in Sources */,
+				0CCB63A3213C3132007CB107 /* InvoiceManager.swift in Sources */,
 				0CCF22D721089B6200612D5B /* FindaMoyaHMACPlugin.swift in Sources */,
 				0C4ADA8221176976002C3EA3 /* ViewExtensions.swift in Sources */,
 				0CCF234B210CC61800612D5B /* PreferencesVC.swift in Sources */,
@@ -857,6 +882,7 @@
 				0CCF2345210B1C7C00612D5B /* SideMenuCell.swift in Sources */,
 				0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */,
 				0C1C8577212ABDF000586326 /* PaymentVC.swift in Sources */,
+				0CCB63A1213C2FF9007CB107 /* Invoice.swift in Sources */,
 				0C4ADA802113353D002C3EA3 /* Country.swift in Sources */,
 				0C1C8579212ABFE800586326 /* UserType.swift in Sources */,
 				0CCF235C210E06CA00612D5B /* ViewControllerExtensions.swift in Sources */,
@@ -866,6 +892,7 @@
 				0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */,
 				0C1C858921305E5100586326 /* ImageCVC.swift in Sources */,
 				0CCF2358210E033C00612D5B /* ModelRegisterVC.swift in Sources */,
+				0CCB639F213B2E3C007CB107 /* InvoiceVC.swift in Sources */,
 				0CCF2350210DDB2600612D5B /* Profile+CoreDataClass.swift in Sources */,
 				0CCF2351210DDB2600612D5B /* Profile+CoreDataProperties.swift in Sources */,
 				0C4ADA7A21120320002C3EA3 /* JobsManager.swift in Sources */,
@@ -882,6 +909,7 @@
 				0C1C858F2131CAF200586326 /* GenderArray.swift in Sources */,
 				0CCF234D210D070600612D5B /* StringExtensions.swift in Sources */,
 				0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */,
+				0CCB639D213A9CBC007CB107 /* Measurements.swift in Sources */,
 				0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
