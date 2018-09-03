@@ -54,6 +54,8 @@
 		0CCB63A1213C2FF9007CB107 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A0213C2FF9007CB107 /* Invoice.swift */; };
 		0CCB63A3213C3132007CB107 /* InvoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A2213C3132007CB107 /* InvoiceManager.swift */; };
 		0CCB63A6213C3C41007CB107 /* InvoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A5213C3C41007CB107 /* InvoiceTVC.swift */; };
+		0CCB63A8213D412C007CB107 /* VerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A7213D412C007CB107 /* VerificationVC.swift */; };
+		0CCB63AA213DBF67007CB107 /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63A9213DBF67007CB107 /* PasswordVC.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -180,6 +182,8 @@
 		0CCB63A0213C2FF9007CB107 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		0CCB63A2213C3132007CB107 /* InvoiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManager.swift; sourceTree = "<group>"; };
 		0CCB63A5213C3C41007CB107 /* InvoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTVC.swift; sourceTree = "<group>"; };
+		0CCB63A7213D412C007CB107 /* VerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationVC.swift; sourceTree = "<group>"; };
+		0CCB63A9213DBF67007CB107 /* PasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 				0CCF2348210B297A00612D5B /* MeasurementsVC.swift */,
 				0CCB639C213A9CBC007CB107 /* Measurements.swift */,
 				0CCF234A210CC61800612D5B /* PreferencesVC.swift */,
+				0CCB63A9213DBF67007CB107 /* PasswordVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				0C78FA272119D3130059C0E7 /* WelcomeVC.swift */,
 				0CCF22B62107390800612D5B /* LoginVC.swift */,
 				0C1C8576212ABDF000586326 /* PaymentVC.swift */,
+				0CCB63A7213D412C007CB107 /* VerificationVC.swift */,
 				0CCB63A4213C3C2B007CB107 /* Invoices */,
 				0C1C8586212AE95E00586326 /* InviteVC.swift */,
 				0C78FA54212329570059C0E7 /* Photos */,
@@ -854,6 +860,7 @@
 				0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */,
 				0C4ADA8421184775002C3EA3 /* NotificationsVC.swift in Sources */,
 				0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */,
+				0CCB63AA213DBF67007CB107 /* PasswordVC.swift in Sources */,
 				0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */,
 				0C1C85912132B4D700586326 /* PortfolioCVC.swift in Sources */,
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
@@ -895,6 +902,7 @@
 				0CCB639F213B2E3C007CB107 /* InvoiceVC.swift in Sources */,
 				0CCF2350210DDB2600612D5B /* Profile+CoreDataClass.swift in Sources */,
 				0CCF2351210DDB2600612D5B /* Profile+CoreDataProperties.swift in Sources */,
+				0CCB63A8213D412C007CB107 /* VerificationVC.swift in Sources */,
 				0C4ADA7A21120320002C3EA3 /* JobsManager.swift in Sources */,
 				0CCF22D621089B6200612D5B /* FindaMoyaTokenPlugin.swift in Sources */,
 				0C4ADA6A21107EF5002C3EA3 /* RegisterManager.swift in Sources */,

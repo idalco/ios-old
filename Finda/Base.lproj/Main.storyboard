@@ -628,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6E-tS-1kP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8938.3999999999996" y="2444.527736131934"/>
+            <point key="canvasLocation" x="9878" y="2412"/>
         </scene>
         <!--MeasurementsVC-->
         <scene sceneID="pjZ-2i-8dr">
@@ -653,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGA-Wl-N80" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7999.1999999999998" y="2445.4272863568217"/>
+            <point key="canvasLocation" x="8938" y="2412"/>
         </scene>
         <!--PreferencesVC-->
         <scene sceneID="CCa-eV-fh6">
@@ -678,7 +678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o50-9k-XW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9877.6000000000004" y="2444.527736131934"/>
+            <point key="canvasLocation" x="10817" y="2413"/>
         </scene>
         <!--Side Menu Controller-->
         <scene sceneID="VFV-k8-oac">
@@ -877,6 +877,7 @@
                         <segue destination="AIO-Z4-agd" kind="relationship" relationship="viewControllers" id="cED-wm-Rrc"/>
                         <segue destination="nKv-ii-L2J" kind="relationship" relationship="viewControllers" id="AK5-xg-RbS"/>
                         <segue destination="B5C-Gk-WDP" kind="relationship" relationship="viewControllers" id="pJd-bE-5es"/>
+                        <segue destination="zmA-eX-Wno" kind="relationship" relationship="viewControllers" id="A1B-hc-LLA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htm-AM-t6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1833,26 +1834,63 @@ MODELLING TALENT</string>
             </objects>
             <point key="canvasLocation" x="121" y="1071"/>
         </scene>
-        <!--View Controller-->
+        <!--VerificationVC-->
         <scene sceneID="e2D-us-WLI">
             <objects>
-                <viewController id="v6g-ya-NlK" sceneMemberID="viewController">
+                <viewController id="v6g-ya-NlK" customClass="VerificationVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cgu-17-5hz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg5-o0-O5F">
-                                <rect key="frame" x="16" y="64" width="343" height="90"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg5-o0-O5F">
+                                <rect key="frame" x="16" y="64" width="343" height="468"/>
+                                <mutableString key="text">To make sure everyone gets the best professional experience at Finda, we verify and approve each model as well as each creative before they can access the full website.
+
+We need the following details and documentation from you before you can be seen by Finda clients:
+
+A form of your ID document is required by our payment provider Stripe, please refer to our Privacy Policy. We accept any of the following IDs:
+
+A photo of your passport, clearly showing your photograph and date of birth; or
+
+A photo of your driver's license, clearly showing your photograph and date of birth; or
+
+A photo of another form of government-issued identification, clearly showing your photograph and date of birth.</mutableString>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Oz-MQS" customClass="DCRoundedButton" customModule="DCKit">
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MMY-Bk-f0d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <state key="normal" title="UPLOAD DOCUMENT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                        <color key="value" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submit:" destination="uVa-lm-29Q" eventType="touchUpInside" id="aVe-Fc-i9w"/>
+                                    <action selector="uploadImage" destination="v6g-ya-NlK" eventType="touchUpInside" id="YH8-bM-3mv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gg5-o0-O5F" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leadingMargin" id="8Bh-Lh-Kbb"/>
-                            <constraint firstItem="pSv-tR-WLN" firstAttribute="bottom" secondItem="Gg5-o0-O5F" secondAttribute="bottom" constant="513" id="F8u-7L-Uzi"/>
+                            <constraint firstAttribute="bottom" secondItem="WgK-Oz-MQS" secondAttribute="bottom" constant="20" symbolic="YES" id="Bwd-f0-bVe"/>
+                            <constraint firstItem="pSv-tR-WLN" firstAttribute="bottom" secondItem="Gg5-o0-O5F" secondAttribute="bottom" constant="135" id="F8u-7L-Uzi"/>
                             <constraint firstItem="Gg5-o0-O5F" firstAttribute="top" secondItem="pSv-tR-WLN" secondAttribute="top" id="Lyw-6w-uUd"/>
+                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="trailing" secondItem="Gg5-o0-O5F" secondAttribute="trailing" id="abO-kj-w9z"/>
+                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="leading" secondItem="Gg5-o0-O5F" secondAttribute="leading" id="sWH-AK-Rna"/>
                             <constraint firstItem="Gg5-o0-O5F" firstAttribute="trailing" secondItem="Cgu-17-5hz" secondAttribute="trailingMargin" id="ysk-W1-Qiy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pSv-tR-WLN"/>
@@ -1881,6 +1919,50 @@ MODELLING TALENT</string>
             </objects>
             <point key="canvasLocation" x="120.8" y="1850.824587706147"/>
         </scene>
+        <!--PasswordVC-->
+        <scene sceneID="Jlj-Ky-9Tq">
+            <objects>
+                <viewController id="7Ag-bz-Ifx" customClass="PasswordVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="00Q-xN-kZt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pYG-OX-dzl"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="uyy-av-7hn">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="udh-VZ-Jie">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menu:" destination="7Ag-bz-Ifx" id="ISl-I5-6vB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlR-0R-Qrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11705" y="2413"/>
+        </scene>
+        <!--Password-->
+        <scene sceneID="Scq-fO-KfV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zmA-eX-Wno" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Password" id="zWI-Tk-SEe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DbN-dP-nGk">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Ag-bz-Ifx" kind="relationship" relationship="rootViewController" id="3dc-2e-Igr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yIV-SK-iij" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11706" y="1640"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FindaLogoBlack" width="421" height="297"/>
@@ -1898,7 +1980,7 @@ MODELLING TALENT</string>
         <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ymn-Qg-Ayd"/>
+        <segue reference="LG7-vM-ZlQ"/>
         <segue reference="cfr-jS-KpB"/>
         <segue reference="tCZ-2f-hRy"/>
     </inferredMetricsTieBreakers>

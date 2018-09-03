@@ -30,6 +30,7 @@ enum FindaAPI {
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case uploadPortfolioImage(image: UIImage)
     case uploadPolaroidImage(image: UIImage)
+    case uploadVerificationImage(image: UIImage)
     case getImages(type: ImageType)
     case deleteImage(id: Int)
     case selectLeadImage(id: Int)
@@ -84,6 +85,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/uploadPortfolio"
         case .uploadPolaroidImage:
             return "/uploadPolaroid"
+        case .uploadVerificationImage:
+            return "/uploadVerification"
         case .getImages:
             return "/getImages"
         case .deleteImage:
@@ -118,7 +121,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .register, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .register, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -245,6 +248,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .uploadPortfolioImage(let image):
             guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
             let jpegData = MultipartFormData(provider: .data(jpegRep), name: "portfolio", fileName: "image.jpeg", mimeType: "image/jpeg")
+            return .uploadMultipart([jpegData])
+            
+        case .uploadVerificationImage(let image):
+            guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
+            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "verification", fileName: "image.jpeg", mimeType: "image/jpeg")
             return .uploadMultipart([jpegData])
             
         case.getImages(let type):
