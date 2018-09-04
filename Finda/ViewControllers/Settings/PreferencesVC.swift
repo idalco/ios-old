@@ -14,6 +14,7 @@ class PreferencesVC: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView?.backgroundColor = UIColor.white
         self.updateRows()
         
         let modelManager = ModelManager()

@@ -19,6 +19,7 @@ class MeasurementsVC: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView?.backgroundColor = UIColor.white
         self.updateRows()
 //        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
 //        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple

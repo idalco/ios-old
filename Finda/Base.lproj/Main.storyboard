@@ -15,6 +15,9 @@
         <array key="Gotham-Bold.otf">
             <string>Gotham-Bold</string>
         </array>
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
         <array key="Gotham-Light.otf">
             <string>Gotham-Light</string>
         </array>
@@ -628,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6E-tS-1kP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9878" y="2412"/>
+            <point key="canvasLocation" x="9777" y="1564"/>
         </scene>
         <!--MeasurementsVC-->
         <scene sceneID="pjZ-2i-8dr">
@@ -653,7 +656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGA-Wl-N80" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8938" y="2412"/>
+            <point key="canvasLocation" x="8836" y="1564"/>
         </scene>
         <!--PreferencesVC-->
         <scene sceneID="CCa-eV-fh6">
@@ -678,7 +681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o50-9k-XW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10817" y="2413"/>
+            <point key="canvasLocation" x="10716" y="1565"/>
         </scene>
         <!--Side Menu Controller-->
         <scene sceneID="VFV-k8-oac">
@@ -861,29 +864,6 @@
             </objects>
             <point key="canvasLocation" x="6906.3999999999996" y="921.58920539730138"/>
         </scene>
-        <!--Preferences Tab Bar Controller-->
-        <scene sceneID="g9p-NA-K0G">
-            <objects>
-                <tabBarController storyboardIdentifier="Settings2" automaticallyAdjustsScrollViewInsets="NO" id="w3X-Fa-Pv7" customClass="PreferencesTabBarController" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="KiX-Ah-kq5"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kka-Wr-Uhp">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="AIO-Z4-agd" kind="relationship" relationship="viewControllers" id="cED-wm-Rrc"/>
-                        <segue destination="nKv-ii-L2J" kind="relationship" relationship="viewControllers" id="AK5-xg-RbS"/>
-                        <segue destination="B5C-Gk-WDP" kind="relationship" relationship="viewControllers" id="pJd-bE-5es"/>
-                        <segue destination="zmA-eX-Wno" kind="relationship" relationship="viewControllers" id="A1B-hc-LLA"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Htm-AM-t6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8938.3999999999996" y="843.32833583208401"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="rgv-Lo-zZ0">
             <objects>
@@ -969,63 +949,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjj-8I-YGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4244" y="-762"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="0ZY-RK-VY8">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AIO-Z4-agd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="user_group_man_woman" id="RD0-1s-kjB"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S3U-hD-VwT">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wAL-Q5-1iI" kind="relationship" relationship="rootViewController" id="XUD-SR-TqU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xki-FQ-P4l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9877.6000000000004" y="1639.4302848575715"/>
-        </scene>
-        <!--Preferences-->
-        <scene sceneID="T4n-tt-8J4">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B5C-Gk-WDP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Preferences" image="settings" id="Mpt-e7-XUv"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DIS-n1-MX7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="D6D-fH-uKz" kind="relationship" relationship="rootViewController" id="8OA-ms-LcF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rek-wM-nmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="10816.799999999999" y="1639.4302848575715"/>
-        </scene>
-        <!--Measurements-->
-        <scene sceneID="ANq-Y9-Qfs">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKv-ii-L2J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Measurements" image="plus" id="W9h-70-hId"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rOb-Ko-dqS">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LGi-HT-eTq" kind="relationship" relationship="rootViewController" id="5bh-GM-QXa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wZ7-pC-xOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8938.3999999999996" y="1640.3298350824589"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="tLp-NX-ghd">
@@ -1842,23 +1765,6 @@ MODELLING TALENT</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg5-o0-O5F">
-                                <rect key="frame" x="16" y="64" width="343" height="468"/>
-                                <mutableString key="text">To make sure everyone gets the best professional experience at Finda, we verify and approve each model as well as each creative before they can access the full website.
-
-We need the following details and documentation from you before you can be seen by Finda clients:
-
-A form of your ID document is required by our payment provider Stripe, please refer to our Privacy Policy. We accept any of the following IDs:
-
-A photo of your passport, clearly showing your photograph and date of birth; or
-
-A photo of your driver's license, clearly showing your photograph and date of birth; or
-
-A photo of another form of government-issued identification, clearly showing your photograph and date of birth.</mutableString>
-                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Oz-MQS" customClass="DCRoundedButton" customModule="DCKit">
                                 <rect key="frame" x="16" y="597" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1882,20 +1788,61 @@ A photo of another form of government-issued identification, clearly showing you
                                     <action selector="uploadImage" destination="v6g-ya-NlK" eventType="touchUpInside" id="YH8-bM-3mv"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-o0-q2G">
+                                <rect key="frame" x="0.0" y="64" width="375" height="525"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify your account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-7F-hLS">
+                                        <rect key="frame" x="8" y="8" width="267" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="267" id="e50-g5-tip"/>
+                                            <constraint firstAttribute="height" constant="36" id="tYJ-XN-fup"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqY-ES-y1X">
+                                        <rect key="frame" x="8" y="52" width="359" height="72"/>
+                                        <string key="text">To make sure everyone gets the best professional experience at Finda, we verify and approve each model as well as each creative before they can access the full website.</string>
+                                        <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BqY-ES-y1X" firstAttribute="top" secondItem="ye3-7F-hLS" secondAttribute="bottom" constant="8" symbolic="YES" id="63F-4m-g2q"/>
+                                    <constraint firstItem="ye3-7F-hLS" firstAttribute="leading" secondItem="BqY-ES-y1X" secondAttribute="leading" id="6fQ-ck-fX0"/>
+                                    <constraint firstItem="ye3-7F-hLS" firstAttribute="leading" secondItem="ogS-o0-q2G" secondAttribute="leadingMargin" id="7sq-dH-ojb"/>
+                                    <constraint firstItem="BqY-ES-y1X" firstAttribute="centerX" secondItem="ogS-o0-q2G" secondAttribute="centerX" id="FDN-Aq-CLF"/>
+                                    <constraint firstItem="BqY-ES-y1X" firstAttribute="trailing" secondItem="ogS-o0-q2G" secondAttribute="trailingMargin" id="PWx-aA-i8D"/>
+                                    <constraint firstItem="ye3-7F-hLS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="topMargin" id="Wkr-ZF-pX1"/>
+                                    <constraint firstAttribute="bottom" secondItem="BqY-ES-y1X" secondAttribute="bottom" id="f2y-iV-U9p"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Gg5-o0-O5F" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leadingMargin" id="8Bh-Lh-Kbb"/>
+                            <constraint firstAttribute="trailing" secondItem="ogS-o0-q2G" secondAttribute="trailing" id="A9n-xi-G17"/>
+                            <constraint firstItem="ogS-o0-q2G" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leading" id="Ae8-Xk-ryS"/>
                             <constraint firstAttribute="bottom" secondItem="WgK-Oz-MQS" secondAttribute="bottom" constant="20" symbolic="YES" id="Bwd-f0-bVe"/>
-                            <constraint firstItem="pSv-tR-WLN" firstAttribute="bottom" secondItem="Gg5-o0-O5F" secondAttribute="bottom" constant="135" id="F8u-7L-Uzi"/>
-                            <constraint firstItem="Gg5-o0-O5F" firstAttribute="top" secondItem="pSv-tR-WLN" secondAttribute="top" id="Lyw-6w-uUd"/>
-                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="trailing" secondItem="Gg5-o0-O5F" secondAttribute="trailing" id="abO-kj-w9z"/>
-                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="leading" secondItem="Gg5-o0-O5F" secondAttribute="leading" id="sWH-AK-Rna"/>
-                            <constraint firstItem="Gg5-o0-O5F" firstAttribute="trailing" secondItem="Cgu-17-5hz" secondAttribute="trailingMargin" id="ysk-W1-Qiy"/>
+                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leadingMargin" id="OEh-6A-8v1"/>
+                            <constraint firstItem="ogS-o0-q2G" firstAttribute="centerX" secondItem="WgK-Oz-MQS" secondAttribute="centerX" id="Qcb-eL-wJw"/>
+                            <constraint firstItem="ogS-o0-q2G" firstAttribute="top" secondItem="pSv-tR-WLN" secondAttribute="top" id="aZW-hw-QDS"/>
+                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="bottom" constant="8" symbolic="YES" id="gxF-wW-0bC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pSv-tR-WLN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GCH-CP-suT"/>
+                    <navigationItem key="navigationItem" id="GCH-CP-suT">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="8sJ-tl-x3G">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menu:" destination="v6g-ya-NlK" id="hcT-fK-ywI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="paragraphOneLabel" destination="BqY-ES-y1X" id="wkf-RN-aB3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2c-kJ-GU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1928,13 +1875,13 @@ A photo of another form of government-issued identification, clearly showing you
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-fn-oAY">
-                                <rect key="frame" x="16" y="86" width="174.5" height="18"/>
+                                <rect key="frame" x="16" y="42" width="174.5" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-xT-MhP">
-                                <rect key="frame" x="16" y="165" width="343" height="50"/>
+                                <rect key="frame" x="16" y="121" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vtO-sK-YDe"/>
@@ -1946,19 +1893,19 @@ A photo of another form of government-issued identification, clearly showing you
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pt5-gQ-yvI">
-                                <rect key="frame" x="16" y="139" width="131.5" height="18"/>
+                                <rect key="frame" x="16" y="95" width="131.5" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRX-RY-Smn">
-                                <rect key="frame" x="16" y="245" width="108.5" height="18"/>
+                                <rect key="frame" x="16" y="201" width="108.5" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXe-oh-ZLd">
-                                <rect key="frame" x="16" y="271" width="343" height="50"/>
+                                <rect key="frame" x="16" y="227" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="T6N-hF-FuS"/>
@@ -1970,7 +1917,7 @@ A photo of another form of government-issued identification, clearly showing you
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdG-vt-Bpw">
-                                <rect key="frame" x="16" y="377" width="343" height="50"/>
+                                <rect key="frame" x="16" y="333" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jl6-OM-FWe"/>
@@ -1982,13 +1929,13 @@ A photo of another form of government-issued identification, clearly showing you
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oJ-7V-ycx">
-                                <rect key="frame" x="16" y="351" width="172" height="18"/>
+                                <rect key="frame" x="16" y="307" width="172" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-wx-NFI" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="507" width="343" height="50"/>
+                                <rect key="frame" x="16" y="556" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="w81-Vs-G6o"/>
@@ -2057,26 +2004,7 @@ A photo of another form of government-issued identification, clearly showing you
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlR-0R-Qrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11704.799999999999" y="2412.1439280359823"/>
-        </scene>
-        <!--Password-->
-        <scene sceneID="Scq-fO-KfV">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zmA-eX-Wno" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Password" id="zWI-Tk-SEe"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DbN-dP-nGk">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7Ag-bz-Ifx" kind="relationship" relationship="rootViewController" id="3dc-2e-Igr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yIV-SK-iij" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="11706" y="1640"/>
+            <point key="canvasLocation" x="11604" y="1565"/>
         </scene>
         <!--Settings TabVC-->
         <scene sceneID="q1j-nh-Iy1">
@@ -2130,12 +2058,9 @@ A photo of another form of government-issued identification, clearly showing you
         <image name="join_brand_bg" width="515" height="555"/>
         <image name="join_model_bg" width="515" height="555"/>
         <image name="menu" width="30" height="30"/>
-        <image name="plus" width="30" height="30"/>
-        <image name="settings" width="30" height="30"/>
         <image name="sms" width="30" height="30"/>
         <image name="splash" width="750" height="500"/>
         <image name="trash" width="315" height="318"/>
-        <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d3j-YQ-dha"/>

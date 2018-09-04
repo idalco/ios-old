@@ -56,6 +56,15 @@ extension String {
     var htmlToString: String {
         return htmlToAttributedString?.string ?? ""
     }
+    
+    func range(substring: String) -> NSRange{
+        if let substringRange = self.range(of: substring) {
+            return NSRange(substringRange, in: self)
+        }
+        return NSRange()
+        
+        
+    }
 
 }
 
