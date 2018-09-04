@@ -12,7 +12,7 @@ class PreferencesTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        self.tabBar.barTintColor = UIColor.FindaColors.Yellow
+        self.tabBar.barTintColor = UIColor.FindaColors.DarkYellow
         self.tabBar.tintColor = UIColor.FindaColors.White
         self.tabBar.unselectedItemTintColor = UIColor.FindaColors.Black
         

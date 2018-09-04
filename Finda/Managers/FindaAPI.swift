@@ -278,9 +278,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["email"] = email
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .updateBankDetails(let name, let sortcode, let accountNumber):
-            p["bank_accountname"] = name
-            p["bank_sortcode"] = sortcode
-            p["bank_accountnumber"] = accountNumber
+            var parameters = [String: Any]()
+            parameters["bank_accountname"] = name
+            parameters["bank_sortcode"] = sortcode
+            parameters["bank_accountnumber"] = accountNumber
+            p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             

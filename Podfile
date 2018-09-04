@@ -47,6 +47,7 @@ target 'Finda' do
   pod 'YPImagePicker'
 
   pod 'Font-Awesome-Swift', '~> 1.7.2'
+  pod 'SwiftyGif'
 
 
 

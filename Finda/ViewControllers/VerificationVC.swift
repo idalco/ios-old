@@ -67,10 +67,10 @@ class VerificationVC: UIViewController {
 
     func changeToInvoices(){
         let modelManager = ModelManager()
-        if modelManager.kycOn() != -1 && modelManager.kycBy() != -1 {
-            sideMenuController?.setContentViewController(with: "InvoiceNav", animated: true, completion: {
-                
-            })
+        if modelManager.kycOn() != -1 && modelManager.kycBy() != -1 && modelManager.kycOn() != 0 && modelManager.kycBy() != 0 {
+//            sideMenuController?.setContentViewController(with: "InvoiceNav", animated: true, completion: {
+//
+//            })
         }
     }
     /*

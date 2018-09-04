@@ -19,6 +19,7 @@ PODS:
   - SideMenuSwift (0.5.0)
   - SteviaLayout (4.2.0)
   - SVProgressHUD (2.2.5)
+  - SwiftyGif (4.1.0)
   - SwiftyJSON (4.1.0)
   - Tabman (1.9.2):
     - AutoInsetter (~> 1.2.0)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - Moya
   - SideMenuSwift
   - SVProgressHUD
+  - SwiftyGif
   - SwiftyJSON
   - Tabman (~> 1.0)
   - YPImagePicker
@@ -58,6 +60,7 @@ SPEC REPOS:
     - SideMenuSwift
     - SteviaLayout
     - SVProgressHUD
+    - SwiftyGif
     - SwiftyJSON
     - Tabman
     - YPImagePicker
@@ -78,10 +81,11 @@ SPEC CHECKSUMS:
   SideMenuSwift: 1e26969b560b40a0478a6e46f6b0edf0ef3c102d
   SteviaLayout: 0d2112caea45707695e8c718262c8ea3dd37ef17
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Tabman: a09f7d7aa62b231ec475ca9eb9171f7cc973a3d7
   YPImagePicker: 049aa31e2858c63730ace6b6358bba946178dfe3
 
-PODFILE CHECKSUM: c79f62f079edcd4c189ddb49ee9738ab7c4c5eb7
+PODFILE CHECKSUM: 3079f4acb777fd3ddb8a8286c39a2a5dd3d11ec1
 
 COCOAPODS: 1.5.3

@@ -203,7 +203,7 @@
                         <viewLayoutGuide key="safeArea" id="RqY-6H-2V5"/>
                     </view>
                     <connections>
-                        <segue destination="w3X-Fa-Pv7" kind="presentation" identifier="editProfileSegue" id="74I-wZ-gfo"/>
+                        <segue destination="iVU-M3-p8Y" kind="presentation" identifier="editProfileSegue" id="d3j-YQ-dha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zb-vU-sO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -327,7 +327,7 @@
                         <outlet property="findaImageView" destination="Wb8-Lc-eH5" id="IsC-4l-cOZ"/>
                         <outlet property="passwordTextField" destination="hUK-9N-Tpt" id="N0V-Ub-bEJ"/>
                         <segue destination="wFZ-U0-kSb" kind="presentation" identifier="loginSegue" id="tCZ-2f-hRy"/>
-                        <segue destination="w3X-Fa-Pv7" kind="presentation" identifier="editProfileSegue" id="Vaf-CE-aBo"/>
+                        <segue destination="iVU-M3-p8Y" kind="presentation" identifier="editProfileSegue" id="6NG-ZO-dEa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -608,7 +608,7 @@
         <!--Personal DetailsVC-->
         <scene sceneID="7ai-dZ-T6G">
             <objects>
-                <viewController id="wAL-Q5-1iI" customClass="PersonalDetailsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalDetails" id="wAL-Q5-1iI" customClass="PersonalDetailsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5lj-jv-l7l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -633,7 +633,7 @@
         <!--MeasurementsVC-->
         <scene sceneID="pjZ-2i-8dr">
             <objects>
-                <viewController id="LGi-HT-eTq" customClass="MeasurementsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Measurements" id="LGi-HT-eTq" customClass="MeasurementsVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1H9-yJ-o8s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -658,7 +658,7 @@
         <!--PreferencesVC-->
         <scene sceneID="CCa-eV-fh6">
             <objects>
-                <viewController id="D6D-fH-uKz" customClass="PreferencesVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Preferences" id="D6D-fH-uKz" customClass="PreferencesVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3LR-eE-DSj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -696,11 +696,11 @@
                     <connections>
                         <segue destination="qQY-DU-NTk" kind="custom" identifier="SideMenuContent" customClass="SideMenuSegue" customModule="SideMenuSwift" id="D20-qD-ufB"/>
                         <segue destination="WUU-Uz-2GB" kind="custom" identifier="SideMenu.Menu" customClass="SideMenuSegue" customModule="SideMenuSwift" id="6ep-cv-A54"/>
-                        <segue destination="w3X-Fa-Pv7" kind="custom" identifier="SideMenuContent" customClass="SideMenuSegue" customModule="SideMenuSwift" id="cfr-jS-KpB"/>
                         <segue destination="t2L-pX-8oP" kind="custom" identifier="SideMenuContent" customClass="SideMenuSegue" customModule="SideMenuSwift" id="cWc-kt-7hc"/>
                         <segue destination="E0B-gL-Sud" kind="custom" identifier="SideMenuContent" customClass="SideMenuSegue" customModule="SideMenuSwift" id="Dz4-pc-moN"/>
                         <segue destination="IRh-vt-BaT" kind="custom" identifier="SideMenuContent" customClass="SideMenuSegue" customModule="SideMenuSwift" id="UnN-a5-tiQ"/>
                         <segue destination="4hJ-9h-dTV" kind="custom" identifier="SideMenuContent" customClass="SideMenuSegue" customModule="SideMenuSwift" id="fvK-dc-JhZ"/>
+                        <segue destination="iVU-M3-p8Y" kind="custom" identifier="SideMenuContent" customClass="SideMenuSegue" customModule="SideMenuSwift" id="Wb8-eT-GY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDS-Ax-egx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -864,7 +864,7 @@
         <!--Preferences Tab Bar Controller-->
         <scene sceneID="g9p-NA-K0G">
             <objects>
-                <tabBarController storyboardIdentifier="PersonalDetails" automaticallyAdjustsScrollViewInsets="NO" id="w3X-Fa-Pv7" customClass="PreferencesTabBarController" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Settings2" automaticallyAdjustsScrollViewInsets="NO" id="w3X-Fa-Pv7" customClass="PreferencesTabBarController" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KiX-Ah-kq5"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kka-Wr-Uhp">
@@ -1061,7 +1061,7 @@
                                     <constraint firstAttribute="width" secondItem="qxb-Fs-ko0" secondAttribute="height" multiplier="172:45" constant="36" id="Rcc-e2-7VX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
-                                <state key="normal" title="ADD NEW IMAGE">
+                                <state key="normal" title="ADD NEW PHOTO">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1356,8 +1356,8 @@ MODELLING TALENT</string>
                     <navigationItem key="navigationItem" id="WQU-sH-W7Y"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="w3X-Fa-Pv7" kind="presentation" identifier="editProfileSegue" id="Dz6-Od-wHp"/>
                         <segue destination="wFZ-U0-kSb" kind="presentation" identifier="loginSegue" id="fFA-jU-UWP"/>
+                        <segue destination="iVU-M3-p8Y" kind="presentation" identifier="editProfileSegue" id="kBq-Ev-WrO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prY-BY-8c7" sceneMemberID="firstResponder"/>
@@ -1729,7 +1729,7 @@ MODELLING TALENT</string>
                                     <constraint firstAttribute="width" secondItem="bDk-xj-WAx" secondAttribute="height" multiplier="172:45" constant="36" id="oqM-oq-JSw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
-                                <state key="normal" title="ADD NEW IMAGE">
+                                <state key="normal" title="ADD NEW PHOTO">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1922,13 +1922,13 @@ A photo of another form of government-issued identification, clearly showing you
         <!--PasswordVC-->
         <scene sceneID="Jlj-Ky-9Tq">
             <objects>
-                <viewController id="7Ag-bz-Ifx" customClass="PasswordVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Password" id="7Ag-bz-Ifx" customClass="PasswordVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="00Q-xN-kZt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-fn-oAY">
-                                <rect key="frame" x="16" y="86" width="175" height="18"/>
+                                <rect key="frame" x="16" y="86" width="174.5" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2078,6 +2078,49 @@ A photo of another form of government-issued identification, clearly showing you
             </objects>
             <point key="canvasLocation" x="11706" y="1640"/>
         </scene>
+        <!--Settings TabVC-->
+        <scene sceneID="q1j-nh-Iy1">
+            <objects>
+                <viewController id="1Wb-dK-ZEx" customClass="SettingsTabVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jgw-T7-bAx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HAf-PB-Q4e"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xTT-Gc-fcm">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="cLX-k4-bOg">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menu:" destination="1Wb-dK-ZEx" id="C4B-N3-mms"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4g-CH-We4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10724" y="842.42878560719646"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="11c-EY-MPP">
+            <objects>
+                <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="iVU-M3-p8Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ke-aq-MtO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Wb-dK-ZEx" kind="relationship" relationship="rootViewController" id="CVz-Ph-N0L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qef-PK-bGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9784.7999999999993" y="842.42878560719646"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FindaLogoBlack" width="421" height="297"/>
@@ -2095,8 +2138,8 @@ A photo of another form of government-issued identification, clearly showing you
         <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LG7-vM-ZlQ"/>
-        <segue reference="cfr-jS-KpB"/>
-        <segue reference="tCZ-2f-hRy"/>
+        <segue reference="d3j-YQ-dha"/>
+        <segue reference="ymn-Qg-Ayd"/>
+        <segue reference="fFA-jU-UWP"/>
     </inferredMetricsTieBreakers>
 </document>

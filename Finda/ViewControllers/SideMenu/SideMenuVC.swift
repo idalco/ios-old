@@ -25,7 +25,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.backgroundColor = UIColor.FindaColors.White
         
         
-        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetails") }, with: "PersonalDetails")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Settings") }, with: "Settings")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") }, with: "MainTabBar")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "PaymentNav") }, with: "PaymentNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
@@ -117,7 +117,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sideMenuController?.setContentViewController(with: "InviteNav")
             
         } else if  indexPath.row == 0 {
-            sideMenuController?.setContentViewController(with: "PersonalDetails")
+            sideMenuController?.setContentViewController(with: "Settings")
             
         } else if  indexPath.row == 1 {
             sideMenuController?.setContentViewController(with: "MainTabBar")
@@ -141,7 +141,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let modelManager = ModelManager()
             if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
                 sideMenuController?.setContentViewController(with: "PaymentNav")
-           } else if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 {
+           } else if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 || modelManager.kycOn() == 0 || modelManager.kycBy() == 0 {
                 sideMenuController?.setContentViewController(with: "VerificationNav")
             } else {
                 sideMenuController?.setContentViewController(with: "InvoiceNav")

@@ -22,7 +22,8 @@ class PasswordVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateButton.normalBackgroundColor = UIColor.FindaColors.Yellow
+        self.updateButton.normalBackgroundColor = UIColor.FindaColors.DarkYellow
+        self.updateButton.normalTextColor = UIColor.FindaColors.Black
         
 //        self.updateRows()
 //
@@ -144,6 +145,9 @@ class PasswordVC: UIViewController {
                 
             } else {
                 SVProgressHUD.showError(withStatus: "Try again")
+                self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor )
+                self.newPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
+                self.repeatNewPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
                 
             }
         }

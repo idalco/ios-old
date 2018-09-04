@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyGif
 
 class ImageVC: UIViewController {
     
@@ -25,8 +26,13 @@ class ImageVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Blue
+//        let gif = UIImage(gifName: "loading-icon.gif")
+//        self.image = UIImageView(gifImage: gif)
+//        self.image.startAnimatingGif()
         if let filename = photo?.filename, let url = URL(string: filename){
             if photoType == ImageType.Portfolio {
                 self.image.af_setImage(withPortfolioSourceURL: url, imageTransition: .crossDissolve(0.2))

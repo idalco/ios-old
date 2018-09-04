@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var contentViewController  = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
             let modelManager = ModelManager()
             if modelManager.status() == UserStatus.unverified {
-                contentViewController = storyboard.instantiateViewController(withIdentifier: "PersonalDetails")
+                contentViewController = storyboard.instantiateViewController(withIdentifier: "Settings")
             }
             
             let menuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuView")
