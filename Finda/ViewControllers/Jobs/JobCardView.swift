@@ -70,7 +70,25 @@ class JobCardView: CardView {
         }
     }
     
+    @IBOutlet weak var offeredLabel: UILabel!
+    @IBOutlet weak var offeredNumberButton: UIButton!
+    var offeredNumber: String = "" {
+        didSet {
+            offeredNumberButton.setTitle("\(offeredNumber)", for: .normal)
+        }
+    }
     
+    
+    @IBOutlet weak var primaryButton: UIButton!
+    @IBAction func primaryButtonFunc(_ sender: Any) {
+        
+    }
+        
+        
+    @IBOutlet weak var seconaryButton: UIButton!
+    @IBAction func seconaryButtonFunc(_ sender: Any) {
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -81,6 +99,9 @@ class JobCardView: CardView {
         contentView.layer.borderColor = UIColor.FindaColors.Purple.cgColor
         //UIColor.FindaColors.Purple.fade(alpha: 0.2).cgColor
         
+        offeredNumberButton.isHidden = true
+        offeredLabel.isHidden = true
+        
         presentedDidUpdate()
         
     }
@@ -89,15 +110,12 @@ class JobCardView: CardView {
     
     func presentedDidUpdate() {
         
-        removeCardViewButton.isHidden = !presented
+        primaryButton.isHidden = !presented
+        seconaryButton.isHidden = !presented
         contentView.backgroundColor = presented ? presentedCardViewColor: depresentedCardViewColor
         contentView.addTransitionFade()
         
     }
     
-    @IBOutlet weak var removeCardViewButton: UIButton!
-    @IBAction func removeCardView(_ sender: Any) {
-        walletView?.remove(cardView: self, animated: true)
-    }
     
 }

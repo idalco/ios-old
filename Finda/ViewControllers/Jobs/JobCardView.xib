@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,6 +20,9 @@
         <array key="Gotham-Light.otf">
             <string>Gotham-Light</string>
         </array>
+        <array key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -30,33 +34,51 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGR-lR-C5v">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4R-si-942">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-jy-5AK">
                             <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="90T-nw-bJn"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="tintColor" red="1" green="0.074743433489999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Remove"/>
-                            <connections>
-                                <action selector="removeCardView:" destination="iN0-l3-epB" eventType="touchUpInside" id="IVD-gZ-hsC"/>
-                            </connections>
-                        </button>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4R-si-942">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="90T-nw-bJn"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="16"/>
+                                    <color key="tintColor" red="1" green="0.074743433489999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="ACCEPT"/>
+                                    <connections>
+                                        <action selector="primaryButtonFunc:" destination="iN0-l3-epB" eventType="touchUpInside" id="iW2-2L-RD3"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9R-EG-PSn">
+                                    <rect key="frame" x="170" y="0.0" width="150" height="44"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="PiZ-bY-M3h"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="16"/>
+                                    <color key="tintColor" red="1" green="0.074743433489999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="REJECT"/>
+                                    <connections>
+                                        <action selector="seconaryButtonFunc:" destination="iN0-l3-epB" eventType="touchUpInside" id="62f-d7-nL1"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LONDON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Zx6-NC-P4B">
-                            <rect key="frame" x="8" y="141" width="56" height="14"/>
+                            <rect key="frame" x="8" y="141.5" width="56" height="14.5"/>
                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="sob-lh-kXy">
-                            <rect key="frame" x="8" y="38" width="91" height="17"/>
+                            <rect key="frame" x="8" y="38" width="90.5" height="17"/>
                             <fontDescription key="fontDescription" name="Gotham-Black" family="Gotham" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/05/2018 - 06/05/2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-1P-dxE">
-                            <rect key="frame" x="8" y="163" width="149" height="14"/>
+                            <rect key="frame" x="8" y="164" width="149" height="14.5"/>
                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -71,25 +93,25 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-COMMERCE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1nX-sN-aGK">
-                            <rect key="frame" x="8" y="119" width="87" height="14"/>
+                            <rect key="frame" x="8" y="119" width="86.5" height="14.5"/>
                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIKE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="gK0-Wv-3ff">
-                            <rect key="frame" x="277" y="38" width="35" height="17"/>
+                            <rect key="frame" x="277.5" y="38" width="34.5" height="17"/>
                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="0kq-7l-YWi">
-                            <rect key="frame" x="265" y="162" width="47" height="17"/>
+                            <rect key="frame" x="265.5" y="163" width="46.5" height="17"/>
                             <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ks-p9-g31">
-                            <rect key="frame" x="8" y="221" width="304" height="58"/>
+                            <rect key="frame" x="8" y="222" width="304" height="58"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="304" id="Gnk-rb-WAg"/>
                             </constraints>
@@ -98,13 +120,31 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offered rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="xG4-4e-cRn">
+                            <rect key="frame" x="8" y="200" width="72" height="14.5"/>
+                            <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eke-Qc-0TG">
+                            <rect key="frame" x="240" y="200" width="72" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Eke-Qc-0TG" secondAttribute="height" multiplier="24:5" id="Jgl-qX-Uze"/>
+                                <constraint firstAttribute="width" constant="72" id="jJ2-ef-L48"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
+                            <state key="normal" title="500">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="mSl-BQ-DFa" firstAttribute="top" secondItem="sob-lh-kXy" secondAttribute="bottom" constant="5" id="4sM-Yr-E0g"/>
                         <constraint firstItem="1nX-sN-aGK" firstAttribute="leading" secondItem="Zx6-NC-P4B" secondAttribute="leading" id="6UK-Bh-y0o"/>
+                        <constraint firstItem="Eke-Qc-0TG" firstAttribute="trailing" secondItem="0kq-7l-YWi" secondAttribute="trailing" id="89q-Zf-ECh"/>
                         <constraint firstItem="Zx6-NC-P4B" firstAttribute="leading" secondItem="7h1-1P-dxE" secondAttribute="leading" id="GIP-ty-eWd"/>
-                        <constraint firstItem="Z4R-si-942" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leading" id="H4i-oQ-TIB"/>
+                        <constraint firstItem="xG4-4e-cRn" firstAttribute="leading" secondItem="7h1-1P-dxE" secondAttribute="leading" id="GyK-HQ-olc"/>
                         <constraint firstItem="gK0-Wv-3ff" firstAttribute="trailing" secondItem="0kq-7l-YWi" secondAttribute="trailing" id="HGI-rT-F95"/>
                         <constraint firstItem="0ks-p9-g31" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leadingMargin" id="HqA-gA-NVS"/>
                         <constraint firstItem="1nX-sN-aGK" firstAttribute="top" secondItem="mSl-BQ-DFa" secondAttribute="bottom" constant="42" id="O7t-vi-GXX"/>
@@ -113,14 +153,17 @@
                         <constraint firstItem="7h1-1P-dxE" firstAttribute="top" secondItem="Zx6-NC-P4B" secondAttribute="bottom" constant="8" symbolic="YES" id="Rnm-Td-Okk"/>
                         <constraint firstAttribute="trailing" secondItem="0ks-p9-g31" secondAttribute="trailing" constant="8" id="SDf-i1-KcM"/>
                         <constraint firstItem="gK0-Wv-3ff" firstAttribute="baseline" secondItem="sob-lh-kXy" secondAttribute="baseline" id="bPy-vz-G0l"/>
+                        <constraint firstAttribute="bottom" secondItem="fBe-jy-5AK" secondAttribute="bottom" id="bUq-iS-JM5"/>
+                        <constraint firstItem="0ks-p9-g31" firstAttribute="top" secondItem="Eke-Qc-0TG" secondAttribute="bottom" constant="7" id="cC5-EP-9O2"/>
+                        <constraint firstItem="fBe-jy-5AK" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leading" id="ccO-77-dqN"/>
                         <constraint firstItem="0kq-7l-YWi" firstAttribute="trailing" secondItem="OGR-lR-C5v" secondAttribute="trailingMargin" id="cyp-eB-WiP"/>
                         <constraint firstItem="0ks-p9-g31" firstAttribute="leading" secondItem="1nX-sN-aGK" secondAttribute="leading" id="fDw-UO-8uD"/>
-                        <constraint firstAttribute="trailing" secondItem="Z4R-si-942" secondAttribute="trailing" id="iJp-JK-0Vx"/>
+                        <constraint firstAttribute="trailing" secondItem="fBe-jy-5AK" secondAttribute="trailing" id="k8I-16-YBf"/>
+                        <constraint firstItem="Eke-Qc-0TG" firstAttribute="top" secondItem="xG4-4e-cRn" secondAttribute="top" id="oLA-y8-Mmn"/>
                         <constraint firstItem="sob-lh-kXy" firstAttribute="leading" secondItem="mSl-BQ-DFa" secondAttribute="leading" id="odb-1a-CVZ"/>
                         <constraint firstItem="7h1-1P-dxE" firstAttribute="centerY" secondItem="0kq-7l-YWi" secondAttribute="centerY" id="r7B-kb-bX7"/>
                         <constraint firstItem="sob-lh-kXy" firstAttribute="top" secondItem="OGR-lR-C5v" secondAttribute="topMargin" constant="10" id="vLJ-v1-53B"/>
                         <constraint firstItem="Zx6-NC-P4B" firstAttribute="top" secondItem="1nX-sN-aGK" secondAttribute="bottom" constant="8" symbolic="YES" id="vMi-3B-wY3"/>
-                        <constraint firstAttribute="bottom" secondItem="Z4R-si-942" secondAttribute="bottom" id="xL6-Il-TPt"/>
                     </constraints>
                 </view>
             </subviews>
@@ -141,7 +184,10 @@
                 <outlet property="jobNameLabel" destination="mSl-BQ-DFa" id="BU5-v6-Klm"/>
                 <outlet property="jobTypeLabel" destination="1nX-sN-aGK" id="lQn-ia-Cl8"/>
                 <outlet property="locationLabel" destination="Zx6-NC-P4B" id="Kfp-xD-RFb"/>
-                <outlet property="removeCardViewButton" destination="Z4R-si-942" id="FgL-Mx-pc7"/>
+                <outlet property="offeredLabel" destination="xG4-4e-cRn" id="vQU-bN-3CU"/>
+                <outlet property="offeredNumberButton" destination="Eke-Qc-0TG" id="mWB-t6-3wr"/>
+                <outlet property="primaryButton" destination="Z4R-si-942" id="22a-W1-5jj"/>
+                <outlet property="seconaryButton" destination="v9R-EG-PSn" id="AMI-B6-eBj"/>
             </connections>
             <point key="canvasLocation" x="-124" y="-55"/>
         </view>

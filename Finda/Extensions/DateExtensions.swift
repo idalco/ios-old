@@ -11,7 +11,6 @@ import Foundation
 extension Date {
     func displayDate(timeInterval: Int, format: String) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(timeInterval))
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: date)

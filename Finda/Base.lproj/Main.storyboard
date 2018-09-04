@@ -413,7 +413,7 @@
                                     <constraint firstAttribute="height" constant="50" id="2rh-ou-Vru"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
                                     <outlet property="delegate" destination="e9j-fg-8ep" id="8Rs-Fe-lNh"/>
                                 </connections>
@@ -1926,7 +1926,116 @@ A photo of another form of government-issued identification, clearly showing you
                     <view key="view" contentMode="scaleToFill" id="00Q-xN-kZt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-fn-oAY">
+                                <rect key="frame" x="16" y="86" width="175" height="18"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-xT-MhP">
+                                <rect key="frame" x="16" y="165" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vtO-sK-YDe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="e9j-fg-8ep" id="R2g-Iq-dX5"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pt5-gQ-yvI">
+                                <rect key="frame" x="16" y="139" width="131.5" height="18"/>
+                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRX-RY-Smn">
+                                <rect key="frame" x="16" y="245" width="108.5" height="18"/>
+                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXe-oh-ZLd">
+                                <rect key="frame" x="16" y="271" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="T6N-hF-FuS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="e9j-fg-8ep" id="5yG-N6-5B1"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdG-vt-Bpw">
+                                <rect key="frame" x="16" y="377" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jl6-OM-FWe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="e9j-fg-8ep" id="oob-pO-WJP"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oJ-7V-ycx">
+                                <rect key="frame" x="16" y="351" width="172" height="18"/>
+                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-wx-NFI" customClass="DCRoundedButton" customModule="DCKit">
+                                <rect key="frame" x="16" y="507" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="w81-Vs-G6o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <state key="normal" title="CHANGE PASSWORD">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                        <color key="value" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalBorderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="updatePassword" destination="7Ag-bz-Ifx" eventType="touchUpInside" id="Pac-46-y6A"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1oJ-7V-ycx" firstAttribute="top" secondItem="SXe-oh-ZLd" secondAttribute="bottom" constant="30" id="0Xj-sB-dvg"/>
+                            <constraint firstItem="xRX-RY-Smn" firstAttribute="leading" secondItem="SXe-oh-ZLd" secondAttribute="leading" id="4tM-fp-k1l"/>
+                            <constraint firstItem="Ob1-xT-MhP" firstAttribute="top" secondItem="pt5-gQ-yvI" secondAttribute="bottom" constant="8" symbolic="YES" id="7nt-U1-hM3"/>
+                            <constraint firstItem="hQL-wx-NFI" firstAttribute="bottom" secondItem="pYG-OX-dzl" secondAttribute="bottom" constant="-17" id="8KY-2d-JNC"/>
+                            <constraint firstItem="fdG-vt-Bpw" firstAttribute="top" secondItem="1oJ-7V-ycx" secondAttribute="bottom" constant="8" symbolic="YES" id="8Ya-jR-gih"/>
+                            <constraint firstItem="SXe-oh-ZLd" firstAttribute="top" secondItem="xRX-RY-Smn" secondAttribute="bottom" constant="8" symbolic="YES" id="8fn-eR-tNJ"/>
+                            <constraint firstItem="Qh7-fn-oAY" firstAttribute="leading" secondItem="00Q-xN-kZt" secondAttribute="leadingMargin" id="C9m-Ql-fGK"/>
+                            <constraint firstItem="Ob1-xT-MhP" firstAttribute="trailing" secondItem="SXe-oh-ZLd" secondAttribute="trailing" id="GGX-Xx-VX8"/>
+                            <constraint firstItem="SXe-oh-ZLd" firstAttribute="leading" secondItem="1oJ-7V-ycx" secondAttribute="leading" id="LvZ-vK-Kpz"/>
+                            <constraint firstItem="fdG-vt-Bpw" firstAttribute="trailing" secondItem="hQL-wx-NFI" secondAttribute="trailing" id="Wxo-qx-2is"/>
+                            <constraint firstItem="1oJ-7V-ycx" firstAttribute="leading" secondItem="fdG-vt-Bpw" secondAttribute="leading" id="Yeq-Zq-Y6K"/>
+                            <constraint firstItem="fdG-vt-Bpw" firstAttribute="leading" secondItem="hQL-wx-NFI" secondAttribute="leading" id="cxQ-H0-kCQ"/>
+                            <constraint firstItem="Ob1-xT-MhP" firstAttribute="leading" secondItem="xRX-RY-Smn" secondAttribute="leading" id="gZd-Hw-7EY"/>
+                            <constraint firstItem="SXe-oh-ZLd" firstAttribute="trailing" secondItem="fdG-vt-Bpw" secondAttribute="trailing" id="h1I-sk-Yxh"/>
+                            <constraint firstItem="pt5-gQ-yvI" firstAttribute="top" secondItem="Qh7-fn-oAY" secondAttribute="bottom" constant="35" id="jKg-VG-Zeu"/>
+                            <constraint firstItem="Qh7-fn-oAY" firstAttribute="top" secondItem="pYG-OX-dzl" secondAttribute="top" constant="22" id="prQ-n7-vHc"/>
+                            <constraint firstItem="pt5-gQ-yvI" firstAttribute="leading" secondItem="Ob1-xT-MhP" secondAttribute="leading" id="qS7-dZ-DZk"/>
+                            <constraint firstItem="xRX-RY-Smn" firstAttribute="top" secondItem="Ob1-xT-MhP" secondAttribute="bottom" constant="30" id="uo9-Uc-eNX"/>
+                            <constraint firstItem="pYG-OX-dzl" firstAttribute="trailing" secondItem="hQL-wx-NFI" secondAttribute="trailing" constant="16" id="xP5-xF-Ynt"/>
+                            <constraint firstItem="hQL-wx-NFI" firstAttribute="leading" secondItem="pYG-OX-dzl" secondAttribute="leading" constant="16" id="yrE-VQ-XaH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pYG-OX-dzl"/>
                     </view>
                     <toolbarItems/>
@@ -1939,10 +2048,16 @@ A photo of another form of government-issued identification, clearly showing you
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="currentPassword" destination="Ob1-xT-MhP" id="PxG-L4-lIW"/>
+                        <outlet property="newPassword" destination="SXe-oh-ZLd" id="xJO-fh-0Pl"/>
+                        <outlet property="repeatNewPassword" destination="fdG-vt-Bpw" id="gTx-6i-2nH"/>
+                        <outlet property="updateButton" destination="hQL-wx-NFI" id="Eq6-hb-yxg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlR-0R-Qrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11705" y="2413"/>
+            <point key="canvasLocation" x="11704.799999999999" y="2412.1439280359823"/>
         </scene>
         <!--Password-->
         <scene sceneID="Scq-fO-KfV">

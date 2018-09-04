@@ -28,6 +28,7 @@ enum FindaAPI {
     case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
     case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String)
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
+    case updatePassword(oldPassword: String, newPassword: String, repeatNewPassword: String)
     case uploadPortfolioImage(image: UIImage)
     case uploadPolaroidImage(image: UIImage)
     case uploadVerificationImage(image: UIImage)
@@ -81,6 +82,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/updateProfile"
         case .updatePreferences:
             return "/updateProfile"
+        case .updatePassword:
+            return "/updateProfile"
         case .uploadPortfolioImage:
             return "/uploadPortfolio"
         case .uploadPolaroidImage:
@@ -121,7 +124,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .register, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .register, .updateDeviceToken, .updateAvatar:
             return .post
             
         // methods requiring GET
@@ -238,7 +241,13 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             
             p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-            
+        case .updatePassword(let oldPassword, let newPassword, let repeatNewPassword):
+            var parameters = [String: Any]()
+            parameters["oldpassword"] = oldPassword
+            parameters["newpassword"] = newPassword
+            parameters["confirmpassword"] = repeatNewPassword
+            p["parameters"] = parameters
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
         case .uploadPolaroidImage(let image):
             guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }

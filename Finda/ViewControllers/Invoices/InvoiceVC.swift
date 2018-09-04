@@ -69,7 +69,12 @@ extension InvoiceVC: UITableViewDelegate, UITableViewDataSource, SFSafariViewCon
         
         cell.amount.text = "£\(invoice.value)"
         cell.projectName.text = description.first
-        cell.paidOn.text = Date().displayDate(timeInterval: invoice.date_paid, format: "MMM dd, yyyy")
+        if invoice.date_paid != 0 || invoice.date_paid != 0 {
+            cell.paidOn.text = Date().displayDate(timeInterval: invoice.date_paid, format: "MMM dd, yyyy")
+        } else {
+            cell.paidOn.text = ""
+        }
+        
         cell.invoiceNumber.text = description.last
         
         cell.paid.text = invoice.transaction_id == 0 ? "UNPAID" : "PAID"
