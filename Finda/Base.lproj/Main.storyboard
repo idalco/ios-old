@@ -84,7 +84,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Oym-Em-ln9">
-                                <rect key="frame" x="101.5" y="432" width="173" height="137"/>
+                                <rect key="frame" x="101.5" y="432.5" width="173" height="137"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aJ-Q9-ib9">
                                         <rect key="frame" x="0.0" y="0.0" width="173" height="7.5"/>
@@ -546,7 +546,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81Q-JW-ZZK">
-                                                            <rect key="frame" x="16" y="12.5" width="208" height="19.5"/>
+                                                            <rect key="frame" x="16" y="13" width="208" height="19"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1122,12 +1122,22 @@
                                     <action selector="selectLeadImage" destination="RLD-8G-lXG" eventType="touchUpInside" id="DWe-B4-Oma"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1dE-df-EvK">
+                                <rect key="frame" x="157" y="303" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="H9A-Le-j50"/>
+                                    <constraint firstAttribute="width" constant="60" id="kRT-B8-JLH"/>
+                                    <constraint firstAttribute="width" secondItem="1dE-df-EvK" secondAttribute="height" multiplier="1:1" id="shW-tK-PBd"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8Kd-VR-Lce" firstAttribute="leading" secondItem="iC8-Zd-zoU" secondAttribute="leading" id="2M2-EY-TQD"/>
+                            <constraint firstItem="1dE-df-EvK" firstAttribute="centerX" secondItem="gYC-e0-EOB" secondAttribute="centerX" id="2gJ-kB-ra6"/>
                             <constraint firstItem="tij-tQ-gEp" firstAttribute="top" secondItem="iC8-Zd-zoU" secondAttribute="top" constant="126" id="4aF-Qa-rV9"/>
                             <constraint firstItem="tij-tQ-gEp" firstAttribute="leading" secondItem="iC8-Zd-zoU" secondAttribute="leading" id="Dvd-za-mwN"/>
+                            <constraint firstItem="1dE-df-EvK" firstAttribute="centerY" secondItem="gYC-e0-EOB" secondAttribute="centerY" id="J3J-KE-Len"/>
                             <constraint firstItem="1Q0-Wp-Uh3" firstAttribute="bottom" secondItem="iC8-Zd-zoU" secondAttribute="bottom" constant="-102" id="MrI-s9-3eo"/>
                             <constraint firstItem="tij-tQ-gEp" firstAttribute="trailing" secondItem="iC8-Zd-zoU" secondAttribute="trailing" id="Wv1-hi-8em"/>
                             <constraint firstItem="8Kd-VR-Lce" firstAttribute="bottom" secondItem="iC8-Zd-zoU" secondAttribute="bottom" constant="-102" id="bon-N7-egU"/>
@@ -1140,6 +1150,7 @@
                         <outlet property="deleteImageButton" destination="1Q0-Wp-Uh3" id="kdn-op-Aru"/>
                         <outlet property="image" destination="tij-tQ-gEp" id="u4E-EU-KUJ"/>
                         <outlet property="leadImageButton" destination="8Kd-VR-Lce" id="Z5G-Ca-Nkc"/>
+                        <outlet property="loadingView" destination="1dE-df-EvK" id="uWr-bA-2Ws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZZ-5w-0oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1243,7 +1254,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43Z-cE-Hwj">
-                                <rect key="frame" x="57.5" y="198" width="260" height="122"/>
+                                <rect key="frame" x="58" y="198" width="260" height="122"/>
                                 <string key="text">DISCOVERY AND BOOKING 
 PLATFORM FOR 
 MODELLING TALENT</string>
@@ -1318,7 +1329,7 @@ MODELLING TALENT</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently you have no jobs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKR-Hc-dKe">
-                                <rect key="frame" x="72" y="323.5" width="229.5" height="20.5"/>
+                                <rect key="frame" x="72" y="324" width="229.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1369,31 +1380,31 @@ MODELLING TALENT</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINDA-M5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="OFo-tx-crK">
-                                                    <rect key="frame" x="15" y="11" width="62" height="15"/>
+                                                    <rect key="frame" x="15" y="11" width="61.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Stripe test:Stripe test" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UKE-MV-MCi">
-                                                    <rect key="frame" x="15" y="54" width="125" height="15"/>
+                                                    <rect key="frame" x="15" y="52" width="125" height="17"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02 Sep, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BFI-eL-7Ym">
-                                                    <rect key="frame" x="284" y="11" width="76" height="15"/>
+                                                    <rect key="frame" x="284.5" y="11" width="75.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Rko-hn-jTG">
-                                                    <rect key="frame" x="15" y="31" width="12" height="15"/>
+                                                    <rect key="frame" x="15" y="30" width="12" height="14"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAYMENT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="DoS-TA-220">
-                                                    <rect key="frame" x="300" y="31" width="60" height="15"/>
+                                                    <rect key="frame" x="300" y="30" width="60" height="14"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1791,44 +1802,45 @@ MODELLING TALENT</string>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-o0-q2G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="525"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify your account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-7F-hLS">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-mq-eNj">
+                                        <rect key="frame" x="8" y="52" width="359" height="88"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                                        <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify your account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqk-1n-jAU">
                                         <rect key="frame" x="8" y="8" width="267" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="267" id="e50-g5-tip"/>
-                                            <constraint firstAttribute="height" constant="36" id="tYJ-XN-fup"/>
+                                            <constraint firstAttribute="width" constant="267" id="1Yv-09-Tw4"/>
+                                            <constraint firstAttribute="height" constant="36" id="9DC-vb-ImM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqY-ES-y1X">
-                                        <rect key="frame" x="8" y="52" width="359" height="72"/>
-                                        <string key="text">To make sure everyone gets the best professional experience at Finda, we verify and approve each model as well as each creative before they can access the full website.</string>
-                                        <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="BqY-ES-y1X" firstAttribute="top" secondItem="ye3-7F-hLS" secondAttribute="bottom" constant="8" symbolic="YES" id="63F-4m-g2q"/>
-                                    <constraint firstItem="ye3-7F-hLS" firstAttribute="leading" secondItem="BqY-ES-y1X" secondAttribute="leading" id="6fQ-ck-fX0"/>
-                                    <constraint firstItem="ye3-7F-hLS" firstAttribute="leading" secondItem="ogS-o0-q2G" secondAttribute="leadingMargin" id="7sq-dH-ojb"/>
-                                    <constraint firstItem="BqY-ES-y1X" firstAttribute="centerX" secondItem="ogS-o0-q2G" secondAttribute="centerX" id="FDN-Aq-CLF"/>
-                                    <constraint firstItem="BqY-ES-y1X" firstAttribute="trailing" secondItem="ogS-o0-q2G" secondAttribute="trailingMargin" id="PWx-aA-i8D"/>
-                                    <constraint firstItem="ye3-7F-hLS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="topMargin" id="Wkr-ZF-pX1"/>
-                                    <constraint firstAttribute="bottom" secondItem="BqY-ES-y1X" secondAttribute="bottom" id="f2y-iV-U9p"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gqk-1n-jAU" secondAttribute="trailing" constant="20" symbolic="YES" id="3tA-DJ-gWy"/>
+                                    <constraint firstItem="CIz-mq-eNj" firstAttribute="top" secondItem="gqk-1n-jAU" secondAttribute="bottom" constant="8" symbolic="YES" id="5Jq-0e-6ah"/>
+                                    <constraint firstItem="gqk-1n-jAU" firstAttribute="leading" secondItem="CIz-mq-eNj" secondAttribute="leading" id="Kmz-Nn-46F"/>
+                                    <constraint firstItem="CIz-mq-eNj" firstAttribute="centerX" secondItem="ogS-o0-q2G" secondAttribute="centerX" id="WCI-dk-xv2"/>
+                                    <constraint firstItem="CIz-mq-eNj" firstAttribute="leading" secondItem="ogS-o0-q2G" secondAttribute="leading" constant="8" id="jFj-aC-AC8"/>
+                                    <constraint firstItem="CIz-mq-eNj" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="top" constant="52" id="qRX-i8-pdp"/>
+                                    <constraint firstAttribute="trailing" secondItem="CIz-mq-eNj" secondAttribute="trailing" constant="8" id="tzf-Fx-BtV"/>
+                                    <constraint firstAttribute="bottom" secondItem="CIz-mq-eNj" secondAttribute="bottom" constant="8" id="xQ1-4y-SPC"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ogS-o0-q2G" secondAttribute="trailing" id="A9n-xi-G17"/>
-                            <constraint firstItem="ogS-o0-q2G" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leading" id="Ae8-Xk-ryS"/>
+                            <constraint firstItem="ogS-o0-q2G" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leading" id="47K-Yc-3ED"/>
                             <constraint firstAttribute="bottom" secondItem="WgK-Oz-MQS" secondAttribute="bottom" constant="20" symbolic="YES" id="Bwd-f0-bVe"/>
+                            <constraint firstItem="ogS-o0-q2G" firstAttribute="top" secondItem="pSv-tR-WLN" secondAttribute="top" id="JWi-ks-DO8"/>
                             <constraint firstItem="WgK-Oz-MQS" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leadingMargin" id="OEh-6A-8v1"/>
-                            <constraint firstItem="ogS-o0-q2G" firstAttribute="centerX" secondItem="WgK-Oz-MQS" secondAttribute="centerX" id="Qcb-eL-wJw"/>
-                            <constraint firstItem="ogS-o0-q2G" firstAttribute="top" secondItem="pSv-tR-WLN" secondAttribute="top" id="aZW-hw-QDS"/>
-                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="bottom" constant="8" symbolic="YES" id="gxF-wW-0bC"/>
+                            <constraint firstAttribute="trailing" secondItem="ogS-o0-q2G" secondAttribute="trailing" id="Q4h-KX-LJa"/>
+                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="bottom" constant="8" symbolic="YES" id="i5A-Wc-bk5"/>
+                            <constraint firstItem="ogS-o0-q2G" firstAttribute="centerX" secondItem="WgK-Oz-MQS" secondAttribute="centerX" id="yvN-r0-Ffv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pSv-tR-WLN"/>
                     </view>
@@ -1841,7 +1853,7 @@ MODELLING TALENT</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="paragraphOneLabel" destination="BqY-ES-y1X" id="wkf-RN-aB3"/>
+                        <outlet property="legalText" destination="CIz-mq-eNj" id="UIx-9C-2o9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2c-kJ-GU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1875,13 +1887,13 @@ MODELLING TALENT</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-fn-oAY">
-                                <rect key="frame" x="16" y="42" width="174.5" height="18"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <rect key="frame" x="16" y="42" width="197.5" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-xT-MhP">
-                                <rect key="frame" x="16" y="121" width="343" height="50"/>
+                                <rect key="frame" x="16" y="123.5" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vtO-sK-YDe"/>
@@ -1893,19 +1905,19 @@ MODELLING TALENT</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pt5-gQ-yvI">
-                                <rect key="frame" x="16" y="95" width="131.5" height="18"/>
+                                <rect key="frame" x="16" y="97.5" width="131.5" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRX-RY-Smn">
-                                <rect key="frame" x="16" y="201" width="108.5" height="18"/>
+                                <rect key="frame" x="16" y="203.5" width="108.5" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXe-oh-ZLd">
-                                <rect key="frame" x="16" y="227" width="343" height="50"/>
+                                <rect key="frame" x="16" y="229.5" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="T6N-hF-FuS"/>
@@ -1917,7 +1929,7 @@ MODELLING TALENT</string>
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdG-vt-Bpw">
-                                <rect key="frame" x="16" y="333" width="343" height="50"/>
+                                <rect key="frame" x="16" y="335.5" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jl6-OM-FWe"/>
@@ -1929,7 +1941,7 @@ MODELLING TALENT</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oJ-7V-ycx">
-                                <rect key="frame" x="16" y="307" width="172" height="18"/>
+                                <rect key="frame" x="16" y="309.5" width="172" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

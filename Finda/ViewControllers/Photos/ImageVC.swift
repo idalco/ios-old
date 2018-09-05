@@ -14,6 +14,7 @@ class ImageVC: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var leadImageButton: UIButton!
     @IBOutlet weak var deleteImageButton: UIButton!
+    @IBOutlet weak var loadingView: UIImageView!
     
     var photo: Photo?
     var photoType: ImageType?
@@ -22,7 +23,12 @@ class ImageVC: UIViewController {
         super.viewDidLoad()
         self.leadImageButton.setFAIcon(icon: .FACheck, iconSize: 20, forState: .normal)
         self.leadImageButton.isHidden = true
+        self.deleteImageButton.isHidden = true
 
+        let gifManager = SwiftyGifManager(memoryLimit:20)
+        let gif = UIImage(gifName: "loading-icon.gif")
+        self.loadingView.setGifImage(gif, manager: gifManager)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -30,27 +36,53 @@ class ImageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Blue
-//        let gif = UIImage(gifName: "loading-icon.gif")
-//        self.image = UIImageView(gifImage: gif)
-//        self.image.startAnimatingGif()
-        if let filename = photo?.filename, let url = URL(string: filename){
-            if photoType == ImageType.Portfolio {
-                self.image.af_setImage(withPortfolioSourceURL: url, imageTransition: .crossDissolve(0.2))
-            } else if photoType == ImageType.Polaroids {
-                self.image.af_setImage(withPolaroidsSourceURL: url, imageTransition: .crossDissolve(0.2))
-
+        
+        if self.image.image == nil {
+            self.makeLoadingView()
+            if let filename = photo?.filename, let url = URL(string: filename){
+                if photoType == ImageType.Portfolio {
+                    self.image.af_setImage(withPortfolioSourceURL: url, imageTransition: .crossDissolve(0.2)) { (response) in
+                        if response {
+                            self.removeLoadingView()
+                        }
+                    }
+                } else if photoType == ImageType.Polaroids {
+                    self.image.af_setImage(withPolaroidsSourceURL: url, imageTransition: .crossDissolve(0.2)) { (response) in
+                        if response {
+                            self.removeLoadingView()
+                        }
+                    }
+                }
             }
-            
         }
+        
+//        if let lead = photo?.leadimage {
+//            self.setLead(lead: lead)
+//
+//        }
+    
+    }
+    private func makeLoadingView() {
+        self.loadingView.isHidden = false
+        self.loadingView.startAnimatingGif()
+        
+        self.deleteImageButton.isHidden = true
+        self.leadImageButton.isHidden = true
+    }
+    
+    private func removeLoadingView(){
+        self.loadingView.stopAnimatingGif()
+        self.loadingView.isHidden = true
+        
+        self.deleteImageButton.isHidden = false
         if let lead = photo?.leadimage {
             self.setLead(lead: lead)
-            
         }
-    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Purple
+        self.removeLoadingView()
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,18 +12,18 @@ import SVProgressHUD
 
 class VerificationVC: UIViewController {
     
-    @IBOutlet weak var paragraphOneLabel: UILabel!
+    @IBOutlet weak var legalText: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let text: String = """
-To make sure everyone gets the best professional experience at Finda, we verify and approve each model as well as each creative before they can access the full website. \n\n We need the following details and documentation from you before you can be seen by Finda clients:
+To make sure everyone gets the best professional experience at Finda, we verify and approve each model as well as each creative before they can access the full website. \n\nWe need the following details and documentation from you before you can be seen by Finda clients:
         
 A form of your ID document is required by our payment provider Stripe, please refer to our Privacy Policy. We accept any of the following IDs: \n
-A photo of your passport, clearly showing your photograph and date of birth; or \n
-A photo of your driver's license, clearly showing your photograph and date of birth; or \n
-A photo of another form of government-issued identification, clearly showing your photograph and date of birth. \n
+• A photo of your passport, clearly showing your photograph and date of birth; or \n
+• A photo of your driver's license, clearly showing your photograph and date of birth; or \n
+• A photo of another form of government-issued identification, clearly showing your photograph and date of birth. \n
 Your country of residence and date of birth (under your Profile Details). \n
 Your Instagram handle. \n
 Your correct measurements (fill them in at ‘My details’ page). \n
@@ -34,40 +34,47 @@ Your portfolio photographs and polaroids \n
         let attributedString = NSMutableAttributedString(string: text)
 
        
-        
+        if let font = UIFont(name: "Gotham-Medium", size: 13) {
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "we verify and approve"))
+            attributedString.addAttribute(.font, value: font, range: text.range(substring: "we verify and approve"))
+            
+            
+            attributedString.addAttribute(.font, value: font, range: text.range(substring: "before you can be seen by Finda clients"))
+            
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "A form of your ID document"))
+            attributedString.addAttribute(.font, value: font, range: text.range(substring: "A form of your ID document"))
+            
+            
+            attributedString.addAttribute(.link, value: "\(domainURL)/privacy", range: text.range(substring: "Privacy Policy"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "Privacy Policy"))
+            
+            
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "country of residence and date of birth"))
+            attributedString.addAttribute(.font, value: font, range: text.range(substring: "country of residence and date of birth"))
+            
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "Instagram handle"))
+            attributedString.addAttribute(.font, value: font, range: text.range(substring: "Instagram handle"))
+            
+            
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "correct measurements"))
+            attributedString.addAttribute(.font, value: font, range: text.range(substring: "correct measurements"))
+            
+            
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "portfolio photographs and polaroids"))
+            attributedString.addAttribute(.font, value: font, range: text.range(substring: "portfolio photographs and polaroids"))
+            
+        }
     
         
-        attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "we verify and approve"))
-        attributedString.addAttribute(.font, value: UIFont(name: "Gotham-Medium", size: 15), range: text.range(substring: "we verify and approve"))
+        let linkAttributes: [String : Any] = [
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColors.Purple,
+//            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColors.Purple,
+//            NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleThick.rawValue
+        ]
         
         
-        attributedString.addAttribute(.font, value: UIFont(name: "Gotham-Medium", size: 15), range: text.range(substring: "before you can be seen by Finda clients"))
-        
-        attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "A form of your ID document"))
-        attributedString.addAttribute(.font, value: UIFont(name: "Gotham-Medium", size: 15), range: text.range(substring: "A form of your ID document"))
-        
-        
-        attributedString.addAttribute(.link, value: "\(domainURL)/privacy", range: text.range(substring: "Privacy Policy"))
-        attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "Privacy Policy"))
-        
-        
-        attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "country of residence and date of birth"))
-        attributedString.addAttribute(.font, value: UIFont(name: "Gotham-Medium", size: 15), range: text.range(substring: "country of residence and date of birth"))
-        
-        attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "Instagram handle"))
-        attributedString.addAttribute(.font, value: UIFont(name: "Gotham-Medium", size: 15), range: text.range(substring: "Instagram handle"))
-        
-        
-        attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "correct measurements"))
-        attributedString.addAttribute(.font, value: UIFont(name: "Gotham-Medium", size: 15), range: text.range(substring: "correct measurements"))
-        
-        
-        attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "portfolio photographs and polaroids"))
-        attributedString.addAttribute(.font, value: UIFont(name: "Gotham-Medium", size: 15), range: text.range(substring: "portfolio photographs and polaroids"))
-        
-        
-
-        paragraphOneLabel.attributedText = attributedString
+        legalText.linkTextAttributes = linkAttributes
+        legalText.attributedText = attributedString
         
  
 
