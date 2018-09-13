@@ -269,10 +269,10 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-wb-aaJ" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="483" width="343" height="50"/>
+                                <rect key="frame" x="80" y="483" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="aJN-wb-aaJ" secondAttribute="height" multiplier="343:50" id="7Oh-Ou-e5z"/>
+                                    <constraint firstAttribute="width" secondItem="aJN-wb-aaJ" secondAttribute="height" multiplier="343:50" constant="-93.699999999999989" id="7Oh-Ou-e5z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <state key="normal" title="LOG IN">
@@ -290,6 +290,17 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aMd-3j-aye"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBa-sh-Jt0">
+                                <rect key="frame" x="102" y="627" width="171" height="30"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <state key="normal" title="FORGOT PASSWORD?">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xWb-Ts-m9m"/>
+                                    <segue destination="6wg-6B-4XT" kind="show" id="z9H-hx-PJ8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -305,12 +316,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xAh-gm-5v7" secondAttribute="trailing" constant="16" id="JY4-BQ-wKT"/>
                             <constraint firstItem="BRt-eM-mIp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LP0-zL-gv3"/>
                             <constraint firstItem="hUK-9N-Tpt" firstAttribute="top" secondItem="RlT-2b-Dub" secondAttribute="bottom" constant="8" id="Nv7-wB-2wn"/>
+                            <constraint firstItem="uBa-sh-Jt0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PmA-QV-wJg"/>
                             <constraint firstItem="Wb8-Lc-eH5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Qei-LZ-GX2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BRt-eM-mIp" secondAttribute="trailing" constant="16" id="TIa-re-xkJ"/>
                             <constraint firstItem="xAh-gm-5v7" firstAttribute="top" secondItem="SMn-go-cwV" secondAttribute="bottom" constant="8" id="TgE-hm-zve"/>
                             <constraint firstItem="xAh-gm-5v7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Xcj-gx-LWq"/>
-                            <constraint firstItem="aJN-wb-aaJ" firstAttribute="leading" secondItem="hUK-9N-Tpt" secondAttribute="leading" id="nTz-N1-s9u"/>
-                            <constraint firstItem="aJN-wb-aaJ" firstAttribute="trailing" secondItem="hUK-9N-Tpt" secondAttribute="trailing" id="nYY-cQ-uSK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uBa-sh-Jt0" secondAttribute="bottom" constant="10" id="hgH-zh-bNL"/>
+                            <constraint firstItem="aJN-wb-aaJ" firstAttribute="leading" secondItem="hUK-9N-Tpt" secondAttribute="leading" constant="64" id="nTz-N1-s9u"/>
+                            <constraint firstItem="aJN-wb-aaJ" firstAttribute="trailing" secondItem="hUK-9N-Tpt" secondAttribute="trailing" constant="-64" id="nYY-cQ-uSK"/>
                             <constraint firstItem="SMn-go-cwV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oqS-fP-48t"/>
                             <constraint firstItem="aJN-wb-aaJ" firstAttribute="top" secondItem="hUK-9N-Tpt" secondAttribute="bottom" constant="49" id="uee-es-ZbL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hUK-9N-Tpt" secondAttribute="trailing" constant="16" id="v9S-nj-2cf"/>
@@ -327,7 +340,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="xAh-gm-5v7" id="q6o-gO-MWa"/>
-                        <outlet property="findaImageView" destination="Wb8-Lc-eH5" id="IsC-4l-cOZ"/>
                         <outlet property="passwordTextField" destination="hUK-9N-Tpt" id="N0V-Ub-bEJ"/>
                         <segue destination="wFZ-U0-kSb" kind="presentation" identifier="loginSegue" id="tCZ-2f-hRy"/>
                         <segue destination="iVU-M3-p8Y" kind="presentation" identifier="editProfileSegue" id="6NG-ZO-dEa"/>
@@ -440,10 +452,10 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Ag-hbt" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <rect key="frame" x="80" y="602" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="rsy-XJ-bVr"/>
+                                    <constraint firstAttribute="height" constant="45" id="rsy-XJ-bVr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <state key="normal" title="SAVE">
@@ -477,7 +489,7 @@
                             <constraint firstItem="02T-jT-p8t" firstAttribute="top" secondItem="eqk-d9-LWG" secondAttribute="bottom" constant="19" id="RKF-9G-YBJ"/>
                             <constraint firstItem="SGT-Hf-t4f" firstAttribute="top" secondItem="p3y-sA-T0b" secondAttribute="bottom" constant="30" id="RYP-Tj-KKg"/>
                             <constraint firstItem="Zdx-5z-FWI" firstAttribute="top" secondItem="Ly7-Kp-kmd" secondAttribute="top" constant="22" id="SGY-Ic-msv"/>
-                            <constraint firstItem="7R1-GY-xgk" firstAttribute="leading" secondItem="XbN-Ag-hbt" secondAttribute="leading" id="Sw0-yW-OYb"/>
+                            <constraint firstItem="7R1-GY-xgk" firstAttribute="leading" secondItem="XbN-Ag-hbt" secondAttribute="leading" constant="-64" id="Sw0-yW-OYb"/>
                             <constraint firstItem="02T-jT-p8t" firstAttribute="leading" secondItem="mYr-6c-edV" secondAttribute="leading" id="TIg-hP-iOT"/>
                             <constraint firstItem="eqk-d9-LWG" firstAttribute="trailing" secondItem="mYr-6c-edV" secondAttribute="trailing" id="Vpd-65-gho"/>
                             <constraint firstItem="eqk-d9-LWG" firstAttribute="leading" secondItem="02T-jT-p8t" secondAttribute="leading" id="aUd-bj-JWs"/>
@@ -490,7 +502,7 @@
                             <constraint firstItem="eqk-d9-LWG" firstAttribute="trailing" secondItem="YOb-Qi-o2n" secondAttribute="trailingMargin" id="l9j-Ae-Ai9"/>
                             <constraint firstItem="mYr-6c-edV" firstAttribute="top" secondItem="02T-jT-p8t" secondAttribute="bottom" constant="8" symbolic="YES" id="qCo-t0-ELx"/>
                             <constraint firstAttribute="bottom" secondItem="XbN-Ag-hbt" secondAttribute="bottom" constant="20" symbolic="YES" id="rah-yJ-Ltl"/>
-                            <constraint firstItem="7R1-GY-xgk" firstAttribute="trailing" secondItem="XbN-Ag-hbt" secondAttribute="trailing" id="yzY-yf-n1w"/>
+                            <constraint firstItem="7R1-GY-xgk" firstAttribute="trailing" secondItem="XbN-Ag-hbt" secondAttribute="trailing" constant="64" id="yzY-yf-n1w"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zdx-5z-FWI" secondAttribute="trailingMargin" id="zgQ-4H-ndM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ly7-Kp-kmd"/>
@@ -888,7 +900,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lbo-Hi-h4g" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xQ9-uE-4nD"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GIj-WV-QuX" customClass="NavBar" customModule="Finda" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GIj-WV-QuX" customClass="RegistrationNavBar" customModule="Finda" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -977,22 +989,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-Fs-ko0" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="83" y="552" width="208" height="45"/>
-                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="qxb-Fs-ko0" secondAttribute="height" multiplier="172:45" constant="36" id="Rcc-e2-7VX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
-                                <state key="normal" title="ADD NEW PHOTO">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addImage:" destination="vU6-Ps-W9A" eventType="touchUpInside" id="W2s-VG-Hns"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cO4-JF-FHX">
-                                <rect key="frame" x="8" y="20" width="358" height="524"/>
+                                <rect key="frame" x="8" y="20" width="358" height="523.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A7D-cJ-LgT">
                                     <size key="itemSize" width="100" height="100"/>
@@ -1055,14 +1053,28 @@
                                     <outlet property="delegate" destination="vU6-Ps-W9A" id="cnV-VZ-U4I"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-Fs-ko0" customClass="DCRoundedButton" customModule="DCKit">
+                                <rect key="frame" x="80" y="551" width="215" height="45"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qxb-Fs-ko0" secondAttribute="height" multiplier="172:45" constant="43" id="Rcc-e2-7VX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <state key="normal" title="ADD NEW PHOTO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addImage:" destination="vU6-Ps-W9A" eventType="touchUpInside" id="W2s-VG-Hns"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cO4-JF-FHX" firstAttribute="leading" secondItem="lhy-hj-vN4" secondAttribute="leading" constant="8" id="53V-YK-8di"/>
                             <constraint firstItem="qxb-Fs-ko0" firstAttribute="top" secondItem="cO4-JF-FHX" secondAttribute="bottom" constant="8" id="6gX-xl-GWD"/>
-                            <constraint firstItem="qxb-Fs-ko0" firstAttribute="leading" secondItem="lhy-hj-vN4" secondAttribute="leading" constant="83" id="L7w-X0-c26"/>
+                            <constraint firstItem="qxb-Fs-ko0" firstAttribute="leading" secondItem="lhy-hj-vN4" secondAttribute="leading" constant="80" id="L7w-X0-c26"/>
                             <constraint firstItem="cO4-JF-FHX" firstAttribute="top" secondItem="lhy-hj-vN4" secondAttribute="top" id="OYS-Mm-E7A"/>
-                            <constraint firstItem="lhy-hj-vN4" firstAttribute="bottom" secondItem="qxb-Fs-ko0" secondAttribute="bottom" constant="26" id="bau-OK-bb9"/>
+                            <constraint firstItem="lhy-hj-vN4" firstAttribute="bottom" secondItem="qxb-Fs-ko0" secondAttribute="bottom" constant="27" id="bau-OK-bb9"/>
                             <constraint firstItem="lhy-hj-vN4" firstAttribute="trailing" secondItem="cO4-JF-FHX" secondAttribute="trailing" constant="9" id="ctt-9J-khi"/>
                             <constraint firstItem="qxb-Fs-ko0" firstAttribute="centerX" secondItem="Rly-u8-WDw" secondAttribute="centerX" id="fOX-fJ-C9i"/>
                         </constraints>
@@ -1233,6 +1245,15 @@
                                     <segue destination="wZT-Ln-LSg" kind="presentation" id="hF2-Lz-mh8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43Z-cE-Hwj">
+                                <rect key="frame" x="58" y="198" width="260" height="122"/>
+                                <string key="text">DISCOVERY AND BOOKING 
+PLATFORM FOR 
+MODELLING TALENT</string>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vl7-L6-Sp1">
                                 <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1253,15 +1274,6 @@
                                     <constraint firstAttribute="width" secondItem="Ns8-OM-VXK" secondAttribute="height" multiplier="343:122" id="a0E-cy-ffS"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43Z-cE-Hwj">
-                                <rect key="frame" x="58" y="198" width="260" height="122"/>
-                                <string key="text">DISCOVERY AND BOOKING 
-PLATFORM FOR 
-MODELLING TALENT</string>
-                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1303,7 +1315,7 @@ MODELLING TALENT</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wZT-Ln-LSg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="37x-Yu-Dr6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="37x-Yu-Dr6" customClass="NavBar" customModule="Finda" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1561,10 +1573,10 @@ MODELLING TALENT</string>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mln-We-f0c" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <rect key="frame" x="80" y="602" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="oTA-of-1O7"/>
+                                    <constraint firstAttribute="height" constant="45" id="oTA-of-1O7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <state key="normal" title="SEND INVITE">
@@ -1595,7 +1607,7 @@ MODELLING TALENT</string>
                             <constraint firstItem="i1y-uy-4i5" firstAttribute="top" secondItem="KXh-nP-ZoJ" secondAttribute="bottom" constant="8" id="GsH-31-wn2"/>
                             <constraint firstItem="1ym-VK-sdf" firstAttribute="top" secondItem="qaw-Hv-rcR" secondAttribute="bottom" constant="8" id="Kib-5F-dHN"/>
                             <constraint firstItem="1ym-VK-sdf" firstAttribute="trailing" secondItem="CVv-8u-iSe" secondAttribute="trailing" id="LMy-Fo-hry"/>
-                            <constraint firstItem="uni-Fw-rQ9" firstAttribute="leading" secondItem="Mln-We-f0c" secondAttribute="leading" id="Lsq-0Y-dzt"/>
+                            <constraint firstItem="uni-Fw-rQ9" firstAttribute="leading" secondItem="Mln-We-f0c" secondAttribute="leading" constant="-64" id="Lsq-0Y-dzt"/>
                             <constraint firstItem="yIH-6L-FRu" firstAttribute="top" secondItem="i1y-uy-4i5" secondAttribute="bottom" constant="18" id="Nyk-9N-i4w"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KXh-nP-ZoJ" secondAttribute="trailing" constant="20" symbolic="YES" id="PcL-2s-FwX"/>
                             <constraint firstItem="qaw-Hv-rcR" firstAttribute="top" secondItem="yIH-6L-FRu" secondAttribute="bottom" constant="25" id="Q5H-2D-EYk"/>
@@ -1608,7 +1620,7 @@ MODELLING TALENT</string>
                             <constraint firstItem="KXh-nP-ZoJ" firstAttribute="top" secondItem="gn7-wc-oiX" secondAttribute="top" constant="27" id="nQi-AQ-FVH"/>
                             <constraint firstItem="i1y-uy-4i5" firstAttribute="leading" secondItem="yIH-6L-FRu" secondAttribute="leading" id="nho-BL-Cxk"/>
                             <constraint firstItem="gn7-wc-oiX" firstAttribute="bottom" secondItem="Mln-We-f0c" secondAttribute="bottom" constant="20" id="uuw-gm-gYp"/>
-                            <constraint firstItem="uni-Fw-rQ9" firstAttribute="trailing" secondItem="Mln-We-f0c" secondAttribute="trailing" id="wAX-mH-Un1"/>
+                            <constraint firstItem="uni-Fw-rQ9" firstAttribute="trailing" secondItem="Mln-We-f0c" secondAttribute="trailing" constant="64" id="wAX-mH-Un1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gn7-wc-oiX"/>
                     </view>
@@ -1657,10 +1669,10 @@ MODELLING TALENT</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-xj-WAx" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="83" y="552" width="208" height="45"/>
+                                <rect key="frame" x="80" y="551" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="bDk-xj-WAx" secondAttribute="height" multiplier="172:45" constant="36" id="oqM-oq-JSw"/>
+                                    <constraint firstAttribute="width" secondItem="bDk-xj-WAx" secondAttribute="height" multiplier="172:45" constant="43" id="oqM-oq-JSw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <state key="normal" title="ADD NEW PHOTO">
@@ -1671,7 +1683,7 @@ MODELLING TALENT</string>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tcV-tg-e1X">
-                                <rect key="frame" x="8" y="20" width="358" height="524"/>
+                                <rect key="frame" x="8" y="20" width="358" height="523.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EDI-6D-fQi">
                                     <size key="itemSize" width="100" height="100"/>
@@ -1724,9 +1736,9 @@ MODELLING TALENT</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tcV-tg-e1X" firstAttribute="leading" secondItem="9JW-jY-4Mc" secondAttribute="leading" constant="8" id="2rU-i9-Jhc"/>
-                            <constraint firstItem="9JW-jY-4Mc" firstAttribute="bottom" secondItem="bDk-xj-WAx" secondAttribute="bottom" constant="26" id="Cxd-YT-aGz"/>
+                            <constraint firstItem="9JW-jY-4Mc" firstAttribute="bottom" secondItem="bDk-xj-WAx" secondAttribute="bottom" constant="27" id="Cxd-YT-aGz"/>
                             <constraint firstItem="bDk-xj-WAx" firstAttribute="top" secondItem="tcV-tg-e1X" secondAttribute="bottom" constant="8" id="FJ5-cg-0CZ"/>
-                            <constraint firstItem="bDk-xj-WAx" firstAttribute="leading" secondItem="9JW-jY-4Mc" secondAttribute="leading" constant="83" id="Nle-EJ-sJv"/>
+                            <constraint firstItem="bDk-xj-WAx" firstAttribute="leading" secondItem="9JW-jY-4Mc" secondAttribute="leading" constant="80" id="Nle-EJ-sJv"/>
                             <constraint firstItem="9JW-jY-4Mc" firstAttribute="trailing" secondItem="tcV-tg-e1X" secondAttribute="trailing" constant="9" id="VgO-fm-ZYv"/>
                             <constraint firstItem="tcV-tg-e1X" firstAttribute="top" secondItem="9JW-jY-4Mc" secondAttribute="top" id="tcK-jV-P6q"/>
                             <constraint firstItem="bDk-xj-WAx" firstAttribute="centerX" secondItem="62W-ck-c32" secondAttribute="centerX" id="ydt-Zg-kZk"/>
@@ -1776,29 +1788,6 @@ MODELLING TALENT</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Oz-MQS" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="597" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MMY-Bk-f0d"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
-                                <state key="normal" title="UPLOAD DOCUMENT">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
-                                        <color key="value" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="submit:" destination="uVa-lm-29Q" eventType="touchUpInside" id="aVe-Fc-i9w"/>
-                                    <action selector="uploadImage" destination="v6g-ya-NlK" eventType="touchUpInside" id="YH8-bM-3mv"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-o0-q2G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="525"/>
                                 <subviews>
@@ -1828,18 +1817,41 @@ MODELLING TALENT</string>
                                     <constraint firstItem="CIz-mq-eNj" firstAttribute="leading" secondItem="ogS-o0-q2G" secondAttribute="leading" constant="8" id="jFj-aC-AC8"/>
                                     <constraint firstItem="CIz-mq-eNj" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="top" constant="52" id="qRX-i8-pdp"/>
                                     <constraint firstAttribute="trailing" secondItem="CIz-mq-eNj" secondAttribute="trailing" constant="8" id="tzf-Fx-BtV"/>
-                                    <constraint firstAttribute="bottom" secondItem="CIz-mq-eNj" secondAttribute="bottom" constant="8" id="xQ1-4y-SPC"/>
+                                    <constraint firstAttribute="bottom" secondItem="CIz-mq-eNj" secondAttribute="bottom" constant="385" id="xQ1-4y-SPC"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Oz-MQS" customClass="DCRoundedButton" customModule="DCKit">
+                                <rect key="frame" x="80" y="602" width="215" height="45"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="MMY-Bk-f0d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <state key="normal" title="UPLOAD DOCUMENT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                        <color key="value" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submit:" destination="uVa-lm-29Q" eventType="touchUpInside" id="aVe-Fc-i9w"/>
+                                    <action selector="uploadImage" destination="v6g-ya-NlK" eventType="touchUpInside" id="YH8-bM-3mv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ogS-o0-q2G" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leading" id="47K-Yc-3ED"/>
                             <constraint firstAttribute="bottom" secondItem="WgK-Oz-MQS" secondAttribute="bottom" constant="20" symbolic="YES" id="Bwd-f0-bVe"/>
+                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="leading" relation="lessThanOrEqual" secondItem="pSv-tR-WLN" secondAttribute="leading" constant="80" id="Fk7-Ld-3pJ"/>
                             <constraint firstItem="ogS-o0-q2G" firstAttribute="top" secondItem="pSv-tR-WLN" secondAttribute="top" id="JWi-ks-DO8"/>
-                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leadingMargin" id="OEh-6A-8v1"/>
                             <constraint firstAttribute="trailing" secondItem="ogS-o0-q2G" secondAttribute="trailing" id="Q4h-KX-LJa"/>
-                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="bottom" constant="8" symbolic="YES" id="i5A-Wc-bk5"/>
+                            <constraint firstItem="WgK-Oz-MQS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="bottom" constant="13" id="i5A-Wc-bk5"/>
                             <constraint firstItem="ogS-o0-q2G" firstAttribute="centerX" secondItem="WgK-Oz-MQS" secondAttribute="centerX" id="yvN-r0-Ffv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pSv-tR-WLN"/>
@@ -1886,8 +1898,8 @@ MODELLING TALENT</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-fn-oAY">
-                                <rect key="frame" x="16" y="42" width="197.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change your Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-fn-oAY">
+                                <rect key="frame" x="16" y="42" width="195.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1947,10 +1959,10 @@ MODELLING TALENT</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-wx-NFI" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="16" y="556" width="343" height="50"/>
+                                <rect key="frame" x="80" y="561" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="w81-Vs-G6o"/>
+                                    <constraint firstAttribute="height" constant="45" id="w81-Vs-G6o"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <state key="normal" title="CHANGE PASSWORD">
@@ -1983,17 +1995,17 @@ MODELLING TALENT</string>
                             <constraint firstItem="Qh7-fn-oAY" firstAttribute="leading" secondItem="00Q-xN-kZt" secondAttribute="leadingMargin" id="C9m-Ql-fGK"/>
                             <constraint firstItem="Ob1-xT-MhP" firstAttribute="trailing" secondItem="SXe-oh-ZLd" secondAttribute="trailing" id="GGX-Xx-VX8"/>
                             <constraint firstItem="SXe-oh-ZLd" firstAttribute="leading" secondItem="1oJ-7V-ycx" secondAttribute="leading" id="LvZ-vK-Kpz"/>
-                            <constraint firstItem="fdG-vt-Bpw" firstAttribute="trailing" secondItem="hQL-wx-NFI" secondAttribute="trailing" id="Wxo-qx-2is"/>
+                            <constraint firstItem="fdG-vt-Bpw" firstAttribute="trailing" secondItem="hQL-wx-NFI" secondAttribute="trailing" constant="64" id="Wxo-qx-2is"/>
                             <constraint firstItem="1oJ-7V-ycx" firstAttribute="leading" secondItem="fdG-vt-Bpw" secondAttribute="leading" id="Yeq-Zq-Y6K"/>
-                            <constraint firstItem="fdG-vt-Bpw" firstAttribute="leading" secondItem="hQL-wx-NFI" secondAttribute="leading" id="cxQ-H0-kCQ"/>
+                            <constraint firstItem="fdG-vt-Bpw" firstAttribute="leading" secondItem="hQL-wx-NFI" secondAttribute="leading" constant="-64" id="cxQ-H0-kCQ"/>
                             <constraint firstItem="Ob1-xT-MhP" firstAttribute="leading" secondItem="xRX-RY-Smn" secondAttribute="leading" id="gZd-Hw-7EY"/>
                             <constraint firstItem="SXe-oh-ZLd" firstAttribute="trailing" secondItem="fdG-vt-Bpw" secondAttribute="trailing" id="h1I-sk-Yxh"/>
                             <constraint firstItem="pt5-gQ-yvI" firstAttribute="top" secondItem="Qh7-fn-oAY" secondAttribute="bottom" constant="35" id="jKg-VG-Zeu"/>
                             <constraint firstItem="Qh7-fn-oAY" firstAttribute="top" secondItem="pYG-OX-dzl" secondAttribute="top" constant="22" id="prQ-n7-vHc"/>
                             <constraint firstItem="pt5-gQ-yvI" firstAttribute="leading" secondItem="Ob1-xT-MhP" secondAttribute="leading" id="qS7-dZ-DZk"/>
                             <constraint firstItem="xRX-RY-Smn" firstAttribute="top" secondItem="Ob1-xT-MhP" secondAttribute="bottom" constant="30" id="uo9-Uc-eNX"/>
-                            <constraint firstItem="pYG-OX-dzl" firstAttribute="trailing" secondItem="hQL-wx-NFI" secondAttribute="trailing" constant="16" id="xP5-xF-Ynt"/>
-                            <constraint firstItem="hQL-wx-NFI" firstAttribute="leading" secondItem="pYG-OX-dzl" secondAttribute="leading" constant="16" id="yrE-VQ-XaH"/>
+                            <constraint firstItem="pYG-OX-dzl" firstAttribute="trailing" secondItem="hQL-wx-NFI" secondAttribute="trailing" constant="80" id="xP5-xF-Ynt"/>
+                            <constraint firstItem="hQL-wx-NFI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="pYG-OX-dzl" secondAttribute="leading" constant="80" id="yrE-VQ-XaH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pYG-OX-dzl"/>
                     </view>
@@ -2061,6 +2073,96 @@ MODELLING TALENT</string>
             </objects>
             <point key="canvasLocation" x="9784.7999999999993" y="842.42878560719646"/>
         </scene>
+        <!--Forgot PasswordVC-->
+        <scene sceneID="I1o-aU-FcS">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPassword" id="6wg-6B-4XT" customClass="ForgotPasswordVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H3B-t0-ili">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FindaLogoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Pq3-3f-Foc">
+                                <rect key="frame" x="16" y="89" width="343" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pq3-3f-Foc" secondAttribute="height" multiplier="343:89" id="KuT-Sd-23b"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT YOUR PASSWORD?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkm-f9-60I">
+                                <rect key="frame" x="16" y="186" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLc-hb-h3e">
+                                <rect key="frame" x="16" y="253" width="343" height="18"/>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iXb-9l-u1t">
+                                <rect key="frame" x="16" y="279" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hYa-WC-6DT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="emailTextFieldChange:" destination="6wg-6B-4XT" eventType="editingChanged" id="Fuz-Dj-yiZ"/>
+                                    <outlet property="delegate" destination="6wg-6B-4XT" id="xBg-IH-Lxg"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ9-U1-ksR" customClass="DCRoundedButton" customModule="DCKit">
+                                <rect key="frame" x="80" y="483" width="215" height="45"/>
+                                <color key="backgroundColor" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aQ9-U1-ksR" secondAttribute="height" multiplier="343:50" constant="-93.699999999999989" id="ueL-Gj-TIC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <state key="normal" title="RECOVER">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                        <color key="value" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="recover:" destination="6wg-6B-4XT" eventType="touchUpInside" id="AfB-EC-tgM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Q6P-jK-Mi3" firstAttribute="trailing" secondItem="dLc-hb-h3e" secondAttribute="trailing" constant="16" id="0Rc-d4-SXc"/>
+                            <constraint firstItem="Pq3-3f-Foc" firstAttribute="leading" secondItem="Q6P-jK-Mi3" secondAttribute="leading" constant="16" id="4oh-u7-eK6"/>
+                            <constraint firstItem="fkm-f9-60I" firstAttribute="top" secondItem="Pq3-3f-Foc" secondAttribute="bottom" constant="8" id="6qM-Cm-L68"/>
+                            <constraint firstItem="Q6P-jK-Mi3" firstAttribute="trailing" secondItem="fkm-f9-60I" secondAttribute="trailing" constant="16" id="Ake-Zc-gpc"/>
+                            <constraint firstItem="fkm-f9-60I" firstAttribute="leading" secondItem="Q6P-jK-Mi3" secondAttribute="leading" constant="16" id="Hmf-rP-k1M"/>
+                            <constraint firstItem="iXb-9l-u1t" firstAttribute="top" secondItem="dLc-hb-h3e" secondAttribute="bottom" constant="8" id="N1x-oN-ycd"/>
+                            <constraint firstItem="aQ9-U1-ksR" firstAttribute="top" secondItem="Q6P-jK-Mi3" secondAttribute="top" constant="419" id="Nwl-xM-G7Y"/>
+                            <constraint firstItem="aQ9-U1-ksR" firstAttribute="leading" secondItem="Q6P-jK-Mi3" secondAttribute="leading" constant="80" id="Q9z-bL-piK"/>
+                            <constraint firstItem="Pq3-3f-Foc" firstAttribute="top" secondItem="Q6P-jK-Mi3" secondAttribute="top" constant="25" id="VEf-ms-MO9"/>
+                            <constraint firstItem="Q6P-jK-Mi3" firstAttribute="trailing" secondItem="Pq3-3f-Foc" secondAttribute="trailing" constant="16" id="WXl-pP-3MI"/>
+                            <constraint firstItem="dLc-hb-h3e" firstAttribute="top" secondItem="fkm-f9-60I" secondAttribute="bottom" constant="46" id="Xho-dg-eVy"/>
+                            <constraint firstItem="Q6P-jK-Mi3" firstAttribute="trailing" secondItem="aQ9-U1-ksR" secondAttribute="trailing" constant="80" id="cHW-Q6-pfQ"/>
+                            <constraint firstItem="iXb-9l-u1t" firstAttribute="leading" secondItem="Q6P-jK-Mi3" secondAttribute="leading" constant="16" id="f0y-MV-cae"/>
+                            <constraint firstItem="aQ9-U1-ksR" firstAttribute="leading" secondItem="Q6P-jK-Mi3" secondAttribute="leading" constant="80" id="iii-CB-kNv"/>
+                            <constraint firstItem="Q6P-jK-Mi3" firstAttribute="trailing" secondItem="iXb-9l-u1t" secondAttribute="trailing" constant="16" id="q6I-F8-Lyq"/>
+                            <constraint firstItem="dLc-hb-h3e" firstAttribute="leading" secondItem="Q6P-jK-Mi3" secondAttribute="leading" constant="16" id="qZM-3m-uAc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q6P-jK-Mi3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Emx-Ry-vFA"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="iXb-9l-u1t" id="Lwp-lU-U93"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DHS-EN-rJj" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2524" y="-564"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FindaLogoBlack" width="421" height="297"/>
@@ -2075,8 +2177,8 @@ MODELLING TALENT</string>
         <image name="trash" width="315" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d3j-YQ-dha"/>
+        <segue reference="6NG-ZO-dEa"/>
         <segue reference="ymn-Qg-Ayd"/>
-        <segue reference="fFA-jU-UWP"/>
+        <segue reference="tCZ-2f-hRy"/>
     </inferredMetricsTieBreakers>
 </document>

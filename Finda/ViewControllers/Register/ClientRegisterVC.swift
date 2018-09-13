@@ -58,7 +58,7 @@ class ClientRegisterVC: FormViewController {
                 view.backgroundColor = UIColor.FindaColors.White
                 let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:40))
                 
-                title.text = "I'M A CLIENT"
+                title.text = "FIND A MODEL"
                 title.font = UIFont(name: "Gotham-Medium", size: 17)
                 view.addSubview(title)
             }
@@ -257,8 +257,15 @@ class ClientRegisterVC: FormViewController {
             
             RegisterManager.client(mail: companyEmail, pass: password, firstname: firstName, lastname: lastname, telephone: telephone, occupation: position, company_name: companyName, company_website: companyWebsite, country: country) { (response, result) in
                 if(response){
-                    self.performSegue(withIdentifier: "finishSegue", sender: nil)
-                    print("Registered Successful")
+                    let alert = UIAlertController(title: "Finda", message: "Thanks for registering at Finda! At the moment this mobile app is available only for models. Please use your mobile or desktop browsers to access our platform.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+                        self.performSegue(withIdentifier: "finishSegue", sender: nil)
+                    }))
+                    
+                    self.present(alert, animated: true)
+                    
+                    
+                    
                 }
             }
         }

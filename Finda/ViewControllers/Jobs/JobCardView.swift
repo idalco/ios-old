@@ -1,5 +1,6 @@
 
 import UIKit
+import DCKit
 
 class JobCardView: CardView {
 
@@ -79,13 +80,13 @@ class JobCardView: CardView {
     }
     
     
-    @IBOutlet weak var primaryButton: UIButton!
+    @IBOutlet weak var primaryButton: DCRoundedButton!
     @IBAction func primaryButtonFunc(_ sender: Any) {
         
     }
         
         
-    @IBOutlet weak var seconaryButton: UIButton!
+    @IBOutlet weak var seconaryButton: DCRoundedButton!
     @IBAction func seconaryButtonFunc(_ sender: Any) {
         
     }
@@ -96,11 +97,23 @@ class JobCardView: CardView {
         contentView.layer.cornerRadius  = 10
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 2
-        contentView.layer.borderColor = UIColor.FindaColors.Purple.cgColor
+        contentView.layer.borderColor = UIColor.FindaColors.DarkYellow.cgColor
         //UIColor.FindaColors.Purple.fade(alpha: 0.2).cgColor
         
         offeredNumberButton.isHidden = true
+        offeredNumberButton.isEnabled = false
+        offeredNumberButton.layer.borderColor = UIColor.FindaColors.BorderGrey.cgColor
+        offeredNumberButton.layer.borderWidth = 2
+        offeredNumberButton.layer.cornerRadius = 5
+        
         offeredLabel.isHidden = true
+        
+        primaryButton.normalBackgroundColor = UIColor.FindaColors.Purple
+        primaryButton.normalTextColor = UIColor.FindaColors.White
+        
+        seconaryButton.normalBackgroundColor = UIColor.FindaColors.Black
+        seconaryButton.normalTextColor = UIColor.FindaColors.White
+
         
         presentedDidUpdate()
         
@@ -110,8 +123,8 @@ class JobCardView: CardView {
     
     func presentedDidUpdate() {
         
-        primaryButton.isHidden = !presented
-        seconaryButton.isHidden = !presented
+//        primaryButton.isHidden = !presented
+//        seconaryButton.isHidden = !presented
         contentView.backgroundColor = presented ? presentedCardViewColor: depresentedCardViewColor
         contentView.addTransitionFade()
         

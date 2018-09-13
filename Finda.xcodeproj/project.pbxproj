@@ -58,6 +58,8 @@
 		0CCB63AC213EBCF3007CB107 /* loading-icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB63AB213EBCF3007CB107 /* loading-icon.gif */; };
 		0CCB63AE213EC59E007CB107 /* JobStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63AD213EC59E007CB107 /* JobStatus.swift */; };
 		0CCB63B0213ECEEC007CB107 /* SettingsTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63AF213ECEEC007CB107 /* SettingsTabVC.swift */; };
+		0CCB63B221444BDB007CB107 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63B121444BDB007CB107 /* ForgotPasswordVC.swift */; };
+		0CCB63B4214837DC007CB107 /* RegistrationNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB63B3214837DC007CB107 /* RegistrationNavBar.swift */; };
 		0CCF22B82107390800612D5B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22B62107390800612D5B /* LoginVC.swift */; };
 		0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22BF210896AE00612D5B /* FindaAPI.swift */; };
 		0CCF22CB21089A8D00612D5B /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */; };
@@ -188,6 +190,8 @@
 		0CCB63AB213EBCF3007CB107 /* loading-icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-icon.gif"; sourceTree = "<group>"; };
 		0CCB63AD213EC59E007CB107 /* JobStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatus.swift; sourceTree = "<group>"; };
 		0CCB63AF213ECEEC007CB107 /* SettingsTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabVC.swift; sourceTree = "<group>"; };
+		0CCB63B121444BDB007CB107 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		0CCB63B3214837DC007CB107 /* RegistrationNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNavBar.swift; sourceTree = "<group>"; };
 		0CCF22B62107390800612D5B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0CCF22BF210896AE00612D5B /* FindaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindaAPI.swift; sourceTree = "<group>"; };
 		0CCF22C221089A8C00612D5B /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 			children = (
 				0C78FA272119D3130059C0E7 /* WelcomeVC.swift */,
 				0CCF22B62107390800612D5B /* LoginVC.swift */,
+				0CCB63B121444BDB007CB107 /* ForgotPasswordVC.swift */,
 				0C1C8576212ABDF000586326 /* PaymentVC.swift */,
 				0CCB63A7213D412C007CB107 /* VerificationVC.swift */,
 				0CCB63A4213C3C2B007CB107 /* Invoices */,
@@ -536,6 +541,7 @@
 				0CEBCB7C21072C31004CC4D8 /* Media.xcassets */,
 				0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */,
 				0CCF2354210DFD3D00612D5B /* NavBar.swift */,
+				0CCB63B3214837DC007CB107 /* RegistrationNavBar.swift */,
 				0CCF2352210DE56B00612D5B /* PickerDelegate.swift */,
 				0CCF2338210A7F1000612D5B /* Extensions */,
 				0CCF23062109BD1100612D5B /* Resource */,
@@ -857,6 +863,7 @@
 				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,
+				0CCB63B4214837DC007CB107 /* RegistrationNavBar.swift in Sources */,
 				0C4ADA7E21122BFA002C3EA3 /* DateExtensions.swift in Sources */,
 				0C4ADA742110A450002C3EA3 /* UserStatus.swift in Sources */,
 				0CCF23022108E7B500612D5B /* CoreDataManager.swift in Sources */,
@@ -864,6 +871,7 @@
 				0CCF2353210DE56B00612D5B /* PickerDelegate.swift in Sources */,
 				0CCB63AE213EC59E007CB107 /* JobStatus.swift in Sources */,
 				0CCB63A6213C3C41007CB107 /* InvoiceTVC.swift in Sources */,
+				0CCB63B221444BDB007CB107 /* ForgotPasswordVC.swift in Sources */,
 				0CCF235E210E4FCC00612D5B /* RegisterOptionVC.swift in Sources */,
 				0C78FA5B212362FE0059C0E7 /* ImageType.swift in Sources */,
 				0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */,

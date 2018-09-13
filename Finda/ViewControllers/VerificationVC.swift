@@ -34,7 +34,7 @@ Your portfolio photographs and polaroids \n
         let attributedString = NSMutableAttributedString(string: text)
 
        
-        if let font = UIFont(name: "Gotham-Medium", size: 13) {
+        if let font = UIFont(name: "Gotham-Medium", size: 12) {
             attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "we verify and approve"))
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "we verify and approve"))
             

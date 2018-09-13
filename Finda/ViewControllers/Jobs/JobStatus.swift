@@ -35,6 +35,7 @@ import Foundation
 enum JobStatus: String {
 
     case Offered = "OFFERED"
+    case Optioned = "OPTIONED"
     case Accepted = "ACCEPTED"
     case Unfinalised = "UNFINALISED"
     case Completed = "COMPLETED"

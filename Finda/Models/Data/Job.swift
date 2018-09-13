@@ -13,8 +13,8 @@ import Alamofire
 class Job {
     let clientUid, projectTid, created, modified: Int
     let jobStatus: Int
-    let name: String
-    let offeredRate, negotiatedRate, agreedRate: Double
+    let name, header: String
+    let offeredRate, negotiatedRate, agreedRate: Int
     let timeUnits: Int
     let unitsType: String
     let startdate, starttime: Int
@@ -25,7 +25,7 @@ class Job {
     let invoicePaid: Bool
     let callsheet: String
     let jobid: Int
-    let modelDesiredRate, clientOfferedRate: Double
+    let modelDesiredRate, clientOfferedRate: Int
     let status: Int
     let rating: Double
     let modelNotes, jobtype, companyName, companyWebsite: String
@@ -37,9 +37,9 @@ class Job {
         self.modified = data["modified"].intValue
         self.jobStatus = data["job_status"].intValue
         self.name = data["name"].stringValue
-        self.offeredRate = data["offered_rate"].doubleValue
-        self.negotiatedRate = data["negotiated_rate"].doubleValue
-        self.agreedRate = data["agreed_rate"].doubleValue
+        self.offeredRate = data["offered_rate"].intValue
+        self.negotiatedRate = data["negotiated_rate"].intValue
+        self.agreedRate = data["agreed_rate"].intValue
         self.timeUnits = data["time_units"].intValue
         self.unitsType = data["units_type"].stringValue
         self.startdate = data["startdate"].intValue
@@ -51,14 +51,15 @@ class Job {
         self.invoicePaid = data["invoice_paid"].boolValue
         self.callsheet = data["callsheet"].stringValue
         self.jobid = data["jobid"].intValue
-        self.modelDesiredRate = data["model_desired_rate"].doubleValue
-        self.clientOfferedRate = data["client_offered_rate"].doubleValue
+        self.modelDesiredRate = data["model_desired_rate"].intValue
+        self.clientOfferedRate = data["client_offered_rate"].intValue
         self.status = data["status"].intValue
         self.rating = data["rating"].doubleValue
         self.modelNotes = data["model_notes"].stringValue
         self.jobtype = data["jobtype"].stringValue
         self.companyName = data["company_name"].stringValue
         self.companyWebsite = data["company_website"].stringValue
+        self.header = data["status_text"].stringValue
     }
     
 }

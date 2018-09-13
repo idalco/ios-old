@@ -14,7 +14,6 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var findaImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -103,7 +103,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             
             
             <<< PickerInlineRow<String>() { row in
-                row.title = "Country"
+                row.title = "Country of Residence"
                 row.tag = "country"
                 row.options = Country.nationalities
                 row.add(rule: RuleRequired())
@@ -299,7 +299,6 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, referral_code: referral_code, dob: dob.timeIntervalSince1970) { (response, result) in
                 if(response){
                     self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
-                    print("Registered Successful")
                 }
             }
         }

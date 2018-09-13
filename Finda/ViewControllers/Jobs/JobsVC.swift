@@ -48,12 +48,70 @@ class JobsVC: UIViewController {
             let cardView = JobCardView.nibForClass()
             cardView.clientName = job.companyName.uppercased()
             cardView.duration = JobsManager.length(length: job.timeUnits, unit: job.unitsType).uppercased()
-            cardView.header = "New Job".uppercased()
+            cardView.header = job.header.uppercased()
             cardView.jobDates = Date().displayDate(timeInterval: job.startdate, format: "MMM dd, yyyy")
             cardView.jobDescription = job.description
             cardView.jobName = job.name.uppercased()
             cardView.jobType = job.jobtype.uppercased()
             cardView.location = job.location.uppercased()
+            cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.capitalizingFirstLetter())"
+            
+            if let jobStatus = JobStatus(rawValue: job.header) {
+                switch(jobStatus){
+                case .Accepted:
+                    cardView.primaryButton.setTitle("CANCEL", for: .normal)
+                    cardView.seconaryButton.isHidden = true
+                    break
+                case .Completed:
+                    cardView.primaryButton.isHidden = true
+                    cardView.seconaryButton.isHidden = true
+                    break
+                case .Expired:
+                    cardView.primaryButton.isHidden = true
+                    cardView.seconaryButton.isHidden = true
+                    break
+                case .Finished:
+                    cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
+                    cardView.primaryButton.isEnabled = false
+                    cardView.seconaryButton.isHidden = true
+                    break
+                case .Offered:
+                    break
+                case .Optioned:
+                    cardView.offeredLabel.text = "Offered rate:"
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    cardView.offeredNumberButton.isHidden = false
+                    cardView.offeredNumberButton.isEnabled = true
+                    
+                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
+                    cardView.seconaryButton.setTitle("REJECT", for: .normal)
+                    
+                    break
+                case .Unfinalised:
+                    cardView.primaryButton.setTitle("COMPLETE", for: .normal)
+                    cardView.seconaryButton.isHidden = true
+                    break
+                    
+                }
+            }
+           
+            
+            
+            
+            
+            /*
+             
+             statustext[0] = 'INVALID';
+             $statustext[1] = 'OFFERED';
+             $statustext[2] = 'ACCEPTED';
+             $statustext[3] = 'MODEL_CANCELLED';
+             $statustext[4] = 'CLIENT_CANCELLED';
+             $statustext[5] = 'MODEL_COMPLETED';
+             $statustext[6] = 'CLIENT_COMPLETED';
+             $statustext[7] = 'COMPLETED'
+ 
+             */
             
             self.cardViews.append(cardView)
       
