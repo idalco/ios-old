@@ -9,8 +9,9 @@
 import UIKit
 import SwiftyJSON
 import SVProgressHUD
+import SafariServices
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -35,6 +36,14 @@ class LoginVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func forgotPassword(_ sender: Any) {
+        if let url = URL(string: "\(domainURL)/user/forgotpasswd") {
+            let safariVC = SFSafariViewController(url: url)
+            self.present(safariVC, animated: true, completion: nil)
+            safariVC.delegate = self
+        }
     }
     
     @IBAction func dismiss(_ sender: Any) {

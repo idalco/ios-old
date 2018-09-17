@@ -38,14 +38,11 @@ enum FindaAPI {
     case inviteFriend(name: String, email: String)
     case updateBankDetails(name: String, sortcode: String, accountNumber: String)
     case getModelInvoices()
+    case acceptJob(jobId: Int)
+    case rejectJob(jobId: Int)
+    case cancelJob(jobId: Int)
 
-    
-    
 
-    case register(email: String, password: String, name: String, locale: String)
-        case updateDeviceToken(deviceToken: String, deviceType: String)
-    // POST Multipart
-    case updateAvatar(avatar: UIImage)
     // GET
     case userDetails()
 }
@@ -102,19 +99,12 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/updateProfile"
         case .getModelInvoices:
             return "/getModelInvoices"
-            
-            
-            
-            
-        case .register:
-            return "/register"
-        
-//        case .submitFeedback:
-//            return "/sendFeedback"
-        case .updateDeviceToken:
-            return "/updateDeviceToken"
-        case .updateAvatar:
-            return "/updateAvatar"
+        case .acceptJob:
+            return "/acceptBooking"
+        case .rejectJob:
+            return "/rejectBooking"
+        case .cancelJob:
+            return "/completeBooking"
         case .userDetails:
             return "/userLoad"
         }
@@ -124,7 +114,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .register, .updateDeviceToken, .updateAvatar:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .acceptJob, .rejectJob, .cancelJob:
             return .post
             
         // methods requiring GET
@@ -284,27 +274,34 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["bank_accountnumber"] = accountNumber
             p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-            
-            
-            
-            
-            
-        case .register(let email, let password, let name, let locale):
-            p["email"] = email
-            p["password"] = password
-            p["name"] = name
-            p["locale"] = locale
+        case .acceptJob(let jobId):
+             p["parameters"] = jobId
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .rejectJob(let jobId):
+            p["parameters"] = jobId
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .cancelJob(let jobId):
+            p["parameters"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
-        case .updateDeviceToken(let deviceToken, let deviceType):
-            p["deviceToken"] = deviceToken
-            p["deviceType"] = deviceType
-            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
-        case .updateAvatar(let avatar):
-            guard let jpegRep = UIImageJPEGRepresentation(avatar, 1.0) else { return .uploadMultipart([]) }
-            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "avatar", fileName: "avatar.jpeg", mimeType: "image/jpeg")
-            return .uploadMultipart([jpegData])
+            
+//        case .register(let email, let password, let name, let locale):
+//            p["email"] = email
+//            p["password"] = password
+//            p["name"] = name
+//            p["locale"] = locale
+//            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+//
+//        case .updateDeviceToken(let deviceToken, let deviceType):
+//            p["deviceToken"] = deviceToken
+//            p["deviceType"] = deviceType
+//            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+//
+//        case .updateAvatar(let avatar):
+//            guard let jpegRep = UIImageJPEGRepresentation(avatar, 1.0) else { return .uploadMultipart([]) }
+//            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "avatar", fileName: "avatar.jpeg", mimeType: "image/jpeg")
+//            return .uploadMultipart([jpegData])
             
         case .userDetails():
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
@@ -316,7 +313,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .login, .register:
+        case .login:
             return .none
         default:
             return .bearer

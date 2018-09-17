@@ -56,11 +56,17 @@ class JobsVC: UIViewController {
             cardView.location = job.location.uppercased()
             cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.capitalizingFirstLetter())"
             
+            cardView.primaryButton.tag = job.jobid
+            cardView.seconaryButton.tag = job.jobid
+            
             if let jobStatus = JobStatus(rawValue: job.header) {
                 switch(jobStatus){
                 case .Accepted:
                     cardView.primaryButton.setTitle("CANCEL", for: .normal)
                     cardView.seconaryButton.isHidden = true
+                    
+                    cardView.primaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                    
                     break
                 case .Completed:
                     cardView.primaryButton.isHidden = true
@@ -76,6 +82,8 @@ class JobsVC: UIViewController {
                     cardView.seconaryButton.isHidden = true
                     break
                 case .Offered:
+                    cardView.primaryButton.isHidden = true
+                    cardView.seconaryButton.isHidden = true
                     break
                 case .Optioned:
                     cardView.offeredLabel.text = "Offered rate:"
@@ -87,6 +95,10 @@ class JobsVC: UIViewController {
                     cardView.primaryButton.setTitle("ACCEPT", for: .normal)
                     cardView.seconaryButton.setTitle("REJECT", for: .normal)
                     
+                    
+                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
+                    cardView.primaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
+
                     break
                 case .Unfinalised:
                     cardView.primaryButton.setTitle("COMPLETE", for: .normal)
@@ -95,10 +107,6 @@ class JobsVC: UIViewController {
                     
                 }
             }
-           
-            
-            
-            
             
             /*
              
@@ -127,6 +135,30 @@ class JobsVC: UIViewController {
         
     }
     
+    
+    @objc private func acceptJob(sender: UIButton){
+//        FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
+//            if response {
+//                self.loadJobs()
+//            }
+//        }
+    }
+    
+    @objc private func rejectJob(sender: UIButton){
+//        FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
+//            if response {
+//                self.loadJobs()
+//            }
+//        }
+    }
+    
+    @objc private func cancelJob(sender: UIButton){
+//        FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
+//            if response {
+//                self.loadJobs()
+//            }
+//        }
+    }
     
     private func loadJobs(){
         JobsManager.getJobs(jobType: self.jobType) { (response, result) in

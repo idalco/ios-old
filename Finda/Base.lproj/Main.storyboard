@@ -297,8 +297,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xWb-Ts-m9m"/>
-                                    <segue destination="6wg-6B-4XT" kind="show" id="z9H-hx-PJ8"/>
+                                    <action selector="forgotPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBA-KJ-pul"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2082,23 +2081,23 @@ MODELLING TALENT</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FindaLogoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Pq3-3f-Foc">
-                                <rect key="frame" x="16" y="89" width="343" height="89"/>
+                                <rect key="frame" x="16" y="45" width="343" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Pq3-3f-Foc" secondAttribute="height" multiplier="343:89" id="KuT-Sd-23b"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT YOUR PASSWORD?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkm-f9-60I">
-                                <rect key="frame" x="16" y="186" width="343" height="21"/>
+                                <rect key="frame" x="16" y="142" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLc-hb-h3e">
-                                <rect key="frame" x="16" y="253" width="343" height="18"/>
+                                <rect key="frame" x="16" y="209" width="343" height="18"/>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iXb-9l-u1t">
-                                <rect key="frame" x="16" y="279" width="343" height="50"/>
+                                <rect key="frame" x="16" y="235" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hYa-WC-6DT"/>
@@ -2111,7 +2110,7 @@ MODELLING TALENT</string>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ9-U1-ksR" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="80" y="483" width="215" height="45"/>
+                                <rect key="frame" x="80" y="439" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.078431372550000003" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aQ9-U1-ksR" secondAttribute="height" multiplier="343:50" constant="-93.699999999999989" id="ueL-Gj-TIC"/>
