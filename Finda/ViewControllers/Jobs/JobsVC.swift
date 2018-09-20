@@ -137,27 +137,27 @@ class JobsVC: UIViewController {
     
     
     @objc private func acceptJob(sender: UIButton){
-//        FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
-//            if response {
-//                self.loadJobs()
-//            }
-//        }
+        FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
+            if response {
+                self.loadJobs()
+            }
+        }
     }
     
     @objc private func rejectJob(sender: UIButton){
-//        FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
-//            if response {
-//                self.loadJobs()
-//            }
-//        }
+        FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
+            if response {
+                self.loadJobs()
+            }
+        }
     }
     
     @objc private func cancelJob(sender: UIButton){
-//        FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
-//            if response {
-//                self.loadJobs()
-//            }
-//        }
+        FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
+            if response {
+                self.loadJobs()
+            }
+        }
     }
     
     private func loadJobs(){

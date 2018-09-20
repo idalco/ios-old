@@ -64,7 +64,7 @@ class JobCardView: CardView {
         }
     }
     
-    @IBOutlet weak var jobDescriptionLabel: UILabel!
+    @IBOutlet weak var jobDescriptionLabel: UITextView!
     var jobDescription: String = "" {
         didSet {
             jobDescriptionLabel.text = "\(jobDescription)"
@@ -113,6 +113,8 @@ class JobCardView: CardView {
         
         seconaryButton.normalBackgroundColor = UIColor.FindaColors.Black
         seconaryButton.normalTextColor = UIColor.FindaColors.White
+        
+        
 
         
         presentedDidUpdate()
@@ -127,6 +129,7 @@ class JobCardView: CardView {
 //        seconaryButton.isHidden = !presented
         contentView.backgroundColor = presented ? presentedCardViewColor: depresentedCardViewColor
         contentView.addTransitionFade()
+        jobDescriptionLabel.setContentOffset(.zero, animated: false)
         
     }
     

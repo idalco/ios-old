@@ -20,6 +20,7 @@ class JobsManager {
         case rejected = "rejected"
         case finished = "finished"
         case unfinalised = "unfinalised"
+        case optioned = "optioned"
         
     }
     

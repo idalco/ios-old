@@ -21,6 +21,12 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
              viewController.jobType = .offered
             self.viewControllers.append(viewController)
         }
+        
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
+            viewController.jobType = .optioned
+            self.viewControllers.append(viewController)
+        }
+        
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
             viewController.jobType = .accepted
             self.viewControllers.append(viewController)
@@ -31,9 +37,11 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
         
-         self.bar.items = [Item(title: "Offered"), Item(title: "Accepted"), Item(title: "All")]
+      
         
-        self.bar.style = .buttonBar
+         self.bar.items = [Item(title: "Offered"), Item(title: "Option"),Item(title: "Accepted"), Item(title: "All")]
+        
+        self.bar.style = .scrollingButtonBar
         self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
