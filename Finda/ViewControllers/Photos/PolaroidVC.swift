@@ -25,7 +25,7 @@ class PolaroidVC: UIViewController {
         self.setUpCollectionView()
         
         self.addNewButton.cornerRadius = 5
-        self.addNewButton.normalBackgroundColor = UIColor.FindaColors.Blue
+        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
 
         // Do any additional setup after loading the view.
     }
@@ -130,13 +130,12 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
         self.performSegue(withIdentifier: "showImageSegue", sender: self.photosArray[indexPath.row])
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCVC
         
         let imageData = self.photosArray[indexPath.row].filename
-        cell.addDashedBorder(borderColour: UIColor.FindaColors.BrightBlue, cornerRadius: 10)
+        cell.addDashedBorder(borderColour: UIColor.FindaColours.Blue, cornerRadius: 10)
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPolaroidsURL: url, imageTransition: .crossDissolve(0.25))
         }

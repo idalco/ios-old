@@ -34,12 +34,13 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
          self.bar.items = [Item(title: "Offered"), Item(title: "Accepted"), Item(title: "All")]
         
         self.bar.style = .buttonBar
-        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)
+//        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)
+//        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.FindaColours.DarkYellow)
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
-            appearance.indicator.color = UIColor.FindaColors.Purple
-            appearance.state.selectedColor = UIColor.FindaColors.Purple
+            appearance.indicator.color = UIColor.FindaColours.Blue
+            appearance.state.selectedColor = UIColor.FindaColours.Blue
         })
         self.dataSource = self
     }

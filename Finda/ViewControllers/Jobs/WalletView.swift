@@ -517,7 +517,7 @@ open class WalletView: UIView {
     }
     
     var collapsedCardViewStackHeight:   CGFloat = 0
-    var walletHeaderHeight:         CGFloat = 0
+    var walletHeaderHeight:             CGFloat = 0
     var cardViewTopInset:               CGFloat = 0
     var maximumCardViewHeight:          CGFloat = 0
     var cardViewHeight:                 CGFloat = 0

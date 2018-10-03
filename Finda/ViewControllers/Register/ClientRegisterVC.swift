@@ -53,10 +53,10 @@ class ClientRegisterVC: FormViewController {
             
             
             var header = HeaderFooterView<UIView>(.class)
-            header.height = {40}
+            header.height = {80}
             header.onSetupView = { view, _ in
-                view.backgroundColor = UIColor.FindaColors.White
-                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:40))
+                view.backgroundColor = UIColor.FindaColours.White
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                 
                 title.text = "FIND A MODEL"
                 title.font = UIFont(name: "Gotham-Medium", size: 17)
@@ -190,6 +190,11 @@ class ClientRegisterVC: FormViewController {
                     }
         }
         
+            <<< CheckRow(){ row in
+                row.title = "I agree to the Terms and Conditions"
+                row.tag = "terms"
+                row.add(rule: RuleRequired())
+        }
         
         form +++ section
         

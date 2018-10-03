@@ -35,39 +35,39 @@ Your portfolio photographs and polaroids \n
 
        
         if let font = UIFont(name: "Gotham-Medium", size: 12) {
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "we verify and approve"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "we verify and approve"))
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "we verify and approve"))
             
             
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "before you can be seen by Finda clients"))
             
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "A form of your ID document"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "A form of your ID document"))
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "A form of your ID document"))
             
             
             attributedString.addAttribute(.link, value: "\(domainURL)/privacy", range: text.range(substring: "Privacy Policy"))
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "Privacy Policy"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "Privacy Policy"))
             
             
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "country of residence and date of birth"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "country of residence and date of birth"))
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "country of residence and date of birth"))
             
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "Instagram handle"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "Instagram handle"))
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "Instagram handle"))
             
             
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "correct measurements"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "correct measurements"))
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "correct measurements"))
             
             
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColors.Purple, range: text.range(substring: "portfolio photographs and polaroids"))
+            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "portfolio photographs and polaroids"))
             attributedString.addAttribute(.font, value: font, range: text.range(substring: "portfolio photographs and polaroids"))
             
         }
     
         
         let linkAttributes: [String : Any] = [
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColors.Purple,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Blue,
 //            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColors.Purple,
 //            NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleThick.rawValue
         ]

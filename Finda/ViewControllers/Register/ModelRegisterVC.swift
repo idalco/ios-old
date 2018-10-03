@@ -56,20 +56,14 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             section.footer = self.footerView()
             
             var header = HeaderFooterView<UIView>(.class)
-            header.height = {40}
+            header.height = {80}
             header.onSetupView = { view, _ in
-                view.backgroundColor = UIColor.FindaColors.White
-                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width - 10, height:40))
+                view.backgroundColor = UIColor.FindaColours.White
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width - 10, height:80))
                 
                 title.text = "I'M A MODEL"
-                title.font = UIFont(name: "Gotham-Medium", size: 16)
+                title.font = UIFont(name: "Gotham-Medium", size: 17)
                 view.addSubview(title)
-                
-                //                let description = UILabel(frame: CGRect(x:5,y: 40, width:self.view.frame.width, height:30))
-                //                description.numberOfLines = 0
-                //                description.text = "Please enter your measurements in centimeters."
-                //                description.font = UIFont(name: "Gotham-Light", size: 13)
-                //                view.addSubview(description)
                 
             }
             section.header = header
@@ -217,7 +211,13 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-        }
+                    
+            }
+            <<< CheckRow(){ row in
+                row.title = "I agree to the Terms and Conditions"
+                row.tag = "terms"
+                row.add(rule: RuleRequired())
+            }
         
         
         form +++ section

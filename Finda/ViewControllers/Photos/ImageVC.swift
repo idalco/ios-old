@@ -35,7 +35,7 @@ class ImageVC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Blue
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
         
         if self.image.image == nil {
             self.makeLoadingView()
@@ -81,7 +81,7 @@ class ImageVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Purple
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
         self.removeLoadingView()
     }
 
@@ -113,7 +113,7 @@ class ImageVC: UIViewController {
     private func setLead(lead: Bool){
         if photoType == ImageType.Portfolio {
             if lead {
-                self.image.layer.borderColor = UIColor.FindaColors.BrightBlue.cgColor
+                self.image.layer.borderColor = UIColor.FindaColours.Blue.cgColor
                 self.image.layer.borderWidth = 3
                 self.leadImageButton.isHidden = true
             } else {
@@ -124,14 +124,14 @@ class ImageVC: UIViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+//    }
+ 
 
 }

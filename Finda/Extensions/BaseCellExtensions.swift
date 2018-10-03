@@ -10,7 +10,7 @@ import Foundation
 import Eureka
 
 extension BaseCell {
-    func setBottomBorder(colour: UIColor = UIColor.FindaColors.Black) {
+    func setBottomBorder(colour: UIColor = UIColor.FindaColours.Black) {
     
         
         self.layer.backgroundColor = self.superview?.backgroundColor?.cgColor

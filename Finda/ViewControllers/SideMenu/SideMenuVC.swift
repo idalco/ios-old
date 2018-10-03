@@ -22,7 +22,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
-        self.view.backgroundColor = UIColor.FindaColors.White
+        self.view.backgroundColor = UIColor.FindaColours.White
         
         
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Settings") }, with: "Settings")
@@ -55,7 +55,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.menu = ["My Details", "Invite a Friend", "Sign Out"]
             self.icon = [.FAUser, .FAUsers, .FAPowerOff]
         } else {
-            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Notifications", "Payments", "Invite a Friend", "Sign Out"]
+            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Sign Out"]
             self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank ,.FAUsers, .FAPowerOff]
         }
         self.tableView.reloadData()

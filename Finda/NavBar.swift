@@ -13,7 +13,7 @@ class NavBar: UINavigationBar {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.backItem?.title = ""
-        self.tintColor = UIColor.FindaColors.Black
+        self.tintColor = UIColor.FindaColours.Black
         self.layoutIfNeeded()
     }
 

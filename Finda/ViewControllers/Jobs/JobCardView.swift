@@ -5,11 +5,12 @@ import DCKit
 class JobCardView: CardView {
 
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var topColourBar: UILabel!
     
-    let presentedCardViewColor: UIColor = UIColor.FindaColors.White
+    let presentedCardViewColor: UIColor = UIColor.FindaColours.White
     //UIColor.FindaColors.Purple.lighter(by: 77) ?? UIColor.FindaColors.Purple.fade()
     
-    lazy var depresentedCardViewColor: UIColor = { return UIColor.FindaColors.White }()
+    lazy var depresentedCardViewColor: UIColor = { return UIColor.FindaColours.White }()
     
     // { return UIColor.FindaColors.Purple.lighter(by: 80) ?? UIColor.FindaColors.Purple.fade() }()
     
@@ -18,6 +19,42 @@ class JobCardView: CardView {
     var header: String = "" {
         didSet {
             headerLabel.text = "\(header)"
+//            switch(header) {
+//            case "PENDING":
+//                contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
+//                break
+//                
+//            case "ACCEPTED":
+//                contentView.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.Blue, thickness: 5.0)
+//                break
+//                
+//            case "OFFERED":
+//                contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
+//                break
+//                
+//            case "MODEL_COMPLETED":
+//                headerLabel.text = "COMPLETED"
+//                contentView.layer.borderColor = UIColor.FindaColours.Purple.cgColor
+//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.Purple, thickness: 5.0)
+//                break
+//                
+//            case "OPTIONED":
+//                contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
+//                break
+//                
+//            case "COMPLETED":
+//                contentView.layer.borderColor = UIColor.FindaColours.Black.cgColor
+//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 5.0)
+//                break
+//                
+//            default:
+//                break
+//            }
+            
         }
     }
 
@@ -86,7 +123,7 @@ class JobCardView: CardView {
     }
         
         
-    @IBOutlet weak var seconaryButton: DCRoundedButton!
+    @IBOutlet weak var secondaryButton: DCRoundedButton!
     @IBAction func seconaryButtonFunc(_ sender: Any) {
         
     }
@@ -95,24 +132,33 @@ class JobCardView: CardView {
         super.awakeFromNib()
         
         contentView.layer.cornerRadius  = 10
-        contentView.layer.masksToBounds = true
-        contentView.layer.borderWidth = 2
-        contentView.layer.borderColor = UIColor.FindaColors.DarkYellow.cgColor
+        contentView.layer.masksToBounds = false
+        contentView.layer.borderWidth = 0
+//        contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+        
+//        contentView.layoutIfNeeded()
+//        contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
+        
+        contentView.layer.shadowColor = UIColor.FindaColours.Black.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        contentView.layer.shadowRadius = 10.0
+        contentView.layer.shadowOpacity = 0.4
+        
         //UIColor.FindaColors.Purple.fade(alpha: 0.2).cgColor
         
         offeredNumberButton.isHidden = true
         offeredNumberButton.isEnabled = false
-        offeredNumberButton.layer.borderColor = UIColor.FindaColors.BorderGrey.cgColor
-        offeredNumberButton.layer.borderWidth = 2
-        offeredNumberButton.layer.cornerRadius = 5
+//        offeredNumberButton.layer.borderColor = UIColor.FindaColours.BorderGrey.cgColor
+//        offeredNumberButton.layer.borderWidth = 2
+//        offeredNumberButton.layer.cornerRadius = 5
         
         offeredLabel.isHidden = true
         
-        primaryButton.normalBackgroundColor = UIColor.FindaColors.Purple
-        primaryButton.normalTextColor = UIColor.FindaColors.White
+        primaryButton.normalBackgroundColor = UIColor.FindaColours.Blue
+        primaryButton.normalTextColor = UIColor.FindaColours.White
         
-        seconaryButton.normalBackgroundColor = UIColor.FindaColors.Black
-        seconaryButton.normalTextColor = UIColor.FindaColors.White
+        secondaryButton.normalBackgroundColor = UIColor.FindaColours.Black
+        secondaryButton.normalTextColor = UIColor.FindaColours.White
 
         
         presentedDidUpdate()
@@ -131,4 +177,63 @@ class JobCardView: CardView {
     }
     
     
+    
+}
+
+extension CALayer {
+    
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        
+        let border = CALayer()
+        
+        
+        switch edge {
+            case UIRectEdge.top:
+                border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: thickness)
+                break
+            
+            case UIRectEdge.bottom:
+                border.frame = CGRect(x:0, y:self.frame.height - thickness, width:self.frame.width, height:thickness)
+                break
+            
+            case UIRectEdge.left:
+                border.frame = CGRect(x:0, y:0, width: thickness, height: self.frame.height)
+                break
+            
+            case UIRectEdge.right:
+                border.frame = CGRect(x:self.frame.width - thickness, y: 0, width: thickness, height:self.frame.height)
+                break
+            
+            default:
+                break
+        }
+        
+        
+        
+        if #available(iOS 11.0, *) {
+            border.cornerRadius = 10.0
+            border.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        } else {
+            // Fallback on earlier versions
+//            let rectShape = CAShapeLayer()
+//            rectShape.bounds = self.frame
+//            rectShape.position = border.center
+//            rectShape.path = UIBezierPath(roundedRect: border.frame.bounds,    byRoundingCorners: [.topRight , .topLeft], cornerRadii: CGSize(width: 10, height: 10)).cgPath
+//            border.mask = rectShape
+        }
+        border.backgroundColor = color.cgColor;
+        self.addSublayer(border)
+    }
+    
+}
+
+extension UIView {
+    func maskByRoundingCorners(_ masks:UIRectCorner, withRadii radii:CGSize = CGSize(width: 10, height: 10)) {
+        let rounded = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: masks, cornerRadii: radii)
+        
+        let shape = CAShapeLayer()
+        shape.path = rounded.cgPath
+        
+        self.layer.mask = shape
+    }
 }

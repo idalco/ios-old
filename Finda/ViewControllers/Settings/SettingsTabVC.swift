@@ -39,8 +39,8 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
-            appearance.indicator.color = UIColor.FindaColors.DarkYellow
-            appearance.state.selectedColor = UIColor.FindaColors.DarkYellow
+            appearance.indicator.color = UIColor.FindaColours.Blue
+            appearance.state.selectedColor = UIColor.FindaColours.Blue
         })
         self.dataSource = self
 

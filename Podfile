@@ -49,16 +49,4 @@ target 'Finda' do
   pod 'Font-Awesome-Swift', '~> 1.7.2'
   pod 'SwiftyGif'
 
-
-
-  target 'FindaTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'FindaUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

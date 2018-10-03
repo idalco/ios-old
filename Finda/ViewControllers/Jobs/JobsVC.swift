@@ -40,6 +40,48 @@ class JobsVC: UIViewController {
         self.loadJobs()
     }
     
+    override func viewDidLayoutSubviews() {
+        for card in self.cardViews {
+            
+            switch(card.header) {
+            case "PENDING":
+                card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
+                break
+                
+            case "ACCEPTED":
+                card.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Blue, thickness: 8.0)
+                break
+                
+            case "OFFERED":
+                card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
+                break
+                
+            case "MODEL_COMPLETED":
+                card.headerLabel.text = "COMPLETED"
+                card.layer.borderColor = UIColor.FindaColours.Purple.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Purple, thickness: 8.0)
+                break
+                
+            case "OPTIONED":
+                card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
+                break
+                
+            case "COMPLETED":
+                card.layer.borderColor = UIColor.FindaColours.Black.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 8.0)
+                break
+                
+            default:
+                break
+            }
+        }
+    }
+
+    
     private func update(){
         self.walletView.removeAll()
         self.cardViews.removeAll()
@@ -57,35 +99,39 @@ class JobsVC: UIViewController {
             cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.capitalizingFirstLetter())"
             
             cardView.primaryButton.tag = job.jobid
-            cardView.seconaryButton.tag = job.jobid
+            cardView.secondaryButton.tag = job.jobid
             
             if let jobStatus = JobStatus(rawValue: job.header) {
                 switch(jobStatus){
                 case .Accepted:
                     cardView.primaryButton.setTitle("CANCEL", for: .normal)
-                    cardView.seconaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = true
                     
                     cardView.primaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                     
                     break
                 case .Completed:
                     cardView.primaryButton.isHidden = true
-                    cardView.seconaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = true
                     break
                 case .Expired:
                     cardView.primaryButton.isHidden = true
-                    cardView.seconaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = true
                     break
                 case .Finished:
                     cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
                     cardView.primaryButton.isEnabled = false
-                    cardView.seconaryButton.isHidden = true
-                    break
-                case .Offered:
-                    cardView.primaryButton.isHidden = true
-                    cardView.seconaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = true
                     break
                 case .Optioned:
+                    cardView.offeredLabel.text = "Offered rate:"
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    cardView.primaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = false
+                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
+                    break
+                case .Offered:
                     cardView.offeredLabel.text = "Offered rate:"
                     cardView.offeredLabel.isHidden = false
                     cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
@@ -93,7 +139,7 @@ class JobsVC: UIViewController {
                     cardView.offeredNumberButton.isEnabled = true
                     
                     cardView.primaryButton.setTitle("ACCEPT", for: .normal)
-                    cardView.seconaryButton.setTitle("REJECT", for: .normal)
+                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
                     
                     
                     cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
@@ -102,7 +148,7 @@ class JobsVC: UIViewController {
                     break
                 case .Unfinalised:
                     cardView.primaryButton.setTitle("COMPLETE", for: .normal)
-                    cardView.seconaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = true
                     break
                     
                 }
@@ -134,8 +180,7 @@ class JobsVC: UIViewController {
         self.walletView.reload(cardViews: self.cardViews)
         
     }
-    
-    
+
     @objc private func acceptJob(sender: UIButton){
 //        FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
 //            if response {
@@ -179,6 +224,7 @@ class JobsVC: UIViewController {
         }
         
     }
+    
 
     
     override var prefersStatusBarHidden: Bool {

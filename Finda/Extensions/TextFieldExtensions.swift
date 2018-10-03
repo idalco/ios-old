@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    func setBottomBorder(colour: UIColor = UIColor.FindaColors.Black) {
+    func setBottomBorder(colour: UIColor = UIColor.FindaColours.Black) {
         self.borderStyle = .none
         
         self.layer.masksToBounds = false

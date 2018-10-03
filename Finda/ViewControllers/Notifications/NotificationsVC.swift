@@ -22,8 +22,8 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         self.setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
-        self.messageView.backgroundColor = UIColor.FindaColors.Purple
-        self.messageLabel.textColor = UIColor.FindaColors.White
+        self.messageView.backgroundColor = UIColor.FindaColours.Blue
+        self.messageLabel.textColor = UIColor.FindaColours.White
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,10 +78,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
                 if self.allNotifications.count > 0 {
                     self.tableView.isHidden = false
-                    self.messageLabel.text = "Notifications"
+                    self.messageLabel.text = "Updates"
                 } else {
                     self.tableView.isHidden = true
-                    self.messageLabel.text = "Currently you have no notifications"
+                    self.messageLabel.text = "Currently you have no updates"
                 }
                 self.tableView.reloadData()
             }
@@ -134,7 +134,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
       
         let linkAttributes: [String : Any] = [
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColors.Purple,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Blue,
         ]
         
         cell.messageLabel.linkTextAttributes = linkAttributes
@@ -142,7 +142,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         
         if allNotifications[indexPath.row].status == Notification.Status.New.rawValue {
-            cell.backgroundColor = UIColor.FindaColors.Purple.fade()
+            cell.backgroundColor = UIColor.FindaColours.Purple.fade()
         }
         
         return cell

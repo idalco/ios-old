@@ -29,8 +29,8 @@ class RegisterFooter {
         
         
         let linkAttributes: [String : Any] = [
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColors.Black,
-            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColors.Yellow,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Black,
+            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColours.Yellow,
             NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleThick.rawValue]
         
         
@@ -47,9 +47,9 @@ class RegisterFooter {
         button.setTitle("SIGN UP", for: .normal)
         
         button.titleLabel?.font = UIFont(name: "Gotham-Bold", size: 16)
-        button.normalBackgroundColor = UIColor.FindaColors.Purple
-        button.normalBorderColor = UIColor.FindaColors.Purple
-        button.normalTextColor = UIColor.FindaColors.White
+        button.normalBackgroundColor = UIColor.FindaColours.Blue
+        button.normalBorderColor = UIColor.FindaColours.Blue
+        button.normalTextColor = UIColor.FindaColours.White
         button.cornerRadius = 5
         
         return button

@@ -20,8 +20,8 @@ class PasswordVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateButton.normalBackgroundColor = UIColor.FindaColors.DarkYellow
-        self.updateButton.normalTextColor = UIColor.FindaColors.Black
+        self.updateButton.normalBackgroundColor = UIColor.FindaColours.Blue
+        self.updateButton.normalTextColor = UIColor.FindaColours.White
 
         // Do any additional setup after loading the view.
     }
@@ -43,17 +43,17 @@ class PasswordVC: UIViewController {
     
     func update(){
         if self.currentPassword.text == "" {
-            self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
+            self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
             return
         }
         
         if self.newPassword.text == "" {
-            self.newPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
+            self.newPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
             return
         }
         
         if self.repeatNewPassword.text == "" {
-            self.repeatNewPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
+            self.repeatNewPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
             return
         }
         
@@ -65,9 +65,9 @@ class PasswordVC: UIViewController {
                 
             } else {
                 SVProgressHUD.showError(withStatus: "Try again")
-                self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor )
-                self.newPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
-                self.repeatNewPassword.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
+                self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor )
+                self.newPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
+                self.repeatNewPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
                 
             }
         }
@@ -77,9 +77,9 @@ class PasswordVC: UIViewController {
         self.currentPassword.text = ""
         self.newPassword.text = ""
         self.repeatNewPassword.text = ""
-        self.currentPassword.setBottomBorderLogin()
-        self.newPassword.setBottomBorderLogin()
-        self.repeatNewPassword.setBottomBorderLogin()
+        self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.Blue.cgColor, backgroundColor: UIColor.clear.cgColor)
+        self.newPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.Blue.cgColor, backgroundColor: UIColor.clear.cgColor)
+        self.repeatNewPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.Blue.cgColor, backgroundColor: UIColor.clear.cgColor)
     }
     
     override func didReceiveMemoryWarning() {

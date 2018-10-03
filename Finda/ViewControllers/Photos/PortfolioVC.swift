@@ -25,9 +25,10 @@ class PortfolioVC: UIViewController {
         self.setUpCollectionView()
         
         self.addNewButton.cornerRadius = 5
-        self.addNewButton.normalBackgroundColor = UIColor.FindaColors.Blue
+        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
         
         // Do any additional setup after loading the view.
+        
     }
     
 
@@ -127,7 +128,6 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
         self.performSegue(withIdentifier: "showImageSegue", sender: self.photosArray[indexPath.row])
     }
     
@@ -135,16 +135,15 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PortfolioCVC
 
-        cell.addDashedBorder(borderColour: UIColor.FindaColors.BrightBlue, cornerRadius: 10)
+        cell.addDashedBorder(borderColour: UIColor.FindaColours.Blue, cornerRadius: 10)
         let imageData = self.photosArray[indexPath.row].filename
-        
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPortfolioURL: url, imageTransition: .crossDissolve(0.25))
         }
         
         if self.photosArray[indexPath.row].leadimage {
             cell.image.layer.borderWidth = 3
-            cell.image.layer.borderColor = UIColor.FindaColors.BrightBlue.cgColor
+            cell.image.layer.borderColor = UIColor.FindaColours.Blue.cgColor
             cell.leadImageButton.isHidden = true
         } else {
             cell.leadImageButton.isHidden = false

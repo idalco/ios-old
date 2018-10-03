@@ -16,7 +16,7 @@ class SideMenuCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.label.textColor = UIColor.FindaColors.Black
+        self.label.textColor = UIColor.FindaColours.Black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -21,7 +21,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
         self.view.layoutIfNeeded()
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor.FindaColors.White
+        self.view.backgroundColor = UIColor.FindaColours.White
         self.navigationController?.navigationBar.transparentNavigationBar()
         
         self.emailTextField.setBottomBorderLogin()
@@ -52,7 +52,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     
     func setEmailTextFieldBorder(error: Bool = false){
         if(error){
-            self.emailTextField.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
+            self.emailTextField.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
         } else {
             self.emailTextField.setBottomBorderLogin()
         }
@@ -61,7 +61,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     
     func setPasswordTextFieldBorder(error: Bool = false){
         if(error){
-            self.passwordTextField.setBottomBorderLogin(borderColor: UIColor.FindaColors.FindaRed.cgColor)
+            self.passwordTextField.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
         } else {
             self.passwordTextField.setBottomBorderLogin()
         }

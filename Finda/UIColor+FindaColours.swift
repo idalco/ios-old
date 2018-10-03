@@ -21,7 +21,7 @@ extension UIColor {
         )
     }
     
-    struct FindaColors {
+    struct FindaColours {
         static let Blue = UIColor(rgb: 0x65b8bc)
         static let BrightBlue = UIColor(rgb: 0x01ebd2)
         static let Yellow = UIColor(rgb: 0xfcec03)

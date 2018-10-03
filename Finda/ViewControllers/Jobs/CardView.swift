@@ -73,6 +73,10 @@ open class CardView: UIView {
         
     }
     
+    func viewDidLayoutSubviews() {
+        
+    }
+    
     // MARK: Private methods
     
     let tapGestureRecognizer    = UITapGestureRecognizer()

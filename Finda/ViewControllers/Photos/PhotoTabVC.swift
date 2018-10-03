@@ -24,27 +24,27 @@ class PhotoTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
 
-
         self.bar.items = [Item(title: "Portfolio"), Item(title: "Polaroids")]
         
         self.bar.style = .buttonBar
-        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)
+//        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
-            appearance.indicator.color = UIColor.FindaColors.Blue
-            appearance.state.selectedColor = UIColor.FindaColors.Blue
+            appearance.indicator.color = UIColor.FindaColours.Blue
+            appearance.state.selectedColor = UIColor.FindaColours.Blue
         })
         self.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.updateNotificationCount()
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Blue
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
+//        navigationItem.title = "Photos"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColors.Purple
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
     }
     
     private func updateNotificationCount(){
@@ -54,7 +54,6 @@ class PhotoTabVC: TabmanViewController, PageboyViewControllerDataSource {
             }
         }
     }
-    
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return self.viewControllers.count

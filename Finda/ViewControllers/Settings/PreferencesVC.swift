@@ -21,21 +21,21 @@ class PreferencesVC: FormViewController {
         
         SwitchRow.defaultCellSetup = { cell, row in
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            
+            cell.switchControl?.onTintColor = UIColor.FindaColours.Blue
         }
         
         form +++ Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
-            header.height = {70}
+            header.height = {100}
             header.onSetupView = { view, _ in
-                view.backgroundColor = UIColor.FindaColors.White
-                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:40))
+                view.backgroundColor = UIColor.FindaColours.White
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                 
                 title.text = "Preferences"
                 title.font = UIFont(name: "Gotham-Medium", size: 17)
                 view.addSubview(title)
                 
-                let description = UILabel(frame: CGRect(x:10,y: 40, width:self.view.frame.width, height:20))
+                let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
                 description.numberOfLines = 0
                 description.text = "Set your email contact preferences."
                 description.font = UIFont(name: "Gotham-Light", size: 13)
@@ -49,6 +49,7 @@ class PreferencesVC: FormViewController {
                 row.title = "A friend users my referrer code"
                 row.value = modelManager.friendRegisters()
                 row.tag = "friendRegisters"
+                
                 
             }
             
@@ -78,7 +79,7 @@ class PreferencesVC: FormViewController {
             
             
             <<< SwitchRow(){ row in
-                row.title = "I receive a notification"
+                row.title = "I receive an update"
                 row.value = modelManager.notifications()
                 row.tag = "notifications"
             }
@@ -162,7 +163,7 @@ class PreferencesVC: FormViewController {
         row.cellUpdate { (cell, row) in
             if !row.isValid {
                 cell.textField.attributedPlaceholder = NSAttributedString(string: row.placeholder ?? "",
-                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.FindaColors.FindaRed])
+                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.FindaColours.FindaRed])
             }
         }
     }

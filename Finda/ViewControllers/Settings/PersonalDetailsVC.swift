@@ -62,16 +62,16 @@ class PersonalDetailsVC: FormViewController {
         
         var mainSection = Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
-            header.height = {70}
+            header.height = {100}
             header.onSetupView = { view, _ in
-                view.backgroundColor = UIColor.FindaColors.White
-                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:40))
+                view.backgroundColor = UIColor.FindaColours.White
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                 
                 title.text = "Personal Details"
                 title.font = UIFont(name: "Gotham-Medium", size: 17)
                 view.addSubview(title)
                 
-                let description = UILabel(frame: CGRect(x:10,y: 40, width:self.view.frame.width, height:20))
+                let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
                 description.numberOfLines = 0
                 description.text = "Please enter your contact information."
                 description.font = UIFont(name: "Gotham-Light", size: 13)
@@ -397,7 +397,7 @@ class PersonalDetailsVC: FormViewController {
         row.cellUpdate { (cell, row) in
             if !row.isValid {
                 cell.textField.attributedPlaceholder = NSAttributedString(string: row.placeholder ?? "",
-                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.FindaColors.FindaRed])
+                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.FindaColours.FindaRed])
             }
         }
     }

@@ -12,7 +12,7 @@ class RegistrationNavBar: UINavigationBar {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.tintColor = UIColor.FindaColors.Black
+        self.tintColor = UIColor.FindaColours.Black
         self.layoutIfNeeded()
     }
     

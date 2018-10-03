@@ -109,31 +109,10 @@
 		0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5021071AD0004CC4D8 /* Finda.xcdatamodeld */; };
 		0CEBCB5421071AD1004CC4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5321071AD1004CC4D8 /* Assets.xcassets */; };
 		0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */; };
-		0CEBCB6221071AD1004CC4D8 /* FindaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB6121071AD1004CC4D8 /* FindaTests.swift */; };
-		0CEBCB6D21071AD1004CC4D8 /* FindaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB6C21071AD1004CC4D8 /* FindaUITests.swift */; };
 		0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7C21072C31004CC4D8 /* Media.xcassets */; };
 		0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */; };
-		566DDE756A5363F72310C15F /* Pods_FindaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB282E912077D90FEEF6C36 /* Pods_FindaUITests.framework */; };
-		A6BF3637B588035A71C009C0 /* Pods_FindaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0F905557E39DEFF71CB749 /* Pods_FindaTests.framework */; };
 		D6BD959D87F08E75B89A41D1 /* Pods_Finda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EEB8FB6543252924F78E91 /* Pods_Finda.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0CEBCB5E21071AD1004CC4D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0CEBCB3E21071AD0004CC4D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0CEBCB4521071AD0004CC4D8;
-			remoteInfo = Finda;
-		};
-		0CEBCB6921071AD1004CC4D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0CEBCB3E21071AD0004CC4D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0CEBCB4521071AD0004CC4D8;
-			remoteInfo = Finda;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0288E199D06E667D702BCB7E /* Pods-FindaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindaUITests/Pods-FindaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,10 +222,8 @@
 		0CEBCB5321071AD1004CC4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CEBCB5621071AD1004CC4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CEBCB5821071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CEBCB5D21071AD1004CC4D8 /* FindaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEBCB6121071AD1004CC4D8 /* FindaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaTests.swift; sourceTree = "<group>"; };
 		0CEBCB6321071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CEBCB6821071AD1004CC4D8 /* FindaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEBCB6C21071AD1004CC4D8 /* FindaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaUITests.swift; sourceTree = "<group>"; };
 		0CEBCB6E21071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CEBCB7C21072C31004CC4D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -265,22 +242,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6BD959D87F08E75B89A41D1 /* Pods_Finda.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CEBCB5A21071AD1004CC4D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6BF3637B588035A71C009C0 /* Pods_FindaTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CEBCB6521071AD1004CC4D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				566DDE756A5363F72310C15F /* Pods_FindaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,8 +473,6 @@
 			isa = PBXGroup;
 			children = (
 				0CEBCB4621071AD0004CC4D8 /* Finda.app */,
-				0CEBCB5D21071AD1004CC4D8 /* FindaTests.xctest */,
-				0CEBCB6821071AD1004CC4D8 /* FindaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -612,44 +571,6 @@
 			productReference = 0CEBCB4621071AD0004CC4D8 /* Finda.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0CEBCB5C21071AD1004CC4D8 /* FindaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0CEBCB7421071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaTests" */;
-			buildPhases = (
-				2AF5F4A8B5C72656DA299BEA /* [CP] Check Pods Manifest.lock */,
-				0CEBCB5921071AD1004CC4D8 /* Sources */,
-				0CEBCB5A21071AD1004CC4D8 /* Frameworks */,
-				0CEBCB5B21071AD1004CC4D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0CEBCB5F21071AD1004CC4D8 /* PBXTargetDependency */,
-			);
-			name = FindaTests;
-			productName = FindaTests;
-			productReference = 0CEBCB5D21071AD1004CC4D8 /* FindaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0CEBCB6721071AD1004CC4D8 /* FindaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0CEBCB7721071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaUITests" */;
-			buildPhases = (
-				E3A8CEF8CD408C6E2A37C209 /* [CP] Check Pods Manifest.lock */,
-				0CEBCB6421071AD1004CC4D8 /* Sources */,
-				0CEBCB6521071AD1004CC4D8 /* Frameworks */,
-				0CEBCB6621071AD1004CC4D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0CEBCB6A21071AD1004CC4D8 /* PBXTargetDependency */,
-			);
-			name = FindaUITests;
-			productName = FindaUITests;
-			productReference = 0CEBCB6821071AD1004CC4D8 /* FindaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -662,14 +583,6 @@
 				TargetAttributes = {
 					0CEBCB4521071AD0004CC4D8 = {
 						CreatedOnToolsVersion = 9.4.1;
-					};
-					0CEBCB5C21071AD1004CC4D8 = {
-						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 0CEBCB4521071AD0004CC4D8;
-					};
-					0CEBCB6721071AD1004CC4D8 = {
-						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 0CEBCB4521071AD0004CC4D8;
 					};
 				};
 			};
@@ -687,8 +600,6 @@
 			projectRoot = "";
 			targets = (
 				0CEBCB4521071AD0004CC4D8 /* Finda */,
-				0CEBCB5C21071AD1004CC4D8 /* FindaTests */,
-				0CEBCB6721071AD1004CC4D8 /* FindaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -724,41 +635,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0CEBCB5B21071AD1004CC4D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CEBCB6621071AD1004CC4D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AF5F4A8B5C72656DA299BEA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FindaTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		66D4C80E153F4FDA18DD2D17 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -829,24 +708,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E3A8CEF8CD408C6E2A37C209 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FindaUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -940,36 +801,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0CEBCB5921071AD1004CC4D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CEBCB6221071AD1004CC4D8 /* FindaTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CEBCB6421071AD1004CC4D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CEBCB6D21071AD1004CC4D8 /* FindaUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0CEBCB5F21071AD1004CC4D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0CEBCB4521071AD0004CC4D8 /* Finda */;
-			targetProxy = 0CEBCB5E21071AD1004CC4D8 /* PBXContainerItemProxy */;
-		};
-		0CEBCB6A21071AD1004CC4D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0CEBCB4521071AD0004CC4D8 /* Finda */;
-			targetProxy = 0CEBCB6921071AD1004CC4D8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0CEBCB4D21071AD0004CC4D8 /* Main.storyboard */ = {
@@ -1149,88 +981,6 @@
 			};
 			name = Release;
 		};
-		0CEBCB7521071AD1004CC4D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E1B7F1EF255DBF716E70F99 /* Pods-FindaTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FindaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finda.app/Finda";
-			};
-			name = Debug;
-		};
-		0CEBCB7621071AD1004CC4D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 035913A7088946EBA06AFD9E /* Pods-FindaTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FindaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finda.app/Finda";
-			};
-			name = Release;
-		};
-		0CEBCB7821071AD1004CC4D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0288E199D06E667D702BCB7E /* Pods-FindaUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FindaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Finda;
-			};
-			name = Debug;
-		};
-		0CEBCB7921071AD1004CC4D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7705A2C8D63BCB785BD88416 /* Pods-FindaUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FindaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models.FindaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Finda;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1248,24 +998,6 @@
 			buildConfigurations = (
 				0CEBCB7221071AD1004CC4D8 /* Debug */,
 				0CEBCB7321071AD1004CC4D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0CEBCB7421071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CEBCB7521071AD1004CC4D8 /* Debug */,
-				0CEBCB7621071AD1004CC4D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0CEBCB7721071AD1004CC4D8 /* Build configuration list for PBXNativeTarget "FindaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CEBCB7821071AD1004CC4D8 /* Debug */,
-				0CEBCB7921071AD1004CC4D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
