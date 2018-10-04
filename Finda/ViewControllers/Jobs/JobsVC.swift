@@ -28,11 +28,6 @@ class JobsVC: UIViewController {
         walletView.walletHeader = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
         self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
-        
-//        walletView.didUpdatePresentedCardViewBlock = { [weak self] (_) in
-//        }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,74 +93,90 @@ class JobsVC: UIViewController {
             cardView.location = job.location.uppercased()
             cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.capitalizingFirstLetter())"
             
+            if (job.contact_number != "") {
+                cardView.contactNumberLabel.isHidden = false
+                cardView.contactNumberLabelIcon.isHidden = false
+                cardView.contactNumber = job.contact_number
+            } else {
+                cardView.contactNumberLabel.isHidden = true
+                cardView.contactNumberLabelIcon.isHidden = true
+            }
+      
+            var jobDescriptionLabelframe = cardView.jobDescriptionLabel.frame
+            if (job.advanced != "") {
+                cardView.advancedInfo = job.advanced
+                jobDescriptionLabelframe.origin.y = 292
+                cardView.jobDescriptionLabel.frame = jobDescriptionLabelframe
+                cardView.advancedInfoLabel.isHidden = false
+            } else {
+                cardView.advancedInfoLabel.isHidden = true
+                jobDescriptionLabelframe.origin.y = 212
+                cardView.jobDescriptionLabel.frame = jobDescriptionLabelframe
+            }
+            
             cardView.primaryButton.tag = job.jobid
             cardView.secondaryButton.tag = job.jobid
             
             if let jobStatus = JobStatus(rawValue: job.header) {
-                switch(jobStatus){
-                case .Accepted:
-                    cardView.primaryButton.setTitle("CANCEL", for: .normal)
-                    cardView.secondaryButton.isHidden = true
+                
+                switch(jobStatus) {
                     
-                    cardView.primaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
-                    
-                    break
-                case .Completed:
-                    cardView.primaryButton.isHidden = true
-                    cardView.secondaryButton.isHidden = true
-                    break
-                case .Expired:
-                    cardView.primaryButton.isHidden = true
-                    cardView.secondaryButton.isHidden = true
-                    break
-                case .Finished:
-                    cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
-                    cardView.primaryButton.isEnabled = false
-                    cardView.secondaryButton.isHidden = true
-                    break
-                case .Optioned:
-                    cardView.offeredLabel.text = "Offered rate:"
-                    cardView.offeredLabel.isHidden = false
-                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
-                    cardView.primaryButton.isHidden = true
-                    cardView.secondaryButton.isHidden = false
-                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                    break
-                case .Offered:
-                    cardView.offeredLabel.text = "Offered rate:"
-                    cardView.offeredLabel.isHidden = false
-                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
-                    cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumberButton.isEnabled = true
-                    
-                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
-                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                    
-                    
-                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
-                    cardView.primaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
+                    case .Accepted:
+                        cardView.primaryButton.setTitle("CANCEL", for: .normal)
+                        cardView.secondaryButton.isHidden = true
+                        
+                        cardView.primaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                        
+                        break
+                    case .ModelCompleted, .Completed:
+                        cardView.primaryButton.isHidden = true
+                        cardView.secondaryButton.isHidden = true
+                        cardView.offeredLabel.text = "Offered rate:"
+                        cardView.offeredLabel.isHidden = false
+                        cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                        break
+                    case .Expired:
+                        cardView.primaryButton.isHidden = true
+                        cardView.secondaryButton.isHidden = true
+                        break
+                    case .Finished:
+                        cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
+                        cardView.primaryButton.isEnabled = false
+                        cardView.secondaryButton.isHidden = true
+                        break
+                    case .Optioned:
+                        cardView.offeredLabel.text = "Offered rate:"
+                        cardView.offeredLabel.isHidden = false
+                        cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                        cardView.primaryButton.isHidden = true
+                        cardView.secondaryButton.isHidden = false
+                        cardView.secondaryButton.setTitle("REJECT", for: .normal)
+                        
+                        cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
+                        
+                        break
+                    case .Offered:
+                        cardView.offeredLabel.text = "Offered rate:"
+                        cardView.offeredLabel.isHidden = false
+                        cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                        cardView.offeredNumberButton.isHidden = false
+                        cardView.offeredNumberButton.isEnabled = true
+                        
+                        cardView.primaryButton.setTitle("ACCEPT", for: .normal)
+                        cardView.secondaryButton.setTitle("REJECT", for: .normal)
+                        
+                        
+                        cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
+                        cardView.primaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
 
-                    break
-                case .Unfinalised:
-                    cardView.primaryButton.setTitle("COMPLETE", for: .normal)
-                    cardView.secondaryButton.isHidden = true
-                    break
+                        break
+                    case .Unfinalised:
+                        cardView.primaryButton.setTitle("COMPLETE", for: .normal)
+                        cardView.secondaryButton.isHidden = true
+                        break
                     
                 }
             }
-            
-            /*
-             
-             statustext[0] = 'INVALID';
-             $statustext[1] = 'OFFERED';
-             $statustext[2] = 'ACCEPTED';
-             $statustext[3] = 'MODEL_CANCELLED';
-             $statustext[4] = 'CLIENT_CANCELLED';
-             $statustext[5] = 'MODEL_COMPLETED';
-             $statustext[6] = 'CLIENT_COMPLETED';
-             $statustext[7] = 'COMPLETED'
- 
-             */
             
             self.cardViews.append(cardView)
       
@@ -182,29 +193,36 @@ class JobsVC: UIViewController {
     }
 
     @objc private func acceptJob(sender: UIButton){
-//        FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
-//            if response {
-//                self.loadJobs()
-//            }
-//        }
+        FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
+            if response {
+                self.loadJobs()
+            }
+        }
     }
     
     @objc private func rejectJob(sender: UIButton){
-//        FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
-//            if response {
-//                self.loadJobs()
-//            }
-//        }
+        FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
+            if response {
+                self.loadJobs()
+            }
+        }
     }
     
     @objc private func cancelJob(sender: UIButton){
-//        FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
-//            if response {
-//                self.loadJobs()
-//            }
-//        }
+        FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
+            if response {
+                self.loadJobs()
+            }
+        }
     }
-    
+
+    @objc private func rejectOption(sender: UIButton){
+        FindaAPISession(target: .rejectOption(jobId: sender.tag)) { (response, result) in
+            if response {
+                self.loadJobs()
+            }
+        }
+    }
     private func loadJobs(){
         JobsManager.getJobs(jobType: self.jobType) { (response, result) in
             if(response) {

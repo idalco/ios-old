@@ -19,42 +19,6 @@ class JobCardView: CardView {
     var header: String = "" {
         didSet {
             headerLabel.text = "\(header)"
-//            switch(header) {
-//            case "PENDING":
-//                contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
-//                break
-//                
-//            case "ACCEPTED":
-//                contentView.layer.borderColor = UIColor.FindaColours.Blue.cgColor
-//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.Blue, thickness: 5.0)
-//                break
-//                
-//            case "OFFERED":
-//                contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
-//                break
-//                
-//            case "MODEL_COMPLETED":
-//                headerLabel.text = "COMPLETED"
-//                contentView.layer.borderColor = UIColor.FindaColours.Purple.cgColor
-//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.Purple, thickness: 5.0)
-//                break
-//                
-//            case "OPTIONED":
-//                contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
-//                break
-//                
-//            case "COMPLETED":
-//                contentView.layer.borderColor = UIColor.FindaColours.Black.cgColor
-//                contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 5.0)
-//                break
-//                
-//            default:
-//                break
-//            }
-            
         }
     }
 
@@ -105,6 +69,7 @@ class JobCardView: CardView {
     var jobDescription: String = "" {
         didSet {
             jobDescriptionLabel.text = "\(jobDescription)"
+            jobDescriptionLabel.sizeToFit()
         }
     }
     
@@ -128,29 +93,38 @@ class JobCardView: CardView {
         
     }
     
+    
+    @IBOutlet weak var contactNumberLabel: UILabel!
+    var contactNumber: String = "" {
+        didSet {
+            contactNumberLabel.text = "Contact number: \(contactNumber)"
+        }
+    }
+    
+    @IBOutlet weak var contactNumberLabelIcon: UILabel!
+    
+    @IBOutlet weak var advancedInfoLabel: UILabel!
+    var advancedInfo: String = "" {
+        didSet {
+            advancedInfoLabel.text = "\(advancedInfo)"
+            advancedInfoLabel.sizeToFit()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         contentView.layer.cornerRadius  = 10
         contentView.layer.masksToBounds = false
         contentView.layer.borderWidth = 0
-//        contentView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-        
-//        contentView.layoutIfNeeded()
-//        contentView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 5.0)
         
         contentView.layer.shadowColor = UIColor.FindaColours.Black.cgColor
         contentView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         contentView.layer.shadowRadius = 10.0
         contentView.layer.shadowOpacity = 0.4
         
-        //UIColor.FindaColors.Purple.fade(alpha: 0.2).cgColor
-        
         offeredNumberButton.isHidden = true
         offeredNumberButton.isEnabled = false
-//        offeredNumberButton.layer.borderColor = UIColor.FindaColours.BorderGrey.cgColor
-//        offeredNumberButton.layer.borderWidth = 2
-//        offeredNumberButton.layer.cornerRadius = 5
         
         offeredLabel.isHidden = true
         
@@ -168,15 +142,9 @@ class JobCardView: CardView {
     override var presented: Bool { didSet { presentedDidUpdate() } }
     
     func presentedDidUpdate() {
-        
-//        primaryButton.isHidden = !presented
-//        seconaryButton.isHidden = !presented
         contentView.backgroundColor = presented ? presentedCardViewColor: depresentedCardViewColor
         contentView.addTransitionFade()
-        
     }
-    
-    
     
 }
 

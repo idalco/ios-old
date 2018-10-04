@@ -30,6 +30,14 @@ class Job {
     let rating: Double
     let modelNotes, jobtype, companyName, companyWebsite: String
     
+//    let advanced_model_to_bring, advanced_transport_methods, advanced_model_expenses, advanced_model_meeting_point: String
+//    let advanced_makeup_provided, advanced_contact_number: String
+    let advanced, contact_number: String
+    
+    let usage_jobid, usage_uk, usage_europe, usage_international, usage_brochure: Int
+    let usage_posters, usage_advertising, usage_billboards, usage_digitalads: Int
+    let usage_socialmedia, usage_companywebsite, usage_tv: Int
+    
     init(data: JSON) {
         self.clientUid = data["client_uid"].intValue
         self.projectTid = data["project_tid"].intValue
@@ -60,6 +68,27 @@ class Job {
         self.companyName = data["company_name"].stringValue
         self.companyWebsite = data["company_website"].stringValue
         self.header = data["status_text"].stringValue
+        
+//        self.advanced_model_to_bring = data["advanced_model_to_bring"].stringValue
+//        self.advanced_transport_methods = data["advanced_transport_methods"].stringValue
+//        self.advanced_model_expenses = data["advanced_model_expenses"].stringValue
+//        self.advanced_model_meeting_point = data["advanced_model_meeting_point"].stringValue
+//        self.advanced_makeup_provided = data["advanced_makeup_provided"].stringValue
+        self.advanced = data["advanced"].stringValue
+        self.contact_number = data["contact_number"].stringValue
+        self.usage_jobid = data["usage_jobid"].intValue
+        self.usage_uk = data["usage_uk"].intValue
+        self.usage_europe = data["usage_europe"].intValue
+        self.usage_international = data["usage_international"].intValue
+        self.usage_brochure = data["usage_brochure"].intValue
+        self.usage_posters = data["usage_posters"].intValue
+        self.usage_advertising = data["usage_advertising"].intValue
+        self.usage_billboards = data["usage_billboards"].intValue
+        self.usage_digitalads = data["usage_digitalads"].intValue
+        self.usage_socialmedia = data["usage_socialmedia"].intValue
+        self.usage_companywebsite = data["usage_companywebsite"].intValue
+        self.usage_tv = data["usage_tv"].intValue
+        
     }
     
 }
@@ -73,39 +102,4 @@ extension Job: Hashable {
         return clientUid.hashValue ^ projectTid.hashValue ^ created.hashValue ^ modified.hashValue ^ jobStatus.hashValue ^ name.hashValue ^ offeredRate.hashValue ^ negotiatedRate.hashValue ^ agreedRate.hashValue ^ timeUnits.hashValue ^ unitsType.hashValue ^ startdate.hashValue ^ starttime.hashValue ^ description.hashValue ^ clientJobCompleted.hashValue ^ location.hashValue ^ invoiceID.hashValue ^ invoicePaid.hashValue ^ callsheet.hashValue ^ jobid.hashValue ^ modelDesiredRate.hashValue ^ clientOfferedRate.hashValue ^ status.hashValue ^ rating.hashValue ^ modelNotes.hashValue ^ jobtype.hashValue ^ companyName.hashValue ^ companyWebsite.hashValue
     }
 }
-//
-//extension Job: Equatable {
-//    static func == (lhs: Job, rhs: Job) -> Bool {
-//        print(lhs.clientUid == rhs.clientUid)
-//        return lhs.clientUid == rhs.clientUid &&
-//            lhs.projectTid == rhs.projectTid &&
-//            lhs.created == rhs.created &&
-//            lhs.modified == rhs.modified &&
-//            lhs.jobStatus == rhs.jobStatus &&
-//            lhs.name == rhs.name &&
-//            lhs.offeredRate == rhs.offeredRate &&
-//            lhs.negotiatedRate == rhs.negotiatedRate &&
-//            lhs.agreedRate == rhs.agreedRate &&
-//            lhs.timeUnits == rhs.timeUnits &&
-//            lhs.unitsType == rhs.unitsType &&
-//            lhs.startdate == rhs.startdate &&
-//            lhs.starttime == rhs.starttime &&
-//            lhs.description == rhs.description &&
-//            lhs.clientJobCompleted == rhs.clientJobCompleted &&
-//            lhs.location == rhs.location &&
-//            lhs.invoiceID == rhs.invoiceID &&
-//            lhs.invoicePaid == rhs.invoicePaid &&
-//            lhs.callsheet == rhs.callsheet &&
-//            lhs.jobid == rhs.jobid &&
-//            lhs.modelDesiredRate == rhs.modelDesiredRate &&
-//            lhs.clientOfferedRate == rhs.clientOfferedRate &&
-//            lhs.status == rhs.status &&
-//            lhs.rating == rhs.rating &&
-//            lhs.modelNotes == rhs.modelNotes &&
-//            lhs.jobtype == rhs.jobtype &&
-//            lhs.companyName == rhs.companyName &&
-//            lhs.companyWebsite == rhs.companyWebsite
-//
-//
-//    }
-//}
+
