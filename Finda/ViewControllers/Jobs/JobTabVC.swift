@@ -21,6 +21,12 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             viewController.jobType = .offered
             self.viewControllers.append(viewController)
         }
+        
+//        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
+//            viewController.jobType = .optioned
+//            self.viewControllers.append(viewController)
+//        }
+        
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
             viewController.jobType = .accepted
             self.viewControllers.append(viewController)
@@ -30,6 +36,8 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             viewController.jobType = .all
             self.viewControllers.append(viewController)
         }
+        
+      
         
          self.bar.items = [Item(title: "Offered"), Item(title: "Accepted"), Item(title: "All")]
         

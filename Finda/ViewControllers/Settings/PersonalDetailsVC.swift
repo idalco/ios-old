@@ -210,26 +210,13 @@ class PersonalDetailsVC: FormViewController {
             }
             <<< TextRow(){ row in
                 row.title = "Referral Code"
+                row.placeholder = "(optional)"
                 row.tag = "referralCode"
                 row.value = modelManager.referrerCode()
                 
                 
             }
             
-            //            <<< IntRow(){ row in
-            //                row.title = "Minimum Hourly Rate"
-            //                if CoreDataManager.getInt(dataName: "instagramFollowers", entity: "User") != -1 {
-            //                    row.value = CoreDataManager.getInt(dataName: "instagramFollowers", entity: "User")
-            //                }
-            //
-            //            }
-            //            <<< IntRow(){ row in
-            //                row.title = "Minimum Daily Rate"
-            //                if CoreDataManager.getInt(dataName: "instagramFollowers", entity: "User") != -1 {
-            //                    row.value = CoreDataManager.getInt(dataName: "instagramFollowers", entity: "User")
-            //                }
-            //
-            //            }
             
             <<< TextRow(){ row in
                 row.title = "VAT Number"
@@ -285,7 +272,7 @@ class PersonalDetailsVC: FormViewController {
                 self.updateCell(tag: "instagramUsername", data: model.instagramUserName())
                 self.updateCell(tag: "referralCode", data: model.referrerCode())
                 self.updateCell(tag: "vat", data: model.vatNumber())
-
+                
                 guard let row: PickerInputRow<String> = self.form.rowBy(tag: "ethnicity") else { return }
                 if self.ethnicityDictionary.count > 0 {
                     self.updatePickerRow(row: row, coreData: model.ethnicity(), dictionary: self.ethnicityDictionary)
@@ -334,9 +321,7 @@ class PersonalDetailsVC: FormViewController {
             self.validateRow(tag: "lastName")
             return
         }
-        
 
-        
         guard let emailRow: BaseRow = form.rowBy(tag: "email"), let email: String = form.values()["email"] as? String else {
             self.validateRow(tag: "email")
             return
@@ -357,24 +342,25 @@ class PersonalDetailsVC: FormViewController {
             return
         }
         
-        guard let referralCodeRow: BaseRow = form.rowBy(tag: "referralCode"), let referralCode: String = form.values()["referralCode"] as? String else {
-            self.validateRow(tag: "referralCode")
-            return
-        }
-        
-        guard let vatRow: BaseRow = form.rowBy(tag: "vat"), let vat: String = form.values()["vat"] as? String else {
-            self.validateRow(tag: "vat")
-            return
-        }
-        
-        
-
         guard let ethnictyId = ethnicityDictionary.allKeysForValue(val: ethnicity).first else {
             return
         }
         
+        guard let nationalityRow: BaseRow = form.rowBy(tag: "nationality"), let nationality: String = form.values()["nationality"] as? String else {
+            self.validateRow(tag: "nationality")
+            return
+        }
+
+        guard let residenceRow: BaseRow = form.rowBy(tag: "residence"), let residence: String = form.values()["residence"] as? String else {
+            self.validateRow(tag: "residence")
+            return
+        }
+
+        let referralCode: String = form.values()["referralCode"] as? String ?? ""
+        let vat: String = form.values()["vat"] as? String ?? ""
+        
         if(firstNameRow.isValid && lastNameRow.isValid && emailRow.isValid && genderRow.isValid && ethnicityRow.isValid && instagramRow.isValid){
-            FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, gender: gender, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat)) { (response, result) in
+            FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, gender: gender, nationality: nationality, residence_country: residence, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat)) { (response, result) in
                 if response {
                     self.updateRows()
                 }

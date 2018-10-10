@@ -25,8 +25,8 @@ enum FindaAPI {
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
-    case updateProfile(firstName: String, lastName: String, email: String, gender: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
-    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String)
+    case updateProfile(firstName: String, lastName: String, email: String, gender: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
+    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String, hourlyrate: Int, dailyrate: Int)
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case updatePassword(oldPassword: String, newPassword: String, repeatNewPassword: String)
     case uploadPortfolioImage(image: UIImage)
@@ -49,8 +49,8 @@ enum FindaAPI {
 }
 
 //let domainURL: String = "http://dev.finda.co"
-//let domainURL: String = "http://dev.finda"
-let domainURL: String = "https://www.finda.co"
+let domainURL: String = "http://dev.finda"
+//let domainURL: String = "https://www.finda.co"
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
     
@@ -185,7 +185,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .deleteNotifications(let id):
             p["msgid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        case .updateProfile(let firstName, let lastName, let email, let gender, let ethnicityId, let instagramUsername, let referralCode, let vatNumber):
+        case .updateProfile(let firstName, let lastName, let email, let gender, let nationality, let residence_country, let ethnicityId, let instagramUsername, let referralCode, let vatNumber):
             var parameters = [String: Any]()
             
             parameters["firstname"] = firstName
@@ -200,13 +200,14 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             if (vatNumber != "") {
                 parameters["vat_number"] = vatNumber
             }
-            
+            parameters["nationality"] = nationality
+            parameters["residence_country"] = residence_country
             p["parameters"] = parameters
             
          
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
-        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let hairColour, let hairLength, let hairType, let eyeColour, let willingToColour, let willingToCut):
+        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let hairColour, let hairLength, let hairType, let eyeColour, let willingToColour, let willingToCut, let hourlyrate, let dailyrate):
             var parameters = [String: Any]()
             parameters["height"] = height
             parameters["bust"] = bust
@@ -220,7 +221,9 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["eyecolour"] = eyeColour
             parameters["willingtodye"] = willingToColour
             parameters["willingtocut"] = willingToCut
-            
+            parameters["hourlyrate"] = hourlyrate
+            parameters["dailyrate"] = dailyrate
+
             p["parameters"] = parameters
             
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)

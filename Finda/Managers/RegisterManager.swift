@@ -12,6 +12,7 @@ import CoreData
 
 class RegisterManager {
     
+    var window: UIWindow?
     
     static func model(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, referral_code: String, dob: TimeInterval, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         
@@ -21,6 +22,19 @@ class RegisterManager {
                 CoreDataManager.printEntity(entity: "User")
                 let defaults = UserDefaults.standard
                 defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                var contentViewController  = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
+                let modelManager = ModelManager()
+                if modelManager.status() == UserStatus.unverified {
+                    contentViewController = storyboard.instantiateViewController(withIdentifier: "Settings")
+                }
+                
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {                    
+                    appDelegate.setUpApplication()
+                }
+
                 completion(response, result)
                 return
             }

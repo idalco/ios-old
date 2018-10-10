@@ -222,10 +222,6 @@
 		0CEBCB5321071AD1004CC4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CEBCB5621071AD1004CC4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CEBCB5821071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CEBCB6121071AD1004CC4D8 /* FindaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaTests.swift; sourceTree = "<group>"; };
-		0CEBCB6321071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CEBCB6C21071AD1004CC4D8 /* FindaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindaUITests.swift; sourceTree = "<group>"; };
-		0CEBCB6E21071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CEBCB7C21072C31004CC4D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FindaColours.swift"; sourceTree = "<group>"; };
 		2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.release.xcconfig"; sourceTree = "<group>"; };
@@ -461,8 +457,6 @@
 			isa = PBXGroup;
 			children = (
 				0CEBCB4821071AD0004CC4D8 /* Finda */,
-				0CEBCB6021071AD1004CC4D8 /* FindaTests */,
-				0CEBCB6B21071AD1004CC4D8 /* FindaUITests */,
 				0CEBCB4721071AD0004CC4D8 /* Products */,
 				AFAA9367A94CA9F47F4821C0 /* Pods */,
 				8D7FEAF78D23FC69FBA4C5CE /* Frameworks */,
@@ -508,24 +502,6 @@
 			path = Finda;
 			sourceTree = "<group>";
 		};
-		0CEBCB6021071AD1004CC4D8 /* FindaTests */ = {
-			isa = PBXGroup;
-			children = (
-				0CEBCB6121071AD1004CC4D8 /* FindaTests.swift */,
-				0CEBCB6321071AD1004CC4D8 /* Info.plist */,
-			);
-			path = FindaTests;
-			sourceTree = "<group>";
-		};
-		0CEBCB6B21071AD1004CC4D8 /* FindaUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0CEBCB6C21071AD1004CC4D8 /* FindaUITests.swift */,
-				0CEBCB6E21071AD1004CC4D8 /* Info.plist */,
-			);
-			path = FindaUITests;
-			sourceTree = "<group>";
-		};
 		8D7FEAF78D23FC69FBA4C5CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,7 +536,7 @@
 				0CEBCB4221071AD0004CC4D8 /* Sources */,
 				0CEBCB4321071AD0004CC4D8 /* Frameworks */,
 				0CEBCB4421071AD0004CC4D8 /* Resources */,
-				E2975F976A6983C535815B8C /* [CP] Embed Pods Frameworks */,
+				2F8FCBED67EB5451B19E038A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -638,25 +614,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		66D4C80E153F4FDA18DD2D17 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Finda-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2975F976A6983C535815B8C /* [CP] Embed Pods Frameworks */ = {
+		2F8FCBED67EB5451B19E038A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -712,6 +670,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finda/Pods-Finda-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66D4C80E153F4FDA18DD2D17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Finda-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -884,6 +860,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -926,6 +903,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -936,7 +914,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -951,7 +930,10 @@
 				DEVELOPMENT_TEAM = 7Y4G95LX38;
 				INFOPLIST_FILE = Finda/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
@@ -970,7 +952,10 @@
 				DEVELOPMENT_TEAM = 7Y4G95LX38;
 				INFOPLIST_FILE = Finda/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;

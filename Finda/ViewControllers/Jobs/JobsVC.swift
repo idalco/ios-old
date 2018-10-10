@@ -38,6 +38,10 @@ class JobsVC: UIViewController {
     override func viewDidLayoutSubviews() {
         for card in self.cardViews {
             
+            // by default, hide contact number
+            card.contactNumberLabelIcon.isHidden = true
+            card.contactNumberLabel.isHidden = true
+            
             switch(card.header) {
             case "PENDING":
                 card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
@@ -47,6 +51,8 @@ class JobsVC: UIViewController {
             case "ACCEPTED":
                 card.layer.borderColor = UIColor.FindaColours.Blue.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Blue, thickness: 8.0)
+                card.contactNumberLabelIcon.isHidden = false
+                card.contactNumberLabel.isHidden = false
                 break
                 
             case "OFFERED":
@@ -69,6 +75,12 @@ class JobsVC: UIViewController {
                 card.layer.borderColor = UIColor.FindaColours.Black.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 8.0)
                 break
+
+            case "EXPIRED":
+                card.layer.borderColor = UIColor.FindaColours.Black.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 8.0)
+                break
+
                 
             default:
                 break
@@ -135,71 +147,71 @@ class JobsVC: UIViewController {
 
                     break;
                     
-                    case .Accepted:
-                        cardView.secondaryButton.setTitle("CANCEL", for: .normal)
-                        cardView.primaryButton.isHidden = true
-                        
-                        cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
-                        cardView.offeredLabel.isHidden = false
-                        cardView.offeredNumberButton.isHidden = false
-                        cardView.offeredLabel.text = "Agreed rate:"
-                        cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                        break
-                    case .ModelCompleted, .Completed:
-                        cardView.primaryButton.isHidden = true
-                        cardView.secondaryButton.isHidden = true
-                        cardView.offeredLabel.text = "Offered rate:"
-                        cardView.offeredLabel.isHidden = false
-                        cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
-                        break
-                    case .Expired:
-                        cardView.primaryButton.isHidden = true
-                        cardView.secondaryButton.isHidden = true
-                        cardView.contactNumberLabel.isHidden = true
-                        cardView.contactNumberLabelIcon.isHidden = true
-                        break
-                    case .Finished:
-                        cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
-                        cardView.primaryButton.isEnabled = false
-                        cardView.secondaryButton.isHidden = true
-                        cardView.contactNumberLabel.isHidden = true
-                        cardView.contactNumberLabelIcon.isHidden = true
-                        break
-                    case .Optioned:
-                        cardView.offeredLabel.text = "Offered rate:"
-                        cardView.offeredLabel.isHidden = false
-                        cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
-                        cardView.primaryButton.isHidden = true
-                        cardView.secondaryButton.isHidden = false
-                        cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                        
-                        cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
-                        cardView.contactNumberLabel.isHidden = true
-                        cardView.contactNumberLabelIcon.isHidden = true
-                        
-                        break
-                    case .Offered:
-                        cardView.offeredLabel.text = "Offered rate:"
-                        cardView.offeredLabel.isHidden = false
-                        cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
-                        cardView.offeredNumberButton.isHidden = false
-                        cardView.offeredNumberButton.isEnabled = true
-                        
-                        cardView.primaryButton.setTitle("ACCEPT", for: .normal)
-                        cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                        
-                        cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
-                        cardView.secondaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
+                case .Accepted:
+                    cardView.secondaryButton.setTitle("CANCEL", for: .normal)
+                    cardView.primaryButton.isHidden = true
+                    
+                    cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumberButton.isHidden = false
+                    cardView.offeredLabel.text = "Agreed rate:"
+                    cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    break
+                case .ModelCompleted, .Completed:
+                    cardView.primaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = true
+                    cardView.offeredLabel.text = "Offered rate:"
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    break
+                case .Expired:
+                    cardView.primaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = true
+                    cardView.contactNumberLabel.isHidden = true
+                    cardView.contactNumberLabelIcon.isHidden = true
+                    break
+                case .Finished:
+                    cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
+                    cardView.primaryButton.isEnabled = false
+                    cardView.secondaryButton.isHidden = true
+                    cardView.contactNumberLabel.isHidden = true
+                    cardView.contactNumberLabelIcon.isHidden = true
+                    break
+                case .Optioned:
+                    cardView.offeredLabel.text = "Offered rate:"
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    cardView.primaryButton.isHidden = true
+                    cardView.secondaryButton.isHidden = false
+                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
+                    
+                    cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
+                    cardView.contactNumberLabel.isHidden = true
+                    cardView.contactNumberLabelIcon.isHidden = true
+                    
+                    break
+                case .Offered:
+                    cardView.offeredLabel.text = "Offered rate:"
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    cardView.offeredNumberButton.isHidden = false
+                    cardView.offeredNumberButton.isEnabled = true
+                    
+                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
+                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
+                    
+                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
+                    cardView.secondaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
 
-                        cardView.contactNumberLabel.isHidden = true
-                        cardView.contactNumberLabelIcon.isHidden = true
-                        
-                        break
-                    case .Unfinalised:
-                        cardView.primaryButton.setTitle("COMPLETE", for: .normal)
-                        cardView.secondaryButton.isHidden = true
-                        cardView.contactNumberLabel.isHidden = true
-                        break
+                    cardView.contactNumberLabel.isHidden = true
+                    cardView.contactNumberLabelIcon.isHidden = true
+                    
+                    break
+                case .Unfinalised:
+                    cardView.primaryButton.setTitle("COMPLETE", for: .normal)
+                    cardView.secondaryButton.isHidden = true
+                    cardView.contactNumberLabel.isHidden = true
+                    break
                     
                 }
             }
@@ -240,6 +252,7 @@ class JobsVC: UIViewController {
                 self.loadJobs()
             }
         }
+
     }
 
     @objc private func rejectOption(sender: UIButton){

@@ -52,13 +52,11 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     
         if modelManager.status() == UserStatus.unverified {
-            self.menu = ["My Details", "Invite a Friend", "Sign Out"]
-            self.icon = [.FAUser, .FAUsers, .FAPowerOff]
+            self.menu = ["My Details", "Verification", "Invite a Friend", "Sign Out"]
+            self.icon = [.FAUser, .FAClipboard, .FAUsers, .FAPowerOff]
         } else {
             self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Sign Out"]
             self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank ,.FAUsers, .FAPowerOff]
-//            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Invite a Friend", "Sign Out"]
-//            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FAUsers, .FAPowerOff]
         }
         self.tableView.reloadData()
         dismissKeyboard()
@@ -113,19 +111,30 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let modelManager = ModelManager()
+        var isVerified = true;
+        if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 || modelManager.kycOn() == 0 || modelManager.kycBy() == 0 {
+            isVerified = false;
+        }
+
+        
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
         } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
             sideMenuController?.setContentViewController(with: "InviteNav")
             
-        } else if  indexPath.row == 0 {
+        } else if indexPath.row == 0 {
             sideMenuController?.setContentViewController(with: "Settings")
             
-        } else if  indexPath.row == 1 {
-            sideMenuController?.setContentViewController(with: "MainTabBar")
-            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
-            
+        } else if indexPath.row == 1 {
+            if !isVerified {
+                sideMenuController?.setContentViewController(with: "VerificationNav")
+            } else {
+                sideMenuController?.setContentViewController(with: "MainTabBar")
+                (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+
+            }
         } else if  indexPath.row == 2 {
             sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
@@ -140,14 +149,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
             
         } else if indexPath.row == 5 {
-            let modelManager = ModelManager()
-            
-            print(modelManager.kycOn())
-            print(modelManager.kycBy())
-            
             if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
                 sideMenuController?.setContentViewController(with: "PaymentNav")
-           } else if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 || modelManager.kycOn() == 0 || modelManager.kycBy() == 0 {
+           } else if !isVerified {
                 sideMenuController?.setContentViewController(with: "VerificationNav")
             } else {
                 sideMenuController?.setContentViewController(with: "InvoiceNav")

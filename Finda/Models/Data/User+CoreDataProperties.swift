@@ -43,6 +43,4 @@ extension User {
     @NSManaged public var gender: String?
     @NSManaged public var kycOn: Int64
     @NSManaged public var kycBy: Int32
-    
-
 }

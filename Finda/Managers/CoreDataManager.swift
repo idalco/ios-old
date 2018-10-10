@@ -56,13 +56,13 @@ class CoreDataManager {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        
+
         request.returnsObjectsAsFaults = false
         
         do {
             let results = try managedContext.fetch(request)
             let res = (results as! [NSManagedObject]).last
-            
+            print(res)
             if let data = res?.value(forKey: dataName) as? Int {
                 return data
             }

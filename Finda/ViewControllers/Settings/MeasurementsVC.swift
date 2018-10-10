@@ -41,7 +41,6 @@ class MeasurementsVC: FormViewController {
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
         }
         
-        
         var section = Section(){ section in
             var header = HeaderFooterView<UIView>(.class)
             header.height = {100}
@@ -61,130 +60,160 @@ class MeasurementsVC: FormViewController {
                 
             }
             section.header = header
-            }
+        }
             
-            <<< IntRow(){ row in
-                row.title = "Height"
-                row.tag = "Height".lowercased()
-                let data = modelManager.height()
-                if data != -1 {
-                    row.value = data
-                }
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
+        <<< IntRow(){ row in
+            row.title = "Height"
+            row.tag = "Height".lowercased()
+            let data = modelManager.height()
+            if data != -1 {
+                row.value = data
+            }
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
+            }
+        }
+            
+        <<< IntRow(){ row in
+            row.title = "Bust"
+            row.tag = "Bust".lowercased()
+            let data = modelManager.bust()
+            if data != -1 {
+                row.value = data
+            }
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
+            }
+        }
+            
+        <<< IntRow(){ row in
+            row.title = "Waist"
+            row.tag = "Waist".lowercased()
+            let data = modelManager.waist()
+            if data != -1 {
+                row.value = data
+            }
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
+            }
+        }
+            
+        <<< IntRow(){ row in
+            row.title = "Hips"
+            row.tag = "Hips".lowercased()
+            let data = modelManager.hips()
+            if data != -1 {
+                row.value = data
+            }
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
                 
             }
-            
-            
-            <<< IntRow(){ row in
-                row.title = "Bust"
-                row.tag = "Bust".lowercased()
-                let data = modelManager.bust()
-                if data != -1 {
-                    row.value = data
-                }
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
-            
-            <<< IntRow(){ row in
-                row.title = "Waist"
-                row.tag = "Waist".lowercased()
-                let data = modelManager.waist()
-                if data != -1 {
-                    row.value = data
-                }
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
-            
-            <<< IntRow(){ row in
-                row.title = "Hips"
-                row.tag = "Hips".lowercased()
-                let data = modelManager.hips()
-                if data != -1 {
-                    row.value = data
-                }
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
-            <<< PickerInputRow<String>() { row in
-                row.title = "Shoe Size"
-                row.tag = "Shoe Size".lowercased()
-                row.options = Array(Measurements.shoeSizesArray.values)
-                let data = modelManager.shoeSize()
-                if data != -1 {
-                    row.value = Measurements.shoeSizesArray[Float(data)]
-                    
-                }
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
-            
-            <<< PickerInputRow<String>() { row in
-                row.title = "Dress Size"
-                row.tag = "Dress Size".lowercased()
-                row.options = Array(Measurements.dressSizesArray.values)
-                let data = modelManager.dressSize()
-                if data != -1 {
-                    row.value = Measurements.dressSizesArray[Float(data)]
-                    
-                }
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
-            
-            
-            <<< SwitchRow(){ row in
-                row.title = "Willing to colour?"
-                row.value = modelManager.willingColour()
-                row.tag = "Willing to colour?".lowercased()
-            }
-        
-            <<< SwitchRow(){ row in
-                row.title = "Willing to cut?"
-                row.value = modelManager.willingCut()
-                row.tag = "Willing to cut?".lowercased()
         }
+        <<< PickerInputRow<String>() { row in
+            row.title = "Shoe Size"
+            row.tag = "Shoe Size".lowercased()
+            row.options = Array(Measurements.shoeSizesArray.values)
+            let data = modelManager.shoeSize()
+            if data != -1 {
+                row.value = Measurements.shoeSizesArray[Float(data)]
+                
+            }
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
+                
+            }
+        }
+            
+        <<< PickerInputRow<String>() { row in
+            row.title = "Dress Size"
+            row.tag = "Dress Size".lowercased()
+            row.options = Array(Measurements.dressSizesArray.values)
+            let data = modelManager.dressSize()
+            if data != -1 {
+                row.value = Measurements.dressSizesArray[Float(data)]
+                
+            }
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
+                
+            }
+        }
+            
+            
+        <<< SwitchRow(){ row in
+            row.title = "Willing to colour?"
+            row.value = modelManager.willingColour()
+            row.tag = "Willing to colour?".lowercased()
+        }
+    
+        <<< SwitchRow(){ row in
+            row.title = "Willing to cut?"
+            row.value = modelManager.willingCut()
+            row.tag = "Willing to cut?".lowercased()
+        }
+    
+        <<< IntRow(){ row in
+            row.title = "Minimum Hourly Rate"
+            row.value = modelManager.hourlyrate()
+        }
+        <<< IntRow(){ row in
+            row.title = "Minimum Daily Rate"
+            row.value = modelManager.dailyrate()
+        }
+
         
         form +++ section
+ 
+        var section1 = Section(){ section1 in
+            var header = HeaderFooterView<UIView>(.class)
+            header.height = {60}
+            header.onSetupView = { view, _ in
+                view.backgroundColor = UIColor.FindaColours.White
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
+                
+                title.text = "Details"
+                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                view.addSubview(title)
+                
+            }
+            section1.header = header
+            }
+            
+            <<< IntRow(){ row in
+                row.title = "Minimum Hourly Rate"
+                row.value = modelManager.hourlyrate()
+            }
+            <<< IntRow(){ row in
+                row.title = "Minimum Daily Rate"
+                row.value = modelManager.dailyrate()
+        }
         
+        form +++ section1
         
         PickerDelegate.addPickerData(term: .HairColour, rowTitle: "Hair Colour", coreData: modelManager.hairColour()) { (response, result, dictionary) in
             if response {
@@ -267,6 +296,9 @@ class MeasurementsVC: FormViewController {
                     self.updateCell(tag: "eye colour", data: eyeColour)
                 }
                 
+                self.updateCell(tag: "hourlyrate", data: model.hourlyrate())
+                self.updateCell(tag: "dailyrate", data: model.dailyrate())
+
             }
             
         }
@@ -376,9 +408,11 @@ class MeasurementsVC: FormViewController {
             return
         }
     
+        let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
+        let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
         
         if(heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid){
-            FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSizeId, dressSize: dressSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourString, willingToCut: willingToCutString)) { (response, result) in
+            FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSizeId, dressSize: dressSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourString, willingToCut: willingToCutString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
                 if response {
                     self.updateRows()
                 }

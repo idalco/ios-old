@@ -2099,7 +2099,7 @@ MODELLING TALENT</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ke-aq-MtO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.39607843139999999" green="0.72156862749999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.52941176469999995" green="0.76078431369999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -2214,8 +2214,8 @@ MODELLING TALENT</string>
         <image name="trash" width="315" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d3j-YQ-dha"/>
+        <segue reference="kBq-Ev-WrO"/>
         <segue reference="LG7-vM-ZlQ"/>
-        <segue reference="fFA-jU-UWP"/>
+        <segue reference="tCZ-2f-hRy"/>
     </inferredMetricsTieBreakers>
 </document>

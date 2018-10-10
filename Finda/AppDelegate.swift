@@ -24,23 +24,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LoginManager.getDetails { (response, result) in }
         
         if(LoginManager.isLoggedIn() && LoginManager.isModel()){
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-            var contentViewController  = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
-            let modelManager = ModelManager()
-            if modelManager.status() == UserStatus.unverified {
-                contentViewController = storyboard.instantiateViewController(withIdentifier: "Settings")
-            }
-
-            let menuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuView")
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = SideMenuController(contentViewController: contentViewController,
-                                                            menuViewController: menuViewController)
-
-            window?.makeKeyAndVisible()
+            setUpApplication()
         }
         
         return true
+    }
+    
+    func setUpApplication() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var contentViewController  = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.unverified {
+            contentViewController = storyboard.instantiateViewController(withIdentifier: "Settings")
+        }
+        
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuView")
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = SideMenuController(contentViewController: contentViewController,
+                                                        menuViewController: menuViewController)
+        
+        window?.makeKeyAndVisible()
     }
     
     private func configureSideMenu() {

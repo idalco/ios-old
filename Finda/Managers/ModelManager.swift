@@ -63,6 +63,8 @@ class ModelManager {
         case willingColour = "willingColour"
         case willingCut = "willingCut"
         case eyeColour = "eyeColour"
+        case hourlyrate = "hourlyrate"
+        case dailyrate = "dailyrate"
     }
     
     enum Preferences: String {
@@ -196,7 +198,7 @@ class ModelManager {
     func kycBy() -> Int {
         return CoreDataManager.getInt(dataName: User.kycBy.rawValue, entity: Entity.User.rawValue)
     }
-    
+
     /*
         Profile Entity
     */
@@ -236,7 +238,15 @@ class ModelManager {
     func eyeColour() -> Int {
         return CoreDataManager.getInt(dataName: Profile.eyeColour.rawValue, entity: Entity.Profile.rawValue)
     }
-    
+ 
+    func hourlyrate() -> Int {
+        return CoreDataManager.getInt(dataName: Profile.hourlyrate.rawValue, entity: Entity.Profile.rawValue)
+    }
+
+    func dailyrate() -> Int {
+        return CoreDataManager.getInt(dataName: Profile.dailyrate.rawValue, entity: Entity.Profile.rawValue)
+    }
+
  
  /*
     Preferences Entity
@@ -340,7 +350,9 @@ class ModelManager {
         profile.setValue(profileData["willingtodye"].boolValue, forKeyPath: Profile.willingColour.rawValue)
         profile.setValue(profileData["willingtocut"].boolValue, forKeyPath: Profile.willingCut.rawValue)
         profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: Profile.eyeColour.rawValue)
-        
+        profile.setValue(profileData["hourlyrate"].intValue, forKeyPath: Profile.hourlyrate.rawValue)
+        profile.setValue(profileData["dailyrate"].intValue, forKeyPath: Profile.dailyrate.rawValue)
+
         
         do {
             try managedContext.save()

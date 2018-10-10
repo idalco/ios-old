@@ -225,7 +225,7 @@
                 <outlet property="durationLabel" destination="0kq-7l-YWi" id="1uH-bM-V33"/>
                 <outlet property="headerLabel" destination="sob-lh-kXy" id="8sK-fm-1lx"/>
                 <outlet property="jobDatesLabel" destination="7h1-1P-dxE" id="uOq-5l-EZc"/>
-                <outlet property="jobDescriptionLabel" destination="0ks-p9-g31" id="kIy-1l-pnd"/>
+                <outlet property="jobDescriptionLabel" destination="0ks-p9-g31" id="R99-fx-kdw"/>
                 <outlet property="jobNameLabel" destination="mSl-BQ-DFa" id="BU5-v6-Klm"/>
                 <outlet property="jobTypeLabel" destination="1nX-sN-aGK" id="lQn-ia-Cl8"/>
                 <outlet property="locationLabel" destination="Zx6-NC-P4B" id="Kfp-xD-RFb"/>

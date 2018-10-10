@@ -155,7 +155,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                 
                 var components = DateComponents()
                 components.year = -18
-                row.minimumDate = Calendar.current.date(byAdding: components, to: Date())
+                row.maximumDate = Calendar.current.date(byAdding: components, to: Date())
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
                 }
@@ -226,7 +226,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .default
+//        UIApplication.shared.statusBarStyle = .default
     }
     
     
@@ -268,10 +268,13 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             self.validateRow(tag: "instagram")
             return
         }
-        guard let referral_codeRow: BaseRow = form.rowBy(tag: "referralCode"), let referral_code: String = form.values()["referralCode"] as? String else {
-            self.validateRow(tag: "referralCode")
-            return
-        }
+//        guard let referral_codeRow: BaseRow = form.rowBy(tag: "referralCode"), let referral_code: String = form.values()["referralCode"] as? String else {
+//            self.validateRow(tag: "referralCode")
+//            return
+//        }
+        
+        let referral_code: String = form.values()["referralCode"] as? String ?? ""
+        
         guard let passwordRow: BaseRow = form.rowBy(tag: "password"), let password: String = form.values()["password"] as? String else {
             self.validateRow(tag: "password")
             return
@@ -294,13 +297,15 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             return
         }
         
-        if(mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && referral_codeRow.isValid && dobRow.isValid) {
+        if(mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && dobRow.isValid) {
             
             RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, referral_code: referral_code, dob: dob.timeIntervalSince1970) { (response, result) in
                 if(response){
                     self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
                 }
             }
+        } else {
+            print("not valid")
         }
     }
     

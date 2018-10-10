@@ -61,6 +61,7 @@ class JobCardView: CardView {
         }
     }
     
+    
     @IBOutlet weak var jobDescriptionLabel: UILabel!
     var jobDescription: String = "" {
         didSet {
@@ -129,7 +130,6 @@ class JobCardView: CardView {
         
         secondaryButton.normalBackgroundColor = UIColor.FindaColours.Black
         secondaryButton.normalTextColor = UIColor.FindaColours.White
-
         
         presentedDidUpdate()
         
