@@ -48,5 +48,8 @@ target 'Finda' do
 
   pod 'Font-Awesome-Swift', '~> 1.7.2'
   pod 'SwiftyGif'
+  
+  # Firebase for analytics and messaging
+  pod 'Firebase/Core'
 
 end

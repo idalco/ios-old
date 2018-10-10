@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func setRounded() {
+    func setRounded(colour: CGColor? = nil) {
+        
+        let colour = colour ?? UIColor.clear.cgColor
         
         self.layer.borderWidth = 1
         self.layer.masksToBounds = false
-        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.borderColor = colour
         self.layer.cornerRadius = self.frame.size.width/2
         self.clipsToBounds = true
     }

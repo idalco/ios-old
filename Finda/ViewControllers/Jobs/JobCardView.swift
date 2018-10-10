@@ -8,12 +8,8 @@ class JobCardView: CardView {
     @IBOutlet weak var topColourBar: UILabel!
     
     let presentedCardViewColor: UIColor = UIColor.FindaColours.White
-    //UIColor.FindaColors.Purple.lighter(by: 77) ?? UIColor.FindaColors.Purple.fade()
     
     lazy var depresentedCardViewColor: UIColor = { return UIColor.FindaColours.White }()
-    
-    // { return UIColor.FindaColors.Purple.lighter(by: 80) ?? UIColor.FindaColors.Purple.fade() }()
-    
     
     @IBOutlet weak var headerLabel: UILabel!
     var header: String = "" {
@@ -148,20 +144,24 @@ class JobCardView: CardView {
     
 }
 
+
 extension CALayer {
     
-    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat, width: CGFloat? = nil) {
         
         let border = CALayer()
         
+        border.name = "border"
+        
+        let drawWidth = width ?? self.frame.width
         
         switch edge {
             case UIRectEdge.top:
-                border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: thickness)
+                border.frame = CGRect(x: 0, y: 0, width: drawWidth, height: thickness)
                 break
             
             case UIRectEdge.bottom:
-                border.frame = CGRect(x:0, y:self.frame.height - thickness, width:self.frame.width, height:thickness)
+                border.frame = CGRect(x:0, y:self.frame.height - thickness, width:drawWidth, height:thickness)
                 break
             
             case UIRectEdge.left:
@@ -169,7 +169,7 @@ extension CALayer {
                 break
             
             case UIRectEdge.right:
-                border.frame = CGRect(x:self.frame.width - thickness, y: 0, width: thickness, height:self.frame.height)
+                border.frame = CGRect(x:drawWidth - thickness, y: 0, width: thickness, height:self.frame.height)
                 break
             
             default:

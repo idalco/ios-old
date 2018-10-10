@@ -41,13 +41,16 @@ enum FindaAPI {
     case acceptJob(jobId: Int)
     case rejectJob(jobId: Int)
     case cancelJob(jobId: Int)
+    case rejectOption(jobId: Int)
 
 
     // GET
     case userDetails()
 }
 
-let domainURL: String = "http://dev.finda.co"
+//let domainURL: String = "http://dev.finda.co"
+//let domainURL: String = "http://dev.finda"
+let domainURL: String = "https://www.finda.co"
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
     
@@ -99,6 +102,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/updateProfile"
         case .getModelInvoices:
             return "/getModelInvoices"
+        case .rejectOption:
+            return "/rejectOption"
         case .acceptJob:
             return "/acceptBooking"
         case .rejectJob:
@@ -114,7 +119,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .acceptJob, .rejectJob, .cancelJob:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob:
             return .post
             
         // methods requiring GET
@@ -274,34 +279,18 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["bank_accountnumber"] = accountNumber
             p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .rejectOption(let jobId):
+            p["jobid"] = jobId
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .acceptJob(let jobId):
-             p["parameters"] = jobId
+             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .rejectJob(let jobId):
-            p["parameters"] = jobId
+            p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .cancelJob(let jobId):
-            p["parameters"] = jobId
+            p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-            
-            
-            
-//        case .register(let email, let password, let name, let locale):
-//            p["email"] = email
-//            p["password"] = password
-//            p["name"] = name
-//            p["locale"] = locale
-//            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-//
-//        case .updateDeviceToken(let deviceToken, let deviceType):
-//            p["deviceToken"] = deviceToken
-//            p["deviceType"] = deviceType
-//            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-//
-//        case .updateAvatar(let avatar):
-//            guard let jpegRep = UIImageJPEGRepresentation(avatar, 1.0) else { return .uploadMultipart([]) }
-//            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "avatar", fileName: "avatar.jpeg", mimeType: "image/jpeg")
-//            return .uploadMultipart([jpegData])
             
         case .userDetails():
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)

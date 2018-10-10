@@ -266,6 +266,9 @@ class PersonalDetailsVC: FormViewController {
         LoginManager.getDetails { (response, result) in
             if response {
                 let model = ModelManager()
+                
+                print(model.firstName())
+                
                 self.updateCell(tag: "firstName", data: model.firstName())
                 self.updateCell(tag: "lastName", data: model.lastName())
                 

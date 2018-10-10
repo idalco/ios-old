@@ -16,6 +16,9 @@
         <array key="Gotham-Book.otf">
             <string>Gotham-Book</string>
         </array>
+        <array key="Gotham-BookItalic.otf">
+            <string>Gotham-BookItalic</string>
+        </array>
         <array key="Gotham-Light.otf">
             <string>Gotham-Light</string>
         </array>
@@ -779,40 +782,46 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fx-s5-f1M">
-                                                    <rect key="frame" x="15" y="11" width="44" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fx-s5-f1M">
+                                                    <rect key="frame" x="80" y="11" width="29.5" height="12"/>
+                                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="14 July 2018" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDr-02-rfe">
-                                                    <rect key="frame" x="272" y="11" width="88" height="16"/>
-                                                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KCh-ke-Vj2">
-                                                    <rect key="frame" x="15" y="35" width="345" height="27"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCh-ke-Vj2">
+                                                    <rect key="frame" x="80" y="0.0" width="280" height="62"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FindaLogoRed" translatesAutoresizingMaskIntoConstraints="NO" id="3Wn-ln-0FH">
+                                                    <rect key="frame" x="10" y="9" width="55" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="14 July 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDr-02-rfe">
+                                                    <rect key="frame" x="85" y="55.5" width="59.5" height="12"/>
+                                                    <fontDescription key="fontDescription" name="Gotham-BookItalic" family="Gotham" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5fx-s5-f1M" firstAttribute="leading" secondItem="DXk-e9-cry" secondAttribute="leadingMargin" id="AZf-cW-KIt"/>
-                                                <constraint firstItem="KDr-02-rfe" firstAttribute="trailing" secondItem="DXk-e9-cry" secondAttribute="trailingMargin" id="DiS-wN-x91"/>
+                                                <constraint firstItem="KCh-ke-Vj2" firstAttribute="leading" secondItem="DXk-e9-cry" secondAttribute="leadingMargin" constant="65" id="78B-Ks-JEL"/>
+                                                <constraint firstItem="5fx-s5-f1M" firstAttribute="leading" secondItem="DXk-e9-cry" secondAttribute="leadingMargin" constant="65" id="AZf-cW-KIt"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5fx-s5-f1M" secondAttribute="trailing" constant="20" symbolic="YES" id="LLZ-5V-IiJ"/>
                                                 <constraint firstItem="5fx-s5-f1M" firstAttribute="top" secondItem="DXk-e9-cry" secondAttribute="topMargin" id="NAb-3S-i0U"/>
                                                 <constraint firstItem="KCh-ke-Vj2" firstAttribute="trailing" secondItem="DXk-e9-cry" secondAttribute="trailingMargin" id="Ov6-Vo-ez2"/>
-                                                <constraint firstItem="KCh-ke-Vj2" firstAttribute="top" secondItem="5fx-s5-f1M" secondAttribute="bottom" constant="6" id="YCB-d2-WBf"/>
-                                                <constraint firstItem="5fx-s5-f1M" firstAttribute="top" secondItem="KDr-02-rfe" secondAttribute="top" id="e5g-SJ-rtv"/>
-                                                <constraint firstItem="KCh-ke-Vj2" firstAttribute="top" secondItem="KDr-02-rfe" secondAttribute="bottom" constant="8" symbolic="YES" id="k5Y-bW-tz7"/>
-                                                <constraint firstItem="KCh-ke-Vj2" firstAttribute="leading" secondItem="5fx-s5-f1M" secondAttribute="leading" id="yhw-Zg-KGz"/>
-                                                <constraint firstItem="KCh-ke-Vj2" firstAttribute="bottom" secondItem="DXk-e9-cry" secondAttribute="bottomMargin" id="z81-KS-Cel"/>
+                                                <constraint firstItem="KDr-02-rfe" firstAttribute="leading" secondItem="DXk-e9-cry" secondAttribute="leading" constant="85" id="WQp-Dc-Kl1"/>
+                                                <constraint firstItem="KCh-ke-Vj2" firstAttribute="top" secondItem="DXk-e9-cry" secondAttribute="top" id="XIx-PK-4Zn"/>
+                                                <constraint firstAttribute="bottom" secondItem="KCh-ke-Vj2" secondAttribute="bottom" constant="10.5" id="aPv-ZR-Xzk"/>
+                                                <constraint firstAttribute="bottom" secondItem="KDr-02-rfe" secondAttribute="bottom" constant="5" id="oxm-nj-WPm"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KDr-02-rfe" secondAttribute="trailing" constant="20" symbolic="YES" id="qbu-Gd-oOq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="KDr-02-rfe" id="cMB-wR-AbE"/>
+                                            <outlet property="messageAvatar" destination="3Wn-ln-0FH" id="DrI-Tc-SK1"/>
                                             <outlet property="messageLabel" destination="KCh-ke-Vj2" id="mA2-H8-Xzp"/>
                                             <outlet property="nameLabel" destination="5fx-s5-f1M" id="aoG-Uo-Ulp"/>
                                         </connections>
@@ -1383,9 +1392,12 @@ MODELLING TALENT</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xlJ-EW-Kzk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xlJ-EW-Kzk">
+                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="542" id="5UF-oe-Rrl"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="H0b-bp-TV6" customClass="InvoiceTVC" customModule="Finda" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
@@ -1395,7 +1407,7 @@ MODELLING TALENT</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINDA-M5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="OFo-tx-crK">
-                                                    <rect key="frame" x="15" y="11" width="61.5" height="14"/>
+                                                    <rect key="frame" x="15" y="11" width="62" height="14"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1407,7 +1419,7 @@ MODELLING TALENT</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02 Sep, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BFI-eL-7Ym">
-                                                    <rect key="frame" x="284.5" y="11" width="75.5" height="14"/>
+                                                    <rect key="frame" x="284" y="11" width="76" height="14"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1458,13 +1470,30 @@ MODELLING TALENT</string>
                                     <outlet property="delegate" destination="GUc-c6-SiV" id="ZpA-ON-1el"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gd0-f2-KKV">
+                                <rect key="frame" x="0.0" y="64" width="375" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invoices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guK-DZ-Xef">
+                                        <rect key="frame" x="16" y="0.0" width="342" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xlJ-EW-Kzk" firstAttribute="bottom" secondItem="AGc-U8-f53" secondAttribute="bottom" id="R4f-YN-SAb"/>
+                            <constraint firstItem="gd0-f2-KKV" firstAttribute="top" secondItem="AGc-U8-f53" secondAttribute="top" id="Gxi-V1-bqi"/>
+                            <constraint firstItem="xlJ-EW-Kzk" firstAttribute="trailing" secondItem="gd0-f2-KKV" secondAttribute="trailing" id="YiD-mN-sHj"/>
+                            <constraint firstItem="xlJ-EW-Kzk" firstAttribute="top" secondItem="gd0-f2-KKV" secondAttribute="bottom" constant="8" symbolic="YES" id="fra-YH-ZjW"/>
+                            <constraint firstItem="xlJ-EW-Kzk" firstAttribute="leading" secondItem="gd0-f2-KKV" secondAttribute="leading" id="gZG-o7-5qY"/>
                             <constraint firstItem="xlJ-EW-Kzk" firstAttribute="trailing" secondItem="AGc-U8-f53" secondAttribute="trailing" id="koa-Ug-ndg"/>
                             <constraint firstItem="xlJ-EW-Kzk" firstAttribute="leading" secondItem="AGc-U8-f53" secondAttribute="leading" id="mXz-55-Mza"/>
-                            <constraint firstItem="xlJ-EW-Kzk" firstAttribute="top" secondItem="AGc-U8-f53" secondAttribute="top" id="wgZ-72-RO5"/>
+                            <constraint firstItem="xlJ-EW-Kzk" firstAttribute="top" secondItem="gd0-f2-KKV" secondAttribute="bottom" constant="8" id="tLc-y1-14l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AGc-U8-f53"/>
                     </view>
@@ -1492,7 +1521,7 @@ MODELLING TALENT</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hu1-aI-Jtq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.39607843139999999" green="0.72156862749999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.52941176470588236" green="0.76078431372549016" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1795,7 +1824,7 @@ MODELLING TALENT</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-o0-q2G">
-                                <rect key="frame" x="0.0" y="64" width="375" height="525"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="445"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-mq-eNj">
                                         <rect key="frame" x="8" y="52" width="359" height="88"/>
@@ -1827,7 +1856,7 @@ MODELLING TALENT</string>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Oz-MQS" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="80" y="602" width="215" height="45"/>
+                                <rect key="frame" x="80" y="522" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="MMY-Bk-f0d"/>
@@ -1853,7 +1882,7 @@ MODELLING TALENT</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ogS-o0-q2G" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leading" id="47K-Yc-3ED"/>
-                            <constraint firstAttribute="bottom" secondItem="WgK-Oz-MQS" secondAttribute="bottom" constant="20" symbolic="YES" id="Bwd-f0-bVe"/>
+                            <constraint firstAttribute="bottom" secondItem="WgK-Oz-MQS" secondAttribute="bottom" constant="100" id="Bwd-f0-bVe"/>
                             <constraint firstItem="WgK-Oz-MQS" firstAttribute="leading" relation="lessThanOrEqual" secondItem="pSv-tR-WLN" secondAttribute="leading" constant="80" id="Fk7-Ld-3pJ"/>
                             <constraint firstItem="ogS-o0-q2G" firstAttribute="top" secondItem="pSv-tR-WLN" secondAttribute="top" id="JWi-ks-DO8"/>
                             <constraint firstAttribute="trailing" secondItem="ogS-o0-q2G" secondAttribute="trailing" id="Q4h-KX-LJa"/>
@@ -2185,7 +2214,7 @@ MODELLING TALENT</string>
         <image name="trash" width="315" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kBq-Ev-WrO"/>
+        <segue reference="d3j-YQ-dha"/>
         <segue reference="LG7-vM-ZlQ"/>
         <segue reference="fFA-jU-UWP"/>
     </inferredMetricsTieBreakers>

@@ -57,6 +57,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Sign Out"]
             self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank ,.FAUsers, .FAPowerOff]
+//            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Invite a Friend", "Sign Out"]
+//            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FAUsers, .FAPowerOff]
         }
         self.tableView.reloadData()
         dismissKeyboard()
@@ -139,6 +141,10 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         } else if indexPath.row == 5 {
             let modelManager = ModelManager()
+            
+            print(modelManager.kycOn())
+            print(modelManager.kycBy())
+            
             if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
                 sideMenuController?.setContentViewController(with: "PaymentNav")
            } else if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 || modelManager.kycOn() == 0 || modelManager.kycBy() == 0 {

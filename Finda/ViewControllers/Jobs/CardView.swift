@@ -74,7 +74,6 @@ open class CardView: UIView {
     }
     
     func viewDidLayoutSubviews() {
-        
     }
     
     // MARK: Private methods

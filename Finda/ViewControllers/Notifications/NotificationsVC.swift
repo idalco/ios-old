@@ -126,13 +126,34 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
         
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.jobAction (_:)))
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
+
+        cell.addGestureRecognizer(gesture)
+
         cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
         cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Gotham-Light")
         
-      
+        // set avatar here
+        cell.messageAvatar.setRounded(colour: UIColor.FindaColours.Blue.cgColor)
+//        cell.messageAvatar.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
+        
+        if allNotifications[indexPath.row].avatar != "/default_profile.png" {
+            if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){
+                cell.messageAvatar.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+        } else if allNotifications[indexPath.row].avatar != "" {
+            if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){
+                cell.messageAvatar.af_setImage(withPortfolioURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+        } else {
+            if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){
+                cell.messageAvatar.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+        }
+        
         let linkAttributes: [String : Any] = [
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Blue,
         ]
@@ -148,6 +169,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
 
+    @objc func jobAction(_ sender:UITapGestureRecognizer){
+        sideMenuController?.setContentViewController(with: "MainTabBar")
+        (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
+    }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -169,6 +194,5 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        self.tabBarController?.selectedIndex = 0
     }
-
 
 }

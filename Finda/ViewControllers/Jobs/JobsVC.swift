@@ -19,8 +19,7 @@ class JobsVC: UIViewController {
     var cardViews = [JobCardView]()
     var allJobs: [Job] = []
     var loadingFirst: Bool = true
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.transparentNavigationBar()
@@ -28,6 +27,7 @@ class JobsVC: UIViewController {
         walletView.walletHeader = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
         self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +73,15 @@ class JobsVC: UIViewController {
             default:
                 break
             }
+
+            for item in card.layer.sublayers! {
+                if item.name == "border" {
+                    item.frame = CGRect(x: 0, y: 0, width: card.layer.frame.width, height: 8)
+                }
+            }
         }
+     
+
     }
 
     
@@ -86,7 +94,7 @@ class JobsVC: UIViewController {
             cardView.clientName = job.companyName.uppercased()
             cardView.duration = JobsManager.length(length: job.timeUnits, unit: job.unitsType).uppercased()
             cardView.header = job.header.uppercased()
-            cardView.jobDates = Date().displayDate(timeInterval: job.startdate, format: "MMM dd, yyyy")
+            cardView.jobDates = Date().displayDate(timeInterval: job.startdate, format: "MMM dd, yyyy") + " at " + Date().displayDate(timeInterval: job.starttime, format: "h:mm a")
             cardView.jobDescription = job.description
             cardView.jobName = job.name.uppercased()
             cardView.jobType = job.jobtype.uppercased()
@@ -105,12 +113,12 @@ class JobsVC: UIViewController {
             var jobDescriptionLabelframe = cardView.jobDescriptionLabel.frame
             if (job.advanced != "") {
                 cardView.advancedInfo = job.advanced
-                jobDescriptionLabelframe.origin.y = 292
+                jobDescriptionLabelframe.origin.y = 272
                 cardView.jobDescriptionLabel.frame = jobDescriptionLabelframe
                 cardView.advancedInfoLabel.isHidden = false
             } else {
                 cardView.advancedInfoLabel.isHidden = true
-                jobDescriptionLabelframe.origin.y = 212
+                jobDescriptionLabelframe.origin.y = 192
                 cardView.jobDescriptionLabel.frame = jobDescriptionLabelframe
             }
             
@@ -121,12 +129,21 @@ class JobsVC: UIViewController {
                 
                 switch(jobStatus) {
                     
+                case .Pending:
+                    cardView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
+                    cardView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
+
+                    break;
+                    
                     case .Accepted:
-                        cardView.primaryButton.setTitle("CANCEL", for: .normal)
-                        cardView.secondaryButton.isHidden = true
+                        cardView.secondaryButton.setTitle("CANCEL", for: .normal)
+                        cardView.primaryButton.isHidden = true
                         
-                        cardView.primaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
-                        
+                        cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                        cardView.offeredLabel.isHidden = false
+                        cardView.offeredNumberButton.isHidden = false
+                        cardView.offeredLabel.text = "Agreed rate:"
+                        cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
                         break
                     case .ModelCompleted, .Completed:
                         cardView.primaryButton.isHidden = true
@@ -138,11 +155,15 @@ class JobsVC: UIViewController {
                     case .Expired:
                         cardView.primaryButton.isHidden = true
                         cardView.secondaryButton.isHidden = true
+                        cardView.contactNumberLabel.isHidden = true
+                        cardView.contactNumberLabelIcon.isHidden = true
                         break
                     case .Finished:
                         cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
                         cardView.primaryButton.isEnabled = false
                         cardView.secondaryButton.isHidden = true
+                        cardView.contactNumberLabel.isHidden = true
+                        cardView.contactNumberLabelIcon.isHidden = true
                         break
                     case .Optioned:
                         cardView.offeredLabel.text = "Offered rate:"
@@ -153,6 +174,8 @@ class JobsVC: UIViewController {
                         cardView.secondaryButton.setTitle("REJECT", for: .normal)
                         
                         cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
+                        cardView.contactNumberLabel.isHidden = true
+                        cardView.contactNumberLabelIcon.isHidden = true
                         
                         break
                     case .Offered:
@@ -165,14 +188,17 @@ class JobsVC: UIViewController {
                         cardView.primaryButton.setTitle("ACCEPT", for: .normal)
                         cardView.secondaryButton.setTitle("REJECT", for: .normal)
                         
-                        
                         cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
-                        cardView.primaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
+                        cardView.secondaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
 
+                        cardView.contactNumberLabel.isHidden = true
+                        cardView.contactNumberLabelIcon.isHidden = true
+                        
                         break
                     case .Unfinalised:
                         cardView.primaryButton.setTitle("COMPLETE", for: .normal)
                         cardView.secondaryButton.isHidden = true
+                        cardView.contactNumberLabel.isHidden = true
                         break
                     
                 }
@@ -223,6 +249,7 @@ class JobsVC: UIViewController {
             }
         }
     }
+    
     private func loadJobs(){
         JobsManager.getJobs(jobType: self.jobType) { (response, result) in
             if(response) {

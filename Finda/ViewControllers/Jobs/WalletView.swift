@@ -588,6 +588,8 @@ open class WalletView: UIView {
         
         if let animationDuration = animationDuration, animationDuration > 0 {
             UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: animationOptions, animations: animations, completion: completion)
+            
+
         } else {
             animations()
             completion?(true)
@@ -661,6 +663,12 @@ open class WalletView: UIView {
             
             cardViewYPoint += distanceBetweenCardViews
             
+            for item in cardView.layer.sublayers! {
+                if item.name == "border" {
+                    item.frame = CGRect(x: 0, y: 0, width: cardViewFrame.size.width, height: 8)
+                }
+            }
+            
         }
         
     }
@@ -710,10 +718,11 @@ open class WalletView: UIView {
                     let widthDelta = distanceBetweenCardViews * CGFloat(collapsedCardViewsCount)
                     cardViewFrame.size.width = cardViewFrame.size.width - widthDelta
                     cardViewFrame.origin.x += widthDelta/2
-                    
+                            
                     collapsedCardViewsCount -= 1
                     cardViewFrame.origin.y = cardViewYPoint
                     cardViewYPoint += distanceBetweenCardViews
+                    
                 }
                 
             }
@@ -723,6 +732,13 @@ open class WalletView: UIView {
             if presentedCardView == cardView && !collapsePresentedCardView {
                 cardView.center = presentationCenter
             }
+            
+            for item in cardView.layer.sublayers! {
+                if item.name == "border" {
+                    item.frame = CGRect(x: 0, y: 0, width: cardViewFrame.size.width, height: 8)
+                }
+            }
+
             
         }
         
@@ -761,6 +777,12 @@ open class WalletView: UIView {
             
             cardViewIndex[cardViewMinY] = (index, cardView)
             
+            for item in cardView.layer.sublayers! {
+                if item.name == "border" {
+                    item.frame = CGRect(x: 0, y: 0, width: cardView.frame.size.width, height: 8)
+                }
+            }
+
         }
         
         for cardView in viewsToRemoveFromScrollView {

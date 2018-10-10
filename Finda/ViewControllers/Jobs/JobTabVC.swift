@@ -18,7 +18,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         super.viewDidLoad()
        
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
-             viewController.jobType = .offered
+            viewController.jobType = .offered
             self.viewControllers.append(viewController)
         }
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
@@ -47,6 +47,8 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         self.updateNotificationCount()
+        
+        
     }
     
     private func updateNotificationCount(){
