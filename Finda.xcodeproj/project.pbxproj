@@ -111,6 +111,7 @@
 		0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */; };
 		0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7C21072C31004CC4D8 /* Media.xcassets */; };
 		0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */; };
+		18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */; };
 		D6BD959D87F08E75B89A41D1 /* Pods_Finda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EEB8FB6543252924F78E91 /* Pods_Finda.framework */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +225,8 @@
 		0CEBCB5821071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CEBCB7C21072C31004CC4D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FindaColours.swift"; sourceTree = "<group>"; };
+		18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		18A0CFD1216F656500D2CC39 /* Finda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finda.entitlements; sourceTree = "<group>"; };
 		2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.release.xcconfig"; sourceTree = "<group>"; };
 		341BD77F58966C7AFB8BF641 /* Pods-Finda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.debug.xcconfig"; sourceTree = "<group>"; };
 		3E1B7F1EF255DBF716E70F99 /* Pods-FindaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindaTests/Pods-FindaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -474,6 +477,8 @@
 		0CEBCB4821071AD0004CC4D8 /* Finda */ = {
 			isa = PBXGroup;
 			children = (
+				18A0CFD1216F656500D2CC39 /* Finda.entitlements */,
+				18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */,
 				0CEBCB4921071AD0004CC4D8 /* AppDelegate.swift */,
 				0CCF22B52107390800612D5B /* ViewControllers */,
 				0CEBCB4D21071AD0004CC4D8 /* Main.storyboard */,
@@ -559,6 +564,11 @@
 				TargetAttributes = {
 					0CEBCB4521071AD0004CC4D8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -602,6 +612,7 @@
 				0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */,
 				0CCF23222109BD1200612D5B /* Gotham-ThinItalic.otf in Resources */,
 				0CEBCB5421071AD1004CC4D8 /* Assets.xcassets in Resources */,
+				18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */,
 				0CCF23232109BD1200612D5B /* Gotham-Light.otf in Resources */,
 				0CCF23242109BD1200612D5B /* Gotham-BoldItalic.otf in Resources */,
 				0CEBCB4F21071AD0004CC4D8 /* Main.storyboard in Resources */,
@@ -632,6 +643,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -656,6 +668,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -925,6 +938,7 @@
 			baseConfigurationReference = 341BD77F58966C7AFB8BF641 /* Pods-Finda.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Finda/Finda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Y4G95LX38;
@@ -947,6 +961,7 @@
 			baseConfigurationReference = 2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Finda/Finda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Y4G95LX38;

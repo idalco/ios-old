@@ -3,14 +3,20 @@ PODS:
   - AlamofireImage (3.4.1):
     - Alamofire (~> 4.7)
   - AutoInsetter (1.3.0)
+  - Crashlytics (3.10.9):
+    - Fabric (~> 1.7.13)
   - CryptoSwift (0.12.0)
   - DCKit (1.0.12)
   - Eureka (4.3.0)
+  - Fabric (1.7.13)
   - Firebase/Core (5.10.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.2.0)
   - Firebase/CoreOnly (5.10.0):
     - FirebaseCore (= 5.1.5)
+  - Firebase/Messaging (5.10.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.2.0)
   - FirebaseAnalytics (5.2.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.2)
@@ -26,6 +32,12 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseMessaging (3.2.0):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/Reachability (~> 5.2)
+    - Protobuf (~> 3.1)
   - Font-Awesome-Swift (1.7.2)
   - GoogleAppMeasurement (5.2.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
@@ -63,6 +75,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Pageboy (2.6.1)
+  - Protobuf (3.6.1)
   - PryntTrimmerView (3.0.0)
   - Result (3.2.4)
   - SideMenuSwift (1.0.0)
@@ -79,10 +92,13 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireImage
+  - Crashlytics
   - CryptoSwift
   - DCKit
   - Eureka
+  - Fabric
   - Firebase/Core
+  - Firebase/Messaging
   - Font-Awesome-Swift (~> 1.7.2)
   - IQKeyboardManagerSwift
   - Moya
@@ -98,13 +114,16 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - AutoInsetter
+    - Crashlytics
     - CryptoSwift
     - DCKit
     - Eureka
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseInstanceID
+    - FirebaseMessaging
     - Font-Awesome-Swift
     - GoogleAppMeasurement
     - GoogleUtilities
@@ -112,6 +131,7 @@ SPEC REPOS:
     - Moya
     - nanopb
     - Pageboy
+    - Protobuf
     - PryntTrimmerView
     - Result
     - SideMenuSwift
@@ -126,13 +146,16 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
   AutoInsetter: 0ea4dddc17042ab45114ec5d5980764efae98584
+  Crashlytics: 55e24fc23989680285a21cb1146578d9d18e432c
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   DCKit: 30036e7ef4ea37f397280e2f722b962c99b59a18
   Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
   Firebase: 6691d47562a780c26281ce8464518faafc90c610
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
   FirebaseCore: c6079de64c1a87000e52e9b408dddcadc901177f
   FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
+  FirebaseMessaging: 000b32447b461b34b6b912b23ec11be20b503b5b
   Font-Awesome-Swift: 83ab9db365379ee6025167cec67bdc5d3226a811
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
   GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
@@ -140,6 +163,7 @@ SPEC CHECKSUMS:
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Pageboy: c2a25d1c280e9b622014b692626f1ff9298e0ad2
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SideMenuSwift: f8567754feb36ade13ffd613f608829f4b86d4b3
@@ -150,6 +174,6 @@ SPEC CHECKSUMS:
   Tabman: 6cff148419c5d8812d0e9f08f93b6f1c6ba54502
   YPImagePicker: 26d5bf7bfe1cffd1c5eedea3ac60422b314e2a42
 
-PODFILE CHECKSUM: b5944ddca392f5ee4008e9f71715d739c2c26532
+PODFILE CHECKSUM: cae7ec5585be5f8741ddfb5f039e504b5b0d3f67
 
 COCOAPODS: 1.5.3

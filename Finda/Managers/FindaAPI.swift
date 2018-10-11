@@ -49,8 +49,8 @@ enum FindaAPI {
 }
 
 //let domainURL: String = "http://dev.finda.co"
-let domainURL: String = "http://dev.finda"
-//let domainURL: String = "https://www.finda.co"
+//let domainURL: String = "http://dev.finda"
+let domainURL: String = "https://www.finda.co"
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
     

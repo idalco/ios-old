@@ -82,7 +82,6 @@ class PortfolioVC: UIViewController {
         
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
-//                print(photo.fromCamera) // Image source (camera or library)
                 print(photo.image) // Final image selected by the user
                 SVProgressHUD.show()
                 FindaAPISession(target: .uploadPortfolioImage(image: photo.image), completion: { (response, result) in
@@ -96,9 +95,6 @@ class PortfolioVC: UIViewController {
                     
                 })
                 
-//                print(photo.originalImage) // original image selected by the user, unfiltered
-//                print(photo.modifiedImage) // Transformed image, can be nil
-//                print(photo.exifMeta) // Print exif meta data of original image.
             }
             picker.dismiss(animated: true, completion: nil)
             
@@ -150,14 +146,6 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.image.layer.borderWidth = 0
             cell.image.layer.borderColor = UIColor.clear.cgColor
         }
-        
-        
-        
-        //
-        //        cell.deleteButton.tag = indexPath.row
-        //        cell.deleteButton.addTarget(self, action: #selector(deleteImage(sender:)), for: UIControlEvents.touchUpInside)
-        //        cell.leadImageButton.tag = indexPath.row
-        //        cell.leadImageButton.addTarget(self, action: #selector(selectLeadImage(sender:)), for: UIControlEvents.touchUpInside)
         
         cell.deleteButton.isHidden = true
         cell.leadImageButton.isHidden = true

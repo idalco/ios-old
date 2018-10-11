@@ -51,5 +51,8 @@ target 'Finda' do
   
   # Firebase for analytics and messaging
   pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

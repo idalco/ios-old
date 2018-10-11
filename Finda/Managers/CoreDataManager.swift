@@ -62,7 +62,7 @@ class CoreDataManager {
         do {
             let results = try managedContext.fetch(request)
             let res = (results as! [NSManagedObject]).last
-            print(res)
+//            print(res)
             if let data = res?.value(forKey: dataName) as? Int {
                 return data
             }
