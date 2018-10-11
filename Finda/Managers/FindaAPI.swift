@@ -42,6 +42,7 @@ enum FindaAPI {
     case rejectJob(jobId: Int)
     case cancelJob(jobId: Int)
     case rejectOption(jobId: Int)
+    case updateDeviceToken(deviceToken: String)
 
 
     // GET
@@ -71,11 +72,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .getJobs:
             return "/getJobs"
         case .getNotifications:
-            return "getNotifications"
+            return "/getNotifications"
         case .countNotifications:
-            return "getNotifications"
+            return "/getNotifications"
         case .deleteNotifications:
-            return "deleteNotification"
+            return "/deleteNotification"
         case .updateProfile:
             return "/updateProfile"
         case .updateMeasurements:
@@ -112,6 +113,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/completeBooking"
         case .userDetails:
             return "/userLoad"
+        case .updateDeviceToken:
+            return "/updateDeviceToken"
         }
     }
     
@@ -119,7 +122,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .updateDeviceToken:
             return .post
             
         // methods requiring GET
@@ -294,7 +297,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .cancelJob(let jobId):
             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-            
+        case .updateDeviceToken(let deviceToken):
+            p["deviceToken"] = deviceToken
+            p["deviceType"] = "ios"
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .userDetails():
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             

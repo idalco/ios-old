@@ -242,7 +242,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        
         print("Firebase registration token: \(fcmToken)")
+        
+        FindaAPISession(target: .updateDeviceToken(deviceToken: fcmToken)) { (response, result) in }
         
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FCMToken"), object: nil, userInfo: dataDict)

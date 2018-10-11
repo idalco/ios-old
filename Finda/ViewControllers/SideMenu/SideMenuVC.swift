@@ -211,28 +211,28 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
      }
      */
     
-//    @objc func displayFCMToken(notification: NSNotification) {
-//        
-//        print("Display notification: starting")
-//        
-//        guard let userInfo = notification.userInfo else {return}
-//        print("Display notification: got userInfo")
-//        print(userInfo)
-//
-//        guard
-//            let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
-//            let alert = aps["alert"] as? NSString
-//        else {
-//                return
-//        }
-//        print("Display notification: got data")
-//        print(aps)
-//        print(alert)
-//        
-//        let alertController = UIAlertController(title: "Push Notification", message: "\(alert)", preferredStyle: UIAlertControllerStyle.alert)
-//        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-//        
-//        self.present(alertController, animated: true, completion: nil)
-//        
-//    }
+    //    @objc func displayFCMToken(notification: NSNotification) {
+    //
+    //        print("Display notification: starting")
+    //
+    //        guard let userInfo = notification.userInfo else {return}
+    //        print("Display notification: got userInfo")
+    //        print(userInfo)
+    //
+    //        guard
+    //            let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
+    //            let alert = aps["alert"] as? NSString
+    //        else {
+    //                return
+    //        }
+    //        print("Display notification: got data")
+    //        print(aps)
+    //        print(alert)
+    //
+    //        let alertController = UIAlertController(title: "Push Notification", message: "\(alert)", preferredStyle: UIAlertControllerStyle.alert)
+    //        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+    //
+    //        self.present(alertController, animated: true, completion: nil)
+    //
+    //    }
 }
