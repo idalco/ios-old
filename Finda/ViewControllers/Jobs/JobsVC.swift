@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class JobsVC: UIViewController {
     
@@ -184,7 +185,6 @@ class JobsVC: UIViewController {
                     cardView.primaryButton.isHidden = true
                     cardView.secondaryButton.isHidden = false
                     cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                    
                     cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
                     cardView.contactNumberLabel.isHidden = true
                     cardView.contactNumberLabelIcon.isHidden = true
@@ -230,42 +230,80 @@ class JobsVC: UIViewController {
         
     }
 
-    @objc private func acceptJob(sender: UIButton){
-        FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
-            if response {
-                self.loadJobs()
+    @objc private func acceptJob(sender: UIButton) {
+        let alert = UIAlertController(title: "Are you sure?", message: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Accept Job", style: UIAlertAction.Style.default, handler: { action in
+            SVProgressHUD.show()
+            FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
+                if response {
+                    self.loadJobs()
+                } else {
+                    SVProgressHUD.dismiss()
+                }
             }
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    @objc private func rejectJob(sender: UIButton){
-        FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
-            if response {
-                self.loadJobs()
+    @objc private func rejectJob(sender: UIButton) {
+
+        let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Reject offer", style: UIAlertAction.Style.default, handler: { action in
+            SVProgressHUD.show()
+            FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
+                if response {
+                    self.loadJobs()
+                } else {
+                    SVProgressHUD.dismiss()
+                }
             }
-        }
-    }
-    
-    @objc private func cancelJob(sender: UIButton){
-        FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
-            if response {
-                self.loadJobs()
-            }
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
 
     }
-
-    @objc private func rejectOption(sender: UIButton){
-        FindaAPISession(target: .rejectOption(jobId: sender.tag)) { (response, result) in
-            if response {
-                self.loadJobs()
+    
+    @objc private func cancelJob(sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Cancel Job", style: UIAlertAction.Style.default, handler: { action in
+            SVProgressHUD.show()
+            FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
+                if response {
+                    self.loadJobs()
+                } else {
+                    SVProgressHUD.dismiss()
+                }
             }
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+
+    @objc private func rejectOption(sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Are you sure?", message: "You will be able to negotiate a different rate if the client offers you this job later.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Decline Option", style: UIAlertAction.Style.default, handler: { action in
+            SVProgressHUD.show()
+            FindaAPISession(target: .rejectOption(jobId: sender.tag)) { (response, result) in
+                if response {
+                    self.loadJobs()
+                } else {
+                    SVProgressHUD.dismiss()
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
-    private func loadJobs(){
+    private func loadJobs() {
+        
         JobsManager.getJobs(jobType: self.jobType) { (response, result) in
-            if(response) {
+            if (response) {
                 let jobs = result["userdata"].dictionaryValue
                 var jobsArray: [Job] = []
                 for job in jobs {
@@ -273,11 +311,13 @@ class JobsVC: UIViewController {
                 }
                 if self.loadingFirst || !self.allJobs.elementsEqual(jobsArray, by: { (job1: Job, job2:Job) -> Bool in
                     job1 == job2
-                }){
+                }) {
                     self.allJobs = jobsArray
                     self.update()
                     self.loadingFirst = false
                 }
+                SVProgressHUD.dismiss()
+                
             }
         }
         

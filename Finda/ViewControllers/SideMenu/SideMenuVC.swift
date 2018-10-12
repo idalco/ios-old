@@ -18,6 +18,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var menu: [String] = []
     var icon: [FAType] = []
+    var menutype = 1
     
     
     override func viewDidLoad() {
@@ -58,6 +59,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Sign Out"]
             self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank ,.FAUsers, .FAPowerOff]
+            self.menutype = 2
         }
         self.tableView.reloadData()
         dismissKeyboard()
@@ -128,7 +130,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sideMenuController?.setContentViewController(with: "Settings")
             
         } else if indexPath.row == 1 {
-            if !isVerified {
+            if self.menutype == 1 {
                 sideMenuController?.setContentViewController(with: "VerificationNav")
             } else {
                 sideMenuController?.setContentViewController(with: "MainTabBar")

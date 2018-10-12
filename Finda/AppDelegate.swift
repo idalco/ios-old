@@ -94,6 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        if (UIApplication.shared.applicationIconBadgeNumber != 0) {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -158,6 +161,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("1: Message ID: \(messageID)")
         }
+        
+        // update icon badge
+        guard
+            let notification = userInfo["aps"] as? NSDictionary,
+            let badge = Int(notification["badge"] as! String),
+            UIApplication.shared.applicationIconBadgeNumber == UIApplication.shared.applicationIconBadgeNumber + badge
+        else {
+            return
+        }
+        
         
         // Print full message.
 //        print(userInfo)

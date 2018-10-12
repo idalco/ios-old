@@ -50,8 +50,8 @@ enum FindaAPI {
 }
 
 //let domainURL: String = "http://dev.finda.co"
-//let domainURL: String = "http://dev.finda"
-let domainURL: String = "https://www.finda.co"
+let domainURL: String = "http://dev.finda"
+//let domainURL: String = "https://www.finda.co"
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
     
@@ -110,7 +110,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .rejectJob:
             return "/rejectBooking"
         case .cancelJob:
-            return "/completeBooking"
+            return "/cancelBooking"
         case .userDetails:
             return "/userLoad"
         case .updateDeviceToken:
