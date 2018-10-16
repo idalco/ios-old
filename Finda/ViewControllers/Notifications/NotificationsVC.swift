@@ -11,8 +11,6 @@ import UIKit
 class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var allNotifications: [Notification] = []
-//    var readNotifications: [Notification] = []
-//    var newNotifications: [Notification] = []
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageView: UIView!
@@ -60,8 +58,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationManager.getNotifications(notificationType: .all) { (response, result) in
             self.tableView.refreshControl?.endRefreshing()
             self.allNotifications.removeAll()
-//            self.readNotifications.removeAll()
-//            self.newNotifications.removeAll()
 
             if(response) {
                 let notifications = result["userdata"].arrayValue
@@ -69,11 +65,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 for notification in notifications {
                     
                     let notificationObject: Notification = Notification(data: notification)
-//                    if notificationObject.status == Notification.Status.New.rawValue {
-//                        self.newNotifications.append(notificationObject)
-//                    } else {
-//                        self.readNotifications.append(notificationObject)
-//                    }
                     self.allNotifications.append(notificationObject)
                 }
                 if self.allNotifications.count > 0 {
@@ -127,10 +118,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.jobAction (_:)))
+//        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.jobAction (_:)))
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
 
-        cell.addGestureRecognizer(gesture)
+//        cell.addGestureRecognizer(gesture)
 
         cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
@@ -155,7 +146,9 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
         let linkAttributes: [String : Any] = [
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Blue,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Black,
+            NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleNone.rawValue,
+            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColours.White,
         ]
         
         cell.messageLabel.linkTextAttributes = linkAttributes
@@ -169,10 +162,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
 
-    @objc func jobAction(_ sender:UITapGestureRecognizer){
-        sideMenuController?.setContentViewController(with: "MainTabBar")
-        (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
-    }
+//    @objc func jobAction(_ sender:UITapGestureRecognizer) {
+//        sideMenuController?.setContentViewController(with: "MainTabBar")
+//        (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 4   // Jobs
+//    }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

@@ -20,7 +20,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var icon: [FAType] = []
     var menutype = 1
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()

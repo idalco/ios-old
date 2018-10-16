@@ -56,7 +56,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     override func viewWillAppear(_ animated: Bool) {
         self.updateNotificationCount()
         
-        
     }
     
     private func updateNotificationCount(){

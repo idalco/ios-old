@@ -20,7 +20,7 @@ class JobsVC: UIViewController {
     var cardViews = [JobCardView]()
     var allJobs: [Job] = []
     var loadingFirst: Bool = true
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.transparentNavigationBar()
