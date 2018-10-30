@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.3</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>10</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -25,24 +25,19 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This will allow you to upload new photographs from your camera to your Portfolio</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This will allow you to record a voiceover for casting and other videos uploaded to your Portfolio</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This will allow you to upload photographs from your photo library to your Portfolio</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Gotham-Black.otf</string>
-		<string>Gotham-BlackItalic.otf</string>
 		<string>Gotham-Bold.otf</string>
-		<string>Gotham-BoldItalic.otf</string>
 		<string>Gotham-Book.otf</string>
 		<string>Gotham-BookItalic.otf</string>
 		<string>Gotham-Light.otf</string>
-		<string>Gotham-LightItalic.otf</string>
 		<string>Gotham-Medium.otf</string>
-		<string>Gotham-MediumItalic.otf</string>
-		<string>Gotham-Thin.otf</string>
-		<string>Gotham-ThinItalic.otf</string>
-		<string>Gotham-Ultra.otf</string>
-		<string>Gotham-UltraItalic.otf</string>
-		<string>Gotham-XLight.otf</string>
-		<string>Gotham-XLightItalic.otf</string>
 		<string>FontAwesome.otf</string>
 		<string>FontAwesomeSolid.otf</string>
 	</array>
@@ -60,20 +55,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow access</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please allow access</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Please allow access</string>
 </dict>
 </plist>

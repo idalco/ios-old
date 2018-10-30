@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Gotham-Black.otf">
+            <string>Gotham-Black</string>
+        </array>
         <array key="Gotham-Bold.otf">
             <string>Gotham-Bold</string>
         </array>
@@ -1432,8 +1435,8 @@ MODELLING TALENT</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Stripe test:Stripe test" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UKE-MV-MCi">
-                                                    <rect key="frame" x="15" y="52" width="125" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="{description}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UKE-MV-MCi">
+                                                    <rect key="frame" x="15" y="52" width="78" height="17"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1548,52 +1551,50 @@ MODELLING TALENT</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite your talented model friends to Finda, and earn products from Model Basics!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXh-nP-ZoJ">
-                                <rect key="frame" x="16" y="91" width="332" height="36"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Invite your talented model friends to Finda, and earn products from The Model Basics!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXh-nP-ZoJ">
+                                <rect key="frame" x="16" y="84" width="339" height="36"/>
+                                <fontDescription key="fontDescription" name="Gotham-Black" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your referral code: mod3rt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIH-6L-FRu">
-                                <rect key="frame" x="16" y="387" width="359" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="BW7-7o-Ulu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIH-6L-FRu" userLabel="goals">
+                                <rect key="frame" x="20" y="294" width="235" height="66"/>
+                                <string key="text">The T-Shirt Goal = refer 3 friends
+
+The Bra &amp; Panties Goal = refer 2 friends
+
+The Panties Goal = refer 1 friend</string>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your friends name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaw-Hv-rcR">
-                                <rect key="frame" x="16" y="430" width="343" height="18"/>
+                                <rect key="frame" x="14" y="408" width="139" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="MqK-Fn-sMQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your friends email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVv-8u-iSe">
-                                <rect key="frame" x="16" y="536" width="343" height="18"/>
+                                <rect key="frame" x="16" y="514" width="138" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="luo-m2-fqa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1y-uy-4i5">
-                                <rect key="frame" x="16" y="135" width="343" height="234"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1y-uy-4i5">
+                                <rect key="frame" x="16" y="128" width="343" height="144"/>
                                 <string key="text">Send your unique referral code using this form or just pass it via WhatsApp, Messenger or wherever you like!
-Earn Model Basics every time one of your friends signs up and gets verified.
-Once confirmed, choose to redeem immediately or wait until you gain more credits. You will receive an email after each successful referral.
 
-The T-Shirt Goal = refer 3 friends
-The Bra &amp; Panties Goal = refer 2 friends
-The Panties Goal = refer 1 friend</string>
+Earn Model Basics every time you have a verified referral. Once confirmed, choose to redeem immediately or wait until you gain more credits.</string>
                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ym-VK-sdf">
-                                <rect key="frame" x="16" y="456" width="343" height="50"/>
+                                <rect key="frame" x="16" y="434" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ylb-uV-5Mo"/>
@@ -1605,7 +1606,7 @@ The Panties Goal = refer 1 friend</string>
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uni-Fw-rQ9">
-                                <rect key="frame" x="16" y="562" width="343" height="50"/>
+                                <rect key="frame" x="16" y="540" width="343" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XaA-Fd-Eqd"/>
@@ -1616,11 +1617,42 @@ The Panties Goal = refer 1 friend</string>
                                     <outlet property="delegate" destination="uVa-lm-29Q" id="Otr-t6-nVW"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refer_tshirt" translatesAutoresizingMaskIntoConstraints="NO" id="ll8-yI-OSU">
+                                <rect key="frame" x="271" y="285" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="6ae-sy-87G"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="refer_bra" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-14-UqD">
+                                <rect key="frame" x="271" y="311" width="24" height="32"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refer_pants" translatesAutoresizingMaskIntoConstraints="NO" id="DBb-oE-L35" userLabel="refer_pants1">
+                                <rect key="frame" x="299" y="311" width="24" height="32"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refer_pants" translatesAutoresizingMaskIntoConstraints="NO" id="Cbd-ag-fcI" userLabel="refer_pants2">
+                                <rect key="frame" x="271" y="346" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="WSF-Yv-HTs"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refer_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="a3M-YX-H8r" userLabel="arrow">
+                                <rect key="frame" x="260" y="285" width="9" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="DHh-ky-wyN"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refer_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="LAB-84-UXq" userLabel="arrow">
+                                <rect key="frame" x="260" y="311" width="9" height="32"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refer_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="jnk-us-8uJ" userLabel="arrow">
+                                <rect key="frame" x="260" y="346" width="9" height="24"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mln-We-f0c" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="80" y="632" width="215" height="45"/>
+                                <rect key="frame" x="80" y="606" width="215" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="oTA-of-1O7"/>
+                                    <constraint firstAttribute="height" constant="45" id="Bc7-ut-dL6"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="215" id="bAF-iM-zNz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="15"/>
                                 <state key="normal" title="SEND INVITE">
@@ -1641,30 +1673,51 @@ The Panties Goal = refer 1 friend</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="i1y-uy-4i5" firstAttribute="trailing" secondItem="qaw-Hv-rcR" secondAttribute="trailing" id="2ev-nX-Ewv"/>
+                            <constraint firstItem="Cbd-ag-fcI" firstAttribute="bottom" secondItem="jnk-us-8uJ" secondAttribute="bottom" id="19Z-7i-YX4"/>
+                            <constraint firstItem="Cbd-ag-fcI" firstAttribute="top" secondItem="jnk-us-8uJ" secondAttribute="top" id="1vB-6J-z9e"/>
+                            <constraint firstItem="ll8-yI-OSU" firstAttribute="top" secondItem="a3M-YX-H8r" secondAttribute="top" id="3QR-J5-hCd"/>
                             <constraint firstItem="KXh-nP-ZoJ" firstAttribute="leading" secondItem="ODe-gB-ELB" secondAttribute="leadingMargin" id="3me-e9-1Se"/>
                             <constraint firstItem="uni-Fw-rQ9" firstAttribute="top" secondItem="CVv-8u-iSe" secondAttribute="bottom" constant="8" id="67K-sA-jnG"/>
-                            <constraint firstItem="1ym-VK-sdf" firstAttribute="leading" secondItem="CVv-8u-iSe" secondAttribute="leading" id="9QH-xo-LHS"/>
-                            <constraint firstItem="KXh-nP-ZoJ" firstAttribute="leading" secondItem="i1y-uy-4i5" secondAttribute="leading" id="DtX-Uh-OjX"/>
-                            <constraint firstAttribute="trailing" secondItem="yIH-6L-FRu" secondAttribute="trailing" id="E5H-Br-cl4"/>
-                            <constraint firstItem="yIH-6L-FRu" firstAttribute="leading" secondItem="qaw-Hv-rcR" secondAttribute="leading" id="FgE-24-9ax"/>
+                            <constraint firstItem="DBb-oE-L35" firstAttribute="top" secondItem="LAB-84-UXq" secondAttribute="top" id="7Kr-jE-Nt2"/>
+                            <constraint firstItem="ll8-yI-OSU" firstAttribute="leading" secondItem="a3M-YX-H8r" secondAttribute="trailing" constant="2" id="7te-rv-Yx8"/>
+                            <constraint firstItem="a3M-YX-H8r" firstAttribute="leading" secondItem="yIH-6L-FRu" secondAttribute="trailing" constant="5" id="9BM-2Z-Ltn"/>
+                            <constraint firstItem="Cbd-ag-fcI" firstAttribute="top" secondItem="bEP-14-UqD" secondAttribute="bottom" constant="3" id="DG7-A7-ueB"/>
                             <constraint firstItem="i1y-uy-4i5" firstAttribute="top" secondItem="KXh-nP-ZoJ" secondAttribute="bottom" constant="8" id="GsH-31-wn2"/>
+                            <constraint firstItem="LAB-84-UXq" firstAttribute="leading" secondItem="a3M-YX-H8r" secondAttribute="leading" id="IjX-iz-6ZF"/>
+                            <constraint firstItem="i1y-uy-4i5" firstAttribute="leading" secondItem="ODe-gB-ELB" secondAttribute="leading" constant="16" id="Jyt-cr-TNs"/>
                             <constraint firstItem="1ym-VK-sdf" firstAttribute="top" secondItem="qaw-Hv-rcR" secondAttribute="bottom" constant="8" id="Kib-5F-dHN"/>
-                            <constraint firstItem="1ym-VK-sdf" firstAttribute="trailing" secondItem="CVv-8u-iSe" secondAttribute="trailing" id="LMy-Fo-hry"/>
-                            <constraint firstItem="uni-Fw-rQ9" firstAttribute="leading" secondItem="Mln-We-f0c" secondAttribute="leading" constant="-64" id="Lsq-0Y-dzt"/>
-                            <constraint firstItem="yIH-6L-FRu" firstAttribute="top" secondItem="i1y-uy-4i5" secondAttribute="bottom" constant="18" id="Nyk-9N-i4w"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KXh-nP-ZoJ" secondAttribute="trailing" constant="20" symbolic="YES" id="PcL-2s-FwX"/>
-                            <constraint firstItem="qaw-Hv-rcR" firstAttribute="top" secondItem="yIH-6L-FRu" secondAttribute="bottom" constant="25" id="Q5H-2D-EYk"/>
+                            <constraint firstItem="bEP-14-UqD" firstAttribute="top" secondItem="ll8-yI-OSU" secondAttribute="bottom" constant="2" id="L8T-re-KiU"/>
+                            <constraint firstItem="Mln-We-f0c" firstAttribute="centerX" secondItem="i1y-uy-4i5" secondAttribute="centerX" id="MW4-Ib-mdS"/>
+                            <constraint firstAttribute="trailing" secondItem="KXh-nP-ZoJ" secondAttribute="trailing" constant="20" symbolic="YES" id="PcL-2s-FwX"/>
+                            <constraint firstItem="1ym-VK-sdf" firstAttribute="leading" secondItem="gn7-wc-oiX" secondAttribute="leading" constant="16" id="PeQ-YD-rUW"/>
+                            <constraint firstItem="Mln-We-f0c" firstAttribute="trailing" secondItem="Cbd-ag-fcI" secondAttribute="trailing" id="Ppp-fq-6WT"/>
+                            <constraint firstItem="qaw-Hv-rcR" firstAttribute="top" secondItem="yIH-6L-FRu" secondAttribute="bottom" constant="48" id="Q5H-2D-EYk"/>
+                            <constraint firstItem="gn7-wc-oiX" firstAttribute="trailing" secondItem="1ym-VK-sdf" secondAttribute="trailing" constant="16" id="REN-gY-foi"/>
+                            <constraint firstAttribute="trailing" secondItem="i1y-uy-4i5" secondAttribute="trailing" constant="16" id="Sx6-yp-0OG"/>
+                            <constraint firstItem="gn7-wc-oiX" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qaw-Hv-rcR" secondAttribute="trailing" id="V8F-VE-T4w"/>
                             <constraint firstItem="CVv-8u-iSe" firstAttribute="top" secondItem="1ym-VK-sdf" secondAttribute="bottom" constant="30" id="X2K-xy-SPh"/>
-                            <constraint firstItem="CVv-8u-iSe" firstAttribute="trailing" secondItem="uni-Fw-rQ9" secondAttribute="trailing" id="asI-OC-run"/>
+                            <constraint firstItem="ll8-yI-OSU" firstAttribute="trailing" secondItem="Cbd-ag-fcI" secondAttribute="trailing" id="XDz-gZ-Udp"/>
+                            <constraint firstItem="LAB-84-UXq" firstAttribute="top" secondItem="a3M-YX-H8r" secondAttribute="bottom" constant="2" id="ZoK-l4-S5I"/>
+                            <constraint firstItem="Cbd-ag-fcI" firstAttribute="leading" secondItem="jnk-us-8uJ" secondAttribute="trailing" constant="2" id="aJe-0l-2ib"/>
+                            <constraint firstItem="ll8-yI-OSU" firstAttribute="leading" secondItem="Cbd-ag-fcI" secondAttribute="leading" id="aUa-kI-H50"/>
                             <constraint firstItem="CVv-8u-iSe" firstAttribute="leading" secondItem="uni-Fw-rQ9" secondAttribute="leading" id="d3b-GB-iit"/>
-                            <constraint firstItem="qaw-Hv-rcR" firstAttribute="leading" secondItem="1ym-VK-sdf" secondAttribute="leading" id="fCS-oJ-vEQ"/>
-                            <constraint firstItem="i1y-uy-4i5" firstAttribute="trailing" secondItem="ODe-gB-ELB" secondAttribute="trailingMargin" id="hmS-WS-D6B"/>
-                            <constraint firstItem="Mln-We-f0c" firstAttribute="top" secondItem="uni-Fw-rQ9" secondAttribute="bottom" constant="20" id="igK-dQ-YeK"/>
-                            <constraint firstItem="qaw-Hv-rcR" firstAttribute="trailing" secondItem="1ym-VK-sdf" secondAttribute="trailing" id="mfb-0V-hWi"/>
-                            <constraint firstItem="KXh-nP-ZoJ" firstAttribute="top" secondItem="gn7-wc-oiX" secondAttribute="top" constant="27" id="nQi-AQ-FVH"/>
-                            <constraint firstItem="i1y-uy-4i5" firstAttribute="leading" secondItem="yIH-6L-FRu" secondAttribute="leading" id="nho-BL-Cxk"/>
-                            <constraint firstItem="uni-Fw-rQ9" firstAttribute="trailing" secondItem="Mln-We-f0c" secondAttribute="trailing" constant="64" id="wAX-mH-Un1"/>
+                            <constraint firstItem="CVv-8u-iSe" firstAttribute="leading" secondItem="gn7-wc-oiX" secondAttribute="leading" constant="16" id="dL7-M7-V9C"/>
+                            <constraint firstItem="LAB-84-UXq" firstAttribute="trailing" secondItem="a3M-YX-H8r" secondAttribute="trailing" id="foj-v0-VCv"/>
+                            <constraint firstItem="ll8-yI-OSU" firstAttribute="leading" secondItem="bEP-14-UqD" secondAttribute="leading" id="gu3-Ij-ayu"/>
+                            <constraint firstItem="gn7-wc-oiX" firstAttribute="trailing" secondItem="uni-Fw-rQ9" secondAttribute="trailing" constant="16" id="hce-JQ-8tY"/>
+                            <constraint firstItem="qaw-Hv-rcR" firstAttribute="leading" secondItem="gn7-wc-oiX" secondAttribute="leading" constant="14" id="jAr-tR-W8m"/>
+                            <constraint firstItem="yIH-6L-FRu" firstAttribute="centerY" secondItem="bEP-14-UqD" secondAttribute="centerY" id="k1o-LX-bbT"/>
+                            <constraint firstItem="a3M-YX-H8r" firstAttribute="top" secondItem="i1y-uy-4i5" secondAttribute="bottom" constant="13" id="kcY-Cw-nsE"/>
+                            <constraint firstItem="yIH-6L-FRu" firstAttribute="leading" secondItem="gn7-wc-oiX" secondAttribute="leading" constant="20" id="n7M-xx-JGf"/>
+                            <constraint firstItem="KXh-nP-ZoJ" firstAttribute="top" secondItem="gn7-wc-oiX" secondAttribute="top" constant="20" id="nQi-AQ-FVH"/>
+                            <constraint firstItem="LAB-84-UXq" firstAttribute="leading" secondItem="jnk-us-8uJ" secondAttribute="leading" id="qML-yI-gBc"/>
+                            <constraint firstItem="gn7-wc-oiX" firstAttribute="trailing" secondItem="DBb-oE-L35" secondAttribute="trailing" constant="52" id="qqP-OP-xm5"/>
+                            <constraint firstItem="gn7-wc-oiX" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CVv-8u-iSe" secondAttribute="trailing" symbolic="YES" id="rwl-XM-k8r"/>
+                            <constraint firstItem="Mln-We-f0c" firstAttribute="top" secondItem="uni-Fw-rQ9" secondAttribute="bottom" constant="16" id="sir-Gd-OOe"/>
+                            <constraint firstItem="ll8-yI-OSU" firstAttribute="trailing" secondItem="bEP-14-UqD" secondAttribute="trailing" id="vBS-i4-odb"/>
+                            <constraint firstItem="DBb-oE-L35" firstAttribute="leading" secondItem="bEP-14-UqD" secondAttribute="trailing" constant="4" id="x5u-FY-bnV"/>
+                            <constraint firstItem="gn7-wc-oiX" firstAttribute="trailing" secondItem="ll8-yI-OSU" secondAttribute="trailing" constant="80" id="xbJ-96-VKN"/>
+                            <constraint firstItem="ll8-yI-OSU" firstAttribute="bottom" secondItem="a3M-YX-H8r" secondAttribute="bottom" id="yku-8L-Con"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gn7-wc-oiX"/>
                     </view>
@@ -2220,6 +2273,10 @@ The Panties Goal = refer 1 friend</string>
         <image name="join_brand_bg" width="515" height="555"/>
         <image name="join_model_bg" width="515" height="555"/>
         <image name="menu" width="30" height="30"/>
+        <image name="refer_arrow" width="9" height="32"/>
+        <image name="refer_bra" width="32" height="32"/>
+        <image name="refer_pants" width="32" height="32"/>
+        <image name="refer_tshirt" width="32" height="32"/>
         <image name="sms" width="30" height="30"/>
         <image name="splash" width="750" height="500"/>
         <image name="trash" width="315" height="318"/>

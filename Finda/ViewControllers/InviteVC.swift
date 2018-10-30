@@ -25,12 +25,12 @@ class InviteVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let modelManager = ModelManager()
-        if modelManager.referrerCode() != "" {
-            self.referralCodeLabel.text = "Your referral code: \(modelManager.referrerCode())"
-        } else {
-            self.referralCodeLabel.text = "Please add a referral code within your preferences"
-        }
+//        let modelManager = ModelManager()
+//        if modelManager.referrerCode() != "" {
+//            self.referralCodeLabel.text = "Your referral code: \(modelManager.referrerCode())"
+//        } else {
+//            self.referralCodeLabel.text = "Please add a referral code within your preferences"
+//        }
     }
 
     override func didReceiveMemoryWarning() {
