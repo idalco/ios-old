@@ -90,7 +90,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .uploadPolaroidImage:
             return "/uploadPolaroid"
         case .uploadVerificationImage:
-            return "/uploadVerification"
+            return "/uploadKYC"
         case .getImages:
             return "/getImages"
         case .deleteImage:

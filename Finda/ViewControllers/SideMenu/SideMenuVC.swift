@@ -53,8 +53,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     
         if modelManager.status() == UserStatus.unverified {
-            self.menu = ["My Details", "Verification", "Invite a Friend", "Sign Out"]
-            self.icon = [.FAUser, .FAClipboard, .FAUsers, .FAPowerOff]
+            self.menu = ["My Details", "Portfolio", "Polaroids", "Verification", "Invite a Friend", "Sign Out"]
+            self.icon = [.FAUser, .FAImage, .FACameraRetro, .FAClipboard, .FAUsers, .FAPowerOff]
         } else {
             self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Sign Out"]
             self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank ,.FAUsers, .FAPowerOff]
@@ -129,23 +129,21 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sideMenuController?.setContentViewController(with: "Settings")
             
         } else if indexPath.row == 1 {
-            if self.menutype == 1 {
-                sideMenuController?.setContentViewController(with: "VerificationNav")
-            } else {
                 sideMenuController?.setContentViewController(with: "MainTabBar")
                 (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
                 (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
-
-            }
         } else if  indexPath.row == 2 {
             sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
             (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
             
         } else if  indexPath.row == 3 {
-            sideMenuController?.setContentViewController(with: "MainTabBar")
-            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
-            
+            if self.menutype == 1 {
+                sideMenuController?.setContentViewController(with: "VerificationNav")
+            } else {
+                sideMenuController?.setContentViewController(with: "MainTabBar")
+                (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
+            }
         } else if  indexPath.row == 4 {
             sideMenuController?.setContentViewController(with: "MainTabBar")
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
