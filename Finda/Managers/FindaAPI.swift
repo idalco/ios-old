@@ -262,7 +262,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             
         case .uploadVerificationImage(let image):
             guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
-            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "verification", fileName: "image.jpeg", mimeType: "image/jpeg")
+            let jpegData = MultipartFormData(provider: .data(jpegRep), name: "kyc", fileName: "image.jpeg", mimeType: "image/jpeg")
             return .uploadMultipart([jpegData])
             
         case.getImages(let type):
