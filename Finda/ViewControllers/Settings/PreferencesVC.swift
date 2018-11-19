@@ -86,6 +86,10 @@ class PreferencesVC: FormViewController {
         
         
         // Do any additional setup after loading the view.
+        
+        form +++ Section()
+        form +++ Section()
+        form +++ Section()
     }
     
     override func didReceiveMemoryWarning() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Preferences" representedClassName="Preferences" syncable="YES">
         <attribute name="friendRegisters" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="jobCancelled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -50,12 +50,13 @@
         <attribute name="referrerCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="residenceCountry" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vatNumber" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Preferences" positionX="-54" positionY="135" width="128" height="135"/>
         <element name="Profile" positionX="-45" positionY="153" width="128" height="255"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="450"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="465"/>
     </elements>
 </model>

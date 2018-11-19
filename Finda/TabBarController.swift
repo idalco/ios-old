@@ -8,8 +8,15 @@
 
 import UIKit
 
+extension NSNotification.Name {
+    static let didReceiveData = NSNotification.Name("didReceiveData")
+    static let didCompleteTask = NSNotification.Name("didCompleteTask")
+    static let completedLengthyDownload = NSNotification.Name("completedLengthyDownload")
+}
+
 class TabBarController: UITabBarController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.barTintColor = UIColor.FindaColours.Blue
@@ -18,6 +25,10 @@ class TabBarController: UITabBarController {
         
 
         // Do any additional setup after loading the view.
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData , object: nil)
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +36,16 @@ class TabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func onDidReceiveData(_ notification: NSNotification) {
+        
+        print("Inside on receive in toolbar")
+        if let data = notification.userInfo as? [String: Any] {
+            print(data["badge"] as! String)
+            
+//            self.tabBar.items?[1].badgeValue = data["badge"] as? String
+        }
+    
+    }
 
     /*
     // MARK: - Navigation

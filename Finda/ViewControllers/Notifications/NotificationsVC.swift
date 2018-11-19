@@ -59,7 +59,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.tableView.refreshControl?.endRefreshing()
             self.allNotifications.removeAll()
 
-            if(response) {
+            if (response) {
                 let notifications = result["userdata"].arrayValue
 
                 for notification in notifications {
@@ -75,6 +75,9 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                     self.messageLabel.text = "Currently you have no updates"
                 }
                 self.tableView.reloadData()
+            } else {
+                self.tableView.isHidden = true
+                self.messageLabel.text = "Currently you have no updates"
             }
         }
     }

@@ -25,7 +25,7 @@ enum FindaAPI {
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
-    case updateProfile(firstName: String, lastName: String, email: String, gender: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
+    case updateProfile(firstName: String, lastName: String, email: String, telephone: String, gender: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
     case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String, hourlyrate: Int, dailyrate: Int)
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case updatePassword(oldPassword: String, newPassword: String, repeatNewPassword: String)
@@ -188,12 +188,13 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .deleteNotifications(let id):
             p["msgid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        case .updateProfile(let firstName, let lastName, let email, let gender, let nationality, let residence_country, let ethnicityId, let instagramUsername, let referralCode, let vatNumber):
+        case .updateProfile(let firstName, let lastName, let email, let telephone, let gender, let nationality, let residence_country, let ethnicityId, let instagramUsername, let referralCode, let vatNumber):
             var parameters = [String: Any]()
             
             parameters["firstname"] = firstName
             parameters["lastname"] = lastName
             parameters["mail"] = email
+            parameters["telephone"] = telephone
             parameters["gender"] = gender
             parameters["ethnicity"] = ethnicityId
             parameters["instagram"] = instagramUsername

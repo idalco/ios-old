@@ -35,6 +35,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.displayFCMToken(notification:)), name: NSNotification.Name(rawValue: "FCMToken"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData , object: nil)
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -123,29 +125,29 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
         } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
-            sideMenuController?.setContentViewController(with: "InviteNav")
+            sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
             
         } else if indexPath.row == 0 {
-            sideMenuController?.setContentViewController(with: "Settings")
+            sideMenuController?.setContentViewController(with: "Settings", animated: true)
             
         } else if indexPath.row == 1 {
-                sideMenuController?.setContentViewController(with: "MainTabBar")
+            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
                 (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
                 (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
         } else if  indexPath.row == 2 {
-            sideMenuController?.setContentViewController(with: "MainTabBar")
+            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
             (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
             
         } else if  indexPath.row == 3 {
             if self.menutype == 1 {
-                sideMenuController?.setContentViewController(with: "VerificationNav")
+                sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
             } else {
-                sideMenuController?.setContentViewController(with: "MainTabBar")
+                sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
                 (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
             }
         } else if  indexPath.row == 4 {
-            sideMenuController?.setContentViewController(with: "MainTabBar")
+            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
             
         } else if indexPath.row == 5 {
@@ -164,6 +166,14 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.hideMenu()
     }
     
+    @objc func onDidReceiveData(_ notification: NSNotification) {
+        
+        if let data = notification.userInfo as? [String: Any] {
+            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[0].badgeValue = data["jobscount"] as? String
+            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[1].badgeValue = data["msgcount"] as? String
+        }
+        
+    }
     
     /*
      // Override to support conditional editing of the table view.

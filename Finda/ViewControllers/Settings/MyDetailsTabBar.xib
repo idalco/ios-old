@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsTabVC" customModule="Finda" customModuleProvider="target">
+            <connections>
+                <outlet property="fakeTabBar" destination="iN0-l3-epB" id="KcL-7q-RKe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="FakeTabBar">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="scH-n4-K3g">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB9-u9-nSC">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="albums" translatesAutoresizingMaskIntoConstraints="NO" id="LrA-7b-ado">
+                                    <rect key="frame" x="46" y="0.0" width="33" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="dHS-di-ypT"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhJ-B3-GjC">
+                                    <rect key="frame" x="46" y="32" width="33.5" height="17"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="LrA-7b-ado" firstAttribute="centerX" secondItem="MhJ-B3-GjC" secondAttribute="centerX" id="Q9X-q7-ToR"/>
+                                <constraint firstItem="MhJ-B3-GjC" firstAttribute="top" secondItem="LrA-7b-ado" secondAttribute="bottom" id="otl-4Q-GQw"/>
+                                <constraint firstItem="LrA-7b-ado" firstAttribute="top" secondItem="WB9-u9-nSC" secondAttribute="top" id="ovL-gf-kd5"/>
+                                <constraint firstItem="LrA-7b-ado" firstAttribute="leading" secondItem="WB9-u9-nSC" secondAttribute="leading" constant="46" id="pow-rN-o3f"/>
+                                <constraint firstItem="LrA-7b-ado" firstAttribute="centerX" secondItem="WB9-u9-nSC" secondAttribute="centerX" id="vxm-Da-Add"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUo-YH-Bvp">
+                            <rect key="frame" x="125" y="0.0" width="125" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sms" translatesAutoresizingMaskIntoConstraints="NO" id="km8-PT-uRD">
+                                    <rect key="frame" x="46" y="0.0" width="32" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Updates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRP-XO-4mT">
+                                    <rect key="frame" x="30" y="30" width="58" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewo-SM-Wff">
+                            <rect key="frame" x="250" y="0.0" width="125" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="QnU-g1-Qdq">
+                                    <rect key="frame" x="46" y="0.0" width="33" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="Cs4-bf-Vcw"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portfolio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2z9-jp-zmi">
+                                    <rect key="frame" x="32.5" y="32" width="60.5" height="17"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="QnU-g1-Qdq" firstAttribute="centerX" secondItem="2z9-jp-zmi" secondAttribute="centerX" id="ARf-xw-zuC"/>
+                                <constraint firstItem="QnU-g1-Qdq" firstAttribute="top" secondItem="Ewo-SM-Wff" secondAttribute="top" id="Q6Q-Yv-ubH"/>
+                                <constraint firstItem="QnU-g1-Qdq" firstAttribute="centerX" secondItem="Ewo-SM-Wff" secondAttribute="centerX" id="QXn-PN-4Pn"/>
+                                <constraint firstItem="QnU-g1-Qdq" firstAttribute="leading" secondItem="Ewo-SM-Wff" secondAttribute="leading" constant="46" id="lsW-8D-VDS"/>
+                                <constraint firstItem="2z9-jp-zmi" firstAttribute="top" secondItem="QnU-g1-Qdq" secondAttribute="bottom" id="npD-bB-YZD"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.39607843139999999" green="0.72156862749999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="9Xb-gg-iL8"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.39607843139999999" green="0.72156862749999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="scH-n4-K3g" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8Md-wh-sAT"/>
+                <constraint firstItem="scH-n4-K3g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="l1q-Wm-2RO"/>
+                <constraint firstItem="scH-n4-K3g" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="okO-NB-uVt"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="130.40000000000001" y="-130.43478260869566"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="albums" width="30" height="30"/>
+        <image name="camera" width="30" height="30"/>
+        <image name="sms" width="30" height="30"/>
+    </resources>
+</document>

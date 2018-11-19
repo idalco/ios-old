@@ -147,6 +147,13 @@ class PersonalDetailsVC: FormViewController {
                     }
             }
             
+            <<< PhoneRow(){ row in
+                row.title = "Mobile Number"
+                row.placeholder = "Mobile Number"
+                row.value = modelManager.telephone()
+                row.tag = "telephone"
+               
+            }
             
             <<< PickerInputRow<String>() { row in
                 row.title = "Gender"
@@ -228,6 +235,10 @@ class PersonalDetailsVC: FormViewController {
         
         form +++ mainSection
         
+        form +++ Section()
+        form +++ Section()
+        form +++ Section()
+        
         PickerDelegate.addPickerData(term: .Ethnicity, rowTitle: "Ethnicity", coreData: modelManager.ethnicity()) { (response, result, dictionary) in
             if response {
                 self.ethnicityDictionary = dictionary
@@ -264,6 +275,7 @@ class PersonalDetailsVC: FormViewController {
                     self.updateCell(tag: "dob", data: Date(timeIntervalSince1970: TimeInterval(date)))
                 }
                 self.updateCell(tag: "email", data: model.email())
+                self.updateCell(tag: "telephone", data: model.telephone())
                 self.updateGenderPickerRow(tag: "gender", data: model.gender())
               
                 
@@ -358,9 +370,10 @@ class PersonalDetailsVC: FormViewController {
 
         let referralCode: String = form.values()["referralCode"] as? String ?? ""
         let vat: String = form.values()["vat"] as? String ?? ""
+        let telephone: String = form.values()["telephone"] as? String ?? ""
         
         if(firstNameRow.isValid && lastNameRow.isValid && emailRow.isValid && genderRow.isValid && ethnicityRow.isValid && instagramRow.isValid){
-            FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, gender: gender, nationality: nationality, residence_country: residence, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat)) { (response, result) in
+            FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, telephone: telephone, gender: gender, nationality: nationality, residence_country: residence, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat)) { (response, result) in
                 if response {
                     self.updateRows()
                 }

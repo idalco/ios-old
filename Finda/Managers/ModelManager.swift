@@ -32,6 +32,7 @@ class ModelManager {
         case instagramFollowers = "instagramFollowers"
         case occupation = "occupation"
         case companyName = "companyName"
+        case telephone = "telephone"
         case companyWebsite = "companyWebsite"
         case dob = "dob"
         case country = "country"
@@ -99,6 +100,10 @@ class ModelManager {
     
     func email() -> String {
         return CoreDataManager.getString(dataName: User.email.rawValue, entity: Entity.User.rawValue)
+    }
+    
+    func telephone() -> String {
+        return CoreDataManager.getString(dataName: User.telephone.rawValue, entity: Entity.User.rawValue)
     }
     
     func avatar() -> String {

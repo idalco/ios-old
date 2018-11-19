@@ -13,12 +13,25 @@ import SideMenuSwift
 import UserNotifications
 import Firebase
 
+extension String {
+    func convertToDictionary() -> [String: Any]? {
+        if let data = self.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+    let gcmCustomDataKey = "gcm.notification.custom"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -220,16 +233,23 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
+        let content = notification.request.content
+        let request = notification.request
         
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("3: Message ID: \(messageID)")
+        if let messageID = content.userInfo[gcmMessageIDKey] {
+//            print("3: Message ID: \(messageID)")
+            
+            let custom = (content.userInfo[gcmCustomDataKey]! as? String)?.convertToDictionary()
+
+            // update the updates badge somehow
+            print("Posting notification")
+            NotificationCenter.default.post(name: .didReceiveData, object: nil, userInfo: custom)
+            
         }
         
-        // Print full message.
-//        print(userInfo)
         
         // Change this to your preferred presentation option
         completionHandler([.alert])
@@ -245,7 +265,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         // Print full message.
-//        print(userInfo)
+        print(userInfo)
         
         completionHandler()
     }

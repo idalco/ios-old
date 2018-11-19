@@ -251,6 +251,11 @@ class MeasurementsVC: FormViewController {
         }
         
         // Do any additional setup after loading the view.
+        
+        form +++ Section()
+        form +++ Section()
+        form +++ Section()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
