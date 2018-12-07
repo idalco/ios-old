@@ -81,6 +81,8 @@ class PolaroidVC: UIViewController {
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
                 print(photo.image) // Final image selected by the user
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.show()
                 FindaAPISession(target: .uploadPolaroidImage(image: photo.image), completion: { (response, result) in
                     SVProgressHUD.dismiss()

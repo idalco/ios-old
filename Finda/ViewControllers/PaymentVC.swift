@@ -38,11 +38,17 @@ class PaymentVC: UIViewController {
     }
     
     func submitDetails(){
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
         FindaAPISession(target: .updateBankDetails(name: self.nameTextField.text ?? "", sortcode: self.sortCodeTextField.text ?? "", accountNumber: self.accountNumberTextField.text ?? "")) { (response, result) in
             if response {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showSuccess(withStatus: "Done")
             } else {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showError(withStatus: "Try again")
             }
         }

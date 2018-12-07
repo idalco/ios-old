@@ -9,6 +9,7 @@
 import UIKit
 import YPImagePicker
 import SVProgressHUD
+import SCLAlertView
 
 class VerificationVC: UIViewController {
     
@@ -16,68 +17,96 @@ class VerificationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let text: String = """
-To make sure everyone gets the best professional experience at Finda, we verify and approve each model as well as each creative before they can access the full website. \n\nWe need the following details and documentation from you before you can be seen by Finda clients:
-        
-A form of your ID document is required by our payment provider Stripe, please refer to our Privacy Policy. We accept any of the following IDs: \n
-• A photo of your passport, clearly showing your photograph and date of birth; or \n
-• A photo of your driver's license, clearly showing your photograph and date of birth; or \n
-• A photo of another form of government-issued identification, clearly showing your photograph and date of birth. \n
-Your country of residence and date of birth (under your Profile Details). \n
-Your Instagram handle. \n
-Your correct measurements (fill them in at ‘My details’ page). \n
-Your portfolio photographs and polaroids \n
-        
-        
-"""
-        let attributedString = NSMutableAttributedString(string: text)
 
-       
-        if let font = UIFont(name: "Gotham-Medium", size: 12) {
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "we verify and approve"))
-            attributedString.addAttribute(.font, value: font, range: text.range(substring: "we verify and approve"))
-            
-            
-            attributedString.addAttribute(.font, value: font, range: text.range(substring: "before you can be seen by Finda clients"))
-            
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "A form of your ID document"))
-            attributedString.addAttribute(.font, value: font, range: text.range(substring: "A form of your ID document"))
-            
-            
-            attributedString.addAttribute(.link, value: "\(domainURL)/privacy", range: text.range(substring: "Privacy Policy"))
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "Privacy Policy"))
-            
-            
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "country of residence and date of birth"))
-            attributedString.addAttribute(.font, value: font, range: text.range(substring: "country of residence and date of birth"))
-            
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "Instagram handle"))
-            attributedString.addAttribute(.font, value: font, range: text.range(substring: "Instagram handle"))
-            
-            
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "correct measurements"))
-            attributedString.addAttribute(.font, value: font, range: text.range(substring: "correct measurements"))
-            
-            
-            attributedString.addAttribute(.foregroundColor, value: UIColor.FindaColours.Blue, range: text.range(substring: "portfolio photographs and polaroids"))
-            attributedString.addAttribute(.font, value: font, range: text.range(substring: "portfolio photographs and polaroids"))
-            
+        let newtext = NSMutableAttributedString(string: "In order to be discovered by Finda's clients and creatives, we need to verify your ID and the following information.\n\nThis is in order to:\n")
+        let faline1 = NSMutableAttributedString(string: "   Confirm your identity\n")
+        let faline2 = NSMutableAttributedString(string: "   Provide correct information to clients and creatives\n")
+        let faline3 = NSMutableAttributedString(string: "   Receive payments\n\n\n")
+
+        let faline3a = NSMutableAttributedString(string: "Accepted IDs (Head to Verification page in menu):\n")
+
+        let faline4 = NSMutableAttributedString(string: "   Passport\n")
+        let faline5 = NSMutableAttributedString(string: "  Driver's license\n")
+        let faline6 = NSMutableAttributedString(string: "   Another form of Government-issued identification\n\n\n")
+        
+        let faline6a = NSMutableAttributedString(string: "We need the following additional information:\n")
+
+        let faline7 = NSMutableAttributedString(string: "  Country of Residence and Date of Birth (My Details)\n")
+        let faline8 = NSMutableAttributedString(string: "  Instagram handle (My Details)\n")
+        let faline9 = NSMutableAttributedString(string: "  Measurements (My Details)\n")
+        let faline10 = NSMutableAttributedString(string: "  Portfolio pictures and polaroids\n")
+        
+        let baseParagraphStyle = NSMutableParagraphStyle()
+        baseParagraphStyle.alignment = .left
+        baseParagraphStyle.lineSpacing = 4
+        baseParagraphStyle.paragraphSpacing = 0
+        
+        let indentParagraphStyle = NSMutableParagraphStyle()
+        indentParagraphStyle.headIndent = 16
+        indentParagraphStyle.firstLineHeadIndent = 0
+        
+        if let mainfont = UIFont(name: "Gotham-Book", size: 15) {
+            newtext.addAttribute(.font, value: mainfont, range: NSMakeRange(0, newtext.length))
+            faline1.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline1.length-2))
+            faline2.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline2.length-2))
+            faline2.addAttributes([.paragraphStyle: indentParagraphStyle], range: NSRange(location: 0, length: faline2.length))
+            faline3.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline3.length-2))
+            faline3a.addAttribute(.font, value: mainfont, range: NSMakeRange(0, faline3a.length))
+            faline4.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline4.length-2))
+            faline5.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline5.length-2))
+            faline6.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline6.length-2))
+            faline6.addAttributes([.paragraphStyle: indentParagraphStyle], range: NSRange(location: 0, length: faline6.length))
+            faline6a.addAttribute(.font, value: mainfont, range: NSMakeRange(0, faline6a.length))
+            faline7.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline7.length-2))
+            faline7.addAttributes([.paragraphStyle: indentParagraphStyle], range: NSRange(location: 0, length: faline7.length))
+            faline8.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline8.length-2))
+            faline9.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline9.length-2))
+            faline10.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline10.length-2))
         }
-    
+        if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
+            // user
+            faline1.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline1.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline2.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline2.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline3.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline3.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline4.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline4.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline5.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline5.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline6.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline6.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline7.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline7.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline9.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline9.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline10.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
+            faline10.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+        }
         
-        let linkAttributes: [String : Any] = [
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Blue,
-//            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColors.Purple,
-//            NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleThick.rawValue
-        ]
+        if let fafont2 = UIFont(name: "FontAwesome", size: 15) {
+            faline8.addAttribute(.font, value: fafont2, range: NSMakeRange(0, 2))
+            faline8.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+        }
+  
+        newtext.append(faline1)
+        newtext.append(faline2)
+        newtext.append(faline3)
+        newtext.append(faline3a)
+        newtext.append(faline4)
+        newtext.append(faline5)
+        newtext.append(faline6)
+        newtext.append(faline6a)
+        newtext.append(faline7)
+        newtext.append(faline8)
+        newtext.append(faline9)
+        newtext.append(faline10)
         
+        newtext.addAttributes([.paragraphStyle: baseParagraphStyle], range: NSRange(location: 0, length: newtext.length))
         
-        legalText.linkTextAttributes = linkAttributes
-        legalText.attributedText = attributedString
+        legalText.attributedText = newtext
         
- 
-
         // Do any additional setup after loading the view.
     }
 
@@ -99,6 +128,10 @@ Your portfolio photographs and polaroids \n
     }
     
     func uploadVerification(){
+        
+        let appearance = SCLAlertView.SCLAppearance()
+        let alertView = SCLAlertView(appearance: appearance)
+        
         var config = YPImagePickerConfiguration()
         config.showsFilters = false
         config.startOnScreen = .library
@@ -107,16 +140,25 @@ Your portfolio photographs and polaroids \n
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
                 print(photo.image) // Final image selected by the user
-                SVProgressHUD.show()
+                
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
+                SVProgressHUD.show(withStatus: "Uploading")
                 FindaAPISession(target: .uploadVerificationImage(image: photo.image), completion: { (response, result) in
                     if response {
                         LoginManager.getDetails(completion: { (response, result) in
-                            SVProgressHUD.showSuccess(withStatus: "Uploaded")
-                            if response {
-                                self.changeToInvoices()
-                            }
+                            SVProgressHUD.dismiss()
+                            alertView.showTitle(
+                                "Thank you for your application to Finda",
+                                subTitle: "We will be in touch once your account has been verified",
+                                style: .success,
+                                closeButtonTitle: "OK",
+                                colorStyle: 0x59C5CF,
+                                colorTextButton: 0xFFFFFF)
                         })
                     } else {
+                        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                        SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                         SVProgressHUD.showError(withStatus: "Try again")
                     }
                     
@@ -129,12 +171,14 @@ Your portfolio photographs and polaroids \n
     }
 
     func changeToInvoices(){
-        let modelManager = ModelManager()
-        if modelManager.kycOn() != -1 && modelManager.kycBy() != -1 && modelManager.kycOn() != 0 && modelManager.kycBy() != 0 {
-//            sideMenuController?.setContentViewController(with: "InvoiceNav", animated: true, completion: {
-//
-//            })
-        }
+        
+//        let smc = sideMenuController
+//        smc?.setContentViewController(with: "Settings", animated: true)
+        
+//        let modelManager = ModelManager()
+//        if modelManager.kycOn() != -1 && modelManager.kycBy() != -1 && modelManager.kycOn() != 0 && modelManager.kycBy() != 0 {
+//            sideMenuController?.setContentViewController(with: "Settings", animated: true, completion: {})
+//        }
     }
     
     @IBAction func menu(_ sender: Any) {

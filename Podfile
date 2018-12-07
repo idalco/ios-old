@@ -57,6 +57,6 @@ target 'Finda' do
   
   # progress spinners etc
   pod 'SVProgressHUD'
-
+  pod 'SCLAlertView'
 
 end

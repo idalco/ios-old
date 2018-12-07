@@ -78,6 +78,7 @@ PODS:
   - Protobuf (3.6.1)
   - PryntTrimmerView (3.0.0)
   - Result (3.2.4)
+  - SCLAlertView (0.8)
   - SideMenuSwift (1.0.0)
   - SteviaLayout (4.4.0)
   - SVProgressHUD (2.2.5)
@@ -102,6 +103,7 @@ DEPENDENCIES:
   - Font-Awesome-Swift (~> 1.7.2)
   - IQKeyboardManagerSwift
   - Moya
+  - SCLAlertView
   - SideMenuSwift
   - SVProgressHUD
   - SwiftyGif
@@ -134,6 +136,7 @@ SPEC REPOS:
     - Protobuf
     - PryntTrimmerView
     - Result
+    - SCLAlertView
     - SideMenuSwift
     - SteviaLayout
     - SVProgressHUD
@@ -166,6 +169,7 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SideMenuSwift: f8567754feb36ade13ffd613f608829f4b86d4b3
   SteviaLayout: dd74d1abd127bbf0ce346ac9430441684fe427d0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
@@ -174,6 +178,6 @@ SPEC CHECKSUMS:
   Tabman: 6cff148419c5d8812d0e9f08f93b6f1c6ba54502
   YPImagePicker: 26d5bf7bfe1cffd1c5eedea3ac60422b314e2a42
 
-PODFILE CHECKSUM: 52adfe34e94d1028ae23a99dd6e580000dadf63c
+PODFILE CHECKSUM: 6b3e519318d2568c2522fd64a62a486c1679c557
 
 COCOAPODS: 1.5.3

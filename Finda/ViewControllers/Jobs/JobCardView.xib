@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -29,14 +29,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="center" id="iN0-l3-epB" customClass="JobCardView" customModule="Finda" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGR-lR-C5v">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-jy-5AK">
-                            <rect key="frame" x="20" y="416" width="280" height="44"/>
+                            <rect key="frame" x="47.5" y="603" width="280" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4R-si-942" customClass="DCRoundedButton" customModule="DCKit">
                                     <rect key="frame" x="0.0" y="0.0" width="130" height="44"/>
@@ -120,13 +120,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="0kq-7l-YWi">
-                            <rect key="frame" x="265.5" y="124" width="46.5" height="17"/>
+                            <rect key="frame" x="320.5" y="124" width="46.5" height="17"/>
                             <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eke-Qc-0TG">
-                            <rect key="frame" x="216" y="143" width="96" height="29"/>
+                        <button contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eke-Qc-0TG">
+                            <rect key="frame" x="271" y="143" width="96" height="29"/>
                             <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
                             <state key="normal" title="£500 / Hours">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,16 +169,16 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="rHk-BM-2rm">
-                            <rect key="frame" x="0.0" y="190" width="320" height="137"/>
+                            <rect key="frame" x="8" y="190" width="359" height="122.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advanced info 1  Advanced info 2  Advanced info 3  Advanced info 4 Advanced info 5" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9b-IC-qxZ" userLabel="Advanced Info Label">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="72"/>
                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ks-p9-g31">
-                                    <rect key="frame" x="0.0" y="79" width="320" height="58"/>
+                                    <rect key="frame" x="0.0" y="79" width="359" height="43.5"/>
                                     <string key="text">descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription</string>
                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                                     <nil key="textColor"/>
@@ -235,10 +235,10 @@
                         <constraint firstItem="La6-8z-DNe" firstAttribute="leading" secondItem="mSl-BQ-DFa" secondAttribute="leading" id="jgo-2L-E9o"/>
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="top" secondItem="La6-8z-DNe" secondAttribute="bottom" constant="9" id="ohn-FZ-0Uw"/>
                         <constraint firstAttribute="trailing" secondItem="rHk-BM-2rm" secondAttribute="trailing" constant="8" id="pF7-zS-AfG"/>
+                        <constraint firstItem="Eke-Qc-0TG" firstAttribute="top" secondItem="OGR-lR-C5v" secondAttribute="top" constant="143" id="pTA-DP-Oiu"/>
                         <constraint firstItem="cSs-7G-qwy" firstAttribute="top" secondItem="wiZ-c1-uK2" secondAttribute="bottom" constant="3" id="ptp-ET-TTo"/>
                         <constraint firstItem="sob-lh-kXy" firstAttribute="top" secondItem="OGR-lR-C5v" secondAttribute="top" constant="10" id="rGG-jp-XNM"/>
                         <constraint firstItem="0kq-7l-YWi" firstAttribute="top" secondItem="OGR-lR-C5v" secondAttribute="top" constant="124" id="rYq-gg-Au6"/>
-                        <constraint firstItem="sob-lh-kXy" firstAttribute="trailing" secondItem="Eke-Qc-0TG" secondAttribute="trailing" id="s2L-jP-gsN"/>
                         <constraint firstItem="mSl-BQ-DFa" firstAttribute="top" secondItem="sob-lh-kXy" secondAttribute="bottom" constant="13" id="sOs-KZ-u4Q"/>
                         <constraint firstItem="fBe-jy-5AK" firstAttribute="centerX" secondItem="OGR-lR-C5v" secondAttribute="centerX" id="xaP-tQ-yIL"/>
                         <constraint firstAttribute="trailing" secondItem="Eke-Qc-0TG" secondAttribute="trailing" constant="8" id="z22-Jx-t3F"/>

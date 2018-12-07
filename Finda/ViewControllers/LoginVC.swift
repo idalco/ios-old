@@ -82,8 +82,10 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
             LoginManager.signOut()
             return
         } else if modelManager.status() == UserStatus.unverified {
+            print("edit profile")
             self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
         } else {
+            print("edit profile")
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
@@ -98,6 +100,8 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
             return
         }
         
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
         LoginManager.login(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "") { (response, result) in
             SVProgressHUD.dismiss()
@@ -123,6 +127,17 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     @IBAction func login(_ sender: Any) {
         self.login()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let preferences = UserDefaults.standard
+        let currentLevel = segue.identifier
+        let currentLevelKey = "segueIdentifier"
+        preferences.set(currentLevel, forKey: currentLevelKey)
+        preferences.synchronize()
+        
+
     }
     
 }

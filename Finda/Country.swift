@@ -183,6 +183,7 @@ class Country {
         "Switzerland",
         "Sweden",
         "Syria",
+        "Taiwan",
         "Tajikistan",
         "Thailand",
         "The former Yugoslav Republic of Macedonia",

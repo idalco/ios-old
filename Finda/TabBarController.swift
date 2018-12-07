@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 extension NSNotification.Name {
     static let didReceiveData = NSNotification.Name("didReceiveData")
@@ -34,6 +35,42 @@ class TabBarController: UITabBarController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let index = tabBar.items?.index(of: item) else { return }
+        
+        // Do something with the index
+  
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.unverified {
+            if index == 0 || index == 1 {
+                let appearance = SCLAlertView.SCLAppearance(
+                    showCloseButton: false
+                )
+                let alertView = SCLAlertView(appearance: appearance)
+                var subtitle = ""
+                if index == 0 {
+                    subtitle = "You will be able to see your jobs once you have been verified"
+                } else if index == 1 {
+                    subtitle = "You will be able to see your updates once you have been verified"
+                }
+                alertView.addButton("OK") {
+                    let smc = self.sideMenuController
+                    smc?.setContentViewController(with: "MainTabBar")
+                    (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                }
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: subtitle,
+                    style: .info,
+                    closeButtonTitle: "Close",
+                    colorStyle: 0x59C5CF,
+                    colorTextButton: 0xFFFFFF)
+                
+            }
+        }
+        
     }
     
     @objc func onDidReceiveData(_ notification: NSNotification) {

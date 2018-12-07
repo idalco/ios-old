@@ -39,7 +39,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         
       
         
-         self.bar.items = [Item(title: "Offered"), Item(title: "Accepted"), Item(title: "All")]
+         self.bar.items = [Item(title: "Requested"), Item(title: "Accepted"), Item(title: "All")]
         
         self.bar.style = .buttonBar
 //        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)

@@ -22,7 +22,8 @@ extension UIColor {
     }
     
     struct FindaColours {
-        static let Blue = UIColor(rgb: 0x65b8bc)
+//        static let Blue = UIColor(rgb: 0x65b8bc)
+        static let Blue = UIColor(rgb: 0x59C5CF)
         static let BrightBlue = UIColor(rgb: 0x01ebd2)
         static let Yellow = UIColor(rgb: 0xfcec03)
         static let DarkYellow = UIColor(rgb: 0xebca01)
@@ -34,6 +35,7 @@ extension UIColor {
         static let Grey = UIColor(rgb: 0x7f7f7f)
         static let White = UIColor(rgb: 0xFEFEFE)
         static let Black = UIColor(rgb: 0x010101)
+        static let Pink = UIColor(rgb: 0xff00ff)
     }
     
     func fade(alpha:CGFloat = 0.05) -> UIColor {

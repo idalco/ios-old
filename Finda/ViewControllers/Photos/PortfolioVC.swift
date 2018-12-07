@@ -83,14 +83,11 @@ class PortfolioVC: UIViewController {
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
                 print(photo.image) // Final image selected by the user
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.show()
                 FindaAPISession(target: .uploadPortfolioImage(image: photo.image), completion: { (response, result) in
                     SVProgressHUD.dismiss()
-//                    if response{
-//                        SVProgressHUD.showSuccess(withStatus: "Uploaded")
-//                    } else {
-//                        SVProgressHUD.showError(withStatus: "Try again")
-//                    }
                     self.updateImages()
                     
                 })

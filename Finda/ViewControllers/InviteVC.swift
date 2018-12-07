@@ -47,11 +47,17 @@ class InviteVC: UIViewController {
     }
     
     func submitInvite(){
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
         FindaAPISession(target: .inviteFriend(name: self.nameTextField.text ?? "", email: self.emailTextField.text ?? "")) { (response, result) in
             if response {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showSuccess(withStatus: "Done")
             } else {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showError(withStatus: "Try again")
             }
         }

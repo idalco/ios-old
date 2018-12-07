@@ -14,6 +14,7 @@ class JobsManager {
     enum JobTypes: String {
         case all = "all"
         case offered = "offered"
+        case requested = "requested"
         case optioned = "optioned"
         case accepted = "accepted"
         case expired = "expired"
@@ -21,6 +22,7 @@ class JobsManager {
         case rejected = "rejected"
         case finished = "finished"
         case unfinalised = "unfinalised"
+        case confirmed = "confirmed"
         
     }
     

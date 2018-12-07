@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import SCLAlertView
+import SafariServices
 
 class JobsVC: UIViewController {
     
@@ -27,12 +29,18 @@ class JobsVC: UIViewController {
         
         walletView.walletHeader = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
-        self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
-        
+        if self.jobType.rawValue == "offered" {
+            self.noJobsLabel.text = "Currently you have no requests"
+        } else {
+            self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
+        }
+    }
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .default
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .default
         self.loadJobs()
     }
     
@@ -50,13 +58,15 @@ class JobsVC: UIViewController {
                 break
                 
             case "ACCEPTED":
+                
                 card.layer.borderColor = UIColor.FindaColours.Blue.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Blue, thickness: 8.0)
                 card.contactNumberLabelIcon.isHidden = false
                 card.contactNumberLabel.isHidden = false
                 break
                 
-            case "OFFERED":
+            case "OFFERED", "REQUESTED":
+                card.headerLabel.text = "REQUESTED"
                 card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
                 break
@@ -67,7 +77,7 @@ class JobsVC: UIViewController {
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Purple, thickness: 8.0)
                 break
                 
-            case "OPTIONED":
+            case "OPTIONED", "JOB OFFER":
                 card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
                 break
@@ -82,6 +92,10 @@ class JobsVC: UIViewController {
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 8.0)
                 break
 
+            case "CONFIRMED":
+                card.layer.borderColor = UIColor.FindaColours.FindaGreen.cgColor
+                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.FindaGreen, thickness: 8.0)
+                break
                 
             default:
                 break
@@ -157,12 +171,20 @@ class JobsVC: UIViewController {
                     cardView.offeredNumberButton.isHidden = false
                     cardView.offeredLabel.text = "Agreed rate:"
                     cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    
+                    // 14 is accepted, 2 if confirmed, so we need to override here,
+                    // or refactor
+                    if job.status == 2 {
+                        cardView.header = "CONFIRMED"
+                    }
+                    
                     break
                 case .ModelCompleted, .Completed:
                     cardView.primaryButton.isHidden = true
                     cardView.secondaryButton.isHidden = true
                     cardView.offeredLabel.text = "Offered rate:"
                     cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumberButton.isHidden = false
                     cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
                     break
                 case .Expired:
@@ -178,11 +200,35 @@ class JobsVC: UIViewController {
                     cardView.contactNumberLabel.isHidden = true
                     cardView.contactNumberLabelIcon.isHidden = true
                     break
+                    
                 case .Optioned:
                     cardView.offeredLabel.text = "Offered rate:"
                     cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumberButton.isHidden = false
                     cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
-                    cardView.primaryButton.isHidden = true
+                    
+                    cardView.primaryButton.isHidden = false
+                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
+                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
+                    cardView.secondaryButton.isHidden = false
+                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
+                    cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
+                    cardView.contactNumberLabel.isHidden = true
+                    cardView.contactNumberLabelIcon.isHidden = true
+                    
+                    // override
+                    cardView.header = "JOB OFFER"
+                    break
+                
+                case .Requested:
+                    cardView.offeredLabel.text = "Offered rate:"
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumberButton.isHidden = false
+                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    
+                    cardView.primaryButton.isHidden = false
+                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
+                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
                     cardView.secondaryButton.isHidden = false
                     cardView.secondaryButton.setTitle("REJECT", for: .normal)
                     cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
@@ -190,6 +236,7 @@ class JobsVC: UIViewController {
                     cardView.contactNumberLabelIcon.isHidden = true
                     
                     break
+                    
                 case .Offered:
                     cardView.offeredLabel.text = "Offered rate:"
                     cardView.offeredLabel.isHidden = false
@@ -213,6 +260,17 @@ class JobsVC: UIViewController {
                     cardView.contactNumberLabel.isHidden = true
                     break
                     
+                case .Confirmed:
+                    cardView.secondaryButton.setTitle("CANCEL", for: .normal)
+                    cardView.primaryButton.isHidden = true
+                    
+                    cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumberButton.isHidden = false
+                    cardView.offeredLabel.text = "Agreed rate:"
+                    cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    
+                    break
                 }
             }
             
@@ -231,8 +289,20 @@ class JobsVC: UIViewController {
     }
 
     @objc private func acceptJob(sender: UIButton) {
-        let alert = UIAlertController(title: "Are you sure?", message: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email.", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Accept Job", style: UIAlertAction.Style.default, handler: { action in
+        
+        let appearance = SCLAlertView.SCLAppearance()
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton("View Terms") {
+            if let destination = NSURL(string: domainURL + "/bookingterms") {
+                
+                let safari = SFSafariViewController(url: destination as URL, entersReaderIfAvailable: true)
+                self.present(safari, animated: true)
+            }
+        }
+        alertView.addButton("Accept Offer") {
+            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
             FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
                 if response {
@@ -241,15 +311,24 @@ class JobsVC: UIViewController {
                     SVProgressHUD.dismiss()
                 }
             }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        }
+        
+        alertView.showTitle(
+            "Are you sure?",
+            subTitle: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email. If you want to negotiate the fee, you can do this on the Finda website before accepting.",
+            style: .question,
+            closeButtonTitle: "Cancel",
+            colorStyle: 0x59C5CF,
+            colorTextButton: 0xFFFFFF)
+    
     }
     
     @objc private func rejectJob(sender: UIButton) {
 
         let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Reject offer", style: UIAlertAction.Style.default, handler: { action in
+            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
             FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
                 if response {
@@ -266,8 +345,13 @@ class JobsVC: UIViewController {
     
     @objc private func cancelJob(sender: UIButton) {
         
-        let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Cancel Job", style: UIAlertAction.Style.default, handler: { action in
+        
+        let appearance = SCLAlertView.SCLAppearance()
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton("Cancel Job") {
+            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
             FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
                 if response {
@@ -276,16 +360,25 @@ class JobsVC: UIViewController {
                     SVProgressHUD.dismiss()
                 }
             }
-        }))
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        }
+        alertView.showTitle(
+            "Are you sure?",
+            subTitle: "",
+            style: .warning,
+            closeButtonTitle: "Close",
+            colorStyle: 0x59C5CF,
+            colorTextButton: 0xFFFFFF)
         
     }
 
     @objc private func rejectOption(sender: UIButton) {
         
-        let alert = UIAlertController(title: "Are you sure?", message: "You will be able to negotiate a different rate if the client offers you this job later.", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Decline Option", style: UIAlertAction.Style.default, handler: { action in
+        let appearance = SCLAlertView.SCLAppearance()
+        let alertView = SCLAlertView(appearance: appearance)
+
+        alertView.addButton("Decline Offer") {
+            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
             FindaAPISession(target: .rejectOption(jobId: sender.tag)) { (response, result) in
                 if response {
@@ -294,9 +387,14 @@ class JobsVC: UIViewController {
                     SVProgressHUD.dismiss()
                 }
             }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        }
+        alertView.showTitle(
+            "Are you sure?",
+            subTitle: "You will be able to negotiate a different rate if the client offers you this job later.",
+            style: .warning,
+            closeButtonTitle: "Cancel",
+            colorStyle: 0x59C5CF,
+            colorTextButton: 0xFFFFFF)
         
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 import Tabman
 import Pageboy
+import SCLAlertView
 
 class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
 
@@ -64,15 +65,45 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
     }
     
     @objc func userDidTapFakeJobButton(sender: Any?) {
-        let smc = sideMenuController
-        smc?.setContentViewController(with: "MainTabBar")
-        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+        
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.unverified {
+            let appearance = SCLAlertView.SCLAppearance()
+            let alertView = SCLAlertView(appearance: appearance)
+            
+            alertView.showTitle(
+                "Waiting for Verification",
+                subTitle: "You will be able to see your jobs once you have been verified",
+                style: .info,
+                closeButtonTitle: "OK",
+                colorStyle: 0x59C5CF,
+                colorTextButton: 0xFFFFFF)
+        } else {
+            let smc = sideMenuController
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+        }
+        
     }
 
     @objc func userDidTapFakeUpdatesButton(sender: Any?) {
-        let smc = sideMenuController
-        smc?.setContentViewController(with: "MainTabBar")
-        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.unverified {
+            let appearance = SCLAlertView.SCLAppearance()
+            let alertView = SCLAlertView(appearance: appearance)
+            
+            alertView.showTitle(
+                "Waiting for Verification",
+                subTitle: "You will be able to see your updates once you have been verified",
+                style: .info,
+                closeButtonTitle: "OK",
+                colorStyle: 0x59C5CF,
+                colorTextButton: 0xFFFFFF)
+        } else {
+            let smc = sideMenuController
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+        }
     }
     
     @objc func userDidTapFakePortfolioButton(sender: Any?) {

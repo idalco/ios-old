@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 import Font_Awesome_Swift
 import Firebase
+import SafariServices
 
 class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,11 +21,23 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var icon: [FAType] = []
     var menutype = 1
     
+    var segueIdentifier: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         self.view.backgroundColor = UIColor.FindaColours.White
         
+        let preferences = UserDefaults.standard
+        
+        let currentLevelKey = "segueIdentifier"
+        
+        if preferences.object(forKey: currentLevelKey) == nil {
+            //  Doesn't exist
+            self.segueIdentifier = ""
+        } else {
+            self.segueIdentifier = preferences.string(forKey: currentLevelKey) ?? ""
+        }
         
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Settings") }, with: "Settings")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar") }, with: "MainTabBar")
@@ -55,15 +68,28 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     
         if modelManager.status() == UserStatus.unverified {
+//            self.menu = ["My Details", "Portfolio", "Polaroids", "Verification", "Invite a Friend", "Terms", "Privacy", "Sign Out"]
+//            self.icon = [.FAUser, .FAImage, .FACameraRetro, .FAClipboard, .FAUsers, .FAFilesO, .FAUserSecret, .FAPowerOff]
             self.menu = ["My Details", "Portfolio", "Polaroids", "Verification", "Invite a Friend", "Sign Out"]
             self.icon = [.FAUser, .FAImage, .FACameraRetro, .FAClipboard, .FAUsers, .FAPowerOff]
         } else {
+//            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Terms", "Privacy", "Sign Out"]
+//            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank, .FAUsers, .FAFilesO, .FAUserSecret, .FAPowerOff]
             self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Sign Out"]
-            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank ,.FAUsers, .FAPowerOff]
+            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank, .FAUsers, .FAPowerOff]
+
             self.menutype = 2
         }
         self.tableView.reloadData()
         dismissKeyboard()
+        
+        if self.segueIdentifier != "" {
+            if self.segueIdentifier == "editProfileSegue" {
+                sideMenuController?.setContentViewController(with: "Settings")
+                self.segueIdentifier = ""
+            }
+        }
+        
     }
     
     
@@ -117,27 +143,45 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let modelManager = ModelManager()
         var isVerified = true;
-        if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 || modelManager.kycOn() == 0 || modelManager.kycBy() == 0 {
+        
+        if modelManager.status() == UserStatus.unverified {
+//        if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 || modelManager.kycOn() == 0 || modelManager.kycBy() == 0 {
             isVerified = false;
         }
 
+        let smc = sideMenuController
         
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
+
+//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
+//            
+//            if let destination = NSURL(string: domainURL + "/privacy") {
+//                let safari = SFSafariViewController(url: destination as URL)
+//                self.present(safari, animated: true)
+//            }
+//            
+//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 3 {
+//            if let destination = NSURL(string: domainURL + "/terms") {
+//                let safari = SFSafariViewController(url: destination as URL)
+//                self.present(safari, animated: true)
+//            }
         } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
             sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
-            
+
         } else if indexPath.row == 0 {
             sideMenuController?.setContentViewController(with: "Settings", animated: true)
             
         } else if indexPath.row == 1 {
-            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-                (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
-                (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+            
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+            
         } else if  indexPath.row == 2 {
-            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            (((sideMenuController?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
             
         } else if  indexPath.row == 3 {
             if self.menutype == 1 {
@@ -210,15 +254,17 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
-     }
-     */
+        
+
+//     }
+    
     
     //    @objc func displayFCMToken(notification: NSNotification) {
     //

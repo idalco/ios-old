@@ -31,17 +31,17 @@ class PasswordVC: UIViewController {
         self.updateRows()
     }
     
-    private func updateRows(){
+    private func updateRows() {
         LoginManager.getDetails { (response, result) in
         }
     }
     
-    @IBAction func updatePassword(){
+    @IBAction func updatePassword() {
        self.update()
         
     }
     
-    func update(){
+    func update() {
         if self.currentPassword.text == "" {
             self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
             return
@@ -57,13 +57,19 @@ class PasswordVC: UIViewController {
             return
         }
         
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
         FindaAPISession(target: .updatePassword(oldPassword: self.currentPassword.text ?? "", newPassword: self.newPassword.text ?? "", repeatNewPassword: self.repeatNewPassword.text ?? "")) { (response, result) in
             if response {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showSuccess(withStatus: "Updated")
                 self.setupTextFields()
                 
             } else {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showError(withStatus: "Try again")
                 self.currentPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor )
                 self.newPassword.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)

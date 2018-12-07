@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -55,6 +56,9 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     private func loadNotifications(){
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
+        SVProgressHUD.show()
         NotificationManager.getNotifications(notificationType: .all) { (response, result) in
             self.tableView.refreshControl?.endRefreshing()
             self.allNotifications.removeAll()
@@ -79,6 +83,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.tableView.isHidden = true
                 self.messageLabel.text = "Currently you have no updates"
             }
+            SVProgressHUD.dismiss()
         }
     }
 
