@@ -6,6 +6,7 @@ class JobCardView: CardView {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var topColourBar: UILabel!
+    @IBOutlet weak var callsheetButton: DCRoundedButton!
     
     let presentedCardViewColor: UIColor = UIColor.FindaColours.White
     
@@ -124,6 +125,8 @@ class JobCardView: CardView {
         offeredNumberButton.isEnabled = false
         
         offeredLabel.isHidden = true
+        
+        callsheetButton.isHidden = true
         
         primaryButton.normalBackgroundColor = UIColor.FindaColours.Blue
         primaryButton.normalTextColor = UIColor.FindaColours.White

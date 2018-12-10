@@ -152,6 +152,12 @@ class JobsVC: UIViewController {
             cardView.primaryButton.tag = job.jobid
             cardView.secondaryButton.tag = job.jobid
             
+            if job.callsheet != "" {
+                cardView.callsheetButton.isHidden = false
+                cardView.callsheetButton.tag = job.jobid
+                cardView.callsheetButton.addTarget(self, action: #selector(downloadCallsheet(sender:)), for: .touchUpInside)
+            }
+            
             if let jobStatus = JobStatus(rawValue: job.header) {
                 
                 switch(jobStatus) {
@@ -395,6 +401,17 @@ class JobsVC: UIViewController {
             closeButtonTitle: "Cancel",
             colorStyle: 0x59C5CF,
             colorTextButton: 0xFFFFFF)
+        
+    }
+    
+    @objc private func downloadCallsheet(sender: UIButton) {
+        
+        let jobid = String(sender.tag)
+        if let url = URL(string: "https://finda.co/download/callsheet/\(jobid)") {
+            let safariVC = SFSafariViewController(url: url)
+            self.present(safariVC, animated: true, completion: nil)
+            safariVC.delegate = self.parent as? SFSafariViewControllerDelegate
+        }
         
     }
     

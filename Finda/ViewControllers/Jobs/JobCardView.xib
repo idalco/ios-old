@@ -84,9 +84,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="{location}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Zx6-NC-P4B">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="{location}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Zx6-NC-P4B">
                             <rect key="frame" x="30" y="105" width="220" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -106,9 +105,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="{dates}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-1P-dxE">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="{dates}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-1P-dxE">
                             <rect key="frame" x="30" y="126" width="196" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -198,6 +196,25 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXx-TS-Xyw" customClass="DCRoundedButton" customModule="DCKit">
+                            <rect key="frame" x="287" y="84" width="80" height="24"/>
+                            <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="4WB-PG-xlJ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="10"/>
+                            <state key="normal" title="CALLSHEET">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                    <color key="value" red="0.34901960780000002" green="0.7725490196" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -205,10 +222,14 @@
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="firstBaseline" secondItem="XPe-op-Wwp" secondAttribute="firstBaseline" id="4p8-9Y-t3R"/>
                         <constraint firstItem="1nX-sN-aGK" firstAttribute="leading" secondItem="wiZ-c1-uK2" secondAttribute="trailing" constant="8" symbolic="YES" id="6RP-Pr-dHb"/>
                         <constraint firstItem="La6-8z-DNe" firstAttribute="leading" secondItem="wiZ-c1-uK2" secondAttribute="leading" id="8wR-62-9Br"/>
+                        <constraint firstItem="7h1-1P-dxE" firstAttribute="top" secondItem="Zx6-NC-P4B" secondAttribute="bottom" constant="6" id="A3U-Ak-r0S"/>
                         <constraint firstItem="La6-8z-DNe" firstAttribute="centerX" secondItem="wiZ-c1-uK2" secondAttribute="centerX" id="ARC-TT-mNW"/>
+                        <constraint firstAttribute="trailing" secondItem="oXx-TS-Xyw" secondAttribute="trailing" constant="8" id="Bxo-am-3CZ"/>
+                        <constraint firstItem="oXx-TS-Xyw" firstAttribute="centerY" secondItem="wiZ-c1-uK2" secondAttribute="centerY" id="C3u-BK-fqC"/>
                         <constraint firstItem="wiZ-c1-uK2" firstAttribute="top" secondItem="1nX-sN-aGK" secondAttribute="top" id="DVe-iK-5YH"/>
                         <constraint firstItem="Eke-Qc-0TG" firstAttribute="top" secondItem="0kq-7l-YWi" secondAttribute="bottom" constant="2" id="HgG-pc-TG6"/>
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="baseline" secondItem="XPe-op-Wwp" secondAttribute="firstBaseline" id="Ia2-p5-kYh"/>
+                        <constraint firstItem="Zx6-NC-P4B" firstAttribute="leading" secondItem="1nX-sN-aGK" secondAttribute="leading" id="JLK-0z-asu"/>
                         <constraint firstItem="rHk-BM-2rm" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leading" constant="8" id="JUh-Iy-KhN"/>
                         <constraint firstItem="La6-8z-DNe" firstAttribute="leading" secondItem="cSs-7G-qwy" secondAttribute="leading" id="KVi-tA-rkQ"/>
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="centerY" secondItem="XPe-op-Wwp" secondAttribute="centerY" id="LJe-ik-UHe"/>
@@ -216,15 +237,19 @@
                         <constraint firstItem="La6-8z-DNe" firstAttribute="trailing" secondItem="cSs-7G-qwy" secondAttribute="trailing" id="MFa-zQ-6uz"/>
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="trailing" secondItem="wiZ-c1-uK2" secondAttribute="trailing" id="MOi-88-w7J"/>
                         <constraint firstItem="sob-lh-kXy" firstAttribute="trailing" secondItem="gK0-Wv-3ff" secondAttribute="trailing" id="MiT-sk-jM2"/>
+                        <constraint firstItem="Zx6-NC-P4B" firstAttribute="top" secondItem="1nX-sN-aGK" secondAttribute="bottom" id="Nh0-YN-YEc"/>
                         <constraint firstItem="rHk-BM-2rm" firstAttribute="top" secondItem="jLQ-b0-DMR" secondAttribute="bottom" constant="8" id="NnT-cC-VfG"/>
                         <constraint firstItem="La6-8z-DNe" firstAttribute="leading" secondItem="sob-lh-kXy" secondAttribute="leading" id="ORq-SE-SVN"/>
+                        <constraint firstItem="Zx6-NC-P4B" firstAttribute="top" secondItem="cSs-7G-qwy" secondAttribute="top" id="PLi-7y-iq5"/>
                         <constraint firstItem="La6-8z-DNe" firstAttribute="bottom" secondItem="xG4-4e-cRn" secondAttribute="bottom" id="PQ3-K5-Tek"/>
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="top" secondItem="OGR-lR-C5v" secondAttribute="top" constant="170" id="PkP-Nl-B3A"/>
                         <constraint firstItem="wiZ-c1-uK2" firstAttribute="top" secondItem="OGR-lR-C5v" secondAttribute="top" constant="90" id="RJI-mD-YpR"/>
                         <constraint firstItem="La6-8z-DNe" firstAttribute="top" secondItem="6kP-uA-IdN" secondAttribute="bottom" constant="8" symbolic="YES" id="ScC-BR-8gs"/>
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="leading" secondItem="OGR-lR-C5v" secondAttribute="leading" constant="7" id="Ttl-0p-vCV"/>
                         <constraint firstItem="jLQ-b0-DMR" firstAttribute="centerX" secondItem="wiZ-c1-uK2" secondAttribute="centerX" id="VcH-Gj-lma"/>
+                        <constraint firstItem="Zx6-NC-P4B" firstAttribute="trailing" secondItem="1nX-sN-aGK" secondAttribute="trailing" id="WEb-63-jY8"/>
                         <constraint firstItem="La6-8z-DNe" firstAttribute="trailing" secondItem="6kP-uA-IdN" secondAttribute="trailing" id="X5I-pm-fmP"/>
+                        <constraint firstItem="Zx6-NC-P4B" firstAttribute="leading" secondItem="7h1-1P-dxE" secondAttribute="leading" id="XdY-qo-RgR"/>
                         <constraint firstItem="sob-lh-kXy" firstAttribute="trailing" secondItem="mSl-BQ-DFa" secondAttribute="trailing" id="b0P-J9-0lC"/>
                         <constraint firstAttribute="bottom" secondItem="fBe-jy-5AK" secondAttribute="bottom" constant="20" id="bb0-C0-g2t"/>
                         <constraint firstItem="wiZ-c1-uK2" firstAttribute="top" secondItem="gK0-Wv-3ff" secondAttribute="bottom" constant="13" id="d8l-1j-2UQ"/>
@@ -254,6 +279,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
                 <outlet property="advancedInfoLabel" destination="P9b-IC-qxZ" id="Cw0-4A-VPw"/>
+                <outlet property="callsheetButton" destination="oXx-TS-Xyw" id="ylB-EA-3nD"/>
                 <outlet property="clientNameLabel" destination="gK0-Wv-3ff" id="PIp-1K-4zX"/>
                 <outlet property="contactNumberLabel" destination="XPe-op-Wwp" id="Uue-mU-Lqu"/>
                 <outlet property="contactNumberLabelIcon" destination="jLQ-b0-DMR" id="quV-Bo-1WS"/>
@@ -270,7 +296,7 @@
                 <outlet property="primaryButton" destination="Z4R-si-942" id="22a-W1-5jj"/>
                 <outlet property="secondaryButton" destination="v9R-EG-PSn" id="AMI-B6-eBj"/>
             </connections>
-            <point key="canvasLocation" x="-178.125" y="-75"/>
+            <point key="canvasLocation" x="-178.40000000000001" y="-75.112443778110944"/>
         </view>
     </objects>
 </document>
