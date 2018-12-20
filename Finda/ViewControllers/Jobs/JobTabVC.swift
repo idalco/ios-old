@@ -22,11 +22,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
         
-//        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
-//            viewController.jobType = .optioned
-//            self.viewControllers.append(viewController)
-//        }
-        
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
             viewController.jobType = .accepted
             self.viewControllers.append(viewController)
@@ -37,13 +32,9 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
         
-      
-        
-         self.bar.items = [Item(title: "Requested"), Item(title: "Accepted"), Item(title: "All")]
+        self.bar.items = [Item(title: "Requested"), Item(title: "Accepted"), Item(title: "All")]
         
         self.bar.style = .buttonBar
-//        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)
-//        self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.FindaColours.DarkYellow)
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
@@ -51,6 +42,27 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             appearance.state.selectedColor = UIColor.FindaColours.Blue
         })
         self.dataSource = self
+
+        // can we move to the view now?
+        let preferences = UserDefaults.standard
+        
+        let currentLevelKey = "showJobIdCard"
+        var showJobId = 0
+        if preferences.object(forKey: currentLevelKey) == nil {
+            //  Doesn't exist
+        } else {
+            showJobId = preferences.integer(forKey: "showJobIdCard")
+        }
+
+        if showJobId != 0 {
+            // move to the ALL tab
+            self.scrollToIndex(indexOf: 2)
+        }
+        
+    }
+    
+    func scrollToIndex(indexOf:Int) {
+        scrollToPage(.at(index: indexOf), animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +77,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             }
         }
     }
-    
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return self.viewControllers.count

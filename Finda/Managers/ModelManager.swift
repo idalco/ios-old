@@ -187,8 +187,8 @@ class ModelManager {
         return CoreDataManager.getInt(dataName: User.ethnicity.rawValue, entity: Entity.User.rawValue)
     }
     
-    func available() -> Int {
-        return CoreDataManager.getInt(dataName: User.available.rawValue, entity: Entity.User.rawValue)
+    func available() -> Bool {
+        return CoreDataManager.getBool(dataName: User.available.rawValue, entity: Entity.User.rawValue)
     }
     
     func status() -> UserStatus? {

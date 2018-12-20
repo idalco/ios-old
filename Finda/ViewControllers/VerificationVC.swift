@@ -18,12 +18,12 @@ class VerificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let newtext = NSMutableAttributedString(string: "In order to be discovered by Finda's clients and creatives, we need to verify your ID and the following information.\n\nThis is in order to:\n")
+        let newtext = NSMutableAttributedString(string: "Before you can start using our platform we need to verify you to:\n")
         let faline1 = NSMutableAttributedString(string: "   Confirm your identity\n")
-        let faline2 = NSMutableAttributedString(string: "   Provide correct information to clients and creatives\n")
-        let faline3 = NSMutableAttributedString(string: "   Receive payments\n\n\n")
+        let faline2 = NSMutableAttributedString(string: "   Provide correct information to our clients and creatives\n")
+        let faline3 = NSMutableAttributedString(string: "   Enable you to receive payments\n\n\n")
 
-        let faline3a = NSMutableAttributedString(string: "Accepted IDs (Head to Verification page in menu):\n")
+        let faline3a = NSMutableAttributedString(string: "Accepted IDs:\n")
 
         let faline4 = NSMutableAttributedString(string: "   Passport\n")
         let faline5 = NSMutableAttributedString(string: "  Driver's license\n")

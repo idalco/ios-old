@@ -100,6 +100,7 @@
 		0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */; };
 		0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7C21072C31004CC4D8 /* Media.xcassets */; };
 		0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */; };
+		18883D3421BEC1A5001A8D03 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18883D3321BEC1A5001A8D03 /* CalendarVC.swift */; };
 		18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */; };
 		D6BD959D87F08E75B89A41D1 /* Pods_Finda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EEB8FB6543252924F78E91 /* Pods_Finda.framework */; };
 /* End PBXBuildFile section */
@@ -203,6 +204,7 @@
 		0CEBCB5821071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CEBCB7C21072C31004CC4D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FindaColours.swift"; sourceTree = "<group>"; };
+		18883D3321BEC1A5001A8D03 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		18A0CFD1216F656500D2CC39 /* Finda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finda.entitlements; sourceTree = "<group>"; };
 		2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.release.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				0CCB639C213A9CBC007CB107 /* Measurements.swift */,
 				0CCF234A210CC61800612D5B /* PreferencesVC.swift */,
 				0CCB63A9213DBF67007CB107 /* PasswordVC.swift */,
+				18883D3321BEC1A5001A8D03 /* CalendarVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				0CEBCB5221071AD0004CC4D8 /* Finda.xcdatamodeld in Sources */,
 				0CCF2349210B297A00612D5B /* MeasurementsVC.swift in Sources */,
 				0C78FA5F212366950059C0E7 /* Photo.swift in Sources */,
+				18883D3421BEC1A5001A8D03 /* CalendarVC.swift in Sources */,
 				0CCF22E42108CF7200612D5B /* TabBarController.swift in Sources */,
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,

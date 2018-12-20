@@ -34,6 +34,7 @@ class JobsVC: UIViewController {
         } else {
             self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
         }
+        
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -42,6 +43,7 @@ class JobsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.loadJobs()
+        switchToCard()
     }
     
     override func viewDidLayoutSubviews() {
@@ -72,7 +74,7 @@ class JobsVC: UIViewController {
                 break
                 
             case "MODEL_COMPLETED":
-                card.headerLabel.text = "COMPLETED"
+                card.headerLabel.text = "WAITING FOR CLIENT COMPLETE"
                 card.layer.borderColor = UIColor.FindaColours.Purple.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Purple, thickness: 8.0)
                 break
@@ -108,9 +110,9 @@ class JobsVC: UIViewController {
             }
         }
      
+        switchToCard()
 
     }
-
     
     private func update(){
         self.walletView.removeAll()
@@ -174,10 +176,17 @@ class JobsVC: UIViewController {
                     
                     cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                     cardView.offeredLabel.isHidden = false
+
                     cardView.offeredNumberButton.isHidden = false
+                    cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
+                    cardView.offeredNumberButton.titleEdgeInsets.right = 0
                     cardView.offeredLabel.text = "Agreed rate:"
                     cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
                     
+                    cardView.offeredNumberButton.backgroundColor = UIColor.white
+                    cardView.offeredNumberButton.setTitleColor(UIColor.black, for: .normal)
+                    cardView.offeredNumberButton.layer.borderColor = UIColor.white.cgColor
+
                     // 14 is accepted, 2 if confirmed, so we need to override here,
                     // or refactor
                     if job.status == 2 {
@@ -188,10 +197,17 @@ class JobsVC: UIViewController {
                 case .ModelCompleted, .Completed:
                     cardView.primaryButton.isHidden = true
                     cardView.secondaryButton.isHidden = true
-                    cardView.offeredLabel.text = "Offered rate:"
-                    cardView.offeredLabel.isHidden = false
                     cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
+                    cardView.offeredNumberButton.titleEdgeInsets.right = 0
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredLabel.text = "Agreed rate:"
+                    cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    
+                    cardView.offeredNumberButton.backgroundColor = UIColor.white
+                    cardView.offeredNumberButton.setTitleColor(UIColor.black, for: .normal)
+                    cardView.offeredNumberButton.layer.borderColor = UIColor.white.cgColor
+                    
                     break
                 case .Expired:
                     cardView.primaryButton.isHidden = true
@@ -207,12 +223,14 @@ class JobsVC: UIViewController {
                     cardView.contactNumberLabelIcon.isHidden = true
                     break
                     
-                case .Optioned:
-                    cardView.offeredLabel.text = "Offered rate:"
-                    cardView.offeredLabel.isHidden = false
-                    cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
                     
+                // not used
+                case .Optioned:
+                    cardView.offeredLabel.text = "Offered rate: £\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    cardView.offeredLabel.isHidden = false
+                    cardView.offeredNumberButton.isHidden = true
+                    cardView.offeredNumberButton.isEnabled = true
+
                     cardView.primaryButton.isHidden = false
                     cardView.primaryButton.setTitle("ACCEPT", for: .normal)
                     cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
@@ -226,11 +244,38 @@ class JobsVC: UIViewController {
                     cardView.header = "JOB OFFER"
                     break
                 
+                    
                 case .Requested:
-                    cardView.offeredLabel.text = "Offered rate:"
-                    cardView.offeredLabel.isHidden = false
-                    cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
+                    
+                    if (job.agreedRate != 0) {
+                        cardView.offeredNumberButton.isHidden = false
+                        cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
+                        cardView.offeredNumberButton.titleEdgeInsets.right = 0
+                        cardView.offeredLabel.text = "Agreed rate:"
+                        cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    } else {
+                        
+                        var offeredLabel = "Offered rate: £"
+                        if job.clientOfferedRate != 0 {
+                            offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
+                        } else {
+                            offeredLabel = offeredLabel + "\(job.offeredRate)"
+                        }
+                        offeredLabel = offeredLabel + "/\(job.unitsType.uppercased())"
+                        
+                        cardView.offeredLabel.text = offeredLabel
+                        cardView.offeredLabel.isHidden = false
+                        cardView.offeredNumberButton.isHidden = false
+                        cardView.offeredNumberButton.isEnabled = true
+                        cardView.offeredNumber = "Negotiate"
+                        cardView.offeredNumberButton.tag = job.jobid
+                        cardView.offeredNumberButton.addTarget(self, action: #selector(negotiateJob(sender:)), for: .touchUpInside)
+                        
+                        cardView.offeredNumberButton.layer.backgroundColor = UIColor.FindaColours.Blue.cgColor
+                        cardView.offeredNumberButton.setTitleColor(UIColor.white, for: .normal)
+                        cardView.offeredNumberButton.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+                        cardView.offeredNumberButton.contentHorizontalAlignment = .center
+                    }
                     
                     cardView.primaryButton.isHidden = false
                     cardView.primaryButton.setTitle("ACCEPT", for: .normal)
@@ -244,20 +289,38 @@ class JobsVC: UIViewController {
                     break
                     
                 case .Offered:
-                    cardView.offeredLabel.text = "Offered rate:"
-                    cardView.offeredLabel.isHidden = false
-                    cardView.offeredNumber = "£\(job.offeredRate)/\(job.unitsType.uppercased())"
-                    cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumberButton.isEnabled = true
                     
-                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
-                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                    
-                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
-                    cardView.secondaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
-
-                    cardView.contactNumberLabel.isHidden = true
-                    cardView.contactNumberLabelIcon.isHidden = true
+//                    if (job.agreedRate != 0) {
+//                        cardView.offeredNumberButton.isHidden = false
+//                        cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
+//                        cardView.offeredNumberButton.titleEdgeInsets.right = 0
+//                        cardView.offeredLabel.text = "Agreed rate:"
+//                        cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+//                    } else {
+//                        cardView.offeredLabel.text = "Offered rate: £\(job.offeredRate)/\(job.unitsType.uppercased())"
+//                        cardView.offeredLabel.isHidden = false
+//                        cardView.offeredNumberButton.isHidden = false
+//                        cardView.offeredNumberButton.isEnabled = true
+//                        cardView.offeredNumber = "Negotiate"
+//                        cardView.offeredNumberButton.tag = job.jobid
+//                        cardView.offeredNumberButton.addTarget(self, action: #selector(negotiateJob(sender:)), for: .touchUpInside)
+//                        cardView.offeredNumberButton.backgroundColor = UIColor.FindaColours.Blue
+//                        cardView.offeredNumberButton.tintColor = UIColor.white
+//                        cardView.offeredNumberButton.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+//                        cardView.offeredNumberButton.adjustsImageWhenHighlighted = false
+//                        cardView.offeredNumberButton.contentHorizontalAlignment = .center
+//                    }
+//
+//
+//
+//                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
+//                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
+//
+//                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
+//                    cardView.secondaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
+//
+//                    cardView.contactNumberLabel.isHidden = true
+//                    cardView.contactNumberLabelIcon.isHidden = true
                     
                     break
                 case .Unfinalised:
@@ -272,10 +335,15 @@ class JobsVC: UIViewController {
                     
                     cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                     cardView.offeredLabel.isHidden = false
+                    
                     cardView.offeredNumberButton.isHidden = false
+                    cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
+                    cardView.offeredNumberButton.titleEdgeInsets.right = 0
                     cardView.offeredLabel.text = "Agreed rate:"
                     cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                    
+                    cardView.offeredNumberButton.backgroundColor = UIColor.white
+                    cardView.offeredNumberButton.setTitleColor(UIColor.black, for: .normal)
+                    cardView.offeredNumberButton.layer.borderColor = UIColor.white.cgColor
                     break
                 }
             }
@@ -415,6 +483,106 @@ class JobsVC: UIViewController {
         
     }
     
+    @objc private func negotiateJob(sender: UIButton) {
+        
+        let jobid = sender.tag
+        
+        var job = self.allJobs[0]
+        
+        for thisJob in self.allJobs {
+            if thisJob.jobid == jobid {
+                job = thisJob
+            }
+        }
+        
+        let appearance = SCLAlertView.SCLAppearance()
+        let alertView = SCLAlertView(appearance: appearance)
+        let newRateField = alertView.addTextField("Enter more than £\(job.offeredRate)")
+        
+        alertView.addButton("Negotiate") {
+            // the value we need is in newRate
+            let newRate = Int(newRateField.text!)
+            if (newRate! >= job.offeredRate) {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
+                SVProgressHUD.show()
+                FindaAPISession(target: .negotiateRate(jobId: jobid, newRate: newRate!)) { (response, result) in
+                    if response {
+                        self.loadJobs()
+                    } else {
+                        SVProgressHUD.dismiss()
+                    }
+                }
+            } else {
+//                alertView.dismiss(animated: true)
+                
+                var message = "You can't enter a lower rate. Enter more than £"
+                if job.clientOfferedRate != 0 {
+                    message = message + "\(job.clientOfferedRate)"
+                } else {
+                    message = message + "\(job.offeredRate)"
+                }
+                message = message + " to negotiate the offered rate for this job."
+                
+                let alert = UIAlertController(title: "Sorry", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+
+            }
+        }
+
+        var subtitle = "The current offered rate is £"
+        if job.clientOfferedRate != 0 {
+            subtitle = subtitle + "\(job.clientOfferedRate)"
+        } else {
+            subtitle = subtitle + "\(job.offeredRate)"
+        }
+        subtitle = subtitle + "/" + job.unitsType + "."
+        
+        if job.modelDesiredRate != 0 {
+            subtitle = subtitle + " You previously asked for £\(job.modelDesiredRate)."
+        }
+        
+        alertView.showTitle(
+            "Negotiate Rate",
+            subTitle: subtitle,
+            style: .question,
+            closeButtonTitle: "Cancel",
+            colorStyle: 0x59C5CF,
+            colorTextButton: 0xFFFFFF)
+        
+    }
+    
+    private func switchToCard() {
+        if self.loadingFirst == false {
+            
+            // can we move to the view now?
+            let preferences = UserDefaults.standard
+            
+            let currentLevelKey = "showJobIdCard"
+            var showJobId = 0
+            if preferences.object(forKey: currentLevelKey) == nil {
+                //  Doesn't exist
+            } else {
+                showJobId = preferences.integer(forKey: "showJobIdCard")
+            }
+            
+            // always overwrite
+            preferences.set(0, forKey: "showJobIdCard")
+            preferences.synchronize()
+            
+            if showJobId != 0 {
+                // find the card in the wallet with the right jobid
+                for card in self.cardViews {
+                    if card.primaryButton.tag == showJobId {
+                        walletView?.present(cardView: card, animated: true)
+                    }
+                }
+            }
+            
+        }
+    }
+    
     private func loadJobs() {
         
         JobsManager.getJobs(jobType: self.jobType) { (response, result) in
@@ -430,6 +598,7 @@ class JobsVC: UIViewController {
                     self.allJobs = jobsArray
                     self.update()
                     self.loadingFirst = false
+                    
                 }
                 SVProgressHUD.dismiss()
                 
@@ -438,8 +607,6 @@ class JobsVC: UIViewController {
         
     }
     
-
-    
     override var prefersStatusBarHidden: Bool {
         return false
     }
@@ -447,6 +614,5 @@ class JobsVC: UIViewController {
     @IBAction func menuButton(_ sender: Any) {
         sideMenuController?.revealMenu()
     }
-    
     
 }

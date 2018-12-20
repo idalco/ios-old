@@ -14,6 +14,10 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     FindaTokenPlugin(tokenClosure: accessToken())
     ])
 
+//let domainURL: String = "http://dev.finda.co"
+//let domainURL: String = "http://dev.finda"
+let domainURL: String = "https://www.finda.co"
+
 enum FindaAPI {
     // POST
     case login(email: String, password: String)
@@ -42,16 +46,14 @@ enum FindaAPI {
     case rejectJob(jobId: Int)
     case cancelJob(jobId: Int)
     case rejectOption(jobId: Int)
+    case negotiateRate(jobId: Int, newRate: Int)
     case updateDeviceToken(deviceToken: String)
+    case updateAvailability(availability: Int)
 
 
     // GET
     case userDetails()
 }
-
-//let domainURL: String = "http://dev.finda.co"
-//let domainURL: String = "http://dev.finda"
-let domainURL: String = "https://www.finda.co"
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
     
@@ -115,6 +117,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/userLoad"
         case .updateDeviceToken:
             return "/updateDeviceToken"
+        case .updateAvailability:
+            return "/updateAvailability"
+        case .negotiateRate:
+            return "/negotiateBooking"
         }
     }
     
@@ -122,7 +128,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .updateDeviceToken:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .updateDeviceToken, .updateAvailability, .negotiateRate:
             return .post
             
         // methods requiring GET
@@ -304,7 +310,13 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .userDetails():
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-            
+        case .negotiateRate(let jobId, let newRate):
+            p["jobid"] = jobId
+            p["rate"] = newRate
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .updateAvailability(let availability):
+            p["availability"] = availability
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }

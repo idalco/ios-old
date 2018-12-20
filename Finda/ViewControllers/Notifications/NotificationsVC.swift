@@ -97,24 +97,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.allNotifications.count > 0 ? 1 : 0
     }
-    
-    
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-//        let header = view as! UITableViewHeaderFooterView
-//        header.textLabel?.font = UIFont(name: "Gotham-Medium", size: 16)!
-////        header.backgroundView?.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
-//    }
-//
-
-
-//
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        if !self.newNotifications.isEmpty && section == 0 {
-//            return "New notifications"
-//        }
-//        return "Read notifications"
-//
-//    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.allNotifications.count
@@ -126,10 +108,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.jobAction (_:)))
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(jobAction(recognizer:)))
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
-
-//        cell.addGestureRecognizer(gesture)
+        
+        tableView.addGestureRecognizer(gesture)
 
         cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
@@ -137,7 +119,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         // set avatar here
         cell.messageAvatar.setRounded(colour: UIColor.FindaColours.Blue.cgColor)
-//        cell.messageAvatar.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
         
         if allNotifications[indexPath.row].avatar != "/default_profile.png" {
             if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){
@@ -161,19 +142,14 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         cell.messageLabel.linkTextAttributes = linkAttributes
     
-        
-        
         if allNotifications[indexPath.row].status == Notification.Status.New.rawValue {
             cell.backgroundColor = UIColor.FindaColours.Purple.fade()
         }
         
+        cell.tag = allNotifications[indexPath.row].jobid
+    
         return cell
     }
-
-//    @objc func jobAction(_ sender:UITapGestureRecognizer) {
-//        sideMenuController?.setContentViewController(with: "MainTabBar")
-//        (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 4   // Jobs
-//    }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -194,6 +170,38 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        self.tabBarController?.selectedIndex = 0
+    }
+    
+//    @objc private func jobAction(sender: UITableViewCell) {
+//
+//        let jobid = sender.value(forKey: "jobid")
+//        print(jobid as Any)
+//
+//    }
+    
+    @objc func jobAction(recognizer: UITapGestureRecognizer)  {
+        if recognizer.state == UIGestureRecognizerState.ended {
+            let tapLocation = recognizer.location(in: self.tableView)
+            if let tapIndexPath = self.tableView.indexPathForRow(at: tapLocation) {
+                if (self.tableView.cellForRow(at: tapIndexPath) as? NotificationCell) != nil {
+                    //do what you want to cell here
+
+                    let cell = self.tableView.cellForRow(at: tapIndexPath)
+                    
+                    let preferences = UserDefaults.standard
+                    preferences.set(cell!.tag, forKey: "showJobIdCard")
+                    preferences.synchronize()
+                    
+                    print("saved job id: " + String(cell!.tag))
+
+                    // now we have to move VC
+                    let smc = sideMenuController
+                    smc?.setContentViewController(with: "MainTabBar")
+                    (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+
+                }
+            }
+        }
     }
 
 }

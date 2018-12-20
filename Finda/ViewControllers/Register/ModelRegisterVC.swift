@@ -145,7 +145,10 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-            }
+                    if !self.isValidInstagram(Input: row.value ?? "") {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
             
             
             <<< DateInlineRow(){ row in
@@ -268,10 +271,6 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             self.validateRow(tag: "instagram")
             return
         }
-//        guard let referral_codeRow: BaseRow = form.rowBy(tag: "referralCode"), let referral_code: String = form.values()["referralCode"] as? String else {
-//            self.validateRow(tag: "referralCode")
-//            return
-//        }
         
         let referral_code: String = form.values()["referralCode"] as? String ?? ""
         
@@ -297,6 +296,12 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             return
         }
         
+        if !isValidInstagram(Input: instagram_username) {
+            let instagramName: TextRow? = form.rowBy(tag: "instagram")
+            instagramName?.cell.textLabel?.textColor = UIColor.red
+            return
+        }
+        
         if(mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && dobRow.isValid) {
             
             RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, referral_code: referral_code, dob: dob.timeIntervalSince1970) { (response, result) in
@@ -314,6 +319,11 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         _ = row?.validate()
     }
     
+    func isValidInstagram(Input:String) -> Bool {
+        let RegEx = "@([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)"
+        let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
+        return Test.evaluate(with: Input)
+    }
     
     func footerView() -> HeaderFooterView<UIView> {
         

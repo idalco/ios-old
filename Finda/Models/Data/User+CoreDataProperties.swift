@@ -39,7 +39,7 @@ extension User {
     @NSManaged public var referrerCode: String?
     @NSManaged public var leadImage: String?
     @NSManaged public var ethnicity: Int32
-    @NSManaged public var available: Int32
+    @NSManaged public var available: Bool
     @NSManaged public var status: Int32
     @NSManaged public var gender: String?
     @NSManaged public var kycOn: Int64
