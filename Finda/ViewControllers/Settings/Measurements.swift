@@ -40,4 +40,18 @@ class Measurements {
         14 : "UK 14 (US 10, EU 42)"
     ]
 
+    static let suitSizesArray: [Float: String] = [
+        36 : "UK/US 36, EU 46",
+        38 : "UK/US 38, EU 48",
+        40 : "UK/US 40, EU 50",
+        42 : "UK/US 42, EU 52",
+        44 : "UK/US 44, EU 54",
+        46 : "UK/US 46, EU 56",
+        48 : "UK/US 48, EU 58",
+        50 : "UK/US 50, EU 60",
+        52 : "UK/US 52, EU 62",
+        54 : "UK/US 54, EU 64",
+        56 : "UK/US 56, EU 66",
+    ]
+    
 }

@@ -60,7 +60,7 @@ class PersonalDetailsVC: FormViewController {
         
         
         
-        var mainSection = Section(){ section in
+        var mainSection = Section() { section in
             var header = HeaderFooterView<UIView>(.class)
             header.height = {100}
             header.onSetupView = { view, _ in
@@ -81,7 +81,7 @@ class PersonalDetailsVC: FormViewController {
             section.header = header
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "First name"
                 row.value = modelManager.firstName()
                 row.tag = "firstName"
@@ -95,7 +95,7 @@ class PersonalDetailsVC: FormViewController {
                     }
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Last name"
                 row.value = modelManager.lastName()
                 row.tag = "lastName"
@@ -109,7 +109,7 @@ class PersonalDetailsVC: FormViewController {
                     }
             }
             
-            <<< DateInlineRow(){ row in
+            <<< DateInlineRow() { row in
                 row.title = "Date of Birth"
                 
                 var components = DateComponents()
@@ -132,7 +132,7 @@ class PersonalDetailsVC: FormViewController {
                     }
             }
             
-            <<< EmailRow(){ row in
+            <<< EmailRow() { row in
                 row.title = "Email address"
                 row.value = modelManager.email()
                 row.tag = "email"
@@ -147,7 +147,7 @@ class PersonalDetailsVC: FormViewController {
                     }
             }
             
-            <<< PhoneRow(){ row in
+            <<< PhoneRow() { row in
                 row.title = "Mobile Number"
                 row.placeholder = "Mobile Number"
                 row.value = modelManager.telephone()
@@ -155,21 +155,21 @@ class PersonalDetailsVC: FormViewController {
                
             }
             
-            <<< PickerInputRow<String>() { row in
-                row.title = "Gender"
-                
-                row.options = GenderArray
-                row.value = modelManager.gender().capitalizingFirstLetter()
-                row.tag = "gender"
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
+//            <<< PickerInputRow<String>() { row in
+//                row.title = "Gender"
+//
+//                row.options = GenderArray
+//                row.value = modelManager.gender().capitalizingFirstLetter()
+//                row.tag = "gender"
+//                row.add(rule: RuleRequired())
+//                row.validationOptions = .validatesOnChangeAfterBlurred
+//                }
+//                .cellUpdate { cell, row in
+//                    if !row.isValid {
+//                        cell.textLabel?.textColor = .red
+//
+//                    }
+//            }
             
             
             <<< PickerInputRow<String>() { row in
@@ -199,13 +199,13 @@ class PersonalDetailsVC: FormViewController {
                 }
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Instagram Username"
                 row.value = modelManager.instagramUserName()
                 row.tag = "instagramUsername"
             }
             
-            <<< IntRow(){ row in
+            <<< IntRow() { row in
                 row.title = "Followers"
                 row.disabled = true
                 let instagramFollowers = modelManager.instagramFollowers()
@@ -215,7 +215,7 @@ class PersonalDetailsVC: FormViewController {
                
                 
             }
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Referral Code"
                 row.placeholder = "(optional)"
                 row.tag = "referralCode"
@@ -225,7 +225,7 @@ class PersonalDetailsVC: FormViewController {
             }
             
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "VAT Number"
                 row.placeholder = "(optional)"
                 row.value = modelManager.vatNumber()
@@ -260,7 +260,7 @@ class PersonalDetailsVC: FormViewController {
         self.save()
     }
     
-    private func updateRows(){
+    private func updateRows() {
         LoginManager.getDetails { (response, result) in
             if response {
                 let model = ModelManager()
@@ -295,26 +295,26 @@ class PersonalDetailsVC: FormViewController {
         }
     }
     
-    private func updateCell(tag: String, data: Any){
+    private func updateCell(tag: String, data: Any) {
         guard let row: BaseRow = form.rowBy(tag: tag) else { return }
         row.baseValue = data
         row.updateCell()
     }
     
-    private func updatePickerRow(row: PickerInputRow<String>, coreData: Int, dictionary: [Int:String]){
+    private func updatePickerRow(row: PickerInputRow<String>, coreData: Int, dictionary: [Int:String]) {
         row.options = Array(dictionary.values)
         row.value = dictionary[coreData] ?? ""
         row.updateCell()
     }
     
-    private func updateBooleanPickerRow(tag: String, data: String){
+    private func updateBooleanPickerRow(tag: String, data: String) {
         guard let row: PickerInputRow<String> = form.rowBy(tag: tag) else { return }
         row.options = Array(BooleanDictionary.values)
         row.value = data.capitalizingFirstLetter()
         row.updateCell()
     }
     
-    private func updateGenderPickerRow(tag: String, data: String){
+    private func updateGenderPickerRow(tag: String, data: String) {
         guard let row: PickerInputRow<String> = form.rowBy(tag: tag) else { return }
         row.options = GenderArray
         row.value = data.capitalizingFirstLetter()

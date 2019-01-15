@@ -30,7 +30,9 @@ enum FindaAPI {
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, telephone: String, gender: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
-    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String, hourlyrate: Int, dailyrate: Int)
+    
+    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, suitSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String, drivingLicense: String, tattoo: String, hourlyrate: Int, dailyrate: Int)
+    
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case updatePassword(oldPassword: String, newPassword: String, repeatNewPassword: String)
     case uploadPortfolioImage(image: UIImage)
@@ -217,7 +219,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
          
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
-        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let hairColour, let hairLength, let hairType, let eyeColour, let willingToColour, let willingToCut, let hourlyrate, let dailyrate):
+            
+        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let suitSize, let hairColour, let hairLength, let hairType, let eyeColour, let willingToColour, let willingToCut, let drivingLicense, let tattoo, let hourlyrate, let dailyrate):
             var parameters = [String: Any]()
             parameters["height"] = height
             parameters["bust"] = bust
@@ -225,12 +228,15 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["hips"] = hips
             parameters["shoesize"] = shoeSize
             parameters["dresssize"] = dressSize
+            parameters["suitsize"] = suitSize
             parameters["haircolour"] = hairColour
             parameters["hairlength"] = hairLength
             parameters["hairtype"] = hairType
             parameters["eyecolour"] = eyeColour
             parameters["willingtodye"] = willingToColour
             parameters["willingtocut"] = willingToCut
+            parameters["drivinglicense"] = drivingLicense
+            parameters["tattoo"] = tattoo
             parameters["hourlyrate"] = hourlyrate
             parameters["dailyrate"] = dailyrate
 

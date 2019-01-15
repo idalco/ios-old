@@ -58,11 +58,14 @@ class ModelManager {
         case hips = "hips"
         case shoeSize = "shoeSize"
         case dressSize = "dressSize"
+        case suitSize = "suitSize"
         case hairColour = "hairColour"
         case hairType = "hairType"
         case hairLength = "hairLength"
         case willingColour = "willingColour"
         case willingCut = "willingCut"
+        case drivingLicense = "drivingLicense"
+        case tattoo = "tattoo"
         case eyeColour = "eyeColour"
         case hourlyrate = "hourlyrate"
         case dailyrate = "dailyrate"
@@ -225,6 +228,9 @@ class ModelManager {
     func dressSize() -> Int {
         return CoreDataManager.getInt(dataName: Profile.dressSize.rawValue, entity: Entity.Profile.rawValue)
     }
+    func suitSize() -> Int {
+        return CoreDataManager.getInt(dataName: Profile.suitSize.rawValue, entity: Entity.Profile.rawValue)
+    }
     func hairColour() -> Int {
         return CoreDataManager.getInt(dataName: Profile.hairColour.rawValue, entity: Entity.Profile.rawValue)
     }
@@ -239,6 +245,12 @@ class ModelManager {
     }
     func willingCut() -> Bool {
         return CoreDataManager.getBool(dataName: Profile.willingCut.rawValue, entity: Entity.Profile.rawValue)
+    }
+    func drivingLicense() -> Bool {
+        return CoreDataManager.getBool(dataName: Profile.drivingLicense.rawValue, entity: Entity.Profile.rawValue)
+    }
+    func tattoo() -> Bool {
+        return CoreDataManager.getBool(dataName: Profile.tattoo.rawValue, entity: Entity.Profile.rawValue)
     }
     func eyeColour() -> Int {
         return CoreDataManager.getInt(dataName: Profile.eyeColour.rawValue, entity: Entity.Profile.rawValue)
@@ -349,11 +361,14 @@ class ModelManager {
         profile.setValue(profileData["hips"].intValue, forKeyPath: Profile.hips.rawValue)
         profile.setValue(profileData["shoesize"].intValue, forKeyPath: Profile.shoeSize.rawValue)
         profile.setValue(profileData["dresssize"].intValue, forKeyPath: Profile.dressSize.rawValue)
+        profile.setValue(profileData["suitsize"].intValue, forKeyPath: Profile.suitSize.rawValue)
         profile.setValue(profileData["haircolour_tid"].intValue, forKeyPath: Profile.hairColour.rawValue)
         profile.setValue(profileData["hairtype_tid"].intValue, forKeyPath: Profile.hairType.rawValue)
         profile.setValue(profileData["hairlength_tid"].intValue, forKeyPath: Profile.hairLength.rawValue)
         profile.setValue(profileData["willingtodye"].boolValue, forKeyPath: Profile.willingColour.rawValue)
         profile.setValue(profileData["willingtocut"].boolValue, forKeyPath: Profile.willingCut.rawValue)
+        profile.setValue(profileData["drivinglicense"].boolValue, forKeyPath: Profile.drivingLicense.rawValue)
+        profile.setValue(profileData["tattoo"].boolValue, forKeyPath: Profile.tattoo.rawValue)
         profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: Profile.eyeColour.rawValue)
         profile.setValue(profileData["hourlyrate"].intValue, forKeyPath: Profile.hourlyrate.rawValue)
         profile.setValue(profileData["dailyrate"].intValue, forKeyPath: Profile.dailyrate.rawValue)

@@ -22,6 +22,7 @@ extension Profile {
     @NSManaged public var hips: Int32
     @NSManaged public var shoeSize: Int32
     @NSManaged public var dressSize: Int32
+    @NSManaged public var suitSize: Int32
     @NSManaged public var hairColour: Int32
     @NSManaged public var hairType: Int32
     @NSManaged public var hairLength: Int32
