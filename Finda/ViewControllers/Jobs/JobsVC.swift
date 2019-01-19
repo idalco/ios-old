@@ -60,7 +60,7 @@ class JobsVC: UIViewController {
                 break
                 
             case "ACCEPTED":
-                
+                card.headerLabel.text = "ACCEPTED - Waiting for Client to confirm"
                 card.layer.borderColor = UIColor.FindaColours.Blue.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Blue, thickness: 8.0)
                 card.contactNumberLabelIcon.isHidden = false
@@ -74,7 +74,7 @@ class JobsVC: UIViewController {
                 break
                 
             case "MODEL_COMPLETED":
-                card.headerLabel.text = "WAITING FOR CLIENT COMPLETE"
+                card.headerLabel.text = "WAITING FOR CLIENT TO COMPLETE"
                 card.layer.borderColor = UIColor.FindaColours.Purple.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Purple, thickness: 8.0)
                 break
@@ -84,7 +84,8 @@ class JobsVC: UIViewController {
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
                 break
                 
-            case "COMPLETED":
+            case "COMPLETED", "CLIENT_COMPLETED":
+                card.headerLabel.text = "COMPLETED"
                 card.layer.borderColor = UIColor.FindaColours.Black.cgColor
                 card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 8.0)
                 break
@@ -194,7 +195,7 @@ class JobsVC: UIViewController {
                     }
                     
                     break
-                case .ModelCompleted, .Completed:
+                case .ModelCompleted, .Completed, .ClientCompleted:
                     cardView.primaryButton.isHidden = true
                     cardView.secondaryButton.isHidden = true
                     cardView.offeredNumberButton.isHidden = false

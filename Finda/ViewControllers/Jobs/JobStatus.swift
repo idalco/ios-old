@@ -42,6 +42,7 @@ enum JobStatus: String {
     case Expired = "EXPIRED"
     case Finished = "FINISHED"
     case ModelCompleted = "MODEL_COMPLETED"
+    case ClientCompleted = "CLIENT_COMPLETED"
     case Pending = "PENDING"
     case Confirmed = "CONFIRMED"
     case Requested = "REQUESTED"
