@@ -70,7 +70,7 @@ class ImageVC: UIViewController {
         self.leadImageButton.isHidden = true
     }
     
-    private func removeLoadingView(){
+    private func removeLoadingView() {
         self.loadingView.stopAnimatingGif()
         self.loadingView.isHidden = true
         
@@ -81,7 +81,7 @@ class ImageVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.LightGrey
         self.removeLoadingView()
     }
 
@@ -91,14 +91,14 @@ class ImageVC: UIViewController {
     }
     
     
-    @IBAction private func deleteImage(){
+    @IBAction private func deleteImage() {
         guard let id = self.photo?.id else { return }
         FindaAPISession(target: .deleteImage(id: id)) { (response, result) in
             self.navigationController?.popViewController(animated: true)
         }
     }
     
-    @IBAction private func selectLeadImage(){
+    @IBAction private func selectLeadImage() {
         guard let id = self.photo?.id else { return }
         self.setLead(lead: true)
         FindaAPISession(target: .selectLeadImage(id: id)) { (response, result) in
@@ -110,10 +110,10 @@ class ImageVC: UIViewController {
         
     }
     
-    private func setLead(lead: Bool){
+    private func setLead(lead: Bool) {
         if photoType == ImageType.Portfolio {
             if lead {
-                self.image.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+                self.image.layer.borderColor = UIColor.FindaColours.Pink.cgColor
                 self.image.layer.borderWidth = 3
                 self.leadImageButton.isHidden = true
             } else {

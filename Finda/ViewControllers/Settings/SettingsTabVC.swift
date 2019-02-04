@@ -80,7 +80,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
                 subTitle: "You will be able to see your jobs once you have been verified",
                 style: .info,
                 closeButtonTitle: "OK",
-                colorStyle: 0x59C5CF,
+                colorStyle: 0x13AFC0,
                 colorTextButton: 0xFFFFFF)
         } else {
             let smc = sideMenuController
@@ -101,7 +101,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
                 subTitle: "You will be able to see your updates once you have been verified",
                 style: .info,
                 closeButtonTitle: "OK",
-                colorStyle: 0x59C5CF,
+                colorStyle: 0x13AFC0,
                 colorTextButton: 0xFFFFFF)
         } else {
             let smc = sideMenuController

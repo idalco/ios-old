@@ -16,6 +16,8 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
@@ -100,7 +102,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
             return
         }
         
-        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
         SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
         LoginManager.login(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "") { (response, result) in

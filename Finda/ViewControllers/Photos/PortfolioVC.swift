@@ -25,7 +25,7 @@ class PortfolioVC: UIViewController {
         self.setUpCollectionView()
         
         self.addNewButton.cornerRadius = 5
-        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
+//        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
         
         // Do any additional setup after loading the view.
         
@@ -59,7 +59,7 @@ class PortfolioVC: UIViewController {
         self.updateImages()
     }
     
-    func updateImages(){
+    func updateImages() {
         PhotoManager.getPhotos(imageType: .Portfolio) { (response, result, photos) in
             if response {
                 self.photosArray = photos
@@ -83,7 +83,7 @@ class PortfolioVC: UIViewController {
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
                 print(photo.image) // Final image selected by the user
-                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.show()
                 FindaAPISession(target: .uploadPortfolioImage(image: photo.image), completion: { (response, result) in
@@ -128,7 +128,7 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PortfolioCVC
 
-        cell.addDashedBorder(borderColour: UIColor.FindaColours.Blue, cornerRadius: 10)
+        cell.addDashedBorder(borderColour: UIColor.FindaColours.LightGrey, cornerRadius: 10)
         let imageData = self.photosArray[indexPath.row].filename
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPortfolioURL: url, imageTransition: .crossDissolve(0.25))

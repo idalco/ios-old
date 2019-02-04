@@ -39,12 +39,12 @@ class PhotoTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         self.updateNotificationCount()
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.LightGrey
 //        navigationItem.title = "Photos"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.LightGrey
     }
     
     private func updateNotificationCount(){

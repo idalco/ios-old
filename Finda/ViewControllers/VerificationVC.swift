@@ -153,7 +153,7 @@ class VerificationVC: UIViewController {
                                 subTitle: "We will be in touch once your account has been verified",
                                 style: .success,
                                 closeButtonTitle: "OK",
-                                colorStyle: 0x59C5CF,
+                                colorStyle: 0x13AFC0,
                                 colorTextButton: 0xFFFFFF)
                         })
                     } else {

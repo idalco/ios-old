@@ -140,20 +140,19 @@ class JobsVC: UIViewController {
                 cardView.contactNumberLabelIcon.isHidden = true
             }
       
-            var jobDescriptionLabelframe = cardView.jobDescriptionLabel.frame
             if (job.advanced != "") {
                 cardView.advancedInfo = job.advanced
-                jobDescriptionLabelframe.origin.y = 272
-                cardView.jobDescriptionLabel.frame = jobDescriptionLabelframe
                 cardView.advancedInfoLabel.isHidden = false
             } else {
                 cardView.advancedInfoLabel.isHidden = true
-                jobDescriptionLabelframe.origin.y = 192
-                cardView.jobDescriptionLabel.frame = jobDescriptionLabelframe
+                cardView.advancedInfoStack.height(0)
             }
             
             cardView.primaryButton.tag = job.jobid
             cardView.secondaryButton.tag = job.jobid
+            
+            cardView.primaryButton.cornerRadius = 5
+            cardView.secondaryButton.cornerRadius = 5
             
             if job.callsheet != "" {
                 cardView.callsheetButton.isHidden = false
@@ -384,6 +383,10 @@ class JobsVC: UIViewController {
                     self.loadJobs()
                 } else {
                     SVProgressHUD.dismiss()
+                    let errorView = SCLAlertView(appearance: appearance)
+                    errorView.showError(
+                        "Sorry",
+                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
                 }
             }
         }
@@ -393,12 +396,14 @@ class JobsVC: UIViewController {
             subTitle: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email. If you want to negotiate the fee, you can do this on the Finda website before accepting.",
             style: .question,
             closeButtonTitle: "Cancel",
-            colorStyle: 0x59C5CF,
+            colorStyle: 0x13AFC0,
             colorTextButton: 0xFFFFFF)
     
     }
     
     @objc private func rejectJob(sender: UIButton) {
+        
+        let appearance = SCLAlertView.SCLAppearance()
 
         let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Reject offer", style: UIAlertAction.Style.default, handler: { action in
@@ -410,6 +415,10 @@ class JobsVC: UIViewController {
                     self.loadJobs()
                 } else {
                     SVProgressHUD.dismiss()
+                    let errorView = SCLAlertView(appearance: appearance)
+                    errorView.showError(
+                        "Sorry",
+                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
                 }
             }
         }))
@@ -433,6 +442,10 @@ class JobsVC: UIViewController {
                     self.loadJobs()
                 } else {
                     SVProgressHUD.dismiss()
+                    let errorView = SCLAlertView(appearance: appearance)
+                    errorView.showError(
+                        "Sorry",
+                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
                 }
             }
         }
@@ -441,7 +454,7 @@ class JobsVC: UIViewController {
             subTitle: "",
             style: .warning,
             closeButtonTitle: "Close",
-            colorStyle: 0x59C5CF,
+            colorStyle: 0x13AFC0,
             colorTextButton: 0xFFFFFF)
         
     }
@@ -460,6 +473,11 @@ class JobsVC: UIViewController {
                     self.loadJobs()
                 } else {
                     SVProgressHUD.dismiss()
+                    
+                    let errorView = SCLAlertView(appearance: appearance)
+                    errorView.showError(
+                        "Sorry",
+                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
                 }
             }
         }
@@ -468,10 +486,12 @@ class JobsVC: UIViewController {
             subTitle: "You will be able to negotiate a different rate if the client offers you this job later.",
             style: .warning,
             closeButtonTitle: "Cancel",
-            colorStyle: 0x59C5CF,
+            colorStyle: 0x13AFC0,
             colorTextButton: 0xFFFFFF)
         
     }
+    
+    
     
     @objc private func downloadCallsheet(sender: UIButton) {
         
@@ -498,38 +518,44 @@ class JobsVC: UIViewController {
         
         let appearance = SCLAlertView.SCLAppearance()
         let alertView = SCLAlertView(appearance: appearance)
-        let newRateField = alertView.addTextField("Enter more than £\(job.offeredRate)")
+        let newRateField = alertView.addTextField("Enter your desired rate")
         
         alertView.addButton("Negotiate") {
             // the value we need is in newRate
             let newRate = Int(newRateField.text!)
-            if (newRate! >= job.offeredRate) {
+//            if (newRate! >= job.offeredRate) {
                 SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.show()
                 FindaAPISession(target: .negotiateRate(jobId: jobid, newRate: newRate!)) { (response, result) in
                     if response {
+                        let noticeView = SCLAlertView()
+                        noticeView.showInfo("Negotiation Sent", subTitle: "The Client should respond shortly")
                         self.loadJobs()
                     } else {
                         SVProgressHUD.dismiss()
+                        let errorView = SCLAlertView(appearance: appearance)
+                        errorView.showError(
+                            "Sorry",
+                            subTitle: "Something went wrong sending your negotiation. Please try again later.")
                     }
                 }
-            } else {
-//                alertView.dismiss(animated: true)
-                
-                var message = "You can't enter a lower rate. Enter more than £"
-                if job.clientOfferedRate != 0 {
-                    message = message + "\(job.clientOfferedRate)"
-                } else {
-                    message = message + "\(job.offeredRate)"
-                }
-                message = message + " to negotiate the offered rate for this job."
-                
-                let alert = UIAlertController(title: "Sorry", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true)
-
-            }
+//            } else {
+////                alertView.dismiss(animated: true)
+//
+//                var message = "You can't enter a lower rate. Enter more than £"
+//                if job.clientOfferedRate != 0 {
+//                    message = message + "\(job.clientOfferedRate)"
+//                } else {
+//                    message = message + "\(job.offeredRate)"
+//                }
+//                message = message + " to negotiate the offered rate for this job."
+//
+//                let alert = UIAlertController(title: "Sorry", message: message, preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//                self.present(alert, animated: true)
+//
+//            }
         }
 
         var subtitle = "The current offered rate is £"
@@ -549,7 +575,7 @@ class JobsVC: UIViewController {
             subTitle: subtitle,
             style: .question,
             closeButtonTitle: "Cancel",
-            colorStyle: 0x59C5CF,
+            colorStyle: 0x13AFC0,
             colorTextButton: 0xFFFFFF)
         
     }
@@ -603,6 +629,12 @@ class JobsVC: UIViewController {
                 }
                 SVProgressHUD.dismiss()
                 
+            } else {
+                let appearance = SCLAlertView.SCLAppearance()
+                let errorView = SCLAlertView(appearance: appearance)
+                errorView.showError(
+                    "Sorry",
+                    subTitle: "Something went wrong loading your jobs. Please try again later.")
             }
         }
         
@@ -616,4 +648,35 @@ class JobsVC: UIViewController {
         sideMenuController?.revealMenu()
     }
     
+}
+
+extension UILabel {
+    func textHeight(withWidth width: CGFloat) -> CGFloat {
+        guard let text = text else {
+            return 0
+        }
+        return text.height(withWidth: width, font: font)
+    }
+    
+    func attributedTextHeight(withWidth width: CGFloat) -> CGFloat {
+        guard let attributedText = attributedText else {
+            return 0
+        }
+        return attributedText.height(withWidth: width)
+    }
+}
+extension String {
+    func height(withWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil)
+        return actualSize.height
+    }
+}
+
+extension NSAttributedString {
+    func height(withWidth width: CGFloat) -> CGFloat {
+        let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let actualSize = boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
+        return actualSize.height
+    }
 }

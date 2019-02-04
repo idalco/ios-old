@@ -109,6 +109,9 @@ class JobCardView: CardView {
         }
     }
     
+    @IBOutlet weak var advancedInfoStack: UIStackView!
+    @IBOutlet weak var jobDescriptionStack: UIStackView!    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -127,6 +130,9 @@ class JobCardView: CardView {
         offeredLabel.isHidden = true
         
         callsheetButton.isHidden = true
+        
+        primaryButton.cornerRadius = 5
+        secondaryButton.cornerRadius = 5
         
         primaryButton.normalBackgroundColor = UIColor.FindaColours.Blue
         primaryButton.normalTextColor = UIColor.FindaColours.White

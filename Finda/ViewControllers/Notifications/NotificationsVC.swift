@@ -21,8 +21,8 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         self.setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
-        self.messageView.backgroundColor = UIColor.FindaColours.Blue
-        self.messageLabel.textColor = UIColor.FindaColours.White
+        self.messageView.backgroundColor = UIColor.FindaColours.LightGrey
+        self.messageLabel.textColor = UIColor.FindaColours.Blue
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +56,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     private func loadNotifications(){
-        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
         SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
         NotificationManager.getNotifications(notificationType: .all) { (response, result) in
@@ -118,7 +118,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Gotham-Light")
         
         // set avatar here
-        cell.messageAvatar.setRounded(colour: UIColor.FindaColours.Blue.cgColor)
+        cell.messageAvatar.setRounded(colour: UIColor.FindaColours.LightGrey.cgColor)
         
         if allNotifications[indexPath.row].avatar != "/default_profile.png" {
             if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){

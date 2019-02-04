@@ -20,7 +20,7 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.barTintColor = UIColor.FindaColours.Blue
+        self.tabBar.barTintColor = UIColor.FindaColours.LightGrey
         self.tabBar.tintColor = UIColor.FindaColours.White
         self.tabBar.unselectedItemTintColor = UIColor.FindaColours.Black
         
@@ -65,7 +65,7 @@ class TabBarController: UITabBarController {
                     subTitle: subtitle,
                     style: .info,
                     closeButtonTitle: "Close",
-                    colorStyle: 0x59C5CF,
+                    colorStyle: 0x13AFC0,
                     colorTextButton: 0xFFFFFF)
                 
             }
