@@ -44,7 +44,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
         
-        self.bar.items = [Item(title: "Profile"), Item(title: "Measurements"), Item(title: "Availability"), Item(title: "Password")]
+        self.bar.items = [Item(title: "Profile"), Item(title: "Measurements"), Item(title: "Preferences"), Item(title: "Password")]
         
         self.bar.style = .scrollingButtonBar
         self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)

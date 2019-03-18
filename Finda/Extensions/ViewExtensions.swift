@@ -21,6 +21,17 @@ extension UIView {
         self.clipsToBounds = true
     }
     
+    func setRounded(radius: CGFloat, colour: CGColor? = nil) {
+        
+        let colour = colour ?? UIColor.clear.cgColor
+        
+        self.layer.borderWidth = 1
+        self.layer.masksToBounds = false
+        self.layer.borderColor = colour
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+    }
+    
     static func reuseIdentifier() -> String {
         return NSStringFromClass(classForCoder()).components(separatedBy: ".").last!
     }
@@ -77,6 +88,25 @@ extension UIView {
         shapeLayer.lineWidth = 2
         shapeLayer.lineJoin = kCALineJoinRound
         shapeLayer.lineDashPattern = [4,4]
+        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: cornerRadius).cgPath
+        
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    func addSolidBorder(borderColour: UIColor, cornerRadius: CGFloat = 5, width: CGFloat = 2) {
+        let color = borderColour.cgColor
+        
+        let shapeLayer:CAShapeLayer = CAShapeLayer()
+        let frameSize = self.frame.size
+        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+        
+        shapeLayer.bounds = shapeRect
+        shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.backgroundColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = color
+        shapeLayer.lineWidth = width
+        shapeLayer.lineJoin = kCALineJoinRound
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: cornerRadius).cgPath
         
         self.layer.addSublayer(shapeLayer)

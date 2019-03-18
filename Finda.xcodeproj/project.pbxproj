@@ -102,6 +102,11 @@
 		0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */; };
 		18883D3421BEC1A5001A8D03 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18883D3321BEC1A5001A8D03 /* CalendarVC.swift */; };
 		18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */; };
+		18A350B022395BF20015D003 /* JobDetailsViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */; };
+		18E750F7223904EC00FE28D2 /* JobsVC_withWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */; };
+		18E750F92239052100FE28D2 /* JobCardView_forWallet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */; };
+		18E750FB2239052C00FE28D2 /* JobCardView_forWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750FA2239052C00FE28D2 /* JobCardView_forWallet.swift */; };
+		18E750FD2239207900FE28D2 /* JobCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */; };
 		D6BD959D87F08E75B89A41D1 /* Pods_Finda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EEB8FB6543252924F78E91 /* Pods_Finda.framework */; };
 /* End PBXBuildFile section */
 
@@ -207,6 +212,11 @@
 		18883D3321BEC1A5001A8D03 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		18A0CFD1216F656500D2CC39 /* Finda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finda.entitlements; sourceTree = "<group>"; };
+		18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewVC.swift; sourceTree = "<group>"; };
+		18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsVC_withWallet.swift; sourceTree = "<group>"; };
+		18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCardView_forWallet.xib; sourceTree = "<group>"; };
+		18E750FA2239052C00FE28D2 /* JobCardView_forWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCardView_forWallet.swift; sourceTree = "<group>"; };
+		18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardViewCVC.swift; sourceTree = "<group>"; };
 		2140CF5325222B660D04F75E /* Pods-Finda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.release.xcconfig"; sourceTree = "<group>"; };
 		341BD77F58966C7AFB8BF641 /* Pods-Finda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finda/Pods-Finda.debug.xcconfig"; sourceTree = "<group>"; };
 		3E1B7F1EF255DBF716E70F99 /* Pods-FindaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindaTests/Pods-FindaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,11 +255,16 @@
 			children = (
 				0C78FA50212224590059C0E7 /* JobTabVC.swift */,
 				0C78FA29211DB16E0059C0E7 /* JobsVC.swift */,
+				18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */,
 				0C78FA39211F3CE60059C0E7 /* CardView.swift */,
 				0C78FA3A211F3CE70059C0E7 /* WalletView.swift */,
 				0C78FA2F211DEECC0059C0E7 /* JobCardView.swift */,
+				18E750FA2239052C00FE28D2 /* JobCardView_forWallet.swift */,
 				0C78FA30211DEECC0059C0E7 /* JobCardView.xib */,
+				18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */,
 				0CCB63AD213EC59E007CB107 /* JobStatus.swift */,
+				18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */,
+				18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */,
 			);
 			path = Jobs;
 			sourceTree = "<group>";
@@ -569,6 +584,7 @@
 				0CCF231F2109BD1200612D5B /* Gotham-Bold.otf in Resources */,
 				0CCF231C2109BD1200612D5B /* Gotham-Medium.otf in Resources */,
 				0CCF231D2109BD1200612D5B /* Gotham-Book.otf in Resources */,
+				18E750F92239052100FE28D2 /* JobCardView_forWallet.xib in Resources */,
 				0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */,
 				0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */,
 				0CCF23252109BD1200612D5B /* Gotham-BookItalic.otf in Resources */,
@@ -710,8 +726,10 @@
 				0CCB63AA213DBF67007CB107 /* PasswordVC.swift in Sources */,
 				0C78FA3B211F3CE70059C0E7 /* CardView.swift in Sources */,
 				0C1C85912132B4D700586326 /* PortfolioCVC.swift in Sources */,
+				18E750FD2239207900FE28D2 /* JobCardViewCVC.swift in Sources */,
 				0CCF233E210A7F1000612D5B /* BaseCellExtensions.swift in Sources */,
 				0C1C857521256B6800586326 /* BooleanDictionary.swift in Sources */,
+				18A350B022395BF20015D003 /* JobDetailsViewVC.swift in Sources */,
 				0C78FA51212224590059C0E7 /* JobTabVC.swift in Sources */,
 				0C78FA5D212365E70059C0E7 /* PhotoManager.swift in Sources */,
 				0CCB63A3213C3132007CB107 /* InvoiceManager.swift in Sources */,
@@ -746,6 +764,7 @@
 				0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */,
 				0C1C858921305E5100586326 /* ImageCVC.swift in Sources */,
 				0CCF2358210E033C00612D5B /* ModelRegisterVC.swift in Sources */,
+				18E750FB2239052C00FE28D2 /* JobCardView_forWallet.swift in Sources */,
 				0CCB639F213B2E3C007CB107 /* InvoiceVC.swift in Sources */,
 				0CCF2350210DDB2600612D5B /* Profile+CoreDataClass.swift in Sources */,
 				0CCF2351210DDB2600612D5B /* Profile+CoreDataProperties.swift in Sources */,
@@ -754,6 +773,7 @@
 				0CCF22D621089B6200612D5B /* FindaMoyaTokenPlugin.swift in Sources */,
 				0C4ADA6A21107EF5002C3EA3 /* RegisterManager.swift in Sources */,
 				0C78FA282119D3130059C0E7 /* WelcomeVC.swift in Sources */,
+				18E750F7223904EC00FE28D2 /* JobsVC_withWallet.swift in Sources */,
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
 				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class PortfolioCVC: ImageCVC {
+    
     @IBOutlet weak var leadImageButton: UIButton!
     
     override func awakeFromNib() {

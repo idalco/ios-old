@@ -12,55 +12,55 @@ class JobCardView: CardView {
     
     lazy var depresentedCardViewColor: UIColor = { return UIColor.FindaColours.White }()
     
-    @IBOutlet weak var headerLabel: UILabel!
-    var header: String = "" {
-        didSet {
-            headerLabel.text = "\(header)"
-        }
-    }
+//    @IBOutlet weak var headerLabel: UILabel!
+//    var header: String = "" {
+//        didSet {
+//            headerLabel.text = "\(header)"
+//        }
+//    }
 
     
-    @IBOutlet weak var jobNameLabel: UILabel!
-    var jobName: String = "" {
-        didSet {
-            jobNameLabel.text = "\(jobName)"
-        }
-    }
+//    @IBOutlet weak var jobNameLabel: UILabel!
+//    var jobName: String = "" {
+//        didSet {
+//            jobNameLabel.text = "\(jobName)"
+//        }
+//    }
     
-    @IBOutlet weak var clientNameLabel: UILabel!
-    var clientName: String = "" {
-        didSet {
-            clientNameLabel.text = "\(clientName)"
-        }
-    }
+//    @IBOutlet weak var clientNameLabel: UILabel!
+//    var clientName: String = "" {
+//        didSet {
+//            clientNameLabel.text = "\(clientName)"
+//        }
+//    }
     
-    @IBOutlet weak var jobTypeLabel: UILabel!
-    var jobType: String = "" {
-        didSet {
-            jobTypeLabel.text = "\(jobType)"
-        }
-    }
+//    @IBOutlet weak var jobTypeLabel: UILabel!
+//    var jobType: String = "" {
+//        didSet {
+//            jobTypeLabel.text = "\(jobType)"
+//        }
+//    }
     
-    @IBOutlet weak var locationLabel: UILabel!
-    var location: String = "" {
-        didSet {
-            locationLabel.text = "\(location)"
-        }
-    }
+//    @IBOutlet weak var locationLabel: UILabel!
+//    var location: String = "" {
+//        didSet {
+//            locationLabel.text = "\(location)"
+//        }
+//    }
     
-    @IBOutlet weak var jobDatesLabel: UILabel!
-    var jobDates: String = "" {
-        didSet {
-            jobDatesLabel.text = "\(jobDates)"
-        }
-    }
+//    @IBOutlet weak var jobDatesLabel: UILabel!
+//    var jobDates: String = "" {
+//        didSet {
+//            jobDatesLabel.text = "\(jobDates)"
+//        }
+//    }
     
-    @IBOutlet weak var durationLabel: UILabel!
-    var duration: String = "" {
-        didSet {
-            durationLabel.text = "\(duration)"
-        }
-    }
+//    @IBOutlet weak var durationLabel: UILabel!
+//    var duration: String = "" {
+//        didSet {
+//            durationLabel.text = "\(duration)"
+//        }
+//    }
     
     
     @IBOutlet weak var jobDescriptionLabel: UILabel!

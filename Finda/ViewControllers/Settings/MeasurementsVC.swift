@@ -335,28 +335,28 @@ class MeasurementsVC: FormViewController {
         
         form +++ section1
         
-        section1 = Section() { section1 in
-            var header = HeaderFooterView<UIView>(.class)
-            header.height = {60}
-            header.onSetupView = { view, _ in
-                view.backgroundColor = UIColor.FindaColours.White
-                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
-                
-                title.text = "Availability"
-                title.font = UIFont(name: "Gotham-Medium", size: 17)
-                view.addSubview(title)
-                
-            }
-            section1.header = header
-            }
-            
-            <<< SwitchRow() { row in
-                row.title = "Available?"
-                row.value = modelManager.available()
-                row.tag = "Available".lowercased()
-            }
-        
-        form +++ section1
+//        section1 = Section() { section1 in
+//            var header = HeaderFooterView<UIView>(.class)
+//            header.height = {60}
+//            header.onSetupView = { view, _ in
+//                view.backgroundColor = UIColor.FindaColours.White
+//                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
+//                
+//                title.text = "Availability"
+//                title.font = UIFont(name: "Gotham-Medium", size: 17)
+//                view.addSubview(title)
+//                
+//            }
+//            section1.header = header
+//            }
+//            
+//            <<< SwitchRow() { row in
+//                row.title = "Available?"
+//                row.value = modelManager.available()
+//                row.tag = "Available".lowercased()
+//            }
+//        
+//        form +++ section1
         
         PickerDelegate.addPickerData(term: .HairColour, rowTitle: "Hair Colour", coreData: modelManager.hairColour()) { (response, result, dictionary) in
             if response {

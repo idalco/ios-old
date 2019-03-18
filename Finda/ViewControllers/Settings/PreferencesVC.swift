@@ -84,6 +84,32 @@ class PreferencesVC: FormViewController {
                 row.tag = "notifications"
             }
         
+        form +++ Section() { section in
+            var header = HeaderFooterView<UIView>(.class)
+            header.height = {120}
+            header.onSetupView = { view, _ in
+                view.backgroundColor = UIColor.FindaColours.White
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
+                
+                title.text = "Availability"
+                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                view.addSubview(title)
+                
+                let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width-10, height:40))
+                description.numberOfLines = 0
+                description.text = "Set your availability. Turning this off will stop Clients from seeing your profile."
+                description.font = UIFont(name: "Gotham-Light", size: 13)
+                view.addSubview(description)
+                
+            }
+            section.header = header
+            }
+            
+            <<< SwitchRow() { row in
+                row.title = "Available?"
+                row.value = modelManager.available()
+                row.tag = "Available".lowercased()
+        }
         
         // Do any additional setup after loading the view.
         

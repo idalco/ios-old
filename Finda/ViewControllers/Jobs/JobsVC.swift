@@ -13,21 +13,21 @@ import SafariServices
 
 class JobsVC: UIViewController {
     
-
-    @IBOutlet weak var walletView: WalletView!
+    
+    @IBOutlet weak var jobCardCollection: UICollectionView!
+    
     @IBOutlet weak var noJobsLabel: UILabel!
+    
+    private let refreshControl = UIRefreshControl()
     
     var jobType: JobsManager.JobTypes = .all
     
-    var cardViews = [JobCardView]()
     var allJobs: [Job] = []
     var loadingFirst: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.transparentNavigationBar()
-        
-        walletView.walletHeader = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//        self.navigationController?.navigationBar.transparentNavigationBar()
 
         if self.jobType.rawValue == "offered" {
             self.noJobsLabel.text = "Currently you have no requests"
@@ -35,331 +35,57 @@ class JobsVC: UIViewController {
             self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
         }
         
+        self.setUpCollectionView()
+        
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .default
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.updateCards()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.loadJobs()
-        switchToCard()
     }
     
-    override func viewDidLayoutSubviews() {
-        for card in self.cardViews {
-            
-            // by default, hide contact number
-            card.contactNumberLabelIcon.isHidden = true
-            card.contactNumberLabel.isHidden = true
-            
-            switch(card.header) {
-            case "PENDING":
-                card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
-                break
-                
-            case "ACCEPTED":
-                card.headerLabel.text = "ACCEPTED - Waiting for Client to confirm"
-                card.layer.borderColor = UIColor.FindaColours.Blue.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Blue, thickness: 8.0)
-                card.contactNumberLabelIcon.isHidden = false
-                card.contactNumberLabel.isHidden = false
-                break
-                
-            case "OFFERED", "REQUESTED":
-                card.headerLabel.text = "REQUESTED"
-                card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
-                break
-                
-            case "MODEL_COMPLETED":
-                card.headerLabel.text = "WAITING FOR CLIENT TO COMPLETE"
-                card.layer.borderColor = UIColor.FindaColours.Purple.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Purple, thickness: 8.0)
-                break
-                
-            case "OPTIONED", "JOB OFFER":
-                card.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
-                break
-                
-            case "COMPLETED", "CLIENT_COMPLETED":
-                card.headerLabel.text = "COMPLETED"
-                card.layer.borderColor = UIColor.FindaColours.Black.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 8.0)
-                break
-
-            case "EXPIRED":
-                card.layer.borderColor = UIColor.FindaColours.Black.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.Black, thickness: 8.0)
-                break
-
-            case "CONFIRMED":
-                card.layer.borderColor = UIColor.FindaColours.FindaGreen.cgColor
-                card.layer.addBorder(edge: .top, color: UIColor.FindaColours.FindaGreen, thickness: 8.0)
-                break
-                
-            default:
-                break
-            }
-
-            for item in card.layer.sublayers! {
-                if item.name == "border" {
-                    item.frame = CGRect(x: 0, y: 0, width: card.layer.frame.width, height: 8)
-                }
-            }
-        }
-     
-        switchToCard()
-
-    }
-    
-    private func update(){
-        self.walletView.removeAll()
-        self.cardViews.removeAll()
-        
-        for job in self.allJobs {
-            let cardView = JobCardView.nibForClass()
-            cardView.clientName = job.companyName.uppercased()
-            cardView.duration = JobsManager.length(length: job.timeUnits, unit: job.unitsType).uppercased()
-            cardView.header = job.header.uppercased()
-            cardView.jobDates = Date().displayDate(timeInterval: job.startdate, format: "MMM dd, yyyy") + " at " + Date().displayDate(timeInterval: job.starttime, format: "h:mm a")
-            cardView.jobDescription = job.description
-            cardView.jobName = job.name.uppercased()
-            cardView.jobType = job.jobtype.uppercased()
-            cardView.location = job.location.uppercased()
-            cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.capitalizingFirstLetter())"
-            
-            if (job.contact_number != "") {
-                cardView.contactNumberLabel.isHidden = false
-                cardView.contactNumberLabelIcon.isHidden = false
-                cardView.contactNumber = job.contact_number
-            } else {
-                cardView.contactNumberLabel.isHidden = true
-                cardView.contactNumberLabelIcon.isHidden = true
-            }
-      
-            if (job.advanced != "") {
-                cardView.advancedInfo = job.advanced
-                cardView.advancedInfoLabel.isHidden = false
-            } else {
-                cardView.advancedInfoLabel.isHidden = true
-                cardView.advancedInfoStack.height(0)
-            }
-            
-            cardView.primaryButton.tag = job.jobid
-            cardView.secondaryButton.tag = job.jobid
-            
-            cardView.primaryButton.cornerRadius = 5
-            cardView.secondaryButton.cornerRadius = 5
-            
-            if job.callsheet != "" {
-                cardView.callsheetButton.isHidden = false
-                cardView.callsheetButton.tag = job.jobid
-                cardView.callsheetButton.addTarget(self, action: #selector(downloadCallsheet(sender:)), for: .touchUpInside)
-            }
-            
-            if let jobStatus = JobStatus(rawValue: job.header) {
-                
-                switch(jobStatus) {
-                    
-                case .Pending:
-                    cardView.layer.borderColor = UIColor.FindaColours.DarkYellow.cgColor
-                    cardView.layer.addBorder(edge: .top, color: UIColor.FindaColours.DarkYellow, thickness: 8.0)
-
-                    break;
-                    
-                case .Accepted:
-                    cardView.secondaryButton.setTitle("CANCEL", for: .normal)
-                    cardView.primaryButton.isHidden = true
-                    
-                    cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
-                    cardView.offeredLabel.isHidden = false
-
-                    cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
-                    cardView.offeredNumberButton.titleEdgeInsets.right = 0
-                    cardView.offeredLabel.text = "Agreed rate:"
-                    cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                    
-                    cardView.offeredNumberButton.backgroundColor = UIColor.white
-                    cardView.offeredNumberButton.setTitleColor(UIColor.black, for: .normal)
-                    cardView.offeredNumberButton.layer.borderColor = UIColor.white.cgColor
-
-                    // 14 is accepted, 2 if confirmed, so we need to override here,
-                    // or refactor
-                    if job.status == 2 {
-                        cardView.header = "CONFIRMED"
-                    }
-                    
-                    break
-                case .ModelCompleted, .Completed, .ClientCompleted:
-                    cardView.primaryButton.isHidden = true
-                    cardView.secondaryButton.isHidden = true
-                    cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
-                    cardView.offeredNumberButton.titleEdgeInsets.right = 0
-                    cardView.offeredLabel.isHidden = false
-                    cardView.offeredLabel.text = "Agreed rate:"
-                    cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                    
-                    cardView.offeredNumberButton.backgroundColor = UIColor.white
-                    cardView.offeredNumberButton.setTitleColor(UIColor.black, for: .normal)
-                    cardView.offeredNumberButton.layer.borderColor = UIColor.white.cgColor
-                    
-                    break
-                case .Expired:
-                    cardView.primaryButton.isHidden = true
-                    cardView.secondaryButton.isHidden = true
-                    cardView.contactNumberLabel.isHidden = true
-                    cardView.contactNumberLabelIcon.isHidden = true
-                    break
-                case .Finished:
-                    cardView.primaryButton.setTitle("Waiting for Client to complete", for: .normal)
-                    cardView.primaryButton.isEnabled = false
-                    cardView.secondaryButton.isHidden = true
-                    cardView.contactNumberLabel.isHidden = true
-                    cardView.contactNumberLabelIcon.isHidden = true
-                    break
-                    
-                    
-                // not used
-                case .Optioned:
-                    cardView.offeredLabel.text = "Offered rate: £\(job.offeredRate)/\(job.unitsType.uppercased())"
-                    cardView.offeredLabel.isHidden = false
-                    cardView.offeredNumberButton.isHidden = true
-                    cardView.offeredNumberButton.isEnabled = true
-
-                    cardView.primaryButton.isHidden = false
-                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
-                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
-                    cardView.secondaryButton.isHidden = false
-                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                    cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
-                    cardView.contactNumberLabel.isHidden = true
-                    cardView.contactNumberLabelIcon.isHidden = true
-                    
-                    // override
-                    cardView.header = "JOB OFFER"
-                    break
-                
-                    
-                case .Requested:
-                    
-                    if (job.agreedRate != 0) {
-                        cardView.offeredNumberButton.isHidden = false
-                        cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
-                        cardView.offeredNumberButton.titleEdgeInsets.right = 0
-                        cardView.offeredLabel.text = "Agreed rate:"
-                        cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                    } else {
-                        
-                        var offeredLabel = "Offered rate: £"
-                        if job.clientOfferedRate != 0 {
-                            offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
-                        } else {
-                            offeredLabel = offeredLabel + "\(job.offeredRate)"
-                        }
-                        offeredLabel = offeredLabel + "/\(job.unitsType.uppercased())"
-                        
-                        cardView.offeredLabel.text = offeredLabel
-                        cardView.offeredLabel.isHidden = false
-                        cardView.offeredNumberButton.isHidden = false
-                        cardView.offeredNumberButton.isEnabled = true
-                        cardView.offeredNumber = "Negotiate"
-                        cardView.offeredNumberButton.tag = job.jobid
-                        cardView.offeredNumberButton.addTarget(self, action: #selector(negotiateJob(sender:)), for: .touchUpInside)
-                        
-                        cardView.offeredNumberButton.layer.backgroundColor = UIColor.FindaColours.Blue.cgColor
-                        cardView.offeredNumberButton.setTitleColor(UIColor.white, for: .normal)
-                        cardView.offeredNumberButton.layer.borderColor = UIColor.FindaColours.Blue.cgColor
-                        cardView.offeredNumberButton.contentHorizontalAlignment = .center
-                    }
-                    
-                    cardView.primaryButton.isHidden = false
-                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
-                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
-                    cardView.secondaryButton.isHidden = false
-                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
-                    cardView.secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
-                    cardView.contactNumberLabel.isHidden = true
-                    cardView.contactNumberLabelIcon.isHidden = true
-                    
-                    break
-                    
-                case .Offered:
-                    
-//                    if (job.agreedRate != 0) {
-//                        cardView.offeredNumberButton.isHidden = false
-//                        cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
-//                        cardView.offeredNumberButton.titleEdgeInsets.right = 0
-//                        cardView.offeredLabel.text = "Agreed rate:"
-//                        cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-//                    } else {
-//                        cardView.offeredLabel.text = "Offered rate: £\(job.offeredRate)/\(job.unitsType.uppercased())"
-//                        cardView.offeredLabel.isHidden = false
-//                        cardView.offeredNumberButton.isHidden = false
-//                        cardView.offeredNumberButton.isEnabled = true
-//                        cardView.offeredNumber = "Negotiate"
-//                        cardView.offeredNumberButton.tag = job.jobid
-//                        cardView.offeredNumberButton.addTarget(self, action: #selector(negotiateJob(sender:)), for: .touchUpInside)
-//                        cardView.offeredNumberButton.backgroundColor = UIColor.FindaColours.Blue
-//                        cardView.offeredNumberButton.tintColor = UIColor.white
-//                        cardView.offeredNumberButton.layer.borderColor = UIColor.FindaColours.Blue.cgColor
-//                        cardView.offeredNumberButton.adjustsImageWhenHighlighted = false
-//                        cardView.offeredNumberButton.contentHorizontalAlignment = .center
-//                    }
-//
-//
-//
-//                    cardView.primaryButton.setTitle("ACCEPT", for: .normal)
-//                    cardView.secondaryButton.setTitle("REJECT", for: .normal)
-//
-//                    cardView.primaryButton.addTarget(self, action: #selector(acceptJob(sender:)), for: .touchUpInside)
-//                    cardView.secondaryButton.addTarget(self, action: #selector(rejectJob(sender:)), for: .touchUpInside)
-//
-//                    cardView.contactNumberLabel.isHidden = true
-//                    cardView.contactNumberLabelIcon.isHidden = true
-                    
-                    break
-                case .Unfinalised:
-                    cardView.primaryButton.setTitle("COMPLETE", for: .normal)
-                    cardView.secondaryButton.isHidden = true
-                    cardView.contactNumberLabel.isHidden = true
-                    break
-                    
-                case .Confirmed:
-                    cardView.secondaryButton.setTitle("CANCEL", for: .normal)
-                    cardView.primaryButton.isHidden = true
-                    
-                    cardView.secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
-                    cardView.offeredLabel.isHidden = false
-                    
-                    cardView.offeredNumberButton.isHidden = false
-                    cardView.offeredNumberButton.layer.borderColor = UIColor.clear.cgColor
-                    cardView.offeredNumberButton.titleEdgeInsets.right = 0
-                    cardView.offeredLabel.text = "Agreed rate:"
-                    cardView.offeredNumber = "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                    cardView.offeredNumberButton.backgroundColor = UIColor.white
-                    cardView.offeredNumberButton.setTitleColor(UIColor.black, for: .normal)
-                    cardView.offeredNumberButton.layer.borderColor = UIColor.white.cgColor
-                    break
-                }
-            }
-            
-            self.cardViews.append(cardView)
-      
-        }
-        if self.allJobs.count > 0 {
-            self.walletView.isHidden = false
-            self.noJobsLabel.isHidden = true
+    private func setUpCollectionView(){
+        if #available(iOS 10.0, *) {
+            jobCardCollection.refreshControl = refreshControl
         } else {
-            self.walletView.isHidden = true
-            self.noJobsLabel.isHidden = false
+            jobCardCollection.addSubview(refreshControl)
         }
-        self.walletView.reload(cardViews: self.cardViews)
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+//        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+//        layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+        
+        var height: CGFloat = 10.0
+        
+        if let newLayout = jobCardCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+            height = newLayout.itemSize.height - 64
+        }
+
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 8, height: height)
+
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 2
+        
+        // (note, it's critical to actually set the layout to that!!)
+        jobCardCollection.collectionViewLayout = layout
+    }
+    
+    func updateCards() {
+        self.loadJobs()
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        
+        self.updateCards()
     }
 
     @objc private func acceptJob(sender: UIButton) {
@@ -540,22 +266,6 @@ class JobsVC: UIViewController {
                             subTitle: "Something went wrong sending your negotiation. Please try again later.")
                     }
                 }
-//            } else {
-////                alertView.dismiss(animated: true)
-//
-//                var message = "You can't enter a lower rate. Enter more than £"
-//                if job.clientOfferedRate != 0 {
-//                    message = message + "\(job.clientOfferedRate)"
-//                } else {
-//                    message = message + "\(job.offeredRate)"
-//                }
-//                message = message + " to negotiate the offered rate for this job."
-//
-//                let alert = UIAlertController(title: "Sorry", message: message, preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                self.present(alert, animated: true)
-//
-//            }
         }
 
         var subtitle = "The current offered rate is £"
@@ -580,36 +290,6 @@ class JobsVC: UIViewController {
         
     }
     
-    private func switchToCard() {
-        if self.loadingFirst == false {
-            
-            // can we move to the view now?
-            let preferences = UserDefaults.standard
-            
-            let currentLevelKey = "showJobIdCard"
-            var showJobId = 0
-            if preferences.object(forKey: currentLevelKey) == nil {
-                //  Doesn't exist
-            } else {
-                showJobId = preferences.integer(forKey: "showJobIdCard")
-            }
-            
-            // always overwrite
-            preferences.set(0, forKey: "showJobIdCard")
-            preferences.synchronize()
-            
-            if showJobId != 0 {
-                // find the card in the wallet with the right jobid
-                for card in self.cardViews {
-                    if card.primaryButton.tag == showJobId {
-                        walletView?.present(cardView: card, animated: true)
-                    }
-                }
-            }
-            
-        }
-    }
-    
     private func loadJobs() {
         
         JobsManager.getJobs(jobType: self.jobType) { (response, result) in
@@ -623,12 +303,14 @@ class JobsVC: UIViewController {
                     job1 == job2
                 }) {
                     self.allJobs = jobsArray
-                    self.update()
+                    self.jobCardCollection.reloadData()
+//                    self.update()
                     self.loadingFirst = false
+                    
                     
                 }
                 SVProgressHUD.dismiss()
-                
+                self.refreshControl.endRefreshing()
             } else {
                 let appearance = SCLAlertView.SCLAppearance()
                 let errorView = SCLAlertView(appearance: appearance)
@@ -679,4 +361,112 @@ extension NSAttributedString {
         let actualSize = boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
         return actualSize.height
     }
+}
+
+extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    // MARK: UICollectionViewDataSource
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showJobDetailsSegue") {
+            let vc = segue.destination as? JobDetailsViewVC
+            vc?.job = sender as? Job
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.allJobs.count > 0 ? 1:0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.allJobs.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showJobDetailsSegue", sender: self.allJobs[indexPath.row])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "jobcell", for: indexPath) as! JobCardViewCVC
+        
+        cell.setRounded(radius: 20)
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.FindaColours.Grey.cgColor
+
+        cell.jobStatus.text(self.allJobs[indexPath.row].header)
+        cell.customerName.text(self.allJobs[indexPath.row].companyName)
+        
+        cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaRed
+        cell.jobStatus.textColor = UIColor.FindaColours.Black
+        
+        let jobStatus = self.allJobs[indexPath.row].header
+        
+        switch JobStatus(rawValue: jobStatus) {
+            case .Requested?:
+                
+//                cell.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Blue
+                cell.jobStatus.textColor = UIColor.FindaColours.Blue
+                
+                break
+            
+            case .Accepted?:
+//                cell.layer.borderColor = UIColor.FindaColours.FindaGreen.cgColor
+//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaGreen
+                cell.jobStatus.textColor = UIColor.FindaColours.FindaGreen
+                break
+ 
+            case .Confirmed?:
+//                cell.layer.borderColor = UIColor.FindaColours.FindaGreen.cgColor
+//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaGreen
+                cell.jobStatus.textColor = UIColor.FindaColours.FindaGreen
+                break
+            
+            case .ModelCompleted?, .Completed?, .ClientCompleted?:
+//                cell.layer.borderColor = UIColor.FindaColours.Yellow.cgColor
+//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Yellow
+                cell.jobStatus.textColor = UIColor.FindaColours.Yellow
+                
+                cell.jobStatus.text("COMPLETED")
+                break
+            
+            case .Expired?:
+//                cell.layer.borderColor = UIColor.FindaColours.LightGreen.cgColor
+//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.LightGreen
+                break
+            
+            case .Finished?:
+//                cell.layer.borderColor = UIColor.FindaColours.Black.cgColor
+//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Black
+                break
+            
+            
+            // not used
+            case .Optioned?:
+                break
+            case .Pending?:
+                break
+            case .Offered?:
+                break
+            case .Unfinalised?:
+                break
+            case .none:
+//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaRed
+                break
+        }
+        
+        cell.jobTitle.text = self.allJobs[indexPath.row].name
+        cell.jobType.text = self.allJobs[indexPath.row].jobtype
+        
+//        cell.jobDates.text = Date().displayDate(timeInterval: self.allJobs[indexPath.row].startdate, format: "MMM dd, yyyy") + " at " + Date().displayDate(timeInterval: self.allJobs[indexPath.row].starttime, format: "h:mm a")
+        
+        cell.jobDates.text = Date().displayDate(timeInterval: self.allJobs[indexPath.row].startdate, format: "dd MMM")
+        cell.jobTime.text = Date().displayDate(timeInterval: self.allJobs[indexPath.row].starttime, format: "HH:mm")
+//        cell.agreedRate.text = "£\(self.allJobs[indexPath.row].agreedRate)/\(self.allJobs[indexPath.row].unitsType.capitalizingFirstLetter())"
+    
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        return cell
+    }
+    
 }
