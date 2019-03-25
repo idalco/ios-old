@@ -14,7 +14,7 @@ class LoginManager {
     
     static func login(email: String, password: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
-            if(response){
+            if (response) {
                 if(result["userdata"]["usertype"].intValue == 1){
                     let modelManager = ModelManager(data: result)
                     if modelManager.status() == UserStatus.banned {

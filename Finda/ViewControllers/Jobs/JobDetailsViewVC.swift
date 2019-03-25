@@ -46,8 +46,9 @@ class JobDetailsViewVC: UIViewController {
     
     @IBOutlet weak var backButton: UIImageView!
     
-    
     var job: Job!
+    
+    var requestRefresh = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,17 +58,15 @@ class JobDetailsViewVC: UIViewController {
     override func viewDidLayoutSubviews() {
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         
         self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
         
         customer.text = job.companyName.uppercased()
-        jobLength.text = JobsManager.length(length: job.timeUnits, unit: job.unitsType).uppercased()
-        jobStatus.text = job.header.uppercased()
-//        jobDates.text = Date().displayDate(timeInterval: job.startdate, format: "MMM dd, yyyy") + " at " + Date().displayDate(timeInterval: job.starttime, format: "h:mm a")
         
-        jobDates.text = Date().displayDate(timeInterval: job.startdate, format: "EEEE, MMM d")
+        jobStatus.text = job.header.uppercased()
+        
+        jobDates.text = Date().displayDate(timeInterval: job.startdate, format: "EEEE, MMM d, YYYY")
         jobTime.text = Date().displayDate(timeInterval: job.starttime, format: "h:mm a")
 
         
@@ -75,8 +74,9 @@ class JobDetailsViewVC: UIViewController {
         jobTitle.text = job.name.uppercased()
         jobType.text = job.jobtype.uppercased()
         jobLocation.text = job.location.uppercased()
-        agreedRate.text = "£\(job.agreedRate)/\(job.unitsType.capitalizingFirstLetter())"
 
+        jobLength.text = JobsManager.length(length: job.timeUnits, unit: job.unitsType, altunit: job.altrateUnitsType).uppercased()
+        
         let url = URL(string: "\(domainURL)/avatar/thumb\(job.avatar)")
         
         Alamofire.request(url!, method: .get)
@@ -130,7 +130,11 @@ class JobDetailsViewVC: UIViewController {
                 secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                 agreedRate.isHidden = false
 
-                agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                if job.unitsType == "unpaid" {
+                    agreedRate.text = "Agreed consideration: \(job.altRate)"
+                } else {
+                    agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                }
 
                 // 14 is accepted, 2 if confirmed, so we need to override here,
                 // or refactor
@@ -138,14 +142,18 @@ class JobDetailsViewVC: UIViewController {
                     jobStatus.text = "CONFIRMED"
                 }
                 
-                jobStatus.textColor = UIColor.FindaColours.Blue
+                jobStatus.textColor = UIColor.FindaColours.FindaGreen
 
                 break
             case .ModelCompleted, .Completed, .ClientCompleted:
                 primaryButton.isHidden = true
                 secondaryButton.isHidden = true
                 agreedRate.isHidden = false
-                agreedRate.text = "Agreed rate: " + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                if job.unitsType == "unpaid" {
+                    agreedRate.text = "Agreed consideration: \(job.altRate)"
+                } else {
+                    agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                }
 
                 jobStatus.textColor = UIColor.FindaColours.Yellow
                 jobStatus.text = "COMPLETED"
@@ -169,32 +177,45 @@ class JobDetailsViewVC: UIViewController {
 
 
             case .Requested:
+                var offeredLabel = "Offered rate: £"
+                
+                negotiateButton.isHidden = true
+                negotiateButton.isEnabled = false
+                negotiateButton.text("Negotiate")
+                negotiateButton.addTarget(self, action: #selector(negotiateJob(sender:)), for: .touchUpInside)
+                
+                negotiateButton.layer.backgroundColor = UIColor.FindaColours.Blue.cgColor
+                negotiateButton.setTitleColor(UIColor.white, for: .normal)
+                negotiateButton.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+                negotiateButton.contentHorizontalAlignment = .center
 
-                if (job.agreedRate != 0) {
-                    agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                } else {
-
-                    var offeredLabel = "Offered rate: £"
-                    if job.clientOfferedRate != 0 {
-                        offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
-                    } else {
-                        offeredLabel = offeredLabel + "\(job.offeredRate)"
-                    }
-                    offeredLabel = offeredLabel + "/\(job.unitsType.uppercased())"
-
-                    agreedRate.text = offeredLabel
-                    agreedRate.isHidden = false
+                if (job.unitsType == "unpaid") {
+                    offeredLabel = "Offered consideration: \(job.altRate)"
                     
-                    negotiateButton.isHidden = false
-                    negotiateButton.isEnabled = true
-                    negotiateButton.text("Negotiate")
-                    negotiateButton.addTarget(self, action: #selector(negotiateJob(sender:)), for: .touchUpInside)
+                } else {
+                    if (job.agreedRate != 0) {
+                        offeredLabel = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    } else {
+                        
+                        if job.clientOfferedRate != 0 {
+                            offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
+                        } else {
+                            offeredLabel = offeredLabel + "\(job.offeredRate)"
+                        }
+                        offeredLabel = offeredLabel + "/\(job.unitsType.uppercased())"
+                        
+                        if job.modelDesiredRate != 0 {
+                            offeredLabel = offeredLabel + "\nYou asked for: £\(job.modelDesiredRate)."
+                        }
 
-                    negotiateButton.layer.backgroundColor = UIColor.FindaColours.Blue.cgColor
-                    negotiateButton.setTitleColor(UIColor.white, for: .normal)
-                    negotiateButton.layer.borderColor = UIColor.FindaColours.Blue.cgColor
-                    negotiateButton.contentHorizontalAlignment = .center
+                        negotiateButton.isHidden = false
+                        negotiateButton.isEnabled = true
+
+                    }
                 }
+
+                agreedRate.text = offeredLabel
+                agreedRate.isHidden = false
 
                 primaryButton.isHidden = false
                 primaryButton.setTitle("ACCEPT", for: .normal)
@@ -204,7 +225,7 @@ class JobDetailsViewVC: UIViewController {
                 secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
                 contactNumber.isHidden = true
 
-                jobStatus.textColor = UIColor.FindaColours.FindaGreen
+                jobStatus.textColor = UIColor.FindaColours.Blue
                 break
 
             case .Offered:
@@ -222,9 +243,9 @@ class JobDetailsViewVC: UIViewController {
                 secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
 
                 agreedRate.isHidden = false
-                agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
                 
-                jobStatus.textColor = UIColor.FindaColours.Blue
+                jobStatus.textColor = UIColor.FindaColours.FindaGreen
                 break
             }
         }
@@ -262,8 +283,10 @@ class JobDetailsViewVC: UIViewController {
             SVProgressHUD.show()
             FindaAPISession(target: .acceptJob(jobId: self.job.jobid)) { (response, result) in
                 if response {
-//                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true)
+                    SVProgressHUD.dismiss()
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+                    })
                 } else {
                     SVProgressHUD.dismiss()
                     let errorView = SCLAlertView(appearance: appearance)
@@ -295,8 +318,10 @@ class JobDetailsViewVC: UIViewController {
             SVProgressHUD.show()
             FindaAPISession(target: .rejectJob(jobId: self.job.jobid)) { (response, result) in
                 if response {
-//                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true)
+                    SVProgressHUD.dismiss()
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+                    })
                 } else {
                     SVProgressHUD.dismiss()
                     let errorView = SCLAlertView(appearance: appearance)
@@ -323,8 +348,10 @@ class JobDetailsViewVC: UIViewController {
             SVProgressHUD.show()
             FindaAPISession(target: .cancelJob(jobId: self.job.jobid)) { (response, result) in
                 if response {
-//                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true)
+                    SVProgressHUD.dismiss()
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+                    })
                 } else {
                     SVProgressHUD.dismiss()
                     let errorView = SCLAlertView(appearance: appearance)
@@ -355,8 +382,10 @@ class JobDetailsViewVC: UIViewController {
             SVProgressHUD.show()
             FindaAPISession(target: .rejectOption(jobId: self.job.jobid)) { (response, result) in
                 if response {
-//                    self.loadJobs()
-                    self.dismiss(animated: true)
+                    SVProgressHUD.dismiss()
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+                    })
                 } else {
                     SVProgressHUD.dismiss()
                     
@@ -404,8 +433,30 @@ class JobDetailsViewVC: UIViewController {
             SVProgressHUD.show()
             FindaAPISession(target: .negotiateRate(jobId: self.job.jobid, newRate: newRate!)) { (response, result) in
                 if response {
-                    let noticeView = SCLAlertView()
-                    noticeView.showInfo("Negotiation Sent", subTitle: "The Client should respond shortly")
+                    SVProgressHUD.dismiss()
+                    let noticeView = SCLAlertView(appearance: appearance)
+                    noticeView.showInfo("Negotiation Sent", subTitle: "The Client should respond shortly", colorStyle: 0x13AFC0)
+                    
+                    var offeredLabel = "Offered rate: £"
+                    
+                    if (self.job.agreedRate != 0) {
+                        self.agreedRate.text = "Agreed rate: £\(self.job.agreedRate)/\(self.job.unitsType.uppercased())"
+                    } else {
+                        
+                        if self.job.clientOfferedRate != 0 {
+                            offeredLabel = offeredLabel + "\(self.job.clientOfferedRate)"
+                        } else {
+                            offeredLabel = offeredLabel + "\(self.job.offeredRate)"
+                        }
+                        offeredLabel = offeredLabel + "/\(self.job.unitsType.uppercased())"
+                        
+                        
+                    }
+                    
+                    offeredLabel = offeredLabel + "\nYou asked for: £\(newRate ?? self.job.modelDesiredRate)."
+                    self.agreedRate.text = offeredLabel
+                    self.requestRefresh = true
+                    
                 } else {
                     SVProgressHUD.dismiss()
                     let errorView = SCLAlertView(appearance: appearance)
@@ -416,7 +467,7 @@ class JobDetailsViewVC: UIViewController {
             }
         }
         
-        var subtitle = "The current offered rate is £"
+        var subtitle = "The current offered rate is: £"
         if job.clientOfferedRate != 0 {
             subtitle = subtitle + "\(job.clientOfferedRate)"
         } else {
@@ -425,7 +476,7 @@ class JobDetailsViewVC: UIViewController {
         subtitle = subtitle + "/" + job.unitsType + "."
         
         if job.modelDesiredRate != 0 {
-            subtitle = subtitle + " You previously asked for £\(job.modelDesiredRate)."
+            subtitle = subtitle + "\nYou asked for: £\(job.modelDesiredRate)."
         }
         
         alertView.showTitle(
@@ -439,7 +490,13 @@ class JobDetailsViewVC: UIViewController {
     }
 
     @objc private func backButtonTapped(sender: UIImageView) {
-        self.dismiss(animated: true)
+        if self.requestRefresh {
+            self.dismiss(animated: true, completion: {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+            })
+        } else {
+            self.dismiss(animated: true)
+        }
     }
     
 }

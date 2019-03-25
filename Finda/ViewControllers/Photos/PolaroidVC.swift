@@ -44,7 +44,7 @@ class PolaroidVC: UIViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: ((self.collectionView.frame.width)/2 - 4.1), height: ((self.collectionView.frame.width)/2 - 4.1))
+        layout.itemSize = CGSize(width: ((self.collectionView.frame.width)/2 - 30.1), height: ((self.collectionView.frame.width)/2 - 30.1))
         layout.minimumInteritemSpacing = 4
         layout.minimumLineSpacing = 6
         
@@ -127,7 +127,8 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCVC
         
         let imageData = self.photosArray[indexPath.row].filename
-        cell.addDashedBorder(borderColour: UIColor.FindaColours.LightGrey, cornerRadius: 10)
+//        cell.addDashedBorder(borderColour: UIColor.FindaColours.LightGrey, cornerRadius: 10)
+        cell.image.setRounded(radius: 10)
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPolaroidsURL: url, imageTransition: .crossDissolve(0.25))
         }

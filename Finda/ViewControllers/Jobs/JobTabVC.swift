@@ -18,12 +18,12 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         super.viewDidLoad()
        
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
-            viewController.jobType = .offered
+            viewController.jobType = .accepted
             self.viewControllers.append(viewController)
         }
         
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Jobs") as? JobsVC {
-            viewController.jobType = .accepted
+            viewController.jobType = .offered
             self.viewControllers.append(viewController)
         }
         
@@ -32,32 +32,34 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
         
-        self.bar.items = [Item(title: "Requests"), Item(title: "Confirmed"), Item(title: "All")]
+        self.bar.items = [Item(title: "Upcoming"), Item(title: "Offers"), Item(title: "History")]
         
+//        self.bar.style = .scrollingButtonBar
         self.bar.style = .buttonBar
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
             appearance.indicator.color = UIColor.FindaColours.Blue
             appearance.state.selectedColor = UIColor.FindaColours.Blue
+            appearance.layout.interItemSpacing = 0
         })
         self.dataSource = self
 
         // can we move to the view now?
-        let preferences = UserDefaults.standard
-        
-        let currentLevelKey = "showJobIdCard"
-        var showJobId = 0
-        if preferences.object(forKey: currentLevelKey) == nil {
-            //  Doesn't exist
-        } else {
-            showJobId = preferences.integer(forKey: "showJobIdCard")
-        }
+//        let preferences = UserDefaults.standard
+//        
+//        let currentLevelKey = "showJobIdCard"
+//        var showJobId = 0
+//        if preferences.object(forKey: currentLevelKey) == nil {
+//            //  Doesn't exist
+//        } else {
+//            showJobId = preferences.integer(forKey: "showJobIdCard")
+//        }
 
-        if showJobId != 0 {
-            // move to the ALL tab
-            self.scrollToIndex(indexOf: 2)
-        }
+//        if showJobId != 0 {
+//            // move to the ALL tab
+//            self.scrollToIndex(indexOf: 2)
+//        }
         
     }
     

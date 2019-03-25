@@ -169,10 +169,10 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             }
             
             <<< PickerInlineRow<String>() { row in
-                row.title = "Gender"
+                row.title = "I identify as"
                 row.tag = "gender"
                 
-                row.options = ["Female", "Male"]
+                row.options = ["Female", "Male", "Prefer not to say"]
                 row.value = "Female"
                 row.add(rule: RuleRequired())
                 row.add(rule: RuleMinLength(minLength: 1))

@@ -155,7 +155,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["password"] = pass
             p["firstname"] = firstname
             p["lastname"] = lastname
-            p["gender"] = gender.lowercased()
+            if (gender.lowercased() == "prefer not to say") {
+                p["gender"] = "other"
+            } else {
+                p["gender"] = gender.lowercased()
+            }
             p["country"] = country
             p["usertype"] = "model"
             p["agree_terms"] = 1
@@ -189,10 +193,12 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .getNotifications(let notificationType):
             p["type"] = notificationType.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
         case .countNotifications(let notificationType):
             p["type"] = notificationType.rawValue
             p["count"] = true
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
         case .deleteNotifications(let id):
             p["msgid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
@@ -203,7 +209,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["lastname"] = lastName
             parameters["mail"] = email
             parameters["telephone"] = telephone
-            parameters["gender"] = gender
+            if (gender.lowercased() == "prefer not to say") {
+                parameters["gender"] = "other"
+            } else {
+                parameters["gender"] = gender.lowercased()
+            }
             parameters["ethnicity"] = ethnicityId
             parameters["instagram"] = instagramUsername
             if (referralCode != "") {

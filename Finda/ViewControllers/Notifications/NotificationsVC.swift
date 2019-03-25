@@ -188,17 +188,17 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
                     let cell = self.tableView.cellForRow(at: tapIndexPath)
                     
-                    let preferences = UserDefaults.standard
-                    preferences.set(cell!.tag, forKey: "showJobIdCard")
-                    preferences.synchronize()
-                    
-                    print("saved job id: " + String(cell!.tag))
-
-                    // now we have to move VC
-                    let smc = sideMenuController
-                    smc?.setContentViewController(with: "MainTabBar")
-                    (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
-
+                    if let msgid = cell?.tag {
+                        let preferences = UserDefaults.standard
+                        preferences.set("tappedNotification", forKey: "sourceAction")
+                        preferences.set(msgid, forKey: "showJobIdCard")
+                        preferences.synchronize()
+                        
+                        // now we have to move VC
+                        let smc = sideMenuController
+                        smc?.setContentViewController(with: "MainTabBar")
+                        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+                    }
                 }
             }
         }

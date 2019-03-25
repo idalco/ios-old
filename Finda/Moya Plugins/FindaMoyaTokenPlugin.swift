@@ -41,10 +41,12 @@ public struct FindaTokenPlugin: PluginType {
         var request = request
         
         switch authorizationType {
-        case .basic, .bearer:
-            request.addValue(tokenClosure(), forHTTPHeaderField: "Token")
-        case .none:
-            break
+            case .basic, .bearer:
+                request.addValue(tokenClosure(), forHTTPHeaderField: "Token")
+            case .none:
+                break
+            case .custom(_):
+                break
         }
         
         return request

@@ -23,19 +23,29 @@ class JobsVC: UIViewController {
     var jobType: JobsManager.JobTypes = .all
     
     var allJobs: [Job] = []
-    var loadingFirst: Bool = true
+    var upcomingJobs: [Job] = []
+    var offeredJobs: [Job] = []
+    var historyJobs: [Job] = []
+    var thisTabJobs: [Job] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.transparentNavigationBar()
 
+        
         if self.jobType.rawValue == "offered" {
-            self.noJobsLabel.text = "Currently you have no requests"
+            self.noJobsLabel.text = "Currently you have no upcoming jobs"
         } else {
-            self.noJobsLabel.text = "Currently you have no \(self.jobType.rawValue) jobs"
+            if self.jobType.rawValue == "Accepted" {
+                self.noJobsLabel.text = "Sorry, there are no Upcoming jobs to show"
+            } else {
+                self.noJobsLabel.text = "Sorry, there are no \(self.jobType.rawValue) jobs to show"
+            }
+            
         }
         
         self.setUpCollectionView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadJobs), name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
         
     }
     
@@ -48,10 +58,11 @@ class JobsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.loadJobs()
     }
     
-    private func setUpCollectionView(){
+    private func setUpCollectionView() {
+        self.noJobsLabel.isHidden = true
+
         if #available(iOS 10.0, *) {
             jobCardCollection.refreshControl = refreshControl
         } else {
@@ -61,8 +72,7 @@ class JobsVC: UIViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
-//        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-//        layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         var height: CGFloat = 10.0
         
@@ -87,230 +97,46 @@ class JobsVC: UIViewController {
         
         self.updateCards()
     }
-
-    @objc private func acceptJob(sender: UIButton) {
+    
+    @objc public func loadJobs() {
         
-        let appearance = SCLAlertView.SCLAppearance()
-        let alertView = SCLAlertView(appearance: appearance)
-        
-        alertView.addButton("View Terms") {
-            if let destination = NSURL(string: domainURL + "/bookingterms") {
+        JobsManager.getJobs(jobType: .all) { (response, result) in
+            if (response) {
+                let jobsAccepted = result["userdata"]["accepted"].arrayValue
+                let jobsOffered = result["userdata"]["offered"].arrayValue
+                let jobsHistory = result["userdata"]["history"].arrayValue
                 
-                let safari = SFSafariViewController(url: destination as URL, entersReaderIfAvailable: true)
-                self.present(safari, animated: true)
-            }
-        }
-        alertView.addButton("Accept Offer") {
-            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
-            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
-            SVProgressHUD.show()
-            FindaAPISession(target: .acceptJob(jobId: sender.tag)) { (response, result) in
-                if response {
-                    self.loadJobs()
-                } else {
-                    SVProgressHUD.dismiss()
-                    let errorView = SCLAlertView(appearance: appearance)
-                    errorView.showError(
-                        "Sorry",
-                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
-                }
-            }
-        }
-        
-        alertView.showTitle(
-            "Are you sure?",
-            subTitle: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email. If you want to negotiate the fee, you can do this on the Finda website before accepting.",
-            style: .question,
-            closeButtonTitle: "Cancel",
-            colorStyle: 0x13AFC0,
-            colorTextButton: 0xFFFFFF)
-    
-    }
-    
-    @objc private func rejectJob(sender: UIButton) {
-        
-        let appearance = SCLAlertView.SCLAppearance()
-
-        let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Reject offer", style: UIAlertAction.Style.default, handler: { action in
-            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
-            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
-            SVProgressHUD.show()
-            FindaAPISession(target: .rejectJob(jobId: sender.tag)) { (response, result) in
-                if response {
-                    self.loadJobs()
-                } else {
-                    SVProgressHUD.dismiss()
-                    let errorView = SCLAlertView(appearance: appearance)
-                    errorView.showError(
-                        "Sorry",
-                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
-                }
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-
-    }
-    
-    @objc private func cancelJob(sender: UIButton) {
-        
-        
-        let appearance = SCLAlertView.SCLAppearance()
-        let alertView = SCLAlertView(appearance: appearance)
-        
-        alertView.addButton("Cancel Job") {
-            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
-            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
-            SVProgressHUD.show()
-            FindaAPISession(target: .cancelJob(jobId: sender.tag)) { (response, result) in
-                if response {
-                    self.loadJobs()
-                } else {
-                    SVProgressHUD.dismiss()
-                    let errorView = SCLAlertView(appearance: appearance)
-                    errorView.showError(
-                        "Sorry",
-                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
-                }
-            }
-        }
-        alertView.showTitle(
-            "Are you sure?",
-            subTitle: "",
-            style: .warning,
-            closeButtonTitle: "Close",
-            colorStyle: 0x13AFC0,
-            colorTextButton: 0xFFFFFF)
-        
-    }
-
-    @objc private func rejectOption(sender: UIButton) {
-        
-        let appearance = SCLAlertView.SCLAppearance()
-        let alertView = SCLAlertView(appearance: appearance)
-
-        alertView.addButton("Decline Offer") {
-            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
-            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
-            SVProgressHUD.show()
-            FindaAPISession(target: .rejectOption(jobId: sender.tag)) { (response, result) in
-                if response {
-                    self.loadJobs()
-                } else {
-                    SVProgressHUD.dismiss()
-                    
-                    let errorView = SCLAlertView(appearance: appearance)
-                    errorView.showError(
-                        "Sorry",
-                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
-                }
-            }
-        }
-        alertView.showTitle(
-            "Are you sure?",
-            subTitle: "You will be able to negotiate a different rate if the client offers you this job later.",
-            style: .warning,
-            closeButtonTitle: "Cancel",
-            colorStyle: 0x13AFC0,
-            colorTextButton: 0xFFFFFF)
-        
-    }
-    
-    
-    
-    @objc private func downloadCallsheet(sender: UIButton) {
-        
-        let jobid = String(sender.tag)
-        if let url = URL(string: "https://finda.co/download/callsheet/\(jobid)") {
-            let safariVC = SFSafariViewController(url: url)
-            self.present(safariVC, animated: true, completion: nil)
-            safariVC.delegate = self.parent as? SFSafariViewControllerDelegate
-        }
-        
-    }
-    
-    @objc private func negotiateJob(sender: UIButton) {
-        
-        let jobid = sender.tag
-        
-        var job = self.allJobs[0]
-        
-        for thisJob in self.allJobs {
-            if thisJob.jobid == jobid {
-                job = thisJob
-            }
-        }
-        
-        let appearance = SCLAlertView.SCLAppearance()
-        let alertView = SCLAlertView(appearance: appearance)
-        let newRateField = alertView.addTextField("Enter your desired rate")
-        
-        alertView.addButton("Negotiate") {
-            // the value we need is in newRate
-            let newRate = Int(newRateField.text!)
-//            if (newRate! >= job.offeredRate) {
-                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
-                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
-                SVProgressHUD.show()
-                FindaAPISession(target: .negotiateRate(jobId: jobid, newRate: newRate!)) { (response, result) in
-                    if response {
-                        let noticeView = SCLAlertView()
-                        noticeView.showInfo("Negotiation Sent", subTitle: "The Client should respond shortly")
-                        self.loadJobs()
-                    } else {
-                        SVProgressHUD.dismiss()
-                        let errorView = SCLAlertView(appearance: appearance)
-                        errorView.showError(
-                            "Sorry",
-                            subTitle: "Something went wrong sending your negotiation. Please try again later.")
+                self.allJobs.removeAll()
+                self.thisTabJobs.removeAll()
+                for job in jobsAccepted {
+                    self.allJobs.append(Job(data: job))
+                    if self.jobType == .accepted {
+                        self.thisTabJobs.append(Job(data: job))
                     }
                 }
-        }
-
-        var subtitle = "The current offered rate is £"
-        if job.clientOfferedRate != 0 {
-            subtitle = subtitle + "\(job.clientOfferedRate)"
-        } else {
-            subtitle = subtitle + "\(job.offeredRate)"
-        }
-        subtitle = subtitle + "/" + job.unitsType + "."
-        
-        if job.modelDesiredRate != 0 {
-            subtitle = subtitle + " You previously asked for £\(job.modelDesiredRate)."
-        }
-        
-        alertView.showTitle(
-            "Negotiate Rate",
-            subTitle: subtitle,
-            style: .question,
-            closeButtonTitle: "Cancel",
-            colorStyle: 0x13AFC0,
-            colorTextButton: 0xFFFFFF)
-        
-    }
-    
-    private func loadJobs() {
-        
-        JobsManager.getJobs(jobType: self.jobType) { (response, result) in
-            if (response) {
-                let jobs = result["userdata"].dictionaryValue
-                var jobsArray: [Job] = []
-                for job in jobs {
-                    jobsArray.append(Job(data: job.value))
+                for job in jobsOffered {
+                    self.allJobs.append(Job(data: job))
+                    if self.jobType == .offered {
+                        self.thisTabJobs.append(Job(data: job))
+                    }
                 }
-                if self.loadingFirst || !self.allJobs.elementsEqual(jobsArray, by: { (job1: Job, job2:Job) -> Bool in
-                    job1 == job2
-                }) {
-                    self.allJobs = jobsArray
-                    self.jobCardCollection.reloadData()
-//                    self.update()
-                    self.loadingFirst = false
-                    
-                    
+                for job in jobsHistory {
+                    self.allJobs.append(Job(data: job))
+                    if self.jobType == .all {
+                        self.thisTabJobs.append(Job(data: job))
+                    }
+                }
+                
+                self.jobCardCollection.reloadData()
+                
+                if self.thisTabJobs.count == 0 {
+                    self.noJobsLabel.isHidden = false
+                } else {
+                    self.noJobsLabel.isHidden = true
                 }
                 SVProgressHUD.dismiss()
                 self.refreshControl.endRefreshing()
+                self.showJobCard()
             } else {
                 let appearance = SCLAlertView.SCLAppearance()
                 let errorView = SCLAlertView(appearance: appearance)
@@ -330,6 +156,43 @@ class JobsVC: UIViewController {
         sideMenuController?.revealMenu()
     }
     
+    private func showJobCard() {
+    
+        // can we move to the view now?
+        let preferences = UserDefaults.standard
+        
+        let currentLevelKey = "showJobIdCard"
+        var showJobId = 0
+        var sourceVC = ""
+        if preferences.object(forKey: currentLevelKey) == nil {
+            //  Doesn't exist
+        } else {
+            showJobId = preferences.integer(forKey: "showJobIdCard")
+            sourceVC = preferences.string(forKey: "sourceAction") ?? ""
+        }
+        
+        // always overwrite
+        preferences.set(0, forKey: "showJobIdCard")
+        preferences.set("", forKey: "sourceAction")
+        preferences.synchronize()
+        
+        if showJobId != 0 && sourceVC != "" {
+            var doSegue = false
+            for job in self.allJobs {
+                if (job.jobid == showJobId) {
+                    self.performSegue(withIdentifier: "showJobDetailsSegue", sender: job)
+                    doSegue = true
+                }
+            }
+            if !doSegue {
+                let appearance = SCLAlertView.SCLAppearance()
+                let errorView = SCLAlertView(appearance: appearance)
+                errorView.showError(
+                    "Sorry",
+                    subTitle: "The job associated with that message is no longer available or has expired")
+            }
+        }
+    }
 }
 
 extension UILabel {
@@ -374,15 +237,15 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.allJobs.count > 0 ? 1:0
+        return self.thisTabJobs.count > 0 ? 1:0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.allJobs.count
+        return self.thisTabJobs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showJobDetailsSegue", sender: self.allJobs[indexPath.row])
+        self.performSegue(withIdentifier: "showJobDetailsSegue", sender: self.thisTabJobs[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -393,53 +256,44 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.FindaColours.Grey.cgColor
 
-        cell.jobStatus.text(self.allJobs[indexPath.row].header)
-        cell.customerName.text(self.allJobs[indexPath.row].companyName)
+        cell.jobStatus.text(self.thisTabJobs[indexPath.row].header)
+        cell.customerName.text(self.thisTabJobs[indexPath.row].companyName)
         
         cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaRed
         cell.jobStatus.textColor = UIColor.FindaColours.Black
         
-        let jobStatus = self.allJobs[indexPath.row].header
+        let jobStatus = self.thisTabJobs[indexPath.row].header
         
         switch JobStatus(rawValue: jobStatus) {
             case .Requested?:
-                
-//                cell.layer.borderColor = UIColor.FindaColours.Blue.cgColor
-//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Blue
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Blue
                 cell.jobStatus.textColor = UIColor.FindaColours.Blue
-                
                 break
             
             case .Accepted?:
-//                cell.layer.borderColor = UIColor.FindaColours.FindaGreen.cgColor
-//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaGreen
-                cell.jobStatus.textColor = UIColor.FindaColours.FindaGreen
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Blue
+                cell.jobStatus.textColor = UIColor.FindaColours.Blue
+                cell.jobStatus.text("YOU ACCEPTED, AWAITING CLIENT CONFIRMATION")
                 break
  
             case .Confirmed?:
-//                cell.layer.borderColor = UIColor.FindaColours.FindaGreen.cgColor
-//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaGreen
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaGreen
                 cell.jobStatus.textColor = UIColor.FindaColours.FindaGreen
                 break
             
             case .ModelCompleted?, .Completed?, .ClientCompleted?:
-//                cell.layer.borderColor = UIColor.FindaColours.Yellow.cgColor
-//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Yellow
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Yellow
                 cell.jobStatus.textColor = UIColor.FindaColours.Yellow
-                
                 cell.jobStatus.text("COMPLETED")
                 break
             
             case .Expired?:
-//                cell.layer.borderColor = UIColor.FindaColours.LightGreen.cgColor
-//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.LightGreen
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.LightGreen
                 break
             
             case .Finished?:
-//                cell.layer.borderColor = UIColor.FindaColours.Black.cgColor
-//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Black
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Black
                 break
-            
             
             // not used
             case .Optioned?:
@@ -451,22 +305,15 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
             case .Unfinalised?:
                 break
             case .none:
-//                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaRed
                 break
         }
         
-        cell.jobTitle.text = self.allJobs[indexPath.row].name
-        cell.jobType.text = self.allJobs[indexPath.row].jobtype
-        
-//        cell.jobDates.text = Date().displayDate(timeInterval: self.allJobs[indexPath.row].startdate, format: "MMM dd, yyyy") + " at " + Date().displayDate(timeInterval: self.allJobs[indexPath.row].starttime, format: "h:mm a")
-        
-        cell.jobDates.text = Date().displayDate(timeInterval: self.allJobs[indexPath.row].startdate, format: "dd MMM")
-        cell.jobTime.text = Date().displayDate(timeInterval: self.allJobs[indexPath.row].starttime, format: "HH:mm")
-//        cell.agreedRate.text = "£\(self.allJobs[indexPath.row].agreedRate)/\(self.allJobs[indexPath.row].unitsType.capitalizingFirstLetter())"
-    
+        cell.jobTitle.text = self.thisTabJobs[indexPath.row].name
+        cell.jobType.text = self.thisTabJobs[indexPath.row].jobtype
+        cell.jobDates.text = Date().displayDate(timeInterval: self.thisTabJobs[indexPath.row].startdate, format: "dd MMM")
+        cell.jobTime.text = Date().displayDate(timeInterval: self.thisTabJobs[indexPath.row].starttime, format: "HH:mm")
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         return cell
     }
-    
 }

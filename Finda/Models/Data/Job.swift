@@ -16,7 +16,7 @@ class Job {
     let name, header: String
     let offeredRate, negotiatedRate, agreedRate: Int
     let timeUnits: Float
-    let unitsType: String
+    let unitsType, altRate, altrateUnitsType: String
     let startdate, starttime: Int
     let description: String
     let clientJobCompleted: Bool
@@ -50,6 +50,8 @@ class Job {
         self.agreedRate = data["agreed_rate"].intValue
         self.timeUnits = data["time_units"].floatValue
         self.unitsType = data["units_type"].stringValue
+        self.altrateUnitsType = data["altrate_unitstype"].stringValue
+        self.altRate = data["altrate"].stringValue
         self.startdate = data["startdate"].intValue
         self.starttime = data["starttime"].intValue
         self.description = data["description"].stringValue

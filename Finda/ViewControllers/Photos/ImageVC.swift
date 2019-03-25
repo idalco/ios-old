@@ -35,7 +35,7 @@ class ImageVC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.LightGreen
         
         if self.image.image == nil {
             self.makeLoadingView()

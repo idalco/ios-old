@@ -14,7 +14,7 @@ import SVProgressHUD
 class PortfolioVC: UIViewController {
     
     @IBOutlet weak var addNewButton: DCRoundedButton!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewPortfolio: UICollectionView!
     private let refreshControl = UIRefreshControl()
     
     var photosArray: [Photo] = []
@@ -38,20 +38,21 @@ class PortfolioVC: UIViewController {
 
     private func setUpCollectionView(){
         if #available(iOS 10.0, *) {
-            collectionView.refreshControl = refreshControl
+            collectionViewPortfolio.refreshControl = refreshControl
         } else {
-            collectionView.addSubview(refreshControl)
+            collectionViewPortfolio.addSubview(refreshControl)
         }
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: ((self.collectionView.frame.width)/2 - 4.1), height: ((self.collectionView.frame.width)/2 - 4.1))
+        layout.itemSize = CGSize(width: ((self.collectionViewPortfolio.frame.width)/2 - 30.1), height: ((self.collectionViewPortfolio.frame.width)/2 - 30.1))
         layout.minimumInteritemSpacing = 4
         layout.minimumLineSpacing = 6
         
+        
         // (note, it's critical to actually set the layout to that!!)
-        collectionView.collectionViewLayout = layout
+        collectionViewPortfolio.collectionViewLayout = layout
     }
     
     @objc private func refreshData(_ sender: Any) {
@@ -63,7 +64,7 @@ class PortfolioVC: UIViewController {
         PhotoManager.getPhotos(imageType: .Portfolio) { (response, result, photos) in
             if response {
                 self.photosArray = photos
-                self.collectionView.reloadData()
+                self.collectionViewPortfolio.reloadData()
                 self.refreshControl.endRefreshing()
             }
         }
@@ -128,12 +129,14 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PortfolioCVC
 
-        cell.addDashedBorder(borderColour: UIColor.FindaColours.LightGrey, cornerRadius: 10)
+//        cell.addDashedBorder(borderColour: UIColor.FindaColours.LightGrey, cornerRadius: 10)
+//        cell.addSolidBorder(borderColour: UIColor.FindaColours.White, cornerRadius: 10, width: 2)
         let imageData = self.photosArray[indexPath.row].filename
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPortfolioURL: url, imageTransition: .crossDissolve(0.25))
         }
         
+        cell.image.setRounded(radius: 10)
         if self.photosArray[indexPath.row].leadimage {
             cell.image.layer.borderWidth = 3
             cell.image.layer.borderColor = UIColor.FindaColours.Blue.cgColor
@@ -158,7 +161,7 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
             self.updateImages()
         }
         photosArray.remove(at: sender.tag)
-        collectionView.reloadData()
+        collectionViewPortfolio.reloadData()
     }
     
     @objc func selectLeadImage(sender: UIButton) -> Void {
@@ -171,7 +174,7 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
             photo.leadimage = false
         }
         self.photosArray[sender.tag].leadimage = true
-        collectionView.reloadData()
+        collectionViewPortfolio.reloadData()
     }
 
     

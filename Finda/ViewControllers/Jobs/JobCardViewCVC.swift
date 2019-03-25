@@ -23,8 +23,8 @@ class JobCardViewCVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+//        contentView.translatesAutoresizingMaskIntoConstraints = false
+//        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
 
         layoutIfNeeded()
     }

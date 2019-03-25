@@ -36,14 +36,24 @@ class JobsManager {
         }
     }
     
-    static func length(length: Float, unit: String) -> String {
+    static func length(length: Float, unit: String, altunit: String) -> String {
         var string = ""
-        if (length == 0.5) {
-            string = "1/2  \(unit)"
-        } else if length == 0.25 {
-            string = "1/4  \(unit)"
+        if unit == "unpaid" {
+            if (length == 0.5) {
+                string = "1/2  \(altunit)"
+            } else if length == 0.25 {
+                string = "1/4  \(altunit)"
+            } else {
+                string = String(format: "%.0f", length) + " \(altunit)"
+            }
         } else {
-            string = "\(length) \(unit)"
+            if (length == 0.5) {
+                string = "1/2  \(unit)"
+            } else if length == 0.25 {
+                string = "1/4  \(unit)"
+            } else {
+                string = String(format: "%.0f", length) + " \(unit)"
+            }
         }
         if (length > 1) {
             return "\(string)s"

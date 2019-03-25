@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import SVProgressHUD
 import SafariServices
+import SCLAlertView
 
 class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     
@@ -78,26 +79,24 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
         
     }
     
-    func loginSegue(){
+    func loginSegue() {
         let modelManager = ModelManager()
         if modelManager.status() == UserStatus.banned {
             LoginManager.signOut()
             return
         } else if modelManager.status() == UserStatus.unverified {
-            print("edit profile")
             self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
         } else {
-            print("edit profile")
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
     
-    func login(){
-        if(self.emailTextField.text == ""){
+    func login() {
+        if(self.emailTextField.text == "") {
             self.setEmailTextFieldBorder(error: true)
             return
         }
-        if(self.passwordTextField.text == ""){
+        if(self.passwordTextField.text == "") {
             self.setPasswordTextFieldBorder(error: true)
             return
         }
@@ -120,6 +119,13 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
                 } else {
                     self.setEmailTextFieldBorder(error: true)
                     self.setPasswordTextFieldBorder(error: true)
+
+                    let appearance = SCLAlertView.SCLAppearance()
+                    let errorView = SCLAlertView(appearance: appearance)
+                    errorView.showError(
+                        "Sorry",
+                        subTitle: "That username and password combination was not recognised.")
+
                 }
             }
         }
