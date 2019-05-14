@@ -15,8 +15,8 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     ])
 
 //let domainURL: String = "http://dev.finda.co"
-//let domainURL: String = "http://dev.finda"
-let domainURL: String = "https://www.finda.co"
+let domainURL: String = "http://dev.finda"
+//let domainURL: String = "https://www.finda.co"
 
 enum FindaAPI {
     // POST
@@ -42,11 +42,13 @@ enum FindaAPI {
     case deleteImage(id: Int)
     case selectLeadImage(id: Int)
     case inviteFriend(name: String, email: String)
+    case supportRequest(request: String)
     case updateBankDetails(name: String, sortcode: String, accountNumber: String)
     case getModelInvoices()
     case acceptJob(jobId: Int)
     case rejectJob(jobId: Int)
     case cancelJob(jobId: Int)
+    case completeJob(jobId: Int)
     case rejectOption(jobId: Int)
     case negotiateRate(jobId: Int, newRate: Int)
     case updateDeviceToken(deviceToken: String)
@@ -103,6 +105,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/selectLeadImage"
         case .inviteFriend:
             return "/inviteFriend"
+        case .supportRequest:
+            return "/support"
         case .updateBankDetails:
             return "/updateProfile"
         case .getModelInvoices:
@@ -115,6 +119,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/rejectBooking"
         case .cancelJob:
             return "/cancelBooking"
+        case .completeJob:
+            return "/completeBooking"
         case .userDetails:
             return "/userLoad"
         case .updateDeviceToken:
@@ -130,7 +136,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .updateDeviceToken, .updateAvailability, .negotiateRate:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate:
             return .post
             
         // methods requiring GET
@@ -274,17 +280,17 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
         case .uploadPolaroidImage(let image):
-            guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
+            guard let jpegRep = image.jpegData(compressionQuality: 1.0) else { return .uploadMultipart([]) }
             let jpegData = MultipartFormData(provider: .data(jpegRep), name: "polaroids", fileName: "image.jpeg", mimeType: "image/jpeg")
             return .uploadMultipart([jpegData])
             
         case .uploadPortfolioImage(let image):
-            guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
+            guard let jpegRep = image.jpegData(compressionQuality: 1.0) else { return .uploadMultipart([]) }
             let jpegData = MultipartFormData(provider: .data(jpegRep), name: "portfolio", fileName: "image.jpeg", mimeType: "image/jpeg")
             return .uploadMultipart([jpegData])
             
         case .uploadVerificationImage(let image):
-            guard let jpegRep = UIImageJPEGRepresentation(image, 1.0) else { return .uploadMultipart([]) }
+            guard let jpegRep = image.jpegData(compressionQuality: 1.0) else { return .uploadMultipart([]) }
             let jpegData = MultipartFormData(provider: .data(jpegRep), name: "kyc", fileName: "image.jpeg", mimeType: "image/jpeg")
             return .uploadMultipart([jpegData])
             
@@ -297,10 +303,16 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .selectLeadImage(let id):
             p["imageid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .inviteFriend(let name, let email):
             p["name"] = name
             p["email"] = email
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
+        case .supportRequest(let request):
+            p["request"] = request
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .updateBankDetails(let name, let sortcode, let accountNumber):
             var parameters = [String: Any]()
             parameters["bank_accountname"] = name
@@ -318,6 +330,9 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .cancelJob(let jobId):
+            p["jobid"] = jobId
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .completeJob(let jobId):
             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .updateDeviceToken(let deviceToken):

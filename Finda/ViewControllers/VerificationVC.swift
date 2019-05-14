@@ -66,28 +66,28 @@ class VerificationVC: UIViewController {
         if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
             // user
             faline1.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline1.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline1.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline2.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline2.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline2.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline3.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline3.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline3.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline4.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline4.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline4.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline5.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline5.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline5.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline6.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline6.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline6.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline7.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline7.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline7.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline9.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline9.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline9.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
             faline10.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline10.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline10.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
         }
         
         if let fafont2 = UIFont(name: "FontAwesome", size: 15) {
             faline8.addAttribute(.font, value: fafont2, range: NSMakeRange(0, 2))
-            faline8.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            faline8.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
         }
   
         newtext.append(faline1)
@@ -133,7 +133,7 @@ class VerificationVC: UIViewController {
         let alertView = SCLAlertView(appearance: appearance)
         
         var config = YPImagePickerConfiguration()
-        config.showsFilters = false
+        config.showsPhotoFilters = false
         config.startOnScreen = .library
         let picker = YPImagePicker(configuration: config)
         

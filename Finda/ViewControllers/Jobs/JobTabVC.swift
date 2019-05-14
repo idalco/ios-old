@@ -12,6 +12,9 @@ import Pageboy
 
 class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
    
+    @IBOutlet weak var supportButton: UIButton!
+    
+    
     var viewControllers: [UIViewController] = []
     
     override func viewDidLoad() {
@@ -32,16 +35,17 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
         
-        self.bar.items = [Item(title: "Upcoming"), Item(title: "Offers"), Item(title: "History")]
+        self.bar.items = [Item(title: "Upcoming/Offers"), Item(title: "To Complete"), Item(title: "History")]
         
-//        self.bar.style = .scrollingButtonBar
-        self.bar.style = .buttonBar
+        self.bar.style = .scrollingButtonBar
+//        self.bar.style = .buttonBar
+//        self.bar.style = .blockTabBar
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
             appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
             appearance.indicator.color = UIColor.FindaColours.Blue
             appearance.state.selectedColor = UIColor.FindaColours.Blue
-            appearance.layout.interItemSpacing = 0
+//            appearance.layout.interItemSpacing = 10
         })
         self.dataSource = self
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyGif
+import FontAwesome_swift
 
 class ImageVC: UIViewController {
     
@@ -21,13 +22,19 @@ class ImageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.leadImageButton.setFAIcon(icon: .FACheck, iconSize: 20, forState: .normal)
+//        self.leadImageButton.setFAIcon(icon: .FACheck, iconSize: 20, forState: .normal)
+        self.leadImageButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
         self.leadImageButton.isHidden = true
         self.deleteImageButton.isHidden = true
 
         let gifManager = SwiftyGifManager(memoryLimit:20)
-        let gif = UIImage(gifName: "loading-icon.gif")
-        self.loadingView.setGifImage(gif, manager: gifManager)
+
+        do {
+            let gif = try UIImage(gifName: "loading-icon.gif")
+            self.loadingView.setGifImage(gif, manager: gifManager)
+        } catch _ {
+        }
+
         
         // Do any additional setup after loading the view.
     }

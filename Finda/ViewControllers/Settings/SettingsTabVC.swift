@@ -114,7 +114,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         let smc = sideMenuController
         smc?.setContentViewController(with: "MainTabBar")
         (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-        (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+        (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
 
     }
     

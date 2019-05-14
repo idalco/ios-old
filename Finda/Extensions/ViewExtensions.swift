@@ -64,9 +64,9 @@ extension UIView {
     func addTransitionFade(_ duration: TimeInterval = 0.5) {
         let animation = CATransition()
         
-        animation.type = kCATransitionFade
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
-        animation.fillMode = kCAFillModeForwards
+        animation.type = CATransitionType.fade
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.duration = duration
         
         layer.add(animation, forKey: "kCATransitionFade")
@@ -86,7 +86,7 @@ extension UIView {
         shapeLayer.backgroundColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = color
         shapeLayer.lineWidth = 2
-        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
         shapeLayer.lineDashPattern = [4,4]
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: cornerRadius).cgPath
         
@@ -106,7 +106,7 @@ extension UIView {
         shapeLayer.backgroundColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = color
         shapeLayer.lineWidth = width
-        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: cornerRadius).cgPath
         
         self.layer.addSublayer(shapeLayer)

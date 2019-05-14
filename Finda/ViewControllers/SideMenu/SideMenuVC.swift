@@ -8,7 +8,7 @@
 
 import UIKit
 import AlamofireImage
-import Font_Awesome_Swift
+import FontAwesome_swift
 import Firebase
 import SafariServices
 
@@ -18,7 +18,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var menu: [String] = []
-    var icon: [FAType] = []
+    var icon: [String] = []
     var menutype = 1
     
     var segueIdentifier: String = ""
@@ -68,16 +68,42 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     
         if modelManager.status() == UserStatus.unverified {
-//            self.menu = ["My Details", "Portfolio", "Polaroids", "Verification", "Invite a Friend", "Terms", "Privacy", "Sign Out"]
-//            self.icon = [.FAUser, .FAImage, .FACameraRetro, .FAClipboard, .FAUsers, .FAFilesO, .FAUserSecret, .FAPowerOff]
-            self.menu = ["My Details", "Portfolio", "Polaroids", "Verification", "Invite a Friend", "Sign Out"]
-            self.icon = [.FAUser, .FAImage, .FACameraRetro, .FAClipboard, .FAUsers, .FAPowerOff]
-        } else {
-//            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Terms", "Privacy", "Sign Out"]
-//            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank, .FAUsers, .FAFilesO, .FAUserSecret, .FAPowerOff]
-            self.menu = ["My Details", "Portfolio", "Polaroids", "Jobs", "Updates", "Payments", "Invite a Friend", "Sign Out"]
-            self.icon = [.FAUser,  .FAImage, .FACameraRetro, .FACamera, .FAEnvelope, .FABank, .FAUsers, .FAPowerOff]
 
+            self.menu = ["My Details",
+                         "Portfolio",
+                         "Polaroids",
+                         "Verification",
+                         "Invite a Friend",
+                         "Sign Out"]
+            self.icon = [String.fontAwesomeIcon(name: .user),
+                         String.fontAwesomeIcon(name: .image),
+                         String.fontAwesomeIcon(name: .cameraRetro),
+                         String.fontAwesomeIcon(name: .clipboard),
+                         String.fontAwesomeIcon(name: .users),
+                         String.fontAwesomeIcon(name: .powerOff)
+            ]
+            
+        } else {
+
+            self.menu = ["My Details",
+                         "Portfolio",
+                         "Polaroids",
+                         "Jobs",
+                         "Updates",
+                         "Payments",
+                         "FindaVoices",
+                         "FAQ",
+                         "Sign Out"]
+            self.icon = [String.fontAwesomeIcon(name: .user),
+                         String.fontAwesomeIcon(name: .image),
+                         String.fontAwesomeIcon(name: .cameraRetro),
+                         String.fontAwesomeIcon(name: .camera),
+                         String.fontAwesomeIcon(name: .commentDots),
+                         String.fontAwesomeIcon(name: .university),
+                         String.fontAwesomeIcon(name: .heart),
+                         String.fontAwesomeIcon(name: .question),
+                         String.fontAwesomeIcon(name: .powerOff)]
+            
             self.menutype = 2
         }
         self.tableView.reloadData()
@@ -133,8 +159,21 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuCell
         
-        cell.label.setFAText(prefixText: "", icon: self.icon[indexPath.row], postfixText: "   \(self.menu[indexPath.row])", size: 16.0, iconSize: 16.0)
+//        cell.label.setFAText(prefixText: "", icon: self.icon[indexPath.row], postfixText: "   \(self.menu[indexPath.row])", size: 16.0, iconSize: 16.0)
 
+        
+        let FAAttribute = [ NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: 16.0, style: .solid) ]
+        let cellTitle = NSMutableAttributedString(string: "\(self.icon[indexPath.row])", attributes: FAAttribute )
+        
+        let menuLabel = NSAttributedString(string: "  \(self.menu[indexPath.row])")
+        cellTitle.append(menuLabel)
+        
+        cell.label.attributedText = cellTitle
+        
+//        var labelText = NSMutableAttributedString(string: "\(self.icon[indexPath.row])")
+        
+//        cell.label.text = "\(self.icon[indexPath.row])" + " \(self.menu[indexPath.row])"
+        
         return cell
     }
     
@@ -145,29 +184,31 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         var isVerified = true;
         
         if modelManager.status() == UserStatus.unverified {
-//        if modelManager.kycOn() == -1 || modelManager.kycBy() == -1 || modelManager.kycOn() == 0 || modelManager.kycBy() == 0 {
             isVerified = false;
         }
-
+        
         let smc = sideMenuController
+        
+        // @TODO redo this based on verified/unverified menus
         
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
 
-//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
-//            
-//            if let destination = NSURL(string: domainURL + "/privacy") {
-//                let safari = SFSafariViewController(url: destination as URL)
-//                self.present(safari, animated: true)
-//            }
-//            
-//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 3 {
-//            if let destination = NSURL(string: domainURL + "/terms") {
-//                let safari = SFSafariViewController(url: destination as URL)
-//                self.present(safari, animated: true)
-//            }
         } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
-            sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
+            
+            if let destination = NSURL(string: domainURL + "/faq/model") {
+                let safari = SFSafariViewController(url: destination as URL)
+                self.present(safari, animated: true)
+            }
+
+        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 3 {
+            if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
+                let safari = SFSafariViewController(url: destination as URL)
+                self.present(safari, animated: true)
+            }
+            
+//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 4 {
+//            sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
 
         } else if indexPath.row == 0 {
             sideMenuController?.setContentViewController(with: "Settings", animated: true)
@@ -176,12 +217,12 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             smc?.setContentViewController(with: "MainTabBar")
             (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
             
         } else if  indexPath.row == 2 {
             smc?.setContentViewController(with: "MainTabBar")
             (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.childViewControllers[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
             
         } else if  indexPath.row == 3 {
             if self.menutype == 1 {

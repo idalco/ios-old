@@ -77,7 +77,7 @@ class PortfolioVC: UIViewController {
     
     @IBAction func addImage(_ sender: Any) {
         var config = YPImagePickerConfiguration()
-        config.showsFilters = false
+        config.showsPhotoFilters = false
         config.startOnScreen = .library
         let picker = YPImagePicker(configuration: config)
         

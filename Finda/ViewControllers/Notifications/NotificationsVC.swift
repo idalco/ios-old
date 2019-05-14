@@ -103,7 +103,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,10 +134,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
         }
         
-        let linkAttributes: [String : Any] = [
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Black,
-            NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleNone.rawValue,
-            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColours.White,
+        let linkAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.FindaColours.Black,
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.underlineStyle.rawValue): [],
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.underlineColor.rawValue): UIColor.FindaColours.White,
         ]
         
         cell.messageLabel.linkTextAttributes = linkAttributes
@@ -155,8 +155,8 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
             // handle delete (by removing the data from your array and updating the tableview)
             let notificationId = allNotifications[indexPath.row].id
             NotificationManager.deleteNotifications(id: notificationId)
@@ -180,7 +180,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //    }
     
     @objc func jobAction(recognizer: UITapGestureRecognizer)  {
-        if recognizer.state == UIGestureRecognizerState.ended {
+        if recognizer.state == UIGestureRecognizer.State.ended {
             let tapLocation = recognizer.location(in: self.tableView)
             if let tapIndexPath = self.tableView.indexPathForRow(at: tapLocation) {
                 if (self.tableView.cellForRow(at: tapIndexPath) as? NotificationCell) != nil {

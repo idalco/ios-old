@@ -291,7 +291,7 @@ class ClientRegisterVC: FormViewController {
             view.addSubview(RegisterFooter.legalFooter(width: self.view.frame.width))
             
             let button = RegisterFooter.signUpButton(width: self.view.frame.width)
-            button.addTarget(self, action:#selector(self.signUp), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action:#selector(self.signUp), for: UIControl.Event.touchUpInside)
             view.addSubview(button)
             
         }

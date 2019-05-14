@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '10.3'
 
 target 'Finda' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -46,7 +46,12 @@ target 'Finda' do
   # Image picker
   pod 'YPImagePicker'
 
-  pod 'Font-Awesome-Swift', '~> 1.7.2'
+  #  pod 'Font-Awesome-Swift', '~> 1.7.2'
+  pod 'FontAwesome.swift'
+  
+  
+  source 'https://github.com/CocoaPods/Specs.git'
+  use_frameworks!
   pod 'SwiftyGif'
   
   # Firebase for analytics and messaging

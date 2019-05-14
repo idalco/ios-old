@@ -28,10 +28,10 @@ class RegisterFooter {
         attributedString.addAttribute(.link, value: "https://stripe.com/gb/connect-account/legal", range: NSRange(location: 67, length: 34))
         
         
-        let linkAttributes: [String : Any] = [
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.FindaColours.Black,
-            NSAttributedStringKey.underlineColor.rawValue: UIColor.FindaColours.Yellow,
-            NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleThick.rawValue]
+        let linkAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.FindaColours.Black,
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.underlineColor.rawValue): UIColor.FindaColours.Yellow,
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.underlineStyle.rawValue): NSUnderlineStyle.thick.rawValue]
         
         
         title.linkTextAttributes = linkAttributes

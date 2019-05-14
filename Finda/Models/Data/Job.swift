@@ -28,7 +28,7 @@ class Job {
     let modelDesiredRate, clientOfferedRate: Int
     let status: Int
     let rating: Double
-    let modelNotes, jobtype, companyName, companyWebsite, avatar: String
+    let modelNotes, jobtype, jobcardType, companyName, companyWebsite, avatar: String
     
 //    let advanced_model_to_bring, advanced_transport_methods, advanced_model_expenses, advanced_model_meeting_point: String
 //    let advanced_makeup_provided, advanced_contact_number: String
@@ -67,6 +67,7 @@ class Job {
         self.rating = data["rating"].doubleValue
         self.modelNotes = data["model_notes"].stringValue
         self.jobtype = data["jobtype"].stringValue
+        self.jobcardType = data["jobcard_type"].stringValue
         self.companyName = data["company_name"].stringValue
         self.companyWebsite = data["company_website"].stringValue
         self.header = data["status_text"].stringValue
@@ -101,7 +102,7 @@ extension Job: Hashable {
     }
     
     var hashValue: Int {
-        return clientUid.hashValue ^ projectTid.hashValue ^ created.hashValue ^ modified.hashValue ^ jobStatus.hashValue ^ name.hashValue ^ offeredRate.hashValue ^ negotiatedRate.hashValue ^ agreedRate.hashValue ^ timeUnits.hashValue ^ unitsType.hashValue ^ startdate.hashValue ^ starttime.hashValue ^ description.hashValue ^ clientJobCompleted.hashValue ^ location.hashValue ^ invoiceID.hashValue ^ invoicePaid.hashValue ^ callsheet.hashValue ^ jobid.hashValue ^ modelDesiredRate.hashValue ^ clientOfferedRate.hashValue ^ status.hashValue ^ rating.hashValue ^ modelNotes.hashValue ^ jobtype.hashValue ^ companyName.hashValue ^ companyWebsite.hashValue ^ avatar.hashValue
+        return clientUid.hashValue ^ projectTid.hashValue ^ created.hashValue ^ modified.hashValue ^ jobStatus.hashValue ^ name.hashValue ^ offeredRate.hashValue ^ negotiatedRate.hashValue ^ agreedRate.hashValue ^ timeUnits.hashValue ^ unitsType.hashValue ^ startdate.hashValue ^ starttime.hashValue ^ description.hashValue ^ clientJobCompleted.hashValue ^ location.hashValue ^ invoiceID.hashValue ^ invoicePaid.hashValue ^ callsheet.hashValue ^ jobid.hashValue ^ modelDesiredRate.hashValue ^ clientOfferedRate.hashValue ^ status.hashValue ^ rating.hashValue ^ modelNotes.hashValue ^ jobtype.hashValue ^ jobcardType.hashValue ^ companyName.hashValue ^ companyWebsite.hashValue ^ avatar.hashValue
     }
 }
 

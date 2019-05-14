@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.9</string>
 	<key>CFBundleVersion</key>
-	<string>792</string>
+	<string>865</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -25,6 +25,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This will allow you to add details of confirmed Jobs to your Calendar</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This will allow you to upload new photographs from your camera to your Portfolio</string>
 	<key>NSMicrophoneUsageDescription</key>

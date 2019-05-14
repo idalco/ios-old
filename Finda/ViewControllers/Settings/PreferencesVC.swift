@@ -193,7 +193,7 @@ class PreferencesVC: FormViewController {
         row.cellUpdate { (cell, row) in
             if !row.isValid {
                 cell.textField.attributedPlaceholder = NSAttributedString(string: row.placeholder ?? "",
-                                                                          attributes: [NSAttributedStringKey.foregroundColor: UIColor.FindaColours.FindaRed])
+                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.FindaColours.FindaRed])
             }
         }
     }

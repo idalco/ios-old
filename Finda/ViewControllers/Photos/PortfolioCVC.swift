@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FontAwesome_swift
 
 class PortfolioCVC: ImageCVC {
     
@@ -15,7 +16,8 @@ class PortfolioCVC: ImageCVC {
     
     override func awakeFromNib() {
 //        leadImageButton.backgroundColor = leadImageButton.backgroundColor?.fade(alpha: 0.75)
-        leadImageButton.setFAIcon(icon: .FACheck, forState: .normal)
+//        leadImageButton.setFAIcon(icon: .FACheck, forState: .normal)
+        leadImageButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
 //        deleteButton.backgroundColor = deleteButton.backgroundColor?.fade(alpha: 0.75)
         layoutIfNeeded()
     }

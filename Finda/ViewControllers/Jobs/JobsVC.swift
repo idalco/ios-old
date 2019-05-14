@@ -268,6 +268,11 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
             case .Requested?:
                 cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Blue
                 cell.jobStatus.textColor = UIColor.FindaColours.Blue
+                if self.thisTabJobs[indexPath.row].projectTid == 75 {
+                    cell.jobStatus.text = "REQUESTED - CASTING"
+                } else if self.thisTabJobs[indexPath.row].projectTid == 78 {
+                    cell.jobStatus.text = "REQUESTED - GO & SEE"
+                }
                 break
             
             case .Accepted?:
@@ -279,6 +284,19 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
             case .Confirmed?:
                 cell.jobStatusColour.backgroundColor = UIColor.FindaColours.FindaGreen
                 cell.jobStatus.textColor = UIColor.FindaColours.FindaGreen
+                
+                if self.thisTabJobs[indexPath.row].jobcardType == "to complete" {
+                    cell.jobStatus.text("TO COMPLETE")
+                    cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Black
+                    cell.jobStatus.textColor = UIColor.FindaColours.Black
+                }
+                
+                break
+            
+            case .ToComplete?:
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Black
+                cell.jobStatus.textColor = UIColor.FindaColours.Black
+                cell.jobStatus.text = "TO COMPLETE"
                 break
             
             case .ModelCompleted?, .Completed?, .ClientCompleted?:

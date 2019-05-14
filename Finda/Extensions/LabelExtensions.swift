@@ -14,7 +14,7 @@ extension UILabel {
     func underline() {
         if let textString = self.text {
             let attributedString = NSMutableAttributedString(string: textString)
-            attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedString.length))
             attributedString.addAttribute(.underlineColor, value: UIColor.FindaColours.Yellow, range: NSRange(location: 0, length: attributedString.length))
             attributedText = attributedString
         }

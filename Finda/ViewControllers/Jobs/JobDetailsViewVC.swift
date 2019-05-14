@@ -13,6 +13,7 @@ import SVProgressHUD
 import SCLAlertView
 import SafariServices
 import Alamofire
+import EventKit
 
 class JobDetailsViewVC: UIViewController {
     
@@ -45,6 +46,7 @@ class JobDetailsViewVC: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var backButton: UIImageView!
+    @IBOutlet weak var addToCalendar: UIImageView!
     
     var job: Job!
     
@@ -114,7 +116,14 @@ class JobDetailsViewVC: UIViewController {
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(JobDetailsViewVC.backButtonTapped))
         backButton.addGestureRecognizer(tapRec)
         backButton.isUserInteractionEnabled = true
-
+        
+        let calRec = UITapGestureRecognizer(target: self, action: #selector(JobDetailsViewVC.addtoCalendarClicked))
+        addToCalendar.addGestureRecognizer(calRec)
+        addToCalendar.isUserInteractionEnabled = true
+        
+        addToCalendar.isHidden = true
+        jobStatus.textColor = UIColor.FindaColours.FindaGreen
+        
         if let jobHeaderStatus = JobStatus(rawValue: job.header) {
 
             switch(jobHeaderStatus) {
@@ -124,10 +133,7 @@ class JobDetailsViewVC: UIViewController {
                 break;
 
             case .Accepted:
-                secondaryButton.setTitle("CANCEL", for: .normal)
-                primaryButton.isHidden = true
 
-                secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                 agreedRate.isHidden = false
 
                 if job.unitsType == "unpaid" {
@@ -136,13 +142,33 @@ class JobDetailsViewVC: UIViewController {
                     agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
                 }
 
+                
+                
                 // 14 is accepted, 2 if confirmed, so we need to override here,
                 // or refactor
                 if job.status == 2 {
-                    jobStatus.text = "CONFIRMED"
+                    if job.jobcardType == "to complete" {
+                        // this is an override funcvtion
+                        primaryButton.isHidden = true
+                        secondaryButton.setTitle("COMPLETE", for: .normal)
+                        secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
+
+                        jobStatus.text = "TO COMPLETE"
+                        jobStatus.textColor = UIColor.FindaColours.Black
+                        
+                        addToCalendar.isHidden = true
+                    } else {
+                        primaryButton.isHidden = true
+                        secondaryButton.setTitle("CANCEL", for: .normal)
+                        secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+
+                        jobStatus.text = "CONFIRMED"
+                        addToCalendar.isHidden = false
+                    }
+                    
                 }
+
                 
-                jobStatus.textColor = UIColor.FindaColours.FindaGreen
 
                 break
             case .ModelCompleted, .Completed, .ClientCompleted:
@@ -189,33 +215,44 @@ class JobDetailsViewVC: UIViewController {
                 negotiateButton.layer.borderColor = UIColor.FindaColours.Blue.cgColor
                 negotiateButton.contentHorizontalAlignment = .center
 
-                if (job.unitsType == "unpaid") {
-                    offeredLabel = "Offered consideration: \(job.altRate)"
-                    
-                } else {
-                    if (job.agreedRate != 0) {
-                        offeredLabel = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
+                // if the type is a casting, hide these
+                if job.projectTid != 75 && job.projectTid != 78 {
+                    if (job.unitsType == "unpaid") {
+                        offeredLabel = "Offered consideration: \(job.altRate)"
+                        
                     } else {
-                        
-                        if job.clientOfferedRate != 0 {
-                            offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
+                        if (job.agreedRate != 0) {
+                            offeredLabel = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
                         } else {
-                            offeredLabel = offeredLabel + "\(job.offeredRate)"
-                        }
-                        offeredLabel = offeredLabel + "/\(job.unitsType.uppercased())"
-                        
-                        if job.modelDesiredRate != 0 {
-                            offeredLabel = offeredLabel + "\nYou asked for: £\(job.modelDesiredRate)."
-                        }
+                            
+                            if job.clientOfferedRate != 0 {
+                                offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
+                            } else {
+                                offeredLabel = offeredLabel + "\(job.offeredRate)"
+                            }
+                            offeredLabel = offeredLabel + "/\(job.unitsType.uppercased())"
+                            
+                            if job.modelDesiredRate != 0 {
+                                offeredLabel = offeredLabel + "\nYou asked for: £\(job.modelDesiredRate)."
+                            }
 
-                        negotiateButton.isHidden = false
-                        negotiateButton.isEnabled = true
+                            negotiateButton.isHidden = false
+                            negotiateButton.isEnabled = true
 
+                        }
+                    }
+                    
+                    agreedRate.text = offeredLabel
+                    agreedRate.isHidden = false
+                } else {
+                    // casting type
+                    agreedRate.isHidden = true
+                    if job.projectTid == 75 {
+                        jobStatus.text = "CASTING"
+                    } else if job.projectTid == 78 {
+                        jobStatus.text = "GO & SEE"
                     }
                 }
-
-                agreedRate.text = offeredLabel
-                agreedRate.isHidden = false
 
                 primaryButton.isHidden = false
                 primaryButton.setTitle("ACCEPT", for: .normal)
@@ -237,15 +274,41 @@ class JobDetailsViewVC: UIViewController {
                 break
 
             case .Confirmed:
-                secondaryButton.setTitle("CANCEL", for: .normal)
-                primaryButton.isHidden = true
-
-                secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                
+                if job.jobcardType == "to complete" {
+                    // this is an override function
+                    primaryButton.isHidden = true
+                    secondaryButton.setTitle("COMPLETE", for: .normal)
+                    secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
+                    
+                    jobStatus.text = "TO COMPLETE"
+                    jobStatus.textColor = UIColor.FindaColours.Black
+                    addToCalendar.isHidden = true
+                } else {
+                    primaryButton.isHidden = true
+                    secondaryButton.setTitle("CANCEL", for: .normal)
+                    secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                    
+                    jobStatus.text = "CONFIRMED"
+                    addToCalendar.isHidden = false
+                }
 
                 agreedRate.isHidden = false
                 agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
                 
-                jobStatus.textColor = UIColor.FindaColours.FindaGreen
+                break
+            case .ToComplete:
+                // this is an override funcvtion
+//                primaryButton.isHidden = true
+//                secondaryButton.setTitle("COMPLETE", for: .normal)
+//                secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
+//
+//                agreedRate.isHidden = false
+//                agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
+//
+//                jobStatus.text = "TO COMPLETE"
+//                jobStatus.textColor = UIColor.FindaColours.Black
+//                addToCalendar.isHidden = true
                 break
             }
         }
@@ -406,7 +469,40 @@ class JobDetailsViewVC: UIViewController {
         
     }
     
-    
+    @objc private func completeJob(sender: UIButton) {
+        
+        
+        let appearance = SCLAlertView.SCLAppearance()
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton("Complete Job") {
+            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+            SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
+            SVProgressHUD.show()
+            FindaAPISession(target: .cancelJob(jobId: self.job.jobid)) { (response, result) in
+                if response {
+                    SVProgressHUD.dismiss()
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+                    })
+                } else {
+                    SVProgressHUD.dismiss()
+                    let errorView = SCLAlertView(appearance: appearance)
+                    errorView.showError(
+                        "Sorry",
+                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
+                }
+            }
+        }
+        alertView.showTitle(
+            "Are you sure?",
+            subTitle: "",
+            style: .warning,
+            closeButtonTitle: "Close",
+            colorStyle: 0x13AFC0,
+            colorTextButton: 0xFFFFFF)
+        
+    }
     
     @objc private func downloadCallsheet(sender: UIButton) {
         
@@ -497,6 +593,66 @@ class JobDetailsViewVC: UIViewController {
         } else {
             self.dismiss(animated: true)
         }
+    }
+    
+    @objc private func addtoCalendarClicked(sender: UIImageView) {
+        
+        let eventStore = EKEventStore()
+        let appearance = SCLAlertView.SCLAppearance()
+        
+        eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
+            
+            if granted && error == nil {
+                
+                let event = EKEvent(eventStore: eventStore)
+             
+                var duration = self.job.timeUnits
+                if self.job.unitsType == "day" {
+                    duration = duration * 60*60*24
+                } else if self.job.unitsType == "hour" {
+                    duration = duration * 60*60
+                }
+                
+                let startDate = Date(timeIntervalSince1970: Double(self.job.startdate))
+                let startTime = Date(timeIntervalSince1970: Double(self.job.starttime))
+
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+                let startDateString = dateFormatter.string(from: startDate)
+                dateFormatter.dateFormat = "HH:mm"
+                let startTimeString = dateFormatter.string(from: startTime)
+                let startString = startDateString + " " + startTimeString
+                dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+                let calStartDate = dateFormatter.date(from: startString)
+                
+                let end = Double(self.job.startdate + Int(duration))
+                let calEndDate = Date(timeIntervalSince1970: end)
+                
+                event.title = self.job.name
+                event.startDate = calStartDate
+                event.endDate = calEndDate
+                event.notes = self.job.description
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                
+                var event_id = ""
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                    event_id = event.eventIdentifier
+                }
+                catch let error as NSError {
+                    
+                    let errorView = SCLAlertView(appearance: appearance)
+                    errorView.showError(
+                        "Sorry",
+                        subTitle: "Something went wrong: \(error.localizedDescription)")
+                }
+                
+                if (event_id != "") {
+                    let noticeView = SCLAlertView(appearance: appearance)
+                    noticeView.showInfo("Added!", subTitle: "The job has been added to your calendar", colorStyle: 0x13AFC0)
+                }
+            }
+        })
     }
     
 }
