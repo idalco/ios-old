@@ -15,8 +15,8 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     ])
 
 //let domainURL: String = "http://dev.finda.co"
-let domainURL: String = "http://dev.finda"
-//let domainURL: String = "https://www.finda.co"
+//let domainURL: String = "http://dev.finda"
+let domainURL: String = "https://www.finda.co"
 
 enum FindaAPI {
     // POST

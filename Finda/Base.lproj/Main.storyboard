@@ -3134,17 +3134,14 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
                                 <rect key="frame" x="312" y="142" width="51" height="31"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ng9-3Q-ktP" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="175" y="579" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="ouk-kn-LIO"/>
-                                    <constraint firstAttribute="width" constant="64" id="wA3-wv-XWr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="32"/>
-                                <state key="normal" title="+" backgroundImage="buttonbg"/>
+                                <rect key="frame" x="125.66666666666669" y="619" width="163" height="53"/>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
+                                <state key="normal" title="ADD EVENT" backgroundImage="buttonbg"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="16" y="197" width="382" height="350"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="237" width="382" height="350"/>
+                                <color key="backgroundColor" red="0.83529411764705885" green="0.88235294117647056" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="9Ll-fy-5X0"/>
                                 </constraints>
@@ -3264,19 +3261,28 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
                                     <outlet property="ibCalendarDelegate" destination="UQL-vC-2ah" id="bXg-3G-5QQ"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-pT-CD4">
+                                <rect key="frame" x="344" y="189" width="54" height="34"/>
+                                <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="18"/>
+                                <state key="normal" title="Today">
+                                    <color key="titleColor" red="0.074509803920000006" green="0.68627450980000004" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.83529411764705885" green="0.88235294117647056" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Xbk-8z-T0A" firstAttribute="leading" secondItem="WLc-Cc-n22" secondAttribute="leading" constant="16" id="Aa7-yi-Qms"/>
                             <constraint firstItem="3Dz-GU-Ent" firstAttribute="top" secondItem="67d-R9-Ubi" secondAttribute="bottom" constant="42" id="DHF-4Z-7hN"/>
                             <constraint firstItem="UvK-1t-j3E" firstAttribute="centerY" secondItem="3Dz-GU-Ent" secondAttribute="centerY" id="GWe-cx-xhS"/>
                             <constraint firstItem="Xbk-8z-T0A" firstAttribute="centerX" secondItem="Aj6-0N-k0c" secondAttribute="centerX" id="GcT-n4-1T9"/>
                             <constraint firstItem="67d-R9-Ubi" firstAttribute="leading" secondItem="Aj6-0N-k0c" secondAttribute="leadingMargin" id="QyW-TZ-pIZ"/>
-                            <constraint firstItem="Xbk-8z-T0A" firstAttribute="top" secondItem="UvK-1t-j3E" secondAttribute="bottom" constant="24" id="Sd8-QN-fkj"/>
+                            <constraint firstItem="Xbk-8z-T0A" firstAttribute="top" secondItem="UvK-1t-j3E" secondAttribute="bottom" constant="64" id="Sd8-QN-fkj"/>
                             <constraint firstItem="UvK-1t-j3E" firstAttribute="top" secondItem="WLc-Cc-n22" secondAttribute="top" constant="78" id="Ufz-z9-rFB"/>
                             <constraint firstItem="WLc-Cc-n22" firstAttribute="trailing" secondItem="UvK-1t-j3E" secondAttribute="trailing" constant="53" id="W5N-7j-JJo"/>
                             <constraint firstItem="3Dz-GU-Ent" firstAttribute="leading" secondItem="WLc-Cc-n22" secondAttribute="leading" constant="16" id="a4Z-yj-R7R"/>
                             <constraint firstItem="ng9-3Q-ktP" firstAttribute="top" secondItem="Xbk-8z-T0A" secondAttribute="bottom" constant="32" id="bYc-dq-Ac3"/>
+                            <constraint firstItem="WLc-Cc-n22" firstAttribute="trailing" secondItem="tcl-pT-CD4" secondAttribute="trailing" constant="16" id="dHG-qb-dLK"/>
+                            <constraint firstItem="tcl-pT-CD4" firstAttribute="top" secondItem="UvK-1t-j3E" secondAttribute="bottom" constant="16" id="mos-w1-0df"/>
                             <constraint firstItem="ng9-3Q-ktP" firstAttribute="centerX" secondItem="Aj6-0N-k0c" secondAttribute="centerX" id="pVG-Kp-FOi"/>
                             <constraint firstItem="67d-R9-Ubi" firstAttribute="top" secondItem="WLc-Cc-n22" secondAttribute="top" constant="22" id="uXu-wT-axY"/>
                             <constraint firstItem="WLc-Cc-n22" firstAttribute="trailing" secondItem="Xbk-8z-T0A" secondAttribute="trailing" constant="16" id="wzf-ps-a91"/>
@@ -3296,6 +3302,7 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
                     <connections>
                         <outlet property="availabilityToggle" destination="UvK-1t-j3E" id="8Va-eY-rBC"/>
                         <outlet property="calendarView" destination="Xbk-8z-T0A" id="sgS-c2-lrM"/>
+                        <outlet property="todayButton" destination="tcl-pT-CD4" id="hcm-an-Ok7"/>
                         <segue destination="gsT-rh-crx" kind="presentation" identifier="editCalendarSegue" id="rPF-2g-foH"/>
                     </connections>
                 </viewController>
@@ -3318,116 +3325,10 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
                                     <constraint firstAttribute="height" constant="34" id="xSU-Sw-gjP"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spl-LC-ncF" userLabel="Entry Holder">
-                                <rect key="frame" x="0.0" y="94" width="414" height="546"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spl-LC-ncF" userLabel="Entry Holder" customClass="WeekView" customModule="QVRWeekView">
+                                <rect key="frame" x="0.0" y="134" width="414" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YcD-qf-Vh2">
-                                <rect key="frame" x="0.0" y="79.666666666666686" width="414" height="576.33333333333326"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cUS-K1-zSP">
-                                    <size key="itemSize" width="414" height="227"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calendarentrycell" id="fkx-38-ewb" customClass="CalendarEntryCardViewCVC" customModule="Finda" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5vj-mu-a5a">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Pqy-Jd-YrU" userLabel="Calltime">
-                                                            <rect key="frame" x="8.0000000000000036" y="104.33333333333333" width="50.333333333333343" height="14"/>
-                                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5a-f4-m3y">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
-                                                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{title}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="mWZ-Tb-MM0">
-                                                            <rect key="frame" x="8" y="29" width="398" height="21"/>
-                                                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{time}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="S3f-hQ-OWL" userLabel="{jobtime}">
-                                                            <rect key="frame" x="66.333333333333329" y="104.33333333333333" width="31.333333333333329" height="14"/>
-                                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{jobstatus}" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qfk-p2-xJq">
-                                                            <rect key="frame" x="0.0" y="80" width="414" height="16.333333333333329"/>
-                                                            <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{customer}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="if4-1B-YNZ">
-                                                            <rect key="frame" x="8" y="58" width="398" height="14"/>
-                                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="12"/>
-                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{location}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGw-H2-MVm">
-                                                            <rect key="frame" x="8" y="126.33333333333331" width="398" height="14"/>
-                                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="Qfk-p2-xJq" firstAttribute="leading" secondItem="5vj-mu-a5a" secondAttribute="leading" id="2y8-l3-4OW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="XGw-H2-MVm" secondAttribute="trailing" constant="8" id="6za-XV-rJa"/>
-                                                        <constraint firstItem="S3f-hQ-OWL" firstAttribute="centerY" secondItem="Pqy-Jd-YrU" secondAttribute="centerY" id="Db4-xD-AQ1"/>
-                                                        <constraint firstItem="S3f-hQ-OWL" firstAttribute="leading" secondItem="Pqy-Jd-YrU" secondAttribute="trailing" constant="8" id="KCe-hC-08T"/>
-                                                        <constraint firstItem="if4-1B-YNZ" firstAttribute="leading" secondItem="5vj-mu-a5a" secondAttribute="leading" constant="8" id="LMe-ue-384"/>
-                                                        <constraint firstItem="if4-1B-YNZ" firstAttribute="top" secondItem="mWZ-Tb-MM0" secondAttribute="bottom" constant="8" id="LVD-lY-a1i"/>
-                                                        <constraint firstItem="mWZ-Tb-MM0" firstAttribute="leading" secondItem="5vj-mu-a5a" secondAttribute="leading" constant="8" id="Rx4-Ge-GNn"/>
-                                                        <constraint firstItem="Pqy-Jd-YrU" firstAttribute="top" secondItem="Qfk-p2-xJq" secondAttribute="bottom" constant="8" id="Tai-Zj-QVh"/>
-                                                        <constraint firstAttribute="trailing" secondItem="mWZ-Tb-MM0" secondAttribute="trailing" constant="8" id="WZu-E5-1nD"/>
-                                                        <constraint firstItem="g5a-f4-m3y" firstAttribute="top" secondItem="5vj-mu-a5a" secondAttribute="top" id="XZH-fx-qxe"/>
-                                                        <constraint firstAttribute="trailing" secondItem="g5a-f4-m3y" secondAttribute="trailing" id="eQu-04-w7j"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Qfk-p2-xJq" secondAttribute="trailing" id="gz3-nT-cat"/>
-                                                        <constraint firstItem="g5a-f4-m3y" firstAttribute="leading" secondItem="5vj-mu-a5a" secondAttribute="leading" id="hFK-aF-ibs"/>
-                                                        <constraint firstAttribute="trailing" secondItem="if4-1B-YNZ" secondAttribute="trailing" constant="8" id="jZf-Ve-7uk"/>
-                                                        <constraint firstItem="mWZ-Tb-MM0" firstAttribute="top" secondItem="g5a-f4-m3y" secondAttribute="bottom" constant="8" id="kOK-kd-oIg"/>
-                                                        <constraint firstItem="Qfk-p2-xJq" firstAttribute="top" secondItem="if4-1B-YNZ" secondAttribute="bottom" constant="8" id="kar-Jm-hct"/>
-                                                        <constraint firstItem="Qfk-p2-xJq" firstAttribute="centerX" secondItem="5vj-mu-a5a" secondAttribute="centerX" id="kkF-JO-Dl5"/>
-                                                        <constraint firstItem="XGw-H2-MVm" firstAttribute="top" secondItem="Pqy-Jd-YrU" secondAttribute="bottom" constant="8" id="lqj-ZE-gm6"/>
-                                                        <constraint firstItem="XGw-H2-MVm" firstAttribute="leading" secondItem="5vj-mu-a5a" secondAttribute="leading" constant="8" id="qdO-V2-Kcj"/>
-                                                        <constraint firstItem="Pqy-Jd-YrU" firstAttribute="leading" secondItem="5vj-mu-a5a" secondAttribute="leading" constant="8" id="xBt-mC-sia"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="5vj-mu-a5a" firstAttribute="leading" secondItem="fkx-38-ewb" secondAttribute="leading" id="OMU-IA-w8d"/>
-                                            <constraint firstItem="5vj-mu-a5a" firstAttribute="top" secondItem="fkx-38-ewb" secondAttribute="top" id="QTO-Js-LB0"/>
-                                            <constraint firstAttribute="trailing" secondItem="5vj-mu-a5a" secondAttribute="trailing" id="drQ-o0-DHH"/>
-                                            <constraint firstAttribute="bottom" secondItem="5vj-mu-a5a" secondAttribute="bottom" id="nCm-Cm-t9T"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="cellCustomer" destination="if4-1B-YNZ" id="EP4-Kv-RXJ"/>
-                                            <outlet property="cellJobstatus" destination="Qfk-p2-xJq" id="gZ1-DP-orQ"/>
-                                            <outlet property="cellJobtime" destination="S3f-hQ-OWL" id="4Se-uv-g6U"/>
-                                            <outlet property="cellLocation" destination="XGw-H2-MVm" id="bgB-dT-664"/>
-                                            <outlet property="cellTitle" destination="mWZ-Tb-MM0" id="Utg-sY-Ogb"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar for" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL9-Sm-EAN">
                                 <rect key="frame" x="150.33333333333334" y="42" width="113.66666666666666" height="21.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="18"/>
@@ -3435,39 +3336,39 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0e-GU-FHQ" customClass="DCRoundedButton" customModule="DCKit">
-                                <rect key="frame" x="175" y="656" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="UdF-pS-7LS"/>
-                                    <constraint firstAttribute="height" constant="64" id="fdV-eW-O0l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="32"/>
-                                <state key="normal" title="+" backgroundImage="buttonbg"/>
+                                <rect key="frame" x="125.66666666666669" y="667" width="163" height="53"/>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
+                                <state key="normal" title="ADD EVENT" backgroundImage="buttonbg"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcq-5P-JE6">
+                                <rect key="frame" x="351" y="84" width="47" height="30"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.83529411764705885" green="0.88235294117647056" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="spl-LC-ncF" firstAttribute="top" secondItem="90W-hh-Tu1" secondAttribute="bottom" constant="24" id="7ga-1T-F3k"/>
+                            <constraint firstItem="spl-LC-ncF" firstAttribute="top" secondItem="90W-hh-Tu1" secondAttribute="bottom" constant="64" id="7ga-1T-F3k"/>
                             <constraint firstItem="90W-hh-Tu1" firstAttribute="top" secondItem="aFt-3k-aTK" secondAttribute="top" constant="16" id="7gq-Qa-Whb"/>
                             <constraint firstItem="spl-LC-ncF" firstAttribute="leading" secondItem="aFt-3k-aTK" secondAttribute="leading" id="MK1-hf-hmC"/>
-                            <constraint firstItem="aFt-3k-aTK" firstAttribute="trailing" secondItem="YcD-qf-Vh2" secondAttribute="trailing" id="Pnk-kz-ohU"/>
+                            <constraint firstItem="rcq-5P-JE6" firstAttribute="top" secondItem="aFt-3k-aTK" secondAttribute="top" constant="64" id="S3G-hC-agQ"/>
                             <constraint firstItem="spl-LC-ncF" firstAttribute="trailing" secondItem="aFt-3k-aTK" secondAttribute="trailing" id="Tak-Ag-hen"/>
                             <constraint firstItem="90W-hh-Tu1" firstAttribute="leading" secondItem="aFt-3k-aTK" secondAttribute="leading" constant="16" id="WCF-Xl-3aG"/>
                             <constraint firstItem="K0e-GU-FHQ" firstAttribute="centerX" secondItem="fH6-Fx-JLU" secondAttribute="centerX" id="XZH-CU-mdZ"/>
+                            <constraint firstItem="aFt-3k-aTK" firstAttribute="trailing" secondItem="rcq-5P-JE6" secondAttribute="trailing" constant="16" id="XnC-Gh-W5O"/>
                             <constraint firstItem="iL9-Sm-EAN" firstAttribute="centerX" secondItem="fH6-Fx-JLU" secondAttribute="centerX" id="YfU-6d-fpD"/>
-                            <constraint firstItem="YcD-qf-Vh2" firstAttribute="leading" secondItem="aFt-3k-aTK" secondAttribute="leading" id="eR6-XR-4ma"/>
                             <constraint firstItem="aFt-3k-aTK" firstAttribute="bottom" secondItem="K0e-GU-FHQ" secondAttribute="bottom" constant="16" id="iaI-VH-WcA"/>
                             <constraint firstItem="aFt-3k-aTK" firstAttribute="bottom" secondItem="spl-LC-ncF" secondAttribute="bottom" constant="96" id="kQk-zA-RDd"/>
-                            <constraint firstItem="YcD-qf-Vh2" firstAttribute="top" secondItem="iL9-Sm-EAN" secondAttribute="bottom" constant="16" id="nry-Tq-Ugo"/>
-                            <constraint firstItem="K0e-GU-FHQ" firstAttribute="top" secondItem="YcD-qf-Vh2" secondAttribute="bottom" id="p3Y-tN-NrX"/>
                             <constraint firstItem="iL9-Sm-EAN" firstAttribute="top" secondItem="aFt-3k-aTK" secondAttribute="top" constant="22" id="rgl-8t-yvC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aFt-3k-aTK"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="90W-hh-Tu1" id="Axs-Od-ybO"/>
-                        <outlet property="calendarEntryCollection" destination="YcD-qf-Vh2" id="maL-DG-Nfe"/>
                         <outlet property="dateLabel" destination="iL9-Sm-EAN" id="J4v-dh-Q0k"/>
-                        <outlet property="entryHolder" destination="spl-LC-ncF" id="QDn-f5-YdW"/>
+                        <outlet property="dayView" destination="spl-LC-ncF" id="9Hd-1C-uGb"/>
+                        <outlet property="todayButton" destination="rcq-5P-JE6" id="Jsq-Gq-QxD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dF-1L-28g" userLabel="First Responder" sceneMemberID="firstResponder"/>

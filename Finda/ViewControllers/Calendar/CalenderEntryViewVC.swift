@@ -14,15 +14,14 @@ import SCLAlertView
 import SafariServices
 import Alamofire
 import EventKit
+import QVRWeekView
 
 class CalendarEntryViewVC: UIViewController {
     
     @IBOutlet weak var backButton: UIImageView!
-    
-    @IBOutlet weak var entryHolder: UIView!
     @IBOutlet weak var dateLabel: UILabel!
-    
-    @IBOutlet weak var calendarEntryCollection: UICollectionView!
+    @IBOutlet weak var dayView: WeekView!
+    @IBOutlet weak var todayButton: UIButton!
     
     var calendarEntry: CalendarEntry!
     
@@ -42,7 +41,15 @@ class CalendarEntryViewVC: UIViewController {
         
         dateLabel.text = "Entries for " + formatter.string(from: Date(timeIntervalSince1970: calendarEntry!.starttime))
         
-        self.setUpCollectionView()
+        // format the day view
+        dayView.mainBackgroundColor = UIColor.FindaColours.LightGreen
+        dayView.defaultTopBarHeight = 32.0
+        dayView.topBarColor = UIColor.FindaColours.LightGreen
+        dayView.visibleDaysInPortraitMode = 1
+        dayView.dayViewMainSeparatorColor = UIColor.FindaColours.BorderGrey
+        dayView.dayViewDashedSeparatorColor = UIColor.FindaColours.BorderGrey
+        
+        todayButton.addTarget(self, action: #selector(moveToToday(sender:)), for: .touchUpInside)
         
         loadEntriesForDate()
 
@@ -70,6 +77,10 @@ class CalendarEntryViewVC: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @objc func moveToToday(sender: Any) {
+        self.dayView.showDay(withDate: Date(timeIntervalSince1970: calendarEntry!.starttime))
+    }
+    
     func loadEntriesForDate() {
         CalendarEntryManager.getCalendarEntriesForDate(date: calendarEntry!.starttime) { (response, result, calendarEntries) in
             
@@ -82,49 +93,42 @@ class CalendarEntryViewVC: UIViewController {
         }
     }
     
-    private func setUpCollectionView() {
-//        self.noJobsLabel.isHidden = true
-        
-//        if #available(iOS 10.0, *) {
-//            calendarEntryCollection.refreshControl = refreshControl
-//        } else {
-//            calendarEntryCollection.addSubview(refreshControl)
-//        }
-//        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        
-        var height: CGFloat = 10.0
-        
-        if let newLayout = calendarEntryCollection.collectionViewLayout as? UICollectionViewFlowLayout {
-            height = newLayout.itemSize.height - 64
-        }
-        
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 8, height: height)
-        
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 2
-        
-        // (note, it's critical to actually set the layout to that!!)
-        calendarEntryCollection.collectionViewLayout = layout
-    }
+    
     
     /*
      * removes all subviews from the container, and rebuilds from an XIB to show the entries
      */
     func refreshDayView() {
-        self.calendarEntryCollection.reloadData()
-//        if dayEntries.count != 0 {
-//            self.entryHolder.subviews.forEach({ $0.removeFromSuperview() })
-//            
-//            // inflate and add new views here
-//            for entry in dayEntries {
+        
+        if dayEntries.count != 0 {
+            self.dayView.showDay(withDate: Date(timeIntervalSince1970:  dayEntries.first!.starttime))
+        
+            var allEvents: [Int: EventData] = [:]
+            var eventIndex: Int = 0
+            for entry in dayEntries {
+                
+                var colour: UIColor
+                if entry.jobid == 0 {
+                   colour = UIColor.FindaColours.LightGrey
+                } else {
+                    colour = UIColor.FindaColours.Blue
+                }
+                
+                let newEvent = EventData(id: entry.id,
+                                         title: entry.title,
+                                         startDate: Date(timeIntervalSince1970: entry.starttime),
+                                         endDate: Date(timeIntervalSince1970: entry.endtime),
+                                         location: entry.location,
+                                         color: colour,
+                                         allDay: entry.isAllDay)
+                allEvents[eventIndex] = newEvent
+                eventIndex += 1
+                
+                
 //                if (entry.jobid == 0) {
 //                    // normal entry
 //                    let subview: DayEntry = .fromNib()
-//                    
+//
 //                    subview.eventTime.text = Date().displayDate(timeInterval: Int(entry.starttime), format: "h:mm a")
 //                    subview.eventTitle.text = entry.title
 //                    subview.eventLocation.text = entry.location
@@ -134,7 +138,7 @@ class CalendarEntryViewVC: UIViewController {
 //                } else {
 //                    // job-type entry
 //                    let subview: DayEntryWithJob = .fromNib()
-//                    
+//
 //                    subview.callTime.text = Date().displayDate(timeInterval: Int(entry.starttime), format: "h:mm a")
 //                    subview.entryTitle.text = entry.title
 //                    subview.customerName.text = entry.clientCompany
@@ -145,64 +149,28 @@ class CalendarEntryViewVC: UIViewController {
 //                    subview.layoutIfNeeded()
 //                    subview.frame.size.height = subview.viewWithTag(0)!.frame.height + 16
 //                    self.entryHolder.addSubview(subview)
-//                    
+//
 //                }
-//                
-//            }
-//            self.entryHolder.layoutIfNeeded()
-//            
-//        } else {
+                
+            }
+            dayView.loadEvents(withData: Array(allEvents.values))
+            
+        } else {
 //            // show error label
-//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-//            label.center = CGPoint(x: 160, y: 285)
-//            label.textAlignment = .center
-//            label.text = "No events for today"
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+            label.center = CGPoint(x: 160, y: 285)
+            label.textAlignment = .center
+            label.text = "No events for today"
 //            self.entryHolder.addSubview(label)
-//        }
+            self.dayView.isHidden = true
+        }
     }
     
 }
 
-extension UIView {
-    class func fromNib<T: UIView>() -> T {
-        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
-    }
-}
+//extension UIView {
+//    class func fromNib<T: UIView>() -> T {
+//        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+//    }
+//}
 
-extension CalendarEntryViewVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    // MARK: UICollectionViewDataSource
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.dayEntries.count > 0 ? 1:0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dayEntries.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        self.performSegue(withIdentifier: "showJobDetailsSegue", sender: self.thisTabJobs[indexPath.row])
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarentrycell", for: indexPath) as! CalendarEntryCardViewCVC
-        
-//        let entry = self.dayEntries[indexPath.row]
-        cell.setRounded(radius: 20)
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.FindaColours.Grey.cgColor
-        
-        cell.cellTitle.text = self.dayEntries[indexPath.row].title
-        cell.cellCustomer.text = self.dayEntries[indexPath.row].clientCompany
-        cell.cellJobtime.text = Date().displayDate(timeInterval: Int(self.dayEntries[indexPath.row].starttime), format: "h:mm a")
-        cell.cellLocation.text = self.dayEntries[indexPath.row].location
-        cell.cellJobstatus.text = self.dayEntries[indexPath.row].jobtypeDescription
-        
-        cell.cellJobstatus.textColor = UIColor.FindaColours.Blue
-        
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        return cell
-    }
-}

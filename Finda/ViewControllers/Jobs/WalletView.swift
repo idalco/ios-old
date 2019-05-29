@@ -627,7 +627,7 @@ open class WalletView: UIView {
             let scrollViewContentOffsetY = scrollView.contentOffset.y
             
             if negativeScrollViewContentInsetTop > scrollViewContentOffsetY {
-                return fabs(fabs(negativeScrollViewContentInsetTop) + scrollViewContentOffsetY)
+                return abs(abs(negativeScrollViewContentInsetTop) + scrollViewContentOffsetY)
             }
             
             return nil

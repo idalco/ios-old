@@ -16,6 +16,7 @@ class CalendarVC: UIViewController {
  
     @IBOutlet weak var availabilityToggle: UISwitch!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var todayButton: UIButton!
     
     var calendarDataSource: [String:CalendarEntry] = [:]
     
@@ -44,6 +45,8 @@ class CalendarVC: UIViewController {
         calendarView.scrollingMode = .stopAtEachCalendarFrame
         calendarView.scrollDirection = .horizontal
         calendarView.showsHorizontalScrollIndicator = false
+        
+        todayButton.addTarget(self, action: #selector(moveToToday(sender:)), for: .touchUpInside)
         
         loadUserCalendar()
     }
@@ -157,8 +160,9 @@ class CalendarVC: UIViewController {
         }
     }
     
-    
-    
+    @objc func moveToToday(sender: Any) {
+        self.calendarView.scrollToDate(Date())
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
