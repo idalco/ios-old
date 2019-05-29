@@ -479,7 +479,8 @@ class JobDetailsViewVC: UIViewController {
             SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
             SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
-            FindaAPISession(target: .cancelJob(jobId: self.job.jobid)) { (response, result) in
+            FindaAPISession(target: .completeJob(jobId: self.job.jobid)) { (response, result) in
+//            FindaAPISession(target: .cancelJob(jobId: self.job.jobid)) { (response, result) in
                 if response {
                     SVProgressHUD.dismiss()
                     self.dismiss(animated: true, completion: {

@@ -81,11 +81,11 @@ class ModelManager {
     }
     
     
-    init(data: JSON){
+    init(data: JSON) {
         self.saveUserData(data: data)
     }
     
-    init(){
+    init() {
         
     }
     
@@ -405,6 +405,16 @@ class ModelManager {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+    }
+    
+    private func LoadUserData() {
+        let entity = Entity.User.rawValue
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let userEntity = NSEntityDescription.entity(forEntityName: entity, in: managedContext)!
+        
+        
     }
     
 }

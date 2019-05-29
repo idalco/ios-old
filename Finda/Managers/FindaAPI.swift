@@ -43,7 +43,7 @@ enum FindaAPI {
     case selectLeadImage(id: Int)
     case inviteFriend(name: String, email: String)
     case supportRequest(request: String)
-    case updateBankDetails(name: String, sortcode: String, accountNumber: String)
+    case updateBankDetails(name: String, sortcode: String, accountNumber: String, ibanNumber: String)
     case getModelInvoices()
     case acceptJob(jobId: Int)
     case rejectJob(jobId: Int)
@@ -53,7 +53,8 @@ enum FindaAPI {
     case negotiateRate(jobId: Int, newRate: Int)
     case updateDeviceToken(deviceToken: String)
     case updateAvailability(availability: Int)
-
+    case getCalendar()
+    case getCalendarEntriesForDate(date: Double)
 
     // GET
     case userDetails()
@@ -129,6 +130,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/updateAvailability"
         case .negotiateRate:
             return "/negotiateBooking"
+        case .getCalendar:
+            return "/getCalendar"
+        case .getCalendarEntriesForDate:
+            return "/getCalendarEvents"
         }
     }
     
@@ -140,7 +145,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .post
             
         // methods requiring GET
-        case .userDetails, .getJobs, .getModelInvoices:
+        case .userDetails, .getJobs, .getModelInvoices, .getCalendar, .getCalendarEntriesForDate:
             return .get
         }
     }
@@ -313,11 +318,12 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["request"] = request
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         
-        case .updateBankDetails(let name, let sortcode, let accountNumber):
+        case .updateBankDetails(let name, let sortcode, let accountNumber, let ibanNumber):
             var parameters = [String: Any]()
             parameters["bank_accountname"] = name
             parameters["bank_sortcode"] = sortcode
             parameters["bank_accountnumber"] = accountNumber
+            parameters["bank_iban"] = ibanNumber
             p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .rejectOption(let jobId):
@@ -348,6 +354,13 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .updateAvailability(let availability):
             p["availability"] = availability
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+
+        case .getCalendar():
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        case .getCalendarEntriesForDate(let date):
+            p["date"] = date
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+
         default:
             return .requestPlain
         }

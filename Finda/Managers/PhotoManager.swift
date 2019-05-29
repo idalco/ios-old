@@ -13,9 +13,12 @@ class PhotoManager {
     
     static func getPhotos(imageType: ImageType, completion: @escaping (_ response: Bool, _ result: JSON, _ Photos: [Photo]) -> ()){
         FindaAPISession(target: .getImages(type: imageType)) { (response, result) in
-            if(response){
+            if response {
                 
                 var photosArray: [Photo] = []
+                
+                print(result["userdata"].arrayValue)    // [] - WAS an array of data
+                
                 for photo in result["userdata"].arrayValue {
                     photosArray.append(Photo(data: photo))
                 }

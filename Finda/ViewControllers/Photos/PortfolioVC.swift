@@ -129,8 +129,6 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PortfolioCVC
 
-//        cell.addDashedBorder(borderColour: UIColor.FindaColours.LightGrey, cornerRadius: 10)
-//        cell.addSolidBorder(borderColour: UIColor.FindaColours.White, cornerRadius: 10, width: 2)
         let imageData = self.photosArray[indexPath.row].filename
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPortfolioURL: url, imageTransition: .crossDissolve(0.25))

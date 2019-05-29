@@ -135,9 +135,12 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
         let linkAttributes: [NSAttributedString.Key : Any] = [
+            
+            
+            
             NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.FindaColours.Black,
             NSAttributedString.Key(rawValue: NSAttributedString.Key.underlineStyle.rawValue): [],
-            NSAttributedString.Key(rawValue: NSAttributedString.Key.underlineColor.rawValue): UIColor.FindaColours.White,
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.underlineColor.rawValue): UIColor.FindaColours.Blue,
         ]
         
         cell.messageLabel.linkTextAttributes = linkAttributes

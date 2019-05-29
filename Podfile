@@ -63,5 +63,9 @@ target 'Finda' do
   # progress spinners etc
   pod 'SVProgressHUD'
   pod 'SCLAlertView'
+  
+  # the calendar
+  pod 'JTAppleCalendar', '~> 7.0'
+  pod 'QVRWeekView'
 
 end

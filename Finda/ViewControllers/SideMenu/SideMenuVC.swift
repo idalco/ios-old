@@ -19,7 +19,14 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var menu: [String] = []
     var icon: [String] = []
-    var menutype = 1
+   
+    enum MenuType: Int {
+        case loggedOut = 0
+        case loggedIn = 1
+        case needsVerification = 2
+    }
+    
+    var menutype: MenuType = MenuType.loggedOut
     
     var segueIdentifier: String = ""
     
@@ -45,7 +52,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InvoiceNav") }, with: "InvoiceNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "VerificationNav") }, with: "VerificationNav")
-        
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Calendar") }, with: "Calendar")
+
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.displayFCMToken(notification:)), name: NSNotification.Name(rawValue: "FCMToken"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData , object: nil)
@@ -55,34 +63,28 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         let modelManager = ModelManager()
         
+//        self.profileImage.setRounded()
+//        self.updateProfileImage()
+//        LoginManager.getDetails { (response, result) in
+//            if response {
+//                self.updateProfileImage()
+//            }
+//        }
         
-        self.profileImage.setRounded()
-        
-        self.updateProfileImage()
-        LoginManager.getDetails { (response, result) in
-            if response {
-                self.updateProfileImage()
-            }
-        }
-        
-        
-    
         if modelManager.status() == UserStatus.unverified {
 
             self.menu = ["My Details",
                          "Portfolio",
                          "Polaroids",
                          "Verification",
-                         "Invite a Friend",
                          "Sign Out"]
             self.icon = [String.fontAwesomeIcon(name: .user),
                          String.fontAwesomeIcon(name: .image),
                          String.fontAwesomeIcon(name: .cameraRetro),
                          String.fontAwesomeIcon(name: .clipboard),
-                         String.fontAwesomeIcon(name: .users),
                          String.fontAwesomeIcon(name: .powerOff)
             ]
-            
+            self.menutype = MenuType.needsVerification
         } else {
 
             self.menu = ["My Details",
@@ -91,6 +93,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "Jobs",
                          "Updates",
                          "Payments",
+                         "Calendar",
                          "FindaVoices",
                          "FAQ",
                          "Sign Out"]
@@ -100,12 +103,14 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          String.fontAwesomeIcon(name: .camera),
                          String.fontAwesomeIcon(name: .commentDots),
                          String.fontAwesomeIcon(name: .university),
+                         String.fontAwesomeIcon(name: .calendar),
                          String.fontAwesomeIcon(name: .heart),
                          String.fontAwesomeIcon(name: .question),
                          String.fontAwesomeIcon(name: .powerOff)]
             
-            self.menutype = 2
+            self.menutype = MenuType.loggedIn
         }
+        
         self.tableView.reloadData()
         dismissKeyboard()
         
@@ -159,9 +164,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuCell
         
-//        cell.label.setFAText(prefixText: "", icon: self.icon[indexPath.row], postfixText: "   \(self.menu[indexPath.row])", size: 16.0, iconSize: 16.0)
-
-        
         let FAAttribute = [ NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: 16.0, style: .solid) ]
         let cellTitle = NSMutableAttributedString(string: "\(self.icon[indexPath.row])", attributes: FAAttribute )
         
@@ -170,10 +172,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.label.attributedText = cellTitle
         
-//        var labelText = NSMutableAttributedString(string: "\(self.icon[indexPath.row])")
-        
-//        cell.label.text = "\(self.icon[indexPath.row])" + " \(self.menu[indexPath.row])"
-        
         return cell
     }
     
@@ -181,72 +179,160 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let modelManager = ModelManager()
-        var isVerified = true;
-        
-        if modelManager.status() == UserStatus.unverified {
-            isVerified = false;
-        }
         
         let smc = sideMenuController
         
         // @TODO redo this based on verified/unverified menus
-        
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             LoginManager.signOut()
-
-        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
-            
-            if let destination = NSURL(string: domainURL + "/faq/model") {
-                let safari = SFSafariViewController(url: destination as URL)
-                self.present(safari, animated: true)
+        } else {
+            switch self.menutype {
+                case MenuType.loggedOut:
+                    switch indexPath.row {
+                        default:
+                            break
+                        }
+                    break
+                case MenuType.loggedIn:
+                    switch indexPath.row {
+                        case 0:
+                            sideMenuController?.setContentViewController(with: "Settings", animated: true)
+                            break
+                        case 1:
+                            smc?.setContentViewController(with: "MainTabBar")
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+                            break
+                        case 2:
+                            smc?.setContentViewController(with: "MainTabBar")
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+                            break
+                        case 3:
+                            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
+                            break
+                        case 4:
+                            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
+                            break
+                        case 5:
+                            if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
+                                sideMenuController?.setContentViewController(with: "PaymentNav")
+                            } else {
+                                sideMenuController?.setContentViewController(with: "InvoiceNav")
+                            }
+                            break
+                        case 6:
+                            sideMenuController?.setContentViewController(with: "Calendar", animated: true)
+                            break
+                        case 7:
+                            if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
+                                let safari = SFSafariViewController(url: destination as URL)
+                                self.present(safari, animated: true)
+                            }
+                            break
+                        case 8:
+                            if let destination = NSURL(string: domainURL + "/faq/model") {
+                                let safari = SFSafariViewController(url: destination as URL)
+                                self.present(safari, animated: true)
+                            }
+                            break
+                        default:
+                            break
+                    }
+                    break
+                case MenuType.needsVerification:
+                    switch indexPath.row {
+                        case 0:
+                            sideMenuController?.setContentViewController(with: "Settings", animated: true)
+                            break
+                        case 1:
+                            smc?.setContentViewController(with: "MainTabBar")
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+                            break
+                        case 2:
+                            smc?.setContentViewController(with: "MainTabBar")
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+                            break
+                        case 3:
+                            sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
+                            break
+                        default:
+                            break
+                    }
+                    break
             }
-
-        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 3 {
-            if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
-                let safari = SFSafariViewController(url: destination as URL)
-                self.present(safari, animated: true)
-            }
-            
-//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 4 {
-//            sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
-
-        } else if indexPath.row == 0 {
-            sideMenuController?.setContentViewController(with: "Settings", animated: true)
-            
-        } else if indexPath.row == 1 {
-            
-            smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
-            
-        } else if  indexPath.row == 2 {
-            smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
-            
-        } else if  indexPath.row == 3 {
-            if self.menutype == 1 {
-                sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
-            } else {
-                sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-                (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
-            }
-        } else if  indexPath.row == 4 {
-            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
-            
-        } else if indexPath.row == 5 {
-            if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
-                sideMenuController?.setContentViewController(with: "PaymentNav")
-           } else if !isVerified {
-                sideMenuController?.setContentViewController(with: "VerificationNav")
-            } else {
-                sideMenuController?.setContentViewController(with: "InvoiceNav")
-            }
-            
-        }  else {
-            
         }
+        
+
+        
+        
+        
+        
+        
+        
+//        if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
+//            LoginManager.signOut()
+//
+//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
+//            if self.menutype == MenuType.needsVerification {
+//                sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
+//            } else {
+//
+//                if let destination = NSURL(string: domainURL + "/faq/model") {
+//                    let safari = SFSafariViewController(url: destination as URL)
+//                    self.present(safari, animated: true)
+//                }
+//            }
+//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 3 {
+//            if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
+//                let safari = SFSafariViewController(url: destination as URL)
+//                self.present(safari, animated: true)
+//            }
+//
+////        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 4 {
+////            sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
+//
+//        } else if indexPath.row == 0 {
+//            sideMenuController?.setContentViewController(with: "Settings", animated: true)
+//
+//        } else if indexPath.row == 1 {
+//
+//            smc?.setContentViewController(with: "MainTabBar")
+//            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+//            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+//
+//        } else if  indexPath.row == 2 {
+//            smc?.setContentViewController(with: "MainTabBar")
+//            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+//            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+//
+//        } else if  indexPath.row == 3 {
+//            if self.menutype == MenuType.needsVerification {
+//                sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
+//            } else {
+//                sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+//                (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
+//            }
+//        } else if  indexPath.row == 4 {
+//            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+//            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
+//
+//        } else if indexPath.row == 5 {
+//            if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
+//                sideMenuController?.setContentViewController(with: "PaymentNav")
+//           } else if !isVerified {
+//                sideMenuController?.setContentViewController(with: "VerificationNav")
+//            } else {
+//                sideMenuController?.setContentViewController(with: "InvoiceNav")
+//            }
+//
+//        }  else {
+//
+//        }
         
         sideMenuController?.hideMenu()
     }

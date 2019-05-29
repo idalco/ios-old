@@ -23,6 +23,8 @@ class ImageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.leadImageButton.setFAIcon(icon: .FACheck, iconSize: 20, forState: .normal)
+        
+        self.leadImageButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
         self.leadImageButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
         self.leadImageButton.isHidden = true
         self.deleteImageButton.isHidden = true

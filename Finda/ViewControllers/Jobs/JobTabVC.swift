@@ -48,22 +48,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
 //            appearance.layout.interItemSpacing = 10
         })
         self.dataSource = self
-
-        // can we move to the view now?
-//        let preferences = UserDefaults.standard
-//        
-//        let currentLevelKey = "showJobIdCard"
-//        var showJobId = 0
-//        if preferences.object(forKey: currentLevelKey) == nil {
-//            //  Doesn't exist
-//        } else {
-//            showJobId = preferences.integer(forKey: "showJobIdCard")
-//        }
-
-//        if showJobId != 0 {
-//            // move to the ALL tab
-//            self.scrollToIndex(indexOf: 2)
-//        }
         
     }
     

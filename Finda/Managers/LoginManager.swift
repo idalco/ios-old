@@ -12,7 +12,8 @@ import CoreData
 
 class LoginManager {
     
-    static func login(email: String, password: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+    static func login(email: String, password: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()) {
+        
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
             if (response) {
                 if(result["userdata"]["usertype"].intValue == 1){
@@ -32,10 +33,10 @@ class LoginManager {
         }
     }
     
-    static func getDetails(completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+    static func getDetails(completion: @escaping (_ response: Bool, _ result: JSON) -> ()) {
         FindaAPISession(target: .userDetails()) { (response, result) in
-            if(response){
-                if(result["userdata"]["usertype"].intValue == 1){
+            if(response) {
+                if(result["userdata"]["usertype"].intValue == 1) {
                     let modelManager = ModelManager(data: result)
                     if modelManager.status() == UserStatus.banned {
                         LoginManager.signOut()

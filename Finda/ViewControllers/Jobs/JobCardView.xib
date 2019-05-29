@@ -333,18 +333,11 @@
                 <outlet property="advancedInfoLabel" destination="P9b-IC-qxZ" id="Cw0-4A-VPw"/>
                 <outlet property="advancedInfoStack" destination="zbl-hA-bRw" id="Z5l-zD-aUf"/>
                 <outlet property="callsheetButton" destination="oXx-TS-Xyw" id="ylB-EA-3nD"/>
-                <outlet property="clientNameLabel" destination="gK0-Wv-3ff" id="PIp-1K-4zX"/>
                 <outlet property="contactNumberLabel" destination="XPe-op-Wwp" id="Uue-mU-Lqu"/>
                 <outlet property="contactNumberLabelIcon" destination="jLQ-b0-DMR" id="quV-Bo-1WS"/>
                 <outlet property="contentView" destination="OGR-lR-C5v" id="fSz-Gj-R5Z"/>
-                <outlet property="durationLabel" destination="0kq-7l-YWi" id="1uH-bM-V33"/>
-                <outlet property="headerLabel" destination="sob-lh-kXy" id="8sK-fm-1lx"/>
-                <outlet property="jobDatesLabel" destination="7h1-1P-dxE" id="uOq-5l-EZc"/>
                 <outlet property="jobDescriptionLabel" destination="0ks-p9-g31" id="R99-fx-kdw"/>
                 <outlet property="jobDescriptionStack" destination="iRq-h5-KMF" id="mh0-Hu-vXE"/>
-                <outlet property="jobNameLabel" destination="mSl-BQ-DFa" id="BU5-v6-Klm"/>
-                <outlet property="jobTypeLabel" destination="1nX-sN-aGK" id="lQn-ia-Cl8"/>
-                <outlet property="locationLabel" destination="Zx6-NC-P4B" id="Kfp-xD-RFb"/>
                 <outlet property="offeredLabel" destination="xG4-4e-cRn" id="vQU-bN-3CU"/>
                 <outlet property="offeredNumberButton" destination="Eke-Qc-0TG" id="mWB-t6-3wr"/>
                 <outlet property="primaryButton" destination="Z4R-si-942" id="22a-W1-5jj"/>
