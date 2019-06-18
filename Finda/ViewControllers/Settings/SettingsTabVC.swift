@@ -17,6 +17,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
     @IBOutlet weak var fakeJobsTab: UIView!
     @IBOutlet weak var fakeUpdatesTab: UIView!
     @IBOutlet weak var fakePortfolioTab: UIView!
+    @IBOutlet weak var fakeCalendarTab: UIView!
     
 
     
@@ -24,6 +25,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Settings"
         
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetails") as? PersonalDetailsVC {
             self.viewControllers.append(viewController)
@@ -59,7 +61,10 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         // Do any additional setup after loading the view.
         let fakeJobsTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeJobButton))
         fakeJobsTab.addGestureRecognizer(fakeJobsTap)
-        
+
+        let fakeCalendarTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeCalendarButton))
+        fakeCalendarTab.addGestureRecognizer(fakeCalendarTap)
+
         let fakeUpdatesTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeUpdatesButton))
         fakeUpdatesTab.addGestureRecognizer(fakeUpdatesTap)
         
@@ -89,6 +94,28 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         }
         
     }
+    
+    @objc func userDidTapFakeCalendarButton(sender: Any?) {
+        
+        let modelManager = ModelManager()
+        if modelManager.status() == UserStatus.unverified {
+            let appearance = SCLAlertView.SCLAppearance()
+            let alertView = SCLAlertView(appearance: appearance)
+            
+            alertView.showTitle(
+                "Waiting for Verification",
+                subTitle: "You will be able to see your jobs once you have been verified",
+                style: .info,
+                closeButtonTitle: "OK",
+                colorStyle: 0x13AFC0,
+                colorTextButton: 0xFFFFFF)
+        } else {
+            let smc = sideMenuController
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+        }
+        
+    }
 
     @objc func userDidTapFakeUpdatesButton(sender: Any?) {
         let modelManager = ModelManager()
@@ -106,14 +133,14 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         } else {
             let smc = sideMenuController
             smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
         }
     }
     
     @objc func userDidTapFakePortfolioButton(sender: Any?) {
         let smc = sideMenuController
         smc?.setContentViewController(with: "MainTabBar")
-        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 3
         (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
 
     }

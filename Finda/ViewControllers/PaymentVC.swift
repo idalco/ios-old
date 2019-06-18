@@ -31,7 +31,7 @@ class PaymentVC: UIViewController {
         self.accountNumberTextField.addTarget(self, action: #selector(accountFieldDidChange(_:)), for: .editingChanged)
         self.ibanNumberTextField.addTarget(self, action: #selector(ibanFieldDidChange(_:)), for: .editingChanged)
 
-
+        self.title = "Payments"
         
     }
 

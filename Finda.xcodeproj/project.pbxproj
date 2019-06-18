@@ -102,18 +102,17 @@
 		0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7C21072C31004CC4D8 /* Media.xcassets */; };
 		0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */; };
 		18579BEC22896BC3003C7A97 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579BEB22896BC3003C7A97 /* SupportVC.swift */; };
+		185B3D2022B4086400C64FD2 /* TodayTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B3D1F22B4086400C64FD2 /* TodayTableCell.swift */; };
 		185D864F229544AA00551768 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D864E229544AA00551768 /* CalendarCell.swift */; };
 		185D86512295808700551768 /* CalendarDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86502295808700551768 /* CalendarDateHeader.swift */; };
 		185D86532295A24500551768 /* CalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86522295A24500551768 /* CalendarEntry.swift */; };
 		185D86552295A60700551768 /* CalendarEntryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86542295A60700551768 /* CalendarEntryManager.swift */; };
 		185D86572295F18B00551768 /* CalenderEntryViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86562295F18B00551768 /* CalenderEntryViewVC.swift */; };
-		185D86592296946A00551768 /* DayEntry.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185D86582296946A00551768 /* DayEntry.xib */; };
-		185D865B2296E9A700551768 /* DayEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D865A2296E9A700551768 /* DayEntry.swift */; };
-		18834BEF229D8B4C00F4D89F /* DayEntryWithJob.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18834BEE229D8B4C00F4D89F /* DayEntryWithJob.xib */; };
-		18834BF1229D8B5600F4D89F /* DayEntryWithJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834BF0229D8B5600F4D89F /* DayEntryWithJob.swift */; };
+		1861853922A6CA6000C0A9F2 /* NewCalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */; };
 		18834BF3229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */; };
 		18883D3421BEC1A5001A8D03 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18883D3321BEC1A5001A8D03 /* CalendarVC.swift */; };
 		18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */; };
+		18A20C1122B79BB500F02731 /* ViewCalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A20C1022B79BB500F02731 /* ViewCalendarEntry.swift */; };
 		18A350B022395BF20015D003 /* JobDetailsViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */; };
 		18E750F7223904EC00FE28D2 /* JobsVC_withWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */; };
 		18E750F92239052100FE28D2 /* JobCardView_forWallet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */; };
@@ -218,19 +217,18 @@
 		0CEBCB7C21072C31004CC4D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FindaColours.swift"; sourceTree = "<group>"; };
 		18579BEB22896BC3003C7A97 /* SupportVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
+		185B3D1F22B4086400C64FD2 /* TodayTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayTableCell.swift; sourceTree = "<group>"; };
 		185D864E229544AA00551768 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		185D86502295808700551768 /* CalendarDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateHeader.swift; sourceTree = "<group>"; };
 		185D86522295A24500551768 /* CalendarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntry.swift; sourceTree = "<group>"; };
 		185D86542295A60700551768 /* CalendarEntryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntryManager.swift; sourceTree = "<group>"; };
 		185D86562295F18B00551768 /* CalenderEntryViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalenderEntryViewVC.swift; path = Finda/ViewControllers/Calendar/CalenderEntryViewVC.swift; sourceTree = SOURCE_ROOT; };
-		185D86582296946A00551768 /* DayEntry.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayEntry.xib; sourceTree = "<group>"; };
-		185D865A2296E9A700551768 /* DayEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEntry.swift; sourceTree = "<group>"; };
-		18834BEE229D8B4C00F4D89F /* DayEntryWithJob.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayEntryWithJob.xib; sourceTree = "<group>"; };
-		18834BF0229D8B5600F4D89F /* DayEntryWithJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayEntryWithJob.swift; sourceTree = "<group>"; };
+		1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalendarEntry.swift; sourceTree = "<group>"; };
 		18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntryCardViewCVC.swift; sourceTree = "<group>"; };
 		18883D3321BEC1A5001A8D03 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		18A0CFD1216F656500D2CC39 /* Finda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finda.entitlements; sourceTree = "<group>"; };
+		18A20C1022B79BB500F02731 /* ViewCalendarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCalendarEntry.swift; sourceTree = "<group>"; };
 		18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewVC.swift; sourceTree = "<group>"; };
 		18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsVC_withWallet.swift; sourceTree = "<group>"; };
 		18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCardView_forWallet.xib; sourceTree = "<group>"; };
@@ -517,12 +515,11 @@
 				18883D3321BEC1A5001A8D03 /* CalendarVC.swift */,
 				185D86502295808700551768 /* CalendarDateHeader.swift */,
 				185D864E229544AA00551768 /* CalendarCell.swift */,
+				185B3D1F22B4086400C64FD2 /* TodayTableCell.swift */,
 				185D86562295F18B00551768 /* CalenderEntryViewVC.swift */,
-				185D86582296946A00551768 /* DayEntry.xib */,
-				18834BEE229D8B4C00F4D89F /* DayEntryWithJob.xib */,
-				185D865A2296E9A700551768 /* DayEntry.swift */,
-				18834BF0229D8B5600F4D89F /* DayEntryWithJob.swift */,
 				18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */,
+				1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */,
+				18A20C1022B79BB500F02731 /* ViewCalendarEntry.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -616,13 +613,11 @@
 				0CCF231D2109BD1200612D5B /* Gotham-Book.otf in Resources */,
 				18E750F92239052100FE28D2 /* JobCardView_forWallet.xib in Resources */,
 				0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */,
-				185D86592296946A00551768 /* DayEntry.xib in Resources */,
 				0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */,
 				0CCF23252109BD1200612D5B /* Gotham-BookItalic.otf in Resources */,
 				0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */,
 				0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */,
 				0CEBCB5421071AD1004CC4D8 /* Assets.xcassets in Resources */,
-				18834BEF229D8B4C00F4D89F /* DayEntryWithJob.xib in Resources */,
 				18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */,
 				0CCF23232109BD1200612D5B /* Gotham-Light.otf in Resources */,
 				0CEBCB4F21071AD0004CC4D8 /* Main.storyboard in Resources */,
@@ -686,10 +681,12 @@
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
+				"${BUILT_PRODUCTS_DIR}/QVRWeekView/QVRWeekView.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -714,10 +711,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QVRWeekView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -762,7 +761,6 @@
 				185D86512295808700551768 /* CalendarDateHeader.swift in Sources */,
 				0CCB63B221444BDB007CB107 /* ForgotPasswordVC.swift in Sources */,
 				0CCF235E210E4FCC00612D5B /* RegisterOptionVC.swift in Sources */,
-				185D865B2296E9A700551768 /* DayEntry.swift in Sources */,
 				0C78FA5B212362FE0059C0E7 /* ImageType.swift in Sources */,
 				0CCF2340210A861B00612D5B /* PersonalDetailsVC.swift in Sources */,
 				0C4ADA8421184775002C3EA3 /* NotificationsVC.swift in Sources */,
@@ -797,8 +795,10 @@
 				0C4ADA71211090C4002C3EA3 /* Preferences+CoreDataProperties.swift in Sources */,
 				0C4ADA61210F4492002C3EA3 /* RegisterFooter.swift in Sources */,
 				0C78FA33211DEECE0059C0E7 /* JobCardView.swift in Sources */,
+				185B3D2022B4086400C64FD2 /* TodayTableCell.swift in Sources */,
 				0C78FA2A211DB16E0059C0E7 /* JobsVC.swift in Sources */,
 				0CCF2345210B1C7C00612D5B /* SideMenuCell.swift in Sources */,
+				1861853922A6CA6000C0A9F2 /* NewCalendarEntry.swift in Sources */,
 				0CCF22C0210896AE00612D5B /* FindaAPI.swift in Sources */,
 				0C1C8577212ABDF000586326 /* PaymentVC.swift in Sources */,
 				0CCB63A1213C2FF9007CB107 /* Invoice.swift in Sources */,
@@ -823,13 +823,13 @@
 				0C78FA282119D3130059C0E7 /* WelcomeVC.swift in Sources */,
 				18E750F7223904EC00FE28D2 /* JobsVC_withWallet.swift in Sources */,
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
-				18834BF1229D8B5600F4D89F /* DayEntryWithJob.swift in Sources */,
 				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
 				0C1C8587212AE95E00586326 /* InviteVC.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
 				0C78FA4F212223360059C0E7 /* PortfolioVC.swift in Sources */,
 				0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */,
+				18A20C1122B79BB500F02731 /* ViewCalendarEntry.swift in Sources */,
 				0C1C858F2131CAF200586326 /* GenderArray.swift in Sources */,
 				0CCF234D210D070600612D5B /* StringExtensions.swift in Sources */,
 				0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */,

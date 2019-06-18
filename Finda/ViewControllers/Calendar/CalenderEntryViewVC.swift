@@ -16,16 +16,19 @@ import Alamofire
 import EventKit
 import QVRWeekView
 
-class CalendarEntryViewVC: UIViewController {
+class CalendarEntryViewVC: UIViewController, WeekViewDelegate {
     
     @IBOutlet weak var backButton: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dayView: WeekView!
     @IBOutlet weak var todayButton: UIButton!
     
     var calendarEntry: CalendarEntry!
     
     var dayEntries: [CalendarEntry] = []
+//    var allEntries: [String: CalendarEntry] = [:]
+    
+    var allEvents: [String: EventData] = [:]
+    var showDate: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,19 +42,21 @@ class CalendarEntryViewVC: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMMM"
         
-        dateLabel.text = "Entries for " + formatter.string(from: Date(timeIntervalSince1970: calendarEntry!.starttime))
-        
         // format the day view
-        dayView.mainBackgroundColor = UIColor.FindaColours.LightGreen
+        dayView.mainBackgroundColor = UIColor.FindaColours.PaleGreen
         dayView.defaultTopBarHeight = 32.0
-        dayView.topBarColor = UIColor.FindaColours.LightGreen
+        dayView.topBarColor = UIColor.FindaColours.LighterGreen
         dayView.visibleDaysInPortraitMode = 1
         dayView.dayViewMainSeparatorColor = UIColor.FindaColours.BorderGrey
         dayView.dayViewDashedSeparatorColor = UIColor.FindaColours.BorderGrey
         
         todayButton.addTarget(self, action: #selector(moveToToday(sender:)), for: .touchUpInside)
+        todayButton.tintColor = UIColor.FindaColours.Blue
+        self.showDate = calendarEntry!.startDate
+        self.refreshDayView()
+        dayView.delegate = self
         
-        loadEntriesForDate()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadEvents), name: NSNotification.Name(rawValue: "UpdateEventsDisplay"), object: nil)
 
     }
     
@@ -78,22 +83,8 @@ class CalendarEntryViewVC: UIViewController {
     }
     
     @objc func moveToToday(sender: Any) {
-        self.dayView.showDay(withDate: Date(timeIntervalSince1970: calendarEntry!.starttime))
+        self.dayView.showDay(withDate: Date())
     }
-    
-    func loadEntriesForDate() {
-        CalendarEntryManager.getCalendarEntriesForDate(date: calendarEntry!.starttime) { (response, result, calendarEntries) in
-            
-            if response {
-                self.dayEntries = calendarEntries
-                self.refreshDayView()
-            } else {
-                // show error
-            }
-        }
-    }
-    
-    
     
     /*
      * removes all subviews from the container, and rebuilds from an XIB to show the entries
@@ -101,76 +92,139 @@ class CalendarEntryViewVC: UIViewController {
     func refreshDayView() {
         
         if dayEntries.count != 0 {
-            self.dayView.showDay(withDate: Date(timeIntervalSince1970:  dayEntries.first!.starttime))
-        
-            var allEvents: [Int: EventData] = [:]
-            var eventIndex: Int = 0
-            for entry in dayEntries {
-                
+            self.dayView.showDay(withDate: Date(timeIntervalSince1970:  calendarEntry.starttime))
+            allEvents.removeAll()
+            for (entry) in dayEntries {
                 var colour: UIColor
                 if entry.jobid == 0 {
-                   colour = UIColor.FindaColours.LightGrey
+                    if entry.state == "Busy" {
+                        colour = UIColor.FindaColours.LightGreen
+                    } else {
+                        colour = UIColor.FindaColours.LightGrey
+                    }
+                    
                 } else {
                     colour = UIColor.FindaColours.Blue
                 }
                 
-                let newEvent = EventData(id: entry.id,
-                                         title: entry.title,
-                                         startDate: Date(timeIntervalSince1970: entry.starttime),
-                                         endDate: Date(timeIntervalSince1970: entry.endtime),
-                                         location: entry.location,
-                                         color: colour,
-                                         allDay: entry.isAllDay)
-                allEvents[eventIndex] = newEvent
-                eventIndex += 1
+                // make events at least 1 hour long so they show up
+                var endTime: Double
+                if entry.endtime < entry.starttime + (60*60) {
+                    endTime = entry.starttime + (60*60)
+                } else {
+                    endTime = entry.endtime
+                }
                 
+                let newEvent = EventData(id: entry.scheduleId, // entry.id,
+                    title: entry.title,
+                    startDate: Date(timeIntervalSince1970: entry.starttime),
+                    endDate: Date(timeIntervalSince1970: endTime),
+                    location: entry.location,
+                    color: colour,
+                    allDay: entry.isAllDay)
                 
-//                if (entry.jobid == 0) {
-//                    // normal entry
-//                    let subview: DayEntry = .fromNib()
-//
-//                    subview.eventTime.text = Date().displayDate(timeInterval: Int(entry.starttime), format: "h:mm a")
-//                    subview.eventTitle.text = entry.title
-//                    subview.eventLocation.text = entry.location
-//                    subview.addSolidBorder(borderColour: UIColor.FindaColours.Blue)
-//                    subview.layoutIfNeeded()
-//                    self.entryHolder.addSubview(subview)
-//                } else {
-//                    // job-type entry
-//                    let subview: DayEntryWithJob = .fromNib()
-//
-//                    subview.callTime.text = Date().displayDate(timeInterval: Int(entry.starttime), format: "h:mm a")
-//                    subview.entryTitle.text = entry.title
-//                    subview.customerName.text = entry.clientCompany
-//                    subview.jobLocation.text = entry.location
-//                    subview.jobStatus.text = entry.jobtypeDescription
-//                    subview.jobStatus.textColor = UIColor.FindaColours.Blue
-//                    subview.addSolidBorder(borderColour: UIColor.FindaColours.Blue)
-//                    subview.layoutIfNeeded()
-//                    subview.frame.size.height = subview.viewWithTag(0)!.frame.height + 16
-//                    self.entryHolder.addSubview(subview)
-//
-//                }
-                
+                allEvents[entry.scheduleId] = newEvent
             }
             dayView.loadEvents(withData: Array(allEvents.values))
-            
-        } else {
-//            // show error label
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-            label.center = CGPoint(x: 160, y: 285)
-            label.textAlignment = .center
-            label.text = "No events for today"
-//            self.entryHolder.addSubview(label)
-            self.dayView.isHidden = true
+        }
+        
+    }
+    
+    func didTapEvent(in dayView: WeekView, withId eventId: String) {
+        var thisTappedEvent: EventData?
+        var thisCalendarEntry: CalendarEntry?
+
+        thisTappedEvent = allEvents[eventId]
+        
+        for entry in dayEntries {
+            if entry.scheduleId == eventId {
+                thisCalendarEntry = entry
+            }
+        }
+        
+        
+        let alert = UIAlertController(title: "\(thisTappedEvent!.title)", message: "\(thisTappedEvent!.location)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+        if thisCalendarEntry != nil {
+            if thisCalendarEntry!.jobid != 0 {
+                alert.addAction(UIAlertAction(title: "View Job", style: .default, handler: { (_) in
+                    self.dismiss(animated: true, completion: {
+                        let preferences = UserDefaults.standard
+                        preferences.set("tappedNotification", forKey: "sourceAction")
+                        preferences.set(thisCalendarEntry!.jobid, forKey: "showJobIdCard")
+                        preferences.synchronize()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "calendarEventToJobCard"), object: nil)
+                    })
+                }))
+            } else {
+                alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (_) in
+                    self.editEntry(entry: thisCalendarEntry!)
+                }))
+                alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (_) in
+                    self.deleteCalendarEntry(scheduleId: eventId)
+                }))
+            }
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func didLongPressDayView(in dayView: WeekView, atDate date: Date) {
+        performSegue(withIdentifier: "newCalendarEntrySegue", sender: self)
+    }
+    
+    func eventLoadRequest(in weekView: WeekView, between startDate: Date, and endDate: Date) {
+        
+    }
+    
+    func editEntry(entry: CalendarEntry) {
+        performSegue(withIdentifier: "newCalendarEntrySegue", sender: entry)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "newCalendarEntrySegue") {
+            let vc = segue.destination as? NewCalendarEntry
+            if let entry = sender as? CalendarEntry {
+                vc?.calendarEntry = entry
+            }
+        }
+    }
+    
+    @objc func reloadEvents() {
+        CalendarEntryManager.getCalendarEntries { (response, result, calendarEntries) in
+            if response {
+                self.dayEntries.removeAll()
+                for entry in calendarEntries {
+                    self.dayEntries.append(entry)
+                }
+                // update the calendar
+                self.refreshDayView()
+            } else {
+                // show error
+                let appearance = SCLAlertView.SCLAppearance()
+                let errorView = SCLAlertView(appearance: appearance)
+                errorView.showError(
+                    "Sorry",
+                    subTitle: "There was a problem reloading your calendar.")
+            }
+        }
+    }
+    
+    func deleteCalendarEntry(scheduleId: String) {
+        CalendarEntryManager.deleteCalendarEntry(scheduleId: scheduleId) { (response, result) in
+            if response {
+                self.reloadEvents()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadCalendar"), object: nil)
+            } else {
+                // show error
+                let appearance = SCLAlertView.SCLAppearance()
+                let errorView = SCLAlertView(appearance: appearance)
+                errorView.showError(
+                    "Sorry",
+                    subTitle: "There was a problem deleting your calendar entry.")
+            }
         }
     }
     
 }
-
-//extension UIView {
-//    class func fromNib<T: UIView>() -> T {
-//        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
-//    }
-//}
-

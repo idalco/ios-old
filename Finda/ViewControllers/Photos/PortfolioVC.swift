@@ -28,6 +28,7 @@ class PortfolioVC: UIViewController {
 //        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
         
         // Do any additional setup after loading the view.
+//        self.title = "Portfolio"
         
     }
     

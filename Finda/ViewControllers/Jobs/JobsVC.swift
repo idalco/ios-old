@@ -30,7 +30,7 @@ class JobsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Jobs"
         
         if self.jobType.rawValue == "offered" {
             self.noJobsLabel.text = "Currently you have no upcoming jobs"
@@ -306,7 +306,7 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 break
             
             case .Expired?:
-                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.LightGreen
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.LighterGreen
                 break
             
             case .Finished?:

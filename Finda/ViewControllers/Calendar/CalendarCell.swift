@@ -16,6 +16,7 @@ class DateCell: JTAppleCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var selectedView: UIView!
     @IBOutlet var dotView: UIView!
+    @IBOutlet var userDot: UIView!
     
     var calendarEntry: CalendarEntry = CalendarEntry(data: [])
     var hasData: Bool = false

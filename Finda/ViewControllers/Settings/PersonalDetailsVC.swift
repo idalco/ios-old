@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import SVProgressHUD
 
 class PersonalDetailsVC: FormViewController {
     
@@ -19,13 +20,6 @@ class PersonalDetailsVC: FormViewController {
         self.tableView?.backgroundColor = UIColor.white
         self.updateRows()
         let modelManager = ModelManager()
-        
-//        if modelManager.status() == UserStatus.unverified
-        
-        
-//        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
-        
         
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
@@ -46,6 +40,11 @@ class PersonalDetailsVC: FormViewController {
             cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
         }
+
+        DateRow.defaultCellUpdate = { cell, row in
+            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+        }
         
         PickerInlineRow<String>.defaultCellUpdate = { cell, row in
             cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
@@ -60,7 +59,7 @@ class PersonalDetailsVC: FormViewController {
         
         
         
-        var mainSection = Section() { section in
+        var mainSection = Section("Main") { section in
             var header = HeaderFooterView<UIView>(.class)
             header.height = {100}
             header.onSetupView = { view, _ in
@@ -79,81 +78,80 @@ class PersonalDetailsVC: FormViewController {
                 
             }
             section.header = header
-            }
+        }
             
-            <<< TextRow() { row in
-                row.title = "First name"
-                row.value = modelManager.firstName()
-                row.tag = "firstName"
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
-            
-            <<< TextRow() { row in
-                row.title = "Last name"
-                row.value = modelManager.lastName()
-                row.tag = "lastName"
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
-            
-            <<< DateInlineRow() { row in
-                row.title = "Date of Birth"
+        <<< TextRow() { row in
+            row.title = "First name"
+            row.value = modelManager.firstName()
+            row.tag = "firstName"
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
                 
-                var components = DateComponents()
-                components.year = -18
-                row.minimumDate = Calendar.current.date(byAdding: components, to: Date())
-                row.tag = "dob"
+            }
+        }
+        
+        <<< TextRow() { row in
+            row.title = "Last name"
+            row.value = modelManager.lastName()
+            row.tag = "lastName"
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
                 
-                let data = modelManager.dateOfBirth()
-                if data != -1 {
-                    row.value = Date(timeIntervalSince1970: TimeInterval(data))
-                    row.disabled = true
-                }
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
             }
+        }
+        
+        <<< DateRow() { row in
+            row.title = "Date of Birth"
+            row.tag = "dob"
             
-            <<< EmailRow() { row in
-                row.title = "Email address"
-                row.value = modelManager.email()
-                row.tag = "email"
-                row.add(rule: RuleRequired())
-                row.add(rule: RuleEmail())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                        
-                    }
-            }
+            var components = DateComponents()
+            components.year = -18
+            row.maximumDate = Calendar.current.date(byAdding: components, to: Date())
             
-            <<< PhoneRow() { row in
-                row.title = "Mobile Number"
-                row.placeholder = "Mobile Number"
-                row.value = modelManager.telephone()
-                row.tag = "telephone"
-               
+            let data = modelManager.dateOfBirth()
+            if data != -1 {
+                row.value = Date(timeIntervalSince1970: TimeInterval(data))
+                row.disabled = true
             }
+            row.add(rule: RuleRequired())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
+            }
+        }
+        
+        <<< EmailRow() { row in
+            row.title = "Email address"
+            row.value = modelManager.email()
+            row.tag = "email"
+            row.add(rule: RuleRequired())
+            row.add(rule: RuleEmail())
+            row.validationOptions = .validatesOnChangeAfterBlurred
+        }
+        .cellUpdate { cell, row in
+            if !row.isValid {
+                cell.textLabel?.textColor = .red
+                
+            }
+        }
+        
+        <<< PhoneRow() { row in
+            row.title = "Mobile Number"
+            row.placeholder = "Mobile Number"
+            row.value = modelManager.telephone()
+            row.tag = "telephone"
+           
+        }
             
 //            <<< PickerInputRow<String>() { row in
 //                row.title = "Gender"
@@ -172,68 +170,84 @@ class PersonalDetailsVC: FormViewController {
 //            }
             
             
-            <<< PickerInputRow<String>() { row in
-                row.title = "Nationality"
-                row.tag = "nationality"
-                
-                row.options = Country.nationalities
-                let nationality = modelManager.nationality()
-                row.value = nationality
-                if nationality != "" {
-                    row.disabled = true
-                }
-            }
+        <<< PickerInputRow<String>() { row in
+            row.title = "Nationality"
+            row.tag = "nationality"
             
-            <<< PickerInputRow<String>() { row in
-                row.title = "Country of residence"
-                row.tag = "residence"
-                
-                
-                
-                row.options = Country.nationalities
-                let residenceCountry = modelManager.residenceCountry()
-                row.value = residenceCountry
-    
-                if residenceCountry != "" {
-                    row.disabled = true
-                }
-            }
-            
-            <<< TextRow() { row in
-                row.title = "Instagram Username"
-                row.value = modelManager.instagramUserName()
-                row.tag = "instagramUsername"
-            }
-            
-            <<< IntRow() { row in
-                row.title = "Followers"
+            row.options = Country.nationalities
+            let nationality = modelManager.nationality()
+            row.value = nationality
+            if nationality != "" {
                 row.disabled = true
-                let instagramFollowers = modelManager.instagramFollowers()
-                if instagramFollowers != -1 {
-                    row.value = instagramFollowers
-                }
-               
-                
             }
-            <<< TextRow() { row in
-                row.title = "Referral Code"
-                row.placeholder = "(optional)"
-                row.tag = "referralCode"
-                row.value = modelManager.referrerCode()
-                
-                
-            }
+        }
+        
+        <<< PickerInputRow<String>() { row in
+            row.title = "Country of residence"
+            row.tag = "residence"
             
             
-            <<< TextRow() { row in
-                row.title = "VAT Number"
-                row.placeholder = "(optional)"
-                row.value = modelManager.vatNumber()
-                row.tag = "vat"
-                
+            
+            row.options = Country.nationalities
+            let residenceCountry = modelManager.residenceCountry()
+            row.value = residenceCountry
+
+            if residenceCountry != "" {
+                row.disabled = true
+            }
+        }
+        
+        <<< TextRow() { row in
+            row.title = "Instagram Username"
+            row.value = modelManager.instagramUserName()
+            row.tag = "instagramUsername"
+        }
+        
+        <<< IntRow() { row in
+            row.title = "Followers"
+            row.disabled = true
+            let instagramFollowers = modelManager.instagramFollowers()
+            if instagramFollowers != -1 {
+                row.value = instagramFollowers
+            }
+           
+            
+        }
+        <<< TextRow() { row in
+            row.title = "Referral Code"
+            row.placeholder = "(optional)"
+            row.tag = "referralCode"
+            row.value = modelManager.referrerCode()
+        }
+        
+        
+        <<< TextRow() { row in
+            row.title = "VAT Number"
+            row.placeholder = "(optional)"
+            row.value = modelManager.vatNumber()
+            row.tag = "vat"
+
         }
         
         form +++ mainSection
+        
+        form +++ Section("Availability")
+            <<< SwitchRow("allday") { row in
+                row.title = "Are you available for work?"
+                row.tag = "availability"
+                row.cell.switchControl.onTintColor = UIColor.FindaColours.Blue
+                row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
+            }
+            .cellSetup({ (SwitchCell, SwitchRow) in
+                if modelManager.available() {
+                    (self.form.rowBy(tag: "availability") as? SwitchRow)?.cell.switchControl.isOn = true
+                }
+                self.tableView.reloadData()
+            })
+            .onChange({ row in
+                self.toggleAvailability()
+                self.tableView.reloadData()
+            })
         
         form +++ Section()
         form +++ Section()
@@ -278,7 +292,6 @@ class PersonalDetailsVC: FormViewController {
                 self.updateCell(tag: "telephone", data: model.telephone())
                 self.updateGenderPickerRow(tag: "gender", data: model.gender())
               
-                
                 self.updateCell(tag: "nationality", data: model.nationality())
                 self.updateCell(tag: "residence", data: model.residenceCountry())
                 self.updateCell(tag: "instagramUsername", data: model.instagramUserName())
@@ -358,12 +371,12 @@ class PersonalDetailsVC: FormViewController {
             return
         }
         
-        guard let nationalityRow: BaseRow = form.rowBy(tag: "nationality"), let nationality: String = form.values()["nationality"] as? String else {
+        guard let _: BaseRow = form.rowBy(tag: "nationality"), let nationality: String = form.values()["nationality"] as? String else {
             self.validateRow(tag: "nationality")
             return
         }
 
-        guard let residenceRow: BaseRow = form.rowBy(tag: "residence"), let residence: String = form.values()["residence"] as? String else {
+        guard let _: BaseRow = form.rowBy(tag: "residence"), let residence: String = form.values()["residence"] as? String else {
             self.validateRow(tag: "residence")
             return
         }
@@ -407,6 +420,26 @@ class PersonalDetailsVC: FormViewController {
     @IBAction func menu(_ sender: Any) {
         sideMenuController?.revealMenu()
     }
+    
+    func toggleAvailability() {
+        var availability = 0
+        let values = form.values()
+        let availToggle = (values["availability"] as? Bool) ?? false
+        if availToggle {
+            availability = 1
+        }
+        
+        FindaAPISession(target: .updateAvailability(availability: availability)) { (response, result) in
+            if response {
+
+            } else {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
+                SVProgressHUD.showError(withStatus: "There was a problem saving your availability")
+            }
+        }
+    }
+    
     /*
      // MARK: - Navigation
      

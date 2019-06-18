@@ -57,6 +57,10 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         self.updateNotificationCount()
+        navigationItem.title = "Jobs"
+        
+//        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Gotham Bold", size: 18)!]
+
         
     }
     

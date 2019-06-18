@@ -39,7 +39,7 @@ class CalendarEntry {
         self.id = data["id"].stringValue
         self.userid = data["userid"].intValue
         self.calendarId = data["calendarId"].intValue
-        self.scheduleId = data["schedulId"].stringValue
+        self.scheduleId = data["scheduleId"].stringValue
         self.jobid = data["jobid"].intValue
         self.title = data["title"].stringValue
         self.starttime = data["starttime"].doubleValue
@@ -54,9 +54,57 @@ class CalendarEntry {
         self.end = data["end"].stringValue
         self.startDate = data["startDate"].stringValue
         self.endDate = data["endDate"].stringValue
-        self.clientName = data["client_name"].stringValue
-        self.clientCompany = data["company_name"].stringValue
-        self.jobtypeDescription = data["jobtype_name"].stringValue
+        self.clientName = data["jobdetails"]["client_name"].stringValue
+        self.clientCompany = data["jobdetails"]["company_name"].stringValue
+        self.jobtypeDescription = data["jobdetails"]["jobtype_name"].stringValue
+    }
+    
+    init(date: Double) {
+        self.id = ""
+        self.userid = 0
+        self.calendarId = 0
+        self.scheduleId = ""
+        self.jobid = 0
+        self.title = ""
+        self.starttime = date
+        self.endtime = date
+        self.isAllDay = false
+        self.location = ""
+        self.isVisible = true
+        self.isReadOnly = false
+        self.isPrivate = false
+        self.state = ""
+        self.start = ""
+        self.end = ""
+        self.startDate = ""
+        self.endDate = ""
+        self.clientName = ""
+        self.clientCompany = ""
+        self.jobtypeDescription = ""
+    }
+    
+    init(title: String, allday: Bool, starttime: Double, endtime: Double, location: String, state: String, scheduleid: String, userid: Int) {
+        self.id = ""
+        self.userid = userid
+        self.calendarId = 0
+        self.scheduleId = scheduleid
+        self.jobid = 0
+        self.title = title
+        self.starttime = starttime
+        self.endtime = endtime
+        self.isAllDay = allday
+        self.location = location
+        self.isVisible = true
+        self.isReadOnly = false
+        self.isPrivate = false
+        self.state = state
+        self.start = ""
+        self.end = ""
+        self.startDate = ""
+        self.endDate = ""
+        self.clientName = ""
+        self.clientCompany = ""
+        self.jobtypeDescription = ""
     }
     
 }

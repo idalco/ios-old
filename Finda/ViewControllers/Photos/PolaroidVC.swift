@@ -28,6 +28,7 @@ class PolaroidVC: UIViewController {
 //        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
 
         // Do any additional setup after loading the view.
+//        self.title = "Polaroids"
     }
 
     override func viewDidAppear(_ animated: Bool) {

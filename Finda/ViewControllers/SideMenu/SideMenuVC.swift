@@ -26,6 +26,13 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         case needsVerification = 2
     }
     
+    enum TabEntries: Int {
+        case JobsTab = 0
+        case CalendarTab = 1
+        case UpdatesTab = 2
+        case PhotosTab = 3
+    }
+    
     var menutype: MenuType = MenuType.loggedOut
     
     var segueIdentifier: String = ""
@@ -52,7 +59,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InvoiceNav") }, with: "InvoiceNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "VerificationNav") }, with: "VerificationNav")
-        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Calendar") }, with: "Calendar")
+//        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Calendar") }, with: "Calendar")
 
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.displayFCMToken(notification:)), name: NSNotification.Name(rawValue: "FCMToken"), object: nil)
         
@@ -200,21 +207,21 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             break
                         case 1:
                             smc?.setContentViewController(with: "MainTabBar")
-                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.PhotosTab.rawValue
                             (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
                             break
                         case 2:
                             smc?.setContentViewController(with: "MainTabBar")
-                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.PhotosTab.rawValue
                             (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
                             break
                         case 3:
                             sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.JobsTab.rawValue
                             break
                         case 4:
                             sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.UpdatesTab.rawValue
                             break
                         case 5:
                             if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
@@ -224,14 +231,18 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             }
                             break
                         case 6:
-                            sideMenuController?.setContentViewController(with: "Calendar", animated: true)
+                            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.CalendarTab.rawValue
+//                            sideMenuController?.setContentViewController(with: "Calendar", animated: true)
                             break
+//                        case 6:
                         case 7:
                             if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }
                             break
+//                        case 7:
                         case 8:
                             if let destination = NSURL(string: domainURL + "/faq/model") {
                                 let safari = SFSafariViewController(url: destination as URL)

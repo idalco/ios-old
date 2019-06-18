@@ -38,7 +38,8 @@ extension UIColor {
         static let Black = UIColor(rgb: 0x565c66)
         static let Pink = UIColor(rgb: 0xd71e82)
         static let LightGreen = UIColor(rgb: 0xd5e1df)
-        
+        static let LighterGreen = UIColor(rgb: 0xdde7e5)
+        static let PaleGreen = UIColor(rgb: 0xE7EDED)
     }
     
     func fade(alpha:CGFloat = 0.05) -> UIColor {

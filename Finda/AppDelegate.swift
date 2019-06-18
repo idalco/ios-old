@@ -64,6 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Gotham-Book", size: 18)!], for: .normal)
+        
         return true
     }
     

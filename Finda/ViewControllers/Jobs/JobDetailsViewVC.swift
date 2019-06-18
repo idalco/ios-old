@@ -85,7 +85,7 @@ class JobDetailsViewVC: UIViewController {
             .validate()
             .responseData(completionHandler: { (responseData) in
                 self.clientLogo.image = UIImage(data: responseData.data!)
-                self.clientLogo.addSolidBorder(borderColour: UIColor.FindaColours.LightGreen, cornerRadius: 48, width: 8)
+                self.clientLogo.addSolidBorder(borderColour: UIColor.FindaColours.LighterGreen, cornerRadius: 48, width: 8)
             })
         
         if (job.contact_number != "") {
@@ -298,7 +298,7 @@ class JobDetailsViewVC: UIViewController {
                 
                 break
             case .ToComplete:
-                // this is an override funcvtion
+                // this is an override function
 //                primaryButton.isHidden = true
 //                secondaryButton.setTitle("COMPLETE", for: .normal)
 //                secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
@@ -314,6 +314,7 @@ class JobDetailsViewVC: UIViewController {
         }
         
     
+        addToCalendar.isHidden = true
     }
    
     override func viewDidAppear(_ animated: Bool) {
@@ -598,62 +599,60 @@ class JobDetailsViewVC: UIViewController {
     
     @objc private func addtoCalendarClicked(sender: UIImageView) {
         
-        let eventStore = EKEventStore()
         let appearance = SCLAlertView.SCLAppearance()
-        
-        eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
-            
-            if granted && error == nil {
-                
-                let event = EKEvent(eventStore: eventStore)
-             
-                var duration = self.job.timeUnits
-                if self.job.unitsType == "day" {
-                    duration = duration * 60*60*24
-                } else if self.job.unitsType == "hour" {
-                    duration = duration * 60*60
-                }
-                
-                let startDate = Date(timeIntervalSince1970: Double(self.job.startdate))
-                let startTime = Date(timeIntervalSince1970: Double(self.job.starttime))
+    
+        var duration = self.job.timeUnits
+        if self.job.unitsType == "day" {
+            duration = duration * 60*60*24
+        } else if self.job.unitsType == "hour" {
+            duration = duration * 60*60
+        }
+    
+        let startDate = Date(timeIntervalSince1970: Double(self.job.startdate))
+        let startTime = Date(timeIntervalSince1970: Double(self.job.starttime))
 
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd-MM-yyyy"
-                let startDateString = dateFormatter.string(from: startDate)
-                dateFormatter.dateFormat = "HH:mm"
-                let startTimeString = dateFormatter.string(from: startTime)
-                let startString = startDateString + " " + startTimeString
-                dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-                let calStartDate = dateFormatter.date(from: startString)
-                
-                let end = Double(self.job.startdate + Int(duration))
-                let calEndDate = Date(timeIntervalSince1970: end)
-                
-                event.title = self.job.name
-                event.startDate = calStartDate
-                event.endDate = calEndDate
-                event.notes = self.job.description
-                event.calendar = eventStore.defaultCalendarForNewEvents
-                
-                var event_id = ""
-                do {
-                    try eventStore.save(event, span: .thisEvent)
-                    event_id = event.eventIdentifier
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let startDateString = dateFormatter.string(from: startDate)
+        dateFormatter.dateFormat = "HH:mm"
+        let startTimeString = dateFormatter.string(from: startTime)
+        let startString = startDateString + " " + startTimeString
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        let calStartDate = dateFormatter.date(from: startString)
+    
+        let end = Double(self.job.startdate + Int(duration))
+        let calEndDate = Date(timeIntervalSince1970: end)
+        
+        addEventToCalendar(title: self.job.name, description: self.job.description, startDate: calStartDate!, endDate: calEndDate)
+        addToCalendar.isHidden = true
+        let noticeView = SCLAlertView(appearance: appearance)
+        noticeView.showInfo("Added!", subTitle: "The job has been added to your calendar", colorStyle: 0x13AFC0)
+    }
+    
+    func addEventToCalendar(title: String, description: String?, startDate: Date, endDate: Date, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
+        DispatchQueue.main.async { () -> Void in
+            let eventStore = EKEventStore()
+            
+            eventStore.requestAccess(to: .event, completion: { (granted, error) in
+                if (granted) && (error == nil) {
+                    let event = EKEvent(eventStore: eventStore)
+                    event.title = title
+                    event.startDate = startDate
+                    event.endDate = endDate
+                    event.notes = description
+                    event.calendar = eventStore.defaultCalendarForNewEvents
+                    do {
+                        try eventStore.save(event, span: .thisEvent)
+                    } catch let e as NSError {
+                        completion?(false, e)
+                        return
+                    }
+                    completion?(true, nil)
+                } else {
+                    completion?(false, error as NSError?)
                 }
-                catch let error as NSError {
-                    
-                    let errorView = SCLAlertView(appearance: appearance)
-                    errorView.showError(
-                        "Sorry",
-                        subTitle: "Something went wrong: \(error.localizedDescription)")
-                }
-                
-                if (event_id != "") {
-                    let noticeView = SCLAlertView(appearance: appearance)
-                    noticeView.showInfo("Added!", subTitle: "The job has been added to your calendar", colorStyle: 0x13AFC0)
-                }
-            }
-        })
+            })
+        }
     }
     
 }

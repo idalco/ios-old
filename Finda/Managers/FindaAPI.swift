@@ -55,6 +55,9 @@ enum FindaAPI {
     case updateAvailability(availability: Int)
     case getCalendar()
     case getCalendarEntriesForDate(date: Double)
+    case newCalendarEntry(title: String, allday: Bool, starttime: Double, endtime: Double, location: String, state: String, isediting: Bool)
+    case deleteCalendarEntry(entry: String)
+    case updateCalendarEntry(scheduleId: String, title: String, allday: Bool, starttime: Double, endtime: Double, location: String, state: String)
 
     // GET
     case userDetails()
@@ -134,6 +137,12 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/getCalendar"
         case .getCalendarEntriesForDate:
             return "/getCalendarEvents"
+        case .newCalendarEntry:
+            return "/addCalendarEvent"
+        case .deleteCalendarEntry:
+            return "/deleteCalendarEvent"
+        case .updateCalendarEntry:
+            return "/updateCalendarEvent"
         }
     }
     
@@ -141,7 +150,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry:
             return .post
             
         // methods requiring GET
@@ -356,11 +365,48 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
         case .getCalendar():
+            var components = DateComponents()
+            components.month = -1
+            let start = Calendar.current.date(byAdding: components, to: Date())
+            components.month = 3
+            let end = Calendar.current.date(byAdding: components, to: Date())
+            p["start"] = start?.timeIntervalSince1970
+            p["end"] = end?.timeIntervalSince1970
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .getCalendarEntriesForDate(let date):
             p["date"] = date
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
+        case .newCalendarEntry(let title, let allday, let starttime, let endtime, let location, let state, let isediting):
+            p["title"] = title
+            p["isAllDay"] = allday
+            p["isReadOnly"] = false
+            p["starttime"] = starttime
+            p["endtime"] = endtime
+            p["category"] = allday ? "allday" : "time"
+            p["dueDateClass"] =  ""
+            p["eventLocation"] = location
+            p["state"] =  state
+            p["isedit"] = isediting
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+
+        case .deleteCalendarEntry(let scheduleid):
+            p["scheduleid"] = scheduleid
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+        case .updateCalendarEntry(let scheduleId, let title, let allday, let starttime, let endtime, let location, let state):
+            p["title"] = title
+            p["isAllDay"] = allday
+            p["isReadOnly"] = false
+            p["starttime"] = starttime
+            p["endtime"] = endtime
+            p["category"] = allday ? "allday" : "time"
+            p["dueDateClass"] =  ""
+            p["eventLocation"] = location
+            p["state"] =  state
+            p["scheduleid"] = scheduleId
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
         default:
             return .requestPlain
         }
