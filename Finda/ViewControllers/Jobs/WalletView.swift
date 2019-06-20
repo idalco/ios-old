@@ -689,7 +689,7 @@ open class WalletView: UIView {
         let firstIndexToMoveY: Int = {
             
             guard let presentedCardView = presentedCardView,
-                let presentedCardViewIndex = insertedCardViews.index(of: presentedCardView) else {
+                let presentedCardViewIndex = insertedCardViews.firstIndex(of: presentedCardView) else {
                     return 0
             }
             

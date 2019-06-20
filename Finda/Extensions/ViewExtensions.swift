@@ -108,7 +108,16 @@ extension UIView {
         shapeLayer.lineWidth = width
         shapeLayer.lineJoin = CAShapeLayerLineJoin.round
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: cornerRadius).cgPath
+        shapeLayer.name = "borderLayer"
         
         self.layer.addSublayer(shapeLayer)
+    }
+    
+    func removeBorder() {
+        for layer in self.layer.sublayers! {
+            if layer.name == "borderLayer" {
+                layer.removeFromSuperlayer()
+            }
+        }
     }
 }

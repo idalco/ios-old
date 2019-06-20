@@ -24,7 +24,7 @@ enum FindaAPI {
     case registerModel(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, referral_code: String?, dob: TimeInterval)
     case registerClient(mail: String, pass: String, firstname: String, lastname: String, telephone: String, occupation: String, company_name: String, company_website: String, country: String)
     case termData(term: TermDataManager.TermData)
-    case logout()
+    case logout
     case getJobs(jobType: JobsManager.JobTypes)
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
@@ -41,26 +41,27 @@ enum FindaAPI {
     case getImages(type: ImageType)
     case deleteImage(id: Int)
     case selectLeadImage(id: Int)
+    case saveImageOrder(imageOrder: Array<Int>, imageType: String)
     case inviteFriend(name: String, email: String)
     case supportRequest(request: String)
     case updateBankDetails(name: String, sortcode: String, accountNumber: String, ibanNumber: String)
-    case getModelInvoices()
+    case getModelInvoices
     case acceptJob(jobId: Int)
     case rejectJob(jobId: Int)
     case cancelJob(jobId: Int)
     case completeJob(jobId: Int)
     case rejectOption(jobId: Int)
-    case negotiateRate(jobId: Int, newRate: Int)
+    case negotiateRate(jobId: Int, newRate: Int, reasons: Array<Int>)
     case updateDeviceToken(deviceToken: String)
     case updateAvailability(availability: Int)
-    case getCalendar()
+    case getCalendar
     case getCalendarEntriesForDate(date: Double)
     case newCalendarEntry(title: String, allday: Bool, starttime: Double, endtime: Double, location: String, state: String, isediting: Bool)
     case deleteCalendarEntry(entry: String)
     case updateCalendarEntry(scheduleId: String, title: String, allday: Bool, starttime: Double, endtime: Double, location: String, state: String)
 
     // GET
-    case userDetails()
+    case userDetails
 }
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
@@ -107,6 +108,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/removeImage"
         case .selectLeadImage:
             return "/selectLeadImage"
+        case .saveImageOrder:
+            return "/saveImageOrder"
         case .inviteFriend:
             return "/inviteFriend"
         case .supportRequest:
@@ -150,7 +153,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .saveImageOrder, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry:
             return .post
             
         // methods requiring GET
@@ -317,7 +320,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .selectLeadImage(let id):
             p["imageid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        
+        case .saveImageOrder(let imageOrder, let imageType):
+            p["order"] = imageOrder
+            p["type"] = imageType
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .inviteFriend(let name, let email):
             p["name"] = name
             p["email"] = email
@@ -354,17 +360,18 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["deviceToken"] = deviceToken
             p["deviceType"] = "ios"
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        case .userDetails():
+        case .userDetails:
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        case .negotiateRate(let jobId, let newRate):
+        case .negotiateRate(let jobId, let newRate, let reasons):
             p["jobid"] = jobId
             p["rate"] = newRate
+            p["reasons"] = reasons
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         case .updateAvailability(let availability):
             p["availability"] = availability
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
-        case .getCalendar():
+        case .getCalendar:
             var components = DateComponents()
             components.month = -1
             let start = Calendar.current.date(byAdding: components, to: Date())

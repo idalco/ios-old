@@ -29,6 +29,7 @@ class JobDetailsViewVC: UIViewController {
     @IBOutlet weak var jobTime: UILabel!
     
     @IBOutlet weak var agreedRate: UILabel!
+    @IBOutlet var modelFee: UILabel!
     
     @IBOutlet weak var contactNumber: UILabel!
     @IBOutlet weak var jobLength: UILabel!
@@ -124,6 +125,10 @@ class JobDetailsViewVC: UIViewController {
         addToCalendar.isHidden = true
         jobStatus.textColor = UIColor.FindaColours.FindaGreen
         
+        // we may not use this, but set it up anyway
+        var modelTotal = "Total for you: £"
+        modelFee.isHidden = true
+        
         if let jobHeaderStatus = JobStatus(rawValue: job.header) {
 
             switch(jobHeaderStatus) {
@@ -140,6 +145,12 @@ class JobDetailsViewVC: UIViewController {
                     agreedRate.text = "Agreed consideration: \(job.altRate)"
                 } else {
                     agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    
+                    let calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                    modelFee.text = modelTotal
+                    modelFee.isHidden = false
+                    
                 }
 
                 
@@ -179,6 +190,11 @@ class JobDetailsViewVC: UIViewController {
                     agreedRate.text = "Agreed consideration: \(job.altRate)"
                 } else {
                     agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    
+                    let calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                    modelFee.text = modelTotal
+                    modelFee.isHidden = false
                 }
 
                 jobStatus.textColor = UIColor.FindaColours.Yellow
@@ -223,12 +239,25 @@ class JobDetailsViewVC: UIViewController {
                     } else {
                         if (job.agreedRate != 0) {
                             offeredLabel = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
+                            
+                            let calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                            modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                            modelFee.text = modelTotal
+                            modelFee.isHidden = false
                         } else {
                             
                             if job.clientOfferedRate != 0 {
                                 offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
+                                let calculatedFee = ((Double(job.clientOfferedRate) * 0.9) * Double(job.timeUnits))
+                                modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                                modelFee.text = modelTotal
+                                modelFee.isHidden = false
                             } else {
                                 offeredLabel = offeredLabel + "\(job.offeredRate)"
+                                let calculatedFee = ((Double(job.offeredRate) * 0.9) * Double(job.timeUnits))
+                                modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                                modelFee.text = modelTotal
+                                modelFee.isHidden = false
                             }
                             offeredLabel = offeredLabel + "/\(job.unitsType.uppercased())"
                             
@@ -295,6 +324,10 @@ class JobDetailsViewVC: UIViewController {
 
                 agreedRate.isHidden = false
                 agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
+                
+                modelTotal = modelTotal + (NSString(format: "%.2f", Double(job.agreedRate) * 0.9) as String)
+                modelFee.text = modelTotal
+                modelFee.isHidden = false
                 
                 break
             case .ToComplete:
@@ -522,14 +555,103 @@ class JobDetailsViewVC: UIViewController {
         let alertView = SCLAlertView(appearance: appearance)
         let newRateField = alertView.addTextField("Enter your desired rate")
         
+        var heightOffset = 0
+        let heightStep = 38
+
+        // @TODO this needs to be a dynamic list
+        let subview = UIView(frame: CGRect(x: 0, y: 0, width: 216, height: heightStep * 5))
+
+        var subtitle = "The current offered rate is: £"
+        if job.clientOfferedRate != 0 {
+            subtitle = subtitle + "\(job.clientOfferedRate)"
+        } else {
+            subtitle = subtitle + "\(job.offeredRate)"
+        }
+        subtitle = subtitle + "/" + job.unitsType + "."
+        
+        if job.modelDesiredRate != 0 {
+            subtitle = subtitle + "\nYou asked for: £\(job.modelDesiredRate)."
+        }
+        
+        let textReason = UITextView(frame: CGRect(x: 0, y: heightOffset, width: 216, height: heightStep))
+        textReason.text = "Reason for negotiation"
+        textReason.textAlignment = NSTextAlignment.center
+        textReason.font = UIFont(name: "Gotham-Medium", size: 12)
+        subview.addSubview(textReason)
+        
+        heightOffset = heightOffset + heightStep
+        
+        let textfield1 = UITextView(frame: CGRect(x: 0, y: heightOffset, width: 164, height: heightStep))
+        textfield1.text = "For selected usage rights the rate is too low"
+        textfield1.textAlignment = NSTextAlignment.left
+        subview.addSubview(textfield1)
+        let switch1 = UISwitch(frame:CGRect(x: 165, y: heightOffset + 4, width: 0, height: heightStep))
+        switch1.setOn(false, animated: false)
+        switch1.tintColor = UIColor.FindaColours.Blue
+        switch1.onTintColor = UIColor.FindaColours.Blue
+        switch1.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        subview.addSubview(switch1)
+
+        heightOffset = heightOffset + heightStep
+        
+        let textfield2 = UITextView(frame: CGRect(x: 0, y: heightOffset, width: 164, height: heightStep))
+        textfield2.text = "My negotiated rate is my minimum for this type of job"
+        textfield2.textAlignment = NSTextAlignment.left
+        subview.addSubview(textfield2)
+        let switch2 = UISwitch(frame:CGRect(x: 165, y: heightOffset + 4, width: 0, height: heightStep))
+        switch2.setOn(false, animated: false)
+        switch2.tintColor = UIColor.FindaColours.Blue
+        switch2.onTintColor = UIColor.FindaColours.Blue
+        switch2.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        subview.addSubview(switch2)
+
+        heightOffset = heightOffset + heightStep
+        
+        let textfield3 = UITextView(frame: CGRect(x: 0, y: heightOffset, width: 164, height: heightStep))
+        textfield3.text = "My usual rate for this type of job is higher"
+        textfield3.textAlignment = NSTextAlignment.left
+        subview.addSubview(textfield3)
+        let switch3 = UISwitch(frame:CGRect(x: 165, y: heightOffset + 4, width: 0, height: heightStep))
+        switch3.setOn(false, animated: false)
+        switch3.tintColor = UIColor.FindaColours.Blue
+        switch3.onTintColor = UIColor.FindaColours.Blue
+        switch3.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        subview.addSubview(switch3)
+        
+        heightOffset = heightOffset + heightStep
+
+        let textSubtitle = UITextView(frame: CGRect(x: 0, y: heightOffset, width: 216, height: heightStep * 2))
+        textSubtitle.text = subtitle
+        textSubtitle.textAlignment = NSTextAlignment.center
+        textSubtitle.font = UIFont(name: "Gotham-Bold", size: 12)
+        subview.addSubview(textSubtitle)
+    
+        alertView.customSubview = subview
+        
         alertView.addButton("Negotiate") {
             // the value we need is in newRate
             let newRate = Int(newRateField.text!)
-            //            if (newRate! >= job.offeredRate) {
+
+            // get the switch reasons here
+            // @TODO this needs to be a dynamic list
+            var reasons: [Int] = []
+            
+            if switch1.isOn {
+                reasons.append(87)
+            }
+            
+            if switch2.isOn {
+                reasons.append(91)
+            }
+            
+            if switch3.isOn {
+                reasons.append(88)
+            }
+            
             SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
             SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
-            FindaAPISession(target: .negotiateRate(jobId: self.job.jobid, newRate: newRate!)) { (response, result) in
+            FindaAPISession(target: .negotiateRate(jobId: self.job.jobid, newRate: newRate!, reasons: reasons)) { (response, result) in
                 if response {
                     SVProgressHUD.dismiss()
                     let noticeView = SCLAlertView(appearance: appearance)
@@ -563,18 +685,6 @@ class JobDetailsViewVC: UIViewController {
                         subTitle: "Something went wrong sending your negotiation. Please try again later.")
                 }
             }
-        }
-        
-        var subtitle = "The current offered rate is: £"
-        if job.clientOfferedRate != 0 {
-            subtitle = subtitle + "\(job.clientOfferedRate)"
-        } else {
-            subtitle = subtitle + "\(job.offeredRate)"
-        }
-        subtitle = subtitle + "/" + job.unitsType + "."
-        
-        if job.modelDesiredRate != 0 {
-            subtitle = subtitle + "\nYou asked for: £\(job.modelDesiredRate)."
         }
         
         alertView.showTitle(

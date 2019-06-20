@@ -2,13 +2,15 @@
 platform :ios, '10.3'
 
 target 'Finda' do
+  
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  source 'https://github.com/CocoaPods/Specs.git'
   use_frameworks!
-
-  # Pods for Finda
 
   # ignore all warnings from all pods
   inhibit_all_warnings!
+  
+  # Pods for Finda
 
   # network requests
   pod 'AlamofireImage'
@@ -46,12 +48,8 @@ target 'Finda' do
   # Image picker
   pod 'YPImagePicker'
 
-  #  pod 'Font-Awesome-Swift', '~> 1.7.2'
   pod 'FontAwesome.swift'
   
-  
-  source 'https://github.com/CocoaPods/Specs.git'
-  use_frameworks!
   pod 'SwiftyGif'
   
   # Firebase for analytics and messaging
@@ -65,7 +63,7 @@ target 'Finda' do
   pod 'SCLAlertView'
   
   # the calendar
-  pod 'JTAppleCalendar', '~> 7.0'
+  pod 'JTAppleCalendar'
   pod 'QVRWeekView'
 
 end

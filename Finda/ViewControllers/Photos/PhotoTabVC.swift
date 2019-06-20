@@ -50,7 +50,7 @@ class PhotoTabVC: TabmanViewController, PageboyViewControllerDataSource {
     private func updateNotificationCount(){
         NotificationManager.countNotifications(notificationType: .new) { (response, result) in
             if response {
-                self.tabBarController?.tabBar.items?[1].badgeValue = result["userdata"].string
+                self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].string
             }
         }
     }

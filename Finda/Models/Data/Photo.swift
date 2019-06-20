@@ -16,7 +16,7 @@ class Photo {
     var imagetype: ImageType
     var leadimage: Bool
     
-    init(data: JSON){
+    init(data: JSON) {
         self.filename = data["filename"].stringValue
         self.id = data["id"].intValue
         self.imagetype = ImageType(rawValue: data["imagetype"].stringValue) ?? ImageType.Polaroids

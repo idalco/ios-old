@@ -17,6 +17,8 @@ class PolaroidVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private let refreshControl = UIRefreshControl()
     
+    fileprivate var longPressGesture: UILongPressGestureRecognizer!
+    
     var photosArray: [Photo] = []
     
     override func viewDidLoad() {
@@ -29,6 +31,9 @@ class PolaroidVC: UIViewController {
 
         // Do any additional setup after loading the view.
 //        self.title = "Polaroids"
+        
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
+        collectionView.addGestureRecognizer(longPressGesture)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -58,7 +63,7 @@ class PolaroidVC: UIViewController {
         self.updateImages()
     }
     
-    func updateImages(){
+    func updateImages() {
         PhotoManager.getPhotos(imageType: .Polaroids) { (response, result, photos) in
             if response {
                 self.photosArray = photos
@@ -104,6 +109,15 @@ class PolaroidVC: UIViewController {
             vc?.photoType = ImageType.Polaroids
         }
     }
+    
+    func saveImageOrder() {
+        var newOrder: [Int] = []
+        for photo in self.photosArray {
+            newOrder.append(photo.id)
+        }
+        FindaAPISession(target: .saveImageOrder(imageOrder: newOrder, imageType: "polaroids")) { (response, result) in
+        }
+    }
 
 }
 
@@ -112,6 +126,18 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.photosArray.count > 0 ? 1:0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movePhoto = self.photosArray[sourceIndexPath.item]
+        self.photosArray.remove(at: sourceIndexPath.item)
+        self.photosArray.insert(movePhoto, at: destinationIndexPath.item)
+        collectionView.reloadData()
+        saveImageOrder()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -128,14 +154,11 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCVC
         
         let imageData = self.photosArray[indexPath.row].filename
-//        cell.addDashedBorder(borderColour: UIColor.FindaColours.LightGrey, cornerRadius: 10)
+
         cell.image.setRounded(radius: 10)
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPolaroidsURL: url, imageTransition: .crossDissolve(0.25))
         }
-        
-//        cell.deleteButton.tag = indexPath.row
-//        cell.deleteButton.addTarget(self, action: #selector(deleteImage(sender:)), for: UIControlEvents.touchUpInside)
       
         cell.deleteButton.isHidden = true
         
@@ -152,6 +175,27 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         photosArray.remove(at: sender.tag)
         collectionView.reloadData()
+    }
+    
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        switch(gesture.state) {
+            
+        case .began:
+            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+                break
+            }
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+            break
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+            break
+        case .ended:
+            collectionView.endInteractiveMovement()
+            break
+        default:
+            collectionView.cancelInteractiveMovement()
+            break
+        }
     }
     
 }

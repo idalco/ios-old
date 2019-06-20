@@ -36,8 +36,13 @@ class WelcomeVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var barStyle = UIStatusBarStyle.lightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return barStyle
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarStyle = .lightContent
         self.hideKeyboardWhenTappedAround()
         
     }

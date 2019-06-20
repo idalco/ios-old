@@ -18,8 +18,13 @@ class RegisterOptionVC: UIViewController {
         
     }
     
+    var barStyle = UIStatusBarStyle.lightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return barStyle
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .default
+//        UIApplication.shared.statusBarStyle = .default
     }
     
     

@@ -9,14 +9,14 @@ PODS:
   - DCKit (1.0.13)
   - Eureka (5.0.0)
   - Fabric (1.10.1)
-  - Firebase/Core (6.1.0):
+  - Firebase/Core (6.2.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.0.1)
-  - Firebase/CoreOnly (6.1.0):
-    - FirebaseCore (= 6.0.1)
-  - Firebase/Messaging (6.1.0):
+  - Firebase/CoreOnly (6.2.0):
+    - FirebaseCore (= 6.0.2)
+  - Firebase/Messaging (6.2.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 4.0.1)
+    - FirebaseMessaging (~> 4.0.2)
   - FirebaseAnalytics (6.0.1):
     - FirebaseCore (~> 6.0)
     - FirebaseInstanceID (~> 4.1)
@@ -27,21 +27,21 @@ PODS:
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
   - FirebaseAnalyticsInterop (1.2.0)
-  - FirebaseCore (6.0.1):
+  - FirebaseCore (6.0.2):
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/Logger (~> 6.0)
-  - FirebaseInstanceID (4.1.0):
+  - FirebaseInstanceID (4.1.1):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebaseMessaging (4.0.1):
+  - FirebaseMessaging (4.0.2):
     - FirebaseAnalyticsInterop (~> 1.1)
     - FirebaseCore (~> 6.0)
     - FirebaseInstanceID (~> 4.1)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/Environment (~> 6.0)
-    - GoogleUtilities/Reachability (~> 6.0)
-    - GoogleUtilities/UserDefaults (~> 6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Reachability (~> 6.2)
+    - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
   - FontAwesome.swift (1.7.1)
   - GoogleAppMeasurement (6.0.1):
@@ -68,7 +68,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.2.0):
     - GoogleUtilities/Logger
-  - IQKeyboardManagerSwift (6.3.0)
+  - IQKeyboardManagerSwift (6.4.0)
   - JTAppleCalendar (7.1.7)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -86,7 +86,7 @@ PODS:
   - QVRWeekView (0.12.3)
   - Result (4.1.0)
   - SCLAlertView (0.8)
-  - SideMenuSwift (2.0.0)
+  - SideMenuSwift (2.0.1)
   - SteviaLayout (4.4.4)
   - SVProgressHUD (2.2.5)
   - SwiftyGif (5.1.1)
@@ -109,7 +109,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - FontAwesome.swift
   - IQKeyboardManagerSwift
-  - JTAppleCalendar (~> 7.0)
+  - JTAppleCalendar
   - Moya
   - QVRWeekView
   - SCLAlertView
@@ -166,16 +166,16 @@ SPEC CHECKSUMS:
   DCKit: ca310752c3a4d442e772de66ce4e4168ea906d62
   Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   Fabric: f6f21452846788bb44595d73e9909d79d328e617
-  Firebase: 8d77bb33624ae9b62d745d82ec023de5f70f7e4f
+  Firebase: 5965bac23e7fcb5fa6d926ed429c9ecef8a2014e
   FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
-  FirebaseCore: 66bdef3b310a026880e2a5bc8aa586ab62ce4543
-  FirebaseInstanceID: 27bed93a59b6685f5c3e0c028a878a764fd75c33
-  FirebaseMessaging: 31377e05331d16dc6c9fd82554f9a5c49aa70aed
+  FirebaseCore: b0f0262acebfa540e5f97b3832dbb13186980822
+  FirebaseInstanceID: cdb3827746d53ece7ae87a5c51c25c3055443366
+  FirebaseMessaging: 20b6626c41be7840aed7a3dd9a14003efae3d588
   FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
   GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
   GoogleUtilities: 996e0db07153674fd1b54b220fda3a3dc3547cba
-  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -185,7 +185,7 @@ SPEC CHECKSUMS:
   QVRWeekView: f0efbb3ca3c5d35ea4b5f04ca81d046613ba649f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  SideMenuSwift: 1bee5a0e54c6df7d8106f749b82567eae5c6d974
+  SideMenuSwift: 588374781f2508f551a41796482290aeff1afd78
   SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
@@ -193,6 +193,6 @@ SPEC CHECKSUMS:
   Tabman: 6cff148419c5d8812d0e9f08f93b6f1c6ba54502
   YPImagePicker: 8039f89ad79281545fa868486f32d9bf5d65ede1
 
-PODFILE CHECKSUM: 9af22d32b63fc966412e1993d62278e4196d1aa4
+PODFILE CHECKSUM: 8a559c6a6830c173477dc9942e4feae5a4054975
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.2

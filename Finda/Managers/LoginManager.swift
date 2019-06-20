@@ -34,7 +34,7 @@ class LoginManager {
     }
     
     static func getDetails(completion: @escaping (_ response: Bool, _ result: JSON) -> ()) {
-        FindaAPISession(target: .userDetails()) { (response, result) in
+        FindaAPISession(target: .userDetails) { (response, result) in
             if(response) {
                 if(result["userdata"]["usertype"].intValue == 1) {
                     let modelManager = ModelManager(data: result)
@@ -73,7 +73,7 @@ class LoginManager {
         let defaults = UserDefaults.standard
         defaults.set("", forKey: "access_token_auth")
         
-        FindaAPISession(target: .logout()) { (_, _) in }
+        FindaAPISession(target: .logout) { (_, _) in }
         
         
         guard let window = UIApplication.shared.keyWindow else {

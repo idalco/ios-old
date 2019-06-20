@@ -17,18 +17,17 @@ class PortfolioVC: UIViewController {
     @IBOutlet weak var collectionViewPortfolio: UICollectionView!
     private let refreshControl = UIRefreshControl()
     
+    fileprivate var longPressGesture: UILongPressGestureRecognizer!
+    
     var photosArray: [Photo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setUpCollectionView()
-        
         self.addNewButton.cornerRadius = 5
-//        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
-        
-        // Do any additional setup after loading the view.
-//        self.title = "Portfolio"
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
+        collectionViewPortfolio.addGestureRecognizer(longPressGesture)
         
     }
     
@@ -37,7 +36,7 @@ class PortfolioVC: UIViewController {
         self.updateImages()
     }
 
-    private func setUpCollectionView(){
+    private func setUpCollectionView() {
         if #available(iOS 10.0, *) {
             collectionViewPortfolio.refreshControl = refreshControl
         } else {
@@ -108,6 +107,15 @@ class PortfolioVC: UIViewController {
             vc?.photoType = ImageType.Portfolio
         }
     }
+    
+    func saveImageOrder() {
+        var newOrder: [Int] = []
+        for photo in self.photosArray {
+            newOrder.append(photo.id)
+        }
+        FindaAPISession(target: .saveImageOrder(imageOrder: newOrder, imageType: "portfolio")) { (response, result) in            
+        }
+    }
 
 }
 
@@ -116,6 +124,18 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.photosArray.count > 0 ? 1:0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movePhoto = self.photosArray[sourceIndexPath.item]
+        self.photosArray.remove(at: sourceIndexPath.item)
+        self.photosArray.insert(movePhoto, at: destinationIndexPath.item)
+        collectionView.reloadData()
+        saveImageOrder()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -176,5 +196,28 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         collectionViewPortfolio.reloadData()
     }
 
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        switch(gesture.state) {
+            
+        case .began:
+            guard let selectedIndexPath = collectionViewPortfolio.indexPathForItem(at: gesture.location(in: collectionViewPortfolio)) else {
+                break
+            }
+            let cell = collectionViewPortfolio.cellForItem(at: selectedIndexPath) as? PortfolioCVC
+            cell!.image.layer.borderWidth = 3
+            cell!.image.layer.borderColor = UIColor.FindaColours.Pink.cgColor
+            collectionViewPortfolio.beginInteractiveMovementForItem(at: selectedIndexPath)
+            break
+        case .changed:
+            collectionViewPortfolio.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+            break
+        case .ended:
+            collectionViewPortfolio.endInteractiveMovement()
+            break
+        default:
+            collectionViewPortfolio.cancelInteractiveMovement()
+            break
+        }
+    }
     
 }

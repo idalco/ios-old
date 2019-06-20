@@ -352,7 +352,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if let data = notification.userInfo as? [String: Any] {
             (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[0].badgeValue = data["jobscount"] as? String
-            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[1].badgeValue = data["msgcount"] as? String
+            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[2].badgeValue = data["msgcount"] as? String
         }
         
     }

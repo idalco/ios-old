@@ -38,7 +38,7 @@ class TabBarController: UITabBarController {
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let index = tabBar.items?.index(of: item) else { return }
+        guard let index = tabBar.items?.firstIndex(of: item) else { return }
         
         // Do something with the index
   
@@ -75,12 +75,12 @@ class TabBarController: UITabBarController {
     
     @objc func onDidReceiveData(_ notification: NSNotification) {
         
-        print("Inside on receive in toolbar")
-        if let data = notification.userInfo as? [String: Any] {
-            print(data["badge"] as! String)
-            
-//            self.tabBar.items?[1].badgeValue = data["badge"] as? String
-        }
+//        print("Inside on receive in toolbar")
+//        if let data = notification.userInfo as? [String: Any] {
+//            print(data["badge"] as! String)
+        
+//            self.tabBar.items?[3].badgeValue = data["badge"] as? String
+//        }
     
     }
 

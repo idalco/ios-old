@@ -14,7 +14,7 @@ class CalendarEntryManager {
     
     static func getCalendarEntries(completion: @escaping (_ response: Bool, _ result: JSON, _ CalendarEntry: [CalendarEntry]) -> ()){
         
-        FindaAPISession(target: .getCalendar()) { (response, result) in
+        FindaAPISession(target: .getCalendar) { (response, result) in
             if response {
                 var entriesArray: [CalendarEntry] = []
                 for entry in result["userdata"].arrayValue {
