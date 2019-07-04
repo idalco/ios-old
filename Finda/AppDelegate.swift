@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 import SideMenuSwift
 import UserNotifications
 import Firebase
+import SCLAlertView
 
 extension String {
     func convertToDictionary() -> [String: Any]? {
@@ -85,7 +86,131 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        checkVersion()
         
+        showUserMessage()
+        
+    }
+    
+    /*
+     * Do a version check once per day
+     */
+    private func checkVersion() {
+        let preferences = UserDefaults.standard
+        
+        let lastVersionCheck = "lastVersionCheck"
+        
+        if preferences.object(forKey: lastVersionCheck) == nil {
+            //  Doesn't exist
+            let checkDate = Date().timeIntervalSince1970
+            preferences.set(checkDate, forKey: lastVersionCheck)
+            
+            VersionCheck.shared.checkAppStore() { isNew, version in
+                print("IS NEW VERSION AVAILABLE: \(isNew), APP STORE VERSION: \(version)")
+            }
+            
+        } else {
+            var checkDate = preferences.double(forKey: lastVersionCheck)
+            if checkDate < (Date().timeIntervalSince1970 - (60*60*24)) {
+                // check it again
+                checkDate = Date().timeIntervalSince1970
+                preferences.set(checkDate, forKey: lastVersionCheck)
+                
+                VersionCheck.shared.checkAppStore() { isNew, version in
+//                    print("IS NEW VERSION AVAILABLE: \(isNew), APP STORE VERSION: \(version)")
+                    
+                    if isNew! {
+                        let alertView = SCLAlertView(appearance: SCLAlertView.SCLAppearance())
+                        
+                        alertView.showTitle(
+                            "New Version Available",
+                            subTitle: "There is a new version of the Finda App available. Please update to access the new features.",
+                            style: .warning,
+                            closeButtonTitle: "OK",
+                            colorStyle: 0x13AFC0,
+                            colorTextButton: 0xFFFFFF)
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    /*
+     * Shows a message to the user in a popup on certain days of the month
+     *
+     * 1st/14th - "Don’t forget to keep your measurements up-to-date"
+     * 7th      - "Are your polaroids and portfolio images are up-to-date?"
+     * 21st     - "You are beautiful. Keep going!"
+     */
+    
+    private func showUserMessage() {
+        let preferences = UserDefaults.standard
+
+        // reset them first, if nil
+        if preferences.object(forKey: "shown1") == nil {
+            preferences.set(0, forKey: "shown1")
+        }
+        if preferences.object(forKey: "shown7") == nil {
+            preferences.set(0, forKey: "shown7")
+        }
+        if preferences.object(forKey: "shown14") == nil {
+            preferences.set(0, forKey: "shown14")
+        }
+        if preferences.object(forKey: "shown21") == nil {
+            preferences.set(0, forKey: "shown21")
+        }
+
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let alertView = SCLAlertView(appearance: SCLAlertView.SCLAppearance())
+        var message = ""
+
+        switch day {
+            case 1:
+                if preferences.object(forKey: "shown1") as? Int == 0 {
+                    message = "Don’t forget to keep your measurements up-to-date!"
+                    preferences.set(1, forKey: "shown1")
+                }
+                break
+            case 7:
+                if preferences.object(forKey: "shown7") as? Int == 0 {
+                    message = "Are your polaroids and portfolio images are up-to-date?"
+                    preferences.set(1, forKey: "shown7")
+                }
+                break
+            case 14:
+                if preferences.object(forKey: "shown14") as? Int == 0 {
+                    message = "Don’t forget to keep your measurements up-to-date!"
+                    preferences.set(1, forKey: "shown14")
+                }
+                break
+            case 21:
+                if preferences.object(forKey: "shown21") as? Int == 0 {
+                    message = "You are beautiful. Keep going!"
+                    preferences.set(1, forKey: "shown21")
+                }
+                break
+            case 28:
+                preferences.set(0, forKey: "shown1")
+                preferences.set(0, forKey: "shown7")
+                preferences.set(0, forKey: "shown14")
+                preferences.set(0, forKey: "shown21")
+                break
+            default:
+                break
+        }
+        
+        if message != "" {
+            alertView.showTitle(
+                message,
+                subTitle: "",
+                style: .notice,
+                closeButtonTitle: "OK",
+                colorStyle: 0x13AFC0,
+                colorTextButton: 0xFFFFFF)
+        }
     }
     
     private func configureSideMenu() {

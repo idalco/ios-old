@@ -8,7 +8,6 @@
 
 import UIKit
 import AlamofireImage
-import FontAwesome_swift
 import Firebase
 import SafariServices
 
@@ -18,7 +17,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var menu: [String] = []
-    var icon: [String] = []
+//    var icon: [String] = []
+    var icon: [NSMutableAttributedString] = []
    
     enum MenuType: Int {
         case loggedOut = 0
@@ -60,8 +60,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InvoiceNav") }, with: "InvoiceNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "VerificationNav") }, with: "VerificationNav")
 //        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Calendar") }, with: "Calendar")
-
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.displayFCMToken(notification:)), name: NSNotification.Name(rawValue: "FCMToken"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData , object: nil)
         
@@ -70,14 +68,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         let modelManager = ModelManager()
         
-//        self.profileImage.setRounded()
-//        self.updateProfileImage()
-//        LoginManager.getDetails { (response, result) in
-//            if response {
-//                self.updateProfileImage()
-//            }
-//        }
-        
         if modelManager.status() == UserStatus.unverified {
 
             self.menu = ["My Details",
@@ -85,11 +75,36 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "Polaroids",
                          "Verification",
                          "Sign Out"]
-            self.icon = [String.fontAwesomeIcon(name: .user),
-                         String.fontAwesomeIcon(name: .image),
-                         String.fontAwesomeIcon(name: .cameraRetro),
-                         String.fontAwesomeIcon(name: .clipboard),
-                         String.fontAwesomeIcon(name: .powerOff)
+            
+            let userIcon = NSMutableAttributedString(string: "")
+            let imageIcon = NSMutableAttributedString(string: "")
+            let cameraRetroIcon = NSMutableAttributedString(string: "")
+            let clipboardIcon = NSMutableAttributedString(string: "")
+            let powerOffIcon = NSMutableAttributedString(string: "")
+            
+            if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
+                userIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                userIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                
+                imageIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                imageIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                
+                cameraRetroIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                cameraRetroIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                
+                clipboardIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                clipboardIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                
+                powerOffIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                powerOffIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                
+            }
+            
+            self.icon = [userIcon,
+                         imageIcon,
+                         cameraRetroIcon,
+                         clipboardIcon,
+                         powerOffIcon
             ]
             self.menutype = MenuType.needsVerification
         } else {
@@ -104,16 +119,62 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "FindaVoices",
                          "FAQ",
                          "Sign Out"]
-            self.icon = [String.fontAwesomeIcon(name: .user),
-                         String.fontAwesomeIcon(name: .image),
-                         String.fontAwesomeIcon(name: .cameraRetro),
-                         String.fontAwesomeIcon(name: .camera),
-                         String.fontAwesomeIcon(name: .commentDots),
-                         String.fontAwesomeIcon(name: .university),
-                         String.fontAwesomeIcon(name: .calendar),
-                         String.fontAwesomeIcon(name: .heart),
-                         String.fontAwesomeIcon(name: .question),
-                         String.fontAwesomeIcon(name: .powerOff)]
+            
+            let userIcon = NSMutableAttributedString(string: "")
+            let imageIcon = NSMutableAttributedString(string: "")
+            let cameraRetroIcon = NSMutableAttributedString(string: "")
+            let cameraIcon = NSMutableAttributedString(string: "")
+            let commentDotsIcon = NSMutableAttributedString(string: "")
+            let universityIcon = NSMutableAttributedString(string: "")
+            let calendarIcon = NSMutableAttributedString(string: "")
+            let heartIcon = NSMutableAttributedString(string: "")
+            let questionIcon = NSMutableAttributedString(string: "")
+            let powerOffIcon = NSMutableAttributedString(string: "")
+            
+            if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
+                userIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                userIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                imageIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                imageIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                cameraRetroIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                cameraRetroIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                cameraIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                cameraIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                commentDotsIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                commentDotsIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                universityIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                universityIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                calendarIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                calendarIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                heartIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                heartIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                questionIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                questionIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+                powerOffIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                powerOffIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
+            }
+            
+            self.icon = [userIcon,
+                         imageIcon,
+                         cameraRetroIcon,
+                        cameraIcon,
+                        commentDotsIcon,
+                        universityIcon,
+                        calendarIcon,
+                        heartIcon,
+                        questionIcon,
+                        powerOffIcon
+            ]
             
             self.menutype = MenuType.loggedIn
         }
@@ -171,9 +232,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuCell
         
-        let FAAttribute = [ NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: 16.0, style: .solid) ]
-        let cellTitle = NSMutableAttributedString(string: "\(self.icon[indexPath.row])", attributes: FAAttribute )
-        
+//        let FAAttribute = [ NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: 16.0, style: .solid) ]
+//        let cellTitle = NSMutableAttributedString(string: "\(self.icon[indexPath.row])", attributes: FAAttribute )
+        let cellTitle = self.icon[indexPath.row]
         let menuLabel = NSAttributedString(string: "  \(self.menu[indexPath.row])")
         cellTitle.append(menuLabel)
         
@@ -244,7 +305,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             break
 //                        case 7:
                         case 8:
-                            if let destination = NSURL(string: domainURL + "/faq/model") {
+                            if let destination = NSURL(string: domainURL + "/faq/models") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }

@@ -153,14 +153,13 @@ class JobDetailsViewVC: UIViewController {
                     
                 }
 
-                
+                primaryButton.isHidden = true
                 
                 // 14 is accepted, 2 if confirmed, so we need to override here,
                 // or refactor
                 if job.status == 2 {
                     if job.jobcardType == "to complete" {
                         // this is an override funcvtion
-                        primaryButton.isHidden = true
                         secondaryButton.setTitle("COMPLETE", for: .normal)
                         secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
 
@@ -169,7 +168,6 @@ class JobDetailsViewVC: UIViewController {
                         
                         addToCalendar.isHidden = true
                     } else {
-                        primaryButton.isHidden = true
                         secondaryButton.setTitle("CANCEL", for: .normal)
                         secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
 
@@ -177,6 +175,9 @@ class JobDetailsViewVC: UIViewController {
                         addToCalendar.isHidden = false
                     }
                     
+                } else {
+                    secondaryButton.setTitle("CANCEL", for: .normal)
+                    secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                 }
 
                 

@@ -189,7 +189,7 @@ class JobsVC: UIViewController {
                 let errorView = SCLAlertView(appearance: appearance)
                 errorView.showError(
                     "Sorry",
-                    subTitle: "The job associated with that message is no longer available or has expired")
+                    subTitle: "That job is no longer available")
             }
         }
     }

@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyGif
-import FontAwesome_swift
 
 class ImageVC: UIViewController {
     
@@ -24,8 +23,16 @@ class ImageVC: UIViewController {
         super.viewDidLoad()
 //        self.leadImageButton.setFAIcon(icon: .FACheck, iconSize: 20, forState: .normal)
         
-        self.leadImageButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
-        self.leadImageButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
+//        self.leadImageButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
+        
+        let leadImageButtonIcon = NSMutableAttributedString(string: "")
+        if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 20) {
+            leadImageButtonIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+            leadImageButtonIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+        }
+        self.leadImageButton.setAttributedTitle(leadImageButtonIcon, for: .normal)
+        
+//        self.leadImageButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
         self.leadImageButton.isHidden = true
         self.deleteImageButton.isHidden = true
 

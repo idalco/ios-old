@@ -48,7 +48,7 @@ target 'Finda' do
   # Image picker
   pod 'YPImagePicker'
 
-  pod 'FontAwesome.swift'
+  # pod 'FontAwesome.swift'
   
   pod 'SwiftyGif'
   
