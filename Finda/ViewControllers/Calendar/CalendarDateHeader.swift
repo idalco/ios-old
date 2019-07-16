@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import JTAppleCalendar
 
-class DateHeader: JTAppleCollectionReusableView  {
+class DateHeader: JTACMonthReusableView  {
     @IBOutlet var monthTitle: UILabel!
     @IBOutlet var yearTitle: UILabel!
 }

@@ -20,7 +20,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
         var calendar = [CalendarEntry]()
     }
  
-    @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var calendarView: JTACMonthView!
     @IBOutlet weak var todayButton: UIButton!
     @IBOutlet weak var todayList: UITableView!
     @IBOutlet weak var todayListLabel: UILabel!
@@ -72,7 +72,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
         todayList.dataSource = self
     }
     
-    func configureCell(view: JTAppleCell?, cellState: CellState) {
+    func configureCell(view: JTACDayCell?, cellState: CellState) {
         guard let cell = view as? DateCell  else { return }
         cell.dateLabel.text = cellState.text
         handleCellTextColor(cell: cell, cellState: cellState)
@@ -86,6 +86,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
             if response {
                 self.calendarEntries = calendarEntries
                 self.calendarDataSource.removeAll()
+                self.futureEntries.removeAll()
                 for entry in calendarEntries {
                     self.calendarDataSource[entry.startDate] = entry
                     if entry.starttime >= Date().timeIntervalSince1970 {
@@ -164,7 +165,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
+    func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
         let formatter = DateFormatter()
         let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "DateHeader", for: indexPath) as! DateHeader
         
@@ -177,7 +178,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
         return header
     }
     
-    func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
+    func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
         return MonthSize(defaultSize: 50)
     }
     
@@ -210,8 +211,8 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
     
 }
 
-extension CalendarVC: JTAppleCalendarViewDataSource {
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
+extension CalendarVC: JTACMonthViewDataSource {
+    func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         
         var components = DateComponents()
         components.month = -1
@@ -235,15 +236,15 @@ extension CalendarVC: JTAppleCalendarViewDataSource {
 
     
 }
-extension CalendarVC: JTAppleCalendarViewDelegate {
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+extension CalendarVC: JTACMonthViewDelegate {
+    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         
         return cell
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+    func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         if Calendar.current.isDateInToday(date) {
             cell.backgroundColor = UIColor.FindaColours.PaleGreen
             cell.layer.cornerRadius = 5
@@ -258,14 +259,25 @@ extension CalendarVC: JTAppleCalendarViewDelegate {
         configureCell(view: cell, cellState: cellState)
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+//    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
+//        configureCell(view: cell, cellState: cellState)
+//        self.performSegue(withIdentifier: "editCalendarSegue", sender: CalendarEntry(date: date.timeIntervalSince1970))
+//    }
+    // new delegate
+    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         configureCell(view: cell, cellState: cellState)
         self.performSegue(withIdentifier: "editCalendarSegue", sender: CalendarEntry(date: date.timeIntervalSince1970))
     }
+
     
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+//    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
+//        configureCell(view: cell, cellState: cellState)
+//    }
+    // new delegate
+    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         configureCell(view: cell, cellState: cellState)
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "editCalendarSegue") {
@@ -289,27 +301,27 @@ extension CalendarVC: JTAppleCalendarViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.calendarEntries.count
+        return self.futureEntries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "todayTableCell") as! TodayTableCell
         
-        if self.calendarEntries.count > 0 {
-            cell.todayEntryTitle.text = self.calendarEntries[indexPath.row].title
+        if self.futureEntries.count > 0 {
+            cell.todayEntryTitle.text = self.futureEntries[indexPath.row].title
             cell.todayEntryTitle.textColor = UIColor.FindaColours.Blue
-            if self.calendarEntries[indexPath.row].jobid == 0 {
+            if self.futureEntries[indexPath.row].jobid == 0 {
                 cell.todayEntryTitle.textColor = UIColor.FindaColours.Pink
             }
-            cell.todayEntryBrandname.text = self.calendarEntries[indexPath.row].clientCompany
+            cell.todayEntryBrandname.text = self.futureEntries[indexPath.row].clientCompany
             
-            var dates = self.calendarEntries[indexPath.row].startDate
-            if self.calendarEntries[indexPath.row].endDate != self.calendarEntries[indexPath.row].startDate {
-                dates = dates + " to " + self.calendarEntries[indexPath.row].endDate
+            var dates = self.futureEntries[indexPath.row].startDate
+            if self.futureEntries[indexPath.row].endDate != self.futureEntries[indexPath.row].startDate {
+                dates = dates + " to " + self.futureEntries[indexPath.row].endDate
             }
             cell.todayEntryDates.text = dates
-            cell.dayEntry = self.calendarEntries[indexPath.row]
+            cell.dayEntry = self.futureEntries[indexPath.row]
         }
         
         return cell

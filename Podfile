@@ -63,7 +63,7 @@ target 'Finda' do
   pod 'SCLAlertView'
   
   # the calendar
-  pod 'JTAppleCalendar', '~> 7.1.7'
+  pod 'JTAppleCalendar' #, '~> 7.1.7'
   pod 'QVRWeekView'
   
 end
