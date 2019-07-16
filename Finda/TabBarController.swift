@@ -23,7 +23,6 @@ class TabBarController: UITabBarController {
         self.tabBar.barTintColor = UIColor.FindaColours.LightGrey
         self.tabBar.tintColor = UIColor.FindaColours.White
         self.tabBar.unselectedItemTintColor = UIColor.FindaColours.Black
-        
 
         // Do any additional setup after loading the view.
         

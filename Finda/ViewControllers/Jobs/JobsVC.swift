@@ -10,6 +10,7 @@ import UIKit
 import SVProgressHUD
 import SCLAlertView
 import SafariServices
+import DCKit
 
 class JobsVC: UIViewController {
     
@@ -27,6 +28,7 @@ class JobsVC: UIViewController {
     var offeredJobs: [Job] = []
     var historyJobs: [Job] = []
     var thisTabJobs: [Job] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,7 @@ class JobsVC: UIViewController {
         self.setUpCollectionView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadJobs), name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+        
         
     }
     
@@ -90,15 +93,16 @@ class JobsVC: UIViewController {
     }
     
     func updateCards() {
+        self.showSpinner(onView: self.jobCardCollection)
         self.loadJobs()
     }
     
     @objc private func refreshData(_ sender: Any) {
-        
-        self.updateCards()
+        self.loadJobs()
     }
     
     @objc public func loadJobs() {
+        
         
         JobsManager.getJobs(jobType: .all) { (response, result) in
             if (response) {
@@ -137,6 +141,9 @@ class JobsVC: UIViewController {
                 SVProgressHUD.dismiss()
                 self.refreshControl.endRefreshing()
                 self.showJobCard()
+                
+                self.removeSpinner()
+                
             } else {
                 let appearance = SCLAlertView.SCLAppearance()
                 let errorView = SCLAlertView(appearance: appearance)
@@ -192,37 +199,6 @@ class JobsVC: UIViewController {
                     subTitle: "That job is no longer available")
             }
         }
-    }
-}
-
-extension UILabel {
-    func textHeight(withWidth width: CGFloat) -> CGFloat {
-        guard let text = text else {
-            return 0
-        }
-        return text.height(withWidth: width, font: font)
-    }
-    
-    func attributedTextHeight(withWidth width: CGFloat) -> CGFloat {
-        guard let attributedText = attributedText else {
-            return 0
-        }
-        return attributedText.height(withWidth: width)
-    }
-}
-extension String {
-    func height(withWidth width: CGFloat, font: UIFont) -> CGFloat {
-        let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil)
-        return actualSize.height
-    }
-}
-
-extension NSAttributedString {
-    func height(withWidth width: CGFloat) -> CGFloat {
-        let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let actualSize = boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
-        return actualSize.height
     }
 }
 
@@ -335,3 +311,31 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
 }
+
+var vSpinner: UIView?
+
+extension UIViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.clear // UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
+    }
+}
+
+

@@ -26,6 +26,11 @@ class PersonalDetailsVC: FormViewController {
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
         }
         
+        PhoneRow.defaultCellUpdate = { cell, row in
+            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+        }
+        
         EmailRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)

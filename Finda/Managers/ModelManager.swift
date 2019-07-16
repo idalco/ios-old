@@ -311,6 +311,7 @@ class ModelManager {
         user.setValue(userData["firstname"].string, forKeyPath: User.firstName.rawValue)
         user.setValue(userData["lastname"].string, forKeyPath: User.lastName.rawValue)
         user.setValue(userData["mail"].string, forKeyPath: "email")
+        user.setValue(userData["telephone"].string, forKeyPath: "telephone")
         user.setValue(userData["avatar"].string, forKeyPath: User.avatar.rawValue)
         user.setValue(userData["filename"].string, forKeyPath: User.filename.rawValue)
         user.setValue(userData["usertype"].intValue, forKeyPath: User.userType.rawValue)

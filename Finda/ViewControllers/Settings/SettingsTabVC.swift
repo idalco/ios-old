@@ -18,6 +18,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
     @IBOutlet weak var fakeUpdatesTab: UIView!
     @IBOutlet weak var fakePortfolioTab: UIView!
     @IBOutlet weak var fakeCalendarTab: UIView!
+    @IBOutlet weak var fakeBarHeight: NSLayoutConstraint!
     
 
     
@@ -70,7 +71,18 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         
         let fakePortfolioTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakePortfolioButton))
         fakePortfolioTab.addGestureRecognizer(fakePortfolioTap)
+
         
+    }
+    
+    override func viewWillLayoutSubviews() {
+
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let bottomPadding = window?.safeAreaInsets.bottom
+            fakeBarHeight.constant = 52 + bottomPadding!
+            view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        }
     }
     
     @objc func userDidTapFakeJobButton(sender: Any?) {

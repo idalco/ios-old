@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.3'
+platform :ios, '12.0'
 
 target 'Finda' do
   
@@ -63,7 +63,7 @@ target 'Finda' do
   pod 'SCLAlertView'
   
   # the calendar
-  pod 'JTAppleCalendar'
+  pod 'JTAppleCalendar', '~> 7.1.7'
   pod 'QVRWeekView'
-
+  
 end

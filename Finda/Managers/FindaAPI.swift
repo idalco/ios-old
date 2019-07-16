@@ -15,8 +15,8 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     ])
 
 //let domainURL: String = "http://dev.finda.co"
-let domainURL: String = "http://dev.finda"
-//let domainURL: String = "https://www.finda.co"
+//let domainURL: String = "http://dev.finda"
+let domainURL: String = "https://www.finda.co"
 
 enum FindaAPI {
     // POST
@@ -59,9 +59,11 @@ enum FindaAPI {
     case newCalendarEntry(title: String, allday: Bool, starttime: Double, endtime: Double, location: String, state: String, isediting: Bool)
     case deleteCalendarEntry(entry: String)
     case updateCalendarEntry(scheduleId: String, title: String, allday: Bool, starttime: Double, endtime: Double, location: String, state: String)
+    case setLastMinute(availability: [String:Int])
 
     // GET
     case userDetails
+    case getLastMinute
 }
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
@@ -146,6 +148,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/deleteCalendarEvent"
         case .updateCalendarEntry:
             return "/updateCalendarEvent"
+        case .getLastMinute:
+            return "/getLastMinute"
+        case .setLastMinute:
+            return "/setLastMinute"
         }
     }
     
@@ -153,11 +159,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .saveImageOrder, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .saveImageOrder, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry, .setLastMinute:
             return .post
             
         // methods requiring GET
-        case .userDetails, .getJobs, .getModelInvoices, .getCalendar, .getCalendarEntriesForDate:
+        case .userDetails, .getJobs, .getModelInvoices, .getCalendar, .getCalendarEntriesForDate, .getLastMinute:
             return .get
         }
     }
@@ -414,6 +420,13 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["scheduleid"] = scheduleId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
+        case .getLastMinute:
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+        case .setLastMinute(let availability):
+            p["availability"] = availability
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+
         default:
             return .requestPlain
         }
@@ -444,15 +457,15 @@ func FindaAPISession(target: FindaAPI, completion: @escaping (_ response: Bool, 
             do {
                 let data = try response.mapJSON()
                 let json = JSON(data)
-                if(json["errorMessage"].string == "Authentication token is invalid"){
+                if json["errorMessage"].string == "Authentication token is invalid" {
                     LoginManager.signOut()
                 }
-                if(json["status"] == 1){
+                if json["status"] == 1 {
                     completion(true, json)
                     return
                 }
                 completion(false, json)
-            } catch(_){
+            } catch(_) {
                 do {
                     if try response.mapString() == "Missing token" {
                         LoginManager.signOut()
