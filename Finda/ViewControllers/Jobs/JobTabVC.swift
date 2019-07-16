@@ -23,17 +23,17 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     var availability: [String : Int] = ["monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "saturday" : 0, "sunday" : 0]
     
-    @IBOutlet weak var tomorrowButton: DCRoundedButton!
-    @IBOutlet weak var dayTwoButton: DCRoundedButton!
-    @IBOutlet weak var dayTwoLabel: UILabel!
-    @IBOutlet weak var dayThreeButton: DCRoundedButton!
-    @IBOutlet weak var dayThreeLabel: UILabel!
-    @IBOutlet weak var dayFourButton: DCRoundedButton!
-    @IBOutlet weak var dayFourLabel: UILabel!
-    @IBOutlet weak var dayFiveButton: DCRoundedButton!
-    @IBOutlet weak var dayFiveLabel: UILabel!
-    @IBOutlet weak var daySixButton: DCRoundedButton!
-    @IBOutlet weak var daySixLabel: UILabel!
+    @IBOutlet var tomorrowButton: DCRoundedButton!
+    @IBOutlet var dayTwoButton: DCRoundedButton!
+    @IBOutlet var dayTwoLabel: UILabel!
+    @IBOutlet var dayThreeButton: DCRoundedButton!
+    @IBOutlet var dayThreeLabel: UILabel!
+    @IBOutlet var dayFourButton: DCRoundedButton!
+    @IBOutlet var dayFourLabel: UILabel!
+    @IBOutlet var dayFiveButton: DCRoundedButton!
+    @IBOutlet var dayFiveLabel: UILabel!
+    @IBOutlet var daySixButton: DCRoundedButton!
+    @IBOutlet var daySixLabel: UILabel!
     
     @IBOutlet weak var availabilityPanel: UIView!
     @IBOutlet weak var showHideAvailabilityButton: UILabel!
@@ -76,8 +76,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             appearance.state.selectedColor = UIColor.FindaColours.Blue
         })
         self.dataSource = self
-        
-        self.setAvailabilityButtons()
 
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(JobTabVC.showHideAvailabilityPanel))
         showHideAvailabilityButton.addGestureRecognizer(tapRec)
@@ -154,6 +152,8 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         self.view.layoutIfNeeded()
         
         availabilityPanel.translatesAutoresizingMaskIntoConstraints = true
+        
+        self.setAvailabilityButtons()
     }
     
     override func viewDidLayoutSubviews() {
