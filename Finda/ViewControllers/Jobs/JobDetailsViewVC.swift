@@ -318,9 +318,13 @@ class JobDetailsViewVC: UIViewController {
                     addToCalendar.isHidden = true
                 } else {
                     primaryButton.isHidden = true
-//                    secondaryButton.setTitle("CANCEL", for: .normal)
-//                    secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
-                    secondaryButton.isHidden = true
+                    
+//                    let cutoff = Double(job.starttime - (60*60*24*2));
+//                    if job.starttime < Date(timeIntervalSince1970: cutoff) {
+//                        secondaryButton.setTitle("CONTACT FINDA TO CANCEL", for: .normal)
+//                        secondaryButton.addTarget(self, action: nil, for: .touchUpInside)
+                        secondaryButton.isHidden = true
+//                    }
                     
                     jobStatus.text = "CONFIRMED"
                     addToCalendar.isHidden = false

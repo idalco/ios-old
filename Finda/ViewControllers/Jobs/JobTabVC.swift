@@ -66,7 +66,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
             self.viewControllers.append(viewController)
         }
         
-        self.bar.items = [Item(title: "Upcoming/Offers"), Item(title: "To Complete"), Item(title: "History")]
+        self.bar.items = [Item(title: "Requests"), Item(title: "Upcoming"), Item(title: "History")]
         
         self.bar.style = .scrollingButtonBar
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in

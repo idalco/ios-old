@@ -39,7 +39,7 @@ class NewCalendarEntry: FormViewController {
         
         saveButton.addTarget(self, action: #selector(saveButtonTapped(sender:)), for: .touchUpInside)
         
-        form +++ Section("Title")
+        form +++ Section("Event Title")
         <<< TextRow() { row in
             row.value = calendarEntry.title
             row.tag = "eventtitle"
@@ -122,7 +122,7 @@ class NewCalendarEntry: FormViewController {
             }
         })
             
-        +++ Section("Availability")
+        +++ Section("Will you be available for bookings?")
         <<< SegmentedRow<String>() { row in
             row.tag = "freebusy"
             row.options = ["Free", "Busy"]
@@ -131,7 +131,7 @@ class NewCalendarEntry: FormViewController {
             row.cell.tintColor = UIColor.FindaColours.Blue
         }
             
-        +++ Section("Details")
+        +++ Section("Private notes to yourself")
         <<< TextRow() { row in
             row.value = calendarEntry.location
             row.tag = "location"
