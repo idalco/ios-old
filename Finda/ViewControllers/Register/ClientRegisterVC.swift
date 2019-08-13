@@ -17,33 +17,33 @@ class ClientRegisterVC: FormViewController {
         
         
         TextRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         EmailRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         URLRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         PhoneRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         PasswordRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         PickerInlineRow<String>.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         
@@ -59,13 +59,13 @@ class ClientRegisterVC: FormViewController {
                 let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                 
                 title.text = "FIND A MODEL"
-                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                title.font = UIFont(name: "Montserrat-Medium", size: 17)
                 view.addSubview(title)
             }
             section.header = header
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "First Name"
                 row.tag = "firstName"
                 row.add(rule: RuleRequired())
@@ -77,7 +77,7 @@ class ClientRegisterVC: FormViewController {
                     }
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Last Name"
                 row.tag = "lastName"
                 row.add(rule: RuleRequired())
@@ -89,7 +89,7 @@ class ClientRegisterVC: FormViewController {
                     }
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Company Name"
                 row.tag = "companyName"
                 row.add(rule: RuleRequired())
@@ -101,7 +101,7 @@ class ClientRegisterVC: FormViewController {
                     }
             }
             
-            <<< EmailRow(){ row in
+            <<< EmailRow() { row in
                 row.title = "Company Email"
                 row.tag = "companyEmail"
                 row.add(rule: RuleRequired())
@@ -115,7 +115,7 @@ class ClientRegisterVC: FormViewController {
             }
             
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Company Website"
                 row.tag = "companyWebsite"
                 row.add(rule: RuleRequired())
@@ -127,7 +127,7 @@ class ClientRegisterVC: FormViewController {
                     }
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Position"
                 row.tag = "position"
                 row.add(rule: RuleRequired())
@@ -139,7 +139,7 @@ class ClientRegisterVC: FormViewController {
                     }
             }
             
-            <<< PhoneRow(){ row in
+            <<< PhoneRow() { row in
                 row.title = "Telephone"
                 row.tag = "telephone"
                 row.add(rule: RuleRequired())
@@ -166,7 +166,7 @@ class ClientRegisterVC: FormViewController {
             }
 
             
-            <<< PasswordRow(){ row in
+            <<< PasswordRow() { row in
                 row.title = "Password"
                 row.tag = "password"
                 row.add(rule: RuleRequired())
@@ -178,7 +178,7 @@ class ClientRegisterVC: FormViewController {
                     }
             }
             
-            <<< PasswordRow(){ row in
+            <<< PasswordRow() { row in
                 row.title = "Repeat Password"
                 row.tag = "repeatPassword"
                 row.add(rule: RuleRequired())
@@ -190,10 +190,13 @@ class ClientRegisterVC: FormViewController {
                     }
         }
         
-            <<< CheckRow(){ row in
+            <<< CheckRow() { row in
                 row.title = "I agree to the Terms and Conditions"
                 row.tag = "terms"
                 row.add(rule: RuleRequired())
+                }.onCellSelection { cell, row in
+                    cell.backgroundColor = UIColor.FindaColours.Burgundy
+                    cell.textLabel?.textColor = UIColor.white
         }
         
         form +++ section

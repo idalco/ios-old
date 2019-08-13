@@ -25,7 +25,7 @@ class PortfolioVC: UIViewController {
         super.viewDidLoad()
         
         self.setUpCollectionView()
-        self.addNewButton.cornerRadius = 5
+        self.addNewButton.cornerRadius = 2
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionViewPortfolio.addGestureRecognizer(longPressGesture)
         
@@ -158,7 +158,7 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.image.setRounded(radius: 10)
         if self.photosArray[indexPath.row].leadimage {
             cell.image.layer.borderWidth = 3
-            cell.image.layer.borderColor = UIColor.FindaColours.Blue.cgColor
+            cell.image.layer.borderColor = UIColor.FindaColours.Burgundy.cgColor
             cell.leadImageButton.isHidden = true
         } else {
             cell.leadImageButton.isHidden = false

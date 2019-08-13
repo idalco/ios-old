@@ -45,7 +45,7 @@ class VerificationVC: UIViewController {
         indentParagraphStyle.headIndent = 16
         indentParagraphStyle.firstLineHeadIndent = 0
         
-        if let mainfont = UIFont(name: "Gotham-Book", size: 15) {
+        if let mainfont = UIFont(name: "Montserrat-Book", size: 15) {
             newtext.addAttribute(.font, value: mainfont, range: NSMakeRange(0, newtext.length))
             faline1.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline1.length-2))
             faline2.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline2.length-2))
@@ -141,7 +141,7 @@ class VerificationVC: UIViewController {
             if let photo = items.singlePhoto {
                 print(photo.image) // Final image selected by the user
                 
-                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.show(withStatus: "Uploading")
                 FindaAPISession(target: .uploadVerificationImage(image: photo.image), completion: { (response, result) in
@@ -153,11 +153,11 @@ class VerificationVC: UIViewController {
                                 subTitle: "We will be in touch once your account has been verified",
                                 style: .success,
                                 closeButtonTitle: "OK",
-                                colorStyle: 0x13AFC0,
+                                colorStyle: 0x010101,
                                 colorTextButton: 0xFFFFFF)
                         })
                     } else {
-                        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
                         SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                         SVProgressHUD.showError(withStatus: "Try again")
                     }

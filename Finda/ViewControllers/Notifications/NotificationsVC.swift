@@ -19,11 +19,11 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Updates"
         self.setup()
         self.navigationController?.navigationBar.transparentNavigationBar()
         self.messageView.backgroundColor = UIColor.FindaColours.LightGrey
         self.messageLabel.textColor = UIColor.FindaColours.Blue
+        self.title = "Updates"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +74,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
                 if self.allNotifications.count > 0 {
                     self.tableView.isHidden = false
-                    self.messageLabel.text = "Updates"
+                    self.messageView.isHidden = true
                 } else {
                     self.tableView.isHidden = true
                     self.messageLabel.text = "Currently you have no updates"
@@ -116,7 +116,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
         cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
-        cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Gotham-Light")
+        cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Montserrat-Light")
         
         // set avatar here
         cell.messageAvatar.setRounded(colour: UIColor.FindaColours.LightGrey.cgColor)

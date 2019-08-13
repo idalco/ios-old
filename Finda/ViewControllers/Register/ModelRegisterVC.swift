@@ -15,39 +15,39 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gothamLight = UIFont(name: "Gotham-Light", size: 16)
+        let montserratLight = UIFont(name: "Montserrat-Light", size: 16)
         
         let subView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
         view.addSubview(subView)
         
         TextRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = gothamLight
-            cell.textLabel?.font = gothamLight
+            cell.textField.font = montserratLight
+            cell.textLabel?.font = montserratLight
         }
         
         DateInlineRow.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = gothamLight
-            cell.textLabel?.font = gothamLight
+            cell.detailTextLabel?.font = montserratLight
+            cell.textLabel?.font = montserratLight
         }
         
         EmailRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = gothamLight
-            cell.textLabel?.font = gothamLight
+            cell.textField.font = montserratLight
+            cell.textLabel?.font = montserratLight
         }
         
         TwitterRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = gothamLight
-            cell.textLabel?.font = gothamLight
+            cell.textField.font = montserratLight
+            cell.textLabel?.font = montserratLight
         }
         
         PasswordRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = gothamLight
-            cell.textLabel?.font = gothamLight
+            cell.textField.font = montserratLight
+            cell.textLabel?.font = montserratLight
         }
         
         PickerInlineRow<String>.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = gothamLight
-            cell.textLabel?.font = gothamLight
+            cell.detailTextLabel?.font = montserratLight
+            cell.textLabel?.font = montserratLight
         }
         
         
@@ -62,7 +62,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                 let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width - 10, height:80))
                 
                 title.text = "I'M A MODEL"
-                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                title.font = UIFont(name: "Montserrat-Medium", size: 17)
                 view.addSubview(title)
                 
             }
@@ -220,6 +220,9 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                 row.title = "I agree to the Terms and Conditions"
                 row.tag = "terms"
                 row.add(rule: RuleRequired())
+                }.onCellSelection { cell, row in
+                    cell.backgroundColor = UIColor.FindaColours.Burgundy
+                    cell.textLabel?.textColor = UIColor.white
             }
         
         

@@ -63,7 +63,7 @@ class JobDetailsViewVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Blue
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Burgundy
         
         customer.text = job.companyName.uppercased()
         
@@ -86,7 +86,7 @@ class JobDetailsViewVC: UIViewController {
             .validate()
             .responseData(completionHandler: { (responseData) in
                 self.clientLogo.image = UIImage(data: responseData.data!)
-                self.clientLogo.addSolidBorder(borderColour: UIColor.FindaColours.LighterGreen, cornerRadius: 48, width: 8)
+                self.clientLogo.addSolidBorder(borderColour: UIColor.FindaColours.Burgundy, cornerRadius: 2, width: 8)
             })
         
         if (job.contact_number != "") {
@@ -104,8 +104,8 @@ class JobDetailsViewVC: UIViewController {
             advancedInfoStack.height(0)
         }
 
-        primaryButton.cornerRadius = 5
-        secondaryButton.cornerRadius = 5
+        primaryButton.cornerRadius = 2
+        secondaryButton.cornerRadius = 2
 
         if job.callsheet != "" {
             callsheetButton.isHidden = false
@@ -363,7 +363,7 @@ class JobDetailsViewVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.LightGrey
+        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Burgundy
     }
 
     override func didReceiveMemoryWarning() {
@@ -407,7 +407,7 @@ class JobDetailsViewVC: UIViewController {
             subTitle: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email. If you want to negotiate the fee, you can do this on the Finda website before accepting.",
             style: .question,
             closeButtonTitle: "Cancel",
-            colorStyle: 0x13AFC0,
+            colorStyle: 0x010101,
             colorTextButton: 0xFFFFFF)
         
     }
@@ -471,7 +471,7 @@ class JobDetailsViewVC: UIViewController {
             subTitle: "",
             style: .warning,
             closeButtonTitle: "Close",
-            colorStyle: 0x13AFC0,
+            colorStyle: 0x010101,
             colorTextButton: 0xFFFFFF)
         
     }
@@ -506,7 +506,7 @@ class JobDetailsViewVC: UIViewController {
             subTitle: "You will be able to negotiate a different rate if the client offers you this job later.",
             style: .warning,
             closeButtonTitle: "Cancel",
-            colorStyle: 0x13AFC0,
+            colorStyle: 0x010101,
             colorTextButton: 0xFFFFFF)
         
     }
@@ -542,7 +542,7 @@ class JobDetailsViewVC: UIViewController {
             subTitle: "",
             style: .warning,
             closeButtonTitle: "Close",
-            colorStyle: 0x13AFC0,
+            colorStyle: 0x010101,
             colorTextButton: 0xFFFFFF)
         
     }
@@ -584,7 +584,7 @@ class JobDetailsViewVC: UIViewController {
         let textReason = UITextView(frame: CGRect(x: 0, y: heightOffset, width: 216, height: heightStep))
         textReason.text = "Reason for negotiation"
         textReason.textAlignment = NSTextAlignment.center
-        textReason.font = UIFont(name: "Gotham-Medium", size: 12)
+        textReason.font = UIFont(name: "Montserrat-Medium", size: 12)
         subview.addSubview(textReason)
         
         heightOffset = heightOffset + heightStep
@@ -631,7 +631,7 @@ class JobDetailsViewVC: UIViewController {
         let textSubtitle = UITextView(frame: CGRect(x: 0, y: heightOffset, width: 216, height: heightStep * 2))
         textSubtitle.text = subtitle
         textSubtitle.textAlignment = NSTextAlignment.center
-        textSubtitle.font = UIFont(name: "Gotham-Bold", size: 12)
+        textSubtitle.font = UIFont(name: "Montserrat-Bold", size: 12)
         subview.addSubview(textSubtitle)
     
         alertView.customSubview = subview
@@ -663,7 +663,7 @@ class JobDetailsViewVC: UIViewController {
                 if response {
                     SVProgressHUD.dismiss()
                     let noticeView = SCLAlertView(appearance: appearance)
-                    noticeView.showInfo("Negotiation Sent", subTitle: "The Client should respond shortly", colorStyle: 0x13AFC0)
+                    noticeView.showInfo("Negotiation Sent", subTitle: "The Client should respond shortly", colorStyle: 0x010101)
                     
                     var offeredLabel = "Offered rate: £"
                     
@@ -700,7 +700,7 @@ class JobDetailsViewVC: UIViewController {
             subTitle: subtitle,
             style: .question,
             closeButtonTitle: "Cancel",
-            colorStyle: 0x13AFC0,
+            colorStyle: 0x010101,
             colorTextButton: 0xFFFFFF)
         
     }
@@ -744,7 +744,7 @@ class JobDetailsViewVC: UIViewController {
         addEventToCalendar(title: self.job.name, description: self.job.description, startDate: calStartDate!, endDate: calEndDate)
         addToCalendar.isHidden = true
         let noticeView = SCLAlertView(appearance: appearance)
-        noticeView.showInfo("Added!", subTitle: "The job has been added to your calendar", colorStyle: 0x13AFC0)
+        noticeView.showInfo("Added!", subTitle: "The job has been added to your calendar", colorStyle: 0x010101)
     }
     
     func addEventToCalendar(title: String, description: String?, startDate: Date, endDate: Date, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {

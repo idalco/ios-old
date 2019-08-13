@@ -114,7 +114,7 @@ class ViewCalendarEntry: UIViewController {
         let alertView = SCLAlertView(appearance: appearance)
         
         alertView.addButton("Delete Event") {
-            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+            SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
             SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
             
@@ -139,7 +139,7 @@ class ViewCalendarEntry: UIViewController {
             subTitle: "",
             style: .warning,
             closeButtonTitle: "Close",
-            colorStyle: 0x13AFC0,
+            colorStyle: 0x010101,
             colorTextButton: 0xFFFFFF)
         
     }

@@ -22,43 +22,48 @@ class PersonalDetailsVC: FormViewController {
         let modelManager = ModelManager()
         
         TextRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         PhoneRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         EmailRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         IntRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         DateInlineRow.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
 
         DateRow.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         PickerInlineRow<String>.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         PickerInputRow<String>.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+        }
+        
+        SwitchRow.defaultCellSetup = { cell, row in
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         
@@ -72,13 +77,13 @@ class PersonalDetailsVC: FormViewController {
                 let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                 
                 title.text = "Personal Details"
-                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                title.font = UIFont(name: "Montserrat-Medium", size: 17)
                 view.addSubview(title)
                 
                 let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
                 description.numberOfLines = 0
                 description.text = "Please enter your contact information."
-                description.font = UIFont(name: "Gotham-Light", size: 13)
+                description.font = UIFont(name: "Montserrat-Light", size: 13)
                 view.addSubview(description)
                 
             }
@@ -236,12 +241,12 @@ class PersonalDetailsVC: FormViewController {
         
         form +++ mainSection
         
-        form +++ Section("Availability")
+        form +++ Section("Visibility")
             <<< SwitchRow("allday") { row in
-                row.title = "Are you available for work?"
+                row.title = "Hide my account"
                 row.tag = "availability"
-                row.cell.switchControl.onTintColor = UIColor.FindaColours.Blue
-                row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
+                row.cell.switchControl.onTintColor = UIColor.FindaColours.Burgundy
+                row.cell.backgroundColor = UIColor.FindaColours.White
             }
             .cellSetup({ (SwitchCell, SwitchRow) in
                 if modelManager.available() {
@@ -429,7 +434,7 @@ class PersonalDetailsVC: FormViewController {
     func toggleAvailability() {
         var availability = 0
         let values = form.values()
-        let availToggle = (values["availability"] as? Bool) ?? false
+        let availToggle = (values["availability"] as? Bool) ?? true
         if availToggle {
             availability = 1
         }
@@ -454,6 +459,17 @@ class PersonalDetailsVC: FormViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        if let view = view as? UITableViewHeaderFooterView {
+            view.backgroundView?.backgroundColor = UIColor.FindaColours.White
+            view.textLabel?.backgroundColor = UIColor.clear
+            view.textLabel?.textColor = UIColor.FindaColours.Black
+            view.textLabel?.font = UIFont(name: "Montserrat-Medium", size: 16)
+            view.textLabel?.text? = view.textLabel?.text?.capitalized ?? ""
+        }
+    }
     
 }
 

@@ -62,10 +62,10 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
         
         self.title = "Finda Calendar"
         
-        todayButton.tintColor = UIColor.FindaColours.Blue
+        todayButton.tintColor = UIColor.FindaColours.Black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(reloadUserCalendar))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.FindaColours.Blue
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.FindaColours.Black
         
         
         todayList.delegate = self
@@ -127,7 +127,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
     
     func handleCellTextColor(cell: DateCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = UIColor.FindaColours.Black
+            cell.dateLabel.textColor = UIColor.FindaColours.Burgundy
         } else {
             cell.dateLabel.textColor = UIColor.FindaColours.Grey
         }
@@ -135,7 +135,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
     
     func handleCellSelected(cell: DateCell, cellState: CellState) {
         if cellState.isSelected {
-            cell.selectedView.layer.cornerRadius =  5
+            cell.selectedView.layer.cornerRadius =  2
             cell.selectedView.isHidden = false
         } else {
             cell.selectedView.isHidden = true
@@ -246,15 +246,15 @@ extension CalendarVC: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         if Calendar.current.isDateInToday(date) {
-            cell.backgroundColor = UIColor.FindaColours.PaleGreen
-            cell.layer.cornerRadius = 5
+            cell.backgroundColor = UIColor.FindaColours.White
+            cell.layer.cornerRadius = 2
             cell.layer.masksToBounds = true
-            cell.addSolidBorder(borderColour: UIColor.FindaColours.Blue)
+            cell.addSolidBorder(borderColour: UIColor.FindaColours.Burgundy, cornerRadius: 2, width: 4)
         } else {
-            cell.backgroundColor = UIColor.FindaColours.LighterGreen
+            cell.backgroundColor = UIColor.FindaColours.White
             cell.layer.cornerRadius = 0
             cell.layer.masksToBounds = true
-            cell.addSolidBorder(borderColour: UIColor.FindaColours.LightGreen)
+            cell.addSolidBorder(borderColour: UIColor.FindaColours.LightGrey)
         }
         configureCell(view: cell, cellState: cellState)
     }
@@ -265,6 +265,9 @@ extension CalendarVC: JTACMonthViewDelegate {
 //    }
     // new delegate
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        
+        print("\(date)")
+        
         configureCell(view: cell, cellState: cellState)
         self.performSegue(withIdentifier: "editCalendarSegue", sender: CalendarEntry(date: date.timeIntervalSince1970))
     }

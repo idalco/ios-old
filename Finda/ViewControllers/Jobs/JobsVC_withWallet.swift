@@ -397,7 +397,7 @@ class JobsVC_withWallet: UIViewController {
 //            subTitle: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email. If you want to negotiate the fee, you can do this on the Finda website before accepting.",
 //            style: .question,
 //            closeButtonTitle: "Cancel",
-//            colorStyle: 0x13AFC0,
+//            colorStyle: 0x010101,
 //            colorTextButton: 0xFFFFFF)
 //    
 //    }
@@ -455,7 +455,7 @@ class JobsVC_withWallet: UIViewController {
 //            subTitle: "",
 //            style: .warning,
 //            closeButtonTitle: "Close",
-//            colorStyle: 0x13AFC0,
+//            colorStyle: 0x010101,
 //            colorTextButton: 0xFFFFFF)
 //        
 //    }
@@ -487,7 +487,7 @@ class JobsVC_withWallet: UIViewController {
 //            subTitle: "You will be able to negotiate a different rate if the client offers you this job later.",
 //            style: .warning,
 //            closeButtonTitle: "Cancel",
-//            colorStyle: 0x13AFC0,
+//            colorStyle: 0x010101,
 //            colorTextButton: 0xFFFFFF)
 //        
 //    }
@@ -576,7 +576,7 @@ class JobsVC_withWallet: UIViewController {
 //            subTitle: subtitle,
 //            style: .question,
 //            closeButtonTitle: "Cancel",
-//            colorStyle: 0x13AFC0,
+//            colorStyle: 0x010101,
 //            colorTextButton: 0xFFFFFF)
 //        
 //    }

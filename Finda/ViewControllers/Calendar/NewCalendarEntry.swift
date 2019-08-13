@@ -45,7 +45,7 @@ class NewCalendarEntry: FormViewController {
             row.tag = "eventtitle"
             row.add(rule: RuleRequired())
             row.validationOptions = .validatesOnChangeAfterBlurred
-            row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
+            row.cell.backgroundColor = UIColor.FindaColours.White
         }
         .cellUpdate { cell, row in
             if !row.isValid {
@@ -55,9 +55,9 @@ class NewCalendarEntry: FormViewController {
         }
         .onCellHighlightChanged({ (textCell, textRow) in
             if textRow.isHighlighted {
-                textCell.backgroundColor = UIColor.white
+                textCell.backgroundColor = UIColor.FindaColours.LightGrey
             } else {
-                textCell.backgroundColor = UIColor.FindaColours.PaleGreen
+                textCell.backgroundColor = UIColor.FindaColours.White
             }
         })
             
@@ -65,8 +65,8 @@ class NewCalendarEntry: FormViewController {
         <<< SwitchRow("allday") { row in
             row.title = "All day?"
             row.tag = "allday"
-            row.cell.switchControl.onTintColor = UIColor.FindaColours.Blue
-            row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
+            row.cell.switchControl.onTintColor = UIColor.FindaColours.Burgundy
+            row.cell.backgroundColor = UIColor.FindaColours.White
         }
         .cellSetup({ (SwitchCell, SwitchRow) in
             if self.calendarEntry.isAllDay {
@@ -83,7 +83,7 @@ class NewCalendarEntry: FormViewController {
             row.hidden = Condition.function(["allday"], { form in
                 return ((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
             })
-            row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
+            row.cell.backgroundColor = UIColor.FindaColours.White
             
         }
         .cellSetup({ (dateCell, dateTimeRow) in
@@ -107,7 +107,7 @@ class NewCalendarEntry: FormViewController {
             row.hidden = Condition.function(["allday"], { form in
                 return ((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
             })
-            row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
+            row.cell.backgroundColor = UIColor.FindaColours.White
 
         }
         .cellSetup({ (dateCell, dateTimeRow) in
@@ -125,27 +125,27 @@ class NewCalendarEntry: FormViewController {
         +++ Section("Will you be available for bookings?")
         <<< SegmentedRow<String>() { row in
             row.tag = "freebusy"
-            row.options = ["Free", "Busy"]
-            row.value = "Busy"
-            row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
-            row.cell.tintColor = UIColor.FindaColours.Blue
+            row.options = ["Yes", "No"]
+            row.value = "No"
+            row.cell.backgroundColor = UIColor.FindaColours.White
+            row.cell.tintColor = UIColor.FindaColours.Burgundy
         }
             
         +++ Section("Private notes to yourself")
         <<< TextRow() { row in
             row.value = calendarEntry.location
             row.tag = "location"
-            row.cell.backgroundColor = UIColor.FindaColours.PaleGreen
+            row.cell.backgroundColor = UIColor.FindaColours.White
         }
         .onCellHighlightChanged({ (textCell, textRow) in
             if textRow.isHighlighted {
-                textCell.backgroundColor = UIColor.white
+                textCell.backgroundColor = UIColor.FindaColours.LightGrey
             } else {
-                textCell.backgroundColor = UIColor.FindaColours.PaleGreen
+                textCell.backgroundColor = UIColor.FindaColours.White
             }
         })
         
-        self.tableView?.backgroundColor = UIColor.FindaColours.PaleGreen
+        self.tableView?.backgroundColor = UIColor.FindaColours.White
 
     }
     
@@ -169,8 +169,14 @@ class NewCalendarEntry: FormViewController {
         }
         
         let location = values["location"] as! String
-        let state = values["freebusy"] as! String
-
+        
+        let selectedState = values["freebusy"] as! String
+        
+        var state = "Busy"
+        if selectedState == "Yes" {
+            state = "Free"
+        }
+        
         if eventTitle != "" {
             if isBeingEdited {
                 FindaAPISession(target: .updateCalendarEntry(scheduleId: calendarEntry.scheduleId, title: eventTitle, allday: allDay, starttime: starttime, endtime: endtime, location: location, state: state)) { (response, result) in
@@ -243,10 +249,10 @@ class NewCalendarEntry: FormViewController {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
         if let view = view as? UITableViewHeaderFooterView {
-            view.backgroundView?.backgroundColor = UIColor.clear
+            view.backgroundView?.backgroundColor = UIColor.FindaColours.White
             view.textLabel?.backgroundColor = UIColor.clear
-            view.textLabel?.textColor = UIColor.FindaColours.Blue
-            view.textLabel?.font = UIFont(name: "Gotham-Medium", size: 16)
+            view.textLabel?.textColor = UIColor.FindaColours.Black
+            view.textLabel?.font = UIFont(name: "Montserrat-Medium", size: 16)
         }
     }
     

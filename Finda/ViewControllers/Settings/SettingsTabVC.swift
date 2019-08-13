@@ -53,9 +53,11 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         self.bar.appearance?.style.background = TabmanBar.BackgroundView.Style.solid(color: UIColor.white)
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
-            appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
-            appearance.indicator.color = UIColor.FindaColours.Blue
-            appearance.state.selectedColor = UIColor.FindaColours.Blue
+            appearance.text.font = UIFont(name: "Montserrat-Medium", size: 16)
+            appearance.indicator.color = UIColor.FindaColours.White
+            appearance.style.background = .solid(color: UIColor.FindaColours.Burgundy)
+            appearance.state.selectedColor = UIColor.FindaColours.White
+            appearance.state.color = UIColor.FindaColours.LightGrey
         })
         self.dataSource = self
 
@@ -97,7 +99,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
                 subTitle: "You will be able to see your jobs once you have been verified",
                 style: .info,
                 closeButtonTitle: "OK",
-                colorStyle: 0x13AFC0,
+                colorStyle: 0x010101,
                 colorTextButton: 0xFFFFFF)
         } else {
             let smc = sideMenuController
@@ -119,7 +121,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
                 subTitle: "You will be able to see your jobs once you have been verified",
                 style: .info,
                 closeButtonTitle: "OK",
-                colorStyle: 0x13AFC0,
+                colorStyle: 0x010101,
                 colorTextButton: 0xFFFFFF)
         } else {
             let smc = sideMenuController
@@ -140,7 +142,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
                 subTitle: "You will be able to see your updates once you have been verified",
                 style: .info,
                 closeButtonTitle: "OK",
-                colorStyle: 0x13AFC0,
+                colorStyle: 0x010101,
                 colorTextButton: 0xFFFFFF)
         } else {
             let smc = sideMenuController

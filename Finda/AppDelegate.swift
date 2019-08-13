@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
-//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Gotham-Book", size: 18)!], for: .normal)
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Montserrat-Book", size: 18)!], for: .normal)
         
         return true
     }
@@ -127,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             subTitle: "There is a new version of the Finda App available. Please update to access the new features.",
                             style: .warning,
                             closeButtonTitle: "OK",
-                            colorStyle: 0x13AFC0,
+                            colorStyle: 0x010101,
                             colorTextButton: 0xFFFFFF)
                     }
                 }
@@ -208,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 subTitle: "",
                 style: .notice,
                 closeButtonTitle: "OK",
-                colorStyle: 0x13AFC0,
+                colorStyle: 0x010101,
                 colorTextButton: 0xFFFFFF)
         }
     }

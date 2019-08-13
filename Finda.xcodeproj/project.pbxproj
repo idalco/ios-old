@@ -71,11 +71,6 @@
 		0CCF22FF2108E42800612D5B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22FD2108E42800612D5B /* User+CoreDataProperties.swift */; };
 		0CCF23002108E42800612D5B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF22FE2108E42800612D5B /* User+CoreDataClass.swift */; };
 		0CCF23022108E7B500612D5B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF23012108E7B500612D5B /* CoreDataManager.swift */; };
-		0CCF231C2109BD1200612D5B /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF230C2109BD1100612D5B /* Gotham-Medium.otf */; };
-		0CCF231D2109BD1200612D5B /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF230D2109BD1100612D5B /* Gotham-Book.otf */; };
-		0CCF231F2109BD1200612D5B /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF230F2109BD1100612D5B /* Gotham-Bold.otf */; };
-		0CCF23232109BD1200612D5B /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF23132109BD1100612D5B /* Gotham-Light.otf */; };
-		0CCF23252109BD1200612D5B /* Gotham-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF23152109BD1100612D5B /* Gotham-BookItalic.otf */; };
 		0CCF232B2109E61300612D5B /* TermDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF232A2109E61300612D5B /* TermDataManager.swift */; };
 		0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF2339210A7F1000612D5B /* FontExtensions.swift */; };
 		0CCF233D210A7F1000612D5B /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF233A210A7F1000612D5B /* TextFieldExtensions.swift */; };
@@ -104,6 +99,11 @@
 		1825459322B8E4C700FD9808 /* DragDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825459222B8E4C700FD9808 /* DragDrop.swift */; };
 		1825459522BBD06900FD9808 /* VersionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825459422BBD06900FD9808 /* VersionCheck.swift */; };
 		18579BEC22896BC3003C7A97 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579BEB22896BC3003C7A97 /* SupportVC.swift */; };
+		185ACB5322F988150037B489 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D86C2622F83B91000E5083 /* Montserrat-Bold.otf */; };
+		185ACB5422F988170037B489 /* Montserrat-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D86C2822F83B91000E5083 /* Montserrat-Italic.otf */; };
+		185ACB5522F9881A0037B489 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D86C2522F83B91000E5083 /* Montserrat-Light.otf */; };
+		185ACB5622F9881C0037B489 /* Montserrat-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D86C2922F83B91000E5083 /* Montserrat-Medium.otf */; };
+		185ACB5722F9881F0037B489 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D86C2722F83B91000E5083 /* Montserrat-Regular.otf */; };
 		185B3D2022B4086400C64FD2 /* TodayTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B3D1F22B4086400C64FD2 /* TodayTableCell.swift */; };
 		185D864F229544AA00551768 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D864E229544AA00551768 /* CalendarCell.swift */; };
 		185D86512295808700551768 /* CalendarDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86502295808700551768 /* CalendarDateHeader.swift */; };
@@ -118,8 +118,6 @@
 		18A350B022395BF20015D003 /* JobDetailsViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */; };
 		18B979F722CDF9D90024F513 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B979F622CDF9D90024F513 /* HomePageVC.swift */; };
 		18E750F7223904EC00FE28D2 /* JobsVC_withWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */; };
-		18E750F92239052100FE28D2 /* JobCardView_forWallet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */; };
-		18E750FB2239052C00FE28D2 /* JobCardView_forWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750FA2239052C00FE28D2 /* JobCardView_forWallet.swift */; };
 		18E750FD2239207900FE28D2 /* JobCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -187,11 +185,6 @@
 		0CCF22FD2108E42800612D5B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0CCF22FE2108E42800612D5B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0CCF23012108E7B500612D5B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		0CCF230C2109BD1100612D5B /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
-		0CCF230D2109BD1100612D5B /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
-		0CCF230F2109BD1100612D5B /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
-		0CCF23132109BD1100612D5B /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.otf"; sourceTree = "<group>"; };
-		0CCF23152109BD1100612D5B /* Gotham-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.otf"; sourceTree = "<group>"; };
 		0CCF232A2109E61300612D5B /* TermDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDataManager.swift; sourceTree = "<group>"; };
 		0CCF2339210A7F1000612D5B /* FontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		0CCF233A210A7F1000612D5B /* TextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -236,9 +229,12 @@
 		18A20C1022B79BB500F02731 /* ViewCalendarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCalendarEntry.swift; sourceTree = "<group>"; };
 		18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewVC.swift; sourceTree = "<group>"; };
 		18B979F622CDF9D90024F513 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
+		18D86C2522F83B91000E5083 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		18D86C2622F83B91000E5083 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		18D86C2722F83B91000E5083 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		18D86C2822F83B91000E5083 /* Montserrat-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.otf"; sourceTree = "<group>"; };
+		18D86C2922F83B91000E5083 /* Montserrat-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.otf"; sourceTree = "<group>"; };
 		18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsVC_withWallet.swift; sourceTree = "<group>"; };
-		18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCardView_forWallet.xib; sourceTree = "<group>"; };
-		18E750FA2239052C00FE28D2 /* JobCardView_forWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCardView_forWallet.swift; sourceTree = "<group>"; };
 		18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardViewCVC.swift; sourceTree = "<group>"; };
 		2D80066699E9EA531E554F09 /* Pods_Finda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5923DD342F26DB12BE5298ED /* Pods-Finda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.release.xcconfig"; path = "Target Support Files/Pods-Finda/Pods-Finda.release.xcconfig"; sourceTree = "<group>"; };
@@ -279,9 +275,7 @@
 				0C78FA39211F3CE60059C0E7 /* CardView.swift */,
 				0C78FA3A211F3CE70059C0E7 /* WalletView.swift */,
 				0C78FA2F211DEECC0059C0E7 /* JobCardView.swift */,
-				18E750FA2239052C00FE28D2 /* JobCardView_forWallet.swift */,
 				0C78FA30211DEECC0059C0E7 /* JobCardView.xib */,
-				18E750F82239052100FE28D2 /* JobCardView_forWallet.xib */,
 				0CCB63AD213EC59E007CB107 /* JobStatus.swift */,
 				18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */,
 				18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */,
@@ -419,12 +413,12 @@
 		0CCF23072109BD1100612D5B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				18D86C2622F83B91000E5083 /* Montserrat-Bold.otf */,
+				18D86C2822F83B91000E5083 /* Montserrat-Italic.otf */,
+				18D86C2522F83B91000E5083 /* Montserrat-Light.otf */,
+				18D86C2922F83B91000E5083 /* Montserrat-Medium.otf */,
+				18D86C2722F83B91000E5083 /* Montserrat-Regular.otf */,
 				0CCB639521380216007CB107 /* FontAwesome.otf */,
-				0CCF230C2109BD1100612D5B /* Gotham-Medium.otf */,
-				0CCF230D2109BD1100612D5B /* Gotham-Book.otf */,
-				0CCF230F2109BD1100612D5B /* Gotham-Bold.otf */,
-				0CCF23132109BD1100612D5B /* Gotham-Light.otf */,
-				0CCF23152109BD1100612D5B /* Gotham-BookItalic.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -617,20 +611,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CCF231F2109BD1200612D5B /* Gotham-Bold.otf in Resources */,
-				0CCF231C2109BD1200612D5B /* Gotham-Medium.otf in Resources */,
-				0CCF231D2109BD1200612D5B /* Gotham-Book.otf in Resources */,
-				18E750F92239052100FE28D2 /* JobCardView_forWallet.xib in Resources */,
+				185ACB5522F9881A0037B489 /* Montserrat-Light.otf in Resources */,
+				185ACB5622F9881C0037B489 /* Montserrat-Medium.otf in Resources */,
+				185ACB5422F988170037B489 /* Montserrat-Italic.otf in Resources */,
 				0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */,
 				0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */,
-				0CCF23252109BD1200612D5B /* Gotham-BookItalic.otf in Resources */,
+				185ACB5722F9881F0037B489 /* Montserrat-Regular.otf in Resources */,
 				0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */,
 				0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */,
 				0CEBCB5421071AD1004CC4D8 /* Assets.xcassets in Resources */,
 				18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */,
-				0CCF23232109BD1200612D5B /* Gotham-Light.otf in Resources */,
 				0CEBCB4F21071AD0004CC4D8 /* Main.storyboard in Resources */,
 				0CCB63AC213EBCF3007CB107 /* loading-icon.gif in Resources */,
+				185ACB5322F988150037B489 /* Montserrat-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,7 +761,6 @@
 				0C78FA3C211F3CE70059C0E7 /* WalletView.swift in Sources */,
 				0C1C858921305E5100586326 /* ImageCVC.swift in Sources */,
 				0CCF2358210E033C00612D5B /* ModelRegisterVC.swift in Sources */,
-				18E750FB2239052C00FE28D2 /* JobCardView_forWallet.swift in Sources */,
 				0CCB639F213B2E3C007CB107 /* InvoiceVC.swift in Sources */,
 				0CCF2350210DDB2600612D5B /* Profile+CoreDataClass.swift in Sources */,
 				0CCF2351210DDB2600612D5B /* Profile+CoreDataProperties.swift in Sources */,

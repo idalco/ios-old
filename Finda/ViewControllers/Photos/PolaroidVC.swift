@@ -26,7 +26,7 @@ class PolaroidVC: UIViewController {
         
         self.setUpCollectionView()
         
-        self.addNewButton.cornerRadius = 5
+        self.addNewButton.cornerRadius = 2
 //        self.addNewButton.normalBackgroundColor = UIColor.FindaColours.Blue
 
         // Do any additional setup after loading the view.

@@ -38,19 +38,19 @@ class RegisterFooter {
         title.attributedText = attributedString
         
         
-        title.font = UIFont(name: "Gotham-Light", size: 11)
+        title.font = UIFont(name: "Montserrat-Light", size: 11)
         return title
     }
     
     static func signUpButton(width: CGFloat) -> UIButton {
-        let button = DCRoundedButton(frame: CGRect(x: (width / 2) - (215 / 2), y: 130, width: 215, height: 45))
+        let button = DCBorderedButton(frame: CGRect(x: (width / 2) - (215 / 2), y: 130, width: 215, height: 45))
         button.setTitle("SIGN UP", for: .normal)
         
-        button.titleLabel?.font = UIFont(name: "Gotham-Bold", size: 16)
-        button.normalBackgroundColor = UIColor.FindaColours.Blue
-        button.normalBorderColor = UIColor.FindaColours.Blue
+        button.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+        button.normalBackgroundColor = UIColor.FindaColours.Burgundy
+        button.normalBorderColor = UIColor.FindaColours.Burgundy
         button.normalTextColor = UIColor.FindaColours.White
-        button.cornerRadius = 5
+        button.cornerRadius = 2
         
         return button
     }

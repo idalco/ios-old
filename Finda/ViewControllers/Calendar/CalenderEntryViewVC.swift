@@ -43,15 +43,15 @@ class CalendarEntryViewVC: UIViewController, WeekViewDelegate {
         formatter.dateFormat = "d MMMM"
         
         // format the day view
-        dayView.mainBackgroundColor = UIColor.FindaColours.PaleGreen
+        dayView.mainBackgroundColor = UIColor.FindaColours.LightGrey
         dayView.defaultTopBarHeight = 32.0
-        dayView.topBarColor = UIColor.FindaColours.LighterGreen
+        dayView.topBarColor = UIColor.FindaColours.LightGrey
         dayView.visibleDaysInPortraitMode = 1
         dayView.dayViewMainSeparatorColor = UIColor.FindaColours.BorderGrey
         dayView.dayViewDashedSeparatorColor = UIColor.FindaColours.BorderGrey
         
         todayButton.addTarget(self, action: #selector(moveToToday(sender:)), for: .touchUpInside)
-        todayButton.tintColor = UIColor.FindaColours.Blue
+        todayButton.tintColor = UIColor.FindaColours.Black
         self.showDate = calendarEntry!.startDate
         self.refreshDayView()
         dayView.delegate = self
@@ -90,21 +90,23 @@ class CalendarEntryViewVC: UIViewController, WeekViewDelegate {
      * removes all subviews from the container, and rebuilds from an XIB to show the entries
      */
     func refreshDayView() {
+        self.dayView.showDay(withDate: Date(timeIntervalSince1970:  calendarEntry.starttime))
         
         if dayEntries.count != 0 {
-            self.dayView.showDay(withDate: Date(timeIntervalSince1970:  calendarEntry.starttime))
             allEvents.removeAll()
             for (entry) in dayEntries {
                 var colour: UIColor
+                // personal
                 if entry.jobid == 0 {
                     if entry.state == "Busy" {
-                        colour = UIColor.FindaColours.LightGreen
+                        colour = UIColor.FindaColours.Pink.lighter(by: 20)!
                     } else {
                         colour = UIColor.FindaColours.LightGrey
                     }
                     
+                // Finda job
                 } else {
-                    colour = UIColor.FindaColours.Blue
+                    colour = UIColor.FindaColours.Burgundy.lighter(by: 20)!
                 }
                 
                 // make events at least 1 hour long so they show up

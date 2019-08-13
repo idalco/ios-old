@@ -73,7 +73,7 @@ extension UIView {
         
     }
     
-    func addDashedBorder(borderColour: UIColor, cornerRadius: CGFloat = 5) {
+    func addDashedBorder(borderColour: UIColor, cornerRadius: CGFloat = 2) {
         let color = borderColour.cgColor
         
         let shapeLayer:CAShapeLayer = CAShapeLayer()
@@ -93,7 +93,7 @@ extension UIView {
         self.layer.addSublayer(shapeLayer)
     }
     
-    func addSolidBorder(borderColour: UIColor, cornerRadius: CGFloat = 5, width: CGFloat = 2) {
+    func addSolidBorder(borderColour: UIColor, cornerRadius: CGFloat = 2, width: CGFloat = 2) {
         let color = borderColour.cgColor
         
         let shapeLayer:CAShapeLayer = CAShapeLayer()

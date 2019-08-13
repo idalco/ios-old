@@ -27,18 +27,18 @@ class MeasurementsVC: FormViewController {
         let modelManager = ModelManager()
         
         TextRow.defaultCellUpdate = { cell, row in
-            cell.textField.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         PickerInputRow<String>.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         SwitchRow.defaultCellUpdate = { cell, row in
-            cell.detailTextLabel?.font = UIFont(name: "Gotham-Light", size: 16)
-            cell.textLabel?.font = UIFont(name: "Gotham-Light", size: 16)
+            cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
         var section = Section()
@@ -52,13 +52,13 @@ class MeasurementsVC: FormViewController {
                     let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                     
                     title.text = "Measurements"
-                    title.font = UIFont(name: "Gotham-Medium", size: 17)
+                    title.font = UIFont(name: "Montserrat-Medium", size: 17)
                     view.addSubview(title)
                     
                     let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
                     description.numberOfLines = 0
                     description.text = "Please enter your measurements in centimeters."
-                    description.font = UIFont(name: "Gotham-Light", size: 13)
+                    description.font = UIFont(name: "Montserrat-Light", size: 13)
                     view.addSubview(description)
                     
                 }
@@ -207,13 +207,13 @@ class MeasurementsVC: FormViewController {
                     let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                     
                     title.text = "Measurements"
-                    title.font = UIFont(name: "Gotham-Medium", size: 17)
+                    title.font = UIFont(name: "Montserrat-Medium", size: 17)
                     view.addSubview(title)
                     
                     let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
                     description.numberOfLines = 0
                     description.text = "Please enter your measurements in centimeters."
-                    description.font = UIFont(name: "Gotham-Light", size: 13)
+                    description.font = UIFont(name: "Montserrat-Light", size: 13)
                     view.addSubview(description)
                     
                 }
@@ -317,7 +317,7 @@ class MeasurementsVC: FormViewController {
                 let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
                 
                 title.text = "Details"
-                title.font = UIFont(name: "Gotham-Medium", size: 17)
+                title.font = UIFont(name: "Montserrat-Medium", size: 17)
                 view.addSubview(title)
                 
             }
@@ -343,7 +343,7 @@ class MeasurementsVC: FormViewController {
 //                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
 //                
 //                title.text = "Availability"
-//                title.font = UIFont(name: "Gotham-Medium", size: 17)
+//                title.font = UIFont(name: "Montserrat-Medium", size: 17)
 //                view.addSubview(title)
 //                
 //            }

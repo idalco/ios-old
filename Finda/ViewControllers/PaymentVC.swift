@@ -91,7 +91,7 @@ class PaymentVC: UIViewController {
                 if response {
                     let noticeView = SCLAlertView(appearance: appearance)
                     SVProgressHUD.dismiss()
-                    noticeView.showInfo("Details Saved", subTitle: "", colorStyle: 0x13AFC0)
+                    noticeView.showInfo("Details Saved", subTitle: "", colorStyle: 0x010101)
 //                    SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
 //                    SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
 //                    SVProgressHUD.showSuccess(withStatus: "Done")

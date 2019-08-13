@@ -12,57 +12,6 @@ class JobCardView: CardView {
     
     lazy var depresentedCardViewColor: UIColor = { return UIColor.FindaColours.White }()
     
-//    @IBOutlet weak var headerLabel: UILabel!
-//    var header: String = "" {
-//        didSet {
-//            headerLabel.text = "\(header)"
-//        }
-//    }
-
-    
-//    @IBOutlet weak var jobNameLabel: UILabel!
-//    var jobName: String = "" {
-//        didSet {
-//            jobNameLabel.text = "\(jobName)"
-//        }
-//    }
-    
-//    @IBOutlet weak var clientNameLabel: UILabel!
-//    var clientName: String = "" {
-//        didSet {
-//            clientNameLabel.text = "\(clientName)"
-//        }
-//    }
-    
-//    @IBOutlet weak var jobTypeLabel: UILabel!
-//    var jobType: String = "" {
-//        didSet {
-//            jobTypeLabel.text = "\(jobType)"
-//        }
-//    }
-    
-//    @IBOutlet weak var locationLabel: UILabel!
-//    var location: String = "" {
-//        didSet {
-//            locationLabel.text = "\(location)"
-//        }
-//    }
-    
-//    @IBOutlet weak var jobDatesLabel: UILabel!
-//    var jobDates: String = "" {
-//        didSet {
-//            jobDatesLabel.text = "\(jobDates)"
-//        }
-//    }
-    
-//    @IBOutlet weak var durationLabel: UILabel!
-//    var duration: String = "" {
-//        didSet {
-//            durationLabel.text = "\(duration)"
-//        }
-//    }
-    
-    
     @IBOutlet weak var jobDescriptionLabel: UILabel!
     var jobDescription: String = "" {
         didSet {
@@ -79,18 +28,15 @@ class JobCardView: CardView {
         }
     }
     
-    
     @IBOutlet weak var primaryButton: DCRoundedButton!
     @IBAction func primaryButtonFunc(_ sender: Any) {
         
     }
         
-        
     @IBOutlet weak var secondaryButton: DCRoundedButton!
     @IBAction func seconaryButtonFunc(_ sender: Any) {
         
     }
-    
     
     @IBOutlet weak var contactNumberLabel: UILabel!
     var contactNumber: String = "" {
@@ -115,13 +61,13 @@ class JobCardView: CardView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.layer.cornerRadius  = 10
+        contentView.layer.cornerRadius  = 2
         contentView.layer.masksToBounds = false
         contentView.layer.borderWidth = 0
         
         contentView.layer.shadowColor = UIColor.FindaColours.Black.cgColor
         contentView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        contentView.layer.shadowRadius = 10.0
+        contentView.layer.shadowRadius = 2.0
         contentView.layer.shadowOpacity = 0.4
         
         offeredNumberButton.isHidden = true
@@ -131,8 +77,8 @@ class JobCardView: CardView {
         
         callsheetButton.isHidden = true
         
-        primaryButton.cornerRadius = 5
-        secondaryButton.cornerRadius = 5
+        primaryButton.cornerRadius = 2
+        secondaryButton.cornerRadius = 2
         
         primaryButton.normalBackgroundColor = UIColor.FindaColours.Blue
         primaryButton.normalTextColor = UIColor.FindaColours.White
@@ -188,7 +134,7 @@ extension CALayer {
         
         
         if #available(iOS 11.0, *) {
-            border.cornerRadius = 10.0
+            border.cornerRadius = 2.0
             border.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
         } else {
             // Fallback on earlier versions

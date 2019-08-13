@@ -20,7 +20,7 @@ class NotificationCell: UITableViewCell {
         super.awakeFromNib()
         
 //        contentView.backgroundColor = UIColor.FindaColors.Purple.lighter(by: 80)
-        contentView.layer.cornerRadius  = 10
+        contentView.layer.cornerRadius  = 2
         contentView.layer.masksToBounds = true
         
         // Initialization code

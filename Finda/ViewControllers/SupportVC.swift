@@ -47,7 +47,7 @@ class SupportVC: UIViewController {
     }
     
     func submitRequest() {
-        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+        SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
         SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
         
@@ -55,12 +55,12 @@ class SupportVC: UIViewController {
         
         FindaAPISession(target: .supportRequest(request: request!)) { (response, result) in
             if response {
-                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showSuccess(withStatus: "Support Request Sent")
                 self.supportText.text = ""
             } else {
-                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showError(withStatus: "Sorry, there was a problem, please try again")
             }

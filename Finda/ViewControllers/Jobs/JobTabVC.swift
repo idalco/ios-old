@@ -69,12 +69,17 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         self.bar.items = [Item(title: "Requests"), Item(title: "Upcoming"), Item(title: "History")]
         
         self.bar.style = .scrollingButtonBar
+        
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             // customize appearance here
-            appearance.text.font = UIFont(name: "Gotham-Medium", size: 16)
-            appearance.indicator.color = UIColor.FindaColours.Blue
-            appearance.state.selectedColor = UIColor.FindaColours.Blue
+            appearance.text.font = UIFont(name: "Montserrat-Medium", size: 16)
+            appearance.indicator.color = UIColor.FindaColours.White
+            appearance.state.selectedColor = UIColor.FindaColours.White
+            appearance.state.color = UIColor.FindaColours.LightGrey
+            appearance.style.background = .solid(color: UIColor.FindaColours.Burgundy)
+            appearance.layout.itemDistribution = .centered
         })
+        
         self.dataSource = self
 
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(JobTabVC.showHideAvailabilityPanel))

@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.16</string>
+	<string>1.0.17</string>
 	<key>CFBundleVersion</key>
-	<string>1789</string>
+	<string>1909</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -35,11 +35,11 @@
 	<string>This will allow you to upload photographs from your photo library to your Portfolio</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Gotham-Bold.otf</string>
-		<string>Gotham-Book.otf</string>
-		<string>Gotham-BookItalic.otf</string>
-		<string>Gotham-Light.otf</string>
-		<string>Gotham-Medium.otf</string>
+		<string>Montserrat-Bold.otf</string>
+		<string>Montserrat-Regular.otf</string>
+		<string>Montserrat-Italic.otf</string>
+		<string>Montserrat-Light.otf</string>
+		<string>Montserrat-Medium.otf</string>
 		<string>FontAwesome.otf</string>
 		<string>FontAwesomeSolid.otf</string>
 	</array>

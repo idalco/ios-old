@@ -10,22 +10,22 @@ import UIKit
 
 class WelcomeVC: UIViewController {
 
-    @IBOutlet weak var splashImage: UIImageView!
+//    @IBOutlet weak var splashImage: UIImageView!
     
     
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var joinButton: UIButton!
     
-    var images:[String] = []
-    var timer = Timer()
-    var photoCount:Int = 0
+//    var images:[String] = []
+//    var timer = Timer()
+//    var photoCount:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        images = ["newsplash1","newsplash2","newsplash3"]
-        splashImage.image = UIImage.init(named: "newsplash1")
-        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(onTransition), userInfo: nil, repeats: true)
+//        images = ["newsplash1","newsplash2","newsplash3"]
+//        splashImage.image = UIImage.init(named: "newsplash1")
+//        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(onTransition), userInfo: nil, repeats: true)
         
         self.navigationController?.navigationBar.transparentNavigationBar()
         // Do any additional setup after loading the view.
@@ -48,28 +48,28 @@ class WelcomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.signInButton.applyWidthGradient(colors: [UIColor(hexString: "7e73d6").cgColor, UIColor(hexString: "d441e8").cgColor])
-        self.signInButton.addLongShadow()
-        self.joinButton.applyWidthGradient(colors: [UIColor(hexString: "1fa3c5").cgColor, UIColor(hexString: "7978d6").cgColor])
+//        self.signInButton.applyWidthGradient(colors: [UIColor(hexString: "7e73d6").cgColor, UIColor(hexString: "d441e8").cgColor])
+//        self.signInButton.addLongShadow()
+//        self.joinButton.applyWidthGradient(colors: [UIColor(hexString: "1fa3c5").cgColor, UIColor(hexString: "7978d6").cgColor])
         
-        self.signInButton.tintColor = UIColor.white
-        self.signInButton.setTitle("SIGN IN", for: .normal)
-        self.joinButton.tintColor = UIColor.white
-        self.joinButton.setTitle("JOIN US", for: .normal)
+//        self.signInButton.tintColor = UIColor.white
+//        self.signInButton.setTitle("SIGN IN", for: .normal)
+//        self.joinButton.tintColor = UIColor.white
+//        self.joinButton.setTitle("JOIN US", for: .normal)
 
     }
     
-    @objc func onTransition() {
-        if (photoCount < images.count - 1){
-            photoCount = photoCount  + 1;
-        } else {
-            photoCount = 0;
-        }
-        
-        UIView.transition(with: self.splashImage, duration: 2.0, options: .transitionCrossDissolve, animations: {
-            self.splashImage.image = UIImage.init(named: self.images[self.photoCount])
-        }, completion: nil)
-    }
+//    @objc func onTransition() {
+//        if (photoCount < images.count - 1){
+//            photoCount = photoCount  + 1;
+//        } else {
+//            photoCount = 0;
+//        }
+//
+//        UIView.transition(with: self.splashImage, duration: 2.0, options: .transitionCrossDissolve, animations: {
+//            self.splashImage.image = UIImage.init(named: self.images[self.photoCount])
+//        }, completion: nil)
+//    }
     
 
 
@@ -86,23 +86,23 @@ class WelcomeVC: UIViewController {
 
 }
 
-extension UIButton
-{
-    func applyWidthGradient(colors: [CGColor]) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = colors
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        gradientLayer.frame = self.bounds
-        gradientLayer.cornerRadius = 5
-        self.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
-    func addLongShadow() {
-        
-        
-    }
-}
+//extension UIButton
+//{
+//    func applyWidthGradient(colors: [CGColor]) {
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.colors = colors
+//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+//        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+//        gradientLayer.frame = self.bounds
+//        gradientLayer.cornerRadius = 2
+//        self.layer.insertSublayer(gradientLayer, at: 0)
+//    }
+//
+//    func addLongShadow() {
+//
+//
+//    }
+//}
 
 extension UIColor {
     convenience init(hexString: String, alpha:CGFloat? = 1.0) {
