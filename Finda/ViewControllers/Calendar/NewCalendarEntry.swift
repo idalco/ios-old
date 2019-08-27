@@ -43,7 +43,7 @@ class NewCalendarEntry: FormViewController {
         <<< TextRow() { row in
             row.value = calendarEntry.title
             row.tag = "eventtitle"
-            row.add(rule: RuleRequired())
+            row.placeholder = "Busy"
             row.validationOptions = .validatesOnChangeAfterBlurred
             row.cell.backgroundColor = UIColor.FindaColours.White
         }
@@ -99,6 +99,30 @@ class NewCalendarEntry: FormViewController {
             untilRow.reload()
         })
             
+        <<< DateRow("From") { row in
+            row.title = "From"
+            row.tag = "startdate_allday"
+            row.minuteInterval = 15
+            row.value = Date(timeIntervalSince1970: calendarEntry.starttime)
+            row.hidden = Condition.function(["allday"], { form in
+                return !((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
+            })
+            row.cell.backgroundColor = UIColor.FindaColours.White
+            
+            }
+            .cellSetup({ (dateCell, dateRow) in
+                dateRow.dateFormatter?.dateStyle = .short
+                dateRow.dateFormatter?.timeStyle = .short
+                dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.starttime)
+                
+            })
+            .onChange({ row in
+                let untilRow = self.form.rowBy(tag: "enddate_allday") as! DateRow
+                untilRow.minimumDate = row.value! + (60*60)
+                untilRow.value = row.value! + (60*60)
+                untilRow.reload()
+            })
+            
         <<< DateTimeRow("Until") { row in
             row.title = "Until"
             row.tag = "enddate"
@@ -122,6 +146,29 @@ class NewCalendarEntry: FormViewController {
             }
         })
             
+        <<< DateRow("Until") { row in
+            row.title = "Until"
+            row.tag = "enddate_allday"
+            row.minuteInterval = 15
+            row.value = Date(timeIntervalSince1970: calendarEntry.endtime)
+            row.hidden = Condition.function(["allday"], { form in
+                return !((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
+            })
+            row.cell.backgroundColor = UIColor.FindaColours.White
+            
+            }
+            .cellSetup({ (dateCell, dateRow) in
+                dateRow.dateFormatter?.dateStyle = .short
+                dateRow.dateFormatter?.timeStyle = .short
+                if self.isBeingEdited {
+                    dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.endtime)
+                    dateRow.minimumDate = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
+                } else {
+                    dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
+                    dateRow.minimumDate = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
+                }
+            })
+            
         +++ Section("Will you be available for bookings?")
         <<< SegmentedRow<String>() { row in
             row.tag = "freebusy"
@@ -130,6 +177,14 @@ class NewCalendarEntry: FormViewController {
             row.cell.backgroundColor = UIColor.FindaColours.White
             row.cell.tintColor = UIColor.FindaColours.Burgundy
         }
+        .onChange({ row in
+            if row.value == "Yes" {
+                (self.form.rowBy(tag: "eventtitle") as? TextRow)?.placeholder = "Free"
+            } else {
+                (self.form.rowBy(tag: "eventtitle") as? TextRow)?.placeholder = "Busy"
+            }
+            (self.form.rowBy(tag: "eventtitle") as? TextRow)?.reload()
+        })
             
         +++ Section("Private notes to yourself")
         <<< TextRow() { row in
@@ -159,18 +214,30 @@ class NewCalendarEntry: FormViewController {
         var starttime: Double = Date().timeIntervalSince1970
         var endtime: Double = Date().timeIntervalSince1970
 
-        let eventTitle = values["eventtitle"] as! String
         let allDay = (values["allday"] as? Bool) ?? false
         if !allDay {
             let startdate = values["startdate"] as! Date
             starttime = startdate.timeIntervalSince1970
             let enddate = values["enddate"] as! Date
             endtime = enddate.timeIntervalSince1970
+        } else {
+            let startdate = values["startdate_allday"] as! Date
+            starttime = startdate.timeIntervalSince1970
+            let enddate = values["enddate_allday"] as! Date
+            endtime = enddate.timeIntervalSince1970
         }
         
         let location = values["location"] as! String
         
         let selectedState = values["freebusy"] as! String
+        var eventTitle = values["eventtitle"] as! String
+        if eventTitle == "" {
+            if selectedState == "Free" {
+                eventTitle = "Free"
+            } else {
+                eventTitle = "Busy"
+            }
+        }
         
         var state = "Busy"
         if selectedState == "Yes" {
@@ -201,7 +268,6 @@ class NewCalendarEntry: FormViewController {
                         // send semaphore back that event was saved so we can reload later
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEventsDisplay"), object: nil)
                         
-//                        let updatedEntry: CalendarEntry = CalendarEntry(title: eventTitle, allday: allDay, starttime: starttime, endtime: endtime, location: location, state: state, scheduleid: self.calendarEntry.scheduleId, userid: self.calendarEntry.userid)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissViewCalendarPopup"), object: nil)
                         
                         self.dismiss(animated: true)

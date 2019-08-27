@@ -117,6 +117,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "Payments",
                          "Calendar",
                          "FindaVoices",
+                         "Podcast",
                          "FAQ",
                          "Sign Out"]
             
@@ -130,6 +131,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let heartIcon = NSMutableAttributedString(string: "")
             let questionIcon = NSMutableAttributedString(string: "")
             let powerOffIcon = NSMutableAttributedString(string: "")
+            let podcastIcon = NSMutableAttributedString(string: "")
             
             if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
                 userIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
@@ -161,6 +163,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
                 powerOffIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 powerOffIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                
+                podcastIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                podcastIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
 
             }
             
@@ -172,6 +177,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         universityIcon,
                         calendarIcon,
                         heartIcon,
+                        podcastIcon,
                         questionIcon,
                         powerOffIcon
             ]
@@ -294,17 +300,20 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         case 6:
                             sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
                             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.CalendarTab.rawValue
-//                            sideMenuController?.setContentViewController(with: "Calendar", animated: true)
                             break
-//                        case 6:
                         case 7:
                             if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }
                             break
-//                        case 7:
-                        case 8:
+                        case 8: // podcast
+                            if let destination = NSURL(string: "https://podcasts.apple.com/gb/podcast/finda-voices-podcast/id1470088105") {
+                                let safari = SFSafariViewController(url: destination as URL)
+                                self.present(safari, animated: true)
+                            }
+                            break
+                        case 9:
                             if let destination = NSURL(string: domainURL + "/faq/models") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
@@ -339,73 +348,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-
-        
-        
-        
-        
-        
-        
-//        if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
-//            LoginManager.signOut()
-//
-//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 2 {
-//            if self.menutype == MenuType.needsVerification {
-//                sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
-//            } else {
-//
-//                if let destination = NSURL(string: domainURL + "/faq/model") {
-//                    let safari = SFSafariViewController(url: destination as URL)
-//                    self.present(safari, animated: true)
-//                }
-//            }
-//        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 3 {
-//            if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
-//                let safari = SFSafariViewController(url: destination as URL)
-//                self.present(safari, animated: true)
-//            }
-//
-////        } else if indexPath.row == tableView.numberOfRows(inSection: 0) - 4 {
-////            sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
-//
-//        } else if indexPath.row == 0 {
-//            sideMenuController?.setContentViewController(with: "Settings", animated: true)
-//
-//        } else if indexPath.row == 1 {
-//
-//            smc?.setContentViewController(with: "MainTabBar")
-//            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-//            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
-//
-//        } else if  indexPath.row == 2 {
-//            smc?.setContentViewController(with: "MainTabBar")
-//            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-//            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
-//
-//        } else if  indexPath.row == 3 {
-//            if self.menutype == MenuType.needsVerification {
-//                sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
-//            } else {
-//                sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-//                (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 0
-//            }
-//        } else if  indexPath.row == 4 {
-//            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-//            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = 1
-//
-//        } else if indexPath.row == 5 {
-//            if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
-//                sideMenuController?.setContentViewController(with: "PaymentNav")
-//           } else if !isVerified {
-//                sideMenuController?.setContentViewController(with: "VerificationNav")
-//            } else {
-//                sideMenuController?.setContentViewController(with: "InvoiceNav")
-//            }
-//
-//        }  else {
-//
-//        }
-        
         sideMenuController?.hideMenu()
     }
     
@@ -417,76 +359,16 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
-//     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destinationViewController.
+         // Pass the selected object to the new view controller.
         
 
-//     }
-    
-    
-    //    @objc func displayFCMToken(notification: NSNotification) {
-    //
-    //        print("Display notification: starting")
-    //
-    //        guard let userInfo = notification.userInfo else {return}
-    //        print("Display notification: got userInfo")
-    //        print(userInfo)
-    //
-    //        guard
-    //            let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
-    //            let alert = aps["alert"] as? NSString
-    //        else {
-    //                return
-    //        }
-    //        print("Display notification: got data")
-    //        print(aps)
-    //        print(alert)
-    //
-    //        let alertController = UIAlertController(title: "Push Notification", message: "\(alert)", preferredStyle: UIAlertControllerStyle.alert)
-    //        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-    //
-    //        self.present(alertController, animated: true, completion: nil)
-    //
-    //    }
+     }
+
+
 }

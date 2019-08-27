@@ -29,7 +29,7 @@ enum FindaAPI {
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
-    case updateProfile(firstName: String, lastName: String, email: String, telephone: String, gender: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String)
+    case updateProfile(firstName: String, lastName: String, email: String, telephone: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String, locationTid: Int)
     
     case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, suitSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String, drivingLicense: String, tattoo: String, hourlyrate: Int, dailyrate: Int)
     
@@ -231,18 +231,18 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .deleteNotifications(let id):
             p["msgid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        case .updateProfile(let firstName, let lastName, let email, let telephone, let gender, let nationality, let residence_country, let ethnicityId, let instagramUsername, let referralCode, let vatNumber):
+        case .updateProfile(let firstName, let lastName, let email, let telephone, let nationality, let residence_country, let ethnicityId, let instagramUsername, let referralCode, let vatNumber, let locationTid):
             var parameters = [String: Any]()
             
             parameters["firstname"] = firstName
             parameters["lastname"] = lastName
             parameters["mail"] = email
             parameters["telephone"] = telephone
-            if (gender.lowercased() == "prefer not to say") {
-                parameters["gender"] = "other"
-            } else {
-                parameters["gender"] = gender.lowercased()
-            }
+//            if (gender.lowercased() == "prefer not to say") {
+//                parameters["gender"] = "other"
+//            } else {
+//                parameters["gender"] = gender.lowercased()
+//            }
             parameters["ethnicity"] = ethnicityId
             parameters["instagram"] = instagramUsername
             if (referralCode != "") {
@@ -253,6 +253,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             }
             parameters["nationality"] = nationality
             parameters["residence_country"] = residence_country
+            parameters["location"] = locationTid
             p["parameters"] = parameters
             
          

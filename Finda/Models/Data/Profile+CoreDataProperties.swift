@@ -31,4 +31,5 @@ extension Profile {
     @NSManaged public var eyeColour: Int32
     @NSManaged public var dailyrate: Int32
     @NSManaged public var hourlyrate: Int32
+    @NSManaged public var location: Int32
 }

@@ -66,8 +66,38 @@ class PersonalDetailsVC: FormViewController {
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
         }
         
+    
+        var locationSection = Section("Location") { section in
+            var header = HeaderFooterView<UIView>(.class)
+            header.height = {100}
+            header.onSetupView = { view, _ in
+                view.backgroundColor = UIColor.FindaColours.White
+                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
+                
+                title.text = "Location"
+                title.font = UIFont(name: "Montserrat-Medium", size: 17)
+                view.addSubview(title)
+                
+                let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
+                description.numberOfLines = 0
+                description.text = "Please set your current location for last-minute & e-comme-commerce jobs"
+                description.font = UIFont(name: "Montserrat-Light", size: 13)
+                view.addSubview(description)
+                
+            }
+            section.header = header
+        }
+        <<< PickerInputRow<String>() { row in
+            row.title = "Location"
+            row.tag = "location"
+            
+            row.options = Locations.locations
+            let nationality = modelManager.location()
+            row.value = Locations().getNameFromTid(tid: nationality)
+            
+        }
         
-        
+        form +++ locationSection
         
         var mainSection = Section("Main") { section in
             var header = HeaderFooterView<UIView>(.class)
@@ -178,7 +208,6 @@ class PersonalDetailsVC: FormViewController {
 //
 //                    }
 //            }
-            
             
         <<< PickerInputRow<String>() { row in
             row.title = "Nationality"
@@ -308,6 +337,10 @@ class PersonalDetailsVC: FormViewController {
                 self.updateCell(tag: "referralCode", data: model.referrerCode())
                 self.updateCell(tag: "vat", data: model.vatNumber())
                 
+                let location = model.location()
+                let locationName = Locations().getNameFromTid(tid: location)
+                self.updateCell(tag: "location", data: locationName)
+                
                 guard let row: PickerInputRow<String> = self.form.rowBy(tag: "ethnicity") else { return }
                 if self.ethnicityDictionary.count > 0 {
                     self.updatePickerRow(row: row, coreData: model.ethnicity(), dictionary: self.ethnicityDictionary)
@@ -362,10 +395,10 @@ class PersonalDetailsVC: FormViewController {
             return
         }
         
-        guard let genderRow: BaseRow = form.rowBy(tag: "gender"), let gender: String = form.values()["gender"] as? String else {
-            self.validateRow(tag: "gender")
-            return
-        }
+//        guard let genderRow: BaseRow = form.rowBy(tag: "gender"), let gender: String = form.values()["gender"] as? String else {
+//            self.validateRow(tag: "gender")
+//            return
+//        }
         
         guard let ethnicityRow: BaseRow = form.rowBy(tag: "ethnicity"), let ethnicity: String = form.values()["ethnicity"] as? String else {
             self.validateRow(tag: "ethnicity")
@@ -381,6 +414,11 @@ class PersonalDetailsVC: FormViewController {
             return
         }
         
+//        guard let locationRow: BaseRow = form.rowBy(tag: "location"), let locationName: String = form.values()["location"] as? String else {
+//            self.validateRow(tag: "location")
+//            return
+//        }
+        
         guard let _: BaseRow = form.rowBy(tag: "nationality"), let nationality: String = form.values()["nationality"] as? String else {
             self.validateRow(tag: "nationality")
             return
@@ -395,8 +433,11 @@ class PersonalDetailsVC: FormViewController {
         let vat: String = form.values()["vat"] as? String ?? ""
         let telephone: String = form.values()["telephone"] as? String ?? ""
         
-        if(firstNameRow.isValid && lastNameRow.isValid && emailRow.isValid && genderRow.isValid && ethnicityRow.isValid && instagramRow.isValid){
-            FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, telephone: telephone, gender: gender, nationality: nationality, residence_country: residence, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat)) { (response, result) in
+        let locationName: String = form.values()["location"] as? String ?? "London"
+        let tid = Locations().getTidFromName(name: locationName)
+        
+        if(firstNameRow.isValid && lastNameRow.isValid && emailRow.isValid && ethnicityRow.isValid && instagramRow.isValid) {
+            FindaAPISession(target: .updateProfile(firstName: firstName, lastName: lastName,  email: email, telephone: telephone, nationality: nationality, residence_country: residence, ethnicityId: ethnictyId, instagramUsername: instagram, referralCode: referralCode, vatNumber: vat, locationTid: tid)) { (response, result) in
                 if response {
                     self.updateRows()
                 }
@@ -432,11 +473,11 @@ class PersonalDetailsVC: FormViewController {
     }
     
     func toggleAvailability() {
-        var availability = 0
+        var availability = 1
         let values = form.values()
-        let availToggle = (values["availability"] as? Bool) ?? true
+        let availToggle = (values["availability"] as? Bool) ?? false
         if availToggle {
-            availability = 1
+            availability = 0
         }
         
         FindaAPISession(target: .updateAvailability(availability: availability)) { (response, result) in

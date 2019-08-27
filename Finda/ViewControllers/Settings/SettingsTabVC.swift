@@ -26,7 +26,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Settings"
+        self.title = "My Details"
         
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PersonalDetails") as? PersonalDetailsVC {
             self.viewControllers.append(viewController)

@@ -116,6 +116,8 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
                 } else {
                     self.todayListLabel.isHidden = false
                     self.todayList.isHidden = true
+//                    self.todayListLabel.sizeToFit()
+//                    self.todayListLabel.setNeedsLayout()
                 }
             } else {
                 // show error
@@ -183,7 +185,18 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+//        self.todayListLabel.sizeToFit()
+//        self.todayListLabel.setNeedsLayout()
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        self.todayListLabel.sizeToFit()
+//        self.todayListLabel.setNeedsLayout()
+    }
+    
+    override func viewWillLayoutSubviews() {
+//        self.todayListLabel.sizeToFit()
+//        self.todayListLabel.setNeedsLayout()
     }
     
     @objc func moveToToday(sender: Any) {

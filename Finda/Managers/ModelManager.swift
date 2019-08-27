@@ -69,6 +69,7 @@ class ModelManager {
         case eyeColour = "eyeColour"
         case hourlyrate = "hourlyrate"
         case dailyrate = "dailyrate"
+        case location = "location"
     }
     
     enum Preferences: String {
@@ -264,6 +265,11 @@ class ModelManager {
         return CoreDataManager.getInt(dataName: Profile.dailyrate.rawValue, entity: Entity.Profile.rawValue)
     }
 
+    func location() -> Int {
+        return CoreDataManager.getInt(dataName: Profile.location.rawValue, entity: Entity.Profile.rawValue)
+    }
+    
+
  
  /*
     Preferences Entity
@@ -373,7 +379,7 @@ class ModelManager {
         profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: Profile.eyeColour.rawValue)
         profile.setValue(profileData["hourlyrate"].intValue, forKeyPath: Profile.hourlyrate.rawValue)
         profile.setValue(profileData["dailyrate"].intValue, forKeyPath: Profile.dailyrate.rawValue)
-
+        profile.setValue(profileData["location"].intValue, forKeyPath: Profile.location.rawValue)
         
         do {
             try managedContext.save()
