@@ -15,8 +15,8 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     ])
 
 //let domainURL: String = "http://dev.finda.co"
-//let domainURL: String = "http://dev.finda"
-let domainURL: String = "https://www.finda.co"
+let domainURL: String = "http://dev.finda"
+//let domainURL: String = "https://www.finda.co"
 
 enum FindaAPI {
     // POST
@@ -31,7 +31,7 @@ enum FindaAPI {
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, telephone: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String, locationTid: Int)
     
-    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, suitSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, willingToColour: String, willingToCut: String, drivingLicense: String, tattoo: String, hourlyrate: Int, dailyrate: Int)
+    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, suitSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, ringSize: String, willingToColour: String, willingToCut: String, drivingLicense: String, tattoo: String, hourlyrate: Int, dailyrate: Int)
     
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case updatePassword(oldPassword: String, newPassword: String, repeatNewPassword: String)
@@ -260,7 +260,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
-        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let suitSize, let hairColour, let hairLength, let hairType, let eyeColour, let willingToColour, let willingToCut, let drivingLicense, let tattoo, let hourlyrate, let dailyrate):
+        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let suitSize, let hairColour, let hairLength, let hairType, let eyeColour, let ringSize,  let willingToColour, let willingToCut, let drivingLicense, let tattoo, let hourlyrate, let dailyrate):
             var parameters = [String: Any]()
             parameters["height"] = height
             parameters["bust"] = bust
@@ -273,6 +273,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["hairlength"] = hairLength
             parameters["hairtype"] = hairType
             parameters["eyecolour"] = eyeColour
+            parameters["ringsize"] = ringSize
             parameters["willingtodye"] = willingToColour
             parameters["willingtocut"] = willingToCut
             parameters["drivinglicense"] = drivingLicense

@@ -67,6 +67,7 @@ class ModelManager {
         case drivingLicense = "drivingLicense"
         case tattoo = "tattoo"
         case eyeColour = "eyeColour"
+        case ringSize = "ringSize"
         case hourlyrate = "hourlyrate"
         case dailyrate = "dailyrate"
         case location = "location"
@@ -256,6 +257,10 @@ class ModelManager {
     func eyeColour() -> Int {
         return CoreDataManager.getInt(dataName: Profile.eyeColour.rawValue, entity: Entity.Profile.rawValue)
     }
+    
+    func ringSize() -> String {
+        return CoreDataManager.getString(dataName: Profile.ringSize.rawValue, entity: Entity.Profile.rawValue)
+    }
  
     func hourlyrate() -> Int {
         return CoreDataManager.getInt(dataName: Profile.hourlyrate.rawValue, entity: Entity.Profile.rawValue)
@@ -377,6 +382,7 @@ class ModelManager {
         profile.setValue(profileData["drivinglicense"].boolValue, forKeyPath: Profile.drivingLicense.rawValue)
         profile.setValue(profileData["tattoo"].boolValue, forKeyPath: Profile.tattoo.rawValue)
         profile.setValue(profileData["eyecolour_tid"].intValue, forKeyPath: Profile.eyeColour.rawValue)
+        profile.setValue(profileData["ringsize"].stringValue, forKeyPath: Profile.ringSize.rawValue)
         profile.setValue(profileData["hourlyrate"].intValue, forKeyPath: Profile.hourlyrate.rawValue)
         profile.setValue(profileData["dailyrate"].intValue, forKeyPath: Profile.dailyrate.rawValue)
         profile.setValue(profileData["location"].intValue, forKeyPath: Profile.location.rawValue)

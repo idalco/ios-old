@@ -21,6 +21,7 @@
         <attribute name="hips" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hourlyrate" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ringSize" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shoeSize" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="suitSize" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="tattoo" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -60,7 +61,7 @@
     </entity>
     <elements>
         <element name="Preferences" positionX="-54" positionY="135" width="128" height="135"/>
-        <element name="Profile" positionX="-45" positionY="153" width="128" height="315"/>
+        <element name="Profile" positionX="-45" positionY="153" width="128" height="330"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="465"/>
     </elements>
 </model>

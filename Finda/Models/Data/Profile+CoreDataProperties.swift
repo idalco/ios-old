@@ -29,6 +29,7 @@ extension Profile {
     @NSManaged public var willingColour: Bool
     @NSManaged public var willingCut: Bool
     @NSManaged public var eyeColour: Int32
+    @NSManaged public var ringSize: String
     @NSManaged public var dailyrate: Int32
     @NSManaged public var hourlyrate: Int32
     @NSManaged public var location: Int32

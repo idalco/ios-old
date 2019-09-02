@@ -168,6 +168,20 @@ class MeasurementsVC: FormViewController {
                 }
             }
                 
+            <<< PickerInputRow<String>() { row in
+                row.title = "Ring Size"
+                row.tag = "Ring Size".lowercased()
+                row.options = Measurements.ringSizesArray
+                row.value = modelManager.ringSize()
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+                
             <<< SwitchRow() { row in
                 row.title = "Willing to colour?"
                 row.value = modelManager.willingColour()
@@ -530,6 +544,10 @@ class MeasurementsVC: FormViewController {
                 return
             }
             
+            guard let ringSizeRow: BaseRow = form.rowBy(tag: "ring size"), let ringSize: String = form.values()["ring size"] as? String else {
+                return
+            }
+            
             guard let willingToColour: Bool = form.values()["willing to colour?"] as? Bool else { return }
             guard let willingToColourString: String = willingToColour ? "yes" : "no" else { return }
             
@@ -543,6 +561,8 @@ class MeasurementsVC: FormViewController {
             
             guard let tattoo: Bool = form.values()["tattoos?"] as? Bool else { return }
             guard let tattooString: String = tattoo ? "yes" : "no" else { return }
+            
+            
             
             
             guard let shoeSizeId = Measurements.shoeSizesArray.allKeysForValue(val: shoeSize).first else {
@@ -574,7 +594,7 @@ class MeasurementsVC: FormViewController {
             
         
             if (heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
-                FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSizeId, dressSize: dressSizeId, suitSize: 0, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
+                FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSizeId, dressSize: dressSizeId, suitSize: 0, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
                     if response {
                         self.updateRows()
                     }
@@ -615,6 +635,11 @@ class MeasurementsVC: FormViewController {
             
             guard let eyeColourRow: BaseRow = form.rowBy(tag: "eye colour"), let eyeColour: String = form.values()["eye colour"] as? String else {
                 self.validateRow(tag: "eye colour")
+                return
+            }
+            
+            guard let ringSizeRow: BaseRow = form.rowBy(tag: "ring size"), let ringSize: String = form.values()["ring size"] as? String else {
+                self.validateRow(tag: "ring size")
                 return
             }
             
@@ -660,7 +685,7 @@ class MeasurementsVC: FormViewController {
             let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
             
             if (heightRow.isValid && shoeSizeRow.isValid && suitSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
-                FindaAPISession(target: .updateMeasurements(height: height, bust: 0, waist: 0, hips: 0, shoeSize: shoeSizeId, dressSize: 0, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
+                FindaAPISession(target: .updateMeasurements(height: height, bust: 0, waist: 0, hips: 0, shoeSize: shoeSizeId, dressSize: 0, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
                     if response {
                         self.updateRows()
                     }

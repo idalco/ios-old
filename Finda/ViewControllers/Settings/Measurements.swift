@@ -58,4 +58,36 @@ class Measurements {
         56 : "UK/US 56, EU 66",
     ]
     
+    static let ringSizesArray: [String] = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z"
+    
+        
+    
+    ]
+    
 }
