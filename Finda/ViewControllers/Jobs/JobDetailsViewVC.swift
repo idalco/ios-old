@@ -146,7 +146,13 @@ class JobDetailsViewVC: UIViewController {
                 } else {
                     agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
                     
-                    let calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    var calculatedFee = 0.0
+                    if job.timeUnits >= 1 {
+                        calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    } else {
+                        calculatedFee = (Double(job.agreedRate) * 0.9)
+                    }
+                    
                     modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
                     modelFee.text = modelTotal
                     modelFee.isHidden = false
@@ -243,7 +249,13 @@ class JobDetailsViewVC: UIViewController {
                         if (job.agreedRate != 0) {
                             offeredLabel = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
                             
-                            let calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                            var calculatedFee = 0.0
+                            if job.timeUnits >= 1 {
+                                calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                            } else {
+                                calculatedFee = (Double(job.agreedRate) * 0.9)
+                            }
+                            
                             modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
                             modelFee.text = modelTotal
                             modelFee.isHidden = false
@@ -333,7 +345,14 @@ class JobDetailsViewVC: UIViewController {
                 agreedRate.isHidden = false
                 agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
                 
-                modelTotal = modelTotal + (NSString(format: "%.2f", Double(job.agreedRate) * 0.9) as String)
+                var calculatedFee = 0.0
+                if job.timeUnits >= 1 {
+                    calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                } else {
+                    calculatedFee = (Double(job.agreedRate) * 0.9)
+                }
+                
+                modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
                 modelFee.text = modelTotal
                 modelFee.isHidden = false
                 
