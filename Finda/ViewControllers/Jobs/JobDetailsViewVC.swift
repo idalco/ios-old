@@ -263,13 +263,28 @@ class JobDetailsViewVC: UIViewController {
                             
                             if job.clientOfferedRate != 0 {
                                 offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
-                                let calculatedFee = ((Double(job.clientOfferedRate) * 0.9) * Double(job.timeUnits))
+//                                let calculatedFee = ((Double(job.clientOfferedRate) * 0.9) * Double(job.timeUnits))
+                                
+                                var calculatedFee = 0.0
+                                if job.timeUnits >= 1 {
+                                    calculatedFee = ((Double(job.clientOfferedRate) * 0.9) * Double(job.timeUnits))
+                                } else {
+                                    calculatedFee = (Double(job.clientOfferedRate) * 0.9)
+                                }
+                                
                                 modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
                                 modelFee.text = modelTotal
                                 modelFee.isHidden = false
                             } else {
                                 offeredLabel = offeredLabel + "\(job.offeredRate)"
-                                let calculatedFee = ((Double(job.offeredRate) * 0.9) * Double(job.timeUnits))
+//                                let calculatedFee = ((Double(job.offeredRate) * 0.9) * Double(job.timeUnits))
+                                
+                                var calculatedFee = 0.0
+                                if job.timeUnits >= 1 {
+                                    calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                                } else {
+                                    calculatedFee = (Double(job.agreedRate) * 0.9)
+                                }
                                 modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
                                 modelFee.text = modelTotal
                                 modelFee.isHidden = false
