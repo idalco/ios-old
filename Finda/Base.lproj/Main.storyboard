@@ -3672,7 +3672,7 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
                                     <outlet property="ibCalendarDelegate" destination="UQL-vC-2ah" id="bXg-3G-5QQ"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
                                 <rect key="frame" x="16" y="402" width="382" height="279"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -3773,7 +3773,7 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
                                 <rect key="frame" x="16" y="402" width="382" height="279"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="TopLeft" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="If6-md-RAm" customClass="PaddingLabel" customModule="Finda" customModuleProvider="target">

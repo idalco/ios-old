@@ -70,6 +70,14 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
         
         todayList.delegate = self
         todayList.dataSource = self
+        
+        todayList.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleHeight.rawValue|UIView.AutoresizingMask.flexibleWidth.rawValue)
+
+        todayList.isEditing = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        todayList.reloadData()
     }
     
     func configureCell(view: JTACDayCell?, cellState: CellState) {
@@ -279,7 +287,7 @@ extension CalendarVC: JTACMonthViewDelegate {
     // new delegate
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         
-        print("\(date)")
+//        print("\(date)")
         
         configureCell(view: cell, cellState: cellState)
         self.performSegue(withIdentifier: "editCalendarSegue", sender: CalendarEntry(date: date.timeIntervalSince1970))
@@ -326,20 +334,10 @@ extension CalendarVC: JTACMonthViewDelegate {
         
         if self.futureEntries.count > 0 {
             cell.todayEntryTitle.text = self.futureEntries[indexPath.row].title
-            cell.todayEntryTitle.textColor = UIColor.FindaColours.Blue
-            if self.futureEntries[indexPath.row].jobid == 0 {
-                cell.todayEntryTitle.textColor = UIColor.FindaColours.Pink
-            }
-            cell.todayEntryBrandname.text = self.futureEntries[indexPath.row].clientCompany
-            
-            var dates = self.futureEntries[indexPath.row].startDate
-            if self.futureEntries[indexPath.row].endDate != self.futureEntries[indexPath.row].startDate {
-                dates = dates + " to " + self.futureEntries[indexPath.row].endDate
-            }
-            cell.todayEntryDates.text = dates
+            cell.todayEntryTitle.textColor = UIColor.FindaColours.Black
+            cell.todayEntryBrandname.text = self.futureEntries[indexPath.row].clientCompany            
             cell.dayEntry = self.futureEntries[indexPath.row]
         }
-        
         return cell
     }
     
