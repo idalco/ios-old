@@ -27,6 +27,8 @@ enum FindaAPI {
     case logout
     case getJobs(jobType: JobsManager.JobTypes)
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
+    case getChatMessages(sender: Int)
+    case sendChatMessage(recipient: Int, message: String)
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, telephone: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String, locationTid: Int)
@@ -86,6 +88,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/getJobs"
         case .getNotifications:
             return "/getNotifications"
+        case .getChatMessages:
+            return "/getChatMessages"
+        case .sendChatMessage:
+            return "/sendChatMessage"
         case .countNotifications:
             return "/getNotifications"
         case .deleteNotifications:
@@ -159,7 +165,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .saveImageOrder, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry, .setLastMinute:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .getChatMessages, .sendChatMessage, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .saveImageOrder, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry, .setLastMinute:
             return .post
             
         // methods requiring GET
@@ -223,6 +229,15 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["type"] = notificationType.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
+        case .getChatMessages(let sender):
+            p["sender"] = sender
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+        case .sendChatMessage(let recipient, let message):
+            p["recipient"] = recipient
+            p["message"] = message
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+
         case .countNotifications(let notificationType):
             p["type"] = notificationType.rawValue
             p["count"] = true

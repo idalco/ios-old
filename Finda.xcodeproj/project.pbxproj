@@ -114,10 +114,14 @@
 		1861853922A6CA6000C0A9F2 /* NewCalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */; };
 		18834BF3229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */; };
 		18883D3421BEC1A5001A8D03 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18883D3321BEC1A5001A8D03 /* CalendarVC.swift */; };
+		18976506232FAD1800EF6E4B /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18976505232FAD1800EF6E4B /* CopyableLabel.swift */; };
 		18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */; };
 		18A20C1122B79BB500F02731 /* ViewCalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A20C1022B79BB500F02731 /* ViewCalendarEntry.swift */; };
 		18A350B022395BF20015D003 /* JobDetailsViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */; };
+		18A758C8232A5BDC0079E569 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A758C7232A5BDB0079E569 /* ChatVC.swift */; };
+		18A758CA232A70230079E569 /* ChatVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A758C9232A70230079E569 /* ChatVCCell.swift */; };
 		18B979F722CDF9D90024F513 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B979F622CDF9D90024F513 /* HomePageVC.swift */; };
+		18E1ECDE232CF4D40045B66D /* TableChatVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1ECDD232CF4D40045B66D /* TableChatVCCell.swift */; };
 		18E750F7223904EC00FE28D2 /* JobsVC_withWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */; };
 		18E750FD2239207900FE28D2 /* JobCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */; };
 /* End PBXBuildFile section */
@@ -226,16 +230,20 @@
 		1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalendarEntry.swift; sourceTree = "<group>"; };
 		18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntryCardViewCVC.swift; sourceTree = "<group>"; };
 		18883D3321BEC1A5001A8D03 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		18976505232FAD1800EF6E4B /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CopyableLabel.swift; path = Extensions/CopyableLabel.swift; sourceTree = "<group>"; };
 		18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		18A0CFD1216F656500D2CC39 /* Finda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finda.entitlements; sourceTree = "<group>"; };
 		18A20C1022B79BB500F02731 /* ViewCalendarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCalendarEntry.swift; sourceTree = "<group>"; };
 		18A350AF22395BF10015D003 /* JobDetailsViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewVC.swift; sourceTree = "<group>"; };
+		18A758C7232A5BDB0079E569 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		18A758C9232A70230079E569 /* ChatVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatVCCell.swift; path = ../../../ChatVCCell.swift; sourceTree = "<group>"; };
 		18B979F622CDF9D90024F513 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
 		18D86C2522F83B91000E5083 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		18D86C2622F83B91000E5083 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		18D86C2722F83B91000E5083 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		18D86C2822F83B91000E5083 /* Montserrat-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.otf"; sourceTree = "<group>"; };
 		18D86C2922F83B91000E5083 /* Montserrat-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.otf"; sourceTree = "<group>"; };
+		18E1ECDD232CF4D40045B66D /* TableChatVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableChatVCCell.swift; sourceTree = SOURCE_ROOT; };
 		18E750F6223904EC00FE28D2 /* JobsVC_withWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsVC_withWallet.swift; sourceTree = "<group>"; };
 		18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardViewCVC.swift; sourceTree = "<group>"; };
 		2D80066699E9EA531E554F09 /* Pods_Finda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +311,9 @@
 			children = (
 				0C4ADA8321184775002C3EA3 /* NotificationsVC.swift */,
 				0C4ADA8921184E1F002C3EA3 /* NotificationCell.swift */,
+				18A758C7232A5BDB0079E569 /* ChatVC.swift */,
+				18A758C9232A70230079E569 /* ChatVCCell.swift */,
+				18E1ECDD232CF4D40045B66D /* TableChatVCCell.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -490,6 +501,7 @@
 				0CCF22B52107390800612D5B /* ViewControllers */,
 				0CEBCB4D21071AD0004CC4D8 /* Main.storyboard */,
 				0CEBCB5321071AD1004CC4D8 /* Assets.xcassets */,
+				18976505232FAD1800EF6E4B /* CopyableLabel.swift */,
 				0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */,
 				0CEBCB5821071AD1004CC4D8 /* Info.plist */,
 				0CCF22E32108CF7200612D5B /* TabBarController.swift */,
@@ -759,6 +771,7 @@
 				0C4ADA802113353D002C3EA3 /* Country.swift in Sources */,
 				0C1C8579212ABFE800586326 /* UserType.swift in Sources */,
 				0CCF235C210E06CA00612D5B /* ViewControllerExtensions.swift in Sources */,
+				18E1ECDE232CF4D40045B66D /* TableChatVCCell.swift in Sources */,
 				0C4ADA63210F4549002C3EA3 /* RegisterHeader.swift in Sources */,
 				0CCF232B2109E61300612D5B /* TermDataManager.swift in Sources */,
 				0CCF22FF2108E42800612D5B /* User+CoreDataProperties.swift in Sources */,
@@ -773,9 +786,11 @@
 				0C4ADA7A21120320002C3EA3 /* JobsManager.swift in Sources */,
 				0CCF22D621089B6200612D5B /* FindaMoyaTokenPlugin.swift in Sources */,
 				0C4ADA6A21107EF5002C3EA3 /* RegisterManager.swift in Sources */,
+				18976506232FAD1800EF6E4B /* CopyableLabel.swift in Sources */,
 				0C78FA282119D3130059C0E7 /* WelcomeVC.swift in Sources */,
 				18E750F7223904EC00FE28D2 /* JobsVC_withWallet.swift in Sources */,
 				1825459322B8E4C700FD9808 /* DragDrop.swift in Sources */,
+				18A758C8232A5BDC0079E569 /* ChatVC.swift in Sources */,
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
 				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
@@ -788,6 +803,7 @@
 				0CCF234D210D070600612D5B /* StringExtensions.swift in Sources */,
 				0C4ADA8A21184E20002C3EA3 /* NotificationCell.swift in Sources */,
 				18B979F722CDF9D90024F513 /* HomePageVC.swift in Sources */,
+				18A758CA232A70230079E569 /* ChatVCCell.swift in Sources */,
 				0CCB639D213A9CBC007CB107 /* Measurements.swift in Sources */,
 				0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */,
 				0CCB63B0213ECEEC007CB107 /* SettingsTabVC.swift in Sources */,

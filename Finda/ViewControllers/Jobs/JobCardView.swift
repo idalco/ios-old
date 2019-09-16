@@ -41,7 +41,7 @@ class JobCardView: CardView {
     @IBOutlet weak var contactNumberLabel: UILabel!
     var contactNumber: String = "" {
         didSet {
-            contactNumberLabel.text = "Contact number: \(contactNumber)"
+            contactNumberLabel.text = "\(contactNumber)"
         }
     }
     

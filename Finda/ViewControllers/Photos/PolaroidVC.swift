@@ -155,7 +155,7 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let imageData = self.photosArray[indexPath.row].filename
 
-        cell.image.setRounded(radius: 10)
+        cell.image.setRounded(radius: 2)
         if let url = URL(string: imageData) {
             cell.image.af_setImage(withPolaroidsURL: url, imageTransition: .crossDissolve(0.25))
         }

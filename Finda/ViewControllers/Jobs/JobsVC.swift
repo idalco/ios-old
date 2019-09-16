@@ -228,7 +228,7 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "jobcell", for: indexPath) as! JobCardViewCVC
         
-        cell.setRounded(radius: 20)
+        cell.setRounded(radius: 2)
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.FindaColours.Grey.cgColor
 

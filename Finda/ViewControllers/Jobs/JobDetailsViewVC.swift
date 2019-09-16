@@ -32,6 +32,7 @@ class JobDetailsViewVC: UIViewController {
     @IBOutlet var modelFee: UILabel!
     
     @IBOutlet weak var contactNumber: UILabel!
+    @IBOutlet weak var contactNumberText: UILabel!
     @IBOutlet weak var jobLength: UILabel!
     
     @IBOutlet weak var negotiateButton: DCBorderedButton!
@@ -55,7 +56,6 @@ class JobDetailsViewVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,9 +91,11 @@ class JobDetailsViewVC: UIViewController {
         
         if (job.contact_number != "") {
             contactNumber.isHidden = false
-            contactNumber.text = "Contact: " + job.contact_number
+            contactNumberText.isHidden = false
+            contactNumber.text = job.contact_number
         } else {
             contactNumber.isHidden = true
+            contactNumberText.isHidden = true
         }
 
         if (job.advanced != "") {
@@ -213,12 +215,14 @@ class JobDetailsViewVC: UIViewController {
                 primaryButton.isHidden = true
                 secondaryButton.isHidden = true
                 contactNumber.isHidden = true
+                contactNumberText.isHidden = true
                 break
             case .Finished:
                 primaryButton.setTitle("Waiting for Client to complete", for: .normal)
                 primaryButton.isEnabled = false
                 secondaryButton.isHidden = true
                 contactNumber.isHidden = true
+                contactNumberText.isHidden = true
                 break
 
 
@@ -320,7 +324,8 @@ class JobDetailsViewVC: UIViewController {
                 secondaryButton.setTitle("REJECT", for: .normal)
                 secondaryButton.addTarget(self, action: #selector(rejectOption(sender:)), for: .touchUpInside)
                 contactNumber.isHidden = true
-
+                contactNumberText.isHidden = true
+                
                 jobStatus.textColor = UIColor.FindaColours.Blue
                 break
 
@@ -330,6 +335,7 @@ class JobDetailsViewVC: UIViewController {
                 primaryButton.setTitle("COMPLETE", for: .normal)
                 secondaryButton.isHidden = true
                 contactNumber.isHidden = true
+                contactNumberText.isHidden = true
                 break
 
             case .Confirmed:

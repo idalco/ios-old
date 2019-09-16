@@ -1,73 +1,85 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.0)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
   - AutoInsetter (1.3.0)
-  - Crashlytics (3.13.4):
+  - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - CryptoSwift (1.0.0)
   - DCKit (1.0.13)
-  - Eureka (5.0.0)
+  - Eureka (5.0.1)
   - Fabric (1.10.2)
-  - Firebase/Core (6.4.0):
+  - Firebase/Core (6.8.1):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.0.3)
-  - Firebase/CoreOnly (6.4.0):
-    - FirebaseCore (= 6.0.4)
-  - Firebase/Messaging (6.4.0):
+    - FirebaseAnalytics (= 6.1.1)
+  - Firebase/CoreOnly (6.8.1):
+    - FirebaseCore (= 6.2.3)
+  - Firebase/Messaging (6.8.1):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 4.1.1)
-  - FirebaseAnalytics (6.0.3):
-    - FirebaseCore (~> 6.0)
+    - FirebaseMessaging (~> 4.1.4)
+  - FirebaseAnalytics (6.1.1):
+    - FirebaseCore (~> 6.2)
     - FirebaseInstanceID (~> 4.2)
-    - GoogleAppMeasurement (= 6.0.3)
+    - GoogleAppMeasurement (= 6.1.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
-  - FirebaseAnalyticsInterop (1.2.0)
-  - FirebaseCore (6.0.4):
-    - GoogleUtilities/Environment (~> 6.0)
-    - GoogleUtilities/Logger (~> 6.0)
-  - FirebaseInstanceID (4.2.1):
+  - FirebaseAnalyticsInterop (1.4.0)
+  - FirebaseCore (6.2.3):
+    - FirebaseCoreDiagnostics (~> 1.0)
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnostics (1.0.1):
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleDataTransportCCTSupport (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnosticsInterop (1.0.0)
+  - FirebaseInstanceID (4.2.5):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebaseMessaging (4.1.1):
-    - FirebaseAnalyticsInterop (~> 1.1)
-    - FirebaseCore (~> 6.0)
+  - FirebaseMessaging (4.1.4):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.2)
     - FirebaseInstanceID (~> 4.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
     - GoogleUtilities/Environment (~> 6.2)
     - GoogleUtilities/Reachability (~> 6.2)
     - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
-  - GoogleAppMeasurement (6.0.3):
+  - GoogleAppMeasurement (6.1.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (6.2.3):
+  - GoogleDataTransport (1.2.0)
+  - GoogleDataTransportCCTSupport (1.0.3):
+    - GoogleDataTransport (~> 1.2)
+    - nanopb
+  - GoogleUtilities/AppDelegateSwizzler (6.2.5):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.2.3)
-  - GoogleUtilities/Logger (6.2.3):
+  - GoogleUtilities/Environment (6.2.5)
+  - GoogleUtilities/Logger (6.2.5):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.2.3):
+  - GoogleUtilities/MethodSwizzler (6.2.5):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.2.3):
+  - GoogleUtilities/Network (6.2.5):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.2.3)"
-  - GoogleUtilities/Reachability (6.2.3):
+  - "GoogleUtilities/NSData+zlib (6.2.5)"
+  - GoogleUtilities/Reachability (6.2.5):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.2.3):
+  - GoogleUtilities/UserDefaults (6.2.5):
     - GoogleUtilities/Logger
-  - IQKeyboardManagerSwift (6.4.0)
+  - IQKeyboardManagerSwift (6.4.2)
   - JTAppleCalendar (8.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -82,10 +94,10 @@ PODS:
   - Pageboy (2.6.1)
   - Protobuf (3.9.0)
   - PryntTrimmerView (3.0.0)
-  - QVRWeekView (0.12.3)
+  - QVRWeekView (0.13.3)
   - Result (4.1.0)
   - SCLAlertView (0.8)
-  - SideMenuSwift (2.0.1)
+  - SideMenuSwift (2.0.2)
   - SteviaLayout (4.4.4)
   - SVProgressHUD (2.2.5)
   - SwiftyGif (5.1.1)
@@ -132,9 +144,13 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
     - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreDiagnosticsInterop
     - FirebaseInstanceID
     - FirebaseMessaging
     - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - IQKeyboardManagerSwift
     - JTAppleCalendar
@@ -155,33 +171,37 @@ SPEC REPOS:
     - YPImagePicker
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   AutoInsetter: 0ea4dddc17042ab45114ec5d5980764efae98584
-  Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   DCKit: ca310752c3a4d442e772de66ce4e4168ea906d62
-  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
+  Eureka: da9d2294da234eae40b22e7273b9fc2335502fc1
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  Firebase: 9445469655a98e9010737f4bc4720e5bda465873
-  FirebaseAnalytics: 69fe25866d2ec87c6f02d72c3c9a82bce9c065a0
-  FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
-  FirebaseCore: 7ea99e200f0024262650be56623fbe6a7bef1707
-  FirebaseInstanceID: 9782fcfb89e4d7da76cc28eac4b8543dc7be4a4b
-  FirebaseMessaging: 6bb0bdaf64c55fef7a219b7bb1e94e94a0855ced
-  GoogleAppMeasurement: 1e45fa601e6280c180880d57010390f6679cd971
-  GoogleUtilities: d2b0e277a95962e09bb27f5cd42f5f0b6a506c7d
-  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
+  Firebase: 9cbe4e5b5eaafa05dc932be58b7c8c3820d71e88
+  FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
+  FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
+  FirebaseCore: e9d9bd1dae61c1e82bc1e0e617a9d832392086a0
+  FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
+  FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
+  FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
+  FirebaseMessaging: 9483ac438b7b223c09dad8712310e9ee7d562c99
+  GoogleAppMeasurement: 86a82f0e1f20b8eedf8e20326530138fd71409de
+  GoogleDataTransport: 8f9897b8e073687f24ca8d3c3a8013dec7d2d1cc
+  GoogleDataTransportCCTSupport: 51134d81fca795c60cc247d1cb6af63c3d67b8d8
+  GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
+  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   JTAppleCalendar: 76ccdc5a8b236166293e50b190c5f2722c30cdcd
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Pageboy: c2a25d1c280e9b622014b692626f1ff9298e0ad2
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
-  QVRWeekView: f0efbb3ca3c5d35ea4b5f04ca81d046613ba649f
+  QVRWeekView: d3941741f5c5b324a097d30d4ea8f4c9a2c2c59c
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  SideMenuSwift: 588374781f2508f551a41796482290aeff1afd78
+  SideMenuSwift: ba10587929b9090c89105ec52739e6c60b9e50de
   SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
@@ -191,4 +211,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f6330096d6355c0c07a0beb2858b16b1c1b071d5
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.5

@@ -17,6 +17,27 @@ class NotificationManager {
 
     }
 
+    static func getChatMessages(sender: Int, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+        FindaAPISession(target: .getChatMessages(sender: sender)) { (response, result) in
+            if(response){
+                completion(response, result)
+                return
+            }
+            completion(false, result)
+        }
+    }
+    
+    static func sendChatMessage(recipient: Int, message: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+        FindaAPISession(target: .sendChatMessage(recipient: recipient, message: message)) { (response, result) in
+            if(response){
+                completion(response, result)
+                return
+            }
+            completion(false, result)
+        }
+    }
+    
+    
     static func getNotifications(notificationType: NotificationTypes, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         FindaAPISession(target: .getNotifications(notificationType: notificationType)) { (response, result) in
             if(response){

@@ -201,11 +201,11 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private func updateProfileImage(){
         let modelManager = ModelManager()
         if modelManager.avatar() != "/default_profile.png" {
-            if let imageUrl = URL(string: modelManager.avatar()){
+            if let imageUrl = URL(string: modelManager.avatar()) {
                 self.profileImage.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
             }
         } else if modelManager.filename() != "" {
-            if let imageUrl = URL(string: modelManager.filename()){
+            if let imageUrl = URL(string: modelManager.filename()) {
                 self.profileImage.af_setImage(withPortfolioURL: imageUrl, imageTransition: .crossDissolve(0.2))
             }
         } else {

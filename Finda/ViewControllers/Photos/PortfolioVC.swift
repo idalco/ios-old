@@ -155,7 +155,7 @@ extension PortfolioVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.image.af_setImage(withPortfolioURL: url, imageTransition: .crossDissolve(0.25))
         }
         
-        cell.image.setRounded(radius: 10)
+        cell.image.setRounded(radius: 2)
         if self.photosArray[indexPath.row].leadimage {
             cell.image.layer.borderWidth = 3
             cell.image.layer.borderColor = UIColor.FindaColours.Burgundy.cgColor

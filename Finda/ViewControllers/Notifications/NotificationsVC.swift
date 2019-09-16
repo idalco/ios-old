@@ -56,7 +56,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.loadNotifications()
     }
     
-    private func loadNotifications(){
+    private func loadNotifications() {
         SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
         SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
@@ -119,18 +119,18 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Montserrat-Light")
         
         // set avatar here
-        cell.messageAvatar.setRounded(colour: UIColor.FindaColours.LightGrey.cgColor)
+        cell.messageAvatar.setRounded(radius: 2, colour: UIColor.FindaColours.LightGrey.cgColor)
         
         if allNotifications[indexPath.row].avatar != "/default_profile.png" {
             if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){
                 cell.messageAvatar.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
             }
         } else if allNotifications[indexPath.row].avatar != "" {
-            if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){
+            if let imageUrl = URL(string: allNotifications[indexPath.row].avatar) {
                 cell.messageAvatar.af_setImage(withPortfolioURL: imageUrl, imageTransition: .crossDissolve(0.2))
             }
         } else {
-            if let imageUrl = URL(string: allNotifications[indexPath.row].avatar){
+            if let imageUrl = URL(string: allNotifications[indexPath.row].avatar) {
                 cell.messageAvatar.af_setImage(withAvatarURL: imageUrl, imageTransition: .crossDissolve(0.2))
             }
         }
@@ -173,36 +173,48 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.tabBarController?.selectedIndex = 0
+        
     }
     
-//    @objc private func jobAction(sender: UITableViewCell) {
-//
-//        let jobid = sender.value(forKey: "jobid")
-//        print(jobid as Any)
-//
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ChatVC {
+            let vc = segue.destination as? ChatVC
+            if let message = sender as? Notification {
+                vc?.senderId = message.sender
+            }
+        }
+    }
     
     @objc func jobAction(recognizer: UITapGestureRecognizer)  {
         if recognizer.state == UIGestureRecognizer.State.ended {
+            
             let tapLocation = recognizer.location(in: self.tableView)
             if let tapIndexPath = self.tableView.indexPathForRow(at: tapLocation) {
                 if (self.tableView.cellForRow(at: tapIndexPath) as? NotificationCell) != nil {
                     //do what you want to cell here
 
-                    let cell = self.tableView.cellForRow(at: tapIndexPath)
-                    
-                    if let msgid = cell?.tag {
-                        let preferences = UserDefaults.standard
-                        preferences.set("tappedNotification", forKey: "sourceAction")
-                        preferences.set(msgid, forKey: "showJobIdCard")
-                        preferences.synchronize()
+                    if self.allNotifications[tapIndexPath.row].type == 14 {
+                        // composed notification
+                        let message = self.allNotifications[tapIndexPath.row]
+                        performSegue(withIdentifier: "showChat", sender: message)
                         
-                        // now we have to move VC
-                        let smc = sideMenuController
-                        smc?.setContentViewController(with: "MainTabBar")
-                        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+                    } else {
+                        // potential job notification
+                        let cell = self.tableView.cellForRow(at: tapIndexPath)
+                        
+                        if let msgid = cell?.tag {
+                            let preferences = UserDefaults.standard
+                            preferences.set("tappedNotification", forKey: "sourceAction")
+                            preferences.set(msgid, forKey: "showJobIdCard")
+                            preferences.synchronize()
+                            
+                            // now we have to move VC
+                            let smc = sideMenuController
+                            smc?.setContentViewController(with: "MainTabBar")
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+                        }
                     }
+                    
                 }
             }
         }

@@ -17,8 +17,8 @@ class Notification {
         case Read = 1;
     }
     
-    let id, jobid, timestamp, recipient, sender, status, type, job_status : Int
-    let subject, message, firstname, lastname, avatar, sefu : String
+    var id, jobid, timestamp, recipient, sender, status, type, job_status : Int
+    var subject, message, firstname, lastname, avatar, sefu : String
 
     
     init(data: JSON) {
@@ -36,6 +36,23 @@ class Notification {
         self.status = data["status"].intValue
         self.type = data["type"].intValue
         self.job_status = data["job_status"].intValue
+    }
+    
+    init(message: String, recipient: Int) {
+        self.id = 0
+        self.jobid = 0
+        self.subject = ""
+        self.message = message
+        self.timestamp = 0
+        self.recipient = recipient
+        self.sender = 0
+        self.firstname = ""
+        self.lastname = ""
+        self.avatar = ""
+        self.sefu = ""
+        self.status = 1
+        self.type = 14  // composed
+        self.job_status = 0
     }
 }
 
