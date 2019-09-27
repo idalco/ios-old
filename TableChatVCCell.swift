@@ -15,7 +15,10 @@ class TableChatVCCell: UITableViewCell {
     @IBOutlet weak var senderAvatarImage: UIImageView!
     @IBOutlet weak var messageText: UILabel!
     @IBOutlet weak var dateStamp: UILabel!
-    
+
+    @IBOutlet weak var imageHolder: UIImageView!
+    @IBOutlet weak var imageHolderHeight: NSLayoutConstraint!
+
     @IBOutlet weak var recipientChatArrow: UIImageView!
     @IBOutlet weak var senderChatArrow: UIImageView!
     @IBOutlet weak var messageContentBox: UIView!

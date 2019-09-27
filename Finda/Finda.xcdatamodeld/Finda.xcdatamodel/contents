@@ -10,6 +10,7 @@
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
         <attribute name="bust" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="collarSize" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dailyrate" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dressSize" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="drivingLicense" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -61,7 +62,7 @@
     </entity>
     <elements>
         <element name="Preferences" positionX="-54" positionY="135" width="128" height="135"/>
-        <element name="Profile" positionX="-45" positionY="153" width="128" height="330"/>
+        <element name="Profile" positionX="-45" positionY="153" width="128" height="345"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="465"/>
     </elements>
 </model>

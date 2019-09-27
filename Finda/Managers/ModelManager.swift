@@ -56,6 +56,7 @@ class ModelManager {
         case bust = "bust"
         case waist = "waist"
         case hips = "hips"
+        case collarSize = "collarSize"
         case shoeSize = "shoeSize"
         case dressSize = "dressSize"
         case suitSize = "suitSize"
@@ -218,6 +219,9 @@ class ModelManager {
     func bust() -> Int {
         return CoreDataManager.getInt(dataName: Profile.bust.rawValue, entity: Entity.Profile.rawValue)
     }
+    func collarSize() -> Int {
+        return CoreDataManager.getInt(dataName: Profile.collarSize.rawValue, entity: Entity.Profile.rawValue)
+    }
     func waist() -> Int {
         return CoreDataManager.getInt(dataName: Profile.waist.rawValue, entity: Entity.Profile.rawValue)
     }
@@ -373,6 +377,7 @@ class ModelManager {
         profile.setValue(profileData["hips"].intValue, forKeyPath: Profile.hips.rawValue)
         profile.setValue(profileData["shoesize"].intValue, forKeyPath: Profile.shoeSize.rawValue)
         profile.setValue(profileData["dresssize"].intValue, forKeyPath: Profile.dressSize.rawValue)
+        profile.setValue(profileData["collar_size"].intValue, forKeyPath: Profile.collarSize.rawValue)
         profile.setValue(profileData["suitsize"].intValue, forKeyPath: Profile.suitSize.rawValue)
         profile.setValue(profileData["haircolour_tid"].intValue, forKeyPath: Profile.hairColour.rawValue)
         profile.setValue(profileData["hairtype_tid"].intValue, forKeyPath: Profile.hairType.rawValue)

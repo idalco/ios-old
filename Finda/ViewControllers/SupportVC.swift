@@ -17,6 +17,13 @@ class SupportVC: UIViewController {
     @IBOutlet weak var supportText: UITextView!
     @IBOutlet weak var backButton: UIImageView!
     
+    @IBOutlet weak var option1: UISwitch!
+    @IBOutlet weak var option2: UISwitch!
+    @IBOutlet weak var option3: UISwitch!
+    @IBOutlet weak var option4: UISwitch!
+    @IBOutlet weak var option5: UISwitch!
+    
+    var selectedReason: Int = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +38,31 @@ class SupportVC: UIViewController {
         
         emailButton.addTarget(self, action: #selector(emailButtonTapped(sender:)), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonTapped(sender:)), for: .touchUpInside)
+        
+        option1.tag = 1
+        option1.addTarget(self, action: #selector(optionTapped(sender:)), for: .touchUpInside)
+        
+        option2.tag = 2
+        option2.addTarget(self, action: #selector(optionTapped(sender:)), for: .touchUpInside)
+        
+        option3.tag = 3
+        option3.addTarget(self, action: #selector(optionTapped(sender:)), for: .touchUpInside)
+        
+        option4.tag = 4
+        option4.addTarget(self, action: #selector(optionTapped(sender:)), for: .touchUpInside)
+        
+        option5.tag = 5
+        option5.addTarget(self, action: #selector(optionTapped(sender:)), for: .touchUpInside)
+
+        resetButtons()
+    }
+    
+    func resetButtons() {
+        option1.setOn(false, animated: true)
+        option2.setOn(false, animated: true)
+        option3.setOn(false, animated: true)
+        option4.setOn(false, animated: true)
+        option5.setOn(true, animated: true) // other
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +78,39 @@ class SupportVC: UIViewController {
         self.submitRequest()
     }
     
+    @objc func optionTapped(sender: UISwitch) {
+        let option = sender.tag
+        option1.setOn(false, animated: true)
+        option2.setOn(false, animated: true)
+        option3.setOn(false, animated: true)
+        option4.setOn(false, animated: true)
+        option5.setOn(false, animated: true)
+        self.selectedReason = option
+        switch (option) {
+        case 1:
+            if option1.isOn {
+                option1.setOn(false, animated: true)
+            } else {
+                option1.setOn(true, animated: true)
+            }
+            break
+        case 2:
+            option2.setOn(true, animated: true)
+            break
+        case 3:
+            option3.setOn(true, animated: true)
+            break
+        case 4:
+            option4.setOn(true, animated: true)
+            break
+        case 5:
+            option5.setOn(true, animated: true)
+            break
+        default:
+            break
+        }
+    }
+    
     func submitRequest() {
         SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
         SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
@@ -53,12 +118,13 @@ class SupportVC: UIViewController {
         
         let request = self.supportText.text
         
-        FindaAPISession(target: .supportRequest(request: request!)) { (response, result) in
+        FindaAPISession(target: .supportRequest(request: request!, reason: selectedReason)) { (response, result) in
             if response {
                 SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.showSuccess(withStatus: "Support Request Sent")
                 self.supportText.text = ""
+                self.resetButtons()
             } else {
                 SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Black)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)

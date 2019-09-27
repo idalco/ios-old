@@ -39,6 +39,11 @@ class NewCalendarEntry: FormViewController {
         
         saveButton.addTarget(self, action: #selector(saveButtonTapped(sender:)), for: .touchUpInside)
         
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "E, d MMM"
+        let dayTimeFormatter = DateFormatter()
+        dayTimeFormatter.dateFormat = "E, d MMM HH:ss"
+        
         form +++ Section("Event Title")
         <<< TextRow() { row in
             row.value = calendarEntry.title
@@ -84,13 +89,10 @@ class NewCalendarEntry: FormViewController {
                 return ((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
             })
             row.cell.backgroundColor = UIColor.FindaColours.White
-            
+            row.dateFormatter = dayTimeFormatter
         }
         .cellSetup({ (dateCell, dateTimeRow) in
-            dateTimeRow.dateFormatter?.dateStyle = .short
-            dateTimeRow.dateFormatter?.timeStyle = .short
             dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.starttime)
-            
         })
         .onChange({ row in
             let untilRow = self.form.rowBy(tag: "enddate") as! DateTimeRow
@@ -107,21 +109,19 @@ class NewCalendarEntry: FormViewController {
             row.hidden = Condition.function(["allday"], { form in
                 return !((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
             })
+            row.dateFormatter = dayFormatter
             row.cell.backgroundColor = UIColor.FindaColours.White
             
-            }
-            .cellSetup({ (dateCell, dateRow) in
-                dateRow.dateFormatter?.dateStyle = .short
-                dateRow.dateFormatter?.timeStyle = .short
-                dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.starttime)
-                
-            })
-            .onChange({ row in
-                let untilRow = self.form.rowBy(tag: "enddate_allday") as! DateRow
-                untilRow.minimumDate = row.value! + (60*60)
-                untilRow.value = row.value! + (60*60)
-                untilRow.reload()
-            })
+        }
+        .cellSetup({ (dateCell, dateRow) in
+            dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.starttime)
+        })
+        .onChange({ row in
+            let untilRow = self.form.rowBy(tag: "enddate_allday") as! DateRow
+            untilRow.minimumDate = row.value! + (60*60)
+            untilRow.value = row.value! + (60*60)
+            untilRow.reload()
+        })
             
         <<< DateTimeRow("Until") { row in
             row.title = "Until"
@@ -132,11 +132,9 @@ class NewCalendarEntry: FormViewController {
                 return ((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
             })
             row.cell.backgroundColor = UIColor.FindaColours.White
-
+            row.dateFormatter = dayTimeFormatter
         }
         .cellSetup({ (dateCell, dateTimeRow) in
-            dateTimeRow.dateFormatter?.dateStyle = .short
-            dateTimeRow.dateFormatter?.timeStyle = .short
             if self.isBeingEdited {
                 dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.endtime)
                 dateTimeRow.minimumDate = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
@@ -155,19 +153,17 @@ class NewCalendarEntry: FormViewController {
                 return !((form.rowBy(tag: "allday") as? SwitchRow)?.value ?? false)
             })
             row.cell.backgroundColor = UIColor.FindaColours.White
-            
+            row.dateFormatter = dayFormatter
+        }
+        .cellSetup({ (dateCell, dateRow) in
+            if self.isBeingEdited {
+                dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.endtime)
+                dateRow.minimumDate = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
+            } else {
+                dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
+                dateRow.minimumDate = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
             }
-            .cellSetup({ (dateCell, dateRow) in
-                dateRow.dateFormatter?.dateStyle = .short
-                dateRow.dateFormatter?.timeStyle = .short
-                if self.isBeingEdited {
-                    dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.endtime)
-                    dateRow.minimumDate = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
-                } else {
-                    dateCell.row.value = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
-                    dateRow.minimumDate = Date(timeIntervalSince1970: self.calendarEntry.starttime + (60*60))
-                }
-            })
+        })
             
         +++ Section("Will you be available for bookings?")
         <<< SegmentedRow<String>() { row in

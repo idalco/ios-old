@@ -86,7 +86,6 @@ class PolaroidVC: UIViewController {
         
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
-                print(photo.image) // Final image selected by the user
                 SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
                 SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
                 SVProgressHUD.show()

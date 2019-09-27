@@ -15,8 +15,8 @@ let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
     ])
 
 //let domainURL: String = "http://dev.finda.co"
-//let domainURL: String = "http://dev.finda"
-let domainURL: String = "https://www.finda.co"
+let domainURL: String = "http://dev.finda"
+//let domainURL: String = "https://www.finda.co"
 
 enum FindaAPI {
     // POST
@@ -28,24 +28,26 @@ enum FindaAPI {
     case getJobs(jobType: JobsManager.JobTypes)
     case getNotifications(notificationType: NotificationManager.NotificationTypes)
     case getChatMessages(sender: Int)
-    case sendChatMessage(recipient: Int, message: String)
+    case sendChatMessage(recipient: Int, message: String, subject: String, type: Int)
     case countNotifications(notificationType: NotificationManager.NotificationTypes)
     case deleteNotifications(id: Int)
+    case flagNotifications(id: Int)
     case updateProfile(firstName: String, lastName: String, email: String, telephone: String, nationality: String, residence_country: String, ethnicityId: Int, instagramUsername: String, referralCode: String, vatNumber: String, locationTid: Int)
     
-    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, dressSize: Float, suitSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, ringSize: String, willingToColour: String, willingToCut: String, drivingLicense: String, tattoo: String, hourlyrate: Int, dailyrate: Int)
+    case updateMeasurements(height: Int, bust: Int, waist: Int, hips: Int, shoeSize: Float, collarSize: Float, dressSize: Float, suitSize: Float, hairColour: Int, hairLength: Int, hairType: Int, eyeColour: Int, ringSize: String, willingToColour: String, willingToCut: String, drivingLicense: String, tattoo: String, hourlyrate: Int, dailyrate: Int)
     
     case updatePreferences(friend_registers: String, job_offered: String, job_cancelled: String, job_changed: String, payment_made: String, notifications: String)
     case updatePassword(oldPassword: String, newPassword: String, repeatNewPassword: String)
     case uploadPortfolioImage(image: UIImage)
     case uploadPolaroidImage(image: UIImage)
     case uploadVerificationImage(image: UIImage)
+    case uploadChatImage(image: UIImage)
     case getImages(type: ImageType)
     case deleteImage(id: Int)
     case selectLeadImage(id: Int)
     case saveImageOrder(imageOrder: Array<Int>, imageType: String)
     case inviteFriend(name: String, email: String)
-    case supportRequest(request: String)
+    case supportRequest(request: String, reason: Int)
     case updateBankDetails(name: String, sortcode: String, accountNumber: String, ibanNumber: String)
     case getModelInvoices
     case acceptJob(jobId: Int)
@@ -110,6 +112,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/uploadPolaroid"
         case .uploadVerificationImage:
             return "/uploadKYC"
+        case .uploadChatImage:
+            return "/uploadChatImage"
         case .getImages:
             return "/getImages"
         case .deleteImage:
@@ -158,6 +162,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/getLastMinute"
         case .setLastMinute:
             return "/setLastMinute"
+        case .flagNotifications:
+            return "/flagNotification"
         }
     }
     
@@ -165,7 +171,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         
         // methods requiring POST
-        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .getChatMessages, .sendChatMessage, .countNotifications, .deleteNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .getImages, .deleteImage, .selectLeadImage, .saveImageOrder, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry, .setLastMinute:
+        case .login, .termData, .logout, .registerModel, .registerClient, .getNotifications, .getChatMessages, .sendChatMessage, .countNotifications, .deleteNotifications, .flagNotifications, .updateProfile, .updateMeasurements, .updatePreferences, .updatePassword, .uploadPortfolioImage, .uploadPolaroidImage, .uploadVerificationImage, .uploadChatImage, .getImages, .deleteImage, .selectLeadImage, .saveImageOrder, .inviteFriend, .supportRequest, .updateBankDetails, .rejectOption, .acceptJob, .rejectJob, .cancelJob, .completeJob, .updateDeviceToken, .updateAvailability, .negotiateRate, .newCalendarEntry, .deleteCalendarEntry, .updateCalendarEntry, .setLastMinute:
             return .post
             
         // methods requiring GET
@@ -233,9 +239,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["sender"] = sender
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
-        case .sendChatMessage(let recipient, let message):
+        case .sendChatMessage(let recipient, let message, let subject, let type):
             p["recipient"] = recipient
             p["message"] = message
+            p["subject"] = subject
+            p["type"] = type
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
         case .countNotifications(let notificationType):
@@ -246,6 +254,11 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .deleteNotifications(let id):
             p["msgid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+        case .flagNotifications(let id):
+            p["msgid"] = id
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+
         case .updateProfile(let firstName, let lastName, let email, let telephone, let nationality, let residence_country, let ethnicityId, let instagramUsername, let referralCode, let vatNumber, let locationTid):
             var parameters = [String: Any]()
             
@@ -275,7 +288,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
             
             
-        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let dressSize, let suitSize, let hairColour, let hairLength, let hairType, let eyeColour, let ringSize,  let willingToColour, let willingToCut, let drivingLicense, let tattoo, let hourlyrate, let dailyrate):
+        case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let collarSize, let dressSize, let suitSize, let hairColour, let hairLength, let hairType, let eyeColour, let ringSize,  let willingToColour, let willingToCut, let drivingLicense, let tattoo, let hourlyrate, let dailyrate):
             var parameters = [String: Any]()
             parameters["height"] = height
             parameters["bust"] = bust
@@ -284,6 +297,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["shoesize"] = shoeSize
             parameters["dresssize"] = dressSize
             parameters["suitsize"] = suitSize
+            parameters["collarsize"] = collarSize
             parameters["haircolour"] = hairColour
             parameters["hairlength"] = hairLength
             parameters["hairtype"] = hairType
@@ -311,6 +325,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             
             p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+       
         case .updatePassword(let oldPassword, let newPassword, let repeatNewPassword):
             var parameters = [String: Any]()
             parameters["oldpassword"] = oldPassword
@@ -333,27 +348,37 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             guard let jpegRep = image.jpegData(compressionQuality: 1.0) else { return .uploadMultipart([]) }
             let jpegData = MultipartFormData(provider: .data(jpegRep), name: "kyc", fileName: "image.jpeg", mimeType: "image/jpeg")
             return .uploadMultipart([jpegData])
+
+            case .uploadChatImage(let image):
+                guard let jpegRep = image.jpegData(compressionQuality: 1.0) else { return .uploadMultipart([]) }
+                let jpegData = MultipartFormData(provider: .data(jpegRep), name: "chatAttachment", fileName: "image.jpeg", mimeType: "image/jpeg")
+                return .uploadMultipart([jpegData])
             
         case.getImages(let type):
              p["imagetype"] = type.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .deleteImage(let id):
             p["imageid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .selectLeadImage(let id):
             p["imageid"] = id
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .saveImageOrder(let imageOrder, let imageType):
             p["order"] = imageOrder
             p["type"] = imageType
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .inviteFriend(let name, let email):
             p["name"] = name
             p["email"] = email
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         
-        case .supportRequest(let request):
+        case .supportRequest(let request, let reason):
             p["request"] = request
+            p["reason"] = reason
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         
         case .updateBankDetails(let name, let sortcode, let accountNumber, let ibanNumber):
@@ -364,45 +389,60 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["bank_iban"] = ibanNumber
             p["parameters"] = parameters
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .rejectOption(let jobId):
             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .acceptJob(let jobId):
              p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .rejectJob(let jobId):
             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .cancelJob(let jobId):
             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .completeJob(let jobId):
             p["jobid"] = jobId
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .updateDeviceToken(let deviceToken):
             p["deviceToken"] = deviceToken
             p["deviceType"] = "ios"
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .userDetails:
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .negotiateRate(let jobId, let newRate, let reasons):
             p["jobid"] = jobId
             p["rate"] = newRate
             p["reasons"] = reasons
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .updateAvailability(let availability):
             p["availability"] = availability
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
         case .getCalendar:
             var components = DateComponents()
+            
+            // one month back, from first day of the month
             components.month = -1
-            let start = Calendar.current.date(byAdding: components, to: Date())
+            let start = Calendar.current.date(byAdding: components, to: Date())?.startOfMonth()
+            
+            // to 3 months ahead, to last day of the month
             components.month = 3
-            let end = Calendar.current.date(byAdding: components, to: Date())
+            let end = Calendar.current.date(byAdding: components, to: Date())?.endOfMonth()
+            
             p["start"] = start?.timeIntervalSince1970
             p["end"] = end?.timeIntervalSince1970
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+        
         case .getCalendarEntriesForDate(let date):
             p["date"] = date
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
@@ -505,3 +545,12 @@ fileprivate func accessToken() -> String {
     return token
 }
 
+extension Date {
+    func startOfMonth() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
+    }
+
+    func endOfMonth() -> Date {
+        return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
+    }
+}

@@ -211,6 +211,15 @@ class JobDetailsViewVC: UIViewController {
                 jobStatus.textColor = UIColor.FindaColours.Yellow
                 jobStatus.text = "COMPLETED"
                 break
+            case .ClientRemoved, .Unconfirmed:
+                primaryButton.isHidden = true
+                secondaryButton.isHidden = true
+                contactNumber.isHidden = true
+                contactNumberText.isHidden = true
+                callsheetButton.isHidden = true
+                jobStatus.text = "UNCONFIRMED"
+                jobStatus.textColor = UIColor.FindaColours.Grey
+                break
             case .Expired:
                 primaryButton.isHidden = true
                 secondaryButton.isHidden = true
@@ -236,7 +245,7 @@ class JobDetailsViewVC: UIViewController {
                 
                 negotiateButton.isHidden = true
                 negotiateButton.isEnabled = false
-                negotiateButton.text("Negotiate")
+                negotiateButton.text("NEGOTIATE")
                 negotiateButton.addTarget(self, action: #selector(negotiateJob(sender:)), for: .touchUpInside)
                 
                 negotiateButton.layer.backgroundColor = UIColor.FindaColours.Blue.cgColor

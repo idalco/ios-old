@@ -10,15 +10,18 @@ import Foundation
 
 import SVProgressHUD
 import DCKit
+import YPImagePicker
 
 class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
+    // PullUpToRefreshTableviewDelegate
     @IBOutlet weak var tableChatMessagesCollection: UITableView!
     @IBOutlet weak var backButton: UIImageView!
     
     @IBOutlet weak var chatTitle: UILabel!
     @IBOutlet weak var newMessageText: UITextView!
     @IBOutlet weak var sendMessageButton: DCBorderedButton!
+    @IBOutlet weak var attachmentButton: UILabel!
     
     var senderId: Int = 0
     
@@ -36,8 +39,11 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         backButton.addGestureRecognizer(tapRec)
         backButton.isUserInteractionEnabled = true
         
+        let attachImage = UITapGestureRecognizer(target: self, action: #selector(ChatVC.attachImage))
+        attachmentButton.addGestureRecognizer(attachImage)
+        attachmentButton.isUserInteractionEnabled = true
         self.navigationController?.navigationBar.transparentNavigationBar()
-        self.chatTitle.text = "Chat with ..."
+        self.chatTitle.text = "Message ..."
         
         sendMessageButton.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
         
@@ -45,15 +51,25 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         newMessageText.text = "Your message";
         newMessageText.textColor = UIColor.lightGray;
         
-        
         // need to get my avatar
         let modelManager = ModelManager()
         if modelManager.avatar() != "/default_profile.png" {
             self.myAvatar = modelManager.avatar()
         }
         
-        
         self.setUpCollectionView()
+        
+        
+        tableChatMessagesCollection.delegate = self
+        
+    }
+    
+    func tableviewDidPullUp() {
+        self.loadChatMessages()
+    }
+    
+    func tableviewDidScroll() {
+        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -62,7 +78,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             textView.textColor = UIColor.black
         }
     }
-    
+
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Your message"
@@ -89,6 +105,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         
     }
     
+    // MARK: messaging loading & display
     
     @objc private func refreshData(_ sender: Any) {
         self.loadChatMessages()
@@ -115,7 +132,12 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
                     if self.senderName == "" {
                         if notificationObject.sender == self.senderId {
                             self.senderName = notificationObject.firstname
-                            self.chatTitle.text = "Chat with " + self.senderName
+                            if notificationObject.usertype == 2 && notificationObject.companyname != "" {
+                                self.chatTitle.text = self.senderName + ", " + notificationObject.companyname
+                            } else {
+                                self.chatTitle.text = self.senderName
+                            }
+                            
                         }
                     }
                     
@@ -132,13 +154,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             
         }
         
-
-        
     }
     
     @objc private func backButtonTapped(sender: UIImageView) {
         self.dismiss(animated: true)
     }
+    
+    // MARK: send message
     
     @objc private func sendMessage(sender: UIButton) {
         let message: String = newMessageText.text!
@@ -147,27 +169,57 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         
         newMessageText.resignFirstResponder()
 
-        // this is for testing
+        if message != "" && message != "Your message" {
+            self.sendMessageContent(message: message)
+        }
+    }
+    
+    func sendMessageContent(message: String, subject: String = "", type: Int = 14) {  // type 14 = MESSAGE_TYPE_COMPOSED
         let newNotification: Notification = Notification(message: message, recipient: senderId)
+
         newNotification.avatar = self.myAvatar
         newNotification.timestamp = Int(Date().timeIntervalSince1970)
+        newNotification.type = type
+        newNotification.subject = subject
         
         self.notifications.append(newNotification)
         self.tableChatMessagesCollection.reloadData()
         self.scrollToLast(animated: true)
-        // end testing bit
         
-        
-        // send message
-//        print ("\(message)")
-        NotificationManager.sendChatMessage(recipient:senderId, message: message) { (response, result) in
+        NotificationManager.sendChatMessage(recipient:senderId, message: newNotification.message, subject: newNotification.subject, type: type) { (response, result) in
             
         }
-        
-        // then reload? not needed as we're lazy about this
-//        self.loadChatMessages()
-        
     }
+
+    // MARK: attach & send image
+    
+    @objc func attachImage(_ sender: UILabel) {
+        var config = YPImagePickerConfiguration()
+        config.showsPhotoFilters = false
+        config.startOnScreen = .library
+        let picker = YPImagePicker(configuration: config)
+        
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
+                SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
+                SVProgressHUD.show()
+                FindaAPISession(target: .uploadChatImage(image: photo.image), completion: { (response, result) in
+                    SVProgressHUD.dismiss()
+                    if (response) {
+                        let filename = result["filename"]
+                        self.sendMessageContent(message: "", subject: filename.stringValue, type: 16)    // type 16 = MESSAGE_TYPE_COMPOSED_IMAGE
+                    }
+                })
+            }
+            picker.dismiss(animated: true, completion: nil)
+            
+        }
+        present(picker, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: tableview functions
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.notifications.count > 0 ? 1 : 0
@@ -185,7 +237,36 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tablechatcell", for: indexPath) as! TableChatVCCell
         
-        cell.messageText.text(self.notifications[indexPath.row].message)
+        // message types 16 & 17 have images or PDFs
+        if self.notifications[indexPath.row].type == Notification.MessageType.CHATIMAGE.rawValue {
+            cell.imageHolder.isHidden = false
+            cell.imageHolderHeight.constant = 80
+            
+            if let imageUrl = URL(string: self.notifications[indexPath.row].subject) {
+                cell.imageHolder.af_setImage(withChatImageURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+            
+            let pictureTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ChatVC.imageTapped(_:)))
+            cell.imageHolder.addGestureRecognizer(pictureTap)
+            cell.imageHolder.isUserInteractionEnabled = true
+            
+            cell.layoutIfNeeded()
+            
+        } else if self.notifications[indexPath.row].type == Notification.MessageType.CHATPDF.rawValue {
+            // @todo
+        } else {
+            cell.imageHolder.isHidden = true
+            cell.imageHolderHeight.constant = 4
+            cell.layoutIfNeeded()
+        }
+        
+        if self.notifications[indexPath.row].message != "" {
+            cell.messageText.text(self.notifications[indexPath.row].message)
+        } else {
+            // we need to set this item to hidden/zero height
+            cell.messageText.isHidden = true
+        }
+        
         cell.dateStamp.text = Date().displayDate(timeInterval: self.notifications[indexPath.row].timestamp, format: "dd MMM HH:mm")
         
         // since we're reusing cells, show anything that may be hidden
@@ -228,6 +309,48 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         return true
     }
     
+    // this allows us to delete chat messages
+    // if we own them
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.notifications.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let flag = UITableViewRowAction(style: .normal, title: "Report") { action, index in
+            self.FlagFunc(indexPath: indexPath)
+        }
+        flag.backgroundColor = .red
+        
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            self.DeleteFunc(indexPath: indexPath)
+        }
+        delete.backgroundColor = .red
+        
+        if self.notifications[indexPath.row].sender == self.senderId {
+            return [flag]
+        } else {
+            return [delete]
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func FlagFunc(indexPath: IndexPath) {
+        NotificationManager.flagNotifications(id: self.notifications[indexPath.row].id)
+        self.notifications.remove(at: indexPath.row)
+        self.tableChatMessagesCollection.deleteRows(at: [indexPath], with: .fade)
+    }
+    func DeleteFunc(indexPath: IndexPath) {
+        NotificationManager.deleteNotifications(id: self.notifications[indexPath.row].id)
+        self.notifications.remove(at: indexPath.row)
+        self.tableChatMessagesCollection.deleteRows(at: [indexPath], with: .fade)
+    }
+    
     func scrollToLast(animated: Bool = true, delay: Double = 0.0) {
         let numberOfRows = tableChatMessagesCollection.numberOfRows(inSection: tableChatMessagesCollection.numberOfSections - 1) - 1
         guard numberOfRows > 0 else { return }
@@ -240,6 +363,27 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             self.tableChatMessagesCollection.scrollToRow(at: indexPath, at: .bottom, animated: animated)
         }
     }
-
+    
+    // MARK: view image functions
+    
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
+    }
 
 }

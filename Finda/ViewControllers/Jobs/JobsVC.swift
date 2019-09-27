@@ -281,6 +281,10 @@ extension JobsVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 cell.jobStatus.text("COMPLETED")
                 break
             
+            case .Unconfirmed?, .ClientRemoved?:
+                cell.jobStatus.text("UNCONFIRMED")
+                cell.jobStatusColour.backgroundColor = UIColor.FindaColours.Grey
+                break
             case .Expired?:
                 cell.jobStatusColour.backgroundColor = UIColor.FindaColours.LighterGreen
                 break

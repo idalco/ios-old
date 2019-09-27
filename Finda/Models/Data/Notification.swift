@@ -17,9 +17,14 @@ class Notification {
         case Read = 1;
     }
     
-    var id, jobid, timestamp, recipient, sender, status, type, job_status : Int
-    var subject, message, firstname, lastname, avatar, sefu : String
-
+    enum MessageType: Int {
+        case COMPOSED = 14;
+        case CHATIMAGE = 16;
+        case CHATPDF = 17;
+    }
+    
+    var id, jobid, timestamp, recipient, sender, status, type, job_status, usertype : Int
+    var subject, message, firstname, lastname, avatar, sefu, companyname : String
     
     init(data: JSON) {
         self.id = data["id"].intValue
@@ -36,6 +41,8 @@ class Notification {
         self.status = data["status"].intValue
         self.type = data["type"].intValue
         self.job_status = data["job_status"].intValue
+        self.usertype = data["usertype"].intValue
+        self.companyname = data["company_name"].stringValue
     }
     
     init(message: String, recipient: Int) {
@@ -53,6 +60,8 @@ class Notification {
         self.status = 1
         self.type = 14  // composed
         self.job_status = 0
+        self.usertype = 1
+        self.companyname = ""
     }
 }
 

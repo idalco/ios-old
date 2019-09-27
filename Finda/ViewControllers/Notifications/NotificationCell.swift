@@ -10,12 +10,14 @@ import UIKit
 
 class NotificationCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var messageLabel: UITextView!
     @IBOutlet weak var messageAvatar: UIImageView!
+    @IBOutlet weak var senderNameLabel: UILabel!
     
-
+    @IBOutlet weak var messageImage: UIImageView!
+    @IBOutlet weak var messageImageWidth: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

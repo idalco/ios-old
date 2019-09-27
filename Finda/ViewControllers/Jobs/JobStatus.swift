@@ -47,4 +47,6 @@ enum JobStatus: String {
     case Confirmed = "CONFIRMED"
     case Requested = "REQUESTED"
     case ToComplete = "TOCOMPLETE"
+    case Unconfirmed = "UNCONFIRMED"
+    case ClientRemoved = "CLIENT_REMOVED"
 }

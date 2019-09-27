@@ -12,15 +12,22 @@ import Foundation
 class Locations {
     
     static let locations = [
+        
         "Amsterdam",
+        "Barcelona",
         "Berlin",
         "Brighton",
+        "Copenhagen",
+        "Hamburg",
         "Liverpool",
         "London",
         "Manchester",
-        "New York",
+        "Milan",
+        "Munich",
         "Newcastle",
-        "Paris"
+        "Paris",
+        "Stockholm",
+        "Outside Europe"
     ]
 
     func getTidFromName(name: String) -> Int {
@@ -29,11 +36,20 @@ class Locations {
             case "Amsterdam":
                 tid = 99
                 break
+            case "Barcelona":
+                tid = 107
+                break
             case "Berlin":
                 tid = 100
                 break
             case "Brighton":
                 tid = 96
+                break
+            case "Copenhagen":
+                tid = 108
+                break
+            case "Hamburg":
+                tid = 102
                 break
             case "Liverpool":
                 tid = 97
@@ -44,14 +60,23 @@ class Locations {
             case "Manchester":
                 tid = 94
                 break
-            case "New York":
-                tid = 101
+            case "Milan":
+                tid = 106
+                break
+            case "Munich":
+                tid = 103
+                break
+            case "Outside Europe":
+                tid = 122
                 break
             case "Newcastle":
                 tid = 95
                 break
             case "Paris":
-            tid = 98
+                tid = 98
+                break
+            case "Stockholm":
+                tid = 109
                 break
             default:
                 tid = 93
@@ -66,11 +91,20 @@ class Locations {
         case 99:
             name = "Amsterdam"
             break
+        case 107:
+            name = "Barcelona"
+            break
         case 100:
             name = "Berlin"
             break
         case 96:
             name = "Brighton"
+            break
+        case 108:
+            name = "Copenhagen"
+            break
+        case 102:
+            name = "Hamburg"
             break
         case 97:
             name = "Liverpool"
@@ -81,14 +115,23 @@ class Locations {
         case 94:
             name = "Manchester"
             break
-        case 101:
-            name = "New York"
+        case 106:
+            name = "Milan"
+            break
+        case 103:
+            name = "Munich"
+            break
+        case 122:
+            name = "Outside Europe"
             break
         case 95:
             name = "Newcastle"
             break
         case 98:
             name = "Paris"
+            break
+        case 109:
+            name = "Stockholm"
             break
         default:
             name = "London"

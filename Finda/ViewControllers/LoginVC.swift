@@ -92,7 +92,29 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
         } else if modelManager.status() == UserStatus.unverified {
             self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
         } else {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            // we can't segue as we need to reset the root controller
+            
+            
+            guard let window = UIApplication.shared.keyWindow else {
+                return
+            }
+
+            guard let rootViewController = window.rootViewController else {
+                return
+            }
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "SideMenu")
+            vc.view.frame = rootViewController.view.frame
+            vc.view.layoutIfNeeded()
+
+            UIView.transition(with: window, duration: 0.3, options: [.transitionFlipFromRight, .layoutSubviews], animations: {
+                window.rootViewController = vc
+            }, completion: { completed in
+                // maybe do something here
+            })
+            
+//            self.performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
     

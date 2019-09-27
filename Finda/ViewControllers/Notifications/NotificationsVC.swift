@@ -14,6 +14,8 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var allNotifications: [Notification] = []
     
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageViewHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,10 +36,15 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         sideMenuController?.revealMenu()
     }
     
-    private func updateNotificationCount(){
+    private func updateNotificationCount() {
         NotificationManager.countNotifications(notificationType: .new) { (response, result) in
             if response {
-                self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].string
+                let count = result["userdata"].numberValue
+                if count != 0 {
+                    self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].stringValue
+                } else {
+                    self.tabBarController?.tabBar.items?[2].badgeValue = nil
+                }
             }
         }
     }
@@ -75,14 +82,20 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 if self.allNotifications.count > 0 {
                     self.tableView.isHidden = false
                     self.messageView.isHidden = true
+                    self.messageViewHeight.constant = 0
+                    self.view.layoutIfNeeded()
                 } else {
                     self.tableView.isHidden = true
                     self.messageLabel.text = "Currently you have no updates"
+                    self.messageViewHeight.constant = 53
+                    self.view.layoutIfNeeded()
                 }
                 self.tableView.reloadData()
             } else {
                 self.tableView.isHidden = true
                 self.messageLabel.text = "Currently you have no updates"
+                self.messageViewHeight.constant = 53
+                self.view.layoutIfNeeded()
             }
             SVProgressHUD.dismiss()
         }
@@ -113,8 +126,28 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotificationCell
         
         tableView.addGestureRecognizer(gesture)
+        
+        if allNotifications[indexPath.row].type == Notification.MessageType.CHATIMAGE.rawValue {
+            cell.messageImage.isHidden = false
+            cell.messageImageWidth.constant = 20
+            
+            if let imageUrl = URL(string: allNotifications[indexPath.row].subject) {
+                cell.messageImage.af_setImage(withChatImageURL: imageUrl, imageTransition: .crossDissolve(0.2))
+            }
+            
+            cell.layoutIfNeeded()
+            
+        }
+        
+        var sendername = allNotifications[indexPath.row].firstname + " " + allNotifications[indexPath.row].lastname
+        
+        if allNotifications[indexPath.row].usertype == 2 {
+            if allNotifications[indexPath.row].companyname != "" {
+                sendername += ", " + allNotifications[indexPath.row].companyname
+            }
+        }
+        cell.senderNameLabel.text = sendername
 
-        cell.nameLabel.text = "\(allNotifications[indexPath.row].firstname) \(allNotifications[indexPath.row].lastname)"
         cell.dateLabel.text = Date().displayDate(timeInterval: allNotifications[indexPath.row].timestamp, format:  "MMM dd, yyyy")
         cell.messageLabel.attributedText = allNotifications[indexPath.row].message.htmlAttributed(family: "Montserrat-Light")
         
@@ -193,7 +226,9 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 if (self.tableView.cellForRow(at: tapIndexPath) as? NotificationCell) != nil {
                     //do what you want to cell here
 
-                    if self.allNotifications[tapIndexPath.row].type == 14 {
+                    if self.allNotifications[tapIndexPath.row].type == Notification.MessageType.COMPOSED.rawValue
+                    || self.allNotifications[tapIndexPath.row].type == Notification.MessageType.CHATIMAGE.rawValue
+                    || self.allNotifications[tapIndexPath.row].type == Notification.MessageType.CHATPDF.rawValue {
                         // composed notification
                         let message = self.allNotifications[tapIndexPath.row]
                         performSegue(withIdentifier: "showChat", sender: message)

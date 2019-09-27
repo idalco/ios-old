@@ -295,6 +295,7 @@ class PersonalDetailsVC: FormViewController {
         PickerDelegate.addPickerData(term: .Ethnicity, rowTitle: "Ethnicity", coreData: modelManager.ethnicity()) { (response, result, dictionary) in
             if response {
                 self.ethnicityDictionary = dictionary
+                result.options = dictionary.values.sorted(by: <)
                 mainSection.insert(result, at: 5)
                 mainSection.reload()
 

@@ -64,8 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
-        
-//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Montserrat-Book", size: 18)!], for: .normal)
+
+        // delay launch screen for 3 seconds
+        Thread.sleep(forTimeInterval: 3.0)
         
         return true
     }
@@ -324,9 +325,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("2: Message ID: \(messageID)")
-        }
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("2: Message ID: \(messageID)")
+//        }
         
         // Print full message.
 //        print(userInfo)

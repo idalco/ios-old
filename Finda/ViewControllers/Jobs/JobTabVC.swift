@@ -88,7 +88,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         
         showHideAvailabilityPanel()
         
-        print("JobTabVC ViewDidLoad")
     }
     
     @objc func showHideAvailabilityPanel() {
@@ -169,7 +168,12 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     private func updateNotificationCount() {
         NotificationManager.countNotifications(notificationType: .new) { (response, result) in
             if response {
-                self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].string
+                let count = result["userdata"].numberValue
+                if count != 0 {
+                    self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].stringValue
+                } else {
+                    self.tabBarController?.tabBar.items?[2].badgeValue = nil
+                }
             }
         }
     }

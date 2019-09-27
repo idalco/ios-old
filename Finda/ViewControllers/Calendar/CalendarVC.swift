@@ -74,6 +74,8 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
         todayList.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleHeight.rawValue|UIView.AutoresizingMask.flexibleWidth.rawValue)
 
         todayList.isEditing = false
+        
+        updateNotificationCount()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -155,19 +157,18 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
     func handleCellEvents(cell: DateCell, cellState: CellState) {
         let dateString = dateformatter.string(from: cellState.date)
 
+        cell.dotView.isHidden = true
+        cell.userDot.isHidden = true
+        cell.hasData = false
+        // we still need an entry for the day view
+        cell.calendarEntry = CalendarEntry(date: cellState.date.timeIntervalSince1970)
+        
         if calendarDataSource[dateString] == nil {
-            cell.dotView.isHidden = true
-            cell.userDot.isHidden = true
             cell.hasData = true
-            // we still need an entry for the day view
-            cell.calendarEntry = CalendarEntry(date: cellState.date.timeIntervalSince1970)
         } else {
-//            print(self.calendarDataSource[dateString]?.jobid)
             if self.calendarDataSource[dateString]?.jobid == 0 {
-//                print("showing user dot")
                 cell.userDot.isHidden = false
             } else {
-//                print("showing finda dot")
                 cell.dotView.isHidden = false
             }
             cell.calendarEntry = self.calendarDataSource[dateString]!
@@ -190,21 +191,6 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
     
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
         return MonthSize(defaultSize: 50)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        self.todayListLabel.sizeToFit()
-//        self.todayListLabel.setNeedsLayout()
-    }
-    
-    override func viewDidLayoutSubviews() {
-//        self.todayListLabel.sizeToFit()
-//        self.todayListLabel.setNeedsLayout()
-    }
-    
-    override func viewWillLayoutSubviews() {
-//        self.todayListLabel.sizeToFit()
-//        self.todayListLabel.setNeedsLayout()
     }
     
     @objc func moveToToday(sender: Any) {
@@ -230,6 +216,18 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
      }
      */
     
+    private func updateNotificationCount() {
+        NotificationManager.countNotifications(notificationType: .new) { (response, result) in
+            if response {
+                let count = result["userdata"].numberValue
+                if count != 0 {
+                    self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].stringValue
+                } else {
+                    self.tabBarController?.tabBar.items?[2].badgeValue = nil
+                }
+            }
+        }
+    }
 }
 
 extension CalendarVC: JTACMonthViewDataSource {
@@ -253,10 +251,8 @@ extension CalendarVC: JTACMonthViewDataSource {
             hasStrictBoundaries: true
         )
     }
-    
-
-    
 }
+
 extension CalendarVC: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
@@ -266,42 +262,30 @@ extension CalendarVC: JTACMonthViewDelegate {
     }
     
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.FindaColours.White
+        cell.layer.cornerRadius = 0
+        cell.layer.masksToBounds = true
+        cell.removeBorder()
         if Calendar.current.isDateInToday(date) {
-            cell.backgroundColor = UIColor.FindaColours.White
             cell.layer.cornerRadius = 2
-            cell.layer.masksToBounds = true
             cell.addSolidBorder(borderColour: UIColor.FindaColours.Burgundy, cornerRadius: 2, width: 4)
         } else {
-            cell.backgroundColor = UIColor.FindaColours.White
-            cell.layer.cornerRadius = 0
-            cell.layer.masksToBounds = true
             cell.addSolidBorder(borderColour: UIColor.FindaColours.LightGrey)
         }
         configureCell(view: cell, cellState: cellState)
     }
     
-//    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
-//        configureCell(view: cell, cellState: cellState)
-//        self.performSegue(withIdentifier: "editCalendarSegue", sender: CalendarEntry(date: date.timeIntervalSince1970))
-//    }
     // new delegate
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        
-//        print("\(date)")
         
         configureCell(view: cell, cellState: cellState)
         self.performSegue(withIdentifier: "editCalendarSegue", sender: CalendarEntry(date: date.timeIntervalSince1970))
     }
 
-    
-//    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
-//        configureCell(view: cell, cellState: cellState)
-//    }
     // new delegate
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         configureCell(view: cell, cellState: cellState)
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "editCalendarSegue") {

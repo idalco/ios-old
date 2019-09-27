@@ -55,5 +55,11 @@ extension UIImageView {
             self.af_setImage(withURL: url, imageTransition: imageTransition)
         }
     }
+    
+    func af_setImage(withChatImageURL: URL, imageTransition: ImageTransition = .noTransition){
+        if let url = URL(string: "\(domainURL)/chatAttachment/thumb\(withChatImageURL.absoluteString)"){
+            self.af_setImage(withURL: url, imageTransition: imageTransition)
+        }
+    }
 }
 

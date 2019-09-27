@@ -27,8 +27,8 @@ class NotificationManager {
         }
     }
     
-    static func sendChatMessage(recipient: Int, message: String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
-        FindaAPISession(target: .sendChatMessage(recipient: recipient, message: message)) { (response, result) in
+    static func sendChatMessage(recipient: Int, message: String, subject: String, type: Int, completion: @escaping (_ response: Bool, _ result: JSON) -> ()) {
+        FindaAPISession(target: .sendChatMessage(recipient: recipient, message: message, subject: subject, type: type)) { (response, result) in
             if(response){
                 completion(response, result)
                 return
@@ -70,8 +70,12 @@ class NotificationManager {
         }
     }
     
-    static func deleteNotifications(id: Int){
+    static func deleteNotifications(id: Int) {
         FindaAPISession(target: .deleteNotifications(id: id)) { (response, result) in }
+    }
+    
+    static func flagNotifications(id: Int) {
+        FindaAPISession(target: .flagNotifications(id: id)) { (response, result) in }
     }
     
 }
