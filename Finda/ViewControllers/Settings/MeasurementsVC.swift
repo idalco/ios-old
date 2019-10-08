@@ -21,8 +21,6 @@ class MeasurementsVC: FormViewController {
         super.viewDidLoad()
         self.tableView?.backgroundColor = UIColor.white
         self.updateRows()
-//        self.tableView?.backgroundColor = UIColor.FindaColors.Purple
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.FindaColors.Purple
         
         let modelManager = ModelManager()
         
@@ -43,6 +41,7 @@ class MeasurementsVC: FormViewController {
         
         var section = Section()
         
+        // MARK: female
         if modelManager.gender() == "female" {
             section = Section() { section in
                 var header = HeaderFooterView<UIView>(.class)
@@ -204,7 +203,9 @@ class MeasurementsVC: FormViewController {
                 row.value = modelManager.tattoo()
                 row.tag = "Tattoos?".lowercased()
             }
-        } else {
+            
+        // MARK: male
+        } else if modelManager.gender() == "male" {
             section = Section() { section in
                 var header = HeaderFooterView<UIView>(.class)
                 header.height = {100}
@@ -304,6 +305,171 @@ class MeasurementsVC: FormViewController {
                 if data != -1 {
                     row.value = Measurements.collarSizesArray[Float(data)]
                     
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+                
+            <<< IntRow() { row in
+                row.title = "Waist"
+                row.tag = "Waist".lowercased()
+                let data = modelManager.waist()
+                if data != -1 {
+                    row.value = data
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+                
+            <<< PickerInputRow<String>() { row in
+                row.title = "Ring Size"
+                row.tag = "Ring Size".lowercased()
+                row.options = Measurements.ringSizesArray
+                row.value = modelManager.ringSize()
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+            
+            <<< SwitchRow() { row in
+                row.title = "Willing to colour?"
+                row.value = modelManager.willingColour()
+                row.tag = "Willing to colour?".lowercased()
+            }
+            
+            <<< SwitchRow() { row in
+                row.title = "Willing to cut?"
+                row.value = modelManager.willingCut()
+                row.tag = "Willing to cut?".lowercased()
+            }
+
+            <<< SwitchRow() { row in
+                row.title = "Driving License?"
+                row.value = modelManager.drivingLicense()
+                row.tag = "Driving license?".lowercased()
+            }
+            
+            <<< SwitchRow() { row in
+                row.title = "Tattoos?"
+                row.value = modelManager.tattoo()
+                row.tag = "Tattoos?".lowercased()
+            }
+        // MARK: other
+        } else {
+            section = Section() { section in
+                var header = HeaderFooterView<UIView>(.class)
+                header.height = {100}
+                header.onSetupView = { view, _ in
+                    view.backgroundColor = UIColor.FindaColours.White
+                    let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
+                    
+                    title.text = "Measurements"
+                    title.font = UIFont(name: "Montserrat-Medium", size: 17)
+                    view.addSubview(title)
+                    
+                    let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
+                    description.numberOfLines = 0
+                    description.text = "Please enter your measurements in centimeters."
+                    description.font = UIFont(name: "Montserrat-Light", size: 13)
+                    view.addSubview(description)
+                    
+                }
+                section.header = header
+            }
+                
+            <<< IntRow() { row in
+                row.title = "Height"
+                row.tag = "Height".lowercased()
+                let data = modelManager.height()
+                if data != -1 {
+                    row.value = data
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+            
+            
+            <<< PickerInputRow<String>() { row in
+                row.title = "Shoe Size"
+                row.tag = "Shoe Size".lowercased()
+                row.options = Array(Measurements.shoeSizesArray.values.sorted(by: <))
+                let data = modelManager.shoeSize()
+                if data != -1 {
+                    row.value = Measurements.shoeSizesArray[Float(data)]
+                    
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                        
+                    }
+            }
+                
+            <<< PickerInputRow<String>() { row in
+                row.title = "Dress Size"
+                row.tag = "Dress Size".lowercased()
+                row.options = Array(Measurements.dressSizesArray.values.sorted(by: <))
+                
+                let data = modelManager.dressSize()
+                if data != -1 {
+                    row.value = Measurements.dressSizesArray[Float(data)]
+                    
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+            }
+            .cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.textColor = .red
+                }
+            }
+            
+            <<< PickerInputRow<String>() { row in
+                row.title = "Suit Size"
+                row.tag = "Suit Size".lowercased()
+                row.options = Array(Measurements.suitSizesArray.values.sorted(by: <))
+                let data = modelManager.suitSize()
+                if data != -1 {
+                    row.value = Measurements.suitSizesArray[Float(data)]
+                    
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+            }
+            .cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.textColor = .red
+                }
+            }
+                
+            <<< IntRow() { row in
+                row.title = "Bust/Chest"
+                row.tag = "Chest".lowercased()
+                let data = modelManager.bust()
+                if data != -1 {
+                    row.value = data
                 }
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
@@ -471,6 +637,13 @@ class MeasurementsVC: FormViewController {
                     if let collarSize: String = Measurements.collarSizesArray[Float(model.collarSize())] {
                         self.updateCell(tag: "collar size", data: collarSize)
                     }
+                } else {
+                    if let dressSize: String = Measurements.dressSizesArray[Float(model.dressSize())] {
+                        self.updateCell(tag: "dress size", data: dressSize)
+                    }
+                    if let suitSize: String = Measurements.suitSizesArray[Float(model.suitSize())] {
+                        self.updateCell(tag: "suit size", data: suitSize)
+                    }
                 }
                 
                 self.updateCell(tag: "height", data: model.height())
@@ -522,7 +695,8 @@ class MeasurementsVC: FormViewController {
         
         let modelManager = ModelManager()
         
-        if (modelManager.gender() == "female") {
+        // MARK: female save
+        if modelManager.gender() == "female" {
         
             guard let heightRow: BaseRow = form.rowBy(tag: "height"), let height: Int = form.values()["height"] as? Int else {
                 self.validateRow(tag: "height")
@@ -543,6 +717,7 @@ class MeasurementsVC: FormViewController {
                 self.validateRow(tag: "hips")
                 return
             }
+            
             guard let dressSizeRow: BaseRow = form.rowBy(tag: "dress size"), let dressSize: String = form.values()["dress size"] as? String else {
                 self.validateRow(tag: "dress size")
                 return
@@ -627,24 +802,26 @@ class MeasurementsVC: FormViewController {
                     }
                 }
             }
-        } else {
+            
+        // MARK: male save
+        } else if modelManager.gender() == "male" {
             // male
             guard let heightRow: BaseRow = form.rowBy(tag: "height"), let height: Int = form.values()["height"] as? Int else {
                 self.validateRow(tag: "height")
                 return
             }
             
-            guard let chestSizeRow: BaseRow = form.rowBy(tag: "chest"), let chestSize: Int = form.values()["chest"] as? Int else {
+            guard let _: BaseRow = form.rowBy(tag: "chest"), let chestSize: Int = form.values()["chest"] as? Int else {
                 self.validateRow(tag: "chest")
                 return
             }
             
-            guard let collarSizeRow: BaseRow = form.rowBy(tag: "collar size"), let collarSize: String = form.values()["collar size"] as? String else {
+            guard let _: BaseRow = form.rowBy(tag: "collar size"), let collarSize: String = form.values()["collar size"] as? String else {
                 self.validateRow(tag: "collar size")
                 return
             }
    
-            guard let waistRow: BaseRow = form.rowBy(tag: "waist"), let waistSize: Int = form.values()["waist"] as? Int else {
+            guard let _: BaseRow = form.rowBy(tag: "waist"), let waistSize: Int = form.values()["waist"] as? Int else {
                 self.validateRow(tag: "waist")
                 return
             }
@@ -682,9 +859,7 @@ class MeasurementsVC: FormViewController {
             
             let ringSize: String = form.values()["ring size"] as? String ?? ""
   
-            guard let collarSizeId = Measurements.collarSizesArray.allKeysForValue(val: collarSize).first else {
-                return
-            }
+            let collarSizeId = Measurements.collarSizesArray.allKeysForValue(val: collarSize).first ?? 0.0
             
             guard let willingToColour: Bool = form.values()["willing to colour?"] as? Bool else { return }
             guard let willingToColourString: String = willingToColour ? "yes" : "no" else { return }
@@ -732,6 +907,101 @@ class MeasurementsVC: FormViewController {
                         self.updateRows()
                     }
                 }
+            }
+        } else {
+            // MARK: other save
+              guard let heightRow: BaseRow = form.rowBy(tag: "height"), let height: Int = form.values()["height"] as? Int else {
+                  self.validateRow(tag: "height")
+                  return
+              }
+              
+              guard let _: BaseRow = form.rowBy(tag: "chest"), let chestSize: Int = form.values()["chest"] as? Int else {
+                  self.validateRow(tag: "chest")
+                  return
+              }
+              
+              guard let _: BaseRow = form.rowBy(tag: "waist"), let waistSize: Int = form.values()["waist"] as? Int else {
+                  self.validateRow(tag: "waist")
+                  return
+              }
+              
+            let suitSize: String = form.values()["suit size"] as? String ?? ""
+            let dressSize: String = form.values()["dress size"] as? String ?? ""
+            
+            guard let shoeSizeRow: BaseRow = form.rowBy(tag: "shoe size"), let shoeSize: String = form.values()["shoe size"] as? String else {
+              self.validateRow(tag: "shoe size")
+              return
+            }
+              
+            guard let hairColourRow: BaseRow = form.rowBy(tag: "hair colour"), let hairColour: String = form.values()["hair colour"] as? String else {
+              self.validateRow(tag: "hair colour")
+              return
+            }
+
+            guard let hairTypeRow: BaseRow = form.rowBy(tag: "hair type"), let hairType: String = form.values()["hair type"] as? String else {
+              self.validateRow(tag: "hair type")
+              return
+            }
+
+
+            guard let hairLengthRow: BaseRow = form.rowBy(tag: "hair length"), let hairLength: String = form.values()["hair length"] as? String else {
+              self.validateRow(tag: "hair length")
+              return
+            }
+
+            guard let eyeColourRow: BaseRow = form.rowBy(tag: "eye colour"), let eyeColour: String = form.values()["eye colour"] as? String else {
+              self.validateRow(tag: "eye colour")
+              return
+            }
+
+            let ringSize: String = form.values()["ring size"] as? String ?? ""
+
+            guard let willingToColour: Bool = form.values()["willing to colour?"] as? Bool else { return }
+            guard let willingToColourString: String = willingToColour ? "yes" : "no" else { return }
+
+            guard let willingToCut: Bool = form.values()["willing to cut?"] as? Bool else { return }
+            guard let willingToCutString: String = willingToCut ? "yes" : "no" else { return }
+
+            guard let drivingLicense: Bool = form.values()["driving license?"] as? Bool else { return }
+            guard let drivingLicenseString: String = drivingLicense ? "yes" : "no" else { return }
+
+            guard let tattoo: Bool = form.values()["tattoos?"] as? Bool else { return }
+            guard let tattooString: String = tattoo ? "yes" : "no" else { return }
+
+
+            guard let shoeSizeId = Measurements.shoeSizesArray.allKeysForValue(val: shoeSize).first else {
+              return
+            }
+
+            let suitSizeId = Measurements.suitSizesArray.allKeysForValue(val: suitSize).first ?? 0.0
+
+            let dressSizeId = Measurements.dressSizesArray.allKeysForValue(val: dressSize).first ?? 0.0
+
+            guard let hairTypeId = hairTypeDictionary.allKeysForValue(val: hairType).first else {
+              return
+            }
+
+            guard let hairColourId = hairColourDictionary.allKeysForValue(val: hairColour).first else {
+              return
+            }
+
+            guard let eyeColourId = eyeColourDictionary.allKeysForValue(val: eyeColour).first else {
+              return
+            }
+
+            guard let hairLengthId = hairLengthDictionary.allKeysForValue(val: hairLength).first else {
+              return
+            }
+
+            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
+            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
+
+            if (heightRow.isValid && shoeSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
+              FindaAPISession(target: .updateMeasurements(height: height, bust: chestSize, waist: waistSize, hips: 0, shoeSize: shoeSizeId, collarSize: 0, dressSize: dressSizeId, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
+                  if response {
+                      self.updateRows()
+                  }
+              }
             }
         }
         

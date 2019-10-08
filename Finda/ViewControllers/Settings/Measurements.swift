@@ -83,15 +83,6 @@ class Measurements {
     ]
     
     static let ringSizesArray: [String] = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
     "J",
     "K",
     "L",
@@ -109,9 +100,6 @@ class Measurements {
     "X",
     "Y",
     "Z"
-    
-        
-    
     ]
     
 }

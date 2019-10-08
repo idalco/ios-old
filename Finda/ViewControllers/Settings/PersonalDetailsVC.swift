@@ -67,7 +67,7 @@ class PersonalDetailsVC: FormViewController {
         }
         
     
-        var locationSection = Section("Location") { section in
+        let locationSection = Section("Location") { section in
             var header = HeaderFooterView<UIView>(.class)
             header.height = {100}
             header.onSetupView = { view, _ in
@@ -80,7 +80,7 @@ class PersonalDetailsVC: FormViewController {
                 
                 let description = UILabel(frame: CGRect(x:10,y: 70, width:self.view.frame.width, height:20))
                 description.numberOfLines = 0
-                description.text = "Please set your current location for last-minute & e-comme-commerce jobs"
+                description.text = "Set your current location to book jobs where you are"
                 description.font = UIFont(name: "Montserrat-Light", size: 13)
                 view.addSubview(description)
                 

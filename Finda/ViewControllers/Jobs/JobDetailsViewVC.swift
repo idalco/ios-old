@@ -50,6 +50,8 @@ class JobDetailsViewVC: UIViewController {
     @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var addToCalendar: UIImageView!
     
+    @IBOutlet weak var messagesButton: DCBorderedButton!
+    
     var job: Job!
     
     var requestRefresh = false
@@ -385,6 +387,10 @@ class JobDetailsViewVC: UIViewController {
                 modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
                 modelFee.text = modelTotal
                 modelFee.isHidden = false
+                
+                messagesButton.isHidden = false
+                messagesButton.addTarget(self, action: #selector(messaging(sender:)), for: .touchUpInside)
+                
                 
                 break
             case .ToComplete:
@@ -761,6 +767,18 @@ class JobDetailsViewVC: UIViewController {
             })
         } else {
             self.dismiss(animated: true)
+        }
+    }
+    
+    @objc private func messaging(sender: DCBorderedButton) {
+        // go to the chat
+        performSegue(withIdentifier: "showChatFromJob", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ChatVC {
+            let vc = segue.destination as? ChatVC
+            vc?.senderId = job.clientUid
         }
     }
     
