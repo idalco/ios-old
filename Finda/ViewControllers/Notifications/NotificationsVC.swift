@@ -16,6 +16,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var markAllRead: UILabel!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -57,13 +58,18 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
             tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
         }
+        
+        let tapRec = UITapGestureRecognizer(target: self, action: #selector(NotificationsVC.loadNotifications))
+        markAllRead.addGestureRecognizer(tapRec)
+        markAllRead.isUserInteractionEnabled = true
+        
     }
     
     @objc func refreshHandler() {
         self.loadNotifications()
     }
     
-    private func loadNotifications() {
+    @objc private func loadNotifications() {
         SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
         SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
         SVProgressHUD.show()
@@ -105,7 +111,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -180,8 +186,12 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.messageLabel.linkTextAttributes = linkAttributes
     
         if allNotifications[indexPath.row].status == Notification.Status.New.rawValue {
-            cell.backgroundColor = UIColor.FindaColours.Purple.fade()
+//            cell.backgroundColor = UIColor.FindaColours.Purple.fade()
+            cell.unreadBar.backgroundColor = UIColor.FindaColours.Burgundy
+        } else {
+            cell.unreadBar.backgroundColor = UIColor.FindaColours.White
         }
+    
         
         cell.tag = allNotifications[indexPath.row].jobid
     

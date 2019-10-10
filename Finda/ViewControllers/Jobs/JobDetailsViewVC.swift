@@ -2,7 +2,6 @@
 //  ImageVC.swift
 //  Finda
 //
-//  Created by Peter Lloyd on 31/08/2018.
 //  Copyright © 2018 Finda Ltd. All rights reserved.
 //
 
@@ -64,8 +63,6 @@ class JobDetailsViewVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Burgundy
         
         customer.text = job.companyName.uppercased()
         
@@ -148,7 +145,7 @@ class JobDetailsViewVC: UIViewController {
                 if job.unitsType == "unpaid" {
                     agreedRate.text = "Agreed consideration: \(job.altRate)"
                 } else {
-                    agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    agreedRate.text = "Agreed rate: " + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
                     
                     var calculatedFee = 0.0
                     if job.timeUnits >= 1 {
@@ -178,8 +175,6 @@ class JobDetailsViewVC: UIViewController {
                         
                         addToCalendar.isHidden = true
                     } else {
-//                        secondaryButton.setTitle("CANCEL", for: .normal)
-//                        secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                         secondaryButton.isHidden = true
 
                         jobStatus.text = "CONFIRMED"
@@ -187,8 +182,6 @@ class JobDetailsViewVC: UIViewController {
                     }
                     
                 } else {
-//                    secondaryButton.setTitle("CANCEL", for: .normal)
-//                    secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                     secondaryButton.isHidden = true
                 }
 
@@ -202,9 +195,16 @@ class JobDetailsViewVC: UIViewController {
                 if job.unitsType == "unpaid" {
                     agreedRate.text = "Agreed consideration: \(job.altRate)"
                 } else {
-                    agreedRate.text = "Agreed rate:" + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    agreedRate.text = "Agreed rate: " + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
                     
-                    let calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    var calculatedFee = 0.0
+                    if job.timeUnits >= 1 {
+                        calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    } else {
+                        calculatedFee = (Double(job.agreedRate) * 0.9)
+                    }
+                    
+                    
                     modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
                     modelFee.text = modelTotal
                     modelFee.isHidden = false
@@ -278,7 +278,6 @@ class JobDetailsViewVC: UIViewController {
                             
                             if job.clientOfferedRate != 0 {
                                 offeredLabel = offeredLabel + "\(job.clientOfferedRate)"
-//                                let calculatedFee = ((Double(job.clientOfferedRate) * 0.9) * Double(job.timeUnits))
                                 
                                 var calculatedFee = 0.0
                                 if job.timeUnits >= 1 {
@@ -292,7 +291,6 @@ class JobDetailsViewVC: UIViewController {
                                 modelFee.isHidden = false
                             } else {
                                 offeredLabel = offeredLabel + "\(job.offeredRate)"
-//                                let calculatedFee = ((Double(job.offeredRate) * 0.9) * Double(job.timeUnits))
                                 
                                 var calculatedFee = 0.0
                                 if job.timeUnits >= 1 {
@@ -363,12 +361,7 @@ class JobDetailsViewVC: UIViewController {
                 } else {
                     primaryButton.isHidden = true
                     
-//                    let cutoff = Double(job.starttime - (60*60*24*2));
-//                    if job.starttime < Date(timeIntervalSince1970: cutoff) {
-//                        secondaryButton.setTitle("CONTACT FINDA TO CANCEL", for: .normal)
-//                        secondaryButton.addTarget(self, action: nil, for: .touchUpInside)
-                        secondaryButton.isHidden = true
-//                    }
+                    secondaryButton.isHidden = true
                     
                     jobStatus.text = "CONFIRMED"
                     addToCalendar.isHidden = false
@@ -394,17 +387,6 @@ class JobDetailsViewVC: UIViewController {
                 
                 break
             case .ToComplete:
-                // this is an override function
-//                primaryButton.isHidden = true
-//                secondaryButton.setTitle("COMPLETE", for: .normal)
-//                secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
-//
-//                agreedRate.isHidden = false
-//                agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
-//
-//                jobStatus.text = "TO COMPLETE"
-//                jobStatus.textColor = UIColor.FindaColours.Black
-//                addToCalendar.isHidden = true
                 break
             }
         }
@@ -418,7 +400,7 @@ class JobDetailsViewVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Burgundy
+//        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Burgundy
     }
 
     override func didReceiveMemoryWarning() {

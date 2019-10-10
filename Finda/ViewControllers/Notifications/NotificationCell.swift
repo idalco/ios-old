@@ -14,6 +14,7 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UITextView!
     @IBOutlet weak var messageAvatar: UIImageView!
     @IBOutlet weak var senderNameLabel: UILabel!
+    @IBOutlet weak var unreadBar: UIView!
     
     @IBOutlet weak var messageImage: UIImageView!
     @IBOutlet weak var messageImageWidth: NSLayoutConstraint!

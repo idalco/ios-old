@@ -20,9 +20,9 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.barTintColor = UIColor.FindaColours.Burgundy
-        self.tabBar.tintColor = UIColor.FindaColours.White
-        self.tabBar.unselectedItemTintColor = UIColor.FindaColours.LightGrey
+//        self.tabBar.barTintColor = UIColor.FindaColours.Burgundy
+        self.tabBar.tintColor = UIColor.FindaColours.Burgundy
+        self.tabBar.unselectedItemTintColor = UIColor.FindaColours.Black
 
         // Do any additional setup after loading the view.
         

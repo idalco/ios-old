@@ -121,6 +121,7 @@
 		18A758C8232A5BDC0079E569 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A758C7232A5BDB0079E569 /* ChatVC.swift */; };
 		18A758CA232A70230079E569 /* ChatVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A758C9232A70230079E569 /* ChatVCCell.swift */; };
 		18B979F722CDF9D90024F513 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B979F622CDF9D90024F513 /* HomePageVC.swift */; };
+		18C79B87234F5B2800431560 /* UITabBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C79B86234F5B2800431560 /* UITabBarExtension.swift */; };
 		18E1ECDE232CF4D40045B66D /* TableChatVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1ECDD232CF4D40045B66D /* TableChatVCCell.swift */; };
 		18E750FD2239207900FE28D2 /* JobCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */; };
 /* End PBXBuildFile section */
@@ -237,6 +238,7 @@
 		18A758C7232A5BDB0079E569 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		18A758C9232A70230079E569 /* ChatVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatVCCell.swift; path = ../../../ChatVCCell.swift; sourceTree = "<group>"; };
 		18B979F622CDF9D90024F513 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
+		18C79B86234F5B2800431560 /* UITabBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtension.swift; sourceTree = "<group>"; };
 		18D86C2522F83B91000E5083 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		18D86C2622F83B91000E5083 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		18D86C2722F83B91000E5083 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				0C4ADA8F2119B353002C3EA3 /* DictionaryExtensions.swift */,
 				0C1C858A21317FC600586326 /* ImageExtension.swift */,
 				0C4ADA8121176976002C3EA3 /* ViewExtensions.swift */,
+				18C79B86234F5B2800431560 /* UITabBarExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				0CCF233C210A7F1000612D5B /* FontExtensions.swift in Sources */,
 				0CCF2347210B1CE400612D5B /* SideMenuVC.swift in Sources */,
 				185D86532295A24500551768 /* CalendarEntry.swift in Sources */,
+				18C79B87234F5B2800431560 /* UITabBarExtension.swift in Sources */,
 				1822DE6223058F5400CD16F6 /* Locations.swift in Sources */,
 				0CCB63B4214837DC007CB107 /* RegistrationNavBar.swift in Sources */,
 				0C4ADA7E21122BFA002C3EA3 /* DateExtensions.swift in Sources */,
