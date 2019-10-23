@@ -140,26 +140,28 @@ class JobDetailsViewVC: UIViewController {
 
             case .Accepted:
 
-                agreedRate.isHidden = false
+                if job.projectTid != 75 && job.projectTid != 78 {
+                    agreedRate.isHidden = false
 
-                if job.unitsType == "unpaid" {
-                    agreedRate.text = "Agreed consideration: \(job.altRate)"
-                } else {
-                    agreedRate.text = "Agreed rate: " + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                    
-                    var calculatedFee = 0.0
-                    if job.timeUnits >= 1 {
-                        calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    if job.unitsType == "unpaid" {
+                        agreedRate.text = "Agreed consideration: \(job.altRate)"
                     } else {
-                        calculatedFee = (Double(job.agreedRate) * 0.9)
+                        agreedRate.text = "Agreed rate: " + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                        
+                        var calculatedFee = 0.0
+                        if job.timeUnits >= 1 {
+                            calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                        } else {
+                            calculatedFee = (Double(job.agreedRate) * 0.9)
+                        }
+                        
+                        modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                        modelFee.text = modelTotal
+                        modelFee.isHidden = false
+                        
                     }
-                    
-                    modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
-                    modelFee.text = modelTotal
-                    modelFee.isHidden = false
-                    
                 }
-
+                
                 primaryButton.isHidden = true
                 
                 // 14 is accepted, 2 is confirmed, so we need to override here,
@@ -191,23 +193,25 @@ class JobDetailsViewVC: UIViewController {
             case .ModelCompleted, .Completed, .ClientCompleted:
                 primaryButton.isHidden = true
                 secondaryButton.isHidden = true
-                agreedRate.isHidden = false
-                if job.unitsType == "unpaid" {
-                    agreedRate.text = "Agreed consideration: \(job.altRate)"
-                } else {
-                    agreedRate.text = "Agreed rate: " + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
-                    
-                    var calculatedFee = 0.0
-                    if job.timeUnits >= 1 {
-                        calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                if job.projectTid != 75 && job.projectTid != 78 {
+                    agreedRate.isHidden = false
+                    if job.unitsType == "unpaid" {
+                        agreedRate.text = "Agreed consideration: \(job.altRate)"
                     } else {
-                        calculatedFee = (Double(job.agreedRate) * 0.9)
+                        agreedRate.text = "Agreed rate: " + "£\(job.agreedRate)/\(job.unitsType.uppercased())"
+                        
+                        var calculatedFee = 0.0
+                        if job.timeUnits >= 1 {
+                            calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                        } else {
+                            calculatedFee = (Double(job.agreedRate) * 0.9)
+                        }
+                        
+                        
+                        modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                        modelFee.text = modelTotal
+                        modelFee.isHidden = false
                     }
-                    
-                    
-                    modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
-                    modelFee.text = modelTotal
-                    modelFee.isHidden = false
                 }
 
                 jobStatus.textColor = UIColor.FindaColours.Yellow
@@ -367,19 +371,21 @@ class JobDetailsViewVC: UIViewController {
                     addToCalendar.isHidden = false
                 }
 
-                agreedRate.isHidden = false
-                agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
-                
-                var calculatedFee = 0.0
-                if job.timeUnits >= 1 {
-                    calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
-                } else {
-                    calculatedFee = (Double(job.agreedRate) * 0.9)
+                if job.projectTid != 75 && job.projectTid != 78 {
+                    agreedRate.isHidden = false
+                    agreedRate.text = "Agreed rate: £\(job.agreedRate)/\(job.unitsType.uppercased())"
+                    
+                    var calculatedFee = 0.0
+                    if job.timeUnits >= 1 {
+                        calculatedFee = ((Double(job.agreedRate) * 0.9) * Double(job.timeUnits))
+                    } else {
+                        calculatedFee = (Double(job.agreedRate) * 0.9)
+                    }
+                    
+                    modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
+                    modelFee.text = modelTotal
+                    modelFee.isHidden = false
                 }
-                
-                modelTotal = modelTotal + (NSString(format: "%.2f", calculatedFee) as String)
-                modelFee.text = modelTotal
-                modelFee.isHidden = false
                 
                 messagesButton.isHidden = false
                 messagesButton.addTarget(self, action: #selector(messaging(sender:)), for: .touchUpInside)
