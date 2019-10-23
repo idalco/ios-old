@@ -295,10 +295,15 @@ class NewCalendarEntry: FormViewController {
         _ = row?.validate()
     }
     
+    // MARK: Render Data
     func renderData() {
         form.rowBy(tag: "eventtitle")!.value = calendarEntry.title
         form.rowBy(tag: "location")!.value = calendarEntry.location
-        form.rowBy(tag: "freebusy")!.value = calendarEntry.state
+        if calendarEntry.state == "Busy" {
+            form.rowBy(tag: "freebusy")!.value = "No"
+        } else {
+            form.rowBy(tag: "freebusy")!.value = "Yes"
+        }
         form.rowBy(tag: "startdate")!.value = Date(timeIntervalSince1970: calendarEntry.starttime)
         form.rowBy(tag: "enddate")!.value = Date(timeIntervalSince1970: calendarEntry.endtime)
         (self.form.rowBy(tag: "allday") as? SwitchRow)?.value = calendarEntry.isAllDay
