@@ -57,6 +57,7 @@ target 'Finda' do
   pod 'Firebase/Messaging'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Firebase/Analytics'
   
   # progress spinners etc
   pod 'SVProgressHUD'
