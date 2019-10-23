@@ -92,19 +92,12 @@ class PaymentVC: UIViewController {
                     let noticeView = SCLAlertView(appearance: appearance)
                     SVProgressHUD.dismiss()
                     noticeView.showInfo("Details Saved", subTitle: "", colorStyle: 0x010101)
-//                    SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
-//                    SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
-//                    SVProgressHUD.showSuccess(withStatus: "Done")
                 } else {
                     SVProgressHUD.dismiss()
                     let errorView = SCLAlertView(appearance: appearance)
                     errorView.showError(
                         "Sorry",
                         subTitle: "Something went wrong saving your details. Please try again later.")
-                    
-//                    SVProgressHUD.setBackgroundColor(UIColor.FindaColours.LightGrey)
-//                    SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
-//                    SVProgressHUD.showError(withStatus: "Try again")
                 }
             }
         } else {

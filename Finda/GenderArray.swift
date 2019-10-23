@@ -9,4 +9,4 @@
 import Foundation
 
 
-let GenderArray: [String] = ["Female", "Male", "Prefer not to say"]
+let GenderArray: [String] = ["Woman", "Man", "Non-binary"]

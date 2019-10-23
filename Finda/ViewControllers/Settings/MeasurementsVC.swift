@@ -147,8 +147,6 @@ class MeasurementsVC: FormViewController {
                 }
             }
             
-                // if gender == female
-            
             <<< PickerInputRow<String>() { row in
                 row.title = "Dress Size"
                 row.tag = "Dress Size".lowercased()

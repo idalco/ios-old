@@ -78,7 +78,7 @@ extension InvoiceVC: UITableViewDelegate, UITableViewDataSource, SFSafariViewCon
         
         cell.invoiceNumber.text = description.last
         
-        cell.paid.text = invoice.transaction_id == 0 ? "UNPAID" : "PAID"
+        cell.paid.text = invoice.transaction_id == "" ? "UNPAID" : "PAID"
         
         cell.layoutIfNeeded()
         return cell

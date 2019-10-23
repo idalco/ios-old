@@ -193,22 +193,6 @@ class PersonalDetailsVC: FormViewController {
            
         }
             
-//            <<< PickerInputRow<String>() { row in
-//                row.title = "Gender"
-//
-//                row.options = GenderArray
-//                row.value = modelManager.gender().capitalizingFirstLetter()
-//                row.tag = "gender"
-//                row.add(rule: RuleRequired())
-//                row.validationOptions = .validatesOnChangeAfterBlurred
-//                }
-//                .cellUpdate { cell, row in
-//                    if !row.isValid {
-//                        cell.textLabel?.textColor = .red
-//
-//                    }
-//            }
-            
         <<< PickerInputRow<String>() { row in
             row.title = "Nationality"
             row.tag = "nationality"
@@ -396,11 +380,6 @@ class PersonalDetailsVC: FormViewController {
             return
         }
         
-//        guard let genderRow: BaseRow = form.rowBy(tag: "gender"), let gender: String = form.values()["gender"] as? String else {
-//            self.validateRow(tag: "gender")
-//            return
-//        }
-        
         guard let ethnicityRow: BaseRow = form.rowBy(tag: "ethnicity"), let ethnicity: String = form.values()["ethnicity"] as? String else {
             self.validateRow(tag: "ethnicity")
             return
@@ -414,11 +393,6 @@ class PersonalDetailsVC: FormViewController {
         guard let ethnictyId = ethnicityDictionary.allKeysForValue(val: ethnicity).first else {
             return
         }
-        
-//        guard let locationRow: BaseRow = form.rowBy(tag: "location"), let locationName: String = form.values()["location"] as? String else {
-//            self.validateRow(tag: "location")
-//            return
-//        }
         
         guard let _: BaseRow = form.rowBy(tag: "nationality"), let nationality: String = form.values()["nationality"] as? String else {
             self.validateRow(tag: "nationality")

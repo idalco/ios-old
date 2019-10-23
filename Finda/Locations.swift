@@ -20,7 +20,9 @@ class Locations {
         "Copenhagen",
         "Hamburg",
         "Liverpool",
+        "Lisbon",
         "London",
+        "Madrid",
         "Manchester",
         "Milan",
         "Munich",
@@ -54,9 +56,19 @@ class Locations {
             case "Liverpool":
                 tid = 97
                 break
+            
+            case "Lisbon":
+                tid = 130
+                break
+
             case "London":
                 tid = 93
                 break
+            
+            case "Madrid":
+                tid = 131
+                break
+
             case "Manchester":
                 tid = 94
                 break
@@ -106,12 +118,21 @@ class Locations {
         case 102:
             name = "Hamburg"
             break
+        case 130:
+            name = "Lisbon"
+            break
         case 97:
             name = "Liverpool"
             break
+        
         case 93:
             name = "London"
             break
+        
+        case 131:
+            name = "Madrid"
+            break
+            
         case 94:
             name = "Manchester"
             break

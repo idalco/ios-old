@@ -196,10 +196,12 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             p["password"] = pass
             p["firstname"] = firstname
             p["lastname"] = lastname
-            if (gender.lowercased() == "prefer not to say") {
+            if gender.lowercased() == "non-binary" {
                 p["gender"] = "other"
+            } else if gender.lowercased() == "woman" {
+                p["gender"] = "female"
             } else {
-                p["gender"] = gender.lowercased()
+                p["gender"] = "man"
             }
             p["country"] = country
             p["usertype"] = "model"
@@ -210,6 +212,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             }
             p["dob"] = Int(dob)
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
         case .registerClient(let mail, let pass, let firstname, let lastname, let telephone, let occupation, let company_name, let company_website, let country):
             p["email"] = mail
             p["password"] = pass
@@ -266,11 +269,6 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["lastname"] = lastName
             parameters["mail"] = email
             parameters["telephone"] = telephone
-//            if (gender.lowercased() == "prefer not to say") {
-//                parameters["gender"] = "other"
-//            } else {
-//                parameters["gender"] = gender.lowercased()
-//            }
             parameters["ethnicity"] = ethnicityId
             parameters["instagram"] = instagramUsername
             if (referralCode != "") {
@@ -283,10 +281,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             parameters["residence_country"] = residence_country
             parameters["location"] = locationTid
             p["parameters"] = parameters
-            
          
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-            
             
         case .updateMeasurements(let height, let bust, let waist, let hips, let shoeSize, let collarSize, let dressSize, let suitSize, let hairColour, let hairLength, let hairType, let eyeColour, let ringSize,  let willingToColour, let willingToCut, let drivingLicense, let tattoo, let hourlyrate, let dailyrate):
             var parameters = [String: Any]()

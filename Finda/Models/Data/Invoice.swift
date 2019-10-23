@@ -12,9 +12,9 @@ import SwiftyJSON
 class Invoice {
     
     
-    let id, clientid, modelid, jobid, date_created, due_date, date_paid, status, transaction_id : Int
+    let id, clientid, modelid, jobid, date_created, due_date, date_paid, status : Int
     let value: Float
-    let description, invoicetype : String
+    let description, invoicetype, transaction_id : String
     
     
     init(data: JSON) {
@@ -26,7 +26,7 @@ class Invoice {
         self.due_date = data["due_date"].intValue
         self.date_paid = data["date_paid"].intValue
         self.status = data["status"].intValue
-        self.transaction_id = data["transaction_id"].intValue
+        self.transaction_id = data["transaction_id"].stringValue
         self.value = data["value"].floatValue
         self.description = data["description"].stringValue
         self.invoicetype = data["invoicetype"].stringValue

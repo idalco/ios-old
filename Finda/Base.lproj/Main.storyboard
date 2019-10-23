@@ -4073,7 +4073,7 @@ Earn Model Basics every time you have a verified referral. Once confirmed, choos
             <objects>
                 <viewController id="UQL-vC-2ah" userLabel="CalendarVC" customClass="CalendarVC" customModule="Finda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aj6-0N-k0c">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTACMonthView" customModule="JTAppleCalendar">

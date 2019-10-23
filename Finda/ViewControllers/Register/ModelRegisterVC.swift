@@ -172,8 +172,8 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                 row.title = "I identify as"
                 row.tag = "gender"
                 
-                row.options = ["Female", "Male", "Prefer not to say"]
-                row.value = "Female"
+                row.options = ["Woman", "Man", "Non-binary"]
+                row.value = "Woman"
                 row.add(rule: RuleRequired())
                 row.add(rule: RuleMinLength(minLength: 1))
                 row.validationOptions = .validatesOnChangeAfterBlurred
