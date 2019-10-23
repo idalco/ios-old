@@ -99,6 +99,7 @@
 		1822DE6223058F5400CD16F6 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DE6123058F5400CD16F6 /* Locations.swift */; };
 		1825459322B8E4C700FD9808 /* DragDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825459222B8E4C700FD9808 /* DragDrop.swift */; };
 		1825459522BBD06900FD9808 /* VersionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825459422BBD06900FD9808 /* VersionCheck.swift */; };
+		1850DCAE235F5CA90091CCF8 /* AffiliateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850DCAD235F5CA90091CCF8 /* AffiliateVC.swift */; };
 		18579BEC22896BC3003C7A97 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579BEB22896BC3003C7A97 /* SupportVC.swift */; };
 		185ACB5322F988150037B489 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D86C2622F83B91000E5083 /* Montserrat-Bold.otf */; };
 		185ACB5422F988170037B489 /* Montserrat-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D86C2822F83B91000E5083 /* Montserrat-Italic.otf */; };
@@ -220,6 +221,7 @@
 		1822DE6123058F5400CD16F6 /* Locations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		1825459222B8E4C700FD9808 /* DragDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDrop.swift; sourceTree = "<group>"; };
 		1825459422BBD06900FD9808 /* VersionCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheck.swift; sourceTree = "<group>"; };
+		1850DCAD235F5CA90091CCF8 /* AffiliateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffiliateVC.swift; sourceTree = "<group>"; };
 		18579BEB22896BC3003C7A97 /* SupportVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
 		185B3D1F22B4086400C64FD2 /* TodayTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayTableCell.swift; sourceTree = "<group>"; };
 		185D864E229544AA00551768 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				0CCB63A7213D412C007CB107 /* VerificationVC.swift */,
 				0CCB63A4213C3C2B007CB107 /* Invoices */,
 				0C1C8586212AE95E00586326 /* InviteVC.swift */,
+				1850DCAD235F5CA90091CCF8 /* AffiliateVC.swift */,
 				18579BEB22896BC3003C7A97 /* SupportVC.swift */,
 				0C78FA54212329570059C0E7 /* Photos */,
 				0C78FA55212329630059C0E7 /* Jobs */,
@@ -794,6 +797,7 @@
 				0C4ADA782110BE18002C3EA3 /* LabelExtensions.swift in Sources */,
 				0C4ADA902119B353002C3EA3 /* DictionaryExtensions.swift in Sources */,
 				0C4ADA7C21120C75002C3EA3 /* Job.swift in Sources */,
+				1850DCAE235F5CA90091CCF8 /* AffiliateVC.swift in Sources */,
 				0C1C8587212AE95E00586326 /* InviteVC.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
 				0C78FA4F212223360059C0E7 /* PortfolioVC.swift in Sources */,
@@ -957,6 +961,7 @@
 				CODE_SIGN_ENTITLEMENTS = Finda/Finda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7Y4G95LX38;
 				EXCLUDED_SOURCE_FILE_NAMES = "";
 				INFOPLIST_FILE = Finda/Info.plist;
@@ -965,7 +970,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.24;
+				MARKETING_VERSION = 1.0.25;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
@@ -990,7 +995,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.24;
+				MARKETING_VERSION = 1.0.25;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;

@@ -17,7 +17,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var menu: [String] = []
-//    var icon: [String] = []
     var icon: [NSMutableAttributedString] = []
    
     enum MenuType: Int {
@@ -59,7 +58,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InvoiceNav") }, with: "InvoiceNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "VerificationNav") }, with: "VerificationNav")
-//        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Calendar") }, with: "Calendar")
+//        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Affiliates") }, with: "Affiliates")
         
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData , object: nil)
         
@@ -119,6 +118,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "FindaVoices",
                          "Podcast",
                          "FAQ",
+//                         "Affiliates",
                          "Sign Out"]
             
             let userIcon = NSMutableAttributedString(string: "")
@@ -132,6 +132,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let questionIcon = NSMutableAttributedString(string: "")
             let powerOffIcon = NSMutableAttributedString(string: "")
             let podcastIcon = NSMutableAttributedString(string: "")
+//            let shareIcon = NSMutableAttributedString(string: "")
             
             if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
                 userIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
@@ -167,6 +168,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 podcastIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 podcastIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
 
+//                shareIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+//                shareIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
             }
             
             self.icon = [userIcon,
@@ -179,6 +183,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         heartIcon,
                         podcastIcon,
                         questionIcon,
+//                        shareIcon,
                         powerOffIcon
             ]
             
@@ -196,7 +201,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-    
     
     private func updateProfileImage(){
         let modelManager = ModelManager()
@@ -238,8 +242,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuCell
         
-//        let FAAttribute = [ NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: 16.0, style: .solid) ]
-//        let cellTitle = NSMutableAttributedString(string: "\(self.icon[indexPath.row])", attributes: FAAttribute )
         let cellTitle = self.icon[indexPath.row]
         let menuLabel = NSAttributedString(string: "  \(self.menu[indexPath.row])")
         cellTitle.append(menuLabel)
@@ -319,6 +321,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 self.present(safari, animated: true)
                             }
                             break
+//                        case 10:
+//                            sideMenuController?.setContentViewController(with: "Affiliates", animated: true)
+//                            break
                         default:
                             break
                     }
