@@ -85,6 +85,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(JobTabVC.showHideAvailabilityPanel))
         showHideAvailabilityButton.addGestureRecognizer(tapRec)
         showHideAvailabilityButton.isUserInteractionEnabled = true
+        showHideAvailabilityButton.backgroundColor = UIColor.FindaColours.Burgundy
         
         showHideAvailabilityPanel()
         
@@ -93,7 +94,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     @objc func showHideAvailabilityPanel() {
         var attributes = [NSAttributedString.Key: AnyObject]()
         attributes[.font] = UIFont(name: "Font Awesome 5 Free", size: 17.0)
-        attributes[.foregroundColor] = UIColor.FindaColours.Black
+        attributes[.foregroundColor] = UIColor.FindaColours.White
         var attributedString = NSAttributedString(string: "", attributes: attributes)
         
         self.view.layoutIfNeeded()
