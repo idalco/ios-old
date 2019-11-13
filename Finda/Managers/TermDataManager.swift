@@ -24,6 +24,7 @@ class TermDataManager {
         case Ethnicity = 7
         case EyebrowShape = 8
         case MemberTypes = 9
+        case SkinTone = 22
     }
     
     func load(term: TermData, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){

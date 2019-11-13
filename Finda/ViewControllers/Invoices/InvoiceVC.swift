@@ -18,7 +18,7 @@ class InvoiceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Payments"
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -68,7 +68,7 @@ extension InvoiceVC: UITableViewDelegate, UITableViewDataSource, SFSafariViewCon
         
         let description = invoice.description.components(separatedBy: ":")
         
-        cell.amount.text = "£\(invoice.value)"
+        cell.amount.text = "\(invoice.symbol)\(invoice.value)"
         cell.projectName.text = description.first
         if invoice.date_paid != 0 || invoice.date_paid != 0 {
             cell.paidOn.text = Date().displayDate(timeInterval: invoice.date_paid, format: "MMM dd, yyyy")

@@ -18,6 +18,8 @@ extension Profile {
 
     @NSManaged public var height: Int32
     @NSManaged public var bust: Int32
+    @NSManaged public var brasize: Int32
+    @NSManaged public var cupsize: Int32
     @NSManaged public var waist: Int32
     @NSManaged public var hips: Int32
     @NSManaged public var shoeSize: Int32
@@ -33,4 +35,5 @@ extension Profile {
     @NSManaged public var dailyrate: Int32
     @NSManaged public var hourlyrate: Int32
     @NSManaged public var location: Int32
+    @NSManaged public var skinTone: Int32
 }

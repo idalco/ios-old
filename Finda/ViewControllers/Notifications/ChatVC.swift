@@ -262,6 +262,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         
         if self.notifications[indexPath.row].message != "" {
             cell.messageText.text(self.notifications[indexPath.row].message)
+            cell.messageText.isHidden = false
         } else {
             // we need to set this item to hidden/zero height
             cell.messageText.isHidden = true

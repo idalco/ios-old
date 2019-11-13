@@ -102,4 +102,24 @@ class Measurements {
     "Z"
     ]
     
+    static let cupSizesArray: [Int: String] = [
+        -1: "Please select",
+        0: "AA",
+        1: "A",
+        2: "B",
+        3: "C",
+        4: "D",
+        5: "DD",
+        6: "E",
+        7: "F",
+        8: "FF",
+        9: "G",
+        10: "H",
+        11: "HH",
+        12: "I",
+        13: "J",
+        14: "JJ",
+        15: "K"
+    ]
+    
 }

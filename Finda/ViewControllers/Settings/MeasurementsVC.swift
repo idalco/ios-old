@@ -16,6 +16,7 @@ class MeasurementsVC: FormViewController {
     var hairColourDictionary: [Int: String] = [:]
     var hairLengthDictionary: [Int: String] = [:]
     var eyeColourDictionary: [Int: String] = [:]
+    var skinToneDictionary: [Int: String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +96,41 @@ class MeasurementsVC: FormViewController {
                     cell.textLabel?.textColor = .red
                 }
             }
+                
+            <<< IntRow() { row in
+                row.title = "Bra band size"
+                row.tag = "brasize".lowercased()
+                let data = modelManager.braSize()
+                if data != -1 {
+                    row.value = data
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+            }
+            .cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.textColor = .red
+                }
+            }
+                
+            <<< PickerInputRow<String>() { row in
+                row.title = "Cup size"
+                row.tag = "cupsize".lowercased()
+                row.options = Array(Measurements.cupSizesArray.values.sorted(by: <))
+                let data = modelManager.cupSize()
+                if data != -1 {
+                    row.value = Measurements.cupSizesArray[Int(data)]
+                    
+                }
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+            }
+            .cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.textColor = .red
+                }
+            }
+                
                 
             <<< IntRow() { row in
                 row.title = "Waist"
@@ -603,6 +639,15 @@ class MeasurementsVC: FormViewController {
             }
         }
         
+        PickerDelegate.addPickerData(term: .SkinTone, rowTitle: "Skin Tone", coreData: modelManager.skinTone()) { (response, result, dictionary) in
+            if response {
+                self.skinToneDictionary = dictionary
+                result.options = Array(dictionary.values.sorted(by: <))
+                section.insert(result, at: section.count)
+                section.reload()
+            }
+        }
+        
         // Do any additional setup after loading the view.
         
         form +++ Section()
@@ -623,10 +668,16 @@ class MeasurementsVC: FormViewController {
                 
                 if model.gender() == "female" {
                     self.updateCell(tag: "bust", data: model.bust())
+                    self.updateCell(tag: "brasize", data: model.braSize())
                     self.updateCell(tag: "hips", data: model.hips())
                     if let dressSize: String = Measurements.dressSizesArray[Float(model.dressSize())] {
                         self.updateCell(tag: "dress size", data: dressSize)
                     }
+                    
+                    if let cupSize: String = Measurements.cupSizesArray[Int(model.cupSize())] {
+                        self.updateCell(tag: "cupsize", data: cupSize)
+                    }
+                    
                 } else if model.gender() == "male" {
                     self.updateCell(tag: "chest", data: model.bust())
                     if let suitSize: String = Measurements.suitSizesArray[Float(model.suitSize())] {
@@ -641,6 +692,10 @@ class MeasurementsVC: FormViewController {
                     }
                     if let suitSize: String = Measurements.suitSizesArray[Float(model.suitSize())] {
                         self.updateCell(tag: "suit size", data: suitSize)
+                    }
+                    self.updateCell(tag: "brasize", data: model.braSize())
+                    if let cupSize: String = Measurements.cupSizesArray[Int(model.cupSize())] {
+                        self.updateCell(tag: "cupsize", data: cupSize)
                     }
                 }
                 
@@ -667,6 +722,10 @@ class MeasurementsVC: FormViewController {
                 
                 if let eyeColour: String = self.eyeColourDictionary[model.eyeColour()] {
                     self.updateCell(tag: "eye colour", data: eyeColour)
+                }
+                
+                if let skinTone: String = self.skinToneDictionary[model.skinTone()] {
+                    self.updateCell(tag: "skin tone", data: skinTone)
                 }
                 
                 self.updateCell(tag: "hourlyrate", data: model.hourlyrate())
@@ -746,6 +805,11 @@ class MeasurementsVC: FormViewController {
                 return
             }
             
+            guard let skinToneRow: BaseRow = form.rowBy(tag: "skin tone"), let skinTone: String = form.values()["skin tone"] as? String else {
+                self.validateRow(tag: "skin tone")
+                return
+            }
+            
             let ringSize: String = form.values()["ring size"] as? String ?? ""
             
             guard let willingToColour: Bool = form.values()["willing to colour?"] as? Bool else { return }
@@ -788,13 +852,26 @@ class MeasurementsVC: FormViewController {
             guard let hairLengthId = hairLengthDictionary.allKeysForValue(val: hairLength).first else {
                 return
             }
-        
+            
+            let skinToneId = skinToneDictionary.allKeysForValue(val: skinTone).first ?? 0
+            
+            let brasize: Int = form.values()["brasize"] as? Int ?? 0
+            
+            guard let cupsizeRow: BaseRow = form.rowBy(tag: "cupsize"), let cupsize: String = form.values()["cupsize"] as? String else {
+              self.validateRow(tag: "cupsize")
+              return
+            }
+            
+            guard let cupsizeId = Measurements.cupSizesArray.allKeysForValue(val: cupsize).first else {
+                return
+            }
+            
             let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
             let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
             
         
             if (heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
-                FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSizeId, collarSize: 0, dressSize: dressSizeId, suitSize: 0, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
+                FindaAPISession(target: .updateMeasurements(height: height, bust: bust, waist: waist, hips: hips, shoeSize: shoeSizeId, collarSize: 0, dressSize: dressSizeId, suitSize: 0, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate, brasize: brasize, cupsize: cupsizeId, skintone: skinToneId)) { (response, result) in
                     if response {
                         self.updateRows()
                     }
@@ -855,6 +932,14 @@ class MeasurementsVC: FormViewController {
                 return
             }
             
+            guard let _: BaseRow = form.rowBy(tag: "skin tone"), let skinTone: String = form.values()["skin tone"] as? String else {
+                self.validateRow(tag: "skin tone")
+                return
+            }
+            guard let skinToneId = skinToneDictionary.allKeysForValue(val: skinTone).first else {
+                return
+            }
+            
             let ringSize: String = form.values()["ring size"] as? String ?? ""
   
             let collarSizeId = Measurements.collarSizesArray.allKeysForValue(val: collarSize).first ?? 0.0
@@ -900,7 +985,7 @@ class MeasurementsVC: FormViewController {
             let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
             
             if (heightRow.isValid && shoeSizeRow.isValid && suitSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
-                FindaAPISession(target: .updateMeasurements(height: height, bust: chestSize, waist: waistSize, hips: 0, shoeSize: shoeSizeId, collarSize: collarSizeId, dressSize: 0, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
+                FindaAPISession(target: .updateMeasurements(height: height, bust: chestSize, waist: waistSize, hips: 0, shoeSize: shoeSizeId, collarSize: collarSizeId, dressSize: 0, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate, brasize: 0, cupsize: -1, skintone: skinToneId)) { (response, result) in
                     if response {
                         self.updateRows()
                     }
@@ -951,7 +1036,25 @@ class MeasurementsVC: FormViewController {
               self.validateRow(tag: "eye colour")
               return
             }
-
+            
+            guard let _: BaseRow = form.rowBy(tag: "skin tone"), let skinTone: String = form.values()["skin tone"] as? String else {
+                self.validateRow(tag: "skin tone")
+                return
+            }
+            
+            let skinToneId = skinToneDictionary.allKeysForValue(val: skinTone).first ?? 0
+            
+            let brasize: Int = form.values()["brasize"] as? Int ?? 0
+            
+            guard let cupsizeRow: BaseRow = form.rowBy(tag: "cupsize"), let cupsize: String = form.values()["cupsize"] as? String else {
+              self.validateRow(tag: "cupsize")
+              return
+            }
+            
+            guard let cupsizeId = Measurements.cupSizesArray.allKeysForValue(val: cupsize).first else {
+                return
+            }
+            
             let ringSize: String = form.values()["ring size"] as? String ?? ""
 
             guard let willingToColour: Bool = form.values()["willing to colour?"] as? Bool else { return }
@@ -995,14 +1098,13 @@ class MeasurementsVC: FormViewController {
             let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
 
             if (heightRow.isValid && shoeSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
-              FindaAPISession(target: .updateMeasurements(height: height, bust: chestSize, waist: waistSize, hips: 0, shoeSize: shoeSizeId, collarSize: 0, dressSize: dressSizeId, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate)) { (response, result) in
+                FindaAPISession(target: .updateMeasurements(height: height, bust: chestSize, waist: waistSize, hips: 0, shoeSize: shoeSizeId, collarSize: 0, dressSize: dressSizeId, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate, brasize: brasize, cupsize: cupsizeId, skintone: skinToneId)) { (response, result) in
                   if response {
                       self.updateRows()
                   }
               }
             }
         }
-        
     }
     
     func validateRow(tag: String){
@@ -1023,16 +1125,5 @@ class MeasurementsVC: FormViewController {
     @IBAction func menu(_ sender: Any) {
         sideMenuController?.revealMenu()
     }
-    
-
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
