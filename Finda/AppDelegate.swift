@@ -64,6 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
+        
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat-Bold", size: 18)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
 
         // delay launch screen for 3 seconds
         Thread.sleep(forTimeInterval: 3.0)

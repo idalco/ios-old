@@ -26,7 +26,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.navigationController?.navigationBar.transparentNavigationBar()
         self.messageView.backgroundColor = UIColor.FindaColours.LightGrey
         self.messageLabel.textColor = UIColor.FindaColours.Blue
-        self.title = "Updates"
+        self.title = "UPDATES"
     }
     
     override func viewDidAppear(_ animated: Bool) {

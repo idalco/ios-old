@@ -32,7 +32,7 @@ class JobsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Jobs"
+        self.title = "Jobs".capitalized
         
         if self.jobType.rawValue == "offered" {
             self.noJobsLabel.text = "Currently you have no upcoming jobs"

@@ -425,7 +425,7 @@ class JobDetailsViewVC: UIViewController {
                 self.present(safari, animated: true)
             }
         }
-        alertView.addButton("Accept Offer") {
+        let acceptButton = alertView.addButton("Accept Offer") {
             SVProgressHUD.setBackgroundColor(UIColor.FindaColours.Blue)
             SVProgressHUD.setForegroundColor(UIColor.FindaColours.White)
             SVProgressHUD.show()
@@ -447,12 +447,13 @@ class JobDetailsViewVC: UIViewController {
         
         alertView.showTitle(
             "Are you sure?",
-            subTitle: "This will confirm your acceptance of the Job Offer and the Booking Terms and Conditions sent to you by email. If you want to negotiate the fee, you can do this on the Finda website before accepting.",
+            subTitle: "You are now accepting the job offer and waiting to see if the client will confirm you for this job.\n\nIf you need to cancel your acceptance or booking, please do so no later than 48 hours before the start of the job to avoid any cancellation penalties.\n\nBy Accepting, you are accepting the Booking Terms and Conditions including the cancellation policies.",
             style: .question,
             closeButtonTitle: "Cancel",
             colorStyle: 0x010101,
             colorTextButton: 0xFFFFFF)
         
+        acceptButton.backgroundColor = UIColor.FindaColours.Burgundy
     }
     
     @objc private func rejectJob(sender: UIButton) {

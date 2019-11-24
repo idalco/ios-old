@@ -24,7 +24,7 @@ class AffiliateVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.title = "Affiliate Program"
+        self.title = "Affiliate Program".capitalized
         
         let modelManager = ModelManager()
         if modelManager.referrerCode() != "" {

@@ -17,7 +17,7 @@ class InvoiceVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Payments"
+        self.title = "PAYMENTS"
         
         // Do any additional setup after loading the view.
     }

@@ -24,6 +24,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     var availability: [String : Int] = ["monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "saturday" : 0, "sunday" : 0]
     
     @IBOutlet var tomorrowButton: DCRoundedButton!
+    @IBOutlet weak var tomorrowLabel: UILabel!
     @IBOutlet var dayTwoButton: DCRoundedButton!
     @IBOutlet var dayTwoLabel: UILabel!
     @IBOutlet var dayThreeButton: DCRoundedButton!
@@ -85,7 +86,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(JobTabVC.showHideAvailabilityPanel))
         showHideAvailabilityButton.addGestureRecognizer(tapRec)
         showHideAvailabilityButton.isUserInteractionEnabled = true
-        showHideAvailabilityButton.backgroundColor = UIColor.FindaColours.Burgundy
+//        showHideAvailabilityButton.backgroundColor = UIColor.FindaColours.Burgundy
         
         showHideAvailabilityPanel()
         
@@ -135,7 +136,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         self.updateNotificationCount()
-        navigationItem.title = "Jobs"
+        navigationItem.title = "JOBS"
         openTabHeight = showHideAvailabilityButton.frame.height
 
         availabilityPanel.translatesAutoresizingMaskIntoConstraints = false
@@ -257,6 +258,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         
         tomorrowButton.setAttributedTitle(attributedString, for: .normal)
         tomorrowButton.addTarget(self, action: #selector(tapTomorrowButton), for: .touchUpInside)
+        tomorrowLabel.textColor = UIColor.FindaColours.White
         
         attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[2]]!]
         attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[2]]!],
@@ -264,6 +266,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         dayTwoButton.setAttributedTitle(attributedString, for: .normal)
         dayTwoButton.addTarget(self, action: #selector(didTapDayTwoButton), for: .touchUpInside)
         dayTwoLabel.text = self.weekdays[2].capitalizingFirstLetter()
+        dayTwoLabel.textColor = UIColor.FindaColours.White
         
         attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[3]]!]
         attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[3]]!],
@@ -271,6 +274,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         dayThreeButton.setAttributedTitle(attributedString, for: .normal)
         dayThreeButton.addTarget(self, action: #selector(didTapDayThreeButton), for: .touchUpInside)
         dayThreeLabel.text = self.weekdays[3].capitalizingFirstLetter()
+        dayThreeLabel.textColor = UIColor.FindaColours.White
         
         attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[4]]!]
         attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[4]]!],
@@ -278,6 +282,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         dayFourButton.setAttributedTitle(attributedString, for: .normal)
         dayFourButton.addTarget(self, action: #selector(didTapDayFourButton), for: .touchUpInside)
         dayFourLabel.text = self.weekdays[4].capitalizingFirstLetter()
+        dayFourLabel.textColor = UIColor.FindaColours.White
         
         attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[5]]!]
         attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[5]]!],
@@ -285,6 +290,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         dayFiveButton.setAttributedTitle(attributedString, for: .normal)
         dayFiveButton.addTarget(self, action: #selector(didTapDayFiveButton), for: .touchUpInside)
         dayFiveLabel.text = self.weekdays[5].capitalizingFirstLetter()
+        dayFiveLabel.textColor = UIColor.FindaColours.White
         
         attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[6]]!]
         attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[6]]!],
@@ -292,7 +298,7 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         daySixButton.setAttributedTitle(attributedString, for: .normal)
         daySixButton.addTarget(self, action: #selector(didTapDaySixButton), for: .touchUpInside)
         daySixLabel.text = self.weekdays[6].capitalizingFirstLetter()
-        
+        daySixLabel.textColor = UIColor.FindaColours.White
         
     }
     

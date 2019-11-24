@@ -137,9 +137,9 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
                 self.loginSegue()
             } else {
                 if(result["userdata"]["usertype"].intValue == UserType.Client.rawValue){
-                    let alert = UIAlertController(title: "Hello", message: "Currently this app only supports models! Please use the website to edit your client profile.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Hi there!", message: "Sorry, currently this app only supports model accounts. Please log in via desktop for now.", preferredStyle: .alert)
                     
-                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     
                     self.present(alert, animated: true)
                     

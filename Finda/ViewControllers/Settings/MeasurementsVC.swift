@@ -587,16 +587,16 @@ class MeasurementsVC: FormViewController {
             section1.header = header
             }
             
-            <<< IntRow() { row in
-                row.title = "Minimum Hourly Rate"
-                row.value = modelManager.hourlyrate()
-                row.tag = "hourlyrate"
-            }
-            <<< IntRow() { row in
-                row.title = "Minimum Daily Rate"
-                row.value = modelManager.dailyrate()
-                row.tag = "dailyrate"
-        }
+//            <<< IntRow() { row in
+//                row.title = "Minimum Hourly Rate"
+//                row.value = modelManager.hourlyrate()
+//                row.tag = "hourlyrate"
+//            }
+//            <<< IntRow() { row in
+//                row.title = "Minimum Daily Rate"
+//                row.value = modelManager.dailyrate()
+//                row.tag = "dailyrate"
+//        }
         
         form +++ section1
         
@@ -728,8 +728,8 @@ class MeasurementsVC: FormViewController {
                     self.updateCell(tag: "skin tone", data: skinTone)
                 }
                 
-                self.updateCell(tag: "hourlyrate", data: model.hourlyrate())
-                self.updateCell(tag: "dailyrate", data: model.dailyrate())
+//                self.updateCell(tag: "hourlyrate", data: model.hourlyrate())
+//                self.updateCell(tag: "dailyrate", data: model.dailyrate())
 
             }
             
@@ -866,8 +866,11 @@ class MeasurementsVC: FormViewController {
                 return
             }
             
-            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
-            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
+//            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
+//            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
+            
+            let hourlyrate = 0
+            let dailyrate = 0
             
         
             if (heightRow.isValid && bustRow.isValid && waistRow.isValid && hipsRow.isValid && shoeSizeRow.isValid && dressSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
@@ -981,8 +984,11 @@ class MeasurementsVC: FormViewController {
                 return
             }
             
-            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
-            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
+//            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
+//            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
+            
+            let hourlyrate = 0
+            let dailyrate = 0
             
             if (heightRow.isValid && shoeSizeRow.isValid && suitSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
                 FindaAPISession(target: .updateMeasurements(height: height, bust: chestSize, waist: waistSize, hips: 0, shoeSize: shoeSizeId, collarSize: collarSizeId, dressSize: 0, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate, brasize: 0, cupsize: -1, skintone: skinToneId)) { (response, result) in
@@ -1094,8 +1100,11 @@ class MeasurementsVC: FormViewController {
               return
             }
 
-            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
-            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
+//            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
+//            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
+            
+            let hourlyrate = 0
+            let dailyrate = 0
 
             if (heightRow.isValid && shoeSizeRow.isValid && hairColourRow.isValid && hairLengthRow.isValid && hairTypeRow.isValid && eyeColourRow.isValid) {
                 FindaAPISession(target: .updateMeasurements(height: height, bust: chestSize, waist: waistSize, hips: 0, shoeSize: shoeSizeId, collarSize: 0, dressSize: dressSizeId, suitSize: suitSizeId, hairColour: hairColourId, hairLength: hairLengthId, hairType: hairTypeId, eyeColour: eyeColourId, ringSize: ringSize, willingToColour: willingToColourString, willingToCut: willingToCutString, drivingLicense: drivingLicenseString, tattoo: tattooString, hourlyrate: hourlyrate, dailyrate: dailyrate, brasize: brasize, cupsize: cupsizeId, skintone: skinToneId)) { (response, result) in
