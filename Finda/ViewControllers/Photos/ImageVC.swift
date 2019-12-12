@@ -21,9 +21,6 @@ class ImageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.leadImageButton.setFAIcon(icon: .FACheck, iconSize: 20, forState: .normal)
-        
-//        self.leadImageButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
         
         let leadImageButtonIcon = NSMutableAttributedString(string: "")
         if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 20) {
@@ -32,7 +29,6 @@ class ImageVC: UIViewController {
         }
         self.leadImageButton.setAttributedTitle(leadImageButtonIcon, for: .normal)
         
-//        self.leadImageButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
         self.leadImageButton.isHidden = true
         self.deleteImageButton.isHidden = true
 
@@ -51,8 +47,6 @@ class ImageVC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.tabBarController?.tabBar.barTintColor = UIColor.FindaColours.Burgundy
-        
         if self.image.image == nil {
             self.makeLoadingView()
             if let filename = photo?.filename, let url = URL(string: filename){
@@ -71,13 +65,8 @@ class ImageVC: UIViewController {
                 }
             }
         }
-        
-//        if let lead = photo?.leadimage {
-//            self.setLead(lead: lead)
-//
-//        }
-    
     }
+    
     private func makeLoadingView() {
         self.loadingView.isHidden = false
         self.loadingView.startAnimatingGif()

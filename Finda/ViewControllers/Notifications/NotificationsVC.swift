@@ -16,7 +16,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var markAllRead: UILabel!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,7 +25,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.navigationController?.navigationBar.transparentNavigationBar()
         self.messageView.backgroundColor = UIColor.FindaColours.LightGrey
         self.messageLabel.textColor = UIColor.FindaColours.Blue
-        self.title = "UPDATES"
+        self.navigationController?.navigationBar.topItem?.title = "UPDATES"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,10 +57,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
             tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
         }
-        
-        let tapRec = UITapGestureRecognizer(target: self, action: #selector(NotificationsVC.loadNotifications))
-        markAllRead.addGestureRecognizer(tapRec)
-        markAllRead.isUserInteractionEnabled = true
         
     }
     

@@ -26,10 +26,11 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     enum TabEntries: Int {
-        case JobsTab = 0
-        case CalendarTab = 1
-        case UpdatesTab = 2
-        case PhotosTab = 3
+        case HomeTab = 0
+        case JobsTab = 1
+        case CalendarTab = 2
+        case UpdatesTab = 3
+        case PhotosTab = 4
     }
     
     var menutype: MenuType = MenuType.loggedOut
@@ -58,8 +59,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InvoiceNav") }, with: "InvoiceNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "VerificationNav") }, with: "VerificationNav")
-//        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "Affiliates") }, with: "Affiliates")
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData , object: nil)
         
     }
@@ -108,7 +108,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.menutype = MenuType.needsVerification
         } else {
 
-            self.menu = ["My Details",
+            self.menu = [
+                         "My Details",
                          "Portfolio",
                          "Polaroids",
                          "Jobs",
@@ -120,6 +121,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "FAQ",
 //                         "Affiliates",
                          "Sign Out"]
+            
             
             let userIcon = NSMutableAttributedString(string: "")
             let imageIcon = NSMutableAttributedString(string: "")
@@ -135,6 +137,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //            let shareIcon = NSMutableAttributedString(string: "")
             
             if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
+
                 userIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 userIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
 
@@ -173,7 +176,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
             }
             
-            self.icon = [userIcon,
+            self.icon = [
+                         userIcon,
                          imageIcon,
                          cameraRetroIcon,
                         cameraIcon,
@@ -183,7 +187,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         heartIcon,
                         podcastIcon,
                         questionIcon,
-//                        shareIcon,
                         powerOffIcon
             ]
             

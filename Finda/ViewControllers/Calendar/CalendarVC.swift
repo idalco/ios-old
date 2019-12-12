@@ -60,7 +60,7 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
                                                name: NSNotification.Name(rawValue: "reloadCalendar"),
                                                object: nil)
         
-        self.title = "FINDA CALENDAR"
+        self.navigationController?.navigationBar.topItem?.title = "CALENDAR"
         
         todayButton.tintColor = UIColor.FindaColours.Black
         

@@ -587,17 +587,6 @@ class MeasurementsVC: FormViewController {
             section1.header = header
             }
             
-//            <<< IntRow() { row in
-//                row.title = "Minimum Hourly Rate"
-//                row.value = modelManager.hourlyrate()
-//                row.tag = "hourlyrate"
-//            }
-//            <<< IntRow() { row in
-//                row.title = "Minimum Daily Rate"
-//                row.value = modelManager.dailyrate()
-//                row.tag = "dailyrate"
-//        }
-        
         form +++ section1
         
         PickerDelegate.addPickerData(term: .HairColour, rowTitle: "Hair Colour", coreData: modelManager.hairColour()) { (response, result, dictionary) in
