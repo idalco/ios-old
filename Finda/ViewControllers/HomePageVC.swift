@@ -59,7 +59,7 @@ class HomePageVC: UIViewController {
         referrerCode.text("finda.com/\(modelManager.referrerCode())")
         referrerCode.addTarget(self, action: #selector(tapReferrerCode), for: .touchUpInside)
        
-        let tapRec = UITapGestureRecognizer(target: self, action: #selector(JobTabVC.showHideAvailabilityPanel))
+        let tapRec = UITapGestureRecognizer(target: self, action: #selector(HomePageVC.showHideAvailabilityPanel))
         showHideAvailabilityButton.addGestureRecognizer(tapRec)
         showHideAvailabilityButton.isUserInteractionEnabled = true
         

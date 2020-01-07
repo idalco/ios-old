@@ -51,7 +51,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         }
         
         
-        let section = Section(){ section in
+        let section = Section() { section in
             
             section.footer = self.footerView()
             
@@ -69,7 +69,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             section.header = header
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "First Name"
                 row.tag = "firstName"
                 row.add(rule: RuleRequired())
@@ -83,7 +83,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     
             }
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Last Name"
                 row.tag = "lastName"
                 row.add(rule: RuleRequired())
@@ -111,7 +111,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         
             
             
-            <<< EmailRow(){ row in
+            <<< EmailRow() { row in
                 row.title = "Email"
                 row.tag = "email"
                 row.add(rule: RuleRequired())
@@ -124,8 +124,19 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     }
             }
             
+            <<< PhoneRow() { row in
+                row.title = "Telephone"
+                row.tag = "telephone"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+            }
             
-            <<< TwitterRow(){ row in
+            <<< TwitterRow() { row in
                 row.title = "Instagram"
                 row.tag = "instagram"
                 row.value = "@"
@@ -151,7 +162,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                 }
             
             
-            <<< DateInlineRow(){ row in
+            <<< DateInlineRow() { row in
                 row.title = "Date of Birth"
                 row.tag = "dob"
                 row.value = Date()
@@ -185,13 +196,13 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             }
             
             
-            <<< TextRow(){ row in
+            <<< TextRow() { row in
                 row.title = "Referral Code"
                 row.placeholder = "(optional)"
                 row.tag = "referralCode"
             }
             
-            <<< PasswordRow(){ row in
+            <<< PasswordRow() { row in
                 row.title = "Password"
                 row.tag = "password"
                 
@@ -204,7 +215,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     }
             }
             
-            <<< PasswordRow(){ row in
+            <<< PasswordRow() { row in
                 row.title = "Repeat Password"
                 row.tag = "repeatPassword"
                 row.add(rule: RuleRequired())
@@ -216,7 +227,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     }
                     
             }
-            <<< CheckRow(){ row in
+            <<< CheckRow() { row in
                 row.title = "I agree to the Terms and Conditions"
                 row.tag = "terms"
                 row.add(rule: RuleRequired())
@@ -247,7 +258,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         return false
     }
     
-    @objc func signUp(){
+    @objc func signUp() {
         
         guard let firstnameRow: BaseRow = form.rowBy(tag: "firstName"), let firstname: String = firstnameRow.baseValue as? String else {
             self.validateRow(tag: "firstName")
@@ -268,6 +279,10 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         }
         guard let mailRow: BaseRow = form.rowBy(tag: "email"), let mail: String = form.values()["email"] as? String else {
             self.validateRow(tag: "email")
+            return
+        }
+        guard let telephoneRow: BaseRow = form.rowBy(tag: "telephone"), let telephone: String = form.values()["telephone"] as? String else {
+            self.validateRow(tag: "telephone")
             return
         }
         guard let instagram_usernameRow: BaseRow = form.rowBy(tag: "instagram"), let instagram_username: String = form.values()["instagram"] as? String else {
@@ -305,9 +320,9 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             return
         }
         
-        if(mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && dobRow.isValid) {
+        if (mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && telephoneRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && dobRow.isValid) {
             
-            RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, referral_code: referral_code, dob: dob.timeIntervalSince1970) { (response, result) in
+            RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, telephone: telephone, referral_code: referral_code, dob: dob.timeIntervalSince1970) { (response, result) in
                 if(response){
                     self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
                 }
@@ -317,7 +332,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         }
     }
     
-    func validateRow(tag: String){
+    func validateRow(tag: String) {
         let row: BaseRow? = form.rowBy(tag: tag)
         _ = row?.validate()
     }
@@ -342,16 +357,5 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         }
         return footer
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

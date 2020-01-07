@@ -17,94 +17,77 @@ class VerificationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let newtext = NSMutableAttributedString(string: "Before you can start using our platform we need to verify you to:\n")
-        let faline1 = NSMutableAttributedString(string: "   Confirm your identity\n")
-        let faline2 = NSMutableAttributedString(string: "   Provide correct information to our clients and creatives\n")
-        let faline3 = NSMutableAttributedString(string: "   Enable you to receive payments\n\n\n")
-
-        let faline3a = NSMutableAttributedString(string: "Accepted IDs:\n")
-
-        let faline4 = NSMutableAttributedString(string: "   Passport\n")
-        let faline5 = NSMutableAttributedString(string: "  Driver's license\n")
-        let faline6 = NSMutableAttributedString(string: "   Another form of Government-issued identification\n\n\n")
         
-        let faline6a = NSMutableAttributedString(string: "We need the following additional information:\n")
-
-        let faline7 = NSMutableAttributedString(string: "  Country of Residence and Date of Birth (My Details)\n")
-        let faline8 = NSMutableAttributedString(string: "  Instagram handle (My Details)\n")
-        let faline9 = NSMutableAttributedString(string: "  Measurements (My Details)\n")
-        let faline10 = NSMutableAttributedString(string: "  Portfolio pictures and polaroids\n")
+        let modelManager = ModelManager()
+        
+        
+        
+        let newtext = NSMutableAttributedString(string: "Hi ")
+        
+        let name = NSMutableAttributedString(string: modelManager.firstName())
+        
+        let line1 = NSMutableAttributedString(string: ",\n\nThank you for registering with us!\n\nTo make sure everyone gets the best professional experience at FINDA, we ")
+        
+        let words1 = NSMutableAttributedString(string: "verify and approve")
+        let line2 = NSMutableAttributedString(string: " all models and clients before they can access the full platform.\n\nPlease submit a copy of your ")
+        let words2 = NSMutableAttributedString(string: "passport")
+        let line3 = NSMutableAttributedString(string: ", ")
+        let words3 = NSMutableAttributedString(string: "driving licence")
+        let line4 = NSMutableAttributedString(string: " or another form of government-issued photo identification for verification.\n\nTo increase the speed of the process, please upload your professional modelling ")
+        let words4 = NSMutableAttributedString(string: "portfolio")
+        let line5 = NSMutableAttributedString(string: ", ")
+        let words5 = NSMutableAttributedString(string: "polaroids")
+        let line6 = NSMutableAttributedString(string: " and enter your ")
+        let words6 = NSMutableAttributedString(string: "measurements")
+        let line7 = NSMutableAttributedString(string: " under My Details.\n\nYou will receive an email if your application is accepted and you have been verified.")
         
         let baseParagraphStyle = NSMutableParagraphStyle()
         baseParagraphStyle.alignment = .left
         baseParagraphStyle.lineSpacing = 4
         baseParagraphStyle.paragraphSpacing = 0
-        
+
         let indentParagraphStyle = NSMutableParagraphStyle()
         indentParagraphStyle.headIndent = 16
         indentParagraphStyle.firstLineHeadIndent = 0
-        
-        if let mainfont = UIFont(name: "Montserrat-Book", size: 15) {
+
+        if let mainfont = UIFont(name: "Montserrat-Regular", size: 16) {
             newtext.addAttribute(.font, value: mainfont, range: NSMakeRange(0, newtext.length))
-            faline1.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline1.length-2))
-            faline2.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline2.length-2))
-            faline2.addAttributes([.paragraphStyle: indentParagraphStyle], range: NSRange(location: 0, length: faline2.length))
-            faline3.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline3.length-2))
-            faline3a.addAttribute(.font, value: mainfont, range: NSMakeRange(0, faline3a.length))
-            faline4.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline4.length-2))
-            faline5.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline5.length-2))
-            faline6.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline6.length-2))
-            faline6.addAttributes([.paragraphStyle: indentParagraphStyle], range: NSRange(location: 0, length: faline6.length))
-            faline6a.addAttribute(.font, value: mainfont, range: NSMakeRange(0, faline6a.length))
-            faline7.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline7.length-2))
-            faline7.addAttributes([.paragraphStyle: indentParagraphStyle], range: NSRange(location: 0, length: faline7.length))
-            faline8.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline8.length-2))
-            faline9.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline9.length-2))
-            faline10.addAttribute(.font, value: mainfont, range: NSMakeRange(2, faline10.length-2))
-        }
-        if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
-            // user
-            faline1.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline1.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline2.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline2.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline3.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline3.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline4.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline4.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline5.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline5.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline6.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline6.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline7.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline7.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline9.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline9.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
-            faline10.addAttribute(.font, value: fafont, range: NSMakeRange(0, 2))
-            faline10.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+            line1.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line1.length))
+            name.addAttribute(.font, value: mainfont, range: NSMakeRange(0, name.length))
+            line2.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line2.length))
+            line3.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line3.length))
+            line4.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line4.length))
+            line5.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line5.length))
+            line6.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line6.length))
+            line7.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line7.length))
         }
         
-        if let fafont2 = UIFont(name: "FontAwesome", size: 15) {
-            faline8.addAttribute(.font, value: fafont2, range: NSMakeRange(0, 2))
-            faline8.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2), range: NSMakeRange(0, 2))
+        if let boldfont = UIFont(name: "Montserrat-Bold", size: 16) {
+            words1.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words1.length))
+            words2.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words2.length))
+            words3.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words3.length))
+            words4.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words4.length))
+            words5.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words5.length))
+            words6.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words6.length))
         }
-  
-        newtext.append(faline1)
-        newtext.append(faline2)
-        newtext.append(faline3)
-        newtext.append(faline3a)
-        newtext.append(faline4)
-        newtext.append(faline5)
-        newtext.append(faline6)
-        newtext.append(faline6a)
-        newtext.append(faline7)
-        newtext.append(faline8)
-        newtext.append(faline9)
-        newtext.append(faline10)
+        
+        newtext.append(name)
+        newtext.append(line1)
+        newtext.append(words1)
+        newtext.append(line2)
+        newtext.append(words2)
+        newtext.append(line3)
+        newtext.append(words3)
+        newtext.append(line4)
+        newtext.append(words4)
+        newtext.append(line5)
+        newtext.append(words5)
+        newtext.append(line6)
+        newtext.append(words6)
+        newtext.append(line7)
         
         newtext.addAttributes([.paragraphStyle: baseParagraphStyle], range: NSRange(location: 0, length: newtext.length))
-        
+                
         legalText.attributedText = newtext
         
         // Do any additional setup after loading the view.

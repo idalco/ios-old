@@ -21,7 +21,7 @@ let domainURL: String = "https://www.finda.co"
 enum FindaAPI {
     // POST
     case login(email: String, password: String)
-    case registerModel(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, referral_code: String?, dob: TimeInterval)
+    case registerModel(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, telephone: String, referral_code: String?, dob: TimeInterval)
     case registerClient(mail: String, pass: String, firstname: String, lastname: String, telephone: String, occupation: String, company_name: String, company_website: String, country: String)
     case termData(term: TermDataManager.TermData)
     case logout
@@ -191,7 +191,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .termData(let vid):
             p["vid"] = vid.rawValue
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
-        case .registerModel(let mail, let pass, let firstname, let lastname, let gender, let country, let instagram_username, let referral_code, let dob):
+        case .registerModel(let mail, let pass, let firstname, let lastname, let gender, let country, let instagram_username, let telephone, let referral_code, let dob):
             p["email"] = mail
             p["password"] = pass
             p["firstname"] = firstname
@@ -205,6 +205,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             }
             p["country"] = country
             p["usertype"] = "model"
+            p["telephone"] = telephone
             p["agree_terms"] = 1
             p["instagram_username"] = instagram_username
             if (referral_code != nil && referral_code != "") {

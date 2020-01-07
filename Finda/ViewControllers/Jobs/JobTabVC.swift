@@ -19,36 +19,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     
     var viewControllers: [UIViewController] = []
     
-    var weekdays: [String] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-    
-    var availability: [String : Int] = ["monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "saturday" : 0, "sunday" : 0]
-    
-    @IBOutlet var tomorrowButton: DCRoundedButton!
-    @IBOutlet weak var tomorrowLabel: UILabel!
-    @IBOutlet var dayTwoButton: DCRoundedButton!
-    @IBOutlet var dayTwoLabel: UILabel!
-    @IBOutlet var dayThreeButton: DCRoundedButton!
-    @IBOutlet var dayThreeLabel: UILabel!
-    @IBOutlet var dayFourButton: DCRoundedButton!
-    @IBOutlet var dayFourLabel: UILabel!
-    @IBOutlet var dayFiveButton: DCRoundedButton!
-    @IBOutlet var dayFiveLabel: UILabel!
-    @IBOutlet var daySixButton: DCRoundedButton!
-    @IBOutlet var daySixLabel: UILabel!
-    
-    @IBOutlet weak var availabilityPanel: UIView!
-    @IBOutlet weak var showHideAvailabilityButton: UILabel!
-    
-    var availabilityPanelVisible: Bool = false
-    var availabilityPanelOpenY: CGFloat = 0
-    var availabilityPanelClosedY: CGFloat = 0
-    
-    var openTabHeight: CGFloat = 64
-    var openSpeed: TimeInterval = 0.5
-    
-    let preferences = UserDefaults.standard
-    let panelConstant = "panelConstant"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -83,52 +53,8 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         
         self.dataSource = self
 
-        let tapRec = UITapGestureRecognizer(target: self, action: #selector(JobTabVC.showHideAvailabilityPanel))
-        showHideAvailabilityButton.addGestureRecognizer(tapRec)
-        showHideAvailabilityButton.isUserInteractionEnabled = true
-//        showHideAvailabilityButton.backgroundColor = UIColor.FindaColours.Burgundy
-        
-        showHideAvailabilityPanel()
-        
     }
     
-    @objc func showHideAvailabilityPanel() {
-        var attributes = [NSAttributedString.Key: AnyObject]()
-        attributes[.font] = UIFont(name: "Font Awesome 5 Free", size: 17.0)
-        attributes[.foregroundColor] = UIColor.FindaColours.White
-        var attributedString = NSAttributedString(string: "", attributes: attributes)
-        
-        self.view.layoutIfNeeded()
-        
-        if (availabilityPanelVisible == true) {
-            availabilityPanelOpenY = availabilityPanel.center.y
-        } else {
-            availabilityPanelClosedY = availabilityPanel.center.y
-        }
-        
-        if availabilityPanelVisible {
-            availabilityPanel.animHide(offset: openTabHeight, speed: openSpeed)
-            availabilityPanelVisible = false
-            attributedString = NSAttributedString(string: "", attributes: attributes)
-            showHideAvailabilityButton.attributedText = attributedString
-            preferences.set("closed", forKey: panelConstant)
-        } else {
-            availabilityPanel.animShow(offset: openTabHeight, speed: openSpeed)
-            availabilityPanelVisible = true
-            
-            attributedString = NSAttributedString(string: "", attributes: attributes)
-            showHideAvailabilityButton.attributedText = attributedString
-            preferences.set("open", forKey: panelConstant)
-        }
-        
-        self.view.layoutIfNeeded()
-        
-        if (availabilityPanelVisible == true) {
-            availabilityPanelOpenY = availabilityPanel.center.y
-        } else {
-            availabilityPanelClosedY = availabilityPanel.center.y
-        }
-    }
     
     func scrollToIndex(indexOf:Int) {
         scrollToPage(.at(index: indexOf), animated: false)
@@ -137,34 +63,10 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
     override func viewWillAppear(_ animated: Bool) {
         self.updateNotificationCount()
         navigationItem.title = "JOBS"
-        openTabHeight = showHideAvailabilityButton.frame.height
-
-        availabilityPanel.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.layoutIfNeeded()
-
-        if preferences.object(forKey: panelConstant) != nil {
-            let panelState = preferences.string(forKey: panelConstant)
-            
-            if panelState == "open" {
-                availabilityPanelVisible = true
-                availabilityPanel.center.y = availabilityPanelOpenY
-            } else {
-                availabilityPanelVisible = false
-                availabilityPanel.center.y = availabilityPanelClosedY
-            }
-        }
-        
-        self.view.layoutIfNeeded()
-        
-        availabilityPanel.translatesAutoresizingMaskIntoConstraints = true
-        
-        self.setAvailabilityButtons()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        availabilityPanelOpenY = availabilityPanel.center.y
     }
     
     private func updateNotificationCount() {
@@ -195,133 +97,6 @@ class JobTabVC: TabmanViewController, PageboyViewControllerDataSource {
         sideMenuController?.revealMenu()
     }
     
-    /*
-     * sets availability button actions and labels
-     */
-    private func setAvailabilityButtons() {
-        
-        FindaAPISession(target: .getLastMinute) { (response, result) in
-            if response {
-                for (day, availability) in result["availability"] {
-                    self.availability[day] = availability.intValue
-                }
-                
-                // now we reorder the array to shift it to today
-                let position = self.weekdays.firstIndex(of: self.currentDayOfWeek())
-                self.weekdays.rotate(positions: position!)
-                
-                self.setButtonInfo()
-
-            }
-        }
-        
-    }
-    
-    func cycleAvailabilityState(dayId: Int) {
-        let weekday: String = self.weekdays[dayId]
-        var avail: Int = self.availability[weekday]!
-        avail += 1
-        if avail > 2 {
-            avail = 0
-        }
-        self.availability[weekday] = avail
-        saveAvailability()
-    }
-    
-    private func saveAvailability() {
-        FindaAPISession(target: .setLastMinute(availability: self.availability)) { (response, result) in
-            if response {
-                self.setButtonInfo()
-            }
-        }
-    }
-    
-    private func currentDayOfWeek() -> String {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        let dayInWeek = dateFormatter.string(from: date)
-        return dayInWeek.lowercased()
-    }
-    
-    private func setButtonInfo() {
-        
-        let buttonText: [String] = ["", "", ""]
-        let buttonColours: [UIColor] = [UIColor.FindaColours.White, UIColor.FindaColours.Pink, UIColor.FindaColours.Black]
-        
-        
-        var attributes = [NSAttributedString.Key: AnyObject]()
-        attributes[.font] = UIFont(name: "Font Awesome 5 Free", size: 24.0)
-        attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[1]]!]
-        
-        var attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[1]]!], attributes: attributes)
-        
-        tomorrowButton.setAttributedTitle(attributedString, for: .normal)
-        tomorrowButton.addTarget(self, action: #selector(tapTomorrowButton), for: .touchUpInside)
-        tomorrowLabel.textColor = UIColor.FindaColours.White
-        
-        attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[2]]!]
-        attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[2]]!],
-                                              attributes: attributes)
-        dayTwoButton.setAttributedTitle(attributedString, for: .normal)
-        dayTwoButton.addTarget(self, action: #selector(didTapDayTwoButton), for: .touchUpInside)
-        dayTwoLabel.text = self.weekdays[2].capitalizingFirstLetter()
-        dayTwoLabel.textColor = UIColor.FindaColours.White
-        
-        attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[3]]!]
-        attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[3]]!],
-                                              attributes: attributes)
-        dayThreeButton.setAttributedTitle(attributedString, for: .normal)
-        dayThreeButton.addTarget(self, action: #selector(didTapDayThreeButton), for: .touchUpInside)
-        dayThreeLabel.text = self.weekdays[3].capitalizingFirstLetter()
-        dayThreeLabel.textColor = UIColor.FindaColours.White
-        
-        attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[4]]!]
-        attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[4]]!],
-                                              attributes: attributes)
-        dayFourButton.setAttributedTitle(attributedString, for: .normal)
-        dayFourButton.addTarget(self, action: #selector(didTapDayFourButton), for: .touchUpInside)
-        dayFourLabel.text = self.weekdays[4].capitalizingFirstLetter()
-        dayFourLabel.textColor = UIColor.FindaColours.White
-        
-        attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[5]]!]
-        attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[5]]!],
-                                              attributes: attributes)
-        dayFiveButton.setAttributedTitle(attributedString, for: .normal)
-        dayFiveButton.addTarget(self, action: #selector(didTapDayFiveButton), for: .touchUpInside)
-        dayFiveLabel.text = self.weekdays[5].capitalizingFirstLetter()
-        dayFiveLabel.textColor = UIColor.FindaColours.White
-        
-        attributes[.foregroundColor] = buttonColours[self.availability[self.weekdays[6]]!]
-        attributedString = NSAttributedString(string: buttonText[self.availability[self.weekdays[6]]!],
-                                              attributes: attributes)
-        daySixButton.setAttributedTitle(attributedString, for: .normal)
-        daySixButton.addTarget(self, action: #selector(didTapDaySixButton), for: .touchUpInside)
-        daySixLabel.text = self.weekdays[6].capitalizingFirstLetter()
-        daySixLabel.textColor = UIColor.FindaColours.White
-        
-    }
-    
-    // button actions
-    // the slow way
-    @objc private func tapTomorrowButton() {
-        cycleAvailabilityState(dayId: 1)
-    }
-    @objc private func didTapDayTwoButton() {
-        cycleAvailabilityState(dayId: 2)
-    }
-    @objc private func didTapDayThreeButton() {
-        cycleAvailabilityState(dayId: 3)
-    }
-    @objc private func didTapDayFourButton() {
-        cycleAvailabilityState(dayId: 4)
-    }
-    @objc private func didTapDayFiveButton() {
-        cycleAvailabilityState(dayId: 5)
-    }
-    @objc private func didTapDaySixButton() {
-        cycleAvailabilityState(dayId: 6)
-    }
 }
 
 extension UILabel {
@@ -358,7 +133,7 @@ extension NSAttributedString {
 extension Array {
     mutating func rotate(positions: Int, size: Int? = nil) {
         guard positions < count && (size ?? 0) <= count else {
-            print("invalid input1")
+            print("invalid input")
             return
         }
         reversed(start: 0, end: positions - 1)
