@@ -112,6 +112,8 @@
 		185D86532295A24500551768 /* CalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86522295A24500551768 /* CalendarEntry.swift */; };
 		185D86552295A60700551768 /* CalendarEntryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86542295A60700551768 /* CalendarEntryManager.swift */; };
 		185D86572295F18B00551768 /* CalenderEntryViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D86562295F18B00551768 /* CalenderEntryViewVC.swift */; };
+		185E909923C748EB001235FF /* Referral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E909823C748EB001235FF /* Referral.swift */; };
+		185E909B23C749BA001235FF /* InviteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E909A23C749BA001235FF /* InviteCVC.swift */; };
 		1861853922A6CA6000C0A9F2 /* NewCalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */; };
 		18834BF3229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */; };
 		18883D3421BEC1A5001A8D03 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18883D3321BEC1A5001A8D03 /* CalendarVC.swift */; };
@@ -229,6 +231,8 @@
 		185D86522295A24500551768 /* CalendarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntry.swift; sourceTree = "<group>"; };
 		185D86542295A60700551768 /* CalendarEntryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntryManager.swift; sourceTree = "<group>"; };
 		185D86562295F18B00551768 /* CalenderEntryViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalenderEntryViewVC.swift; path = Finda/ViewControllers/Calendar/CalenderEntryViewVC.swift; sourceTree = SOURCE_ROOT; };
+		185E909823C748EB001235FF /* Referral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Referral.swift; sourceTree = "<group>"; };
+		185E909A23C749BA001235FF /* InviteCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteCVC.swift; path = Finda/ViewControllers/InviteCVC.swift; sourceTree = SOURCE_ROOT; };
 		1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalendarEntry.swift; sourceTree = "<group>"; };
 		18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntryCardViewCVC.swift; sourceTree = "<group>"; };
 		18883D3321BEC1A5001A8D03 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
@@ -339,6 +343,7 @@
 				0CCB63A7213D412C007CB107 /* VerificationVC.swift */,
 				0CCB63A4213C3C2B007CB107 /* Invoices */,
 				0C1C8586212AE95E00586326 /* InviteVC.swift */,
+				185E909A23C749BA001235FF /* InviteCVC.swift */,
 				1850DCAD235F5CA90091CCF8 /* AffiliateVC.swift */,
 				18579BEB22896BC3003C7A97 /* SupportVC.swift */,
 				0C78FA54212329570059C0E7 /* Photos */,
@@ -403,6 +408,7 @@
 				0C4ADA7B21120C75002C3EA3 /* Job.swift */,
 				0C4ADA85211847CC002C3EA3 /* Notification.swift */,
 				0C78FA5E212366950059C0E7 /* Photo.swift */,
+				185E909823C748EB001235FF /* Referral.swift */,
 				185D86522295A24500551768 /* CalendarEntry.swift */,
 				0CCB63A0213C2FF9007CB107 /* Invoice.swift */,
 			);
@@ -800,6 +806,7 @@
 				1850DCAE235F5CA90091CCF8 /* AffiliateVC.swift in Sources */,
 				0C1C8587212AE95E00586326 /* InviteVC.swift in Sources */,
 				0CCF2355210DFD3D00612D5B /* NavBar.swift in Sources */,
+				185E909B23C749BA001235FF /* InviteCVC.swift in Sources */,
 				0C78FA4F212223360059C0E7 /* PortfolioVC.swift in Sources */,
 				0C4ADA88211848F6002C3EA3 /* NotificationManager.swift in Sources */,
 				18A20C1122B79BB500F02731 /* ViewCalendarEntry.swift in Sources */,
@@ -810,6 +817,7 @@
 				18A758CA232A70230079E569 /* ChatVCCell.swift in Sources */,
 				0CCB639D213A9CBC007CB107 /* Measurements.swift in Sources */,
 				0CEBCB4A21071AD0004CC4D8 /* AppDelegate.swift in Sources */,
+				185E909923C748EB001235FF /* Referral.swift in Sources */,
 				0CCB63B0213ECEEC007CB107 /* SettingsTabVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -970,7 +978,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.28;
+				MARKETING_VERSION = 1.0.29;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
@@ -995,7 +1003,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.28;
+				MARKETING_VERSION = 1.0.29;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;

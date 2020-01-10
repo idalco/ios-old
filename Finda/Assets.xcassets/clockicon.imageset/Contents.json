@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "clockicon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Finda-Home-Page_photo_2.jpg",
       "scale" : "2x"
     },
     {

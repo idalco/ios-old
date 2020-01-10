@@ -14,6 +14,7 @@ import SCLAlertView
 class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
 
     
+    @IBOutlet weak var fakeHomeTab: UIView!
     @IBOutlet weak var fakeJobsTab: UIView!
     @IBOutlet weak var fakeUpdatesTab: UIView!
     @IBOutlet weak var fakePortfolioTab: UIView!
@@ -62,6 +63,10 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         self.dataSource = self
 
         // Do any additional setup after loading the view.
+        let fakeHomeTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeHomeButton))
+        fakeHomeTab.addGestureRecognizer(fakeHomeTap)
+
+        
         let fakeJobsTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeJobButton))
         fakeJobsTab.addGestureRecognizer(fakeJobsTap)
 
@@ -86,6 +91,14 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
             view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         }
     }
+  
+    @objc func userDidTapFakeHomeButton(sender: Any?) {
+        
+        let smc = sideMenuController
+        smc?.setContentViewController(with: "MainTabBar")
+        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+        
+    }
     
     @objc func userDidTapFakeJobButton(sender: Any?) {
         
@@ -104,7 +117,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         } else {
             let smc = sideMenuController
             smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
         }
         
     }
@@ -126,7 +139,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         } else {
             let smc = sideMenuController
             smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
         }
         
     }
@@ -147,14 +160,14 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         } else {
             let smc = sideMenuController
             smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 3
         }
     }
     
     @objc func userDidTapFakePortfolioButton(sender: Any?) {
         let smc = sideMenuController
         smc?.setContentViewController(with: "MainTabBar")
-        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 3
+        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 4
         (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
 
     }

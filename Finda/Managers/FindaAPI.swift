@@ -68,6 +68,8 @@ enum FindaAPI {
     // GET
     case userDetails
     case getLastMinute
+    case getReferrals
+    
 }
 
 extension FindaAPI: TargetType, AccessTokenAuthorizable {
@@ -164,6 +166,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/setLastMinute"
         case .flagNotifications:
             return "/flagNotification"
+        case .getReferrals:
+            return "/getReferrals"
         }
     }
     
@@ -175,7 +179,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .post
             
         // methods requiring GET
-        case .userDetails, .getJobs, .getModelInvoices, .getCalendar, .getCalendarEntriesForDate, .getLastMinute:
+        case .userDetails, .getJobs, .getModelInvoices, .getCalendar, .getCalendarEntriesForDate, .getLastMinute, .getReferrals:
             return .get
         }
     }
@@ -483,6 +487,9 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             
         case .setLastMinute(let availability):
             p["availability"] = availability
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
+            
+        case .getReferrals:
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
         default:

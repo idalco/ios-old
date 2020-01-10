@@ -116,10 +116,10 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "Updates",
                          "Payments",
                          "Calendar",
+                         "Invite Friends",
                          "FindaVoices",
                          "Podcast",
                          "FAQ",
-//                         "Affiliates",
                          "Sign Out"]
             
             
@@ -134,7 +134,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let questionIcon = NSMutableAttributedString(string: "")
             let powerOffIcon = NSMutableAttributedString(string: "")
             let podcastIcon = NSMutableAttributedString(string: "")
-//            let shareIcon = NSMutableAttributedString(string: "")
+            let shareIcon = NSMutableAttributedString(string: "")
             
             if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
 
@@ -171,8 +171,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 podcastIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 podcastIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
 
-//                shareIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
-//                shareIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                shareIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                shareIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
 
             }
             
@@ -184,6 +184,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         commentDotsIcon,
                         universityIcon,
                         calendarIcon,
+                        shareIcon,
                         heartIcon,
                         podcastIcon,
                         questionIcon,
@@ -307,26 +308,27 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.CalendarTab.rawValue
                             break
                         case 7:
+                            sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
+                            break
+                        case 8:
                             if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }
                             break
-                        case 8: // podcast
+                        case 9: // podcast
                             if let destination = NSURL(string: "https://podcasts.apple.com/gb/podcast/finda-voices-podcast/id1470088105") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }
                             break
-                        case 9:
+                        case 10:
                             if let destination = NSURL(string: domainURL + "/faq/models") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }
                             break
-//                        case 10:
-//                            sideMenuController?.setContentViewController(with: "Affiliates", animated: true)
-//                            break
+
                         default:
                             break
                     }
