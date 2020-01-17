@@ -69,12 +69,14 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if modelManager.status() == UserStatus.unverified {
 
-            self.menu = ["My Details",
+            self.menu = ["Home",
+                         "My Details",
                          "Portfolio",
                          "Polaroids",
                          "Verification",
                          "Sign Out"]
             
+            let homeIcon = NSMutableAttributedString(string: "")
             let userIcon = NSMutableAttributedString(string: "")
             let imageIcon = NSMutableAttributedString(string: "")
             let cameraRetroIcon = NSMutableAttributedString(string: "")
@@ -82,6 +84,10 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let powerOffIcon = NSMutableAttributedString(string: "")
             
             if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
+                
+                homeIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                homeIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+                
                 userIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 userIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
                 
@@ -109,6 +115,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
 
             self.menu = [
+                         "Home",
                          "My Details",
                          "Portfolio",
                          "Polaroids",
@@ -123,6 +130,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "Sign Out"]
             
             
+            let homeIcon = NSMutableAttributedString(string: "")
             let userIcon = NSMutableAttributedString(string: "")
             let imageIcon = NSMutableAttributedString(string: "")
             let cameraRetroIcon = NSMutableAttributedString(string: "")
@@ -137,6 +145,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let shareIcon = NSMutableAttributedString(string: "")
             
             if let fafont = UIFont(name: "FontAwesome5FreeSolid", size: 15) {
+
+                homeIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                homeIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
 
                 userIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 userIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
@@ -177,9 +188,10 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
             self.icon = [
-                         userIcon,
-                         imageIcon,
-                         cameraRetroIcon,
+                        homeIcon,
+                        userIcon,
+                        imageIcon,
+                        cameraRetroIcon,
                         cameraIcon,
                         commentDotsIcon,
                         universityIcon,
@@ -206,7 +218,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    private func updateProfileImage(){
+    private func updateProfileImage() {
         let modelManager = ModelManager()
         if modelManager.avatar() != "/default_profile.png" {
             if let imageUrl = URL(string: modelManager.avatar()) {
@@ -276,53 +288,57 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 case MenuType.loggedIn:
                     switch indexPath.row {
                         case 0:
-                            sideMenuController?.setContentViewController(with: "Settings", animated: true)
+                            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.HomeTab.rawValue
                             break
                         case 1:
-                            smc?.setContentViewController(with: "MainTabBar")
-                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.PhotosTab.rawValue
-                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+                            sideMenuController?.setContentViewController(with: "Settings", animated: true)
                             break
                         case 2:
                             smc?.setContentViewController(with: "MainTabBar")
                             (smc?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.PhotosTab.rawValue
-                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
                             break
                         case 3:
-                            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.JobsTab.rawValue
+                            smc?.setContentViewController(with: "MainTabBar")
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.PhotosTab.rawValue
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
                             break
                         case 4:
                             sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
-                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.UpdatesTab.rawValue
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.JobsTab.rawValue
                             break
                         case 5:
+                            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.UpdatesTab.rawValue
+                            break
+                        case 6:
                             if modelManager.bankAccountName().isEmpty || modelManager.bankSortcode().isEmpty || modelManager.bankAccountNumber().isEmpty {
                                 sideMenuController?.setContentViewController(with: "PaymentNav")
                             } else {
                                 sideMenuController?.setContentViewController(with: "InvoiceNav")
                             }
                             break
-                        case 6:
+                        case 7:
                             sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
                             (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.CalendarTab.rawValue
                             break
-                        case 7:
+                        case 8:
                             sideMenuController?.setContentViewController(with: "InviteNav", animated: true)
                             break
-                        case 8:
+                        case 9:
                             if let destination = NSURL(string: "https://www.facebook.com/groups/finda.co/") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }
                             break
-                        case 9: // podcast
+                        case 10: // podcast
                             if let destination = NSURL(string: "https://podcasts.apple.com/gb/podcast/finda-voices-podcast/id1470088105") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
                             }
                             break
-                        case 10:
+                        case 11:
                             if let destination = NSURL(string: domainURL + "/faq/models") {
                                 let safari = SFSafariViewController(url: destination as URL)
                                 self.present(safari, animated: true)
@@ -336,19 +352,23 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 case MenuType.needsVerification:
                     switch indexPath.row {
                         case 0:
-                            sideMenuController?.setContentViewController(with: "Settings", animated: true)
+                            sideMenuController?.setContentViewController(with: "MainTabBar", animated: true)
+                            (sideMenuController?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.HomeTab.rawValue
                             break
                         case 1:
-                            smc?.setContentViewController(with: "MainTabBar")
-                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+                            sideMenuController?.setContentViewController(with: "Settings", animated: true)
                             break
                         case 2:
                             smc?.setContentViewController(with: "MainTabBar")
                             (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
                             break
                         case 3:
+                            smc?.setContentViewController(with: "MainTabBar")
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
+                            break
+                        case 4:
                             sideMenuController?.setContentViewController(with: "VerificationNav", animated: true)
                             break
                         default:
@@ -364,8 +384,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func onDidReceiveData(_ notification: NSNotification) {
         
         if let data = notification.userInfo as? [String: Any] {
-            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[0].badgeValue = data["jobscount"] as? String
-            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[2].badgeValue = data["msgcount"] as? String
+            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[1].badgeValue = data["jobscount"] as? String
+            (sideMenuController?.contentViewController as? UITabBarController)?.tabBar.items?[3].badgeValue = data["msgcount"] as? String
         }
         
     }

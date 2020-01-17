@@ -96,6 +96,7 @@
 		0CEBCB5721071AD1004CC4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB5521071AD1004CC4D8 /* LaunchScreen.storyboard */; };
 		0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7C21072C31004CC4D8 /* Media.xcassets */; };
 		0CEBCB7F21072F46004CC4D8 /* UIColor+FindaColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */; };
+		180B406B23CE27850043687C /* InviteInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B406A23CE27850043687C /* InviteInformationVC.swift */; };
 		1822DE6223058F5400CD16F6 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DE6123058F5400CD16F6 /* Locations.swift */; };
 		1825459322B8E4C700FD9808 /* DragDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825459222B8E4C700FD9808 /* DragDrop.swift */; };
 		1825459522BBD06900FD9808 /* VersionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825459422BBD06900FD9808 /* VersionCheck.swift */; };
@@ -220,6 +221,7 @@
 		0CEBCB5821071AD1004CC4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CEBCB7C21072C31004CC4D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0CEBCB7E21072F46004CC4D8 /* UIColor+FindaColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FindaColours.swift"; sourceTree = "<group>"; };
+		180B406A23CE27850043687C /* InviteInformationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteInformationVC.swift; sourceTree = "<group>"; };
 		1822DE6123058F5400CD16F6 /* Locations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		1825459222B8E4C700FD9808 /* DragDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDrop.swift; sourceTree = "<group>"; };
 		1825459422BBD06900FD9808 /* VersionCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheck.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				0CCB63A7213D412C007CB107 /* VerificationVC.swift */,
 				0CCB63A4213C3C2B007CB107 /* Invoices */,
 				0C1C8586212AE95E00586326 /* InviteVC.swift */,
+				180B406A23CE27850043687C /* InviteInformationVC.swift */,
 				185E909A23C749BA001235FF /* InviteCVC.swift */,
 				1850DCAD235F5CA90091CCF8 /* AffiliateVC.swift */,
 				18579BEB22896BC3003C7A97 /* SupportVC.swift */,
@@ -779,6 +782,7 @@
 				0C1C8577212ABDF000586326 /* PaymentVC.swift in Sources */,
 				0CCB63A1213C2FF9007CB107 /* Invoice.swift in Sources */,
 				0C4ADA802113353D002C3EA3 /* Country.swift in Sources */,
+				180B406B23CE27850043687C /* InviteInformationVC.swift in Sources */,
 				0C1C8579212ABFE800586326 /* UserType.swift in Sources */,
 				0CCF235C210E06CA00612D5B /* ViewControllerExtensions.swift in Sources */,
 				18E1ECDE232CF4D40045B66D /* TableChatVCCell.swift in Sources */,
@@ -978,7 +982,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.29;
+				MARKETING_VERSION = 1.0.32;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
@@ -1003,7 +1007,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.29;
+				MARKETING_VERSION = 1.0.32;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;

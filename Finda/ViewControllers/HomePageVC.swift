@@ -12,6 +12,7 @@ import DCKit
 class HomePageVC: UIViewController {
 
     @IBOutlet weak var referrerCode: UIButton!
+    @IBOutlet weak var referralCode: UIButton!
     
     @IBOutlet weak var availabilityPanel: UIView!
     
@@ -56,9 +57,11 @@ class HomePageVC: UIViewController {
         
         let modelManager = ModelManager()
         
-        referrerCode.text("finda.com/\(modelManager.referrerCode())")
+        referrerCode.text("finda.co/\(modelManager.referrerCode())")
         referrerCode.addTarget(self, action: #selector(tapReferrerCode), for: .touchUpInside)
        
+        referralCode.addTarget(self, action: #selector(tapReferralCode), for: .touchUpInside)
+        
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(HomePageVC.showHideAvailabilityPanel))
         showHideAvailabilityButton.addGestureRecognizer(tapRec)
         showHideAvailabilityButton.isUserInteractionEnabled = true
@@ -69,11 +72,22 @@ class HomePageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "HOME"
+
+        edgesForExtendedLayout = []
+        
         openTabHeight = showHideAvailabilityButton.frame.height
 
         availabilityPanel.translatesAutoresizingMaskIntoConstraints = false
 
+        availabilityPanel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
+        
         self.view.layoutIfNeeded()
+
+        let tabbarHeight = self.tabBarController?.getHeight()
+        let bottom = UIScreen.main.bounds.height
+        let panelHeight = availabilityPanel.bounds.height
+        let padding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        availabilityPanelOpenY = bottom - tabbarHeight! - panelHeight - padding + 14
 
         if preferences.object(forKey: panelConstant) != nil {
             let panelState = preferences.string(forKey: panelConstant)
@@ -96,7 +110,8 @@ class HomePageVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        availabilityPanelOpenY = availabilityPanel.center.y
+        
+        
     }
 
     @IBAction func menu(_ sender: Any) {
@@ -232,11 +247,16 @@ class HomePageVC: UIViewController {
     
     @objc private func tapReferrerCode() {
         let modelManager = ModelManager()
-        UIPasteboard.general.string = "finda.com/\(modelManager.referrerCode())"
+        UIPasteboard.general.string = "https;//finda.co/\(modelManager.referrerCode())"
         let alert = UIAlertController(title: "", message: "Code copied to clipboard", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc private func tapReferralCode() {
+            let smc = sideMenuController
+        smc?.setContentViewController(with: "InviteNav", animated: true)
     }
     
     
@@ -256,13 +276,13 @@ class HomePageVC: UIViewController {
         }
         
         if availabilityPanelVisible {
-            availabilityPanel.animHide(offset: openTabHeight, speed: openSpeed)
+            availabilityPanel.animHide(offset: openTabHeight + 10, speed: openSpeed)
             availabilityPanelVisible = false
             attributedString = NSAttributedString(string: "", attributes: attributes)
             showHideAvailabilityButton.attributedText = attributedString
             preferences.set("closed", forKey: panelConstant)
         } else {
-            availabilityPanel.animShow(offset: openTabHeight, speed: openSpeed)
+            availabilityPanel.animShow(offset: openTabHeight + 10, speed: openSpeed)
             availabilityPanelVisible = true
             
             attributedString = NSAttributedString(string: "", attributes: attributes)
@@ -283,4 +303,15 @@ class HomePageVC: UIViewController {
     
     
     
+}
+
+extension UITabBarController{
+
+    func getHeight()->CGFloat{
+        return self.tabBar.frame.size.height
+    }
+
+    func getWidth()->CGFloat{
+         return self.tabBar.frame.size.width
+    }
 }

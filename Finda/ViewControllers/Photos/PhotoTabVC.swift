@@ -54,9 +54,9 @@ class PhotoTabVC: TabmanViewController, PageboyViewControllerDataSource {
             if response {
                 let count = result["userdata"].numberValue
                 if count != 0 {
-                    self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].stringValue
+                    self.tabBarController?.tabBar.items?[3].badgeValue = result["userdata"].stringValue
                 } else {
-                    self.tabBarController?.tabBar.items?[2].badgeValue = nil
+                    self.tabBarController?.tabBar.items?[3].badgeValue = nil
                 }
             }
         }

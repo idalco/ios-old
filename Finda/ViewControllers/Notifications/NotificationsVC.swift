@@ -41,9 +41,9 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             if response {
                 let count = result["userdata"].numberValue
                 if count != 0 {
-                    self.tabBarController?.tabBar.items?[2].badgeValue = result["userdata"].stringValue
+                    self.tabBarController?.tabBar.items?[3].badgeValue = result["userdata"].stringValue
                 } else {
-                    self.tabBarController?.tabBar.items?[2].badgeValue = nil
+                    self.tabBarController?.tabBar.items?[3].badgeValue = nil
                 }
             }
         }
@@ -251,7 +251,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                             // now we have to move VC
                             let smc = sideMenuController
                             smc?.setContentViewController(with: "MainTabBar")
-                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
                         }
                     }
                     
