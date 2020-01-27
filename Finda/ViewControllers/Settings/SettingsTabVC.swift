@@ -11,18 +11,8 @@ import Tabman
 import Pageboy
 import SCLAlertView
 
-class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
+class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource, UITabBarDelegate {
 
-    
-    @IBOutlet weak var fakeHomeTab: UIView!
-    @IBOutlet weak var fakeJobsTab: UIView!
-    @IBOutlet weak var fakeUpdatesTab: UIView!
-    @IBOutlet weak var fakePortfolioTab: UIView!
-    @IBOutlet weak var fakeCalendarTab: UIView!
-    @IBOutlet weak var fakeBarHeight: NSLayoutConstraint!
-    
-
-    
     var viewControllers: [UIViewController] = []
     
     override func viewDidLoad() {
@@ -39,10 +29,6 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Preferences") as? PreferencesVC {
             self.viewControllers.append(viewController)
         }
-        
-//        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Calendar" as? CalendarVC) {
-//            self.viewControllers.append(viewController)
-//        }
         
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Password") as? PasswordVC {
             self.viewControllers.append(viewController)
@@ -61,122 +47,26 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
             appearance.state.color = UIColor.FindaColours.LightGrey
         })
         self.dataSource = self
-
-        // Do any additional setup after loading the view.
-        let fakeHomeTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeHomeButton))
-        fakeHomeTab.addGestureRecognizer(fakeHomeTap)
-
         
-        let fakeJobsTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeJobButton))
-        fakeJobsTab.addGestureRecognizer(fakeJobsTap)
-
-        let fakeCalendarTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeCalendarButton))
-        fakeCalendarTab.addGestureRecognizer(fakeCalendarTap)
-
-        let fakeUpdatesTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakeUpdatesButton))
-        fakeUpdatesTab.addGestureRecognizer(fakeUpdatesTap)
-        
-        let fakePortfolioTap = UITapGestureRecognizer(target: self, action: #selector(userDidTapFakePortfolioButton))
-        fakePortfolioTab.addGestureRecognizer(fakePortfolioTap)
-
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if #available(iOS 13.0, *) {
+            if let items = self.tabBarController?.tabBar.items {
+                for item in items {
+                    item.image?.withTintColor(UIColor.gray)
+                }
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {
 
-        if #available(iOS 11.0, *) {
-            let window = UIApplication.shared.keyWindow
-            let bottomPadding = window?.safeAreaInsets.bottom
-            fakeBarHeight.constant = 52 + bottomPadding!
-            view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        }
-    }
-  
-    @objc func userDidTapFakeHomeButton(sender: Any?) {
-        
-        let smc = sideMenuController
-        smc?.setContentViewController(with: "MainTabBar")
-        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
-        
+//        if #available(iOS 11.0, *) {
+//            view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+//        }
     }
     
-    @objc func userDidTapFakeJobButton(sender: Any?) {
-        
-        let modelManager = ModelManager()
-        if modelManager.status() == UserStatus.unverified {
-            let appearance = SCLAlertView.SCLAppearance()
-            let alertView = SCLAlertView(appearance: appearance)
-            
-            alertView.showTitle(
-                "Waiting for Verification",
-                subTitle: "You will be able to see your jobs once you have been verified",
-                style: .info,
-                closeButtonTitle: "OK",
-                colorStyle: 0x010101,
-                colorTextButton: 0xFFFFFF)
-        } else {
-            let smc = sideMenuController
-            smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
-        }
-        
-    }
-    
-    @objc func userDidTapFakeCalendarButton(sender: Any?) {
-        
-        let modelManager = ModelManager()
-        if modelManager.status() == UserStatus.unverified {
-            let appearance = SCLAlertView.SCLAppearance()
-            let alertView = SCLAlertView(appearance: appearance)
-            
-            alertView.showTitle(
-                "Waiting for Verification",
-                subTitle: "You will be able to see your jobs once you have been verified",
-                style: .info,
-                closeButtonTitle: "OK",
-                colorStyle: 0x010101,
-                colorTextButton: 0xFFFFFF)
-        } else {
-            let smc = sideMenuController
-            smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
-        }
-        
-    }
-
-    @objc func userDidTapFakeUpdatesButton(sender: Any?) {
-        let modelManager = ModelManager()
-        if modelManager.status() == UserStatus.unverified {
-            let appearance = SCLAlertView.SCLAppearance()
-            let alertView = SCLAlertView(appearance: appearance)
-            
-            alertView.showTitle(
-                "Waiting for Verification",
-                subTitle: "You will be able to see your updates once you have been verified",
-                style: .info,
-                closeButtonTitle: "OK",
-                colorStyle: 0x010101,
-                colorTextButton: 0xFFFFFF)
-        } else {
-            let smc = sideMenuController
-            smc?.setContentViewController(with: "MainTabBar")
-            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 3
-        }
-    }
-    
-    @objc func userDidTapFakePortfolioButton(sender: Any?) {
-        let smc = sideMenuController
-        smc?.setContentViewController(with: "MainTabBar")
-        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 4
-        (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
-
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -207,5 +97,83 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            
+        let smc = sideMenuController
+        let modelManager = ModelManager()
+        
+        switch (item.tag) {
+
+        // Jobs Tab
+        case 1:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your jobs once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+            }
+            break
+        // Calendar Tab
+        case 2:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your jobs once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            }
+            break
+        // Updates Tab
+        case 3:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your updates once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 3
+            }
+            break
+        // Photos Tab
+        case 4:
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 4
+            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+            break
+        // Home Tab
+        default:
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+            break
+        }
+    }
 
 }

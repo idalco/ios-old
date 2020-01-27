@@ -8,20 +8,23 @@
 import UIKit
 import SVProgressHUD
 import DCKit
+import SafariServices
+import SCLAlertView
 
-class SupportVC: UIViewController {
+class SupportVC: UIViewController, UITabBarDelegate {
     
     
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var supportText: UITextView!
-    @IBOutlet weak var backButton: UIImageView!
+    @IBOutlet weak var faqLink: UILabel!
     
     @IBOutlet weak var option1: UISwitch!
     @IBOutlet weak var option2: UISwitch!
     @IBOutlet weak var option3: UISwitch!
     @IBOutlet weak var option4: UISwitch!
     @IBOutlet weak var option5: UISwitch!
+        
     
     var selectedReason: Int = 5
     
@@ -32,9 +35,11 @@ class SupportVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let tapRec = UITapGestureRecognizer(target: self, action: #selector(SupportVC.backButtonTapped))
-        backButton.addGestureRecognizer(tapRec)
-        backButton.isUserInteractionEnabled = true
+        self.title = "Support"
+        
+        let tapRec = UITapGestureRecognizer(target: self, action: #selector(SupportVC.faqLinkTapped))
+        faqLink.addGestureRecognizer(tapRec)
+        faqLink.isUserInteractionEnabled = true
         
         emailButton.addTarget(self, action: #selector(emailButtonTapped(sender:)), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonTapped(sender:)), for: .touchUpInside)
@@ -57,6 +62,11 @@ class SupportVC: UIViewController {
         resetButtons()
     }
     
+    @IBAction func showMenu(_ sender: Any) {
+        sideMenuController?.revealMenu()
+    }
+    
+    
     func resetButtons() {
         option1.setOn(false, animated: true)
         option2.setOn(false, animated: true)
@@ -76,6 +86,13 @@ class SupportVC: UIViewController {
     
     @IBAction func submit(_ sender: Any) {
         self.submitRequest()
+    }
+    
+    @objc func faqLinkTapped(sender: Any) {
+        if let destination = NSURL(string: domainURL + "/faq/models") {
+            let safari = SFSafariViewController(url: destination as URL)
+            self.present(safari, animated: true)
+        }
     }
     
     @objc func optionTapped(sender: UISwitch) {
@@ -144,6 +161,84 @@ class SupportVC: UIViewController {
     }
     */
     
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            
+        let smc = sideMenuController
+        let modelManager = ModelManager()
+        
+        switch (item.tag) {
+
+        // Jobs Tab
+        case 1:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your jobs once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+            }
+            break
+        // Calendar Tab
+        case 2:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your jobs once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            }
+            break
+        // Updates Tab
+        case 3:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your updates once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 3
+            }
+            break
+        // Photos Tab
+        case 4:
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 4
+            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+            break
+        // Home Tab
+        default:
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+            break
+        }
+    }
+    
     @objc private func backButtonTapped(sender: UIImageView) {
         self.dismiss(animated: true)
     }
@@ -174,7 +269,7 @@ class SupportVC: UIViewController {
             }
         }
     }
-
+    
 }
 
 extension SupportVC: UITextFieldDelegate {

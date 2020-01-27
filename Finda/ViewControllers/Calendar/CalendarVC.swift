@@ -126,8 +126,6 @@ class CalendarVC: UIViewController,  UITableViewDelegate, UITableViewDataSource 
                 } else {
                     self.todayListLabel.isHidden = false
                     self.todayList.isHidden = true
-//                    self.todayListLabel.sizeToFit()
-//                    self.todayListLabel.setNeedsLayout()
                 }
             } else {
                 // show error
@@ -305,7 +303,7 @@ extension CalendarVC: JTACMonthViewDelegate {
         // now we have to move VC
         let smc = sideMenuController
         smc?.setContentViewController(with: "MainTabBar")
-        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+        (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

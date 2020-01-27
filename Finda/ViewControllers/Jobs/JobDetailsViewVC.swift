@@ -577,7 +577,7 @@ class JobDetailsViewVC: UIViewController {
                     let errorView = SCLAlertView(appearance: appearance)
                     errorView.showError(
                         "Sorry",
-                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
+                        subTitle: "Something went wrong talking to the FINDA server. Please try again later.")
                 }
             }
         }

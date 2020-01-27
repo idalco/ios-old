@@ -59,6 +59,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InviteNav") }, with: "InviteNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "InvoiceNav") }, with: "InvoiceNav")
         sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "VerificationNav") }, with: "VerificationNav")
+        sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiateViewController(withIdentifier: "SupportNav") }, with: "SupportNav")
 
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData , object: nil)
         
@@ -127,6 +128,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "FindaVoices",
                          "Podcast",
                          "FAQ",
+                         "Support",
                          "Sign Out"]
             
             
@@ -140,6 +142,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let calendarIcon = NSMutableAttributedString(string: "")
             let heartIcon = NSMutableAttributedString(string: "")
             let questionIcon = NSMutableAttributedString(string: "")
+            let supportIcon = NSMutableAttributedString(string: "")
             let powerOffIcon = NSMutableAttributedString(string: "")
             let podcastIcon = NSMutableAttributedString(string: "")
             let shareIcon = NSMutableAttributedString(string: "")
@@ -176,6 +179,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 questionIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 questionIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
 
+                supportIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
+                supportIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
+
                 powerOffIcon.addAttribute(.font, value: fafont, range: NSMakeRange(0, 1))
                 powerOffIcon.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1), range: NSMakeRange(0, 1))
                 
@@ -200,6 +206,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         heartIcon,
                         podcastIcon,
                         questionIcon,
+                        supportIcon,
                         powerOffIcon
             ]
             
@@ -344,7 +351,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 self.present(safari, animated: true)
                             }
                             break
-
+                        case 12:
+                            sideMenuController?.setContentViewController(with: "SupportNav", animated: true)
+                            break
                         default:
                             break
                     }
@@ -397,6 +406,10 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
          // Get the new view controller using segue.destinationViewController.
          // Pass the selected object to the new view controller.
         
+        let transition: CATransition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.moveIn
+        navigationController?.view.layer.add(transition, forKey: nil)
 
      }
 

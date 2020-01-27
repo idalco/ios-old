@@ -572,22 +572,22 @@ class MeasurementsVC: FormViewController {
         
         form +++ section
  
-        let section1 = Section() { section1 in
-            var header = HeaderFooterView<UIView>(.class)
-            header.height = {60}
-            header.onSetupView = { view, _ in
-                view.backgroundColor = UIColor.FindaColours.White
-                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
-                
-                title.text = "Details"
-                title.font = UIFont(name: "Montserrat-Medium", size: 17)
-                view.addSubview(title)
-                
-            }
-            section1.header = header
-            }
-            
-        form +++ section1
+//        let section1 = Section() { section1 in
+//            var header = HeaderFooterView<UIView>(.class)
+//            header.height = {60}
+//            header.onSetupView = { view, _ in
+//                view.backgroundColor = UIColor.FindaColours.White
+//                let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:60))
+//                
+//                title.text = "Details"
+//                title.font = UIFont(name: "Montserrat-Medium", size: 17)
+//                view.addSubview(title)
+//                
+//            }
+//            section1.header = header
+//            }
+//            
+//        form +++ section1
         
         PickerDelegate.addPickerData(term: .HairColour, rowTitle: "Hair Colour", coreData: modelManager.hairColour()) { (response, result, dictionary) in
             if response {
@@ -731,6 +731,12 @@ class MeasurementsVC: FormViewController {
         row.updateCell()
     }
     
+    override func viewWillLayoutSubviews() {
+
+//        self.tableView?.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.Bottom, constant: 50).is
+        
+        view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 50).isActive = true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

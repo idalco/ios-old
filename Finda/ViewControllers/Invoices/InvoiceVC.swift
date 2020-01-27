@@ -8,8 +8,9 @@
 
 import UIKit
 import SafariServices
+import SCLAlertView
 
-class InvoiceVC: UIViewController {
+class InvoiceVC: UIViewController, UITabBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var invoices: [Invoice] = []
@@ -26,7 +27,7 @@ class InvoiceVC: UIViewController {
         self.loadInvoices()
     }
     
-    func loadInvoices(){
+    func loadInvoices() {
         InvoiceManager.getInvoice { (response, result, invoices) in
             self.tableView.refreshControl?.endRefreshing()
             if response {
@@ -58,6 +59,84 @@ class InvoiceVC: UIViewController {
     @IBAction func menu(_ sender: Any) {
         sideMenuController?.revealMenu()
     }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            
+        let smc = sideMenuController
+        let modelManager = ModelManager()
+        
+        switch (item.tag) {
+
+        // Jobs Tab
+        case 1:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your jobs once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 1
+            }
+            break
+        // Calendar Tab
+        case 2:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your jobs once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+            }
+            break
+        // Updates Tab
+        case 3:
+            if modelManager.status() == UserStatus.unverified {
+                let appearance = SCLAlertView.SCLAppearance()
+                let alertView = SCLAlertView(appearance: appearance)
+                
+                alertView.showTitle(
+                    "Waiting for Verification",
+                    subTitle: "You will be able to see your updates once you have been verified",
+                    style: .info,
+                    closeButtonTitle: "OK",
+                    colorStyle: 0x010101,
+                    colorTextButton: 0xFFFFFF)
+            } else {
+                let smc = sideMenuController
+                smc?.setContentViewController(with: "MainTabBar")
+                (smc?.contentViewController as? UITabBarController)?.selectedIndex = 3
+            }
+            break
+        // Photos Tab
+        case 4:
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 4
+            (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
+            break
+        // Home Tab
+        default:
+            smc?.setContentViewController(with: "MainTabBar")
+            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 0
+            break
+        }
+    }
 
 }
 
@@ -66,17 +145,16 @@ extension InvoiceVC: UITableViewDelegate, UITableViewDataSource, SFSafariViewCon
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! InvoiceTVC
         let invoice = self.invoices[indexPath.row]
         
-        let description = invoice.description.components(separatedBy: ":")
+        cell.amount.text = String(format: "£%.02f", invoice.value)
         
-        cell.amount.text = "\(invoice.symbol)\(invoice.value)"
-        cell.projectName.text = description.first
+        cell.projectName.text = invoice.jobname
         if invoice.date_paid != 0 || invoice.date_paid != 0 {
             cell.paidOn.text = Date().displayDate(timeInterval: invoice.date_paid, format: "MMM dd, yyyy")
         } else {
             cell.paidOn.text = ""
         }
         
-        cell.invoiceNumber.text = description.last
+        cell.invoiceNumber.text = "FND-C\(invoice.id)"
         
         cell.paid.text = invoice.transaction_id == "" ? "UNPAID" : "PAID"
         

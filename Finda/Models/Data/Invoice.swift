@@ -14,7 +14,7 @@ class Invoice {
     
     let id, clientid, modelid, jobid, date_created, due_date, date_paid, status : Int
     let value: Float
-    let description, invoicetype, transaction_id, symbol : String
+    let description, invoicetype, transaction_id, symbol, jobname : String
     
     
     init(data: JSON) {
@@ -28,8 +28,9 @@ class Invoice {
         self.status = data["status"].intValue
         self.transaction_id = data["transaction_id"].stringValue
         self.value = data["value"].floatValue
-        self.description = data["description"].stringValue
+        self.description = data["jobdescription"].stringValue
         self.invoicetype = data["invoicetype"].stringValue
         self.symbol = data["symbol"].stringValue
+        self.jobname = data["jobname"].stringValue
     }
 }

@@ -270,7 +270,7 @@ class ClientRegisterVC: FormViewController {
             
             RegisterManager.client(mail: companyEmail, pass: password, firstname: firstName, lastname: lastname, telephone: telephone, occupation: position, company_name: companyName, company_website: companyWebsite, country: country) { (response, result) in
                 if(response){
-                    let alert = UIAlertController(title: "Finda", message: "Thanks for registering at Finda! At the moment this mobile app is available only for models. Please use your mobile or desktop browsers to access our platform.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "FINDA", message: "Thanks for registering with FINDA! At the moment this mobile app is available only for models. Please use your mobile or desktop browsers to access our platform.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
                         self.performSegue(withIdentifier: "finishSegue", sender: nil)
                     }))

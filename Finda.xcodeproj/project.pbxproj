@@ -581,8 +581,8 @@
 				D76C43D5F0B33ABB2D2FF5EF /* [CP] Check Pods Manifest.lock */,
 				0CEBCB4221071AD0004CC4D8 /* Sources */,
 				0CEBCB4321071AD0004CC4D8 /* Frameworks */,
-				0CEBCB4421071AD0004CC4D8 /* Resources */,
 				18A1204E217B39F3002E04F5 /* ShellScript */,
+				0CEBCB4421071AD0004CC4D8 /* Resources */,
 				FF809932BB9F8D2DF25B3E88 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -668,7 +668,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nversionNumber=\"$MARKETING_VERSION\"\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\" $versionNumber \\\"/\" $PROJECT_DIR/$PROJECT_NAME/Base.lproj/LaunchScreen.storyboard    \n";
 		};
 		D76C43D5F0B33ABB2D2FF5EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -982,7 +982,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.32;
+				MARKETING_VERSION = 1.0.33;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
@@ -1007,7 +1007,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.32;
+				MARKETING_VERSION = 1.0.33;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finda.models;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;

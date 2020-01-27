@@ -14,6 +14,8 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var referrerCode: UIButton!
     @IBOutlet weak var referralCode: UIButton!
     
+    @IBOutlet weak var supportButton: UIBarButtonItem!
+    
     @IBOutlet weak var availabilityPanel: UIView!
     
     @IBOutlet weak var showHideAvailabilityButton: UILabel!
@@ -116,6 +118,11 @@ class HomePageVC: UIViewController {
 
     @IBAction func menu(_ sender: Any) {
         sideMenuController?.revealMenu()
+    }
+    
+    @IBAction func support(_ send: Any) {
+        let smc = sideMenuController
+        smc?.setContentViewController(with: "SupportNav", animated: true)
     }
     
     /*

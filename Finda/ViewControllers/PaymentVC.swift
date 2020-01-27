@@ -11,6 +11,7 @@ import SVProgressHUD
 import SCLAlertView
 
 class PaymentVC: UIViewController {
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var sortCodeTextField: UITextField!
     @IBOutlet weak var accountNumberTextField: UITextField!
@@ -33,6 +34,16 @@ class PaymentVC: UIViewController {
 
         self.title = "PAYMENTS"
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if #available(iOS 13.0, *) {
+            if let items = self.tabBarController?.tabBar.items {
+                for item in items {
+                    item.image?.withTintColor(UIColor.gray)
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,7 +130,7 @@ class PaymentVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
 
 
