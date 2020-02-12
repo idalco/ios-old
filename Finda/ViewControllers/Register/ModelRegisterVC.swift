@@ -23,6 +23,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField.font = montserratLight
             cell.textLabel?.font = montserratLight
+            cell.tintColor = .black
         }
         
         DateInlineRow.defaultCellUpdate = { cell, row in
@@ -33,6 +34,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         EmailRow.defaultCellUpdate = { cell, row in
             cell.textField.font = montserratLight
             cell.textLabel?.font = montserratLight
+            cell.tintColor = .black
         }
         
         TwitterRow.defaultCellUpdate = { cell, row in

@@ -116,7 +116,7 @@ class ImageVC: UIViewController {
     }
     
     private func setLead(lead: Bool) {
-        if photoType == ImageType.Portfolio {
+//        if photoType == ImageType.Portfolio {
             if lead {
                 self.image.layer.borderColor = UIColor.FindaColours.Pink.cgColor
                 self.image.layer.borderWidth = 3
@@ -126,7 +126,7 @@ class ImageVC: UIViewController {
                 self.image.layer.borderWidth = 0
                 self.leadImageButton.isHidden = false
             }
-        }
+//        }
     }
 
     

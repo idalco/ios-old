@@ -42,7 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
 
         IQKeyboardManager.shared.enable = true
+
         configureSideMenu()
+        
         LoginManager.getDetails { (response, result) in }
         
         if (LoginManager.isLoggedIn() && LoginManager.isModel()) {
@@ -85,8 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let menuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuView")
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = SideMenuController(contentViewController: contentViewController,
-                                                        menuViewController: menuViewController)
+        window?.rootViewController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
         
         window?.makeKeyAndVisible()
         
@@ -353,6 +354,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    // MARK: - Deeplink Handling
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+
+        if LoginManager.isLoggedIn() {
+
+            if let scheme = url.scheme, scheme.localizedCaseInsensitiveCompare("finda") == .orderedSame, let view = url.host {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                var contentViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
+                (contentViewController as? UITabBarController)?.selectedIndex = 0
+                let menuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuView")
+            
+                switch (view) {
+                    case "jobs":
+                        (contentViewController as? UITabBarController)?.selectedIndex = 1
+                        break
+                    case "profile":
+                        (contentViewController as? UITabBarController)?.selectedIndex = 4
+                        break
+                    case "payments":
+                        contentViewController = storyboard.instantiateViewController(withIdentifier: "InvoiceNav")
+                        break
+                    case "support":
+                        contentViewController = storyboard.instantiateViewController(withIdentifier: "SupportNav")
+                        break
+                    case "invite":
+                        contentViewController = storyboard.instantiateViewController(withIdentifier: "InviteNav")
+                        break
+                    case "updates":
+                        (contentViewController as? UITabBarController)?.selectedIndex = 3
+                        break
+                    case "photos":
+                        (contentViewController as? UITabBarController)?.selectedIndex = 4
+                        break
+                    case "portfolio":
+                        (contentViewController as? UITabBarController)?.selectedIndex = 4
+                        break
+                    case "polaroids":
+                        (contentViewController as? UITabBarController)?.selectedIndex = 4
+                        break
+
+                    case "verification":
+                        break
+                    // also "home"
+                    default:
+                        break
+                    
+                }
+            
+                // need to override this
+                let preferences = UserDefaults.standard
+                let currentLevelKey = "segueIdentifier"
+                preferences.set("", forKey: currentLevelKey)
+                preferences.synchronize()
+            
+                window = UIWindow(frame: UIScreen.main.bounds)
+                window?.rootViewController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
+                window?.makeKeyAndVisible()
+            
+                if view == "polaroids" {
+                    let preferences = UserDefaults.standard
+                    preferences.set("polaroids", forKey: "photoTab")
+                    preferences.synchronize()
+                }
+            
+            }
+        }
+        return true
+    }
+ 
 }
 
 // [START ios_10_message_handling]

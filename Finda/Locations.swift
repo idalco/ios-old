@@ -29,6 +29,7 @@ class Locations {
         "Newcastle",
         "Paris",
         "Stockholm",
+        "Vienna",
         "Outside Europe"
     ]
 
@@ -89,6 +90,9 @@ class Locations {
                 break
             case "Stockholm":
                 tid = 109
+                break
+            case "Vienna":
+                tid = 142
                 break
             default:
                 tid = 93
@@ -153,6 +157,9 @@ class Locations {
             break
         case 109:
             name = "Stockholm"
+            break
+        case 142:
+            name = "Vienna"
             break
         default:
             name = "London"

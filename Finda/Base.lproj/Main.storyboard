@@ -228,21 +228,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FindaLogoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Wb8-Lc-eH5">
-                                <rect key="frame" x="32" y="96" width="350" height="134"/>
+                                <rect key="frame" x="32" y="96" width="350" height="67"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN TO YOUR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRt-eM-mIp">
-                                <rect key="frame" x="16" y="246" width="382" height="21"/>
+                                <rect key="frame" x="16" y="179" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMn-go-cwV">
-                                <rect key="frame" x="16" y="313" width="382" height="18"/>
+                                <rect key="frame" x="16" y="246" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-gm-5v7">
-                                <rect key="frame" x="16" y="339" width="382" height="50"/>
+                                <rect key="frame" x="16" y="272" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.47058823529999999" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WBU-zR-1pi"/>
                                 </constraints>
@@ -255,13 +256,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlT-2b-Dub">
-                                <rect key="frame" x="16" y="419" width="382" height="18"/>
+                                <rect key="frame" x="16" y="352" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUK-9N-Tpt">
-                                <rect key="frame" x="16" y="445" width="382" height="50"/>
+                                <rect key="frame" x="16" y="378" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.47058823529999999" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4Gv-2P-bdo"/>
                                 </constraints>
@@ -274,7 +276,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-wb-aaJ" customClass="DCBorderedButton" customModule="DCKit">
-                                <rect key="frame" x="80" y="544" width="254" height="50.666666666666629"/>
+                                <rect key="frame" x="80" y="477" width="254" height="50.666666666666629"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aJN-wb-aaJ" secondAttribute="height" multiplier="343:50" constant="-93.699999999999989" id="7Oh-Ou-e5z"/>
@@ -381,7 +383,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UtX-c1-HUZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="779"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go6-UV-xWX">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="954"/>
@@ -585,7 +587,7 @@
                                 </constraints>
                             </scrollView>
                             <tabBar contentMode="center" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3C-6M-bHt" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="CaS-mu-5i8" userLabel="HomeTab">
@@ -1046,7 +1048,7 @@
             <objects>
                 <viewController storyboardIdentifier="SideMenu" id="wFZ-U0-kSb" customClass="SideMenuController" customModule="SideMenuSwift" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="foG-VA-9il">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BfJ-bh-rtQ"/>
@@ -2431,12 +2433,10 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                                     <state key="normal" image="trash"/>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKQ-rW-wv4">
-                                                    <rect key="frame" x="5" y="65" width="30" height="30"/>
+                                                    <rect key="frame" x="5" y="68" width="68" height="27"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="ZKQ-rW-wv4" secondAttribute="height" multiplier="1:1" id="3Tj-Qt-6Rq"/>
-                                                    </constraints>
-                                                    <state key="normal" image="success.png">
+                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
+                                                    <state key="normal" title="Make Lead">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
@@ -2449,7 +2449,6 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                             <constraint firstAttribute="bottom" secondItem="PQ9-vE-MPw" secondAttribute="bottom" constant="5" id="Ier-SD-pSL"/>
                                             <constraint firstAttribute="bottom" secondItem="qUW-pW-TaW" secondAttribute="bottom" constant="5" id="cj5-dt-aUs"/>
                                             <constraint firstItem="ZKQ-rW-wv4" firstAttribute="leading" secondItem="Njq-80-h76" secondAttribute="leading" constant="5" id="gmX-l4-ULl"/>
-                                            <constraint firstItem="ZKQ-rW-wv4" firstAttribute="height" secondItem="qUW-pW-TaW" secondAttribute="height" id="iKR-nY-Zo6"/>
                                             <constraint firstItem="PQ9-vE-MPw" firstAttribute="leading" secondItem="Njq-80-h76" secondAttribute="leading" constant="5" id="mQe-yk-061"/>
                                             <constraint firstAttribute="bottom" secondItem="ZKQ-rW-wv4" secondAttribute="bottom" constant="5" id="oeC-PR-pQN"/>
                                         </constraints>
@@ -3680,7 +3679,7 @@ EARN CASH</string>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="30y-ba-qlb" customClass="ImageCVC" customModule="Finda" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="30y-ba-qlb" customClass="PortfolioCVC" customModule="Finda" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -3699,12 +3698,22 @@ EARN CASH</string>
                                                     </constraints>
                                                     <state key="normal" image="trash"/>
                                                 </button>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slq-AL-ccz">
+                                                    <rect key="frame" x="8" y="65" width="68" height="27"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
+                                                    <state key="normal" title="Make Lead">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="RKG-d7-GGN" firstAttribute="leading" secondItem="30y-ba-qlb" secondAttribute="leading" constant="5" id="8qc-cs-Mg1"/>
                                             <constraint firstAttribute="bottom" secondItem="RKG-d7-GGN" secondAttribute="bottom" constant="5" id="BdL-hL-GkR"/>
                                             <constraint firstAttribute="bottom" secondItem="eFV-rO-ek7" secondAttribute="bottom" constant="5" id="MO3-ok-7dB"/>
+                                            <constraint firstItem="Slq-AL-ccz" firstAttribute="leading" secondItem="30y-ba-qlb" secondAttribute="leadingMargin" id="Syh-HP-h4G"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Slq-AL-ccz" secondAttribute="bottom" id="YoZ-Ih-7eU"/>
                                             <constraint firstAttribute="trailing" secondItem="eFV-rO-ek7" secondAttribute="trailing" constant="5" id="gVE-Dg-8Wi"/>
                                             <constraint firstItem="RKG-d7-GGN" firstAttribute="top" secondItem="30y-ba-qlb" secondAttribute="top" constant="5" id="kNp-gf-4tO"/>
                                             <constraint firstAttribute="trailing" secondItem="RKG-d7-GGN" secondAttribute="trailing" constant="5" id="w5K-A5-uZZ"/>
@@ -3712,6 +3721,7 @@ EARN CASH</string>
                                         <connections>
                                             <outlet property="deleteButton" destination="eFV-rO-ek7" id="5Ty-c1-pu4"/>
                                             <outlet property="image" destination="RKG-d7-GGN" id="ygj-9X-wgK"/>
+                                            <outlet property="leadImageButton" destination="Slq-AL-ccz" id="X1X-Oi-KNH"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -4195,7 +4205,7 @@ You will receive an email if your application is accepted and you have been veri
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleAspectFit" translucent="NO" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="NJA-v6-zdn" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="Flh-5f-c9j" userLabel="HomeTab">
@@ -4376,7 +4386,7 @@ You will receive an email if your application is accepted and you have been veri
                         <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTACMonthView" customModule="JTAppleCalendar">
                                 <rect key="frame" x="16" y="8" width="382" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -4509,29 +4519,29 @@ You will receive an email if your application is accepted and you have been veri
                                     <outlet property="ibCalendarDelegate" destination="UQL-vC-2ah" id="bXg-3G-5QQ"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
                                 <rect key="frame" x="16" y="401.66666666666674" width="382" height="274.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todayTableCell" id="ZVp-EW-Mhj" customClass="TodayTableCell" customModule="Finda" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="382" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVp-EW-Mhj" id="Seu-Hh-J7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-DM-nos">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="43.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYJ-IH-W5k" userLabel="Entry Title">
-                                                            <rect key="frame" x="8" y="8.0000000000000018" width="366" height="17.666666666666671"/>
+                                                            <rect key="frame" x="8" y="8" width="366" height="18"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                             <color key="textColor" red="0.47843137250000001" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t1-NE-gqB" userLabel="Description">
-                                                            <rect key="frame" x="8" y="25.666666666666668" width="366" height="10.000000000000004"/>
+                                                            <rect key="frame" x="8" y="26" width="366" height="10"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="jLD-l0-b79"/>
@@ -4541,7 +4551,7 @@ You will receive an email if your application is accepted and you have been veri
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-oJ-r2C" userLabel="From To">
-                                                            <rect key="frame" x="8" y="35.666666666666664" width="366" height="0.0"/>
+                                                            <rect key="frame" x="8" y="36" width="366" height="0.0"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4577,13 +4587,13 @@ You will receive an email if your application is accepted and you have been veri
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-ru-ym2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-ru-ym2">
                                 <rect key="frame" x="16" y="374" width="382" height="19.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-pT-CD4" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-pT-CD4" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="330" y="16" width="60" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="v0M-K5-foa"/>
@@ -4610,7 +4620,7 @@ You will receive an email if your application is accepted and you have been veri
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
                                 <rect key="frame" x="16" y="401.66666666666674" width="382" height="274.33333333333326"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="TopLeft" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="If6-md-RAm" customClass="PaddingLabel" customModule="Finda" customModuleProvider="target">
@@ -5082,13 +5092,13 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client Affiliate Programme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuG-QG-Qja">
-                                <rect key="frame" x="8" y="120" width="398" height="21"/>
+                                <rect key="frame" x="8" y="120" width="398" height="22"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-1K-SDz">
-                                <rect key="frame" x="16" y="157" width="382" height="140"/>
+                                <rect key="frame" x="16" y="158" width="382" height="146.33333333333337"/>
                                 <string key="text">Receive 5% commission every time one of your affiliates makes a booking in the first 6 months.
 
 Commission will be paid out after the booking is completed and the client has made the payment.
@@ -5099,20 +5109,20 @@ The possibilities are endless - there is no maximum number of bookings within th
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whk-fV-VKt">
-                                <rect key="frame" x="16" y="313" width="382" height="56"/>
+                                <rect key="frame" x="16" y="320.33333333333331" width="382" height="58.666666666666686"/>
                                 <string key="text">FINDA reserves the rights to change conditions or stop the Affiliates Program at any time, but it will not affect your existing commission.</string>
                                 <fontDescription key="fontDescription" name="Montserrat-Italic" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your personal affiliate code is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abo-51-WKB">
-                                <rect key="frame" x="16" y="401" width="382" height="18.666666666666686"/>
+                                <rect key="frame" x="16" y="411" width="382" height="18.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogh-II-JZh" customClass="DCBorderedButton" customModule="DCKit">
-                                <rect key="frame" x="80" y="483.66666666666669" width="254" height="54.000000000000057"/>
+                                <rect key="frame" x="80" y="493.66666666666674" width="254" height="54"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="254" id="58Z-fp-aWI"/>
@@ -5190,8 +5200,8 @@ The possibilities are endless - there is no maximum number of bookings within th
         <image name="back_chevron" width="112" height="192"/>
         <image name="briefcase" catalog="system" width="64" height="50"/>
         <image name="buttonbg" width="135" height="53"/>
-        <image name="calendar" width="25" height="25"/>
         <image name="calendar" catalog="system" width="64" height="54"/>
+        <image name="calendar" width="25" height="25"/>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="clockicon" width="44" height="44"/>
         <image name="house" catalog="system" width="64" height="54"/>
@@ -5204,17 +5214,16 @@ The possibilities are endless - there is no maximum number of bookings within th
         <image name="right-chat-arrow" width="5.3333334922790527" height="5.3333334922790527"/>
         <image name="shareimage" width="160" height="160"/>
         <image name="splashwhite" width="196" height="36.5"/>
-        <image name="success.png" width="28" height="28"/>
         <image name="trash" width="315" height="318"/>
         <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lIy-hQ-jvG"/>
-        <segue reference="Wb8-eT-GY0"/>
+        <segue reference="kBq-Ev-WrO"/>
         <segue reference="ysP-6R-f6U"/>
-        <segue reference="ymn-Qg-Ayd"/>
+        <segue reference="LG7-vM-ZlQ"/>
         <segue reference="ixZ-ae-2Zg"/>
-        <segue reference="tCZ-2f-hRy"/>
+        <segue reference="fFA-jU-UWP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

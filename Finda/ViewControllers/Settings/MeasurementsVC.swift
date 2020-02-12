@@ -28,11 +28,13 @@ class MeasurementsVC: FormViewController {
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         PickerInputRow<String>.defaultCellUpdate = { cell, row in
             cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         SwitchRow.defaultCellUpdate = { cell, row in

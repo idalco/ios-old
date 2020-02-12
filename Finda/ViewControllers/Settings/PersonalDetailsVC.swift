@@ -24,41 +24,49 @@ class PersonalDetailsVC: FormViewController {
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         PhoneRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         EmailRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         IntRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         DateInlineRow.defaultCellUpdate = { cell, row in
             cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
 
         DateRow.defaultCellUpdate = { cell, row in
             cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         PickerInlineRow<String>.defaultCellUpdate = { cell, row in
             cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         PickerInputRow<String>.defaultCellUpdate = { cell, row in
             cell.detailTextLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         SwitchRow.defaultCellSetup = { cell, row in

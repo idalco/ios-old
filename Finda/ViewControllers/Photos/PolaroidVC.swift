@@ -150,7 +150,7 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCVC
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PortfolioCVC
         
         let imageData = self.photosArray[indexPath.row].filename
 
@@ -159,7 +159,18 @@ extension PolaroidVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.image.af_setImage(withPolaroidsURL: url, imageTransition: .crossDissolve(0.25))
         }
       
+        if self.photosArray[indexPath.row].leadimage {
+            cell.image.layer.borderWidth = 3
+            cell.image.layer.borderColor = UIColor.FindaColours.Burgundy.cgColor
+            cell.leadImageButton.isHidden = true
+        } else {
+            cell.leadImageButton.isHidden = false
+            cell.image.layer.borderWidth = 0
+            cell.image.layer.borderColor = UIColor.clear.cgColor
+        }
+        
         cell.deleteButton.isHidden = true
+        cell.leadImageButton.isHidden = true
         
         cell.layoutIfNeeded()
         

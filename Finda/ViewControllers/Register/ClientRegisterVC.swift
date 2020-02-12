@@ -19,26 +19,31 @@ class ClientRegisterVC: FormViewController {
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         EmailRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         URLRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         PhoneRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         PasswordRow.defaultCellUpdate = { cell, row in
             cell.textField.font = UIFont(name: "Montserrat-Light", size: 16)
             cell.textLabel?.font = UIFont(name: "Montserrat-Light", size: 16)
+            cell.tintColor = .black
         }
         
         PickerInlineRow<String>.defaultCellUpdate = { cell, row in
