@@ -109,6 +109,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.icon = [userIcon,
                          imageIcon,
                          cameraRetroIcon,
+                         cameraRetroIcon,
                          clipboardIcon,
                          powerOffIcon
             ]

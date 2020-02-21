@@ -98,21 +98,6 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             }
             
             
-            <<< PickerInlineRow<String>() { row in
-                row.title = "Country of Residence"
-                row.tag = "country"
-                row.options = Country.nationalities
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnChangeAfterBlurred
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                    }
-            }
-        
-            
-            
             <<< EmailRow() { row in
                 row.title = "Email"
                 row.tag = "email"
@@ -163,6 +148,21 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     }
                 }
             
+            <<< PickerInlineRow<String>() { row in
+                row.title = "I identify as"
+                row.tag = "gender"
+                
+                row.options = ["Woman", "Man", "Non-binary"]
+                row.value = "Woman"
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleMinLength(minLength: 1))
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
             
             <<< DateInlineRow() { row in
                 row.title = "Date of Birth"
@@ -182,13 +182,10 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             }
             
             <<< PickerInlineRow<String>() { row in
-                row.title = "I identify as"
-                row.tag = "gender"
-                
-                row.options = ["Woman", "Man", "Non-binary"]
-                row.value = "Woman"
+                row.title = "Country of Residence"
+                row.tag = "country"
+                row.options = Country.nationalities
                 row.add(rule: RuleRequired())
-                row.add(rule: RuleMinLength(minLength: 1))
                 row.validationOptions = .validatesOnChangeAfterBlurred
                 }
                 .cellUpdate { cell, row in
@@ -197,6 +194,18 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     }
             }
             
+            <<< PickerInlineRow<String>() { row in
+                row.title = "Current Location"
+                row.tag = "location"
+                row.options = Locations.locations
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
             
             <<< TextRow() { row in
                 row.title = "Referral Code"
@@ -307,6 +316,11 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             return
         }
         
+        guard let locationRow: BaseRow = form.rowBy(tag: "location"), let location: String = form.values()["location"] as? String else {
+            self.validateRow(tag: "location")
+            return
+        }
+        
         if password != repeatPassword {
             let password: PasswordRow? = form.rowBy(tag: "password")
             password?.cell.textLabel?.textColor = UIColor.red
@@ -322,9 +336,9 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             return
         }
         
-        if (mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && telephoneRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && dobRow.isValid) {
+        if (mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && telephoneRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && dobRow.isValid && locationRow.isValid) {
             
-            RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, telephone: telephone, referral_code: referral_code, dob: dob.timeIntervalSince1970) { (response, result) in
+            RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, telephone: telephone, referral_code: referral_code, dob: dob.timeIntervalSince1970, location: location) { (response, result) in
                 if(response){
                     self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
                 }

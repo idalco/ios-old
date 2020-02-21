@@ -39,8 +39,8 @@ target 'Finda' do
   # secure data storage
   # pod 'Strongbox'
 
-  # Side menu
-  pod 'SideMenuSwift'
+    # Side menu
+    pod 'SideMenuSwift'
 
   # Paging control
   pod 'Tabman', '~> 1.0'
@@ -52,12 +52,12 @@ target 'Finda' do
   
   pod 'SwiftyGif'
   
-  # Firebase for analytics and messaging
-  pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
-  pod 'Fabric'
-  pod 'Crashlytics'
-  pod 'Firebase/Analytics'
+    # Firebase for analytics and messaging
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'Firebase/Analytics'
   
   # progress spinners etc
   pod 'SVProgressHUD'

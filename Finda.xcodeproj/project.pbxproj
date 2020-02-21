@@ -117,6 +117,7 @@
 		185E909B23C749BA001235FF /* InviteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E909A23C749BA001235FF /* InviteCVC.swift */; };
 		1861853922A6CA6000C0A9F2 /* NewCalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */; };
 		18834BF3229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */; };
+		1887376C23F820B500FA61B7 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887376B23F820B500FA61B7 /* Colours.xcassets */; };
 		18883D3421BEC1A5001A8D03 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18883D3321BEC1A5001A8D03 /* CalendarVC.swift */; };
 		18976506232FAD1800EF6E4B /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18976505232FAD1800EF6E4B /* CopyableLabel.swift */; };
 		18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */; };
@@ -237,6 +238,7 @@
 		185E909A23C749BA001235FF /* InviteCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteCVC.swift; path = Finda/ViewControllers/InviteCVC.swift; sourceTree = SOURCE_ROOT; };
 		1861853822A6CA6000C0A9F2 /* NewCalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalendarEntry.swift; sourceTree = "<group>"; };
 		18834BF2229D9B0900F4D89F /* CalendarEntryCardViewCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntryCardViewCVC.swift; sourceTree = "<group>"; };
+		1887376B23F820B500FA61B7 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 		18883D3321BEC1A5001A8D03 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		18976505232FAD1800EF6E4B /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CopyableLabel.swift; path = Extensions/CopyableLabel.swift; sourceTree = "<group>"; };
 		18A0CFCF216F5A1F00D2CC39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -535,6 +537,7 @@
 				0CCF2352210DE56B00612D5B /* PickerDelegate.swift */,
 				0CCF2338210A7F1000612D5B /* Extensions */,
 				0CCF23062109BD1100612D5B /* Resource */,
+				1887376B23F820B500FA61B7 /* Colours.xcassets */,
 			);
 			path = Finda;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				0CEBCB5421071AD1004CC4D8 /* Assets.xcassets in Resources */,
 				18A0CFD0216F5A1F00D2CC39 /* GoogleService-Info.plist in Resources */,
 				0CEBCB4F21071AD0004CC4D8 /* Main.storyboard in Resources */,
+				1887376C23F820B500FA61B7 /* Colours.xcassets in Resources */,
 				0CCB63AC213EBCF3007CB107 /* loading-icon.gif in Resources */,
 				185ACB5322F988150037B489 /* Montserrat-Bold.otf in Resources */,
 			);

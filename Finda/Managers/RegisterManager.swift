@@ -14,9 +14,9 @@ class RegisterManager {
     
     var window: UIWindow?
     
-    static func model(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, telephone: String, referral_code: String, dob: TimeInterval, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
+    static func model(mail: String, pass: String, firstname: String, lastname: String, gender: String, country: String, instagram_username: String, telephone: String, referral_code: String, dob: TimeInterval, location:String, completion: @escaping (_ response: Bool, _ result: JSON) -> ()){
         
-        FindaAPISession(target: .registerModel(mail: mail, pass: pass, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, telephone: telephone, referral_code: referral_code, dob: dob)) { (response, result) in
+        FindaAPISession(target: .registerModel(mail: mail, pass: pass, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, telephone: telephone, referral_code: referral_code, dob: dob, location: location)) { (response, result) in
             if(response){
                 _ = ModelManager(data: result)
                 CoreDataManager.printEntity(entity: "User")
