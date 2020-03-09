@@ -143,7 +143,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-                    if !self.isValidInstagram(Input: row.value ?? "") {
+                    if !self.isValidInstagram(input: row.value ?? "") {
                         cell.titleLabel?.textColor = .red
                     }
                 }
@@ -311,7 +311,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             self.validateRow(tag: "repeatPassword")
             return
         }
-        guard let dobRow: BaseRow = form.rowBy(tag: "dob"), let dob: Date = form.values()["dob"] as? Date else {
+        guard let dobRow: BaseRow = form.rowBy(tag: "dob"), var dob: Date = form.values()["dob"] as? Date else {
             self.validateRow(tag: "dob")
             return
         }
@@ -330,7 +330,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
             return
         }
         
-        if !isValidInstagram(Input: instagram_username) {
+        if !isValidInstagram(input: instagram_username) {
             let instagramName: TextRow? = form.rowBy(tag: "instagram")
             instagramName?.cell.textLabel?.textColor = UIColor.red
             return
@@ -338,9 +338,12 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         
         if (mailRow.isValid && passwordRow.isValid && repeatPasswordRow.isValid && firstnameRow.isValid && lastnameRow.isValid && genderRow.isValid && telephoneRow.isValid && countryRow.isValid && instagram_usernameRow.isValid && dobRow.isValid && locationRow.isValid) {
             
+            // we only care about the date, but this deals with all daylight savings
+            dob = dob.advancedBy(seconds: 60*60*12)
+            
             RegisterManager.model(mail: mail, pass: password, firstname: firstname, lastname: lastname, gender: gender, country: country, instagram_username: instagram_username, telephone: telephone, referral_code: referral_code, dob: dob.timeIntervalSince1970, location: location) { (response, result) in
-                if(response){
-                    self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
+                if (response) {
+                    self.performSegue(withIdentifier: "verificationSegue", sender: nil)
                 }
             }
         } else {
@@ -353,10 +356,10 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
         _ = row?.validate()
     }
     
-    func isValidInstagram(Input:String) -> Bool {
-        let RegEx = "@([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)"
-        let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
-        return Test.evaluate(with: Input)
+    func isValidInstagram(input: String) -> Bool {
+        let regEx = "@([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)"
+        let regexTest = NSPredicate(format: "SELF MATCHES %@", regEx)
+        return regexTest.evaluate(with: input)
     }
     
     func footerView() -> HeaderFooterView<UIView> {

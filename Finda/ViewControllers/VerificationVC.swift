@@ -18,77 +18,75 @@ class VerificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let modelManager = ModelManager()
-        
-        
-        
-        let newtext = NSMutableAttributedString(string: "Hi ")
-        
-        let name = NSMutableAttributedString(string: modelManager.firstName())
-        
-        let line1 = NSMutableAttributedString(string: ",\n\nThank you for registering with us!\n\nTo make sure everyone gets the best professional experience at FINDA, we ")
-        
-        let words1 = NSMutableAttributedString(string: "verify and approve")
-        let line2 = NSMutableAttributedString(string: " all models and clients before they can access the full platform.\n\nPlease submit a copy of your ")
-        let words2 = NSMutableAttributedString(string: "passport")
-        let line3 = NSMutableAttributedString(string: ", ")
-        let words3 = NSMutableAttributedString(string: "driving licence")
-        let line4 = NSMutableAttributedString(string: " or another form of government-issued photo identification for verification.\n\nTo increase the speed of the process, please upload your professional modelling ")
-        let words4 = NSMutableAttributedString(string: "portfolio")
-        let line5 = NSMutableAttributedString(string: ", ")
-        let words5 = NSMutableAttributedString(string: "polaroids")
-        let line6 = NSMutableAttributedString(string: " and enter your ")
-        let words6 = NSMutableAttributedString(string: "measurements")
-        let line7 = NSMutableAttributedString(string: " under My Details.\n\nYou will receive an email if your application is accepted and you have been verified.")
-        
-        let baseParagraphStyle = NSMutableParagraphStyle()
-        baseParagraphStyle.alignment = .left
-        baseParagraphStyle.lineSpacing = 4
-        baseParagraphStyle.paragraphSpacing = 0
-
-        let indentParagraphStyle = NSMutableParagraphStyle()
-        indentParagraphStyle.headIndent = 16
-        indentParagraphStyle.firstLineHeadIndent = 0
-
-        if let mainfont = UIFont(name: "Montserrat-Regular", size: 16) {
-            newtext.addAttribute(.font, value: mainfont, range: NSMakeRange(0, newtext.length))
-            line1.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line1.length))
-            name.addAttribute(.font, value: mainfont, range: NSMakeRange(0, name.length))
-            line2.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line2.length))
-            line3.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line3.length))
-            line4.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line4.length))
-            line5.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line5.length))
-            line6.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line6.length))
-            line7.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line7.length))
-        }
-        
-        if let boldfont = UIFont(name: "Montserrat-Bold", size: 16) {
-            words1.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words1.length))
-            words2.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words2.length))
-            words3.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words3.length))
-            words4.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words4.length))
-            words5.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words5.length))
-            words6.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words6.length))
-        }
-        
-        newtext.append(name)
-        newtext.append(line1)
-        newtext.append(words1)
-        newtext.append(line2)
-        newtext.append(words2)
-        newtext.append(line3)
-        newtext.append(words3)
-        newtext.append(line4)
-        newtext.append(words4)
-        newtext.append(line5)
-        newtext.append(words5)
-        newtext.append(line6)
-        newtext.append(words6)
-        newtext.append(line7)
-        
-        newtext.addAttributes([.paragraphStyle: baseParagraphStyle], range: NSRange(location: 0, length: newtext.length))
-                
-        legalText.attributedText = newtext
+//        let modelManager = ModelManager()
+//        
+//        let newtext = NSMutableAttributedString(string: "Hi ")
+//
+//        let name = NSMutableAttributedString(string: modelManager.firstName())
+//
+//        let line1 = NSMutableAttributedString(string: ",\n\nThank you for registering with us!\n\nTo make sure everyone gets the best professional experience at FINDA, we verify and approve all models and clients before they can access the full platform.\n\nFor verification ")
+//
+//        let words1 = NSMutableAttributedString(string: "all items")
+//        let line2 = NSMutableAttributedString(string: " below must be submitted:")
+//        let words2 = NSMutableAttributedString(string: "• passport")
+//        let line3 = NSMutableAttributedString(string: ", ")
+//        let words3 = NSMutableAttributedString(string: "• driving licence")
+//        let line4 = NSMutableAttributedString(string: " or another form of government-issued photo identification for verification.\n\nTo increase the speed of the process, please upload your professional modelling ")
+//        let words4 = NSMutableAttributedString(string: "portfolio")
+//        let line5 = NSMutableAttributedString(string: ", ")
+//        let words5 = NSMutableAttributedString(string: "polaroids")
+//        let line6 = NSMutableAttributedString(string: " and enter your ")
+//        let words6 = NSMutableAttributedString(string: "measurements")
+//        let line7 = NSMutableAttributedString(string: " under My Details.\n\nYou will receive an email if your application is accepted and you have been verified.")
+//
+//        let baseParagraphStyle = NSMutableParagraphStyle()
+//        baseParagraphStyle.alignment = .left
+//        baseParagraphStyle.lineSpacing = 4
+//        baseParagraphStyle.paragraphSpacing = 0
+//
+//        let indentParagraphStyle = NSMutableParagraphStyle()
+//        indentParagraphStyle.headIndent = 16
+//        indentParagraphStyle.firstLineHeadIndent = 0
+//
+//        if let mainfont = UIFont(name: "Montserrat-Regular", size: 16) {
+//            newtext.addAttribute(.font, value: mainfont, range: NSMakeRange(0, newtext.length))
+//            line1.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line1.length))
+//            name.addAttribute(.font, value: mainfont, range: NSMakeRange(0, name.length))
+//            line2.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line2.length))
+//            line3.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line3.length))
+//            line4.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line4.length))
+//            line5.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line5.length))
+//            line6.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line6.length))
+//            line7.addAttribute(.font, value: mainfont, range: NSMakeRange(0, line7.length))
+//        }
+//
+//        if let boldfont = UIFont(name: "Montserrat-Bold", size: 16) {
+//            words1.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words1.length))
+//            words2.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words2.length))
+//            words3.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words3.length))
+//            words4.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words4.length))
+//            words5.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words5.length))
+//            words6.addAttribute(.font, value: boldfont, range: NSMakeRange(0, words6.length))
+//        }
+//
+//        newtext.append(name)
+//        newtext.append(line1)
+//        newtext.append(words1)
+//        newtext.append(line2)
+//        newtext.append(words2)
+//        newtext.append(line3)
+//        newtext.append(words3)
+//        newtext.append(line4)
+//        newtext.append(words4)
+//        newtext.append(line5)
+//        newtext.append(words5)
+//        newtext.append(line6)
+//        newtext.append(words6)
+//        newtext.append(line7)
+//
+//        newtext.addAttributes([.paragraphStyle: baseParagraphStyle], range: NSRange(location: 0, length: newtext.length))
+//                
+//        legalText.attributedText = newtext
         
         // Do any additional setup after loading the view.
     }

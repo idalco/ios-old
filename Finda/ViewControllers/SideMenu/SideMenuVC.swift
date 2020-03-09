@@ -106,9 +106,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
             }
             
-            self.icon = [userIcon,
+            self.icon = [homeIcon,
+                         userIcon,
                          imageIcon,
-                         cameraRetroIcon,
                          cameraRetroIcon,
                          clipboardIcon,
                          powerOffIcon
@@ -221,8 +221,16 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if self.segueIdentifier == "editProfileSegue" {
                 sideMenuController?.setContentViewController(with: "Settings")
                 self.segueIdentifier = ""
+            } else if self.segueIdentifier == "verificationSegue" {
+                sideMenuController?.setContentViewController(with: "VerificationNav")
+                self.segueIdentifier = ""
             }
         }
+        
+        let preferences = UserDefaults.standard
+        let currentLevelKey = "segueIdentifier"
+        preferences.set("", forKey: currentLevelKey)
+        preferences.synchronize()
         
     }
     
@@ -370,12 +378,12 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             break
                         case 2:
                             smc?.setContentViewController(with: "MainTabBar")
-                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.PhotosTab.rawValue
                             (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.first, animated: true)
                             break
                         case 3:
                             smc?.setContentViewController(with: "MainTabBar")
-                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = 2
+                            (smc?.contentViewController as? UITabBarController)?.selectedIndex = TabEntries.PhotosTab.rawValue
                             (((smc?.contentViewController as? UITabBarController)?.selectedViewController)?.children[0] as? PhotoTabVC)?.scrollToPage(.last, animated: true)
                             break
                         case 4:

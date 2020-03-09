@@ -16,7 +16,7 @@ class LoginManager {
         
         FindaAPISession(target: .login(email: email, password: password)) { (response, result) in
             if (response) {
-                if(result["userdata"]["usertype"].intValue == 1){
+                if (result["userdata"]["usertype"].intValue == 1) {
                     let modelManager = ModelManager(data: result)
                     if modelManager.status() == UserStatus.banned {
                         LoginManager.signOut()

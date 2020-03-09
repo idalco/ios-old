@@ -59,7 +59,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     }
     
     func setEmailTextFieldBorder(error: Bool = false){
-        if(error){
+        if (error) {
             self.emailTextField.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
         } else {
             self.emailTextField.setBottomBorderLogin()
@@ -68,7 +68,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
     
     
     func setPasswordTextFieldBorder(error: Bool = false){
-        if(error){
+        if (error) {
             self.passwordTextField.setBottomBorderLogin(borderColor: UIColor.FindaColours.FindaRed.cgColor)
         } else {
             self.passwordTextField.setBottomBorderLogin()
@@ -89,11 +89,9 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
         if modelManager.status() == UserStatus.banned {
             LoginManager.signOut()
             return
-        } else if modelManager.status() != UserStatus.verified && modelManager.status() != UserStatus.special {
-            self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
+        
         } else {
             // we can't segue as we need to reset the root controller
-            
             
             guard let window = UIApplication.shared.keyWindow else {
                 return
@@ -103,18 +101,30 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
                 return
             }
 
+            if modelManager.status() != UserStatus.verified && modelManager.status() != UserStatus.special {
+                
+                let preferences = UserDefaults.standard
+                let currentLevel = "verificationSegue"
+                let currentLevelKey = "segueIdentifier"
+                preferences.set(currentLevel, forKey: currentLevelKey)
+                preferences.synchronize()
+                
+    //                self.performSegue(withIdentifier: "verificationSegue", sender: nil)
+            }
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SideMenu")
             vc.view.frame = rootViewController.view.frame
             vc.view.layoutIfNeeded()
 
+
+            
             UIView.transition(with: window, duration: 0.3, options: [.transitionFlipFromRight, .layoutSubviews], animations: {
                 window.rootViewController = vc
             }, completion: { completed in
                 // maybe do something here
             })
-            
-//            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+
         }
     }
     
@@ -136,7 +146,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
             if response {
                 self.loginSegue()
             } else {
-                if(result["userdata"]["usertype"].intValue == UserType.Client.rawValue){
+                if (result["userdata"]["usertype"].intValue == UserType.Client.rawValue) {
                     let alert = UIAlertController(title: "Hi there!", message: "Sorry, currently this app only supports model accounts. Please log in via desktop for now.", preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
