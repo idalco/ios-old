@@ -68,7 +68,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         let modelManager = ModelManager()
         
-        if modelManager.status() == UserStatus.unverified {
+        if modelManager.status() == UserStatus.unverified || modelManager.status() == UserStatus.wewant || modelManager.status() == UserStatus.notsure {
 
             self.menu = ["Home",
                          "My Details",

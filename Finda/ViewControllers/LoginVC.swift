@@ -89,7 +89,7 @@ class LoginVC: UIViewController, SFSafariViewControllerDelegate {
         if modelManager.status() == UserStatus.banned {
             LoginManager.signOut()
             return
-        } else if modelManager.status() == UserStatus.unverified {
+        } else if modelManager.status() != UserStatus.verified && modelManager.status() != UserStatus.special {
             self.performSegue(withIdentifier: "editProfileSegue", sender: nil)
         } else {
             // we can't segue as we need to reset the root controller

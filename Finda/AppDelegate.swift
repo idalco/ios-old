@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var contentViewController  = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
         let modelManager = ModelManager()
-        if modelManager.status() == UserStatus.unverified {
+        if modelManager.status() == UserStatus.unverified || modelManager.status() == UserStatus.wewant || modelManager.status() == UserStatus.notsure {
             contentViewController = storyboard.instantiateViewController(withIdentifier: "Settings")
         }
         

@@ -40,7 +40,7 @@ class TabBarController: UITabBarController {
         // Do something with the index
   
         let modelManager = ModelManager()
-        if modelManager.status() == UserStatus.unverified {
+        if modelManager.status() == UserStatus.unverified || modelManager.status() == UserStatus.wewant || modelManager.status() == UserStatus.notsure {
             if index == 0 || index == 1 {
                 let appearance = SCLAlertView.SCLAppearance(
                     showCloseButton: false

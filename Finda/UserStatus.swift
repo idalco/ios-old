@@ -12,5 +12,7 @@ enum UserStatus: Int {
     case unverified = 0
     case verified = 1
     case banned = 2
+    case wewant = 10
+    case notsure = 11
     case special = 99
 }

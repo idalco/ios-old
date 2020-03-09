@@ -107,7 +107,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource, UITa
 
         // Jobs Tab
         case 1:
-            if modelManager.status() == UserStatus.unverified {
+            if modelManager.status() == UserStatus.unverified || modelManager.status() == UserStatus.wewant || modelManager.status() == UserStatus.notsure {
                 let appearance = SCLAlertView.SCLAppearance()
                 let alertView = SCLAlertView(appearance: appearance)
                 
@@ -126,7 +126,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource, UITa
             break
         // Calendar Tab
         case 2:
-            if modelManager.status() == UserStatus.unverified {
+            if modelManager.status() == UserStatus.unverified || modelManager.status() == UserStatus.wewant || modelManager.status() == UserStatus.notsure {
                 let appearance = SCLAlertView.SCLAppearance()
                 let alertView = SCLAlertView(appearance: appearance)
                 
@@ -145,7 +145,7 @@ class SettingsTabVC: TabmanViewController, PageboyViewControllerDataSource, UITa
             break
         // Updates Tab
         case 3:
-            if modelManager.status() == UserStatus.unverified {
+            if modelManager.status() == UserStatus.unverified || modelManager.status() == UserStatus.wewant || modelManager.status() == UserStatus.notsure {
                 let appearance = SCLAlertView.SCLAppearance()
                 let alertView = SCLAlertView(appearance: appearance)
                 

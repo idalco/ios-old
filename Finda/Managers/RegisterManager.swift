@@ -27,7 +27,7 @@ class RegisterManager {
                 
                 var contentViewController  = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
                 let modelManager = ModelManager()
-                if modelManager.status() == UserStatus.unverified {
+                if modelManager.status() == UserStatus.unverified || modelManager.status() == UserStatus.wewant || modelManager.status() == UserStatus.notsure {
                     contentViewController = storyboard.instantiateViewController(withIdentifier: "Settings")
                 }
                 
@@ -46,8 +46,6 @@ class RegisterManager {
         
         FindaAPISession(target: .registerClient(mail: mail, pass: pass, firstname: firstname, lastname: lastname, telephone: telephone, occupation: occupation, company_name: company_name, company_website: company_website, country: country)) { (response, result) in
             if(response){
-//                _ = ModelManager(data: result)
-//                CoreDataManager.printEntity(entity: "User")
                 let defaults = UserDefaults.standard
                 defaults.set(result["userdata"]["token"].string, forKey: "access_token_auth")
                 completion(response, result)
