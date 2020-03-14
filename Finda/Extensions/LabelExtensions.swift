@@ -19,4 +19,42 @@ extension UILabel {
             attributedText = attributedString
         }
     }
+    
+
+    func addImageWith(name: String, behindText: Bool, isSystemName: Bool) {
+
+        let attachment = NSTextAttachment()
+        if isSystemName {
+            if #available(iOS 13.0, *) {
+                attachment.image = UIImage(systemName: name)
+            } else {
+                // Fallback on earlier versions
+                attachment.image = UIImage(named: name)
+            }
+        } else {
+            attachment.image = UIImage(named: name)
+        }
+        let attachmentString = NSAttributedString(attachment: attachment)
+
+        guard let txt = self.text else {
+            return
+        }
+
+        if behindText {
+            let strLabelText = NSMutableAttributedString(string: txt)
+            strLabelText.append(attachmentString)
+            self.attributedText = strLabelText
+        } else {
+            let strLabelText = NSAttributedString(string: txt)
+            let mutableAttachmentString = NSMutableAttributedString(attributedString: attachmentString)
+            mutableAttachmentString.append(strLabelText)
+            self.attributedText = mutableAttachmentString
+        }
+    }
+
+    func removeImage() {
+        let text = self.text
+        self.attributedText = nil
+        self.text = text
+    }
 }

@@ -429,7 +429,7 @@ class PersonalDetailsVC: FormViewController {
     }
 
     
-    func validateRow(tag: String){
+    func validateRow(tag: String) {
         let row: BaseRow? = form.rowBy(tag: tag)
         _ = row?.validate()
     }

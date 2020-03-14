@@ -156,7 +156,13 @@ extension InvoiceVC: UITableViewDelegate, UITableViewDataSource, SFSafariViewCon
         
         cell.invoiceNumber.text = "FND-C\(invoice.id)"
         
-        cell.paid.text = invoice.transaction_id == "" ? "UNPAID" : "PAID"
+        if invoice.status == 2 {
+            cell.paid.text = "PAID"
+            cell.paid.addImageWith(name: "checkmark.circle", behindText: true, isSystemName: true)
+        } else {
+            cell.paid.text =  "UNPAID"
+        }
+        
         
         cell.layoutIfNeeded()
         return cell
