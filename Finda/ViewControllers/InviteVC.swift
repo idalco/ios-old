@@ -12,12 +12,10 @@ import DCKit
 
 class InviteVC: UIViewController {
     
-    @IBOutlet weak var leadImage: UIImageView!
     @IBOutlet weak var referralButton: DCBorderedButton!
     @IBOutlet weak var referralsLabel: UILabel!
-    @IBOutlet weak var daysLabel: UILabel!
-    @IBOutlet weak var daysLabelContent: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var uniqueCodeText: UILabel!
     
     var referralsArray: [Referral] = []
     
@@ -26,26 +24,11 @@ class InviteVC: UIViewController {
         
         referralButton.addTarget(self, action:#selector(self.share), for: UIControl.Event.touchUpInside)
 
-        leadImage.layer.masksToBounds = true
-        leadImage.layer.cornerRadius = leadImage.bounds.width / 2
+        self.title = "RECOMMEND FRIENDS"
         
-        daysLabel.layer.masksToBounds = true
-        daysLabel.layer.cornerRadius = daysLabel.bounds.width / 2
-        
-        self.title = "Invite Friends"
-        
-        let startDate = Date()
-        let endDateString = "15.03.2020"
-
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
 
-        if let endDate = formatter.date(from: endDateString) {
-            let components = Calendar.current.dateComponents([.day], from: startDate, to: endDate)
-            daysLabelContent.text = "\(components.day!)d left"
-        } else {
-            daysLabelContent.text = ""
-        }
                 
         // Do any additional setup after loading the view.
         
@@ -54,7 +37,12 @@ class InviteVC: UIViewController {
                 
                 let verifiedCount = result["userdata"]["verified"].intValue
                 if verifiedCount > 0 {
-                    self.referralsLabel.text = "Successful referrals (\(verifiedCount))"
+                    self.referralsLabel.text = "SUCCESSFUL RECOMMENDATIONS (\(verifiedCount))".uppercased()
+                    
+                    var plural = "friend"
+                    if verifiedCount > 1 {
+                        plural = plural + "s"
+                    }
                 
                     for referral in result["userdata"]["referrals"].arrayValue {
                         self.referralsArray.append(Referral(data: referral))
@@ -69,6 +57,10 @@ class InviteVC: UIViewController {
         }
         
         
+        let attributedWithTextColor: NSAttributedString = "Use your unique code below to invite models and talent to our community.\n\nWe curate and nurture our community with trust, and will carefully review applications that include your code.".attributedStringWithColor(["unique", "code"], color: UIColor.FindaColours.Burgundy)
+
+        uniqueCodeText.attributedText = attributedWithTextColor
+        
         
     }
     
@@ -79,7 +71,7 @@ class InviteVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         let modelManager = ModelManager()
-        referralButton.setTitle("Your personal referral code: \(modelManager.referrerCode())", for: .normal)
+        referralButton.setTitle("\(modelManager.referrerCode())", for: .normal)
         
         self.collectionView.reloadData()
     }
@@ -169,4 +161,20 @@ extension InviteVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     
+}
+
+extension String {
+    func attributedStringWithColor(_ strings: [String], color: UIColor, characterSpacing: UInt? = nil) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        for string in strings {
+            let range = (self as NSString).range(of: string)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        }
+
+        guard let characterSpacing = characterSpacing else {return attributedString}
+
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: characterSpacing, range: NSRange(location: 0, length: attributedString.length))
+
+        return attributedString
+    }
 }

@@ -126,7 +126,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                          "Payments",
                          "Calendar",
                          "Invite Friends",
-                         "FindaVoices",
+                         "FINDA Voices",
                          "Podcast",
                          "FAQ",
                          "Support",

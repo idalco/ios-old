@@ -36,7 +36,8 @@ extension UIColor {
         static let White = UIColor(rgb: 0xFEFEFE)
         static let Black = UIColor(rgb: 0x010101)   //
         static let Pink = UIColor(rgb: 0x7A3147)    // d71e82
-        static let Burgundy = UIColor(rgb: 0x7A3147)
+//        static let Burgundy = UIColor(rgb: 0x7A3147)
+        static let Burgundy = UIColor(rgb: 0xFF4040)
         static let LightGreen = UIColor(rgb: 0xFFFFFF)  // d5e1df
         static let LighterGreen = UIColor(rgb: 0xFFFFFF)    // dde7e5
         static let PaleGreen = UIColor(rgb: 0xE7EDED)

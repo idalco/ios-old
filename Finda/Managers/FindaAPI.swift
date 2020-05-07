@@ -69,6 +69,7 @@ enum FindaAPI {
     case userDetails
     case getLastMinute
     case getReferrals
+    case getCommunityPosts
     
 }
 
@@ -168,7 +169,10 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return "/flagNotification"
         case .getReferrals:
             return "/getReferrals"
+        case .getCommunityPosts:
+            return "/getCommunityPosts"
         }
+        
     }
     
     var method: Moya.Method {
@@ -179,7 +183,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
             return .post
             
         // methods requiring GET
-        case .userDetails, .getJobs, .getModelInvoices, .getCalendar, .getCalendarEntriesForDate, .getLastMinute, .getReferrals:
+        case .userDetails, .getJobs, .getModelInvoices, .getCalendar, .getCalendarEntriesForDate, .getLastMinute, .getReferrals, .getCommunityPosts:
             return .get
         }
     }
@@ -493,6 +497,8 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         case .getReferrals:
             return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
 
+        case .getCommunityPosts:
+            return .requestParameters(parameters: p, encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }

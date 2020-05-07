@@ -17,6 +17,7 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var supportButton: UIBarButtonItem!
     
     @IBOutlet weak var availabilityPanel: UIView!
+    @IBOutlet weak var availabilityPanelBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var showHideAvailabilityButton: UILabel!
     
@@ -64,48 +65,48 @@ class HomePageVC: UIViewController {
        
         referralCode.addTarget(self, action: #selector(tapReferralCode), for: .touchUpInside)
         
-        let tapRec = UITapGestureRecognizer(target: self, action: #selector(HomePageVC.showHideAvailabilityPanel))
-        showHideAvailabilityButton.addGestureRecognizer(tapRec)
-        showHideAvailabilityButton.isUserInteractionEnabled = true
+//        let tapRec = UITapGestureRecognizer(target: self, action: #selector(HomePageVC.showHideAvailabilityPanel))
+//        showHideAvailabilityButton.addGestureRecognizer(tapRec)
+//        showHideAvailabilityButton.isUserInteractionEnabled = true
         
-        showHideAvailabilityPanel()
+//        showHideAvailabilityPanel()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "HOME"
 
-        edgesForExtendedLayout = []
+//        edgesForExtendedLayout = []
         
-        openTabHeight = showHideAvailabilityButton.frame.height
+//        openTabHeight = showHideAvailabilityButton.frame.height
 
-        availabilityPanel.translatesAutoresizingMaskIntoConstraints = false
+//        availabilityPanel.translatesAutoresizingMaskIntoConstraints = false
 
-        availabilityPanel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
-        
-        self.view.layoutIfNeeded()
-
-        let tabbarHeight = self.tabBarController?.getHeight()
-        let bottom = UIScreen.main.bounds.height
-        let panelHeight = availabilityPanel.bounds.height
-        let padding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
-        availabilityPanelOpenY = bottom - tabbarHeight! - panelHeight - padding + 14
-
-        if preferences.object(forKey: panelConstant) != nil {
-            let panelState = preferences.string(forKey: panelConstant)
-            
-            if panelState == "open" {
-                availabilityPanelVisible = true
-                availabilityPanel.center.y = availabilityPanelOpenY
-            } else {
-                availabilityPanelVisible = false
-                availabilityPanel.center.y = availabilityPanelClosedY
-            }
-        }
+//        availabilityPanel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         
         self.view.layoutIfNeeded()
-        
-        availabilityPanel.translatesAutoresizingMaskIntoConstraints = true
+
+//        let tabbarHeight = self.tabBarController?.getHeight()
+//        let bottom = UIScreen.main.bounds.height
+//        let panelHeight = availabilityPanel.bounds.height
+//        let padding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+//        availabilityPanelOpenY = bottom - tabbarHeight! - panelHeight - padding + 14
+//
+//        if preferences.object(forKey: panelConstant) != nil {
+//            let panelState = preferences.string(forKey: panelConstant)
+//
+//            if panelState == "open" {
+//                availabilityPanelVisible = true
+//                availabilityPanel.center.y = availabilityPanelOpenY
+//            } else {
+//                availabilityPanelVisible = false
+//                availabilityPanel.center.y = availabilityPanelClosedY
+//            }
+//        }
+//
+//        self.view.layoutIfNeeded()
+//
+//        availabilityPanel.translatesAutoresizingMaskIntoConstraints = true
         
         self.setAvailabilityButtons()
     }
@@ -177,7 +178,7 @@ class HomePageVC: UIViewController {
     private func setButtonInfo() {
         
         let buttonText: [String] = ["", "", ""]
-        let buttonColours: [UIColor] = [UIColor.FindaColours.White, UIColor.FindaColours.Pink, UIColor.FindaColours.Black]
+        let buttonColours: [UIColor] = [UIColor.FindaColours.LightGrey, UIColor.FindaColours.Burgundy, UIColor.FindaColours.Black]
         
         var attributes = [NSAttributedString.Key: AnyObject]()
         attributes[.font] = UIFont(name: "Font Awesome 5 Free", size: 24.0)
@@ -268,47 +269,43 @@ class HomePageVC: UIViewController {
     
     
     
-    @objc func showHideAvailabilityPanel() {
-        var attributes = [NSAttributedString.Key: AnyObject]()
-        attributes[.font] = UIFont(name: "Font Awesome 5 Free", size: 17.0)
-        attributes[.foregroundColor] = UIColor.FindaColours.White
-        var attributedString = NSAttributedString(string: "", attributes: attributes)
-        
-        self.view.layoutIfNeeded()
-        
-        if (availabilityPanelVisible == true) {
-            availabilityPanelOpenY = availabilityPanel.center.y
-        } else {
-            availabilityPanelClosedY = availabilityPanel.center.y
-        }
-        
-        if availabilityPanelVisible {
-            availabilityPanel.animHide(offset: openTabHeight + 10, speed: openSpeed)
-            availabilityPanelVisible = false
-            attributedString = NSAttributedString(string: "", attributes: attributes)
-            showHideAvailabilityButton.attributedText = attributedString
-            preferences.set("closed", forKey: panelConstant)
-        } else {
-            availabilityPanel.animShow(offset: openTabHeight + 10, speed: openSpeed)
-            availabilityPanelVisible = true
-            
-            attributedString = NSAttributedString(string: "", attributes: attributes)
-            showHideAvailabilityButton.attributedText = attributedString
-            preferences.set("open", forKey: panelConstant)
-        }
-        
-        self.view.layoutIfNeeded()
-        
-        if (availabilityPanelVisible == true) {
-            availabilityPanelOpenY = availabilityPanel.center.y
-        } else {
-            availabilityPanelClosedY = availabilityPanel.center.y
-        }
-    }
-    
-    
-    
-    
+//    @objc func showHideAvailabilityPanel() {
+//        var attributes = [NSAttributedString.Key: AnyObject]()
+//        attributes[.font] = UIFont(name: "Font Awesome 5 Free", size: 17.0)
+//        attributes[.foregroundColor] = UIColor.FindaColours.White
+//        var attributedString = NSAttributedString(string: "", attributes: attributes)
+//
+//        self.view.layoutIfNeeded()
+//
+//        if (availabilityPanelVisible == true) {
+//            availabilityPanelOpenY = availabilityPanel.center.y
+//        } else {
+//            availabilityPanelClosedY = availabilityPanel.center.y
+//        }
+//
+//        if availabilityPanelVisible {
+//            availabilityPanel.animHide(offset: openTabHeight + 10, speed: openSpeed)
+//            availabilityPanelVisible = false
+//            attributedString = NSAttributedString(string: "", attributes: attributes)
+//            showHideAvailabilityButton.attributedText = attributedString
+//            preferences.set("closed", forKey: panelConstant)
+//        } else {
+//            availabilityPanel.animShow(offset: openTabHeight + 10, speed: openSpeed)
+//            availabilityPanelVisible = true
+//
+//            attributedString = NSAttributedString(string: "", attributes: attributes)
+//            showHideAvailabilityButton.attributedText = attributedString
+//            preferences.set("open", forKey: panelConstant)
+//        }
+//
+//        self.view.layoutIfNeeded()
+//
+//        if (availabilityPanelVisible == true) {
+//            availabilityPanelOpenY = availabilityPanel.center.y
+//        } else {
+//            availabilityPanelClosedY = availabilityPanel.center.y
+//        }
+//    }
     
 }
 

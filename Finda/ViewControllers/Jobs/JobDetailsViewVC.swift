@@ -177,14 +177,20 @@ class JobDetailsViewVC: UIViewController {
                         
                         addToCalendar.isHidden = true
                     } else {
-                        secondaryButton.isHidden = true
 
                         jobStatus.text = "CONFIRMED"
                         addToCalendar.isHidden = false
+                        
+                        secondaryButton.isHidden = false
+                        secondaryButton.setTitle("CANCEL", for: .normal)
+                        secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
+                        
                     }
                     
                 } else {
-                    secondaryButton.isHidden = true
+                    secondaryButton.isHidden = false
+                    secondaryButton.setTitle("CANCEL", for: .normal)
+                    secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                 }
 
                 
@@ -365,7 +371,9 @@ class JobDetailsViewVC: UIViewController {
                 } else {
                     primaryButton.isHidden = true
                     
-                    secondaryButton.isHidden = true
+                    secondaryButton.isHidden = false
+                    secondaryButton.setTitle("CANCEL", for: .normal)
+                    secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                     
                     jobStatus.text = "CONFIRMED"
                     addToCalendar.isHidden = false
@@ -506,7 +514,7 @@ class JobDetailsViewVC: UIViewController {
                     let errorView = SCLAlertView(appearance: appearance)
                     errorView.showError(
                         "Sorry",
-                        subTitle: "Something went wrong talking to the Finda server. Please try again later.")
+                        subTitle: "Something went wrong talking to the FINDA server. Please try again later.")
                 }
             }
         }

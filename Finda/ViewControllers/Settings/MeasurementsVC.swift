@@ -18,6 +18,8 @@ class MeasurementsVC: FormViewController {
     var eyeColourDictionary: [Int: String] = [:]
     var skinToneDictionary: [Int: String] = [:]
     
+    var settingsErrors: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView?.backgroundColor = UIColor.white
@@ -749,61 +751,74 @@ class MeasurementsVC: FormViewController {
         
         let modelManager = ModelManager()
         
+        settingsErrors.removeAll()
+        
         // MARK: female save
         if modelManager.gender() == "female" {
         
             guard let heightRow: BaseRow = form.rowBy(tag: "height"), let height: Int = form.values()["height"] as? Int else {
                 self.validateRow(tag: "height")
+                settingsErrors.append("height")
                 return
             }
         
             guard let bustRow: BaseRow = form.rowBy(tag: "bust"), let bust: Int = form.values()["bust"] as? Int else {
                 self.validateRow(tag: "bust")
+                settingsErrors.append("bust")
                 return
             }
             
             guard let waistRow: BaseRow = form.rowBy(tag: "waist"), let waist: Int = form.values()["waist"] as? Int else {
                 self.validateRow(tag: "waist")
+                settingsErrors.append("waist")
                 return
             }
             
             guard let hipsRow: BaseRow = form.rowBy(tag: "hips"), let hips: Int = form.values()["hips"] as? Int else {
                 self.validateRow(tag: "hips")
+                settingsErrors.append("hips")
                 return
             }
             
             guard let dressSizeRow: BaseRow = form.rowBy(tag: "dress size"), let dressSize: String = form.values()["dress size"] as? String else {
                 self.validateRow(tag: "dress size")
+                settingsErrors.append("dress size")
                 return
             }
             
             guard let shoeSizeRow: BaseRow = form.rowBy(tag: "shoe size"), let shoeSize: String = form.values()["shoe size"] as? String else {
                 self.validateRow(tag: "shoe size")
+                settingsErrors.append("shoe size")
                 return
             }
        
             guard let hairColourRow: BaseRow = form.rowBy(tag: "hair colour"), let hairColour: String = form.values()["hair colour"] as? String else {
                 self.validateRow(tag: "hair colour")
+                settingsErrors.append("hair colour")
                 return
             }
             
             guard let hairTypeRow: BaseRow = form.rowBy(tag: "hair type"), let hairType: String = form.values()["hair type"] as? String else {
                 self.validateRow(tag: "hair type")
+                settingsErrors.append("hair type")
                 return
             }
             
             guard let hairLengthRow: BaseRow = form.rowBy(tag: "hair length"), let hairLength: String = form.values()["hair length"] as? String else {
                 self.validateRow(tag: "hair length")
+                settingsErrors.append("hair length")
                 return
             }
             
             guard let eyeColourRow: BaseRow = form.rowBy(tag: "eye colour"), let eyeColour: String = form.values()["eye colour"] as? String else {
                 self.validateRow(tag: "eye colour")
+                settingsErrors.append("eye colour")
                 return
             }
             
             guard let skinToneRow: BaseRow = form.rowBy(tag: "skin tone"), let skinTone: String = form.values()["skin tone"] as? String else {
                 self.validateRow(tag: "skin tone")
+                settingsErrors.append("skin tone")
                 return
             }
             
@@ -855,16 +870,14 @@ class MeasurementsVC: FormViewController {
             let brasize: Int = form.values()["brasize"] as? Int ?? 0
             
             guard let cupsizeRow: BaseRow = form.rowBy(tag: "cupsize"), let cupsize: String = form.values()["cupsize"] as? String else {
-              self.validateRow(tag: "cupsize")
-              return
+                self.validateRow(tag: "cupsize")
+                settingsErrors.append("cup size")
+                return
             }
             
             guard let cupsizeId = Measurements.cupSizesArray.allKeysForValue(val: cupsize).first else {
                 return
             }
-            
-//            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
-//            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
             
             let hourlyrate = 0
             let dailyrate = 0
@@ -883,57 +896,68 @@ class MeasurementsVC: FormViewController {
             // male
             guard let heightRow: BaseRow = form.rowBy(tag: "height"), let height: Int = form.values()["height"] as? Int else {
                 self.validateRow(tag: "height")
+                settingsErrors.append("height")
                 return
             }
             
             guard let _: BaseRow = form.rowBy(tag: "chest"), let chestSize: Int = form.values()["chest"] as? Int else {
                 self.validateRow(tag: "chest")
+                settingsErrors.append("chest")
                 return
             }
             
             guard let _: BaseRow = form.rowBy(tag: "collar size"), let collarSize: String = form.values()["collar size"] as? String else {
                 self.validateRow(tag: "collar size")
+                settingsErrors.append("collar size")
                 return
             }
    
             guard let _: BaseRow = form.rowBy(tag: "waist"), let waistSize: Int = form.values()["waist"] as? Int else {
                 self.validateRow(tag: "waist")
+                settingsErrors.append("waist")
                 return
             }
             
             guard let suitSizeRow: BaseRow = form.rowBy(tag: "suit size"), let suitSize: String = form.values()["suit size"] as? String else {
                 self.validateRow(tag: "suit size")
+                settingsErrors.append("suit size")
                 return
             }
             
             guard let shoeSizeRow: BaseRow = form.rowBy(tag: "shoe size"), let shoeSize: String = form.values()["shoe size"] as? String else {
                 self.validateRow(tag: "shoe size")
+                settingsErrors.append("shoe size")
                 return
             }
             
             guard let hairColourRow: BaseRow = form.rowBy(tag: "hair colour"), let hairColour: String = form.values()["hair colour"] as? String else {
                 self.validateRow(tag: "hair colour")
+                settingsErrors.append("hair colour")
                 return
             }
             
             guard let hairTypeRow: BaseRow = form.rowBy(tag: "hair type"), let hairType: String = form.values()["hair type"] as? String else {
                 self.validateRow(tag: "hair type")
+                settingsErrors.append("hair type")
                 return
             }
             
             
             guard let hairLengthRow: BaseRow = form.rowBy(tag: "hair length"), let hairLength: String = form.values()["hair length"] as? String else {
                 self.validateRow(tag: "hair length")
+                settingsErrors.append("hair length")
                 return
             }
             
             guard let eyeColourRow: BaseRow = form.rowBy(tag: "eye colour"), let eyeColour: String = form.values()["eye colour"] as? String else {
                 self.validateRow(tag: "eye colour")
+                settingsErrors.append("eye colour")
                 return
             }
             
             guard let _: BaseRow = form.rowBy(tag: "skin tone"), let skinTone: String = form.values()["skin tone"] as? String else {
                 self.validateRow(tag: "skin tone")
+                settingsErrors.append("skin tone")
                 return
             }
             guard let skinToneId = skinToneDictionary.allKeysForValue(val: skinTone).first else {
@@ -980,9 +1004,6 @@ class MeasurementsVC: FormViewController {
             guard let hairLengthId = hairLengthDictionary.allKeysForValue(val: hairLength).first else {
                 return
             }
-            
-//            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
-//            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
             
             let hourlyrate = 0
             let dailyrate = 0
@@ -1097,9 +1118,6 @@ class MeasurementsVC: FormViewController {
               return
             }
 
-//            let hourlyrate: Int = form.values()["hourlyrate"] as? Int ?? 0
-//            let dailyrate: Int = form.values()["dailyrate"] as? Int ?? 0
-            
             let hourlyrate = 0
             let dailyrate = 0
 

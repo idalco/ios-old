@@ -11,32 +11,6 @@ import Eureka
 
 class PickerDelegate {
     
-//    static func addPickerData(term: TermDataManager.TermData, rowTitle: String, coreData: Int, completion: @escaping (_ response: Bool, _ result: PickerInlineRow<String>) -> ()){
-//        var dictionary: [Int: String] = [:]
-//        FindaAPISession(target: .termData(term: term)) { (response, result) in
-//            if(response){
-//                for element in result["userdata"].dictionaryValue {
-//                    dictionary[element.value["tid"].intValue] = element.value["name"].stringValue
-//                }
-//
-//                let row =  PickerInlineRow<String>() { row in
-//                    row.title = rowTitle
-//                    if row.value == nil && coreData != -1 {
-//                        row.value = dictionary[coreData] ?? ""
-//                    }
-//                    row.options = Array(dictionary.values)
-//                }
-//                completion(true, row)
-//                return
-//
-//
-//            } else {
-//                completion(false, PickerInlineRow())
-//            }
-//
-//        }
-//    }
-    
     static func addPickerData(term: TermDataManager.TermData, rowTitle: String, coreData: Int, completion: @escaping (_ response: Bool, _ result: PickerInputRow<String>, _ dictionary: [Int: String]) -> ()){
         var dictionary: [Int: String] = [:]
         FindaAPISession(target: .termData(term: term)) { (response, result) in
