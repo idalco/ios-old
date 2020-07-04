@@ -51,39 +51,39 @@
                                 <rect key="frame" x="0.0" y="448" width="414" height="448"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b7T-Kd-UdO">
-                                <rect key="frame" x="120.33333333333333" y="153.66666666666669" width="173.33333333333337" height="140.66666666666669"/>
+                                <rect key="frame" x="129.66666666666666" y="156.66666666666669" width="154.99999999999997" height="134.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByO-y0-W8m">
-                                        <rect key="frame" x="0.0" y="0.0" width="173.33333333333334" height="7.333333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="7"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="6"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOk-k0-Zmf">
-                                        <rect key="frame" x="0.0" y="7.3333333333333419" width="173.33333333333334" height="8.6666666666666643"/>
+                                        <rect key="frame" x="0.0" y="7.0000000000000009" width="155" height="8.3333333333333357"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="7"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="I AM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAp-So-TUD">
-                                        <rect key="frame" x="0.0" y="16" width="173.33333333333334" height="66"/>
+                                        <rect key="frame" x="0.0" y="15.333333333333343" width="155" height="63"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="54"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A MODEL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MT6-P4-cPO">
-                                        <rect key="frame" x="0.0" y="82" width="173.33333333333334" height="42.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="78.333333333333343" width="155" height="41"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eem-SY-8Dx">
-                                        <rect key="frame" x="0.0" y="124.66666666666667" width="173.33333333333334" height="8.6666666666666714"/>
+                                        <rect key="frame" x="0.0" y="119.33333333333334" width="155" height="8.3333333333333286"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="7"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhZ-2G-kzP">
-                                        <rect key="frame" x="0.0" y="133.33333333333334" width="173.33333333333334" height="7.3333333333333428"/>
+                                        <rect key="frame" x="0.0" y="127.66666666666666" width="155" height="7"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="6"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,39 +92,39 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Oym-Em-ln9">
-                                <rect key="frame" x="120.33333333333333" y="601.66666666666663" width="173.33333333333337" height="140.66666666666663"/>
+                                <rect key="frame" x="129.66666666666666" y="604.66666666666663" width="154.99999999999997" height="134.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aJ-Q9-ib9">
-                                        <rect key="frame" x="0.0" y="0.0" width="173.33333333333334" height="7.333333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="7"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="6"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbM-MY-M8C">
-                                        <rect key="frame" x="0.0" y="7.3333333333333703" width="173.33333333333334" height="8.6666666666666643"/>
+                                        <rect key="frame" x="0.0" y="7.0000000000000009" width="155" height="8.3333333333333357"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="7"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIND" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzz-or-OIh">
-                                        <rect key="frame" x="0.0" y="16" width="173.33333333333334" height="66"/>
+                                        <rect key="frame" x="0.0" y="15.333333333333371" width="155" height="63"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="54"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A MODEL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWf-GG-eLv">
-                                        <rect key="frame" x="0.0" y="82" width="173.33333333333334" height="42.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="78.333333333333371" width="155" height="41"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFu-34-Srm">
-                                        <rect key="frame" x="0.0" y="124.66666666666676" width="173.33333333333334" height="8.6666666666666714"/>
+                                        <rect key="frame" x="0.0" y="119.33333333333337" width="155" height="8.3333333333333286"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="7"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7w-9m-nGg">
-                                        <rect key="frame" x="0.0" y="133.33333333333337" width="173.33333333333334" height="7.3333333333333428"/>
+                                        <rect key="frame" x="0.0" y="127.66666666666674" width="155" height="7"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="6"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -232,17 +232,17 @@
                                 <rect key="frame" x="32" y="96" width="350" height="134"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN TO YOUR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRt-eM-mIp">
-                                <rect key="frame" x="16" y="246" width="382" height="21"/>
+                                <rect key="frame" x="16" y="246" width="382" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMn-go-cwV">
-                                <rect key="frame" x="16" y="313" width="382" height="18"/>
+                                <rect key="frame" x="16" y="312" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-gm-5v7">
-                                <rect key="frame" x="16" y="339" width="382" height="50"/>
+                                <rect key="frame" x="16" y="338" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.47058823529999999" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -257,12 +257,12 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlT-2b-Dub">
-                                <rect key="frame" x="16" y="419" width="382" height="18"/>
+                                <rect key="frame" x="16" y="418" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUK-9N-Tpt">
-                                <rect key="frame" x="16" y="445" width="382" height="50"/>
+                                <rect key="frame" x="16" y="444" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.47058823529999999" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -277,7 +277,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-wb-aaJ" customClass="DCBorderedButton" customModule="DCKit">
-                                <rect key="frame" x="80" y="544" width="254" height="50.666666666666629"/>
+                                <rect key="frame" x="80" y="543" width="254" height="50.666666666666629"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aJN-wb-aaJ" secondAttribute="height" multiplier="343:50" constant="-93.699999999999989" id="7Oh-Ou-e5z"/>
@@ -302,7 +302,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBa-sh-Jt0">
-                                <rect key="frame" x="121.66666666666669" y="821" width="171" height="31"/>
+                                <rect key="frame" x="127.66666666666669" y="822" width="159" height="30"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="FORGOT PASSWORD?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -385,7 +385,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UtX-c1-HUZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="779"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go6-UV-xWX">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="954"/>
@@ -589,7 +589,7 @@
                                 </constraints>
                             </scrollView>
                             <tabBar contentMode="center" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3C-6M-bHt" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="CaS-mu-5i8" userLabel="HomeTab">
@@ -2759,7 +2759,7 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWe-0j-KzY" customClass="DCBorderedButton" customModule="DCKit">
-                                <rect key="frame" x="151" y="814" width="112" height="40"/>
+                                <rect key="frame" x="153.66666666666666" y="814" width="106.99999999999997" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Am4-8G-DDK"/>
                                 </constraints>
@@ -2797,13 +2797,13 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat with ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jd-K2-l03">
-                                <rect key="frame" x="64" y="64" width="286" height="22"/>
+                                <rect key="frame" x="64" y="65" width="286" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Co-8Q-dSu" userLabel="Table View Chat Collection">
-                                <rect key="frame" x="0.0" y="186.33333333333334" width="414" height="511.66666666666663"/>
+                                <rect key="frame" x="0.0" y="183.33333333333331" width="414" height="514.66666666666674"/>
                                 <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -2878,7 +2878,7 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHB-q3-YAJ" customClass="CopyableLabel" customModule="FINDA" customModuleProvider="target">
-                                                            <rect key="frame" x="4" y="7.9999999999999982" width="274" height="17.333333333333329"/>
+                                                            <rect key="frame" x="4" y="7.9999999999999982" width="274" height="16.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2945,7 +2945,7 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                 <rect key="frame" x="366" y="720" width="32" height="78"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpD-aO-gKC">
-                                        <rect key="frame" x="7.3333333333333162" y="29" width="17.666666666666671" height="20"/>
+                                        <rect key="frame" x="4.6666666666666856" y="27.333333333333371" width="23" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2958,10 +2958,10 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfn-5Q-Fnm" userLabel="warning notice">
-                                <rect key="frame" x="0.0" y="94" width="414" height="84.333333333333314"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="81.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZ2-1h-GxY">
-                                        <rect key="frame" x="8" y="8" width="398" height="68.333333333333329"/>
+                                        <rect key="frame" x="8" y="8" width="398" height="65.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">For your safety, protection and professionalism, use this secure messenger to discuss your booking or casting. FINDA will not be able to participate in a dispute or chasing payment if you communicate outside FINDA.</string>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
@@ -3334,7 +3334,7 @@ The clients will begin using the FINDA booking platform consistently if we can o
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xlJ-EW-Kzk">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="691"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="H0b-bp-TV6" customClass="InvoiceTVC" customModule="FINDA" customModuleProvider="target">
@@ -3354,13 +3354,13 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02 Sep, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BFI-eL-7Ym">
-                                                    <rect key="frame" x="321.66666666666669" y="11" width="72.333333333333314" height="14.333333333333336"/>
+                                                    <rect key="frame" x="321.66666666666669" y="11" width="72.333333333333314" height="14"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="{description}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UKE-MV-MCi">
-                                                    <rect key="frame" x="20" y="52" width="74.666666666666671" height="17"/>
+                                                    <rect key="frame" x="20" y="52" width="68" height="17"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3372,7 +3372,7 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAYMENT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="DoS-TA-220">
-                                                    <rect key="frame" x="334.66666666666669" y="30" width="59.333333333333314" height="14"/>
+                                                    <rect key="frame" x="339" y="30" width="55" height="14"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3411,7 +3411,7 @@ The clients will begin using the FINDA booking platform consistently if we can o
                                 </connections>
                             </tableView>
                             <tabBar contentMode="center" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpD-tI-Xss" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="J2T-Yy-Afw" userLabel="HomeTab">
@@ -4426,7 +4426,7 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleAspectFit" translucent="NO" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="NJA-v6-zdn" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="Flh-5f-c9j" userLabel="HomeTab">
@@ -4521,20 +4521,20 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FindaLogoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Pq3-3f-Foc">
-                                <rect key="frame" x="32" y="52" width="350" height="67"/>
+                                <rect key="frame" x="32" y="52" width="350" height="134"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT YOUR PASSWORD?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkm-f9-60I">
-                                <rect key="frame" x="16" y="135" width="382" height="21"/>
+                                <rect key="frame" x="16" y="202" width="382" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLc-hb-h3e">
-                                <rect key="frame" x="16" y="202" width="382" height="18"/>
+                                <rect key="frame" x="16" y="268" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iXb-9l-u1t">
-                                <rect key="frame" x="16" y="228" width="382" height="50"/>
+                                <rect key="frame" x="16" y="294" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hYa-WC-6DT"/>
@@ -4603,11 +4603,11 @@ Cg
         <scene sceneID="PSp-zk-KO2">
             <objects>
                 <viewController id="UQL-vC-2ah" userLabel="CalendarVC" customClass="CalendarVC" customModule="FINDA" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Aj6-0N-k0c">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <view key="view" contentMode="scaleToFill" id="Aj6-0N-k0c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTACMonthView" customModule="JTAppleCalendar">
                                 <rect key="frame" x="16" y="8" width="382" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -4740,29 +4740,29 @@ Cg
                                     <outlet property="ibCalendarDelegate" destination="UQL-vC-2ah" id="bXg-3G-5QQ"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
-                                <rect key="frame" x="16" y="401.66666666666674" width="382" height="274.33333333333326"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
+                                <rect key="frame" x="16" y="400.66666666666674" width="382" height="275.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todayTableCell" id="ZVp-EW-Mhj" customClass="TodayTableCell" customModule="FINDA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="42.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVp-EW-Mhj" id="Seu-Hh-J7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="42.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-DM-nos">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="42.666666666666664"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYJ-IH-W5k" userLabel="Entry Title">
-                                                            <rect key="frame" x="8" y="8" width="366" height="18"/>
+                                                            <rect key="frame" x="8" y="8.0000000000000018" width="366" height="16.666666666666671"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                             <color key="textColor" name="Burgundy"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t1-NE-gqB" userLabel="Description">
-                                                            <rect key="frame" x="8" y="26" width="366" height="10"/>
+                                                            <rect key="frame" x="8" y="24.666666666666668" width="366" height="10.000000000000004"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="jLD-l0-b79"/>
@@ -4772,7 +4772,7 @@ Cg
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-oJ-r2C" userLabel="From To">
-                                                            <rect key="frame" x="8" y="36" width="366" height="0.0"/>
+                                                            <rect key="frame" x="8" y="34.666666666666664" width="366" height="0.0"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4808,13 +4808,13 @@ Cg
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-ru-ym2">
-                                <rect key="frame" x="16" y="374" width="382" height="19.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-ru-ym2">
+                                <rect key="frame" x="16" y="374" width="382" height="18.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-pT-CD4" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-pT-CD4" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="330" y="16" width="60" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="v0M-K5-foa"/>
@@ -4832,8 +4832,8 @@ Cg
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
-                                <rect key="frame" x="16" y="401.66666666666674" width="382" height="274.33333333333326"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
+                                <rect key="frame" x="16" y="400.66666666666674" width="382" height="275.33333333333326"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="TopLeft" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="If6-md-RAm" customClass="PaddingLabel" customModule="FINDA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="180"/>
@@ -5399,7 +5399,7 @@ The possibilities are endless - there is no maximum number of bookings within th
         </scene>
     </scenes>
     <resources>
-        <image name="2020taglineinvert" width="414.5" height="62"/>
+        <image name="2020taglineinvert" width="483.5" height="93.5"/>
         <image name="FindaLogoBlack" width="385" height="67"/>
         <image name="back_chevron" width="112" height="192"/>
         <image name="briefcase" catalog="system" width="64" height="50"/>
