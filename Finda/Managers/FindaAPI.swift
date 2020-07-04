@@ -9,7 +9,8 @@ import SwiftyJSON
 
 
 let FindaAPIManager = MoyaProvider<FindaAPI>( plugins: [
-    NetworkLoggerPlugin(verbose: true),
+    NetworkLoggerPlugin(),
+    VerbosePlugin(verbose: true),
     FindaHMACPlugin(),
     FindaTokenPlugin(tokenClosure: accessToken())
     ])
@@ -504,7 +505,7 @@ extension FindaAPI: TargetType, AccessTokenAuthorizable {
         }
     }
     
-    var authorizationType: AuthorizationType {
+    var authorizationType: AuthorizationType? {
         switch self {
         case .login:
             return .none
@@ -568,4 +569,37 @@ extension Date {
     func endOfMonth() -> Date {
         return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
     }
+}
+
+struct VerbosePlugin: PluginType {
+    let verbose: Bool
+
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        if let body = request.httpBody,
+           let str = String(data: body, encoding: .utf8) {
+            if verbose {
+                print("Request to send: \(str))")
+            }
+        }
+        return request
+    }
+    
+    func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
+        
+        switch result {
+        case .success(let body):
+            if verbose {
+                print("Response:")
+                if let json = try? JSONSerialization.jsonObject(with: body.data, options: .mutableContainers) {
+                    print(json)
+                } else {
+                    let response = String(data: body.data, encoding: .utf8)!
+                    print(response)
+                }
+            }
+        case .failure( _):
+            break
+        }
+    }
+    
 }

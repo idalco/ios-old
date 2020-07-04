@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
                         alertView.showTitle(
                             "New Version Available",
-                            subTitle: "There is a new version of the FINDA App available. Please update to access the new features.",
+                            subTitle: "There is a new version of the Idal App available. Please update to access the new features.",
                             style: .warning,
                             closeButtonTitle: "OK",
                             colorStyle: 0x010101,

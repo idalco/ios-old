@@ -84,6 +84,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
+  - Hero (1.5.0)
   - IQKeyboardManagerSwift (6.5.5)
   - JTAppleCalendar (8.0.3)
   - Moya (14.0.0):
@@ -123,6 +124,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/Messaging
+  - Hero
   - IQKeyboardManagerSwift
   - JTAppleCalendar
   - Moya
@@ -156,6 +158,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - Hero
     - IQKeyboardManagerSwift
     - JTAppleCalendar
     - Moya
@@ -194,6 +197,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
   GoogleDataTransportCCTSupport: 489c1265d2c85b68187a83a911913d190012158d
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
@@ -212,6 +216,6 @@ SPEC CHECKSUMS:
   Tabman: 6cff148419c5d8812d0e9f08f93b6f1c6ba54502
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 208f706153532307b481df49ec907e1fe7ff488f
+PODFILE CHECKSUM: 7b6f9ea71f810d11bc8cf0fc749b4540d4a8b2fc
 
 COCOAPODS: 1.9.2

@@ -94,7 +94,7 @@ class InviteVC: UIViewController {
 
         let modelManager = ModelManager()
             
-        let textToShare = "I would like to invite you to model on FINDA, a smart and transparent model booking platform where you are in charge of your own bookings and receive quick payments. Click here to move faster through the waiting list: https://finda.co/?aff_id=\(modelManager.referrerCode()) or make sure to use my referral code if signing up via the app: \(modelManager.referrerCode())."
+        let textToShare = "I would like to invite you to model on Idal, a smart and transparent model booking platform where you are in charge of your own bookings and receive quick payments. Click here to move faster through the waiting list: https://finda.co/?aff_id=\(modelManager.referrerCode()) or make sure to use my referral code if signing up via the app: \(modelManager.referrerCode())."
 
         if let myWebsite = URL(string: "https://finda.co/?aff_id=\(modelManager.referrerCode())") {
             let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "FindaLogoBlack")] as [Any]

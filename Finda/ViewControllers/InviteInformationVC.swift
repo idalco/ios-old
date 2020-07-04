@@ -29,7 +29,7 @@ class InviteInformationVC: UIViewController {
         let line2 = NSMutableAttributedString(string: "hundreds of bookings monthly")
         let line3 = NSMutableAttributedString(string: ". They sign up with us because they need a new, efficient and fair way to work with models like you.\n\n")
 
-        let line4 = NSMutableAttributedString(string: "The clients will begin using the FINDA booking platform consistently if we can offer them much more available talent to choose from, this is why we need your help!")
+        let line4 = NSMutableAttributedString(string: "The clients will begin using the Idal booking platform consistently if we can offer them much more available talent to choose from, this is why we need your help!")
 
         let line5 = NSMutableAttributedString(string: "You only receive points for ")
         let line6 = NSMutableAttributedString(string: "verified")

@@ -81,7 +81,7 @@ class JobDetailsViewVC: UIViewController {
         
         let url = URL(string: "\(domainURL)/avatar/thumb\(job.avatar)")
         
-        Alamofire.request(url!, method: .get)
+        AF.request(url!, method: .get)
             .validate()
             .responseData(completionHandler: { (responseData) in
                 self.clientLogo.image = UIImage(data: responseData.data!)
@@ -514,7 +514,7 @@ class JobDetailsViewVC: UIViewController {
                     let errorView = SCLAlertView(appearance: appearance)
                     errorView.showError(
                         "Sorry",
-                        subTitle: "Something went wrong talking to the FINDA server. Please try again later.")
+                        subTitle: "Something went wrong talking to the Idal server. Please try again later.")
                 }
             }
         }
@@ -585,7 +585,7 @@ class JobDetailsViewVC: UIViewController {
                     let errorView = SCLAlertView(appearance: appearance)
                     errorView.showError(
                         "Sorry",
-                        subTitle: "Something went wrong talking to the FINDA server. Please try again later.")
+                        subTitle: "Something went wrong talking to the Idal server. Please try again later.")
                 }
             }
         }

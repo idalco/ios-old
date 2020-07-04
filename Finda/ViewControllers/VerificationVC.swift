@@ -24,7 +24,7 @@ class VerificationVC: UIViewController {
 //
 //        let name = NSMutableAttributedString(string: modelManager.firstName())
 //
-//        let line1 = NSMutableAttributedString(string: ",\n\nThank you for registering with us!\n\nTo make sure everyone gets the best professional experience at FINDA, we verify and approve all models and clients before they can access the full platform.\n\nFor verification ")
+//        let line1 = NSMutableAttributedString(string: ",\n\nThank you for registering with us!\n\nTo make sure everyone gets the best professional experience at Idal, we verify and approve all models and clients before they can access the full platform.\n\nFor verification ")
 //
 //        let words1 = NSMutableAttributedString(string: "all items")
 //        let line2 = NSMutableAttributedString(string: " below must be submitted:")
