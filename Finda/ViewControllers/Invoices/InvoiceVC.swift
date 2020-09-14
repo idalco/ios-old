@@ -182,7 +182,7 @@ extension InvoiceVC: UITableViewDelegate, UITableViewDataSource, SFSafariViewCon
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if let url = URL(string: "https://finda.co/generate/invoice/\(invoices[indexPath.row].id)") {
+        if let url = URL(string: "https://idal.co/generate/invoice/\(invoices[indexPath.row].id)") {
             let safariVC = SFSafariViewController(url: url)
             self.present(safariVC, animated: true, completion: nil)
             safariVC.delegate = self

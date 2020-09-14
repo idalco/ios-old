@@ -63,7 +63,7 @@ class ClientRegisterVC: FormViewController {
                 view.backgroundColor = UIColor.FindaColours.White
                 let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width, height:80))
                 
-                title.text = "FIND A MODEL"
+                title.text = "Sign up as a Client"
                 title.font = UIFont(name: "Montserrat-Medium", size: 17)
                 view.addSubview(title)
             }
@@ -275,7 +275,7 @@ class ClientRegisterVC: FormViewController {
             
             RegisterManager.client(mail: companyEmail, pass: password, firstname: firstName, lastname: lastname, telephone: telephone, occupation: position, company_name: companyName, company_website: companyWebsite, country: country) { (response, result) in
                 if(response){
-                    let alert = UIAlertController(title: "Idal", message: "Thanks for registering with Idal! At the moment this mobile app is available only for models. Please use your mobile or desktop browsers to access our platform.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "iDAL", message: "Thanks for registering with iDAL! At the moment this mobile app is available only for models. Please use your mobile or desktop browsers to access our platform.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
                         self.performSegue(withIdentifier: "finishSegue", sender: nil)
                     }))

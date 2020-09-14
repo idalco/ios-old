@@ -60,7 +60,7 @@ class HomePageVC: UIViewController {
         
         let modelManager = ModelManager()
         
-        referrerCode.text("finda.co/\(modelManager.referrerCode())")
+        referrerCode.text("idal.co/\(modelManager.referrerCode())")
         referrerCode.addTarget(self, action: #selector(tapReferrerCode), for: .touchUpInside)
        
         referralCode.addTarget(self, action: #selector(tapReferralCode), for: .touchUpInside)
@@ -255,7 +255,7 @@ class HomePageVC: UIViewController {
     
     @objc private func tapReferrerCode() {
         let modelManager = ModelManager()
-        UIPasteboard.general.string = "https;//finda.co/\(modelManager.referrerCode())"
+        UIPasteboard.general.string = "https://idal.co/\(modelManager.referrerCode())"
         let alert = UIAlertController(title: "", message: "Code copied to clipboard", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
         }))
@@ -267,45 +267,6 @@ class HomePageVC: UIViewController {
         smc?.setContentViewController(with: "InviteNav", animated: true)
     }
     
-    
-    
-//    @objc func showHideAvailabilityPanel() {
-//        var attributes = [NSAttributedString.Key: AnyObject]()
-//        attributes[.font] = UIFont(name: "Font Awesome 5 Free", size: 17.0)
-//        attributes[.foregroundColor] = UIColor.FindaColours.White
-//        var attributedString = NSAttributedString(string: "", attributes: attributes)
-//
-//        self.view.layoutIfNeeded()
-//
-//        if (availabilityPanelVisible == true) {
-//            availabilityPanelOpenY = availabilityPanel.center.y
-//        } else {
-//            availabilityPanelClosedY = availabilityPanel.center.y
-//        }
-//
-//        if availabilityPanelVisible {
-//            availabilityPanel.animHide(offset: openTabHeight + 10, speed: openSpeed)
-//            availabilityPanelVisible = false
-//            attributedString = NSAttributedString(string: "", attributes: attributes)
-//            showHideAvailabilityButton.attributedText = attributedString
-//            preferences.set("closed", forKey: panelConstant)
-//        } else {
-//            availabilityPanel.animShow(offset: openTabHeight + 10, speed: openSpeed)
-//            availabilityPanelVisible = true
-//
-//            attributedString = NSAttributedString(string: "", attributes: attributes)
-//            showHideAvailabilityButton.attributedText = attributedString
-//            preferences.set("open", forKey: panelConstant)
-//        }
-//
-//        self.view.layoutIfNeeded()
-//
-//        if (availabilityPanelVisible == true) {
-//            availabilityPanelOpenY = availabilityPanel.center.y
-//        } else {
-//            availabilityPanelClosedY = availabilityPanel.center.y
-//        }
-//    }
     
 }
 

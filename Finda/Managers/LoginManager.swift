@@ -35,7 +35,7 @@ class LoginManager {
     
     static func getDetails(completion: @escaping (_ response: Bool, _ result: JSON) -> ()) {
         FindaAPISession(target: .userDetails) { (response, result) in
-            if(response) {
+            if (response) {
                 if(result["userdata"]["usertype"].intValue == 1) {
                     let modelManager = ModelManager(data: result)
                     if modelManager.status() == UserStatus.banned {
@@ -47,7 +47,7 @@ class LoginManager {
                     return
                 }
             }
-            completion(false, result)
+//            completion(false, result)
         }
     }
     

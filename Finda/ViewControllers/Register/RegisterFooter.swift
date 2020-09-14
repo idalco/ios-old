@@ -20,7 +20,7 @@ class RegisterFooter {
         title.backgroundColor = UIColor.clear
         
         
-        let attributedString = NSMutableAttributedString(string: "I agree to the Finda Terms & Conditions and Privacy Policy and the Stripe Connected Account Agreement. \n\nAll accounts registered with Idal are subject to verification. Until verification is complete your access to Idal will be limited to viewing your own profile.")
+        let attributedString = NSMutableAttributedString(string: "I agree to the iDAL Terms & Conditions and Privacy Policy and the Stripe Connected Account Agreement. \n\nAll accounts registered with iDAL are subject to verification. Until verification is complete your access to iDAL will be limited to viewing your own profile.")
         
         
         attributedString.addAttribute(.link, value: "\(domainURL)/terms", range: NSRange(location: 15, length: 24))

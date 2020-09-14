@@ -63,7 +63,7 @@ class ModelRegisterVC: FormViewController, UITextViewDelegate {
                 view.backgroundColor = UIColor.FindaColours.White
                 let title = UILabel(frame: CGRect(x:10,y: 5, width:self.view.frame.width - 10, height:80))
                 
-                title.text = "I'M A MODEL"
+                title.text = "Appy to Model"
                 title.font = UIFont(name: "Montserrat-Medium", size: 17)
                 view.addSubview(title)
                 

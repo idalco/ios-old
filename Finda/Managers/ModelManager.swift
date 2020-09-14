@@ -56,7 +56,6 @@ class ModelManager {
         case bust = "bust"
         case waist = "waist"
         case hips = "hips"
-        case brasize = "brasize"
         case cupsize = "cupsize"
         case skinTone = "skinTone"
         case collarSize = "collarSize"
@@ -281,10 +280,6 @@ class ModelManager {
         return CoreDataManager.getInt(dataName: Profile.location.rawValue, entity: Entity.Profile.rawValue)
     }
     
-    func braSize() -> Int {
-        return CoreDataManager.getInt(dataName: Profile.brasize.rawValue, entity: Entity.Profile.rawValue)
-    }
-    
     func cupSize() -> Int {
        return CoreDataManager.getInt(dataName: Profile.cupsize.rawValue, entity: Entity.Profile.rawValue)
     }
@@ -387,7 +382,6 @@ class ModelManager {
         let profile = NSManagedObject(entity: userEntity, insertInto: managedContext)
         profile.setValue(profileData["height"].intValue, forKeyPath: Profile.height.rawValue)
         profile.setValue(profileData["bust"].intValue, forKeyPath: Profile.bust.rawValue)
-        profile.setValue(profileData["brasize"].intValue, forKeyPath: Profile.brasize.rawValue)
         profile.setValue(profileData["cupsize"].intValue, forKeyPath: Profile.cupsize.rawValue)
         profile.setValue(profileData["waist"].intValue, forKeyPath: Profile.waist.rawValue)
         profile.setValue(profileData["hips"].intValue, forKeyPath: Profile.hips.rawValue)

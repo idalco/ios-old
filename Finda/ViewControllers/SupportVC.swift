@@ -255,7 +255,7 @@ class SupportVC: UIViewController, UITabBarDelegate {
     
     @objc private func phoneButtonTapped(sender: UIButton) {
         
-        if let phoneCallURL = URL(string: "telprompt://+448443570556") {
+        if let phoneCallURL = URL(string: "telprompt://+442039165200") {
             
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {

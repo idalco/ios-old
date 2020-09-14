@@ -49,7 +49,7 @@ class AffiliateVC: UIViewController {
 
         let modelManager = ModelManager()
         // text to share
-        let text = "https://finda.co/?aff_id=\(modelManager.referrerCode())"
+        let text = "https://idal.co/?aff_id=\(modelManager.referrerCode())"
 
         // set up activity view controller
         let textToShare = [ text ]

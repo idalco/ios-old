@@ -1,5 +1,5 @@
 //
-//  WelcomeVC.swift
+//  SplashVC.swift
 //  Finda
 //
 //  Copyright © 2018 Finda Ltd. All rights reserved.
@@ -10,9 +10,6 @@ import Hero
 
 class SplashVC: UIViewController {
 
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var joinButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

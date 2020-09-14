@@ -88,14 +88,14 @@ class JobDetailsViewVC: UIViewController {
                 self.clientLogo.addSolidBorder(borderColour: UIColor.FindaColours.Burgundy, cornerRadius: 2, width: 8)
             })
         
-        if (job.contact_number != "") {
-            contactNumber.isHidden = false
-            contactNumberText.isHidden = false
-            contactNumber.text = job.contact_number
-        } else {
+//        if (job.contact_number != "") {
+//            contactNumber.isHidden = false
+//            contactNumberText.isHidden = false
+//            contactNumber.text = job.contact_number
+//        } else {
             contactNumber.isHidden = true
             contactNumberText.isHidden = true
-        }
+//        }
 
         if (job.advanced != "") {
             advancedInfo.text = job.advanced
@@ -167,15 +167,25 @@ class JobDetailsViewVC: UIViewController {
                 // 14 is accepted, 2 is confirmed, so we need to override here,
                 // or refactor
                 if job.status == 2 {
+                    
+                    // complete should only be shown if the job has happened
                     if job.jobcardType == "to complete" {
-                        // this is an override funcvtion
-                        secondaryButton.setTitle("COMPLETE", for: .normal)
-                        secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
-
-                        jobStatus.text = "TO COMPLETE"
-                        jobStatus.textColor = UIColor.FindaColours.Black
                         
                         addToCalendar.isHidden = true
+                        jobStatus.textColor = UIColor.FindaColours.Black
+    
+                        if Double(job.startdate) < NSDate().timeIntervalSince1970 {
+                            // this is an override function
+                            secondaryButton.setTitle("COMPLETE", for: .normal)
+                            secondaryButton.addTarget(self, action: #selector(completeJob(sender:)), for: .touchUpInside)
+                            
+                            jobStatus.text = "TO COMPLETE"
+                            
+                        } else {
+                            secondaryButton.isHidden = true
+                            jobStatus.text = "PENDING COMPLETION"
+                            
+                        }
                     } else {
 
                         jobStatus.text = "CONFIRMED"
@@ -193,8 +203,9 @@ class JobDetailsViewVC: UIViewController {
                     secondaryButton.addTarget(self, action: #selector(cancelJob(sender:)), for: .touchUpInside)
                 }
 
+                messagesButton.isHidden = false
+                messagesButton.addTarget(self, action: #selector(messaging(sender:)), for: .touchUpInside)
                 
-
                 break
             case .ModelCompleted, .Completed, .ClientCompleted:
                 primaryButton.isHidden = true
@@ -398,6 +409,11 @@ class JobDetailsViewVC: UIViewController {
                 messagesButton.isHidden = false
                 messagesButton.addTarget(self, action: #selector(messaging(sender:)), for: .touchUpInside)
                 
+                if (job.contact_number != "") {
+                    contactNumber.isHidden = false
+                    contactNumberText.isHidden = false
+                    contactNumber.text = job.contact_number
+                }
                 
                 break
             case .ToComplete:
@@ -514,7 +530,7 @@ class JobDetailsViewVC: UIViewController {
                     let errorView = SCLAlertView(appearance: appearance)
                     errorView.showError(
                         "Sorry",
-                        subTitle: "Something went wrong talking to the Idal server. Please try again later.")
+                        subTitle: "Something went wrong talking to the iDAL server. Please try again later.")
                 }
             }
         }
@@ -585,7 +601,7 @@ class JobDetailsViewVC: UIViewController {
                     let errorView = SCLAlertView(appearance: appearance)
                     errorView.showError(
                         "Sorry",
-                        subTitle: "Something went wrong talking to the Idal server. Please try again later.")
+                        subTitle: "Something went wrong talking to the iDAL server. Please try again later.")
                 }
             }
         }

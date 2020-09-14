@@ -21,7 +21,7 @@ class CommunityVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Idal Community"
+        self.title = "iDAL Community"
         
         self.setUpTableView()
         
@@ -105,7 +105,7 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
         cell.communityItemContent.text = post.message
         
         let postedDate = Date().displayDate(timeInterval: post.timestamp, format:  "MMM dd, yyyy")
-        cell.communityItemDate.text = "Posted by Idal Team on " + postedDate
+        cell.communityItemDate.text = "Posted by iDAL Team on " + postedDate
         
         return cell
     }
