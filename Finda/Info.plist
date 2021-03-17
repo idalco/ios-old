@@ -32,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>3343</string>
+	<string>3348</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -52,6 +52,7 @@
 	<string>This will allow you to upload photographs from your photo library to your Portfolio</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ITCAvantGardeStd-Regular.otf</string>
 		<string>Montserrat-Bold.otf</string>
 		<string>Montserrat-Regular.otf</string>
 		<string>Montserrat-Italic.otf</string>

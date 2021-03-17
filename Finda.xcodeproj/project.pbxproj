@@ -130,6 +130,7 @@
 		18E1ECDE232CF4D40045B66D /* TableChatVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1ECDD232CF4D40045B66D /* TableChatVCCell.swift */; };
 		18E750FD2239207900FE28D2 /* JobCardViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E750FC2239207900FE28D2 /* JobCardViewCVC.swift */; };
 		6FBEDC7E5A2463C284543300 /* Pods_Idal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C73C03B2C6D6002D76FEB0 /* Pods_Idal.framework */; };
+		F3DDAC72260276B2001430EE /* ITCAvantGardeStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3DDAC71260276B2001430EE /* ITCAvantGardeStd-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,6 +264,7 @@
 		62B2C92E83A34D671C89561B /* Pods-Finda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finda.debug.xcconfig"; path = "Target Support Files/Pods-Finda/Pods-Finda.debug.xcconfig"; sourceTree = "<group>"; };
 		8694763918A5142567C75340 /* Pods-Idal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idal.debug.xcconfig"; path = "Target Support Files/Pods-Idal/Pods-Idal.debug.xcconfig"; sourceTree = "<group>"; };
 		B07F7C811D09045EE7105D67 /* Pods-Idal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idal.release.xcconfig"; path = "Target Support Files/Pods-Idal/Pods-Idal.release.xcconfig"; sourceTree = "<group>"; };
+		F3DDAC71260276B2001430EE /* ITCAvantGardeStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITCAvantGardeStd-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +445,7 @@
 		0CCF23072109BD1100612D5B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F3DDAC71260276B2001430EE /* ITCAvantGardeStd-Regular.otf */,
 				18D86C2622F83B91000E5083 /* Montserrat-Bold.otf */,
 				18D86C2822F83B91000E5083 /* Montserrat-Italic.otf */,
 				18D86C2522F83B91000E5083 /* Montserrat-Light.otf */,
@@ -660,6 +663,7 @@
 				185ACB5622F9881C0037B489 /* Montserrat-Medium.otf in Resources */,
 				185ACB5422F988170037B489 /* Montserrat-Italic.otf in Resources */,
 				0CCB63962138022B007CB107 /* FontAwesome.otf in Resources */,
+				F3DDAC72260276B2001430EE /* ITCAvantGardeStd-Regular.otf in Resources */,
 				0C78FA34211DEECE0059C0E7 /* JobCardView.xib in Resources */,
 				185ACB5722F9881F0037B489 /* Montserrat-Regular.otf in Resources */,
 				0CEBCB7D21072C31004CC4D8 /* Media.xcassets in Resources */,
