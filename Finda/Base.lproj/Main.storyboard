@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nUv-Ao-N5d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nUv-Ao-N5d">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="FontAwesome.otf">
             <string>FontAwesome5FreeSolid</string>
+        </array>
+        <array key="ITCAvantGardeStd-Regular.otf">
+            <string>ITCAvantGardeStd-XLt</string>
         </array>
         <array key="Montserrat-Bold.otf">
             <string>Montserrat-Bold</string>
@@ -50,7 +54,7 @@
                                     <constraint firstAttribute="height" constant="90" id="gqz-ym-itv"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-Ec-oz8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-Ec-oz8">
                                 <rect key="frame" x="32" y="620" width="350" height="64"/>
                                 <color key="backgroundColor" name="Burgundy"/>
                                 <constraints>
@@ -70,7 +74,7 @@
                                     <segue destination="Z6M-lQ-7Bx" kind="show" id="dOg-E0-OkF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH9-kn-Npr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH9-kn-Npr">
                                 <rect key="frame" x="32" y="734" width="350" height="64"/>
                                 <color key="backgroundColor" name="Burgundy"/>
                                 <constraints>
@@ -98,6 +102,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="rTf-wB-v9K"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -114,7 +119,6 @@
                             <constraint firstItem="8Vh-XR-pQf" firstAttribute="centerX" secondItem="qEx-rW-MRU" secondAttribute="centerX" id="uui-1y-uaD"/>
                             <constraint firstItem="rTf-wB-v9K" firstAttribute="bottom" secondItem="hH9-kn-Npr" secondAttribute="bottom" constant="64" id="yzN-Hn-3vb"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rTf-wB-v9K"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZkD-2c-Om0">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="eoo-Xe-zhL">
@@ -136,8 +140,8 @@
                     <view key="view" contentMode="scaleToFill" id="VuX-vF-1Vd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xxW-HV-Xdv"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="Soe-4S-Lpf"/>
                     <connections>
@@ -155,8 +159,8 @@
                     <view key="view" contentMode="scaleToFill" id="yqF-DP-PMc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RqY-6H-2V5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="7vC-0x-P5J"/>
                     <connections>
@@ -182,17 +186,17 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN TO YOUR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRt-eM-mIp">
-                                <rect key="frame" x="16" y="456.33333333333331" width="382" height="21"/>
+                                <rect key="frame" x="16" y="458.33333333333331" width="382" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMn-go-cwV">
-                                <rect key="frame" x="16" y="523.33333333333337" width="382" height="18"/>
+                                <rect key="frame" x="16" y="524.33333333333337" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-gm-5v7">
-                                <rect key="frame" x="16" y="549.33333333333337" width="382" height="50"/>
+                                <rect key="frame" x="16" y="550.33333333333337" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.47058823529999999" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -207,12 +211,12 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlT-2b-Dub">
-                                <rect key="frame" x="16" y="629.33333333333337" width="382" height="18"/>
+                                <rect key="frame" x="16" y="630.33333333333337" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUK-9N-Tpt">
-                                <rect key="frame" x="16" y="655.33333333333337" width="382" height="50"/>
+                                <rect key="frame" x="16" y="656.33333333333337" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.47058823529999999" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -226,8 +230,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6Ax-eK-L8P"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-wb-aaJ" customClass="DCBorderedButton" customModule="DCKit">
-                                <rect key="frame" x="80" y="754.33333333333337" width="254" height="50.666666666666629"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-wb-aaJ" customClass="DCBorderedButton" customModule="DCKit">
+                                <rect key="frame" x="80" y="755.33333333333337" width="254" height="50.666666666666629"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aJN-wb-aaJ" secondAttribute="height" multiplier="343:50" constant="-93.699999999999989" id="7Oh-Ou-e5z"/>
@@ -251,8 +255,8 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aMd-3j-aye"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBa-sh-Jt0">
-                                <rect key="frame" x="122.66666666666669" y="821" width="169" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBa-sh-Jt0">
+                                <rect key="frame" x="127.66666666666669" y="822" width="159" height="30"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="FORGOT PASSWORD?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -262,6 +266,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RlT-2b-Dub" firstAttribute="trailing" secondItem="hUK-9N-Tpt" secondAttribute="trailing" id="0wv-65-Rhr"/>
@@ -288,7 +293,6 @@
                             <constraint firstItem="aJN-wb-aaJ" firstAttribute="top" secondItem="hUK-9N-Tpt" secondAttribute="bottom" constant="49" id="uee-es-ZbL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hUK-9N-Tpt" secondAttribute="trailing" constant="16" id="v9S-nj-2cf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="mQJ-7m-UvJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="cqU-Ec-FRC">
@@ -335,7 +339,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UtX-c1-HUZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="779"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go6-UV-xWX">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="954"/>
@@ -401,14 +405,14 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="onTintColor" name="Burgundy"/>
                                             </switch>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4l-0c-sLy">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4l-0c-sLy">
                                                 <rect key="frame" x="114.66666666666669" y="416.66666666666669" width="185" height="33"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                                 <state key="normal" title="Email: support@idal.co">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDq-iR-2NW">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDq-iR-2NW">
                                                 <rect key="frame" x="103" y="457.66666666666669" width="208" height="33"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                                 <state key="normal" title="Phone: +44 20 3916 5200">
@@ -436,7 +440,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcP-l7-uo4" customClass="DCBorderedButton" customModule="DCKit">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcP-l7-uo4" customClass="DCBorderedButton" customModule="DCKit">
                                                 <rect key="frame" x="142" y="754.66666666666663" width="130" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -539,7 +543,7 @@
                                 </constraints>
                             </scrollView>
                             <tabBar contentMode="center" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3C-6M-bHt" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="CaS-mu-5i8" userLabel="HomeTab">
@@ -571,6 +575,7 @@
                                 </connections>
                             </tabBar>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="CuY-N2-j4M"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="G3C-6M-bHt" firstAttribute="leading" secondItem="CuY-N2-j4M" secondAttribute="leading" id="ZQX-6P-lj2"/>
@@ -582,7 +587,6 @@
                             <constraint firstItem="UtX-c1-HUZ" firstAttribute="top" secondItem="Tyn-Tc-0gQ" secondAttribute="top" id="vaz-Y3-fOa"/>
                             <constraint firstItem="G3C-6M-bHt" firstAttribute="trailing" secondItem="CuY-N2-j4M" secondAttribute="trailing" id="ySQ-FF-PMR"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="CuY-N2-j4M"/>
                     </view>
                     <navigationItem key="navigationItem" id="1qH-BQ-ye0">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="hJF-n9-FtH">
@@ -615,8 +619,8 @@
                     <view key="view" contentMode="scaleToFill" id="hdy-Nj-hGk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="676"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IiM-zn-3bw"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
@@ -714,7 +718,7 @@
                                     <outlet property="delegate" destination="e9j-fg-8ep" id="WJa-E5-9v7"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Ag-hbt" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Ag-hbt" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="132" y="565.66666666666663" width="150" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -766,6 +770,7 @@
                                 </connections>
                             </textField>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ly7-Kp-kmd"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="p3y-sA-T0b" firstAttribute="leading" secondItem="SGT-Hf-t4f" secondAttribute="leading" id="2LN-rB-YJM"/>
@@ -803,7 +808,6 @@
                             <constraint firstItem="ZCB-ak-XVZ" firstAttribute="leading" secondItem="Ly7-Kp-kmd" secondAttribute="leading" constant="20" id="zfD-yE-PYa"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zdx-5z-FWI" secondAttribute="trailingMargin" id="zgQ-4H-ndM"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ly7-Kp-kmd"/>
                     </view>
                     <navigationItem key="navigationItem" id="ngv-9G-TnE">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="1xk-fJ-clU">
@@ -901,6 +905,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="7ZE-nB-fve"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F0a-L2-ypA" firstAttribute="top" secondItem="BjG-9d-h1Y" secondAttribute="top" id="T8j-U8-759"/>
@@ -908,7 +913,6 @@
                             <constraint firstAttribute="trailing" secondItem="F0a-L2-ypA" secondAttribute="trailing" id="xSn-nm-jf7"/>
                             <constraint firstItem="F0a-L2-ypA" firstAttribute="leading" secondItem="BjG-9d-h1Y" secondAttribute="leading" id="yKE-me-8VK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="7ZE-nB-fve"/>
                     </view>
                     <connections>
                         <outlet property="profileImage" destination="ODg-DF-g6F" id="8ek-9w-wPl"/>
@@ -926,8 +930,8 @@
                     <view key="view" contentMode="scaleToFill" id="5lj-jv-l7l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ucM-kz-rdc"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
@@ -952,8 +956,8 @@
                     <view key="view" contentMode="scaleToFill" id="1H9-yJ-o8s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ef4-oU-L7L"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="1WU-K9-7mG">
@@ -977,8 +981,8 @@
                     <view key="view" contentMode="scaleToFill" id="3LR-eE-DSj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8tS-iF-bhc"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="GZl-76-XfH">
@@ -1002,8 +1006,8 @@
                     <view key="view" contentMode="scaleToFill" id="foG-VA-9il">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BfJ-bh-rtQ"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="FbG-kh-2dy"/>
                     <userDefinedRuntimeAttributes>
@@ -1095,7 +1099,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ps-QT-gjp">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ps-QT-gjp">
                                                 <rect key="frame" x="107" y="48" width="200" height="45"/>
                                                 <color key="backgroundColor" name="Burgundy"/>
                                                 <constraints>
@@ -1111,7 +1115,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="kQL-D9-vfh" firstAttribute="leading" secondItem="KQp-7o-ZyQ" secondAttribute="leading" constant="16" id="2ZZ-GI-elh"/>
                                             <constraint firstItem="9ps-QT-gjp" firstAttribute="centerX" secondItem="KQp-7o-ZyQ" secondAttribute="centerX" id="710-Ca-zuP"/>
@@ -1139,7 +1143,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gda-qT-4Th">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gda-qT-4Th">
                                                 <rect key="frame" x="107" y="82.666666666666657" width="200" height="45"/>
                                                 <color key="backgroundColor" name="Burgundy"/>
                                                 <constraints>
@@ -1152,7 +1156,7 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="gda-qT-4Th" firstAttribute="centerX" secondItem="Fez-ub-WzB" secondAttribute="centerX" id="5kt-rW-e7h"/>
                                             <constraint firstItem="o0s-T4-Yie" firstAttribute="top" secondItem="AvH-Jd-bmJ" secondAttribute="bottom" constant="16" id="6sX-fM-oEB"/>
@@ -1180,7 +1184,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-ex-QFM">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-ex-QFM">
                                                 <rect key="frame" x="107" y="112.00000000000003" width="200" height="45"/>
                                                 <color key="backgroundColor" name="Burgundy"/>
                                                 <constraints>
@@ -1211,20 +1215,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <subviews>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAY-32-bHL">
-                                        <rect key="frame" x="64" y="64" width="286" height="256.33333333333331"/>
+                                        <rect key="frame" x="64" y="64.000000000000014" width="286" height="171.33333333333337"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">FINDA is now iDAL! We've taken the past few difficult months to reinvent ourselves, and are coming out of it stronger than ever before.
+                                        <string key="text">iDAL - talent empowerment
 
-Use this app to manage your bookings as usual. 
-
-Reach out to us at hello@idal.co </string>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+This app is currently in active develepment. Please contact us at hello@idal.co if you come across any difficulties using it.</string>
+                                        <fontDescription key="fontDescription" name="ITCAvantGardeStd-XLt" family="ITC Avant Garde Gothic Std" pointSize="21"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="SAY-32-bHL" firstAttribute="top" secondItem="8c1-2W-lyt" secondAttribute="top" constant="64" id="5GE-mk-c9y"/>
                                     <constraint firstItem="SAY-32-bHL" firstAttribute="leading" secondItem="8c1-2W-lyt" secondAttribute="leading" constant="64" id="9F0-wc-6iH"/>
@@ -1236,7 +1238,7 @@ Reach out to us at hello@idal.co </string>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-9F-IOd">
                                         <rect key="frame" x="190" y="0.0" width="34" height="28"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="LQS-00-yYK"/>
                                             <constraint firstAttribute="width" constant="34" id="Orb-Ui-n1H"/>
@@ -1280,7 +1282,7 @@ Reach out to us at hello@idal.co </string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-Cs-yFX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="71.333333333333329"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rib-SH-Kp9" customClass="DCRoundedButton" customModule="DCKit">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rib-SH-Kp9" customClass="DCRoundedButton" customModule="DCKit">
                                                                         <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Rib-SH-Kp9" secondAttribute="height" multiplier="1:1" id="NI1-Lo-V6F"/>
@@ -1292,7 +1294,7 @@ Reach out to us at hello@idal.co </string>
                                                                                 <fragment content="--">
                                                                                     <attributes>
                                                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                        <font key="NSFont" size="12" name="Montserrat-Light"/>
+                                                                                        <font key="NSFont" metaFont="cellTitle"/>
                                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                     </attributes>
                                                                                 </fragment>
@@ -1315,7 +1317,7 @@ Reach out to us at hello@idal.co </string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G5y-Cd-rsc">
                                                                 <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="71.333333333333329"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJC-x8-Si1" customClass="DCRoundedButton" customModule="DCKit">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJC-x8-Si1" customClass="DCRoundedButton" customModule="DCKit">
                                                                         <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
                                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -1323,7 +1325,7 @@ Reach out to us at hello@idal.co </string>
                                                                             <attributedString key="attributedTitle">
                                                                                 <fragment content="--">
                                                                                     <attributes>
-                                                                                        <font key="NSFont" size="12" name="Montserrat-Light"/>
+                                                                                        <font key="NSFont" metaFont="cellTitle"/>
                                                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                     </attributes>
                                                                                 </fragment>
@@ -1346,7 +1348,7 @@ Reach out to us at hello@idal.co </string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7PE-rw-ip3">
                                                                 <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="71.333333333333329"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0TW-AU-M9k" customClass="DCRoundedButton" customModule="DCKit">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0TW-AU-M9k" customClass="DCRoundedButton" customModule="DCKit">
                                                                         <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
                                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -1354,7 +1356,7 @@ Reach out to us at hello@idal.co </string>
                                                                             <attributedString key="attributedTitle">
                                                                                 <fragment content="--">
                                                                                     <attributes>
-                                                                                        <font key="NSFont" size="12" name="Montserrat-Light"/>
+                                                                                        <font key="NSFont" metaFont="cellTitle"/>
                                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                     </attributes>
                                                                                 </fragment>
@@ -1377,7 +1379,7 @@ Reach out to us at hello@idal.co </string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JpA-X3-eXK">
                                                                 <rect key="frame" x="203" y="0.0" width="59.666666666666686" height="71.333333333333329"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EwX-G4-A4U" customClass="DCRoundedButton" customModule="DCKit">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EwX-G4-A4U" customClass="DCRoundedButton" customModule="DCKit">
                                                                         <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
                                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -1385,7 +1387,7 @@ Reach out to us at hello@idal.co </string>
                                                                             <attributedString key="attributedTitle">
                                                                                 <fragment content="--">
                                                                                     <attributes>
-                                                                                        <font key="NSFont" size="12" name="Montserrat-Light"/>
+                                                                                        <font key="NSFont" metaFont="cellTitle"/>
                                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                     </attributes>
                                                                                 </fragment>
@@ -1408,7 +1410,7 @@ Reach out to us at hello@idal.co </string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-Fm-F2j">
                                                                 <rect key="frame" x="270.66666666666669" y="0.0" width="59.666666666666686" height="71.333333333333329"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1l-ZE-LjE" customClass="DCRoundedButton" customModule="DCKit">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1l-ZE-LjE" customClass="DCRoundedButton" customModule="DCKit">
                                                                         <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
                                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -1416,7 +1418,7 @@ Reach out to us at hello@idal.co </string>
                                                                             <attributedString key="attributedTitle">
                                                                                 <fragment content="--">
                                                                                     <attributes>
-                                                                                        <font key="NSFont" size="12" name="Montserrat-Light"/>
+                                                                                        <font key="NSFont" metaFont="cellTitle"/>
                                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                     </attributes>
                                                                                 </fragment>
@@ -1439,7 +1441,7 @@ Reach out to us at hello@idal.co </string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="24F-yM-VYt">
                                                                 <rect key="frame" x="338.33333333333331" y="0.0" width="59.666666666666686" height="71.333333333333329"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfl-0D-E8Y" customClass="DCRoundedButton" customModule="DCKit">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfl-0D-E8Y" customClass="DCRoundedButton" customModule="DCKit">
                                                                         <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
                                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -1447,7 +1449,7 @@ Reach out to us at hello@idal.co </string>
                                                                             <attributedString key="attributedTitle">
                                                                                 <fragment content="--">
                                                                                     <attributes>
-                                                                                        <font key="NSFont" size="12" name="Montserrat-Light"/>
+                                                                                        <font key="NSFont" metaFont="cellTitle"/>
                                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                     </attributes>
                                                                                 </fragment>
@@ -1495,6 +1497,7 @@ Reach out to us at hello@idal.co </string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ycY-tA-sjh"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8c1-2W-lyt" firstAttribute="top" secondItem="ycY-tA-sjh" secondAttribute="top" id="2jO-hW-tWf"/>
@@ -1508,7 +1511,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstAttribute="trailing" secondItem="dis-gD-S6h" secondAttribute="trailing" id="nKV-9V-uTS"/>
                             <constraint firstItem="ycY-tA-sjh" firstAttribute="trailing" secondItem="8c1-2W-lyt" secondAttribute="trailing" id="uFG-M7-Cjl"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ycY-tA-sjh"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="gXJ-vx-crS">
@@ -1584,7 +1586,7 @@ Reach out to us at hello@idal.co </string>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JPC-EW-ZBm">
                                 <rect key="frame" x="0.0" y="152" width="414" height="678"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="communityItemCell" rowHeight="187" id="wgt-g8-5q0" customClass="CommunityTableViewCell" customModule="iDAL" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="187"/>
@@ -1625,7 +1627,7 @@ Reach out to us at hello@idal.co </string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="OTL-ar-yQs" secondAttribute="trailing" constant="8" id="3Vj-Mi-tek"/>
                                                                 <constraint firstAttribute="bottom" secondItem="OTL-ar-yQs" secondAttribute="bottom" id="U7M-Ge-Dyc"/>
@@ -1643,7 +1645,7 @@ Reach out to us at hello@idal.co </string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="smw-k5-7kB" secondAttribute="trailing" id="GON-Cf-aJh"/>
                                                                 <constraint firstItem="smw-k5-7kB" firstAttribute="leading" secondItem="gLV-K2-hDW" secondAttribute="leading" constant="8" id="WPu-HV-7BA"/>
@@ -1680,6 +1682,7 @@ Reach out to us at hello@idal.co </string>
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="JZv-bW-BfQ"/>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JPC-EW-ZBm" firstAttribute="top" secondItem="7KG-rO-u78" secondAttribute="bottom" id="7Y6-eq-bLx"/>
@@ -1691,7 +1694,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="JZv-bW-BfQ" firstAttribute="trailing" secondItem="JPC-EW-ZBm" secondAttribute="trailing" id="dPu-bB-gdW"/>
                             <constraint firstItem="JZv-bW-BfQ" firstAttribute="trailing" secondItem="7KG-rO-u78" secondAttribute="trailing" constant="16" id="ws2-4X-NJz"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JZv-bW-BfQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wv3-U0-duS"/>
                     <connections>
@@ -1782,7 +1784,7 @@ Reach out to us at hello@idal.co </string>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5c-lb-tZT">
                                                     <rect key="frame" x="0.0" y="2" width="6" height="69"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="6" id="Ihq-OW-NpC"/>
                                                     </constraints>
@@ -1843,6 +1845,7 @@ Reach out to us at hello@idal.co </string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="zCr-aE-1pa"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RNt-B3-Ctg" firstAttribute="leading" secondItem="zCr-aE-1pa" secondAttribute="leading" id="FGa-nB-iyE"/>
@@ -1854,7 +1857,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="RNt-B3-Ctg" firstAttribute="top" secondItem="5AB-aE-7Bq" secondAttribute="bottom" id="hah-0W-Y4H"/>
                             <constraint firstItem="5AB-aE-7Bq" firstAttribute="leading" secondItem="RNt-B3-Ctg" secondAttribute="leading" id="m3p-Rn-2xt"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zCr-aE-1pa"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="LkN-ct-114">
@@ -1934,6 +1936,7 @@ Reach out to us at hello@idal.co </string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="aXS-Le-AEx"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tTc-V5-IQh" firstAttribute="centerX" secondItem="Re5-hv-6cH" secondAttribute="centerX" id="5aD-YU-4bG"/>
@@ -1941,7 +1944,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="aXS-Le-AEx" firstAttribute="trailing" secondItem="tTc-V5-IQh" secondAttribute="trailing" constant="37" id="SIl-pe-YSH"/>
                             <constraint firstItem="tTc-V5-IQh" firstAttribute="leading" secondItem="aXS-Le-AEx" secondAttribute="leading" constant="36" id="c79-zs-avd"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aXS-Le-AEx"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pzl-vp-GBC">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="INY-fA-dst">
@@ -2062,7 +2064,7 @@ Reach out to us at hello@idal.co </string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QFJ-ve-qdi" userLabel="Primary Action Buttons">
                                                         <rect key="frame" x="59" y="561" width="280" height="44"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCQ-Nt-HfP" customClass="DCBorderedButton" customModule="DCKit">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCQ-Nt-HfP" customClass="DCBorderedButton" customModule="DCKit">
                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -2083,7 +2085,7 @@ Reach out to us at hello@idal.co </string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lb-3C-lFv" customClass="DCBorderedButton" customModule="DCKit">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lb-3C-lFv" customClass="DCBorderedButton" customModule="DCKit">
                                                                 <rect key="frame" x="150" y="0.0" width="130" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -2210,7 +2212,7 @@ Reach out to us at hello@idal.co </string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwh-MH-xtq" customClass="DCBorderedButton" customModule="DCKit">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwh-MH-xtq" customClass="DCBorderedButton" customModule="DCKit">
                                                         <rect key="frame" x="302" y="138" width="80" height="24"/>
                                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -2257,7 +2259,7 @@ Reach out to us at hello@idal.co </string>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppg-J5-Lk0" customClass="DCBorderedButton" customModule="DCKit">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppg-J5-Lk0" customClass="DCBorderedButton" customModule="DCKit">
                                                         <rect key="frame" x="302" y="185" width="80" height="24"/>
                                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -2371,6 +2373,7 @@ Reach out to us at hello@idal.co </string>
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="h8P-j0-5f3"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lGH-vh-JAz" firstAttribute="width" secondItem="SLP-l4-9pX" secondAttribute="width" id="0ms-SN-Va5"/>
@@ -2379,7 +2382,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="gbm-gM-UNd" firstAttribute="leading" secondItem="h8P-j0-5f3" secondAttribute="leading" id="K3b-og-Fjq"/>
                             <constraint firstItem="gbm-gM-UNd" firstAttribute="trailing" secondItem="h8P-j0-5f3" secondAttribute="trailing" id="vbC-fK-teh"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="h8P-j0-5f3"/>
                     </view>
                     <connections>
                         <outlet property="addToCalendar" destination="xvd-PS-20M" id="GHl-Z4-euk"/>
@@ -2482,7 +2484,7 @@ Reach out to us at hello@idal.co </string>
                                     <outlet property="delegate" destination="vU6-Ps-W9A" id="cnV-VZ-U4I"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-Fs-ko0" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-Fs-ko0" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="80" y="730.66666666666663" width="254" height="55.333333333333371"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2502,6 +2504,7 @@ Reach out to us at hello@idal.co </string>
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="lhy-hj-vN4"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cO4-JF-FHX" firstAttribute="leading" secondItem="lhy-hj-vN4" secondAttribute="leading" constant="8" id="53V-YK-8di"/>
@@ -2512,7 +2515,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="lhy-hj-vN4" firstAttribute="trailing" secondItem="cO4-JF-FHX" secondAttribute="trailing" constant="8" id="ctt-9J-khi"/>
                             <constraint firstItem="qxb-Fs-ko0" firstAttribute="centerX" secondItem="Rly-u8-WDw" secondAttribute="centerX" id="fOX-fJ-C9i"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="lhy-hj-vN4"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="mjM-1o-WeU">
@@ -2577,6 +2579,7 @@ Reach out to us at hello@idal.co </string>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="iC8-Zd-zoU"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8Kd-VR-Lce" firstAttribute="leading" secondItem="iC8-Zd-zoU" secondAttribute="leading" id="2M2-EY-TQD"/>
@@ -2590,7 +2593,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="1Q0-Wp-Uh3" firstAttribute="trailing" secondItem="iC8-Zd-zoU" secondAttribute="trailing" id="kvd-Tu-hv5"/>
                             <constraint firstItem="tij-tQ-gEp" firstAttribute="bottom" secondItem="iC8-Zd-zoU" secondAttribute="bottom" id="rpL-4Z-2f1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iC8-Zd-zoU"/>
                     </view>
                     <connections>
                         <outlet property="deleteImageButton" destination="1Q0-Wp-Uh3" id="kdn-op-Aru"/>
@@ -2620,7 +2622,7 @@ Reach out to us at hello@idal.co </string>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="LX8-7C-G4t"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWe-0j-KzY" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWe-0j-KzY" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="153.66666666666666" y="814" width="106.99999999999997" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Am4-8G-DDK"/>
@@ -2813,7 +2815,7 @@ Reach out to us at hello@idal.co </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="bpD-aO-gKC" firstAttribute="centerX" secondItem="Vg6-RY-2sP" secondAttribute="centerX" id="0Ms-rs-BZP"/>
                                     <constraint firstItem="bpD-aO-gKC" firstAttribute="centerY" secondItem="Vg6-RY-2sP" secondAttribute="centerY" id="6m2-C2-fYc"/>
@@ -2840,6 +2842,7 @@ Reach out to us at hello@idal.co </string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="j60-Hq-vin"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vg6-RY-2sP" firstAttribute="bottom" secondItem="46E-Gz-eQC" secondAttribute="bottom" id="3L4-BV-0hE"/>
@@ -2872,7 +2875,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="Vg6-RY-2sP" firstAttribute="leading" secondItem="46E-Gz-eQC" secondAttribute="trailing" id="zCJ-UY-m6w"/>
                             <constraint firstItem="5Co-8Q-dSu" firstAttribute="trailing" secondItem="j60-Hq-vin" secondAttribute="trailing" id="zST-0S-Uh8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="j60-Hq-vin"/>
                     </view>
                     <connections>
                         <outlet property="attachmentButton" destination="bpD-aO-gKC" id="TJd-iW-owp"/>
@@ -2894,8 +2896,8 @@ Reach out to us at hello@idal.co </string>
                     <view key="view" contentMode="scaleToFill" id="hXE-jP-eH2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4it-sw-t6u"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KrN-eJ-jP1">
@@ -2951,7 +2953,7 @@ Reach out to us at hello@idal.co </string>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="mainLogo"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPQ-kL-eSP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPQ-kL-eSP">
                                 <rect key="frame" x="113.33333333333333" y="672" width="187.33333333333337" height="50"/>
                                 <color key="backgroundColor" name="Burgundy"/>
                                 <constraints>
@@ -2972,7 +2974,7 @@ Reach out to us at hello@idal.co </string>
                                     <segue destination="wZT-Ln-LSg" kind="presentation" modalPresentationStyle="fullScreen" id="hF2-Lz-mh8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vl7-L6-Sp1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vl7-L6-Sp1">
                                 <rect key="frame" x="113.33333333333333" y="772" width="187.33333333333337" height="50"/>
                                 <color key="backgroundColor" name="Burgundy"/>
                                 <constraints>
@@ -3001,6 +3003,7 @@ Reach out to us at hello@idal.co </string>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="9lP-lP-hbf"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Q3k-S4-c9c" firstAttribute="leading" secondItem="9lP-lP-hbf" secondAttribute="leading" constant="48" id="0oe-GQ-gOj"/>
@@ -3014,7 +3017,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="Khl-jr-9Of" firstAttribute="leading" secondItem="9lP-lP-hbf" secondAttribute="leading" constant="32" id="nxC-Qt-w1y"/>
                             <constraint firstItem="9lP-lP-hbf" firstAttribute="bottom" secondItem="vl7-L6-Sp1" secondAttribute="bottom" constant="40" id="ze7-zC-avM"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="9lP-lP-hbf"/>
                     </view>
                     <navigationItem key="navigationItem" id="WQU-sH-W7Y"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -3173,6 +3175,7 @@ Reach out to us at hello@idal.co </string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="dUI-hb-fHl"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -3183,7 +3186,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="dUI-hb-fHl" firstAttribute="bottom" secondItem="aQP-k4-wfA" secondAttribute="bottom" id="fRD-ca-a7K"/>
                             <constraint firstItem="aQP-k4-wfA" firstAttribute="top" secondItem="kKX-dy-4jC" secondAttribute="bottom" id="sTG-Fm-qVI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dUI-hb-fHl"/>
                     </view>
                     <navigationItem key="navigationItem" id="MYg-u6-2gq"/>
                     <connections>
@@ -3205,7 +3207,7 @@ Reach out to us at hello@idal.co </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xlJ-EW-Kzk">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="691"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="H0b-bp-TV6" customClass="InvoiceTVC" customModule="iDAL" customModuleProvider="target">
@@ -3282,7 +3284,7 @@ Reach out to us at hello@idal.co </string>
                                 </connections>
                             </tableView>
                             <tabBar contentMode="center" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpD-tI-Xss" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="J2T-Yy-Afw" userLabel="HomeTab">
@@ -3318,6 +3320,7 @@ Reach out to us at hello@idal.co </string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="AGc-U8-f53"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SpD-tI-Xss" firstAttribute="leading" secondItem="AGc-U8-f53" secondAttribute="leading" id="2sd-s6-bGX"/>
@@ -3332,7 +3335,6 @@ Reach out to us at hello@idal.co </string>
                             <constraint firstItem="SpD-tI-Xss" firstAttribute="trailing" secondItem="AGc-U8-f53" secondAttribute="trailing" id="xVW-5g-O2s"/>
                             <constraint firstItem="lbq-92-zQ7" firstAttribute="top" secondItem="SpD-tI-Xss" secondAttribute="bottom" id="xu0-ZU-yhJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="AGc-U8-f53"/>
                     </view>
                     <navigationItem key="navigationItem" id="AJW-De-ADq">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="yIR-Pm-bvM">
@@ -3384,7 +3386,7 @@ Reach out to us at hello@idal.co </string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="912"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="6mN-y7-bma">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1207.6666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1210"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7A-82-9dm">
                                                         <rect key="frame" x="87" y="32" width="240" height="240"/>
@@ -3395,12 +3397,12 @@ Reach out to us at hello@idal.co </string>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1y-uy-4i5">
-                                                        <rect key="frame" x="32" y="304" width="350" height="123"/>
+                                                        <rect key="frame" x="32" y="304" width="350" height="125.33333333333331"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="Use your ">
                                                                 <attributes>
                                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                    <font key="NSFont" size="18" name="Montserrat-Regular"/>
+                                                                    <font key="NSFont" metaFont="system" size="18"/>
                                                                     <real key="NSKern" value="0.0"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="17.749099731445312" minimumLineHeight="21" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                                         <tabStops/>
@@ -3412,7 +3414,7 @@ Reach out to us at hello@idal.co </string>
                                                             <fragment content="unique code">
                                                                 <attributes>
                                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                    <font key="NSFont" size="18" name="Montserrat-Regular"/>
+                                                                    <font key="NSFont" metaFont="system" size="18"/>
                                                                     <real key="NSKern" value="0.0"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="17.749099731445312" minimumLineHeight="21" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                                         <tabStops/>
@@ -3426,7 +3428,7 @@ Reach out to us at hello@idal.co </string>
 We curate and nurture our community with trust, and will carefully review applications that include your code.</string>
                                                                 <attributes>
                                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                    <font key="NSFont" size="18" name="Montserrat-Regular"/>
+                                                                    <font key="NSFont" metaFont="system" size="18"/>
                                                                     <real key="NSKern" value="0.0"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="17.749099731445312" minimumLineHeight="21" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                                         <tabStops/>
@@ -3438,8 +3440,8 @@ We curate and nurture our community with trust, and will carefully review applic
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mln-We-f0c" customClass="DCBorderedButton" customModule="DCKit">
-                                                        <rect key="frame" x="132" y="459" width="150" height="45"/>
+                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mln-We-f0c" customClass="DCBorderedButton" customModule="DCKit">
+                                                        <rect key="frame" x="132" y="461.33333333333337" width="150" height="45"/>
                                                         <color key="backgroundColor" red="0.47058823529999999" green="0.19215686269999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="L8w-vg-Sng"/>
@@ -3459,14 +3461,14 @@ We curate and nurture our community with trust, and will carefully review applic
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUCCESSFUL RECOMMENDATIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBz-ye-SVk">
-                                                        <rect key="frame" x="20" y="536" width="374" height="19.666666666666629"/>
+                                                        <rect key="frame" x="20" y="538.33333333333337" width="374" height="19.666666666666629"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" restorationIdentifier="invitecell" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ilm-v8-o2Q">
-                                                        <rect key="frame" x="20" y="575.66666666666663" width="374" height="511.99999999999989"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <rect key="frame" x="20" y="578" width="374" height="512"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="512" id="Vfc-rP-ete"/>
                                                         </constraints>
@@ -3574,6 +3576,7 @@ We curate and nurture our community with trust, and will carefully review applic
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="gn7-wc-oiX"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="0um-Of-aQ7" secondAttribute="bottom" id="AQS-4H-zhC"/>
@@ -3581,7 +3584,6 @@ We curate and nurture our community with trust, and will carefully review applic
                             <constraint firstItem="0um-Of-aQ7" firstAttribute="top" secondItem="gn7-wc-oiX" secondAttribute="top" id="Qcf-BK-5C3"/>
                             <constraint firstItem="0um-Of-aQ7" firstAttribute="trailing" secondItem="gn7-wc-oiX" secondAttribute="trailing" id="RDe-a2-J65"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="gn7-wc-oiX"/>
                     </view>
                     <navigationItem key="navigationItem" id="aTw-Nm-Hpn">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="aEc-HS-Spg">
@@ -3630,7 +3632,7 @@ We curate and nurture our community with trust, and will carefully review applic
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-xj-WAx" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-xj-WAx" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="80" y="730.66666666666663" width="254" height="55.333333333333371"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -3711,6 +3713,7 @@ We curate and nurture our community with trust, and will carefully review applic
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="9JW-jY-4Mc"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tcV-tg-e1X" firstAttribute="leading" secondItem="9JW-jY-4Mc" secondAttribute="leading" constant="8" id="2rU-i9-Jhc"/>
@@ -3721,7 +3724,6 @@ We curate and nurture our community with trust, and will carefully review applic
                             <constraint firstItem="tcV-tg-e1X" firstAttribute="top" secondItem="9JW-jY-4Mc" secondAttribute="top" id="tcK-jV-P6q"/>
                             <constraint firstItem="bDk-xj-WAx" firstAttribute="centerX" secondItem="62W-ck-c32" secondAttribute="centerX" id="ydt-Zg-kZk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="9JW-jY-4Mc"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="sN1-wd-D14">
@@ -3771,7 +3773,7 @@ We curate and nurture our community with trust, and will carefully review applic
                                 <rect key="frame" x="0.0" y="88" width="414" height="650"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-mq-eNj">
-                                        <rect key="frame" x="8" y="52" width="398" height="426"/>
+                                        <rect key="frame" x="8" y="51.999999999999972" width="398" height="426.33333333333326"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText">
                                             <fragment>
@@ -3779,7 +3781,7 @@ We curate and nurture our community with trust, and will carefully review applic
 
 </string>
                                                 <attributes>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="36">
@@ -3825,35 +3827,11 @@ We curate and nurture our community with trust, and will carefully review applic
                                             <fragment>
                                                 <string key="content">Thank you for registering with us!
 To make sure everyone gets the best professional experience at FINDA, we verify and approve all models and clients before they can access the full platform.
+For verification all items below must be submitted:
 </string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
-                                                    <real key="NSKern" value="0.0"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                        <tabStops/>
-                                                    </paragraphStyle>
-                                                    <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="For verification all items below must be submitted:">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Bold"/>
-                                                    <real key="NSKern" value="0.0"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                        <tabStops/>
-                                                    </paragraphStyle>
-                                                    <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment>
-                                                <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                                <attributes>
-                                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops/>
@@ -3865,7 +3843,7 @@ Cg
                                                 <string key="content">	•	</string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="11">
@@ -3884,7 +3862,7 @@ Cg
 </string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
@@ -3903,7 +3881,7 @@ Cg
                                                 <string key="content">	•	</string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="11">
@@ -3922,7 +3900,7 @@ Cg
 </string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
@@ -3941,7 +3919,7 @@ Cg
                                                 <string key="content">	•	</string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="11">
@@ -3960,7 +3938,7 @@ Cg
 </string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
@@ -3979,7 +3957,7 @@ Cg
                                                 <string key="content">	•	</string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="11">
@@ -3998,7 +3976,7 @@ Cg
 </string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="7" headIndent="36" minimumLineHeight="16" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
@@ -4016,7 +3994,7 @@ Cg
                                             <fragment content="You will receive an email if your application is accepted and you have been verified.">
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="Montserrat-Bold"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="17" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops/>
@@ -4062,7 +4040,7 @@ Cg
                                     <constraint firstAttribute="bottom" secondItem="CIz-mq-eNj" secondAttribute="bottom" constant="385" id="xQ1-4y-SPC"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Oz-MQS" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Oz-MQS" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="102" y="751" width="210" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -4089,6 +4067,7 @@ Cg
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="pSv-tR-WLN"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ogS-o0-q2G" firstAttribute="leading" secondItem="Cgu-17-5hz" secondAttribute="leading" id="47K-Yc-3ED"/>
@@ -4098,7 +4077,6 @@ Cg
                             <constraint firstItem="WgK-Oz-MQS" firstAttribute="top" secondItem="ogS-o0-q2G" secondAttribute="bottom" constant="13" id="i5A-Wc-bk5"/>
                             <constraint firstItem="ogS-o0-q2G" firstAttribute="centerX" secondItem="WgK-Oz-MQS" secondAttribute="centerX" id="yvN-r0-Ffv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="pSv-tR-WLN"/>
                     </view>
                     <navigationItem key="navigationItem" id="GCH-CP-suT">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="8sJ-tl-x3G">
@@ -4206,7 +4184,7 @@ Cg
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-wx-NFI" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-wx-NFI" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="80" y="668" width="254" height="45"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -4233,6 +4211,7 @@ Cg
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="pYG-OX-dzl"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1oJ-7V-ycx" firstAttribute="top" secondItem="SXe-oh-ZLd" secondAttribute="bottom" constant="30" id="0Xj-sB-dvg"/>
@@ -4256,7 +4235,6 @@ Cg
                             <constraint firstItem="pYG-OX-dzl" firstAttribute="trailing" secondItem="hQL-wx-NFI" secondAttribute="trailing" constant="80" id="xP5-xF-Ynt"/>
                             <constraint firstItem="hQL-wx-NFI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="pYG-OX-dzl" secondAttribute="leading" constant="80" id="yrE-VQ-XaH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="pYG-OX-dzl"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="uyy-av-7hn">
@@ -4288,7 +4266,7 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleAspectFit" translucent="NO" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="NJA-v6-zdn" userLabel="Faux Tab Bar">
-                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="house" catalog="system" selectedImage="house" id="Flh-5f-c9j" userLabel="HomeTab">
@@ -4324,6 +4302,7 @@ Cg
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="HAf-PB-Q4e"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -4335,7 +4314,6 @@ Cg
                             <constraint firstAttribute="bottom" secondItem="KHu-gY-xdP" secondAttribute="bottom" id="vMA-NS-0hl"/>
                             <constraint firstItem="KHu-gY-xdP" firstAttribute="top" secondItem="NJA-v6-zdn" secondAttribute="bottom" id="yln-Bc-zue"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="HAf-PB-Q4e"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
@@ -4389,17 +4367,17 @@ Cg
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORGOT YOUR PASSWORD?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkm-f9-60I">
-                                <rect key="frame" x="16" y="192" width="382" height="21"/>
+                                <rect key="frame" x="16" y="192" width="382" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLc-hb-h3e">
-                                <rect key="frame" x="16" y="259" width="382" height="18"/>
+                                <rect key="frame" x="16" y="258" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iXb-9l-u1t">
-                                <rect key="frame" x="16" y="285" width="382" height="50"/>
+                                <rect key="frame" x="16" y="284" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hYa-WC-6DT"/>
@@ -4411,7 +4389,7 @@ Cg
                                     <outlet property="delegate" destination="6wg-6B-4XT" id="xBg-IH-Lxg"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ9-U1-ksR" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ9-U1-ksR" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="80" y="463" width="254" height="50.666666666666629"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -4434,6 +4412,7 @@ Cg
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q6P-jK-Mi3"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Q6P-jK-Mi3" firstAttribute="trailing" secondItem="dLc-hb-h3e" secondAttribute="trailing" constant="16" id="0Rc-d4-SXc"/>
@@ -4453,7 +4432,6 @@ Cg
                             <constraint firstItem="Q6P-jK-Mi3" firstAttribute="trailing" secondItem="iXb-9l-u1t" secondAttribute="trailing" constant="16" id="q6I-F8-Lyq"/>
                             <constraint firstItem="dLc-hb-h3e" firstAttribute="leading" secondItem="Q6P-jK-Mi3" secondAttribute="leading" constant="16" id="qZM-3m-uAc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Q6P-jK-Mi3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Emx-Ry-vFA"/>
                     <connections>
@@ -4468,11 +4446,11 @@ Cg
         <scene sceneID="PSp-zk-KO2">
             <objects>
                 <viewController id="UQL-vC-2ah" userLabel="CalendarVC" customClass="CalendarVC" customModule="iDAL" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Aj6-0N-k0c">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Aj6-0N-k0c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-8z-T0A" customClass="JTACMonthView" customModule="JTAppleCalendar">
                                 <rect key="frame" x="16" y="8" width="382" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -4556,11 +4534,11 @@ Cg
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW7-js-UR1" userLabel="Month Title">
-                                            <rect key="frame" x="130.66666666666666" y="0.0" width="120.66666666666666" height="28"/>
+                                            <rect key="frame" x="132.66666666666666" y="0.0" width="116.66666666666666" height="28.666666666666668"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Month Title">
                                                     <attributes>
-                                                        <font key="NSFont" size="24" name="Montserrat-Bold"/>
+                                                        <font key="NSFont" metaFont="system" size="24"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -4568,7 +4546,7 @@ Cg
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtD-qW-VYG">
-                                            <rect key="frame" x="154" y="28" width="74" height="21"/>
+                                            <rect key="frame" x="154" y="28.666666666666671" width="74" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="oLy-IR-2j4"/>
                                                 <constraint firstAttribute="width" constant="74" id="vvG-96-ahq"/>
@@ -4576,7 +4554,7 @@ Cg
                                             <attributedString key="attributedText">
                                                 <fragment content="Year Title">
                                                     <attributes>
-                                                        <font key="NSFont" size="18" name="Montserrat-Light"/>
+                                                        <font key="NSFont" metaFont="system" size="18"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -4605,29 +4583,29 @@ Cg
                                     <outlet property="ibCalendarDelegate" destination="UQL-vC-2ah" id="bXg-3G-5QQ"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
-                                <rect key="frame" x="16" y="400.66666666666674" width="382" height="275.33333333333326"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-33-nbT">
+                                <rect key="frame" x="16" y="401.66666666666674" width="382" height="274.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todayTableCell" id="ZVp-EW-Mhj" customClass="TodayTableCell" customModule="iDAL" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="382" height="42.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVp-EW-Mhj" id="Seu-Hh-J7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="42.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-DM-nos">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="42.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYJ-IH-W5k" userLabel="Entry Title">
-                                                            <rect key="frame" x="8" y="8.0000000000000018" width="366" height="16.666666666666671"/>
+                                                            <rect key="frame" x="8" y="8" width="366" height="18"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                             <color key="textColor" name="Burgundy"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t1-NE-gqB" userLabel="Description">
-                                                            <rect key="frame" x="8" y="24.666666666666668" width="366" height="10.000000000000004"/>
+                                                            <rect key="frame" x="8" y="26" width="366" height="10"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="jLD-l0-b79"/>
@@ -4637,7 +4615,7 @@ Cg
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-oJ-r2C" userLabel="From To">
-                                                            <rect key="frame" x="8" y="34.666666666666664" width="366" height="0.0"/>
+                                                            <rect key="frame" x="8" y="36" width="366" height="0.0"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4673,13 +4651,13 @@ Cg
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-ru-ym2">
-                                <rect key="frame" x="16" y="374" width="382" height="18.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-ru-ym2">
+                                <rect key="frame" x="16" y="374" width="382" height="19.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-pT-CD4" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-pT-CD4" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="330" y="16" width="60" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="v0M-K5-foa"/>
@@ -4697,8 +4675,8 @@ Cg
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
-                                <rect key="frame" x="16" y="400.66666666666674" width="382" height="275.33333333333326"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fba-rl-Yi1">
+                                <rect key="frame" x="16" y="401.66666666666674" width="382" height="274.33333333333326"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="TopLeft" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="If6-md-RAm" customClass="PaddingLabel" customModule="iDAL" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="180"/>
@@ -4737,6 +4715,7 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="WLc-Cc-n22"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fba-rl-Yi1" firstAttribute="leading" secondItem="WLc-Cc-n22" secondAttribute="leading" constant="16" id="9hq-Bb-0aF"/>
@@ -4756,7 +4735,6 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                             <constraint firstItem="F7o-33-nbT" firstAttribute="leading" secondItem="Xbk-8z-T0A" secondAttribute="leading" id="yFH-yT-4Sh"/>
                             <constraint firstItem="oPF-ru-ym2" firstAttribute="top" secondItem="Xbk-8z-T0A" secondAttribute="bottom" constant="16" id="yWT-9L-JEa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="WLc-Cc-n22"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="4RA-5x-LnD"/>
                     <toolbarItems/>
@@ -4826,7 +4804,7 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                                     <segue destination="DMh-gv-htP" kind="presentation" identifier="newCalendarEntrySegue" id="GBc-96-OoN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcq-5P-JE6" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcq-5P-JE6" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="318" y="62.666666666666657" width="80" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="inc-lw-9V7"/>
@@ -4845,6 +4823,7 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="aFt-3k-aTK"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="spl-LC-ncF" firstAttribute="top" secondItem="90W-hh-Tu1" secondAttribute="bottom" constant="32" id="7ga-1T-F3k"/>
@@ -4858,7 +4837,6 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                             <constraint firstItem="aFt-3k-aTK" firstAttribute="bottom" secondItem="K0e-GU-FHQ" secondAttribute="bottom" constant="16" id="iaI-VH-WcA"/>
                             <constraint firstItem="aFt-3k-aTK" firstAttribute="bottom" secondItem="spl-LC-ncF" secondAttribute="bottom" constant="96" id="kQk-zA-RDd"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aFt-3k-aTK"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="90W-hh-Tu1" id="Axs-Od-ybO"/>
@@ -4885,7 +4863,7 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                                     <constraint firstAttribute="height" constant="34" id="SPm-31-Zpg"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tC-BE-Ert" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tC-BE-Ert" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="139.66666666666666" y="739" width="134.99999999999997" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="Wnl-jO-R2F"/>
@@ -4922,6 +4900,7 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                                 </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="xDx-S2-MrH"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.83529411764705885" green="0.88235294117647056" blue="0.87450980392156863" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -4936,7 +4915,6 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                             <constraint firstItem="6tC-BE-Ert" firstAttribute="top" secondItem="Stl-4g-xTC" secondAttribute="bottom" constant="16" id="lLC-qE-Qb5"/>
                             <constraint firstItem="Stl-4g-xTC" firstAttribute="leading" secondItem="xDx-S2-MrH" secondAttribute="leading" constant="16" id="tzQ-5w-hp7"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="xDx-S2-MrH"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="1vr-9Q-0eB" id="ZMH-Fx-5sz"/>
@@ -5119,6 +5097,7 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="O4u-hP-WyE"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.83529411760000005" green="0.88235294119999996" blue="0.87450980389999999" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -5131,7 +5110,6 @@ If you are busy any day, please mark yourself as "unavailable" to ensure clients
                             <constraint firstItem="V0M-0o-eN5" firstAttribute="centerX" secondItem="SS4-B0-hxB" secondAttribute="centerX" id="sP8-qR-SSh"/>
                             <constraint firstItem="O4u-hP-WyE" firstAttribute="trailing" secondItem="OK0-xS-8dH" secondAttribute="trailing" constant="8" id="tDi-i5-Ht4"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="O4u-hP-WyE"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="ee3-6j-R9S" id="Hqk-MX-61V"/>
@@ -5189,7 +5167,7 @@ The possibilities are endless - there is no maximum number of bookings within th
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogh-II-JZh" customClass="DCBorderedButton" customModule="DCKit">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogh-II-JZh" customClass="DCBorderedButton" customModule="DCKit">
                                 <rect key="frame" x="80" y="483.66666666666669" width="254" height="54.000000000000057"/>
                                 <color key="backgroundColor" red="0.50588235290000005" green="0.1764705882" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -5207,6 +5185,7 @@ The possibilities are endless - there is no maximum number of bookings within th
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="WHQ-3T-Emi"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WHQ-3T-Emi" firstAttribute="trailing" secondItem="PuG-QG-Qja" secondAttribute="trailing" constant="8" id="3kb-5R-JSy"/>
@@ -5224,7 +5203,6 @@ The possibilities are endless - there is no maximum number of bookings within th
                             <constraint firstAttribute="trailing" secondItem="BeJ-1K-SDz" secondAttribute="trailing" constant="16" id="sWF-Rd-kqJ"/>
                             <constraint firstItem="WHQ-3T-Emi" firstAttribute="trailing" secondItem="Whk-fV-VKt" secondAttribute="trailing" constant="16" id="zW2-sy-NZ0"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="WHQ-3T-Emi"/>
                     </view>
                     <navigationItem key="navigationItem" id="hDW-Cm-Lzw">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="QaO-qO-lbM">
@@ -5263,6 +5241,98 @@ The possibilities are endless - there is no maximum number of bookings within th
             <point key="canvasLocation" x="-1775" y="1069"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="0Sz-CS-7AJ">
+            <size key="intrinsicContentSize" width="76" height="29"/>
+        </designable>
+        <designable name="0TW-AU-M9k">
+            <size key="intrinsicContentSize" width="28" height="30.333333333333332"/>
+        </designable>
+        <designable name="4Lb-3C-lFv">
+            <size key="intrinsicContentSize" width="60" height="31"/>
+        </designable>
+        <designable name="4as-YK-5FM">
+            <size key="intrinsicContentSize" width="139" height="19"/>
+        </designable>
+        <designable name="6tC-BE-Ert">
+            <size key="intrinsicContentSize" width="40" height="31"/>
+        </designable>
+        <designable name="EwX-G4-A4U">
+            <size key="intrinsicContentSize" width="28" height="30.333333333333332"/>
+        </designable>
+        <designable name="FcP-l7-uo4">
+            <size key="intrinsicContentSize" width="61" height="31"/>
+        </designable>
+        <designable name="If6-md-RAm">
+            <size key="intrinsicContentSize" width="729" height="103.33333333333333"/>
+        </designable>
+        <designable name="Jwh-MH-xtq">
+            <size key="intrinsicContentSize" width="57" height="24"/>
+        </designable>
+        <designable name="K0e-GU-FHQ">
+            <size key="intrinsicContentSize" width="152" height="19"/>
+        </designable>
+        <designable name="Mln-We-f0c">
+            <size key="intrinsicContentSize" width="46" height="31"/>
+        </designable>
+        <designable name="Pgg-iT-eOv">
+            <size key="intrinsicContentSize" width="135" height="53"/>
+        </designable>
+        <designable name="Ppg-J5-Lk0">
+            <size key="intrinsicContentSize" width="48" height="24"/>
+        </designable>
+        <designable name="Rib-SH-Kp9">
+            <size key="intrinsicContentSize" width="28" height="30.333333333333332"/>
+        </designable>
+        <designable name="Vp2-qr-3OK">
+            <size key="intrinsicContentSize" width="135" height="53"/>
+        </designable>
+        <designable name="WgK-Oz-MQS">
+            <size key="intrinsicContentSize" width="161" height="31"/>
+        </designable>
+        <designable name="XbN-Ag-hbt">
+            <size key="intrinsicContentSize" width="40" height="31"/>
+        </designable>
+        <designable name="Z1l-ZE-LjE">
+            <size key="intrinsicContentSize" width="28" height="30.333333333333332"/>
+        </designable>
+        <designable name="aJN-wb-aaJ">
+            <size key="intrinsicContentSize" width="59" height="31"/>
+        </designable>
+        <designable name="aQ9-U1-ksR">
+            <size key="intrinsicContentSize" width="75" height="31"/>
+        </designable>
+        <designable name="bDk-xj-WAx">
+            <size key="intrinsicContentSize" width="134" height="31"/>
+        </designable>
+        <designable name="dCQ-Nt-HfP">
+            <size key="intrinsicContentSize" width="63" height="31"/>
+        </designable>
+        <designable name="hQL-wx-NFI">
+            <size key="intrinsicContentSize" width="161" height="31"/>
+        </designable>
+        <designable name="ogh-II-JZh">
+            <size key="intrinsicContentSize" width="54" height="31"/>
+        </designable>
+        <designable name="pJC-x8-Si1">
+            <size key="intrinsicContentSize" width="28" height="30.333333333333332"/>
+        </designable>
+        <designable name="qxb-Fs-ko0">
+            <size key="intrinsicContentSize" width="134" height="31"/>
+        </designable>
+        <designable name="rcq-5P-JE6">
+            <size key="intrinsicContentSize" width="46" height="29"/>
+        </designable>
+        <designable name="tcl-pT-CD4">
+            <size key="intrinsicContentSize" width="38" height="29"/>
+        </designable>
+        <designable name="uWe-0j-KzY">
+            <size key="intrinsicContentSize" width="107" height="19"/>
+        </designable>
+        <designable name="zfl-0D-E8Y">
+            <size key="intrinsicContentSize" width="28" height="30.333333333333332"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="GBc-96-OoN"/>
         <segue reference="kBq-Ev-WrO"/>
@@ -5276,11 +5346,11 @@ The possibilities are endless - there is no maximum number of bookings within th
         <image name="back_chevron" width="112" height="192"/>
         <image name="briefcase" catalog="system" width="128" height="102"/>
         <image name="buttonbg" width="135" height="53"/>
-        <image name="calendar" width="25" height="25"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="calendar" width="25" height="25"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="clockicon" width="44" height="44"/>
-        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="idal_logo_black" width="2063" height="445.5"/>
         <image name="idal_logo_white" width="2063" height="445.5"/>
         <image name="idal_tag_white" width="330" height="67.5"/>
@@ -5294,5 +5364,8 @@ The possibilities are endless - there is no maximum number of bookings within th
         <namedColor name="Burgundy">
             <color red="1" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
