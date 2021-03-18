@@ -478,12 +478,13 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let token = fcmToken else {
+            print("WARNING: fcmToken is nil")
+            return
+        }
+        print("Firebase registration token: \(token)")
         
-        print("Firebase registration token: \(fcmToken)")
-        
-        FindaAPISession(target: .updateDeviceToken(deviceToken: fcmToken!)) { (response, result) in }
-        
-        guard let token = fcmToken else { return }
+        FindaAPISession(target: .updateDeviceToken(deviceToken: token)) { (response, result) in }
         let dataDict:[String: String] = ["token": token]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
